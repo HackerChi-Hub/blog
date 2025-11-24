@@ -8,13 +8,10 @@ import { getAllSlugs, getPostBySlug } from '../lib/notion';
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
 
-  const paths = slugs.map((slug) => ({
-    params: { slug }
-  }));
-
   return {
-    paths,
-    fallback: 'blocking'
+    paths: slugs.map((slug) => ({ params: { slug } })),
+    // output: 'export' 时可以用 blocking，这里只在构建期跑 getStaticPaths
+    fallback: false
   };
 }
 
@@ -33,7 +30,8 @@ export async function getStaticProps({ params }) {
     props: {
       meta: post.meta,
       recordMap: post.recordMap
-    },
+    }
+    // 这里同样不要写 revalidate
   };
 }
 
@@ -43,17 +41,38 @@ export default function PostPage({ meta, recordMap }) {
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <main style={{ maxWidth: '720px', margin: '40px auto', padding: '0 16px' }}>
+
+      <main
+        style={{
+          maxWidth: '720px',
+          margin: '40px auto',
+          padding: '0 16px',
+          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+        }}
+      >
         <article>
           <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
             {meta.title}
           </h1>
+
           {meta.date && (
-            <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1.5rem' }}>
+            <div
+              style={{
+                fontSize: '0.85rem',
+                color: '#666',
+                marginBottom: '1.5rem'
+              }}
+            >
               {meta.date}
             </div>
           )}
-          <NotionRenderer recordMap={recordMap} fullPage={false} darkMode={false} />
+
+          {/* 这里真正渲染 Notion 正文 */}
+          <NotionRenderer
+            recordMap={recordMap}
+            fullPage={false}
+            darkMode={false}
+          />
         </article>
       </main>
     </>
