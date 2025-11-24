@@ -1,40 +1,59 @@
 // pages/[slug].js
-import dynamic from 'next/dynamic';
-import { getPosts, getPageContent } from '../lib/notion';
+import Head from 'next/head';
+import { NotionRenderer } from 'react-notion-x';
+import 'react-notion-x/src/styles.css';
 
-const NotionRenderer = dynamic(
-  () => import('react-notion-x').then((m) => m.NotionRenderer),
-  { ssr: false }
-);
+import { getAllSlugs, getPostBySlug } from '../lib/notion';
 
 export async function getStaticPaths() {
-  const posts = await getPosts();
+  const slugs = await getAllSlugs();
 
-  const paths = posts.map((post) => ({
-    params: { slug: post.id } // 与 index.js 中 Link 的 href 保持一致
+  const paths = slugs.map((slug) => ({
+    params: { slug }
   }));
 
   return {
     paths,
-    fallback: false // 没有预生成的页面直接 404
+    fallback: 'blocking' // 第一次访问未预生成的 slug 时再生成
   };
 }
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const recordMap = await getPageContent(slug);
+
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      notFound: true
+    };
+  }
 
   return {
     props: {
-      recordMap
-    }
+      meta: post.meta,
+      recordMap: post.recordMap
+    },
   };
 }
 
-export default function PostPage({ recordMap }) {
+export default function PostPage({ meta, recordMap }) {
   return (
-    <main style={{ maxWidth: 720, margin: '40px auto', padding: '0 16px' }}>
-      <NotionRenderer recordMap={recordMap} fullPage={false} darkMode={false} />
-    </main>
+    <>
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
+      <main style={{ maxWidth: '720px', margin: '40px auto', padding: '0 16px' }}>
+        <article>
+          <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{meta.title}</h1>
+          {meta.date && (
+            <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1.5rem' }}>
+              {meta.date}
+            </div>
+          )}
+          <NotionRenderer recordMap={recordMap} fullPage={false} darkMode={false} />
+        </article>
+      </main>
+    </>
   );
 }
