@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking' // 第一次访问未预生成的 slug 时再生成
+    fallback: 'blocking'
   };
 }
 
@@ -34,6 +34,7 @@ export async function getStaticProps({ params }) {
       meta: post.meta,
       recordMap: post.recordMap
     },
+    revalidate: 60
   };
 }
 
@@ -45,7 +46,9 @@ export default function PostPage({ meta, recordMap }) {
       </Head>
       <main style={{ maxWidth: '720px', margin: '40px auto', padding: '0 16px' }}>
         <article>
-          <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{meta.title}</h1>
+          <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
+            {meta.title}
+          </h1>
           {meta.date && (
             <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '1.5rem' }}>
               {meta.date}
