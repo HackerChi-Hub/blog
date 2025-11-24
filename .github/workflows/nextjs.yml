@@ -43,7 +43,7 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           npm run build
-          npm run export
+
 
       # 上传 out 目录，供后面的 deploy 任务使用
       - name: Upload artifact
