@@ -12,7 +12,7 @@ export async function getStaticProps() {
     props: {
       posts
     },
-    revalidate: 60 // 虽然导出静态站，这个值对 export 没影响，可以保留
+    //revalidate: 60 // 虽然导出静态站，这个值对 export 没影响，可以保留
   };
 }
 
