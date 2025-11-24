@@ -34,7 +34,6 @@ export async function getStaticProps({ params }) {
       meta: post.meta,
       recordMap: post.recordMap
     },
-    revalidate: 60
   };
 }
 
