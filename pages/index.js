@@ -6,9 +6,8 @@ export async function getStaticProps() {
   const posts = await getPosts();
 
   return {
-    props: {
-      posts
-    },
+    props: { posts },
+    revalidate: 60
   };
 }
 
@@ -18,7 +17,7 @@ export default function Home({ posts }) {
       <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>我的博客</h1>
 
       {(!posts || posts.length === 0) && (
-        <p>还没有从 Notion 数据库读取到文章，请检查数据库权限和环境变量。</p>
+        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
       )}
 
       <ul style={{ listStyle: 'none', padding: 0 }}>
