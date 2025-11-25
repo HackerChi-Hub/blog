@@ -1,5 +1,4 @@
 // pages/index.js
-// pages/index.js
 import Link from 'next/link';
 import { getPosts } from '../lib/notion';
 
@@ -7,6 +6,8 @@ const PAGE_SIZE = 20;
 
 export async function getStaticProps() {
   const posts = await getPosts();
+
+  // 只取第 1 页需要的 20 篇
   const pagePosts = posts.slice(0, PAGE_SIZE);
 
   return {
@@ -15,6 +16,7 @@ export async function getStaticProps() {
       currentPage: 1,
       totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
     }
+    // output: 'export' 下不要写 revalidate
   };
 }
 
@@ -44,9 +46,18 @@ export default function Home({ posts, currentPage, totalPages }) {
               borderBottom: '1px solid #eee'
             }}
           >
-            {/* 关键：链接路径与 [slug].js 对应，并带 / */}
+            {/* 关键：带尾斜杠，和 trailingSlash 配置一致 */}
             <Link href={`/${post.slug || post.rawId}/`}>
-              {post.title}
+              <a
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  color: '#0070f3',
+                  textDecoration: 'none'
+                }}
+              >
+                {post.title}
+              </a>
             </Link>
 
             {post.date && (
@@ -76,11 +87,6 @@ export default function Home({ posts, currentPage, totalPages }) {
         ))}
       </ul>
 
-      {/* 分页导航（略，与之前一致） */}
-    </main>
-  );
-}
-
       {/* 分页导航 */}
       {totalPages > 1 && (
         <nav
@@ -92,11 +98,7 @@ export default function Home({ posts, currentPage, totalPages }) {
           }}
         >
           <div>
-            {currentPage > 1 && (
-              <Link href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}/`}>
-                <a style={{ color: '#0070f3' }}>上一页</a>
-              </Link>
-            )}
+            {/* 首页没有上一页 */}
           </div>
           <div>
             第 {currentPage} 页 / 共 {totalPages} 页
