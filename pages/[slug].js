@@ -1,15 +1,26 @@
 // pages/[slug].js
 import Head from 'next/head';
-import { NotionRenderer } from 'react-notion-x';
+import dynamic from 'next/dynamic';
+import { getAllSlugs, getPostBySlug } from '../lib/notion';
 import 'react-notion-x/src/styles.css';
 
-import { getAllSlugs, getPostBySlug } from '../lib/notion';
+const NotionRenderer = dynamic(
+  () =>
+    import('react-notion-x').then(
+      (m) => m.NotionRenderer
+    ),
+  { ssr: false }
+);
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
 
+  console.log('[getStaticPaths] slugs:', slugs);
+
   return {
-    paths: slugs.map((slug) => ({ params: { slug } })),
+    paths: slugs.map((slug) => ({
+      params: { slug }
+    })),
     fallback: false
   };
 }
@@ -17,12 +28,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
+  console.log('[getStaticProps] slug:', slug);
+
   const post = await getPostBySlug(slug);
 
   if (!post) {
-    return {
-      notFound: true
-    };
+    console.warn('[getStaticProps] NOT FOUND slug:', slug);
+    return { notFound: true };
   }
 
   return {
@@ -34,6 +46,23 @@ export async function getStaticProps({ params }) {
 }
 
 export default function PostPage({ meta, recordMap }) {
+  if (!recordMap) {
+    return (
+      <main
+        style={{
+          maxWidth: '720px',
+          margin: '40px auto',
+          padding: '0 16px',
+          fontFamily:
+            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+        }}
+      >
+        <h1>{meta?.title || '文章加载失败'}</h1>
+        <p>无法加载 Notion 内容，请检查服务器日志。</p>
+      </main>
+    );
+  }
+
   return (
     <>
       <Head>
@@ -45,7 +74,8 @@ export default function PostPage({ meta, recordMap }) {
           maxWidth: '720px',
           margin: '40px auto',
           padding: '0 16px',
-          fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+          fontFamily:
+            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
         }}
       >
         <article>
