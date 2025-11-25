@@ -1,4 +1,5 @@
 // pages/404.js
+// pages/404.js
 export default function NotFound() {
   return (
     <main
