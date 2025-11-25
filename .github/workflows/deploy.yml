@@ -3,7 +3,7 @@ name: Deploy Next.js Blog to GitHub Pages
 on:
   push:
     branches:
-      - main   # 监听 main 分支
+      - main
 
 permissions:
   contents: write
@@ -20,7 +20,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          # 先不要用缓存，等以后加了 lock 文件再开。
+          # cache: 'npm'
 
       - name: Install dependencies
         run: npm install
