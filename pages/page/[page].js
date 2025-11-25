@@ -1,4 +1,3 @@
-// pages/page/[page].js
 import Link from 'next/link';
 import { getPosts } from '../../lib/notion';
 
@@ -15,7 +14,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false // export 模式需在构建期全部生成
+    fallback: false
   };
 }
 
@@ -59,18 +58,22 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
       )}
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => (
-          <li
-            key={post.id}
-            style={{
-              marginBottom: '1.5rem',
-              paddingBottom: '1rem',
-              borderBottom: '1px solid #eee'
-            }}
-          >
-            {/* 这里和首页完全一致 */}
-            <Link href={`/${post.slug || post.rawId}/`}>
-              <a
+        {posts.map((post) => {
+          const slug = post.slug || post.rawId;
+          const href = `/${slug}/`; // 强制带尾 /
+
+          return (
+            <li
+              key={post.id}
+              style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}
+            >
+              {/* 推荐写法：Link 里直接放文本（Next 13+ 官方写法） */}
+              <Link
+                href={href}
                 style={{
                   fontSize: '1.1rem',
                   fontWeight: 600,
@@ -78,38 +81,37 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
                   textDecoration: 'none'
                 }}
               >
-                {post.title}
-              </a>
-            </Link>
+                {post.title || slug}
+              </Link>
 
-            {post.date && (
-              <div
-                style={{
-                  fontSize: '0.85rem',
-                  color: '#666',
-                  marginTop: '0.25rem'
-                }}
-              >
-                {post.date}
-              </div>
-            )}
+              {post.date && (
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#666',
+                    marginTop: '0.25rem'
+                  }}
+                >
+                  {post.date}
+                </div>
+              )}
 
-            {post.summary && (
-              <p
-                style={{
-                  fontSize: '0.9rem',
-                  color: '#444',
-                  marginTop: '0.5rem'
-                }}
-              >
-                {post.summary}
-              </p>
-            )}
-          </li>
-        ))}
+              {post.summary && (
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#444',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {post.summary}
+                </p>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
-      {/* 分页导航 */}
       {totalPages > 1 && (
         <nav
           style={{
@@ -127,8 +129,9 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
                     ? '/'
                     : `/page/${currentPage - 1}/`
                 }
+                style={{ color: '#0070f3' }}
               >
-                <a style={{ color: '#0070f3' }}>上一页</a>
+                上一页
               </Link>
             )}
           </div>
@@ -137,8 +140,11 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
           </div>
           <div>
             {currentPage < totalPages && (
-              <Link href={`/page/${currentPage + 1}/`}>
-                <a style={{ color: '#0070f3' }}>下一页</a>
+              <Link
+                href={`/page/${currentPage + 1}/`}
+                style={{ color: '#0070f3' }}
+              >
+                下一页
               </Link>
             )}
           </div>
