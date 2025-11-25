@@ -1,4 +1,5 @@
 // pages/index.js
+// pages/index.js
 import Link from 'next/link';
 import { getPosts } from '../lib/notion';
 
@@ -6,8 +7,6 @@ const PAGE_SIZE = 20;
 
 export async function getStaticProps() {
   const posts = await getPosts();
-
-  // 只取第 1 页需要的 20 篇
   const pagePosts = posts.slice(0, PAGE_SIZE);
 
   return {
@@ -16,7 +15,6 @@ export async function getStaticProps() {
       currentPage: 1,
       totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
     }
-    // output: 'export' 下不要写 revalidate
   };
 }
 
@@ -37,58 +35,51 @@ export default function Home({ posts, currentPage, totalPages }) {
       )}
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => {
-          const href = `/${post.slug || post.rawId}`;
+        {posts.map((post) => (
+          <li
+            key={post.id}
+            style={{
+              marginBottom: '1.5rem',
+              paddingBottom: '1rem',
+              borderBottom: '1px solid #eee'
+            }}
+          >
+            {/* 关键：链接路径与 [slug].js 对应，并带 / */}
+            <Link href={`/${post.slug || post.rawId}/`}>
+              {post.title}
+            </Link>
 
-          return (
-            <li
-              key={post.id}
-              style={{
-                marginBottom: '1.5rem',
-                paddingBottom: '1rem',
-                borderBottom: '1px solid #eee'
-              }}
-            >
-              <Link href={href}>
-                <a
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#0070f3',
-                    textDecoration: 'none'
-                  }}
-                >
-                  {post.title}
-                </a>
-              </Link>
+            {post.date && (
+              <div
+                style={{
+                  fontSize: '0.85rem',
+                  color: '#666',
+                  marginTop: '0.25rem'
+                }}
+              >
+                {post.date}
+              </div>
+            )}
 
-              {post.date && (
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#666',
-                    marginTop: '0.25rem'
-                  }}
-                >
-                  {post.date}
-                </div>
-              )}
-
-              {post.summary && (
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#444',
-                    marginTop: '0.5rem'
-                  }}
-                >
-                  {post.summary}
-                </p>
-              )}
-            </li>
-          );
-        })}
+            {post.summary && (
+              <p
+                style={{
+                  fontSize: '0.9rem',
+                  color: '#444',
+                  marginTop: '0.5rem'
+                }}
+              >
+                {post.summary}
+              </p>
+            )}
+          </li>
+        ))}
       </ul>
+
+      {/* 分页导航（略，与之前一致） */}
+    </main>
+  );
+}
 
       {/* 分页导航 */}
       {totalPages > 1 && (
