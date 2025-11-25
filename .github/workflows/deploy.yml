@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # 每小时执行一次（UTC 时间）
+    - cron: '0 * * * *'
 
 permissions:
   contents: write
