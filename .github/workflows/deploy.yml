@@ -26,13 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and Export
+      - name: Build (static export)
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           npm run build
-          npm run export
           ls -R
           touch out/.nojekyll
 
