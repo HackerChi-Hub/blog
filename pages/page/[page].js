@@ -1,38 +1,63 @@
-// pages/index.js
+// pages/page/[page].js
 import Link from 'next/link';
+import { getPosts } from '../../lib/notion';
 
 const PAGE_SIZE = 20;
 
-export async function getStaticProps() {
+// 为动态路由 /page/[page] 生成所有静态路径
+export async function getStaticPaths() {
   const posts = await getPosts();
-  const pagePosts = posts.slice(0, PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+
+  const paths = [];
+  for (let p = 1; p <= totalPages; p += 1) {
+    paths.push({ params: { page: String(p) } });
+  }
+
+  return {
+    paths,
+    fallback: false // 所有分页在构建时一次性生成，其他页访问会 404
+  };
+}
+
+// 每个分页在构建时取到对应的文章列表
+export async function getStaticProps({ params }) {
+  const allPosts = await getPosts();
+  const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
+
+  const currentPage = Number(params.page) || 1;
+
+  if (currentPage < 1 || currentPage > totalPages) {
+    return { notFound: true };
+  }
+
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const posts = allPosts.slice(start, end);
 
   return {
     props: {
-      posts: pagePosts,
-      currentPage: 1,
-      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
+      posts,
+      currentPage,
+      totalPages
     }
   };
 }
 
-export default function Home({ posts, currentPage, totalPages }) {
+export default function PostListPage({ posts, currentPage, totalPages }) {
   return (
     <main
       style={{
         maxWidth: '720px',
         margin: '40px auto',
         padding: '0 16px',
-        fontFamily:
-          'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
       }}
     >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>
-        我的博客
-      </h1>
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>我的博客</h1>
 
       {(!posts || posts.length === 0) && (
-        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
+        <p>暂无文章，请检查 Notion 数据库的 Type / Status 设置。</p>
       )}
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -97,7 +122,20 @@ export default function Home({ posts, currentPage, totalPages }) {
             fontSize: '0.9rem'
           }}
         >
-          <div />
+          <div>
+            {currentPage > 1 && (
+              <Link
+                href={
+                  currentPage - 1 === 1
+                    ? '/'
+                    : `/page/${currentPage - 1}/`
+                }
+                style={{ color: '#0070f3' }}
+              >
+                上一页
+              </Link>
+            )}
+          </div>
           <div>
             第 {currentPage} 页 / 共 {totalPages} 页
           </div>
