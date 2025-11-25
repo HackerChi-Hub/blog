@@ -27,7 +27,7 @@ export default function Home({ posts, currentPage, totalPages }) {
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
       }}
     >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>我的博客</h1>
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
 
       {(!posts || posts.length === 0) && (
         <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
