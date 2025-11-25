@@ -1,6 +1,5 @@
 // pages/index.js
 import Link from 'next/link';
-import { getPosts } from '../lib/notion';
 
 const PAGE_SIZE = 20;
 
