@@ -10,7 +10,6 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug } })),
-    // output: 'export' 时可以用 blocking，这里只在构建期跑 getStaticPaths
     fallback: false
   };
 }
@@ -31,7 +30,6 @@ export async function getStaticProps({ params }) {
       meta: post.meta,
       recordMap: post.recordMap
     }
-    // 这里同样不要写 revalidate
   };
 }
 
@@ -67,7 +65,6 @@ export default function PostPage({ meta, recordMap }) {
             </div>
           )}
 
-          {/* 这里真正渲染 Notion 正文 */}
           <NotionRenderer
             recordMap={recordMap}
             fullPage={false}
