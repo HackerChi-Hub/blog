@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'blog';
+
 const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true
-  },
-  trailingSlash: true
+  basePath: isProd ? `/${repoName}` : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
+  trailingSlash: true,
+  reactStrictMode: true
 };
 
 export default nextConfig;
