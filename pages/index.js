@@ -2,16 +2,25 @@
 import Link from 'next/link';
 import { getPosts } from '../lib/notion';
 
+const PAGE_SIZE = 20;
+
 export async function getStaticProps() {
   const posts = await getPosts();
 
+  // 只取第 1 页需要的 20 篇
+  const pagePosts = posts.slice(0, PAGE_SIZE);
+
   return {
-    props: { posts }
+    props: {
+      posts: pagePosts,
+      currentPage: 1,
+      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
+    }
     // output: 'export' 下不要写 revalidate
   };
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, currentPage, totalPages }) {
   return (
     <main
       style={{
@@ -40,7 +49,6 @@ export default function Home({ posts }) {
                 borderBottom: '1px solid #eee'
               }}
             >
-              {/* 只要这里写对，标题就一定能点击 */}
               <Link href={href}>
                 <a
                   style={{
@@ -81,6 +89,36 @@ export default function Home({ posts }) {
           );
         })}
       </ul>
+
+      {/* 分页导航 */}
+      {totalPages > 1 && (
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            fontSize: '0.9rem'
+          }}
+        >
+          <div>
+            {currentPage > 1 && (
+              <Link href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}/`}>
+                <a style={{ color: '#0070f3' }}>上一页</a>
+              </Link>
+            )}
+          </div>
+          <div>
+            第 {currentPage} 页 / 共 {totalPages} 页
+          </div>
+          <div>
+            {currentPage < totalPages && (
+              <Link href={`/page/${currentPage + 1}/`}>
+                <a style={{ color: '#0070f3' }}>下一页</a>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
     </main>
   );
 }
