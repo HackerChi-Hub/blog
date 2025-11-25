@@ -1,57 +1,36 @@
+// pages/index.js
 import Link from 'next/link';
-import { getPosts } from '../../lib/notion';
+import { getPosts } from '../lib/notion';
 
 const PAGE_SIZE = 20;
 
-export async function getStaticPaths() {
+export async function getStaticProps() {
   const posts = await getPosts();
-  const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
-
-  const paths = [];
-  for (let p = 1; p <= totalPages; p += 1) {
-    paths.push({ params: { page: String(p) } });
-  }
-
-  return {
-    paths,
-    fallback: false
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const allPosts = await getPosts();
-  const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
-
-  const currentPage = Number(params.page) || 1;
-
-  if (currentPage < 1 || currentPage > totalPages) {
-    return { notFound: true };
-  }
-
-  const start = (currentPage - 1) * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
-  const posts = allPosts.slice(start, end);
+  const pagePosts = posts.slice(0, PAGE_SIZE);
 
   return {
     props: {
-      posts,
-      currentPage,
-      totalPages
+      posts: pagePosts,
+      currentPage: 1,
+      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
     }
   };
 }
 
-export default function PostListPage({ posts, currentPage, totalPages }) {
+export default function Home({ posts, currentPage, totalPages }) {
   return (
     <main
       style={{
         maxWidth: '720px',
         margin: '40px auto',
         padding: '0 16px',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+        fontFamily:
+          'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
       }}
     >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>我的博客</h1>
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>
+        我的博客
+      </h1>
 
       {(!posts || posts.length === 0) && (
         <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
@@ -59,8 +38,7 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {posts.map((post) => {
-          const slug = post.slug || post.rawId;
-          const href = `/${slug}/`; // 强制带尾 /
+          const href = `/${post.slug}/`;
 
           return (
             <li
@@ -71,7 +49,6 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
                 borderBottom: '1px solid #eee'
               }}
             >
-              {/* 推荐写法：Link 里直接放文本（Next 13+ 官方写法） */}
               <Link
                 href={href}
                 style={{
@@ -81,7 +58,7 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
                   textDecoration: 'none'
                 }}
               >
-                {post.title || slug}
+                {post.title || post.slug}
               </Link>
 
               {post.date && (
@@ -121,20 +98,7 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
             fontSize: '0.9rem'
           }}
         >
-          <div>
-            {currentPage > 1 && (
-              <Link
-                href={
-                  currentPage - 1 === 1
-                    ? '/'
-                    : `/page/${currentPage - 1}/`
-                }
-                style={{ color: '#0070f3' }}
-              >
-                上一页
-              </Link>
-            )}
-          </div>
+          <div />
           <div>
             第 {currentPage} 页 / 共 {totalPages} 页
           </div>
