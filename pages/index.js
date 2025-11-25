@@ -6,8 +6,6 @@ const PAGE_SIZE = 20;
 
 export async function getStaticProps() {
   const posts = await getPosts();
-
-  // 只取第 1 页需要的 20 篇
   const pagePosts = posts.slice(0, PAGE_SIZE);
 
   return {
@@ -16,7 +14,6 @@ export async function getStaticProps() {
       currentPage: 1,
       totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
     }
-    // output: 'export' 下不要写 revalidate
   };
 }
 
@@ -37,18 +34,21 @@ export default function Home({ posts, currentPage, totalPages }) {
       )}
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => (
-          <li
-            key={post.id}
-            style={{
-              marginBottom: '1.5rem',
-              paddingBottom: '1rem',
-              borderBottom: '1px solid #eee'
-            }}
-          >
-            {/* 关键：带尾斜杠，和 trailingSlash 配置一致 */}
-            <Link href={`/${post.slug || post.rawId}/`}>
-              <a
+        {posts.map((post) => {
+          const slug = post.slug || post.rawId;
+          const href = `/${slug}/`;
+
+          return (
+            <li
+              key={post.id}
+              style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}
+            >
+              <Link
+                href={href}
                 style={{
                   fontSize: '1.1rem',
                   fontWeight: 600,
@@ -56,38 +56,37 @@ export default function Home({ posts, currentPage, totalPages }) {
                   textDecoration: 'none'
                 }}
               >
-                {post.title}
-              </a>
-            </Link>
+                {post.title || slug}
+              </Link>
 
-            {post.date && (
-              <div
-                style={{
-                  fontSize: '0.85rem',
-                  color: '#666',
-                  marginTop: '0.25rem'
-                }}
-              >
-                {post.date}
-              </div>
-            )}
+              {post.date && (
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#666',
+                    marginTop: '0.25rem'
+                  }}
+                >
+                  {post.date}
+                </div>
+              )}
 
-            {post.summary && (
-              <p
-                style={{
-                  fontSize: '0.9rem',
-                  color: '#444',
-                  marginTop: '0.5rem'
-                }}
-              >
-                {post.summary}
-              </p>
-            )}
-          </li>
-        ))}
+              {post.summary && (
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#444',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {post.summary}
+                </p>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
-      {/* 分页导航 */}
       {totalPages > 1 && (
         <nav
           style={{
@@ -97,16 +96,17 @@ export default function Home({ posts, currentPage, totalPages }) {
             fontSize: '0.9rem'
           }}
         >
-          <div>
-            {/* 首页没有上一页 */}
-          </div>
+          <div />
           <div>
             第 {currentPage} 页 / 共 {totalPages} 页
           </div>
           <div>
             {currentPage < totalPages && (
-              <Link href={`/page/${currentPage + 1}/`}>
-                <a style={{ color: '#0070f3' }}>下一页</a>
+              <Link
+                href={`/page/${currentPage + 1}/`}
+                style={{ color: '#0070f3' }}
+              >
+                下一页
               </Link>
             )}
           </div>
