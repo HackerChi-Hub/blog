@@ -10,6 +10,7 @@ const nextConfig = {
   // 如果你以后只通过 hac.top 访问，而不再走 hackerchi-hub.github.io/blog
   // 可以直接不用 basePath / assetPrefix
   // basePath: '',
+  // basePath: '',
   // assetPrefix: '',
 
   trailingSlash: true,
