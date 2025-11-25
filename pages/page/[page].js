@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: false // export 模式需在构建期全部生成
   };
 }
 
@@ -59,59 +59,57 @@ export default function PostListPage({ posts, currentPage, totalPages }) {
       )}
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => {
-          const href = `/${post.slug || post.rawId}`;
+        {posts.map((post) => (
+          <li
+            key={post.id}
+            style={{
+              marginBottom: '1.5rem',
+              paddingBottom: '1rem',
+              borderBottom: '1px solid #eee'
+            }}
+          >
+            {/* 这里和首页完全一致 */}
+            <Link href={`/${post.slug || post.rawId}/`}>
+              <a
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  color: '#0070f3',
+                  textDecoration: 'none'
+                }}
+              >
+                {post.title}
+              </a>
+            </Link>
 
-          return (
-            <li
-              key={post.id}
-              style={{
-                marginBottom: '1.5rem',
-                paddingBottom: '1rem',
-                borderBottom: '1px solid #eee'
-              }}
-            >
-              <Link href={href}>
-                <a
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#0070f3',
-                    textDecoration: 'none'
-                  }}
-                >
-                  {post.title}
-                </a>
-              </Link>
+            {post.date && (
+              <div
+                style={{
+                  fontSize: '0.85rem',
+                  color: '#666',
+                  marginTop: '0.25rem'
+                }}
+              >
+                {post.date}
+              </div>
+            )}
 
-              {post.date && (
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#666',
-                    marginTop: '0.25rem'
-                  }}
-                >
-                  {post.date}
-                </div>
-              )}
-
-              {post.summary && (
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#444',
-                    marginTop: '0.5rem'
-                  }}
-                >
-                  {post.summary}
-                </p>
-              )}
-            </li>
-          );
-        })}
+            {post.summary && (
+              <p
+                style={{
+                  fontSize: '0.9rem',
+                  color: '#444',
+                  marginTop: '0.5rem'
+                }}
+              >
+                {post.summary}
+              </p>
+            )}
+          </li>
+        ))}
       </ul>
 
+      {/* 分页导航 */}
       {totalPages > 1 && (
         <nav
           style={{
