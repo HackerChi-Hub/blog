@@ -14,7 +14,6 @@
 ## 📁 目录结构
 
 ```
-Notion Blog
 .
 ├── lib
 │   ├── config.js        # 站点配置（Notion 数据库 ID、站点信息等）
