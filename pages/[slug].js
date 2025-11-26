@@ -4,10 +4,10 @@ import { getAllPosts, getMenus, getPostBySlug } from '../lib/notion';
 import NotionRenderer from '../components/NotionRenderer';
 
 export async function getStaticPaths() {
-  const { pinPosts, normalPosts } = await getAllPosts();
+  const { pinPosts = [], normalPosts = [] } = await getAllPosts() || {};
   const all = [...pinPosts, ...normalPosts];
   return {
-    paths: all.map(post => ({ params: { slug: post.slug } })),
+    paths: all.filter(post => post && post.slug).map(post => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }
