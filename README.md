@@ -1,8 +1,5 @@
 ```markdown
 # Notion Blog
-[![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black.svg)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB.svg)](https://react.dev/)
-[![Notion](https://img.shields.io/badge/Notion-API-black.svg)](https://developers.notion.com/)
 基于 **Next.js 14** 与 **Notion** 内容源构建的静态博客。通过 `output: 'export'` 一步生成纯静态文件，可部署到 GitHub Pages、Cloudflare Pages、Vercel（静态模式）等平台。
 ---
 
