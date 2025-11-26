@@ -37,6 +37,8 @@ jobs:
           npm run build
           ls -R
           touch out/.nojekyll
+          # 写入 CNAME，确保每次部署后 gh-pages 根目录都有该文件
+          echo "hackerchi.top" > out/CNAME
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
