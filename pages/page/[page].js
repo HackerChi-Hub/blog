@@ -1,303 +1,156 @@
-// lib/notion.js
+// pages/page/[page].js
+import Link from 'next/link';
+import { getPosts } from '../../lib/notion';
 
-import { Client } from '@notionhq/client';
-import { DB_ID_TO_SOURCE } from './newsConfig';
-import { TOP_MENUS } from './config';
+const PAGE_SIZE = 20;
 
-// -------------------- Notion Client --------------------
+// 为动态路由 /page/[page] 生成所有静态路径
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
-export const notionClient = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
-
-// 你的主文章数据库（博客 / 页面）
-// 请在 .env 里配置 NOTION_DB_BLOG
-const BLOG_DB_ID = process.env.NOTION_DB_BLOG;
-
-// 菜单数据库（如果你有单独菜单库，可以换成它；没有就直接用配置）
-const MENU_DB_ID = process.env.NOTION_DB_MENU || null;
-
-// -------------------- 通用工具函数 --------------------
-
-function getPlainTextFromRichText(richTextArray) {
-  if (!Array.isArray(richTextArray)) return '';
-  return richTextArray.map((t) => t.plain_text || '').join('');
-}
-
-function getTitle(page, name = 'Name') {
-  const prop = page.properties?.[name];
-  if (!prop || !Array.isArray(prop.title)) return 'Untitled';
-  return getPlainTextFromRichText(prop.title);
-}
-
-function getSlug(page, name = 'Slug') {
-  const prop = page.properties?.[name];
-  if (!prop || !Array.isArray(prop.rich_text)) return '';
-  return getPlainTextFromRichText(prop.rich_text);
-}
-
-function getDate(page, name = 'Date') {
-  const prop = page.properties?.[name];
-  return prop?.date?.start || null;
-}
-
-// -------------------- 文章列表：getAllPosts --------------------
-
-/**
- * 从主文章数据库读取所有 Published = true 的条目
- * 并返回一个 { id, slug, title, date, type } 数组
- */
-export async function getAllPosts(limit = 200) {
-  if (!BLOG_DB_ID) {
-    console.warn(
-      'NOTION_DB_BLOG 未配置，getAllPosts 将返回空数组。请在 .env 中设置。'
-    );
-    return [];
+  const paths = [];
+  for (let p = 1; p <= totalPages; p += 1) {
+    paths.push({ params: { page: String(p) } });
   }
 
-  const response = await notionClient.databases.query({
-    database_id: BLOG_DB_ID,
-    page_size: limit,
-    filter: {
-      property: 'Published',
-      checkbox: { equals: true },
-    },
-    sorts: [
-      {
-        property: 'Date',
-        direction: 'descending',
-      },
-    ],
-  });
-
-  return response.results.map((page) => ({
-    id: page.id,
-    slug: getSlug(page),
-    title: getTitle(page),
-    date: getDate(page),
-    type:
-      page.properties?.Type?.select?.name ||
-      page.properties?.type?.select?.name ||
-      'Post',
-  }));
-}
-
-// -------------------- 获取单篇文章：getPostBySlug --------------------
-
-/**
- * 根据 slug 查询单篇文章，并展开所有 blocks。
- * 同时扫描其中的 child_database 块，按 database_id 查询对应数据，
- * 返回 { post: { id, slug, title, date, blocks }, databasesData }。
- */
-export async function getPostBySlug(slug) {
-  if (!BLOG_DB_ID) {
-    throw new Error('NOTION_DB_BLOG 未配置，无法调用 getPostBySlug。');
-  }
-
-  // 1. 在文章数据库中找到对应 slug 的记录
-  const query = await notionClient.databases.query({
-    database_id: BLOG_DB_ID,
-    page_size: 1,
-    filter: {
-      property: 'Slug',
-      rich_text: { equals: slug },
-    },
-  });
-
-  if (!query.results.length) return null;
-
-  const page = query.results[0];
-
-  // 2. 读取该 page 的所有 block（递归）
-  const blocks = await getAllBlocks(page.id);
-
-  // 3. 针对其中的 child_database 块，按 database_id 映射到真实数据库
-  const { databasesData } = await attachNewsSectionDataByDatabaseId(blocks);
-
-  // 4. 返回给前端
   return {
-    id: page.id,
-    slug: getSlug(page),
-    title: getTitle(page),
-    date: getDate(page),
-    blocks,
-    databasesData,
+    paths,
+    fallback: false // 所有分页在构建时一次性生成，其他页访问会 404
   };
 }
 
-// -------------------- 读取 Blocks（递归） --------------------
+// 每个分页在构建时取到对应的文章列表
+export async function getStaticProps({ params }) {
+  const allPosts = await getPosts();
+  const totalPages = Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE));
 
-async function getBlockChildren(blockId) {
-  const result = [];
-  let cursor = undefined;
+  const currentPage = Number(params.page) || 1;
 
-  while (true) {
-    const { results, has_more, next_cursor } =
-      await notionClient.blocks.children.list({
-        block_id: blockId,
-        page_size: 100,
-        start_cursor: cursor,
-      });
-
-    result.push(...results);
-
-    if (!has_more) break;
-    cursor = next_cursor;
+  if (currentPage < 1 || currentPage > totalPages) {
+    return { notFound: true };
   }
 
-  return result;
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const posts = allPosts.slice(start, end);
+
+  return {
+    props: {
+      posts,
+      currentPage,
+      totalPages
+    }
+  };
 }
 
-export async function getAllBlocks(pageId) {
-  const topBlocks = await getBlockChildren(pageId);
+export default function PostListPage({ posts, currentPage, totalPages }) {
+  return (
+    <main
+      style={{
+        maxWidth: '720px',
+        margin: '40px auto',
+        padding: '0 16px',
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+      }}
+    >
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
 
-  async function dfs(block) {
-    const hasChildren = block.has_children;
+      {(!posts || posts.length === 0) && (
+        <p>暂无文章，请检查 Notion 数据库的 Type / Status 设置。</p>
+      )}
 
-    if (!hasChildren) return block;
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {posts.map((post) => {
+          const href = `/${post.slug}/`;
 
-    const children = await getBlockChildren(block.id);
-    block.children = [];
+          return (
+            <li
+              key={post.id}
+              style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}
+            >
+              <Link
+                href={href}
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  color: '#0070f3',
+                  textDecoration: 'none'
+                }}
+              >
+                {post.title || post.slug}
+              </Link>
 
-    for (const child of children) {
-      block.children.push(await dfs(child));
-    }
-    return block;
-  }
+              {post.date && (
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#666',
+                    marginTop: '0.25rem'
+                  }}
+                >
+                  {post.date}
+                </div>
+              )}
 
-  const blocks = [];
-  for (const b of topBlocks) {
-    blocks.push(await dfs(b));
-  }
-  return blocks;
-}
+              {post.summary && (
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#444',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {post.summary}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
 
-// -------------------- child_database 按 database_id 映射 --------------------
-
-/**
- * 找到所有 child_database 块：[{ blockId, databaseId }]
- */
-function findChildDatabasesById(blocks) {
-  const result = [];
-
-  function dfs(list) {
-    for (const block of list) {
-      if (!block) continue;
-
-      if (block.type === 'child_database') {
-        const dbId = block.child_database?.database_id || '';
-        result.push({
-          blockId: block.id,
-          databaseId: dbId,
-        });
-      }
-
-      if (block.has_children && Array.isArray(block.children)) {
-        dfs(block.children);
-      }
-    }
-  }
-
-  dfs(blocks);
-  return result;
-}
-
-/**
- * 根据 child_database 的 database_id + DB_ID_TO_SOURCE 配置
- * 查询真实数据库，返回 { databasesData }，用 blockId 做 key。
- */
-export async function attachNewsSectionDataByDatabaseId(blocks) {
-  const pairs = findChildDatabasesById(blocks);
-  const databasesData = {};
-
-  console.log('child db + id:', pairs);
-
-  for (const item of pairs) {
-    const { blockId, databaseId } = item;
-    if (!databaseId) continue;
-
-    const cfg = DB_ID_TO_SOURCE[databaseId];
-    if (!cfg) {
-      console.warn(
-        `child_database 所指向的数据库 ${databaseId} 未在 DB_ID_TO_SOURCE 中配置映射`
-      );
-      continue;
-    }
-
-    const realDbId = process.env[cfg.databaseEnv] || databaseId;
-
-    try {
-      const filter =
-        cfg.categoryProperty && cfg.categoryValue
-          ? {
-              property: cfg.categoryProperty,
-              select: { equals: cfg.categoryValue },
-            }
-          : undefined;
-
-      const queryParams = {
-        database_id: realDbId,
-        page_size: 100,
-      };
-      if (filter) queryParams.filter = filter;
-
-      const dbMeta = await notionClient.databases.retrieve({
-        database_id: realDbId,
-      });
-      const dbRows = await notionClient.databases.query(queryParams);
-
-      databasesData[blockId] = {
-        meta: dbMeta,
-        rows: dbRows.results,
-        dbName:
-          getPlainTextFromRichText(dbMeta.title) ||
-          dbMeta.title?.[0]?.plain_text ||
-          '数据库',
-      };
-    } catch (err) {
-      console.error(
-        '加载数据库失败（按 database_id 映射）:',
-        databaseId,
-        err?.body?.message || err.message
-      );
-    }
-  }
-
-  console.log('databasesData keys:', Object.keys(databasesData));
-
-  return { databasesData };
-}
-
-// -------------------- 顶部菜单：getMenus --------------------
-
-/**
- * 如果你有单独的菜单数据库，可以改成从 Notion 读取。
- * 目前默认直接返回 lib/config.js 里的 TOP_MENUS。
- */
-export async function getMenus() {
-  if (!MENU_DB_ID) {
-    // 直接用静态配置
-    return TOP_MENUS;
-  }
-
-  // （可选）从 Notion 查询菜单
-  const res = await notionClient.databases.query({
-    database_id: MENU_DB_ID,
-    page_size: 100,
-  });
-
-  const menus = res.results.map((page) => ({
-    id: page.id,
-    title: getTitle(page),
-    href:
-      page.properties?.Href?.url ||
-      page.properties?.href?.url ||
-      '/',
-    isExternal:
-      page.properties?.External?.checkbox ||
-      page.properties?.external?.checkbox ||
-      false,
-  }));
-
-  return menus.length ? menus : TOP_MENUS;
+      {totalPages > 1 && (
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            fontSize: '0.9rem'
+          }}
+        >
+          <div>
+            {currentPage > 1 && (
+              <Link
+                href={
+                  currentPage - 1 === 1
+                    ? '/'
+                    : `/page/${currentPage - 1}/`
+                }
+                style={{ color: '#0070f3' }}
+              >
+                上一页
+              </Link>
+            )}
+          </div>
+          <div>
+            第 {currentPage} 页 / 共 {totalPages} 页
+          </div>
+          <div>
+            {currentPage < totalPages && (
+              <Link
+                href={`/page/${currentPage + 1}/`}
+                style={{ color: '#0070f3' }}
+              >
+                下一页
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
+    </main>
+  );
 }
