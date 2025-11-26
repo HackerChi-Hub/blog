@@ -1,7 +1,7 @@
 // pages/[slug].js
-import { getAllPosts, getPostBySlug, getMenus } from '../lib/notion';
-import { NOTION_PROPERTY_NAME as N } from '../lib/config';
-import NotionRenderer from '../components/NotionRenderer';
+import { getPostBySlug } from '../../lib/notion';
+import { SOME_CONFIG } from '../../lib/config';
+import NotionRenderer from '../../components/NotionRenderer';
 
 export async function getStaticPaths() {
   // 读取所有 Published 内容
