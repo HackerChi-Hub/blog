@@ -1,7 +1,6 @@
 # Notion Blog 
 基于 Next.js 14 与 Notion API 构建的静态博客，支持一键导出纯静态文件，方便部署到各类静态托管平台。
 ---
-
 ## 简介
 
 - 使用 Notion 作为 CMS：通过 `@notionhq/client` + `react-notion-x` 渲染内容  
