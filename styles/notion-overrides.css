@@ -1,0 +1,11 @@
+/* 隐藏 Notion 默认头部中所有属性、图标、封面等，避免暴露 password/icon/URL */
+.notion-page-cover,
+.notion-page-icon,
+.notion-page-header,
+.notion-page-title,
+.notion-page-properties,
+.notion-collection-header {
+  display: none !important;
+}
+
+/* 如果你还想保留目录、折叠等，可在这里自定义；默认内容区域不会受影响 */
