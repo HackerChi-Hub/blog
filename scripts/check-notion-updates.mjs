@@ -39,6 +39,13 @@ const NOTION_PROPERTY_NAME = {
   ext: process.env.NEXT_PUBLIC_NOTION_PROPERTY_EXT || 'ext',
 };
 
+// —— 新增：status 属性类型配置 —— //
+const STATUS_PROPERTY_TYPE =
+  process.env.NEXT_PUBLIC_NOTION_PROPERTY_STATUS_TYPE || 'status'; // status | select | checkbox
+const STATUS_PUBLISH_VALUE =
+  process.env.NEXT_PUBLIC_NOTION_PROPERTY_STATUS_FIELD ||
+  NOTION_PROPERTY_NAME.status_publish;
+
 // 解析命令行参数
 const args = new Map();
 for (let i = 2; i < process.argv.length; i += 2) {
@@ -50,6 +57,28 @@ for (let i = 2; i < process.argv.length; i += 2) {
 
 const previousPath = args.get('previous');
 const outputPath = args.get('output') || 'notion-hash.txt';
+
+function buildStatusFilter() {
+  const propertyName = NOTION_PROPERTY_NAME.status;
+  switch (STATUS_PROPERTY_TYPE) {
+    case 'select':
+      return {
+        property: propertyName,
+        select: { equals: STATUS_PUBLISH_VALUE },
+      };
+    case 'checkbox':
+      return {
+        property: propertyName,
+        checkbox: { equals: STATUS_PUBLISH_VALUE === 'true' },
+      };
+    case 'status':
+    default:
+      return {
+        property: propertyName,
+        status: { equals: STATUS_PUBLISH_VALUE },
+      };
+  }
+}
 
 async function fetchAllPublishedPages() {
   const headers = {
@@ -66,10 +95,7 @@ async function fetchAllPublishedPages() {
     const body = {
       page_size: 100,
       start_cursor: startCursor,
-      filter: {
-        property: NOTION_PROPERTY_NAME.status,
-        status: { equals: NOTION_PROPERTY_NAME.status_publish },
-      },
+      filter: buildStatusFilter(),
       sorts: [
         {
           property: NOTION_PROPERTY_NAME.date,
