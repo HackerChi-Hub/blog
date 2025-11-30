@@ -3,7 +3,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { getAllSlugs, getPostBySlug } from '../lib/notion';
 import 'react-notion-x/src/styles.css';
-import dynamic from 'next/dynamic'
+
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(m => m.Code)
