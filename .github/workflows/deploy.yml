@@ -7,6 +7,7 @@ on:
   schedule:
     # 每小时执行一次（UTC 时间）
     - cron: '0 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,6 +19,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 为了读取 gh-pages 上的 notion-hash.txt
+
+      - name: Restore previous Notion hash
+        id: prev-hash
+        run: |
+          if git ls-remote --exit-code --heads origin gh-pages > /dev/null; then
+            git fetch origin gh-pages:gh-pages
+            git show gh-pages:notion-hash.txt > notion-hash-prev.txt || true
+          else
+            echo "gh-pages branch not found; treating as first deploy."
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,7 +42,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Detect Notion updates
+        id: detect
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          node scripts/check-notion-updates.mjs \
+            --previous notion-hash-prev.txt \
+            --output notion-hash.txt
+
       - name: Build (static export)
+        if: github.event_name != 'schedule' || steps.detect.outputs.changed == 'true'
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
@@ -39,10 +63,16 @@ jobs:
           touch out/.nojekyll
           # 写入 CNAME，确保每次部署后 gh-pages 根目录都有该文件
           echo "hackerchi.top" > out/CNAME
+          cp notion-hash.txt out/notion-hash.txt
 
       - name: Deploy to gh-pages
+        if: github.event_name != 'schedule' || steps.detect.outputs.changed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
+
+      - name: Skip reason
+        if: github.event_name == 'schedule' && steps.detect.outputs.changed != 'true'
+        run: echo "Scheduled run 检测到 Notion 无变更，已跳过构建与部署。"
