@@ -1,17 +1,17 @@
-// pages/[slug].js
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { getAllSlugs, getPostBySlug } from '../lib/notion';
 import 'react-notion-x/src/styles.css';
 
-
 const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then(m => m.Code)
-)
+  import('react-notion-x/build/third-party/code').then((m) => m.Code)
+);
 
 const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then(m => m.Collection)
-)
+  import('react-notion-x/build/third-party/collection').then(
+    (m) => m.Collection
+  )
+);
 
 const NotionRenderer = dynamic(
   () =>
@@ -104,15 +104,79 @@ export default function PostPage({ meta, recordMap }) {
             </div>
           )}
 
-            <NotionRenderer
-              recordMap={recordMap}
-              fullPage={false}
-              darkMode={false}
-              components={{
-                Code,
-                Collection
+          {(meta.categories?.length || meta.tags?.length) && (
+            <section
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+                marginBottom: '1.5rem',
+                fontSize: '0.9rem',
+                color: '#444'
               }}
-            />
+            >
+              {meta.categories?.length > 0 && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '6px',
+                    alignItems: 'center'
+                  }}
+                >
+                  <span style={{ fontWeight: 600 }}>分类:</span>
+                  {meta.categories.map((cat) => (
+                    <span
+                      key={cat.id}
+                      style={{
+                        background: '#f0f4ff',
+                        padding: '2px 10px',
+                        borderRadius: '999px'
+                      }}
+                    >
+                      {cat.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {meta.tags?.length > 0 && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '6px',
+                    alignItems: 'center'
+                  }}
+                >
+                  <span style={{ fontWeight: 600 }}>标签:</span>
+                  {meta.tags.map((tag) => (
+                    <span
+                      key={tag.id}
+                      style={{
+                        background: '#f5f5f5',
+                        padding: '2px 10px',
+                        borderRadius: '4px'
+                      }}
+                    >
+                      #{tag.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </section>
+          )}
+
+          <NotionRenderer
+            recordMap={recordMap}
+            fullPage={false}
+            darkMode={false}
+            disableHeader
+            components={{
+              Code,
+              Collection
+            }}
+          />
         </article>
       </main>
     </>
