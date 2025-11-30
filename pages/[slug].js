@@ -3,6 +3,15 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { getAllSlugs, getPostBySlug } from '../lib/notion';
 import 'react-notion-x/src/styles.css';
+import dynamic from 'next/dynamic'
+
+const Code = dynamic(() =>
+  import('react-notion-x/build/third-party/code').then(m => m.Code)
+)
+
+const Collection = dynamic(() =>
+  import('react-notion-x/build/third-party/collection').then(m => m.Collection)
+)
 
 const NotionRenderer = dynamic(
   () =>
@@ -95,11 +104,15 @@ export default function PostPage({ meta, recordMap }) {
             </div>
           )}
 
-          <NotionRenderer
-            recordMap={recordMap}
-            fullPage={false}
-            darkMode={false}
-          />
+            <NotionRenderer
+              recordMap={recordMap}
+              fullPage={false}
+              darkMode={false}
+              components={{
+                Code,
+                Collection
+              }}
+            />
         </article>
       </main>
     </>
