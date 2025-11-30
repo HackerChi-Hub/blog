@@ -168,6 +168,7 @@ export default function PostPage({ meta, recordMap }) {
           )}
 
           <NotionRenderer
+            className="notion-only-body"
             recordMap={recordMap}
             fullPage={false}
             darkMode={false}
