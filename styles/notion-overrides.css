@@ -1,16 +1,5 @@
-/* 仅针对我们自定义的 NotionRenderer 实例 */
-.notion-only-body .notion-header,
-.notion-only-body .notion-header__cover,
-.notion-only-body .notion-header__content,
-.notion-only-body .notion-header__icon-wrapper,
-.notion-only-body .notion-header__property-list,
-.notion-only-body .notion-page-icon,
-.notion-only-body .notion-page-cover,
-.notion-only-body .notion-page-title {
+/* 隐藏所有数据库属性，不区分页面 */
+.notion .notion-collection-page-properties,
+.notion .notion-page-properties {
   display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
 }
