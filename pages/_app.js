@@ -3,8 +3,15 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 // 若有全局样式，按需导入：import '@/styles/globals.css';
+import '../styles/globals.css'
+import 'react-notion-x/src/styles.css'
+import 'prismjs/themes/prism-tomorrow.css'
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLLG23LT3H';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
