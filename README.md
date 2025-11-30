@@ -2,7 +2,6 @@
 基于 Next.js 14 与 Notion API 构建的静态博客，支持一键导出纯静态文件，方便部署到各类静态托管平台。
 ---
 ## 简介
-
 - 使用 Notion 作为 CMS：通过 `@notionhq/client` + `react-notion-x` 渲染内容  
 - 利用 Next.js `output: 'export'`，构建后直接得到 `out` 静态目录  
 - 支持文章详情、分页列表、自定义 404 等常见博客功能  
