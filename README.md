@@ -8,7 +8,6 @@
 - 基于 Next.js 14 与 React 18，享受最新特性与性能优化  
 ---
 ## 特性一览
-
 - **Notion 作为内容源**  
   - 使用官方 Notion API 读取数据库内容  
   - 通过 `react-notion-x` 尽可能还原 Notion 页面样式  
