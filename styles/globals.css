@@ -218,7 +218,7 @@ img:hover {
 .post-date {
   letter-spacing: 0.08em;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: #ffffff;
 }
 
 .post-tags {
@@ -233,25 +233,25 @@ img:hover {
   font-weight: 600;
   font-size: 0.85rem;
   background: rgba(255, 255, 255, 0.08);
-  color: var(--accent-cyan);
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .post-tag[data-tag='Design'] {
   background: rgba(255, 179, 71, 0.16);
-  color: var(--accent-orange);
+  color: #ffffff;
   border-color: rgba(255, 179, 71, 0.4);
 }
 
 .post-tag[data-tag='Dev'] {
   background: rgba(179, 136, 255, 0.22);
-  color: var(--accent-violet);
+  color: #ffffff;
   border-color: rgba(179, 136, 255, 0.42);
 }
 
 .post-tag[data-tag='Product'] {
   background: rgba(105, 240, 174, 0.2);
-  color: var(--accent-green);
+  color: #ffffff;
   border-color: rgba(105, 240, 174, 0.4);
 }
 
