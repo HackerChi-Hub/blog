@@ -530,13 +530,12 @@ const HeroSection = ({
         <div style={heroStyles.badge}>黑客驰 · fusion mode</div>
         <h1 style={heroStyles.title}>
           <span style={heroStyles.titleAccent}>
-            黑客驰：分块思维 / 终端精神 / 战术矩阵
+            黑客驰：分享 / 探索 / 进取
           </span>
         </h1>
-        <p style={heroStyles.paragraph}>
-          将实战指标、终端日志与三层攻防结构融为一体。这里既有冷静的数据面板，也有实时滚动的
-          exploit feed，更有清晰可复现的策略路径。
-        </p>
+        //<p style={heroStyles.paragraph}>
+          //免费工具、技术教程、。
+        //</p>
         <p style={heroStyles.hint}>
           锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
         </p>
