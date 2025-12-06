@@ -4,19 +4,6 @@ import { getPosts } from '../lib/notion';
 
 const PAGE_SIZE = 20;
 
-export async function getStaticProps() {
-  const posts = await getPosts();
-  const pagePosts = posts.slice(0, PAGE_SIZE);
-
-  return {
-    props: {
-      posts: pagePosts,
-      currentPage: 1,
-      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
-    },
-  };
-}
-
 const formatDate = (dateString) => {
   if (!dateString) return '';
   try {
@@ -55,40 +42,78 @@ const PostCard = ({ post }) => {
             )}
           </div>
 
-          {post.summary && (
-            <p className="post-excerpt">{post.summary}</p>
-          )}
+          {post.summary && <p className="post-excerpt">{post.summary}</p>}
         </div>
       </Link>
     </article>
   );
 };
 
-export default function Home({ posts, currentPage, totalPages }) {
+export async function getStaticProps() {
+  try {
+    const posts = await getPosts();
+    const safePosts = Array.isArray(posts) ? posts : [];
+    const pagePosts = safePosts.slice(0, PAGE_SIZE);
+
+    return {
+      props: {
+        posts: pagePosts,
+        currentPage: 1,
+        totalPages: Math.max(1, Math.ceil(safePosts.length / PAGE_SIZE)),
+        errorMessage: safePosts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
+      },
+    };
+  } catch (error) {
+    console.error('[pages/index] getPosts failed:', error);
+    return {
+      props: {
+        posts: [],
+        currentPage: 1,
+        totalPages: 1,
+        errorMessage:
+          error?.message || '获取文章列表失败，请检查 Notion 环境变量、数据库权限或字段配置。',
+      },
+    };
+  }
+}
+
+export default function Home({ posts, currentPage, totalPages, errorMessage }) {
+  const showEmpty = posts.length === 0;
+
   return (
     <main className="page">
       <section className="site-hero floating">
         <h1 className="hero-title">
-          <span className="highlight">黑客驰 ·  Blog</span>
+          <span className="highlight">黑客驰 · Blog</span>
         </h1>
-        <p>
-          专注安全研究、极客分享与实践笔记。
-        </p>
+        <p>专注安全研究、极客分享与实践笔记。</p>
       </section>
 
-      {posts.length === 0 ? (
+      {errorMessage && (
+        <div
+          className="empty-state"
+          style={{
+            fontWeight: 600,
+            color: '#d93025',
+          }}
+        >
+          {errorMessage}
+        </div>
+      )}
+
+      {showEmpty ? (
         <div className="empty-state">
           暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
         </div>
       ) : (
         <section className="posts-grid">
           {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard key={post.id || post.slug} post={post} />
           ))}
         </section>
       )}
 
-      {totalPages > 1 && (
+      {!showEmpty && totalPages > 1 && (
         <nav className="pagination">
           <span className="pagination__info">
             第 {currentPage} 页 / 共 {totalPages} 页
