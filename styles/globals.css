@@ -76,7 +76,7 @@ img {
   height: auto;
   display: block;
   border-radius: clamp(18px, 2vw, var(--radius-lg));
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   background: rgba(6, 12, 24, 0.82);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
   padding: 6px;
@@ -87,7 +87,7 @@ img {
 }
 
 img:hover {
-  border-color: var(--border-strong);
+  border: 2px solid var(--border-strong);
   box-shadow: 0 30px 60px rgba(0, 229, 255, 0.22);
   transform: translateY(-2px);
 }
@@ -144,7 +144,7 @@ img:hover {
 
 .site-hero p {
   margin-top: 1rem;
-  color: var(--text-secondary);
+  color: #ffffff;
   max-width: 720px;
   line-height: 1.78;
 }
@@ -257,7 +257,7 @@ img:hover {
 
 .post-excerpt {
   margin: 0.25rem 0 0;
-  color: var(--text-secondary);
+  color: #ffffff;
   line-height: 1.8;
   font-size: 1rem;
 }
@@ -318,7 +318,7 @@ img:hover {
 
 .notion p {
   line-height: 1.85;
-  color: var(--text-secondary);
+  color: #ffffff;
   font-size: 1rem;
 }
 
@@ -335,7 +335,7 @@ img:hover {
   border-left: 4px solid rgba(0, 229, 255, 0.6);
   padding-left: 1.1rem;
   color: var(--text-secondary);
-  font-style: italic.
+  font-style: italic;
 }
 
 /* 浮动动画 */
