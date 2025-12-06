@@ -4,11 +4,8 @@ import { getPosts, getNotices, getSubMenus } from '../lib/notion';
 
 const PAGE_SIZE = 20;
 
-const HERO_STATS = [
-  { label: 'Attack Logs', value: '92 条', desc: '实战复盘 & payload 迭代' },
-  { label: 'Custom Toolchain', value: '21 个', desc: '自研自动化脚本与插件' },
-  { label: 'Intel Sync', value: '极速', desc: '零日追踪 / 情报联动' },
-];
+const CATEGORY_FIELD = process.env.NEXT_PUBLIC_NOTION_PROPERTY_CATEGORY || 'category';
+const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 
 const heroPalette = {
   accent1: '#69f0ae',
@@ -76,7 +73,7 @@ const heroStyles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: '18px',
     marginTop: '28px',
   },
@@ -84,7 +81,7 @@ const heroStyles = {
     borderRadius: '20px',
     border: '1px solid rgba(255,255,255,0.08)',
     background: 'rgba(255,255,255,0.03)',
-    padding: '18px',
+    padding: '20px',
   },
   cardLabel: {
     textTransform: 'uppercase',
@@ -92,8 +89,57 @@ const heroStyles = {
     letterSpacing: '0.08em',
     color: heroPalette.muted,
   },
-  cardValue: { fontSize: '1.6rem', color: heroPalette.accent1, margin: '8px 0 4px' },
-  cardDesc: { color: '#c7d6e5', fontSize: '0.95rem' },
+  cardValue: {
+    fontSize: '1.5rem',
+    color: heroPalette.accent1,
+    margin: '10px 0 6px',
+    display: 'flex',
+    alignItems: 'baseline',
+    gap: '6px',
+  },
+  cardValueUnit: {
+    fontSize: '0.9rem',
+    color: heroPalette.muted,
+  },
+  categoryList: {
+    listStyle: 'none',
+    margin: '12px 0 0',
+    padding: 0,
+    display: 'grid',
+    gap: '10px',
+  },
+  categoryItem: {
+    borderRadius: '16px',
+    border: '1px solid rgba(255,255,255,0.08)',
+    background: 'rgba(5, 12, 24, 0.4)',
+    padding: '10px 14px',
+  },
+  categoryItemLink: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    color: heroPalette.text,
+    fontWeight: 600,
+    fontSize: '0.95rem',
+    textDecoration: 'none',
+    gap: '12px',
+  },
+  categoryItemMeta: {
+    color: heroPalette.muted,
+    fontSize: '0.8rem',
+    whiteSpace: 'nowrap',
+  },
+  categoryItemExcerpt: {
+    margin: '6px 0 0',
+    color: heroPalette.muted,
+    fontSize: '0.85rem',
+    lineHeight: 1.4,
+  },
+  categoryItemEmpty: {
+    margin: '8px 0 0',
+    color: heroPalette.muted,
+    fontSize: '0.9rem',
+  },
   terminal: {
     borderRadius: '20px',
     border: `1px solid ${heroPalette.accent2}59`,
@@ -178,6 +224,79 @@ const normalizeSummary = (summary) => {
   return String(summary);
 };
 
+const truncateText = (text, maxLength = 72) => {
+  if (!text) return '';
+  return text.length > maxLength ? `${text.slice(0, maxLength)}…` : text;
+};
+
+const normalizeCategoryValue = (value) => {
+  if (!value) return [];
+  if (typeof value === 'string') return value.trim() ? [value.trim()] : [];
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => {
+        if (typeof item === 'string') return item.trim();
+        if (typeof item === 'object') {
+          return (
+            item.name ||
+            item.title ||
+            item.plain_text ||
+            item.text ||
+            item.id ||
+            ''
+          );
+        }
+        return '';
+      })
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+  if (typeof value === 'object') {
+    const candidate =
+      value.name || value.title || value.plain_text || value.text || '';
+    return candidate.trim() ? [candidate.trim()] : [];
+  }
+  return [];
+};
+
+const getPostCategories = (post, propertyName) => {
+  const candidates = [
+    post?.[propertyName],
+    post?.category,
+    post?.Category,
+    post?.categories,
+    post?.Categories,
+    post?.properties?.[propertyName],
+  ];
+
+  for (const candidate of candidates) {
+    const normalized = normalizeCategoryValue(candidate);
+    if (normalized.length) return normalized;
+  }
+  return [];
+};
+
+const buildCategoryBuckets = (posts, propertyName, targetCategories) => {
+  const map = new Map();
+
+  posts.forEach((post) => {
+    const categories = getPostCategories(post, propertyName);
+    categories.forEach((category) => {
+      if (!map.has(category)) {
+        map.set(category, []);
+      }
+      map.get(category).push(post);
+    });
+  });
+
+  return targetCategories.map((category) => ({
+    name: category,
+    posts: (map.get(category) || []).sort(
+      (a, b) => new Date(b?.date || 0) - new Date(a?.date || 0)
+    ),
+  }));
+};
+
 const PostCard = ({ post }) => {
   const slug = post.slug || post.rawId;
   const href = `/${slug}/`;
@@ -215,7 +334,12 @@ const PostCard = ({ post }) => {
   );
 };
 
-const HeroSection = ({ notices = [], subMenus = [] }) => {
+const HeroSection = ({
+  notices = [],
+  subMenus = [],
+  categoryBuckets = [],
+  categoryPropertyLabel = 'category',
+}) => {
   const fallbackNotices = [
     { id: 'placeholder-1', title: '暂无 Notice 数据', date: null, summary: '' },
   ];
@@ -248,11 +372,51 @@ const HeroSection = ({ notices = [], subMenus = [] }) => {
         </p>
 
         <div style={heroStyles.grid}>
-          {HERO_STATS.map((stat) => (
-            <div key={stat.label} style={heroStyles.card}>
-              <div style={heroStyles.cardLabel}>{stat.label}</div>
-              <div style={heroStyles.cardValue}>{stat.value}</div>
-              <div style={heroStyles.cardDesc}>{stat.desc}</div>
+          {categoryBuckets.map((bucket) => (
+            <div key={bucket.name} style={heroStyles.card}>
+              <div style={heroStyles.cardLabel}>
+                {categoryPropertyLabel} · {bucket.name}
+              </div>
+              <div style={heroStyles.cardValue}>
+                {bucket.posts.length || '0'}
+                <span style={heroStyles.cardValueUnit}>篇</span>
+              </div>
+              {bucket.posts.length > 0 ? (
+                <ul style={heroStyles.categoryList}>
+                  {bucket.posts.slice(0, 2).map((post) => {
+                    const slug = post.slug || post.rawId || post.id;
+                    const href = `/${slug}/`;
+                    const summaryText = normalizeSummary(post.summary);
+                    const displaySummary = truncateText(summaryText, 72);
+                    const dateText = formatDate(post.date);
+
+                    return (
+                      <li
+                        key={`${bucket.name}-${post.id || post.slug || href}`}
+                        style={heroStyles.categoryItem}
+                      >
+                        <Link href={href} style={heroStyles.categoryItemLink}>
+                          <span>{post.title || slug || '未命名文章'}</span>
+                          {dateText && (
+                            <span style={heroStyles.categoryItemMeta}>
+                              {dateText}
+                            </span>
+                          )}
+                        </Link>
+                        {displaySummary && (
+                          <p style={heroStyles.categoryItemExcerpt}>
+                            {displaySummary}
+                          </p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <p style={heroStyles.categoryItemEmpty}>
+                  暂无「{bucket.name}」内容，敬请期待。
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -359,6 +523,11 @@ export default function Home({
 }) {
   try {
     const showEmpty = posts.length === 0;
+    const categoryBuckets = buildCategoryBuckets(
+      posts,
+      CATEGORY_FIELD,
+      FEATURED_CATEGORIES
+    );
 
     return (
       <main
@@ -369,7 +538,12 @@ export default function Home({
           padding: '48px 20px',
         }}
       >
-        <HeroSection notices={notices} subMenus={subMenus} />
+        <HeroSection
+          notices={notices}
+          subMenus={subMenus}
+          categoryBuckets={categoryBuckets}
+          categoryPropertyLabel={CATEGORY_FIELD}
+        />
 
         {errorMessage && (
           <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
@@ -407,7 +581,12 @@ export default function Home({
     console.error('[pages/index] render failed:', error);
     return (
       <main className="page">
-        <HeroSection notices={notices} subMenus={subMenus} />
+        <HeroSection
+          notices={notices}
+          subMenus={subMenus}
+          categoryBuckets={[]}
+          categoryPropertyLabel={CATEGORY_FIELD}
+        />
         <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
           首页渲染失败：{error?.message || '未知错误，请查看构建日志。'}
         </div>
