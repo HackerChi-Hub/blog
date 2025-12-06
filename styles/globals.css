@@ -298,7 +298,7 @@ img:hover {
   border: 1px solid var(--border-color);
   padding: clamp(1.6rem, 3vw, 3.2rem);
   box-shadow: var(--shadow-soft);
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 .notion .notion-collection-page-properties,
@@ -312,29 +312,39 @@ img:hover {
   letter-spacing: -0.01em;
   margin-top: 2.2rem;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: #ffffff;
   text-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.notion,
+.notion p,
+.notion li,
+.notion span,
+.notion .notion-text,
+.notion .notion-toggle,
+.notion .notion-callout-text,
+.notion .notion-quote,
+.notion .notion-quote p {
+  color: #ffffff !important;
 }
 
 .notion p {
   line-height: 1.85;
-  color: #ffffff;
   font-size: 1rem;
 }
 
 .notion .notion-code {
   border-radius: var(--radius-md);
   background: #0d1117;
-  color: #e5e7eb;
+  color: #f6f8fa;
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   padding: 1rem 1.25rem;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .notion .notion-quote {
-  border-left: 4px solid rgba(0, 229, 255, 0.6);
+  border-left: 4px solid rgba(0, 229, 255, 0.8);
   padding-left: 1.1rem;
-  color: var(--text-secondary);
   font-style: italic;
 }
 
