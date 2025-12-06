@@ -58,28 +58,31 @@ const heroStyles = {
     textTransform: 'uppercase',
     color: heroPalette.accent1,
     background: `${heroPalette.accent1}1f`,
-    // 放大一点并加一点上/下间距
     marginBottom: '20px',
   },
-  // 新增：标题行容器
+  // 标题行容器：左右排版
   titleRow: {
     display: 'flex',
-    alignItems: 'baseline',
+    alignItems: 'center', // 让两侧文字垂直居中对齐
     flexWrap: 'wrap',
     gap: '12px',
     marginBottom: '14px',
+    justifyContent: 'space-between', // 左右拉开
   },
+  // 左侧：黑客驰 · 官网
   siteTitle: {
-    fontSize: 'clamp(2.4rem, 5vw, 3.4rem)', // 大字号主标题：黑客驰 · 官网
+    fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
     lineHeight: 1.2,
     fontWeight: 700,
     color: heroPalette.text,
   },
+  // 备用副标题样式（当前没有直接使用）
   subTitle: {
-    fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', // 较小副标题：分享 / 探索 / 进取
+    fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
     fontWeight: 500,
     color: heroPalette.text,
   },
+  // 右侧：分享 / 探索 / 进取 的高亮背景标签
   subTitleAccent: {
     display: 'inline-block',
     padding: '4px 14px',
@@ -277,7 +280,7 @@ const feedStyles = `
 }
 .feed-card__foot {
   margin-top: auto;
-  display: flex,
+  display: flex;
   justify-content: space-between;
   align-items: center;
   color: ${heroPalette.accent1};
@@ -545,12 +548,23 @@ const HeroSection = ({
     <section style={heroStyles.wrapper}>
       <div style={heroStyles.overlay} aria-hidden="true" />
       <div style={{ position: 'relative' }}>
+        {/* 顶部 badge 可保留或删掉，这里保留 */}
         <div style={heroStyles.badge}>黑客驰 · 官网</div>
-        <h1 style={heroStyles.title}>
-          <span style={heroStyles.titleAccent}>
+
+        {/* 标题行：左「黑客驰 · 官网」，右「分享 / 探索 / 进取」，字号相同 */}
+        <div style={heroStyles.titleRow}>
+          <h1 style={heroStyles.siteTitle}>黑客驰 · 官网</h1>
+          <span
+            style={{
+              ...heroStyles.siteTitle,        // 与左侧同字号
+              ...heroStyles.subTitleAccent,   // 使用渐变背景和圆角
+              fontWeight: 700,
+            }}
+          >
             分享 / 探索 / 进取
           </span>
-        </h1>
+        </div>
+
         <p style={heroStyles.paragraph}>
           点赞、评论、转发
         </p>
