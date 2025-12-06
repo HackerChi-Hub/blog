@@ -125,26 +125,54 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
           }}
         >
           <h1 className="hero-title">黑客驰 · 全部文章</h1>
-          <Link
-            href="/"
-            className="hero-button"
+          <div
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.55rem 1.4rem',
-              borderRadius: '999px',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-              color: '#03040a',
-              background: 'var(--accent-cyan)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 10px 30px rgba(0, 229, 255, 0.3)',
-              transition: 'transform var(--transition-fast)',
+              display: 'flex',
+              gap: '0.6rem',
+              flexWrap: 'wrap',
             }}
           >
-            返回首页
-          </Link>
+            <Link
+              href="/"
+              className="hero-button"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.55rem 1.4rem',
+                borderRadius: '999px',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                color: '#03040a',
+                background: 'var(--accent-cyan)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                boxShadow: '0 10px 30px rgba(0, 229, 255, 0.3)',
+                transition: 'transform var(--transition-fast)',
+              }}
+            >
+              返回首页
+            </Link>
+            <Link
+              href="/"
+              className="hero-button"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.55rem 1.4rem',
+                borderRadius: '999px',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                color: '#03040a',
+                background: 'var(--accent-pink, #ff8bd2)',
+                border: '1px solid rgba(255,255,255,0.35)',
+                boxShadow: '0 10px 30px rgba(255, 139, 210, 0.35)',
+                transition: 'transform var(--transition-fast)',
+              }}
+            >
+              首页按钮
+            </Link>
+          </div>
         </div>
         <p>
           第 {currentPage} / {totalPages} 页 · 每页 {PAGE_SIZE} 篇。
@@ -161,7 +189,8 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
           {posts.map((post) => {
             const slug = post.slug || post.rawId || post.id;
             const href = `/${slug}/`;
-            const summaryText = normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
+            const summaryText =
+              normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
             const tags = resolveTags(post.tags);
 
             return (
