@@ -1,139 +1,125 @@
-# Notion Blog 
-基于 Next.js 14 与 Notion API 构建的静态博客，支持一键导出纯静态文件，方便部署到各类静态托管平台。
----
-## 简介
-- 使用 Notion 作为 CMS：通过 `@notionhq/client` + `react-notion-x` 渲染内容  
-- 利用 Next.js `output: 'export'`，构建后直接得到 `out` 静态目录  
-- 支持文章详情、分页列表、自定义 404 等常见博客功能  
-- 基于 Next.js 14 与 React 18，享受最新特性与性能优化  
----
+# HackerChi Notion Blog · Apple Aesthetic Edition
 
-## 特性一览
-- **Notion 作为内容源**  
-  - 使用官方 Notion API 读取数据库内容  
-  - 通过 `react-notion-x` 尽可能还原 Notion 页面样式  
-
-- **纯静态导出**  
-  - 无需额外执行 `next export`  
-  - `npm run build` 完成后即在 `./out` 目录中生成所有静态文件  
-
-- **路由设计**  
-  - `/`：文章列表首页  
-  - `/page/[page]`：分页列表  
-  - `/[slug]`：文章详情页  
-  - `/404`：自定义 404 页面  
-
-- **现代技术栈**  
-  - Next.js 14、React 18  
-  - 更好的性能和开发体验  
+基于 **Next.js 14 + Notion API** 的纯静态博客，现已全面升级为 Apple 风格体验，并具备实时搜索、智能筛选与 GitHub Pages 一键部署能力。
 
 ---
 
-## 目录结构
+## ✨ 新特性一览
 
-```text
+| 功能                 | 说明                                                                                     |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+| 🍎 Apple 设计语言    | 采用玻璃拟态、SF Pro 字体与极简布局，首页/归档/详情外观统一                               |
+| 🔍 实时搜索          | 关键词 + 标签组合筛选，秒级反馈匹配结果                                                   |
+| 🧭 全新首页          | Hero、高亮 CTA、精选栅格卡片，突出演示最新文章与内容层次                                  |
+| 📦 纯静态导出        | `output: 'export'`，`npm run build` 即得可部署的 `out` 目录                               |
+| 🚀 GitHub Pages 部署 | 提供 `deploy.yml` 工作流，推送 `main` 自动发布到 `https://<user>.github.io/blog/`          |
+| 🧾 文章详情优化      | Notion 内容全屏沉浸式阅读，暗黑主题、标签/分类 pill 展示                                  |
+| ⚠️ 404 友好页        | 引导返回首页，保持与主站一致的视觉风格                                                     |
+
+---
+
+## 🗂️ 项目结构
+
+```
 .
+├── .github/workflows/deploy.yml   # GitHub Pages 自动部署
 ├── lib
-│   ├── config.js        # 站点配置（Notion 数据库 ID、站点信息等）
-│   └── notion.js        # Notion API 相关封装
-├── next.config.mjs      # Next.js 配置，启用静态导出 (output: 'export')
-├── package.json         # 项目依赖与脚本
-└── pages
-    ├── 404.js           # 自定义 404 页面
-    ├── index.js         # 首页（文章列表）
-    ├── page/[page].js   # 分页路由
-    └── [slug].js        # 文章详情页
+│   ├── config.js                  # Notion 属性映射 / 站点配置
+│   └── notion.js                  # Notion 数据读取封装
+├── pages
+│   ├── index.js                   # Apple 风首页 + 搜索
+│   ├── page/[page].js             # 分页归档
+│   ├── [slug].js                  # Notion 文章详情
+│   └── 404.js                     # 自定义 404
+├── styles
+│   ├── globals.css                # 全局 Apple 视觉样式
+│   └── notion-overrides.css       # Notion 渲染覆盖
+├── next.config.mjs                # 静态导出、GitHub Pages basePath
+├── package.json
+└── README.md
 ```
 
 ---
 
-## 环境要求
+## ⚙️ 环境要求
 
-- Node.js ≥ 18  
-- Notion Internal Integration Token  
-- 已授权给该集成的 Notion 数据库（作为文章源）  
+- Node.js ≥ 18
+- Notion Internal Integration Token（已授权目标数据库）
+- `NOTION_DATABASE_ID`
 
 ---
 
-## 配置步骤
+## 🔐 环境变量
 
-### 1. 创建 Notion 集成
-
-1. 访问 Notion Integrations：<https://www.notion.so/my-integrations>  
-2. 创建 **Internal Integration**  
-3. 记录生成的 **Internal Integration Token**  
-
-### 2. 准备 Notion 数据库
-
-1. 在 Notion 中创建一个数据库，作为文章列表  
-2. 建议字段（可按需增减）：  
-   - `Name`：文章标题（必需）  
-   - `Slug`：用于生成 `/[slug]` 路由  
-   - `Published`：是否发布（布尔值）  
-   - `Date`：发布时间  
-   - `Tags`：标签  
-3. 将数据库分享给刚创建的集成：  
-   - 打开数据库 → 右上角 **Share** → 邀请你的 Integration  
-
-### 3. 配置环境变量
-
-在项目根目录新建 `.env.local` 文件，填入：
+在根目录创建 `.env.local`：
 
 ```bash
-NOTION_TOKEN=secret_xxx              # Notion Integration Token
-NOTION_DATABASE_ID=xxxxxxxxxxxxxxxx  # 数据库 ID，可从分享链接解析
+NOTION_TOKEN=secret_xxx
+NOTION_DATABASE_ID=xxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_PUBLIC_NOTION_INDEX=0
 ```
 
-站点基础信息（标题、副标题、社交链接等）可在 `lib/config.js` 中修改。
+> 如需自定义 Notion 字段名，可在 `lib/config.js` 中通过环境变量覆盖。
 
 ---
 
-## 快速开始
+## 🛠️ 本地开发
 
 ```bash
-# 安装依赖
 npm install
-
-# 本地开发（默认 http://localhost:3000）
-npm run dev
-
-# 构建静态文件（输出到 ./out）
-npm run build
-
-# 预览静态构建（可选）
-npm run start
+npm run dev      # http://localhost:3000
+npm run build    # 生成 ./out 静态目录
+npm run start    # 预览构建结果
 ```
 
-说明：`next.config.mjs` 已启用 `output: 'export'`，执行 `npm run build` 即可生成可直接部署的 `out` 目录。
+---
+
+## 🌐 GitHub Pages 部署
+
+1. 仓库设置 → Pages → **Build and deployment** 选择 “GitHub Actions”。
+2. 在 **Settings → Secrets and variables → Actions** 中新增：
+   - `NOTION_TOKEN`
+   - `NOTION_DATABASE_ID`
+3. 确认 `.github/workflows/deploy.yml` 已提交，推送到 `main` 即可自动发布。
+
+> 若自定义域名或托管平台（如 Vercel / Cloudflare Pages），仅需保持 `npm run build` → `out` 的构建约定。
 
 ---
 
-## 部署指南
+## 🧭 使用指南
 
-构建命令统一为：`npm run build`  
-输出目录统一为：`out`  
+### 首页
+- Hero 模块：品牌宣言 + 最新文章高亮
+- 搜索区：输入关键词、点击标签 Chip 即时筛选
+- 精选卡片：展示日期、分类、摘要、标签等信息
 
-| 平台                         | 构建命令      | 输出目录 | 备注                                                   |
-| ---------------------------- | ------------- | -------- | ------------------------------------------------------ |
-| GitHub Pages                 | npm run build | out      | 可使用 GitHub Actions 构建并推送到 `gh-pages` 分支    |
-| Vercel（静态模式）           | npm run build | out      | 新建项目时选择 Other，指定静态输出目录为 `out`        |
-| Cloudflare Pages             | npm run build | out      | 构建命令与发布目录都使用默认值即可                    |
-| Netlify / Render 等平台     | npm run build | out      | 在平台设置中指定构建命令和发布目录                    |
-| 自托管（Nginx / OSS / 其他） | npm run build | out      | 将 `out` 上传至服务器或对象存储作为站点根目录即可     |
+### 详情页
+- 统一暗黑 Apple 风格
+- 分类/标签以 pill 显示
+- Notion 渲染支持代码高亮、Callout、表格等
 
----
-
-## 常见问题（FAQ）
-
-| 问题                     | 可能原因                     | 解决方案                                                         |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------- |
-| 构建提示 NOTION_TOKEN missing | 环境变量缺失或未加载         | 确认 `.env.local` 已创建且名称正确，重启开发 / 构建进程          |
-| 页面无文章显示           | 数据库未授权或筛选条件不符   | 检查数据库是否分享给集成，确认 `Published` 字段为 true          |
-| 部署后出现 404           | 路由重写或静态站点配置问题   | 确认托管平台支持静态导出路由，必要时开启 `trailingSlash: true` 或按平台文档增加重写规则 |
-| 样式与 Notion 中略有差异 | `react-notion-x` 渲染特性所致 | 可按需自定义组件或样式，参考 `react-notion-x` 文档进行扩展      |
+### 404
+- 语义化引导
+- “返回首页” 主按钮维持视觉一致性
 
 ---
 
-1. 在 `package.json` 中移除或调整 `"private": true`  
-2. 选择合适的开源许可证（如 MIT、Apache-2.0 等），并在仓库根目录添加 `LICENSE` 文件  
+## 📌 常见问题
+
+| 问题                                | 解决方案                                                                 |
+| ----------------------------------- | ------------------------------------------------------------------------ |
+| NOTION_TOKEN missing                | 检查 `.env.local`/Actions Secrets，重启构建                              |
+| 页面无内容                         | 确认 Notion 数据库已分享给 Integration，文章 `type=Post` 且 `status=Published` |
+| GitHub Pages 静态资源 404           | `next.config.mjs` 已设置 `basePath/assetPrefix='/blog'`，保持默认即可    |
+| 想改成自定义域名                   | 去除 `basePath` / `assetPrefix` 并在托管平台绑定域名                      |
+
+---
+
+## 📄 许可证
+
+黑客驰原创
+
+---
+
+如需扩展 Algolia 搜索、导航菜单、暗黑/浅色切换等功能，欢迎继续迭代。Enjoy the Apple-inspired reading experience! 🍏
 ```
