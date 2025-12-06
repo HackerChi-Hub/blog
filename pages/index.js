@@ -533,9 +533,9 @@ const HeroSection = ({
             黑客驰：分享 / 探索 / 进取
           </span>
         </h1>
-        //<p style={heroStyles.paragraph}>
-          //免费工具、技术教程、。
-        //</p>
+        <p style={heroStyles.paragraph}>
+          点赞、评论、转发
+        </p>
         <p style={heroStyles.hint}>
           锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
         </p>
