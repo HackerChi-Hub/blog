@@ -25,7 +25,7 @@ export default function Home({ posts, currentPage, totalPages }) {
         <title>黑客驰官网</title>
         <meta
           name="description"
-          content="黑客驰官网 — 分享安全研究、极客生活与前沿技术实践。"
+          content="黑客驰官网 — 分享安全研究、极客生活与前沿技术实践，记录每一次探索与突破。"
         />
       </Head>
 
