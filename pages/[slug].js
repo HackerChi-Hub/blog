@@ -28,9 +28,9 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({
-      params: { slug }
+      params: { slug },
     })),
-    fallback: false
+    fallback: false,
   };
 }
 
@@ -49,10 +49,23 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       meta: post.meta,
-      recordMap: post.recordMap
-    }
+      recordMap: post.recordMap,
+    },
   };
 }
+
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  try {
+    return new Intl.DateTimeFormat('zh-CN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date(dateString));
+  } catch {
+    return dateString;
+  }
+};
 
 export default function PostPage({ meta, recordMap }) {
   if (!recordMap) {
@@ -63,7 +76,7 @@ export default function PostPage({ meta, recordMap }) {
           margin: '40px auto',
           padding: '0 16px',
           fontFamily:
-            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
         }}
       >
         <h1>{meta?.title || '文章加载失败'}</h1>
@@ -72,102 +85,161 @@ export default function PostPage({ meta, recordMap }) {
     );
   }
 
+  const categories = Array.isArray(meta.categories) ? meta.categories : [];
+  const tags = Array.isArray(meta.tags) ? meta.tags : [];
+
   return (
     <>
       <Head>
         <title>{meta.title}</title>
       </Head>
 
-      <main
-        style={{
-          maxWidth: '720px',
-          margin: '40px auto',
-          padding: '0 16px',
-          fontFamily:
-            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
-        }}
-      >
-        <article>
-          <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
-            {meta.title}
-          </h1>
-
-          {meta.date && (
-            <div
+      {/* 使用与你首页统一的 .page 布局，背景由全局 CSS 控制 */}
+      <main className="page">
+        {/* 顶部 Hero：标题 + 日期 + 分类、标签，风格统一 */}
+        <section
+          style={{
+            width: '100%',
+            padding: '2.4rem 2rem 1.6rem',
+            borderRadius: '40px',
+            border: '1px solid var(--border-color)',
+            background:
+              'linear-gradient(135deg, rgba(3, 48, 54, 0.98), rgba(3, 70, 76, 0.95))',
+            boxShadow: 'var(--shadow-soft)',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* 背景网格 */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+              opacity: 0.4,
+              pointerEvents: 'none',
+            }}
+          />
+          <div style={{ position: 'relative' }}>
+            {/* 标题 */}
+            <h1
               style={{
-                fontSize: '0.85rem',
-                color: '#666',
-                marginBottom: '1.5rem'
+                fontSize: 'clamp(2.0rem, 3.6vw, 2.6rem)',
+                margin: 0,
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                color: '#ffffff',
               }}
             >
-              {meta.date}
-            </div>
-          )}
+              {meta.title}
+            </h1>
 
-          {(meta.categories?.length || meta.tags?.length) && (
-            <section
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-                marginBottom: '1.5rem',
-                fontSize: '0.9rem',
-                color: '#444'
-              }}
-            >
-              {meta.categories?.length > 0 && (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '6px',
-                    alignItems: 'center'
-                  }}
-                >
-                  <span style={{ fontWeight: 600 }}>分类:</span>
-                  {meta.categories.map((cat) => (
+            {/* 日期 */}
+            {meta.date && (
+              <div
+                style={{
+                  marginTop: '1.1rem',
+                  fontSize: '0.95rem',
+                  letterSpacing: '0.18em',
+                  color: 'var(--text-secondary)',
+                }}
+              >
+                {formatDate(meta.date)}
+              </div>
+            )}
+
+            {/* 分类与标签区域：和正文风格统一 */}
+            {(categories.length || tags.length) > 0 && (
+              <section
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem',
+                  marginTop: '1.6rem',
+                  fontSize: '0.95rem',
+                  color: 'var(--text-secondary)',
+                }}
+              >
+                {/* 分类 */}
+                {categories.length > 0 && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '0.5rem',
+                      alignItems: 'center',
+                    }}
+                  >
                     <span
-                      key={cat.id}
                       style={{
-                        background: '#f0f4ff',
-                        padding: '2px 10px',
-                        borderRadius: '999px',
-                        color: '#fff' // 字体颜色改为纯白
+                        fontWeight: 600,
+                        color: 'var(--text-secondary)',
                       }}
                     >
-                      {cat.name}
+                      分类：
                     </span>
-                  ))}
-                </div>
-              )}
+                    {categories.map((cat) => (
+                      <span
+                        key={cat.id || cat.name}
+                        style={{
+                          padding: '4px 14px',
+                          borderRadius: '999px',
+                          border: '1px solid rgba(255,255,255,0.35)',
+                          background: 'rgba(255,255,255,0.09)',
+                          color: 'var(--text-secondary)',
+                          fontWeight: 500,
+                        }}
+                      >
+                        {cat.name}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
-              {meta.tags?.length > 0 && (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '6px',
-                    alignItems: 'center'
-                  }}
-                >
-                  <span style={{ fontWeight: 600 }}>标签:</span>
-                  {meta.tags.map((tag) => (
+                {/* 标签 */}
+                {tags.length > 0 && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: '0.5rem',
+                      alignItems: 'center',
+                    }}
+                  >
                     <span
-                      key={tag.id}
                       style={{
-                        background: '#f5f5f5',
-                        padding: '2px 10px',
-                        borderRadius: '4px'
+                        fontWeight: 600,
+                        color: 'var(--text-secondary)',
                       }}
                     >
-                      #{tag.name}
+                      标签：
                     </span>
-                  ))}
-                </div>
-              )}
-            </section>
-          )}
+                    {tags.map((tag) => (
+                      <span
+                        key={tag.id || tag.name}
+                        style={{
+                          padding: '3px 12px',
+                          borderRadius: '999px',
+                          border: '1px solid rgba(255,255,255,0.28)',
+                          background: 'rgba(255,255,255,0.06)',
+                          color: 'var(--text-secondary)',
+                          fontSize: '0.9rem',
+                        }}
+                      >
+                        #{tag.name}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </section>
+            )}
+          </div>
+        </section>
 
+        {/* 正文 Notion 内容，暗色卡片，与首页/列表统一 */}
+        <section className="notion">
           <NotionRenderer
             className="notion-only-body"
             recordMap={recordMap}
@@ -176,10 +248,10 @@ export default function PostPage({ meta, recordMap }) {
             disableHeader
             components={{
               Code,
-              Collection
+              Collection,
             }}
           />
-        </article>
+        </section>
       </main>
     </>
   );
