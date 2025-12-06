@@ -157,8 +157,7 @@ export default function PostPage({ meta, recordMap }) {
                       style={{
                         background: '#f5f5f5',
                         padding: '2px 10px',
-                        borderRadius: '4px',
-                        color: '#fff' // 字体颜色改为纯白
+                        borderRadius: '4px'
                       }}
                     >
                       #{tag.name}
