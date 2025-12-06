@@ -12,104 +12,92 @@ export async function getStaticProps() {
     props: {
       posts: pagePosts,
       currentPage: 1,
-      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
-    }
+      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
+    },
   };
 }
 
-export default function Home({ posts, currentPage, totalPages }) {
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  try {
+    return new Intl.DateTimeFormat('zh-CN', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date(dateString));
+  } catch {
+    return dateString;
+  }
+};
+
+const PostCard = ({ post }) => {
+  const slug = post.slug || post.rawId;
+  const href = `/${slug}/`;
+  const date = formatDate(post.date);
+  const tags = Array.isArray(post.tags) ? post.tags : [];
+
   return (
-    <main
-      style={{
-        maxWidth: '720px',
-        margin: '40px auto',
-        padding: '0 16px',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
-      }}
-    >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
+    <article className="post-card floating">
+      <Link href={href}>
+        <div className="post-card__inner">
+          <h2 className="post-title">{post.title || slug}</h2>
 
-      {(!posts || posts.length === 0) && (
-        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
-      )}
-
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => {
-          const slug = post.slug || post.rawId;
-          const href = `/${slug}/`;
-
-          return (
-            <li
-              key={post.id}
-              style={{
-                marginBottom: '1.5rem',
-                paddingBottom: '1rem',
-                borderBottom: '1px solid #eee'
-              }}
-            >
-              <Link
-                href={href}
-                style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  color: '#0070f3',
-                  textDecoration: 'none'
-                }}
-              >
-                {post.title || slug}
-              </Link>
-
-              {post.date && (
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#666',
-                    marginTop: '0.25rem'
-                  }}
-                >
-                  {post.date}
-                </div>
-              )}
-
-              {post.summary && (
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#444',
-                    marginTop: '0.5rem'
-                  }}
-                >
-                  {post.summary}
-                </p>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      {totalPages > 1 && (
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginTop: '2rem',
-            fontSize: '0.9rem'
-          }}
-        >
-          <div />
-          <div>
-            第 {currentPage} 页 / 共 {totalPages} 页
-          </div>
-          <div>
-            {currentPage < totalPages && (
-              <Link
-                href={`/page/${currentPage + 1}/`}
-                style={{ color: '#0070f3' }}
-              >
-                下一页
-              </Link>
+          <div className="post-meta">
+            {date && <span className="post-date">{date}</span>}
+            {tags.length > 0 && (
+              <div className="post-tags">
+                {tags.map((tag) => (
+                  <span key={tag} className="post-tag" data-tag={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             )}
           </div>
+
+          {post.summary && (
+            <p className="post-excerpt">{post.summary}</p>
+          )}
+        </div>
+      </Link>
+    </article>
+  );
+};
+
+export default function Home({ posts, currentPage, totalPages }) {
+  return (
+    <main className="page">
+      <section className="site-hero floating">
+        <h1 className="hero-title">
+          <span className="highlight">黑客驰 ·  Blog</span>
+        </h1>
+        <p>
+          专注安全研究、极客分享与实践笔记。
+        </p>
+      </section>
+
+      {posts.length === 0 ? (
+        <div className="empty-state">
+          暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
+        </div>
+      ) : (
+        <section className="posts-grid">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </section>
+      )}
+
+      {totalPages > 1 && (
+        <nav className="pagination">
+          <span className="pagination__info">
+            第 {currentPage} 页 / 共 {totalPages} 页
+          </span>
+          {currentPage < totalPages && (
+            <Link className="pagination__next" href={`/page/${currentPage + 1}/`}>
+              下一页 →
+            </Link>
+          )}
         </nav>
       )}
     </main>
