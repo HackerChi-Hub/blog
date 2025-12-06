@@ -3,6 +3,7 @@ import { getPosts, getNotices, getSubMenus } from '../lib/notion';
 
 const PAGE_SIZE = 20;
 const CATEGORY_FIELD = process.env.NEXT_PUBLIC_NOTION_PROPERTY_CATEGORY || 'category';
+const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 
 const heroPalette = {
   accent1: '#69f0ae',
@@ -278,38 +279,28 @@ const getPostCategories = (post, propertyName) => {
   return [];
 };
 
-const buildDynamicCategoryBuckets = (posts, propertyName) => {
+const buildFeaturedCategoryBuckets = (posts, propertyName, featuredNames) => {
   const map = new Map();
 
   posts.forEach((post) => {
     const categories = getPostCategories(post, propertyName);
     if (categories.length === 0) {
-      const fallback = '未分类';
-      if (!map.has(fallback)) map.set(fallback, []);
-      map.get(fallback).push(post);
+      if (!map.has('未分类')) map.set('未分类', []);
+      map.get('未分类').push(post);
       return;
     }
     categories.forEach((category) => {
-      const key = category || '未分类';
-      if (!map.has(key)) map.set(key, []);
-      map.get(key).push(post);
+      if (!map.has(category)) map.set(category, []);
+      map.get(category).push(post);
     });
   });
 
-  if (map.size === 0) {
-    return [{ name: '暂无分类', posts: [] }];
-  }
-
-  return Array.from(map.entries())
-    .map(([name, bucketPosts]) => ({
-      name,
-      posts: bucketPosts.sort(
-        (a, b) => new Date(b?.date || 0) - new Date(a?.date || 0)
-      ),
-    }))
-    .sort(
-      (a, b) => b.posts.length - a.posts.length || a.name.localeCompare(b.name)
-    );
+  return featuredNames.map((name) => ({
+    name,
+    posts: (map.get(name) || []).sort(
+      (a, b) => new Date(b?.date || 0) - new Date(a?.date || 0)
+    ),
+  }));
 };
 
 const PostCard = ({ post }) => {
@@ -386,7 +377,7 @@ const HeroSection = ({
           exploit feed，更有清晰可复现的策略路径。
         </p>
         <p style={heroStyles.hint}>
-          已识别 {categoryBuckets.length} 个「{categoryPropertyLabel}」分类，实时映射内容脉络。
+          锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
         </p>
 
         <div style={heroStyles.grid}>
@@ -541,7 +532,11 @@ export default function Home({
 }) {
   try {
     const showEmpty = posts.length === 0;
-    const categoryBuckets = buildDynamicCategoryBuckets(posts, CATEGORY_FIELD);
+    const categoryBuckets = buildFeaturedCategoryBuckets(
+      posts,
+      CATEGORY_FIELD,
+      FEATURED_CATEGORIES
+    );
 
     return (
       <main
