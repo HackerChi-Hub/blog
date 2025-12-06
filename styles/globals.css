@@ -348,6 +348,20 @@ img:hover {
   font-style: italic;
 }
 
+/* 文章详情页元信息 */
+.article-hero__meta,
+.article-hero__meta time,
+.article-hero__meta-label,
+.article-hero__tags,
+.article-hero__tags .tag {
+  color: #ffffff !important;
+}
+
+.article-hero__tags .tag {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
 /* 浮动动画 */
 .floating {
   animation: gentleFloat 6s ease-in-out infinite;
@@ -374,7 +388,6 @@ img:hover {
 
   .pagination {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .site-hero,
