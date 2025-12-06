@@ -1,4 +1,3 @@
-// pages/page/[page].js
 import Link from 'next/link';
 import { getPosts } from '../../lib/notion';
 
@@ -34,6 +33,19 @@ const normalizeSummary = (summary) => {
     return summary.plain_text || summary.text || JSON.stringify(summary);
   }
   return String(summary);
+};
+
+const resolveTags = (tags) => {
+  if (!Array.isArray(tags)) return [];
+  return tags
+    .map((tag) => {
+      if (typeof tag === 'string') return tag;
+      if (typeof tag === 'object') {
+        return tag.name || tag.plain_text || tag.id;
+      }
+      return '';
+    })
+    .filter(Boolean);
 };
 
 export async function getStaticPaths() {
@@ -99,106 +111,79 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
   const showEmpty = !posts || posts.length === 0;
 
   return (
-    <main
-      style={{
-        maxWidth: '720px',
-        margin: '40px auto',
-        padding: '0 16px',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-      }}
-    >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网 · 分页</h1>
+    <main className="page">
+      <section className="site-hero floating">
+        <h1 className="hero-title">黑客驰 · 全部文章</h1>
+        <p>
+          第 {currentPage} / {totalPages} 页 · 每页 {PAGE_SIZE} 篇。
+          浏览归档，保持与首页一致的沉浸式体验。
+        </p>
+      </section>
 
-      {errorMessage && (
-        <p style={{ color: '#d93025', fontWeight: 600, marginBottom: '1rem' }}>{errorMessage}</p>
-      )}
+      {errorMessage && <div className="empty-state">{errorMessage}</div>}
 
-      {showEmpty && <p>该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。</p>}
-
-      {!showEmpty && (
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+      {showEmpty ? (
+        <div className="empty-state">该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。</div>
+      ) : (
+        <section className="posts-grid">
           {posts.map((post) => {
-            const slug = post.slug || post.rawId;
+            const slug = post.slug || post.rawId || post.id;
             const href = `/${slug}/`;
-            const summaryText = normalizeSummary(post.summary);
+            const summaryText = normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
+            const tags = resolveTags(post.tags);
 
             return (
-              <li
-                key={post.id || slug}
-                style={{
-                  marginBottom: '1.5rem',
-                  paddingBottom: '1rem',
-                  borderBottom: '1px solid #eee',
-                }}
-              >
-                <Link
-                  href={href}
-                  style={{
-                    fontSize: '1.1rem',
-                    fontWeight: 600,
-                    color: '#0070f3',
-                    textDecoration: 'none',
-                  }}
-                >
-                  {post.title || slug}
-                </Link>
+              <article className="post-card" key={post.id || slug}>
+                <div className="post-card__inner">
+                  <Link href={href} className="post-title">
+                    {post.title || slug}
+                  </Link>
 
-                {post.date && (
-                  <div
-                    style={{
-                      fontSize: '0.85rem',
-                      color: '#666',
-                      marginTop: '0.25rem',
-                    }}
-                  >
-                    {formatDate(post.date)}
+                  <div className="post-meta">
+                    {post.date && <span className="post-date">{formatDate(post.date)}</span>}
+                    {tags.length > 0 && (
+                      <div className="post-tags">
+                        {tags.map((tag) => (
+                          <span className="post-tag" data-tag={tag} key={`${slug}-${tag}`}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
 
-                {summaryText && (
-                  <p
-                    style={{
-                      fontSize: '0.9rem',
-                      color: '#444',
-                      marginTop: '0.5rem',
-                    }}
-                  >
-                    {summaryText}
-                  </p>
-                )}
-              </li>
+                  {summaryText && <p className="post-excerpt">{summaryText}</p>}
+                </div>
+              </article>
             );
           })}
-        </ul>
+        </section>
       )}
 
       {!showEmpty && totalPages > 1 && (
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginTop: '2rem',
-            fontSize: '0.9rem',
-          }}
-        >
+        <nav className="pagination">
           <div>
-            {currentPage > 1 && (
+            {currentPage > 1 ? (
               <Link
+                className="pagination__next"
                 href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}/`}
-                style={{ color: '#0070f3' }}
               >
-                上一页
+                ← 上一页
               </Link>
+            ) : (
+              <span className="pagination__info">已是第一页</span>
             )}
           </div>
-          <div>
+          <div className="pagination__info">
             第 {currentPage} 页 / 共 {totalPages} 页
           </div>
           <div>
-            {currentPage < totalPages && (
-              <Link href={`/page/${currentPage + 1}/`} style={{ color: '#0070f3' }}>
-                下一页
+            {currentPage < totalPages ? (
+              <Link className="pagination__next" href={`/page/${currentPage + 1}/`}>
+                下一页 →
               </Link>
+            ) : (
+              <span className="pagination__info">已是最后一页</span>
             )}
           </div>
         </nav>
