@@ -107,6 +107,8 @@ export async function getStaticProps({ params }) {
   }
 }
 
+const DATE_AND_TAG_COLOR = '#fff';
+
 export default function PostListPage({ posts, currentPage, totalPages, errorMessage }) {
   const showEmpty = !posts || posts.length === 0;
 
@@ -170,11 +172,23 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
                   </Link>
 
                   <div className="post-meta">
-                    {post.date && <span className="post-date">{formatDate(post.date)}</span>}
+                    {post.date && (
+                      <span
+                        className="post-date"
+                        style={{ color: DATE_AND_TAG_COLOR }}
+                      >
+                        {formatDate(post.date)}
+                      </span>
+                    )}
                     {tags.length > 0 && (
                       <div className="post-tags">
                         {tags.map((tag) => (
-                          <span className="post-tag" data-tag={tag} key={`${slug}-${tag}`}>
+                          <span
+                            className="post-tag"
+                            data-tag={tag}
+                            key={`${slug}-${tag}`}
+                            style={{ color: DATE_AND_TAG_COLOR }}
+                          >
                             {tag}
                           </span>
                         ))}
