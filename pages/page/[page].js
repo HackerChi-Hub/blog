@@ -113,10 +113,40 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
   return (
     <main className="page">
       <section className="site-hero floating">
-        <h1 className="hero-title">黑客驰 · 全部文章</h1>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <h1 className="hero-title">黑客驰 · 全部文章</h1>
+          <Link
+            href="/"
+            className="hero-button"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              padding: '0.55rem 1.4rem',
+              borderRadius: '999px',
+              fontWeight: 600,
+              fontSize: '0.95rem',
+              color: '#03040a',
+              background: 'var(--accent-cyan)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              boxShadow: '0 10px 30px rgba(0, 229, 255, 0.3)',
+              transition: 'transform var(--transition-fast)',
+            }}
+          >
+            返回首页
+          </Link>
+        </div>
         <p>
           第 {currentPage} / {totalPages} 页 · 每页 {PAGE_SIZE} 篇。
-          浏览归档，保持与首页一致的沉浸式体验。
+          精彩依旧继续，我们等待着您。
         </p>
       </section>
 
