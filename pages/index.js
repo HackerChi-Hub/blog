@@ -1,4 +1,4 @@
-import Head from 'next/head';
+// pages/index.js
 import Link from 'next/link';
 import { getPosts } from '../lib/notion';
 
@@ -12,80 +12,106 @@ export async function getStaticProps() {
     props: {
       posts: pagePosts,
       currentPage: 1,
-      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
-    },
+      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
+    }
   };
 }
 
 export default function Home({ posts, currentPage, totalPages }) {
   return (
-    <>
-      <Head>
-        <title>黑客驰官网</title>
-        <meta
-          name="description"
-          content="黑客驰官网。"
-        />
-      </Head>
+    <main
+      style={{
+        maxWidth: '720px',
+        margin: '40px auto',
+        padding: '0 16px',
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+      }}
+    >
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
 
-      <main className="page">
-        <header className="site-hero floating">
-          <h1 className="hero-title">
-            <span className="highlight">黑客驰官网</span>
-          </h1>
-          <p>
-            分享安全研究、极客生活与前沿技术实践，记录每一次探索与突破。
-          </p>
-        </header>
+      {(!posts || posts.length === 0) && (
+        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
+      )}
 
-        {(!posts || posts.length === 0) && (
-          <p className="empty-state">
-            暂无文章，请检查 Notion 数据库的 type/status 设置。
-          </p>
-        )}
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {posts.map((post) => {
+          const slug = post.slug || post.rawId;
+          const href = `/${slug}/`;
 
-        {posts && posts.length > 0 && (
-          <section className="posts-grid">
-            {posts.map((post) => {
-              const slug = post.slug || post.rawId;
-              const href = `/${slug}/`;
-              return (
-                <article className="post-card floating" key={post.id}>
-                  <Link href={href} className="post-card__inner">
-                    <h2 className="post-title">{post.title || slug}</h2>
-                    <div className="post-meta">
-                      {post.date && <span className="post-date">{post.date}</span>}
-                      {post.tags?.length > 0 && (
-                        <div className="post-tags">
-                          {post.tags.map((tag) => (
-                            <span className="post-tag" data-tag={tag} key={`${post.id}-${tag}`}>
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    {post.summary && <p className="post-excerpt">{post.summary}</p>}
-                  </Link>
-                </article>
-              );
-            })}
-          </section>
-        )}
+          return (
+            <li
+              key={post.id}
+              style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}
+            >
+              <Link
+                href={href}
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  color: '#0070f3',
+                  textDecoration: 'none'
+                }}
+              >
+                {post.title || slug}
+              </Link>
 
-        {totalPages > 1 && (
-          <nav className="pagination">
-            <span className="pagination__info">
-              第 {currentPage} 页 / 共 {totalPages} 页
-            </span>
+              {post.date && (
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#666',
+                    marginTop: '0.25rem'
+                  }}
+                >
+                  {post.date}
+                </div>
+              )}
+
+              {post.summary && (
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#444',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {post.summary}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      {totalPages > 1 && (
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            fontSize: '0.9rem'
+          }}
+        >
+          <div />
+          <div>
+            第 {currentPage} 页 / 共 {totalPages} 页
+          </div>
+          <div>
             {currentPage < totalPages && (
-              <Link href={`/page/${currentPage + 1}/`} className="pagination__next">
+              <Link
+                href={`/page/${currentPage + 1}/`}
+                style={{ color: '#0070f3' }}
+              >
                 下一页
               </Link>
             )}
-          </nav>
-        )}
-      </main>
-    </>
+          </div>
+        </nav>
+      )}
+    </main>
   );
 }
