@@ -1,117 +1,207 @@
 // pages/index.js
+import Head from 'next/head';
 import Link from 'next/link';
+import { useMemo, useState } from 'react';
 import { getPosts } from '../lib/notion';
 
 const PAGE_SIZE = 20;
+const dateFormatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
+const formatDate = (iso) => (iso ? dateFormatter.format(new Date(iso)) : '日期待定');
 
 export async function getStaticProps() {
   const posts = await getPosts();
-  const pagePosts = posts.slice(0, PAGE_SIZE);
 
   return {
     props: {
-      posts: pagePosts,
-      currentPage: 1,
+      posts,
+      heroPost: posts[0] ?? null,
       totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
     }
   };
 }
 
-export default function Home({ posts, currentPage, totalPages }) {
+export default function Home({ posts, heroPost, totalPages }) {
+  const [query, setQuery] = useState('');
+  const [activeTag, setActiveTag] = useState('全部');
+
+  const tagStats = useMemo(() => {
+    const counter = new Map();
+    posts.forEach((post) => {
+      post.tags?.forEach((tag) => {
+        counter.set(tag.name, (counter.get(tag.name) || 0) + 1);
+      });
+    });
+
+    return Array.from(counter.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
+  }, [posts]);
+
+  const filteredPosts = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return posts.filter((post) => {
+      const content = `${post.title ?? ''} ${post.summary ?? ''}`.toLowerCase();
+      const tagMatch =
+        activeTag === '全部'
+          ? true
+          : post.tags?.some((tag) => tag.name === activeTag);
+
+      const queryMatch = normalizedQuery
+        ? content.includes(normalizedQuery) ||
+          post.tags?.some((tag) =>
+            tag.name.toLowerCase().includes(normalizedQuery)
+          )
+        : true;
+
+      return tagMatch && queryMatch;
+    });
+  }, [posts, query, activeTag]);
+
   return (
-    <main
-      style={{
-        maxWidth: '720px',
-        margin: '40px auto',
-        padding: '0 16px',
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
-      }}
-    >
-      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
+    <div className="page-shell">
+      <Head>
+        <title>HackerChi · Blog</title>
+        <meta
+          name="description"
+          content="基于全静态博客，提供沉浸式阅读与智能搜索体验。"
+        />
+      </Head>
 
-      {(!posts || posts.length === 0) && (
-        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
-      )}
+      <section className="hero">
+        <p className="hero__eyebrow">HACKERCHI JOURNAL</p>
+        <h1>灵感与洞察，在此汇聚。</h1>
+        <p className="hero__lead">
+          以苹果式的克制与优雅呈现内容，
+          帮助你专注于文字与想法本身。
+        </p>
 
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-        {posts.map((post) => {
-          const slug = post.slug || post.rawId;
-          const href = `/${slug}/`;
+        {heroPost && (
+          <div className="hero__highlight">
+            <p>最新发布</p>
+            <Link href={`/${heroPost.slug || heroPost.rawId}/`}>
+              {heroPost.title || '未命名文章'}
+            </Link>
+            {heroPost.date && <span>{formatDate(heroPost.date)}</span>}
+          </div>
+        )}
 
-          return (
-            <li
-              key={post.id}
-              style={{
-                marginBottom: '1.5rem',
-                paddingBottom: '1rem',
-                borderBottom: '1px solid #eee'
-              }}
+        <div className="hero__cta">
+          <a className="btn btn--primary" href="#search">
+            立即探索
+          </a>
+          <Link className="btn btn--ghost" href="/page/1/">
+            查看归档
+          </Link>
+        </div>
+      </section>
+
+      <section id="search" className="search-panel">
+        <div className="search-panel__input">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ color: 'var(--muted)' }}
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="search"
+            placeholder="搜索文章、标签或摘要……"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </div>
+
+        {tagStats.length > 0 && (
+          <div className="search-panel__chips">
+            <button
+              type="button"
+              className={`chip ${activeTag === '全部' ? 'chip--active' : ''}`}
+              onClick={() => setActiveTag('全部')}
             >
-              <Link
-                href={href}
-                style={{
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  color: '#0070f3',
-                  textDecoration: 'none'
-                }}
+              全部
+              <span>{posts.length}</span>
+            </button>
+            {tagStats.map((tag) => (
+              <button
+                key={tag.name}
+                type="button"
+                className={`chip ${activeTag === tag.name ? 'chip--active' : ''}`}
+                onClick={() => setActiveTag(tag.name)}
               >
-                {post.title || slug}
-              </Link>
-
-              {post.date && (
-                <div
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#666',
-                    marginTop: '0.25rem'
-                  }}
-                >
-                  {post.date}
-                </div>
-              )}
-
-              {post.summary && (
-                <p
-                  style={{
-                    fontSize: '0.9rem',
-                    color: '#444',
-                    marginTop: '0.5rem'
-                  }}
-                >
-                  {post.summary}
-                </p>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-
-      {totalPages > 1 && (
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginTop: '2rem',
-            fontSize: '0.9rem'
-          }}
-        >
-          <div />
-          <div>
-            第 {currentPage} 页 / 共 {totalPages} 页
+                {tag.name}
+                <span>{tag.count}</span>
+              </button>
+            ))}
           </div>
+        )}
+      </section>
+
+      <section>
+        <div className="section-heading">
           <div>
-            {currentPage < totalPages && (
-              <Link
-                href={`/page/${currentPage + 1}/`}
-                style={{ color: '#0070f3' }}
-              >
-                下一页
-              </Link>
-            )}
+            <h2>精选内容</h2>
+            <p>共 {filteredPosts.length} 篇文章符合当前筛选。</p>
           </div>
-        </nav>
-      )}
-    </main>
+
+          {totalPages > 1 && (
+            <Link href="/page/2/" className="cta-link">
+              浏览全部
+            </Link>
+          )}
+        </div>
+
+        {filteredPosts.length === 0 ? (
+          <div className="empty-state">
+            尚无匹配的文章，请尝试调整关键词或标签筛选。
+          </div>
+        ) : (
+          <div className="post-grid">
+            {filteredPosts.map((post) => {
+              const href = `/${post.slug || post.rawId}/`;
+
+              return (
+                <article key={post.id} className="post-card">
+                  <div className="post-card__meta">
+                    {post.date && <span>{formatDate(post.date)}</span>}
+                    {post.categories?.slice(0, 1).map((cat) => (
+                      <span key={cat.id} className="pill">
+                        {cat.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link href={href}>
+                    <h3 className="post-card__title">
+                      {post.title || post.slug}
+                    </h3>
+                  </Link>
+
+                  {post.summary && (
+                    <p className="post-card__summary">{post.summary}</p>
+                  )}
+
+                  {post.tags?.length > 0 && (
+                    <div className="post-card__meta">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span key={tag.id}>#{tag.name}</span>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </section>
+    </div>
   );
 }
