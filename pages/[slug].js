@@ -131,7 +131,7 @@ export default function PostPage({ meta, recordMap }) {
                       style={{
                         background: '#f0f4ff',
                         padding: '2px 10px',
-                        borderRadius: '999px'
+                        borderRadius: '999px',
                         color: '#fff' // 字体颜色改为纯白
                       }}
                     >
@@ -157,7 +157,7 @@ export default function PostPage({ meta, recordMap }) {
                       style={{
                         background: '#f5f5f5',
                         padding: '2px 10px',
-                        borderRadius: '4px'
+                        borderRadius: '4px',
                         color: '#fff' // 字体颜色改为纯白
                       }}
                     >
