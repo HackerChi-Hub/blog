@@ -40,7 +40,8 @@ body {
   padding: 0;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', 'SF Pro Display', 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', 'SF Pro Display', 'SF Pro Text', 'Segoe UI', system-ui,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
@@ -71,15 +72,16 @@ a:hover {
   color: var(--accent-green);
 }
 
+/* 全局图片样式：稍微收敛，避免“太重”影响观感 */
 img {
   max-width: 100%;
   height: auto;
   display: block;
   border-radius: clamp(18px, 2vw, var(--radius-lg));
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(6, 12, 24, 0.82);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-  padding: 6px;
+  padding: 0;
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
@@ -87,10 +89,20 @@ img {
 }
 
 img:hover {
-  border: 2px solid var(--border-strong);
+  border-color: var(--border-strong);
   box-shadow: 0 30px 60px rgba(0, 229, 255, 0.22);
   transform: translateY(-2px);
 }
+
+/* 只想在正文里再细化的话，可以用 .notion img 单独控制 */
+/*
+.notion img {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
+}
+*/
 
 .page {
   width: min(1200px, 100%);
@@ -115,7 +127,11 @@ img:hover {
   padding: clamp(2.8rem, 5vw, 4.2rem);
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-color);
-  background: linear-gradient(135deg, rgba(6, 10, 20, 0.98), rgba(3, 22, 32, 0.96));
+  background: linear-gradient(
+    135deg,
+    rgba(6, 10, 20, 0.98),
+    rgba(3, 22, 32, 0.96)
+  );
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
@@ -174,7 +190,11 @@ img:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(105, 240, 174, 0.14), rgba(0, 229, 255, 0.12));
+  background: linear-gradient(
+    135deg,
+    rgba(105, 240, 174, 0.14),
+    rgba(0, 229, 255, 0.12)
+  );
   opacity: 0;
   transition: opacity var(--transition-normal);
   pointer-events: none;
@@ -216,7 +236,7 @@ img:hover {
   font-weight: 500;
 }
 
-/* 日期：改为使用次级文本色，统一风格 */
+/* 日期：使用次级文本色，统一风格 */
 .post-date {
   letter-spacing: 0.08em;
   font-weight: 600;
@@ -230,7 +250,7 @@ img:hover {
   flex-wrap: wrap;
 }
 
-/* 标签：文字改为次级文本色，背景保留轻微亮度 */
+/* 标签：次级文字色 + 轻微背景 */
 .post-tag {
   padding: 0.28rem 0.9rem;
   border-radius: 999px;
@@ -241,7 +261,6 @@ img:hover {
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-/* 特定类别标签仍有色彩差异，但文字颜色统一为次级文本色 */
 .post-tag[data-tag='Design'] {
   background: rgba(255, 179, 71, 0.16);
   color: var(--text-secondary);
@@ -260,7 +279,7 @@ img:hover {
   border-color: rgba(105, 240, 174, 0.4);
 }
 
-/* 列表中的摘要：改为次级文字色，与元信息相近 */
+/* 列表中的摘要 */
 .post-excerpt {
   margin: 0.25rem 0 0;
   color: var(--text-secondary);
@@ -297,7 +316,7 @@ img:hover {
   transform: translateX(4px);
 }
 
-/* Notion 内容区 */
+/* Notion 内容区：文章正文容器 */
 .notion {
   background: var(--panel-primary);
   border-radius: var(--radius-lg);
@@ -343,7 +362,8 @@ img:hover {
   border-radius: var(--radius-md);
   background: #0d1117;
   color: #f6f8fa;
-  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono',
+    monospace;
   padding: 1rem 1.25rem;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
@@ -354,17 +374,15 @@ img:hover {
   font-style: italic;
 }
 
-/* 文章详情页元信息（分类 / 标签 / 时间 等） */
+/* 文章详情页元信息（如以后需要用类选择器时可以复用） */
 .article-hero__meta,
 .article-hero__meta time,
 .article-hero__meta-label,
 .article-hero__tags,
 .article-hero__tags .tag {
-  /* 由原来的纯白 #ffffff 改为统一次级文本色，便于与正文区分 */
   color: var(--text-secondary) !important;
 }
 
-/* 详情页标签的背景 & 边框仍保持高亮感 */
 .article-hero__tags .tag {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.35);
