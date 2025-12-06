@@ -15,6 +15,16 @@ const heroPalette = {
   panelAccent: 'rgba(4, 18, 26, 0.9)',
 };
 
+const feedPalette = {
+  background: 'rgba(8, 14, 26, 0.82)',
+  border: 'rgba(255, 255, 255, 0.14)',
+  hoverBorder: 'rgba(105, 240, 174, 0.55)',
+  title: '#f8fbff',
+  meta: 'rgba(196, 208, 233, 0.8)',
+  excerpt: 'rgba(226, 236, 255, 0.9)',
+  badge: 'rgba(0, 229, 255, 0.12)',
+};
+
 const heroStyles = {
   wrapper: {
     borderRadius: '34px',
@@ -183,6 +193,91 @@ const heroStyles = {
   layerLinkLabel: { color: heroPalette.text, fontSize: '1rem' },
 };
 
+const feedStyles = `
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1.8rem, 3vw, 2.8rem);
+}
+.feed-card {
+  border-radius: 28px;
+  border: 1px solid ${feedPalette.border};
+  background: ${feedPalette.background};
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: border-color 220ms ease, transform 320ms ease, box-shadow 320ms ease;
+}
+.feed-card:hover {
+  border-color: ${feedPalette.hoverBorder};
+  transform: translateY(-6px);
+  box-shadow: 0 38px 90px rgba(0, 229, 255, 0.25);
+}
+.feed-card__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.post-cover img {
+  width: 100%;
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+.feed-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.5rem;
+}
+.feed-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${feedPalette.meta};
+  font-size: 0.9rem;
+}
+.feed-card__tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.feed-card__tags span {
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: ${feedPalette.badge};
+  font-size: 0.82rem;
+}
+.feed-card__title {
+  font-size: 1.4rem;
+  margin: 0;
+  color: ${feedPalette.title};
+}
+.feed-card__excerpt {
+  margin: 0;
+  color: ${feedPalette.excerpt};
+  line-height: 1.6;
+}
+.feed-card__foot {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${heroPalette.accent1};
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .feed-card {
+    border-radius: 22px;
+  }
+}
+`;
+
 const formatDate = (dateString) => {
   if (!dateString) return '';
   try {
@@ -227,10 +322,8 @@ const normalizeSummary = (summary) => {
   return String(summary);
 };
 
-const truncateText = (text, maxLength = 72) => {
-  if (!text) return '';
-  return text.length > maxLength ? `${text.slice(0, maxLength)}…` : text;
-};
+const truncateText = (text, maxLength = 80) =>
+  text && text.length > maxLength ? `${text.slice(0, maxLength)}…` : text || '';
 
 const normalizeCategoryValue = (value) => {
   if (!value) return [];
@@ -303,37 +396,61 @@ const buildFeaturedCategoryBuckets = (posts, propertyName, featuredNames) => {
   }));
 };
 
+const PostCover = ({ cover }) => {
+  if (!cover) return null;
+  const src = typeof cover === 'string' ? cover : cover.url || cover.src;
+  if (!src) return null;
+
+  return (
+    <div className="post-cover">
+      <img src={src} alt="" loading="lazy" />
+    </div>
+  );
+};
+
 const PostCard = ({ post }) => {
   const slug = post.slug || post.rawId;
   const href = `/${slug}/`;
   const date = formatDate(post.date);
   const tags = Array.isArray(post.tags) ? post.tags : [];
-  const summaryText = normalizeSummary(post.summary);
+  const summaryText = truncateText(normalizeSummary(post.summary), 140);
 
   return (
-    <article className="post-card floating">
+    <article className="feed-card">
       <Link href={href}>
-        <div className="post-card__inner">
-          <h2 className="post-title">{post.title || slug}</h2>
+        <div className="feed-card__inner">
+          <PostCover cover={post.cover || post.thumbnail || post.heroImage} />
 
-          <div className="post-meta">
-            {date && <span className="post-date">{date}</span>}
-            {tags.length > 0 && (
-              <div className="post-tags">
-                {tags.map((tag) => (
-                  <span
-                    key={tag.id || tag.name || tag}
-                    className="post-tag"
-                    data-tag={tag.name || tag}
-                  >
-                    {tag.name || tag}
-                  </span>
-                ))}
-              </div>
-            )}
+          <div className="feed-card__body">
+            <div className="feed-card__meta">
+              {date && <span className="feed-card__date">{date}</span>}
+              {tags.length > 0 && (
+                <div className="feed-card__tags">
+                  {tags.slice(0, 2).map((tag) => (
+                    <span key={tag.id || tag.name || tag}>{tag.name || tag}</span>
+                  ))}
+                  {tags.length > 2 && <span>+{tags.length - 2}</span>}
+                </div>
+              )}
+            </div>
+
+            <h2 className="feed-card__title">{post.title || slug}</h2>
+
+            {summaryText && <p className="feed-card__excerpt">{summaryText}</p>}
+
+            <div className="feed-card__foot">
+              <span className="feed-card__cta">READ</span>
+              <svg width="28" height="12" viewBox="0 0 28 12" fill="none">
+                <path
+                  d="M0 6h26m0 0-4-4m4 4-4 4"
+                  stroke="#69f0ae"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
-
-          {summaryText && <p className="post-excerpt">{summaryText}</p>}
         </div>
       </Link>
     </article>
@@ -486,23 +603,29 @@ const HeroSection = ({
 
 export async function getStaticProps() {
   try {
-    const [posts, notices, subMenus] = await Promise.all([
+    const [allPosts, notices, subMenus] = await Promise.all([
       getPosts(),
       getNotices(4),
       getSubMenus(3),
     ]);
 
-    const pagePosts = posts.slice(0, PAGE_SIZE);
+    const pagePosts = allPosts.slice(0, PAGE_SIZE);
+    const categoryBuckets = buildFeaturedCategoryBuckets(
+      allPosts,
+      CATEGORY_FIELD,
+      FEATURED_CATEGORIES
+    );
 
     return {
       props: {
         posts: pagePosts,
         notices,
         subMenus,
+        categoryBuckets,
         currentPage: 1,
-        totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
+        totalPages: Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE)),
         errorMessage:
-          posts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
+          allPosts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
       },
     };
   } catch (error) {
@@ -512,6 +635,10 @@ export async function getStaticProps() {
         posts: [],
         notices: [],
         subMenus: [],
+        categoryBuckets: FEATURED_CATEGORIES.map((name) => ({
+          name,
+          posts: [],
+        })),
         currentPage: 1,
         totalPages: 1,
         errorMessage:
@@ -526,17 +653,13 @@ export default function Home({
   posts,
   notices,
   subMenus,
+  categoryBuckets,
   currentPage,
   totalPages,
   errorMessage,
 }) {
   try {
     const showEmpty = posts.length === 0;
-    const categoryBuckets = buildFeaturedCategoryBuckets(
-      posts,
-      CATEGORY_FIELD,
-      FEATURED_CATEGORIES
-    );
 
     return (
       <main
@@ -547,6 +670,8 @@ export default function Home({
           padding: '48px 20px',
         }}
       >
+        <style>{feedStyles}</style>
+
         <HeroSection
           notices={notices}
           subMenus={subMenus}
@@ -565,7 +690,7 @@ export default function Home({
             暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
           </div>
         ) : (
-          <section className="posts-grid">
+          <section className="feed-grid">
             {posts.map((post) => (
               <PostCard key={post.id || post.slug || post.rawId} post={post} />
             ))}
@@ -593,7 +718,7 @@ export default function Home({
         <HeroSection
           notices={notices}
           subMenus={subMenus}
-          categoryBuckets={[]}
+          categoryBuckets={categoryBuckets || []}
           categoryPropertyLabel={CATEGORY_FIELD}
         />
         <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
