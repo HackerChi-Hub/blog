@@ -52,26 +52,40 @@ const heroStyles = {
     gap: '8px',
     borderRadius: '999px',
     border: `1px solid ${heroPalette.accent1}80`,
-    padding: '6px 16px',
-    fontSize: '0.85rem',
-    letterSpacing: '0.08em',
+    padding: '8px 20px',
+    fontSize: '0.9rem',
+    letterSpacing: '0.1em',
     textTransform: 'uppercase',
     color: heroPalette.accent1,
     background: `${heroPalette.accent1}1f`,
-    marginBottom: '18px',
+    // 放大一点并加一点上/下间距
+    marginBottom: '20px',
   },
-  title: {
-    fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
-    margin: '0 0 16px',
-    lineHeight: 1.25,
+  // 新增：标题行容器
+  titleRow: {
+    display: 'flex',
+    alignItems: 'baseline',
+    flexWrap: 'wrap',
+    gap: '12px',
+    marginBottom: '14px',
+  },
+  siteTitle: {
+    fontSize: 'clamp(2.4rem, 5vw, 3.4rem)', // 大字号主标题：黑客驰 · 官网
+    lineHeight: 1.2,
+    fontWeight: 700,
     color: heroPalette.text,
   },
-  titleAccent: {
+  subTitle: {
+    fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', // 较小副标题：分享 / 探索 / 进取
+    fontWeight: 500,
+    color: heroPalette.text,
+  },
+  subTitleAccent: {
     display: 'inline-block',
-    padding: '4px 16px',
-    borderRadius: '18px',
+    padding: '4px 14px',
+    borderRadius: '999px',
     background:
-      'linear-gradient(120deg, rgba(105,240,174,0.25), rgba(0,229,255,0.3))',
+      'linear-gradient(120deg, rgba(105,240,174,0.18), rgba(0,229,255,0.22))',
   },
   paragraph: {
     margin: 0,
