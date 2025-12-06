@@ -1,52 +1,117 @@
 // pages/index.js
 import Link from 'next/link';
-import { getAllPosts, getMenus } from '../lib/notion';
+import { getPosts } from '../lib/notion';
+
+const PAGE_SIZE = 20;
 
 export async function getStaticProps() {
-  const { pinPosts, normalPosts } = await getAllPosts();
-  const menus = await getMenus();
-  return { props: { pinPosts, normalPosts, menus } };
+  const posts = await getPosts();
+  const pagePosts = posts.slice(0, PAGE_SIZE);
+
+  return {
+    props: {
+      posts: pagePosts,
+      currentPage: 1,
+      totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE))
+    }
+  };
 }
 
-export default function Home({ pinPosts, normalPosts, menus }) {
+export default function Home({ posts, currentPage, totalPages }) {
   return (
-    <div className="container">
-      {/* 顶部菜单 */}
-      <nav className="topnav">
-        <Link href="/"><b>首页</b></Link>
-        {menus.map(menu => (
-          <Link key={menu.slug} href={`/page/${menu.slug}`}>{menu.title}</Link>
-        ))}
-      </nav>
+    <main
+      style={{
+        maxWidth: '720px',
+        margin: '40px auto',
+        padding: '0 16px',
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif'
+      }}
+    >
+      <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>黑客驰官网</h1>
 
-      <h2>置顶文章</h2>
-      <ul>
-        {pinPosts.map(post => (
-          <li key={post.slug}>
-            <Link href={`/page/${post.slug}`}>{post.title}</Link>
-            <span className="cat">{post.category.join(', ')}</span>
-            <span className="date">{post.date}</span>
-          </li>
-        ))}
+      {(!posts || posts.length === 0) && (
+        <p>暂无文章，请检查 Notion 数据库的 type/status 设置。</p>
+      )}
+
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {posts.map((post) => {
+          const slug = post.slug || post.rawId;
+          const href = `/${slug}/`;
+
+          return (
+            <li
+              key={post.id}
+              style={{
+                marginBottom: '1.5rem',
+                paddingBottom: '1rem',
+                borderBottom: '1px solid #eee'
+              }}
+            >
+              <Link
+                href={href}
+                style={{
+                  fontSize: '1.1rem',
+                  fontWeight: 600,
+                  color: '#0070f3',
+                  textDecoration: 'none'
+                }}
+              >
+                {post.title || slug}
+              </Link>
+
+              {post.date && (
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#666',
+                    marginTop: '0.25rem'
+                  }}
+                >
+                  {post.date}
+                </div>
+              )}
+
+              {post.summary && (
+                <p
+                  style={{
+                    fontSize: '0.9rem',
+                    color: '#444',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {post.summary}
+                </p>
+              )}
+            </li>
+          );
+        })}
       </ul>
-      <h2>全部文章</h2>
-      <ul>
-        {normalPosts.map(post => (
-          <li key={post.slug}>
-            <Link href={`/page/${post.slug}`}>{post.title}</Link>
-            <span className="cat">{post.category.join(', ')}</span>
-            <span className="date">{post.date}</span>
-          </li>
-        ))}
-      </ul>
-      <style jsx>{`
-        .container { max-width: 880px; margin: 0 auto; }
-        .topnav { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid #eee;}
-        ul { padding-left: 0; }
-        li { list-style: none; margin-bottom: 6px;}
-        .cat { margin-left: 10px; color: #b27aff;}
-        .date { margin-left: 10px; color: #aaa;}
-      `}</style>
-    </div>
+
+      {totalPages > 1 && (
+        <nav
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            fontSize: '0.9rem'
+          }}
+        >
+          <div />
+          <div>
+            第 {currentPage} 页 / 共 {totalPages} 页
+          </div>
+          <div>
+            {currentPage < totalPages && (
+              <Link
+                href={`/page/${currentPage + 1}/`}
+                style={{ color: '#0070f3' }}
+              >
+                下一页
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
+    </main>
   );
 }
