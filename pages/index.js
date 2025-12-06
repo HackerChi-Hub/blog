@@ -1,11 +1,8 @@
-// pages/index.js
 import Link from 'next/link';
 import { getPosts, getNotices, getSubMenus } from '../lib/notion';
 
 const PAGE_SIZE = 20;
-
 const CATEGORY_FIELD = process.env.NEXT_PUBLIC_NOTION_PROPERTY_CATEGORY || 'category';
-const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 
 const heroPalette = {
   accent1: '#69f0ae',
@@ -70,6 +67,11 @@ const heroStyles = {
     fontSize: '1rem',
     lineHeight: 1.7,
     maxWidth: '720px',
+  },
+  hint: {
+    marginTop: '14px',
+    color: heroPalette.muted,
+    fontSize: '0.95rem',
   },
   grid: {
     display: 'grid',
@@ -276,25 +278,38 @@ const getPostCategories = (post, propertyName) => {
   return [];
 };
 
-const buildCategoryBuckets = (posts, propertyName, targetCategories) => {
+const buildDynamicCategoryBuckets = (posts, propertyName) => {
   const map = new Map();
 
   posts.forEach((post) => {
     const categories = getPostCategories(post, propertyName);
+    if (categories.length === 0) {
+      const fallback = '未分类';
+      if (!map.has(fallback)) map.set(fallback, []);
+      map.get(fallback).push(post);
+      return;
+    }
     categories.forEach((category) => {
-      if (!map.has(category)) {
-        map.set(category, []);
-      }
-      map.get(category).push(post);
+      const key = category || '未分类';
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(post);
     });
   });
 
-  return targetCategories.map((category) => ({
-    name: category,
-    posts: (map.get(category) || []).sort(
-      (a, b) => new Date(b?.date || 0) - new Date(a?.date || 0)
-    ),
-  }));
+  if (map.size === 0) {
+    return [{ name: '暂无分类', posts: [] }];
+  }
+
+  return Array.from(map.entries())
+    .map(([name, bucketPosts]) => ({
+      name,
+      posts: bucketPosts.sort(
+        (a, b) => new Date(b?.date || 0) - new Date(a?.date || 0)
+      ),
+    }))
+    .sort(
+      (a, b) => b.posts.length - a.posts.length || a.name.localeCompare(b.name)
+    );
 };
 
 const PostCard = ({ post }) => {
@@ -369,6 +384,9 @@ const HeroSection = ({
         <p style={heroStyles.paragraph}>
           将实战指标、终端日志与三层攻防结构融为一体。这里既有冷静的数据面板，也有实时滚动的
           exploit feed，更有清晰可复现的策略路径。
+        </p>
+        <p style={heroStyles.hint}>
+          已识别 {categoryBuckets.length} 个「{categoryPropertyLabel}」分类，实时映射内容脉络。
         </p>
 
         <div style={heroStyles.grid}>
@@ -523,11 +541,7 @@ export default function Home({
 }) {
   try {
     const showEmpty = posts.length === 0;
-    const categoryBuckets = buildCategoryBuckets(
-      posts,
-      CATEGORY_FIELD,
-      FEATURED_CATEGORIES
-    );
+    const categoryBuckets = buildDynamicCategoryBuckets(posts, CATEGORY_FIELD);
 
     return (
       <main
