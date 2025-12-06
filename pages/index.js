@@ -534,7 +534,7 @@ const HeroSection = ({
         <div style={heroStyles.badge}>黑客驰 · 官网</div>
         <h1 style={heroStyles.title}>
           <span style={heroStyles.titleAccent}>
-            黑客驰：分享 / 探索 / 进取
+            分享 / 探索 / 进取
           </span>
         </h1>
         <p style={heroStyles.paragraph}>
