@@ -1,100 +1,96 @@
-# Notion Blog 
-基于 Next.js 14 与 Notion API 构建的静态博客，支持一键导出纯静态文件，方便部署到各类静态托管平台。
----
-## 简介
-- 使用 Notion 作为 CMS：通过 `@notionhq/client` + `react-notion-x` 渲染内容  
-- 利用 Next.js `output: 'export'`，构建后直接得到 `out` 静态目录  
-- 支持文章详情、分页列表、自定义 404 等常见博客功能  
-- 基于 Next.js 14 与 React 18，享受最新特性与性能优化  
+# Notion Blog
+
+> 基于 **Next.js 14 + Notion API** 的纯静态博客方案，支持一键导出 `out` 目录，零后端部署到任意静态托管平台。
+
 ---
 
-## 特性一览
-- **Notion 作为内容源**  
-  - 使用官方 Notion API 读取数据库内容  
-  - 通过 `react-notion-x` 尽可能还原 Notion 页面样式  
+## ✨ 核心特性
 
-- **纯静态导出**  
-  - 无需额外执行 `next export`  
-  - `npm run build` 完成后即在 `./out` 目录中生成所有静态文件  
+- **Notion 即 CMS**
+  - 使用官方 `@notionhq/client` 读取数据库
+  - 结合 `react-notion-x` 尽可能还原 Notion 原貌
 
-- **路由设计**  
+- **天然纯静态**
+  - `next.config.mjs` 已配置 `output: 'export'`
+  - 运行 `npm run build` 即生成可直接发布的 `./out` 目录
+
+- **完整路由体系**
   - `/`：文章列表首页  
   - `/page/[page]`：分页列表  
-  - `/[slug]`：文章详情页  
-  - `/404`：自定义 404 页面  
+  - `/[slug]`：文章详情  
+  - `/404`：自定义 404 页面
 
-- **现代技术栈**  
-  - Next.js 14、React 18  
-  - 更好的性能和开发体验  
+- **现代技术栈**
+  - Next.js 14 + React 18
+  - 享受最新性能与开发体验
 
 ---
 
-## 目录结构
+## 📁 目录结构
 
 ```text
 .
 ├── lib
-│   ├── config.js        # 站点配置（Notion 数据库 ID、站点信息等）
-│   └── notion.js        # Notion API 相关封装
-├── next.config.mjs      # Next.js 配置，启用静态导出 (output: 'export')
-├── package.json         # 项目依赖与脚本
+│   ├── config.js        # 站点配置（标题、描述、社交链接、Notion ID 等）
+│   └── notion.js        # Notion API 封装
+├── next.config.mjs      # Next.js 配置，启用静态导出
+├── package.json         # 脚本与依赖
 └── pages
-    ├── 404.js           # 自定义 404 页面
-    ├── index.js         # 首页（文章列表）
-    ├── page/[page].js   # 分页路由
-    └── [slug].js        # 文章详情页
+    ├── 404.js           # 自定义 404
+    ├── index.js         # 首页
+    ├── page/[page].js   # 分页列表
+    └── [slug].js        # 文章详情
 ```
 
 ---
 
-## 环境要求
+## ⚙️ 环境要求
 
-- Node.js ≥ 18  
-- Notion Internal Integration Token  
-- 已授权给该集成的 Notion 数据库（作为文章源）  
+- Node.js ≥ 18
+- Notion Internal Integration Token
+- 已授权给该集成的 Notion 数据库
 
 ---
 
-## 配置步骤
+## 🚀 配置流程
 
 ### 1. 创建 Notion 集成
 
-1. 访问 Notion Integrations：<https://www.notion.so/my-integrations>  
-2. 创建 **Internal Integration**  
-3. 记录生成的 **Internal Integration Token**  
+1. 访问 <https://www.notion.so/my-integrations>（需启用 JavaScript 才能继续）
+2. 创建 **Internal Integration**
+3. 记录生成的 **Internal Integration Token**
 
 ### 2. 准备 Notion 数据库
 
-1. 在 Notion 中创建一个数据库，作为文章列表  
-2. 建议字段（可按需增减）：  
-   - `Name`：文章标题（必需）  
-   - `Slug`：用于生成 `/[slug]` 路由  
-   - `Published`：是否发布（布尔值）  
-   - `Date`：发布时间  
-   - `Tags`：标签  
-3. 将数据库分享给刚创建的集成：  
-   - 打开数据库 → 右上角 **Share** → 邀请你的 Integration  
+1. 新建一个数据库作为文章源
+2. 推荐字段（可增删）：
+   - `Name`：文章标题（必填）
+   - `Slug`：生成 `/[slug]` 路由
+   - `Published`：布尔，控制发布状态
+   - `Date`：发布日期
+   - `Tags`：多选标签
+3. 将数据库分享给刚创建的集成（Share → Invite）
 
 ### 3. 配置环境变量
 
-在项目根目录新建 `.env.local` 文件，填入：
+在项目根目录创建 `.env.local`：
 
 ```bash
-NOTION_TOKEN=secret_xxx              # Notion Integration Token
-NOTION_DATABASE_ID=xxxxxxxxxxxxxxxx  # 数据库 ID，可从分享链接解析
+NOTION_TOKEN=secret_xxx
+NOTION_DATABASE_ID=xxxxxxxxxxxxxxxx
 ```
 
-站点基础信息（标题、副标题、社交链接等）可在 `lib/config.js` 中修改。
+站点文案与链接可在 `lib/config.js` 调整。
 
 ---
 
-## 快速开始
+## 🛠️ 快速开始
 
 ```bash
 # 安装依赖
 npm install
 
-# 本地开发（默认 http://localhost:3000）
+# 本地开发 (http://localhost:3000)
 npm run dev
 
 # 构建静态文件（输出到 ./out）
@@ -104,36 +100,39 @@ npm run build
 npm run start
 ```
 
-说明：`next.config.mjs` 已启用 `output: 'export'`，执行 `npm run build` 即可生成可直接部署的 `out` 目录。
+> 因已启用 `output: 'export'`，无需额外执行 `next export`。
 
 ---
 
-## 部署指南
+## 📦 部署指南
 
-构建命令统一为：`npm run build`  
-输出目录统一为：`out`  
-
-| 平台                         | 构建命令      | 输出目录 | 备注                                                   |
-| ---------------------------- | ------------- | -------- | ------------------------------------------------------ |
-| GitHub Pages                 | npm run build | out      | 可使用 GitHub Actions 构建并推送到 `gh-pages` 分支    |
-| Vercel（静态模式）           | npm run build | out      | 新建项目时选择 Other，指定静态输出目录为 `out`        |
-| Cloudflare Pages             | npm run build | out      | 构建命令与发布目录都使用默认值即可                    |
-| Netlify / Render 等平台     | npm run build | out      | 在平台设置中指定构建命令和发布目录                    |
-| 自托管（Nginx / OSS / 其他） | npm run build | out      | 将 `out` 上传至服务器或对象存储作为站点根目录即可     |
+| 平台                         | 构建命令      | 输出目录 | 备注                                  |
+| ---------------------------- | ------------- | -------- | ------------------------------------- |
+| GitHub Pages                 | npm run build | out      | 可用 GitHub Actions 推送到 `gh-pages` |
+| Vercel（静态）               | npm run build | out      | 新建项目选择 Other，输出目录填 `out`  |
+| Cloudflare Pages             | npm run build | out      | 使用默认构建命令与目录即可            |
+| Netlify / Render / 其他平台 | npm run build | out      | 后台指定构建命令与发布目录            |
+| 自托管（Nginx / OSS 等）    | npm run build | out      | 将 `out` 上传为站点根目录             |
 
 ---
 
-## 常见问题（FAQ）
+## ❓ 常见问题
 
-| 问题                     | 可能原因                     | 解决方案                                                         |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------- |
-| 构建提示 NOTION_TOKEN missing | 环境变量缺失或未加载         | 确认 `.env.local` 已创建且名称正确，重启开发 / 构建进程          |
-| 页面无文章显示           | 数据库未授权或筛选条件不符   | 检查数据库是否分享给集成，确认 `Published` 字段为 true          |
-| 部署后出现 404           | 路由重写或静态站点配置问题   | 确认托管平台支持静态导出路由，必要时开启 `trailingSlash: true` 或按平台文档增加重写规则 |
-| 样式与 Notion 中略有差异 | `react-notion-x` 渲染特性所致 | 可按需自定义组件或样式，参考 `react-notion-x` 文档进行扩展      |
+| 问题                           | 原因                                                       | 解决方案                                                   |
+| ------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| 构建报错 `NOTION_TOKEN missing` | `.env.local` 未配置或未加载                                | 确认文件存在且变量名正确，重新运行构建/开发命令            |
+| 页面无文章                     | 数据库未授权或筛选条件不符                                 | 检查数据库分享给集成，并确保 `Published` 为 true           |
+| 部署后 404                     | 托管平台路由不匹配                                         | 确认支持静态导出路由，必要时开启 `trailingSlash` 或配置重写 |
+| 样式与 Notion 不一致           | `react-notion-x` 渲染特性所致                               | 根据需要自定义组件或注入额外样式                           |
 
 ---
 
-1. 在 `package.json` 中移除或调整 `"private": true`  
-2. 选择合适的开源许可证（如 MIT、Apache-2.0 等），并在仓库根目录添加 `LICENSE` 文件  
+## 📄 开源提示
+
+1. 视情况在 `package.json` 移除或调整 `"private": true`
+2. 黑客驰作品
+
+---
+
+Happy hacking! 🐱‍💻
 ```
