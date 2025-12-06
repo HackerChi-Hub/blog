@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { getPosts, getNotices, getSubMenus } from '../lib/notion';
+import { NOTION_PROPERTY_NAME } from '../lib/config';
 
 const PAGE_SIZE = 20;
-const CATEGORY_FIELD = process.env.NEXT_PUBLIC_NOTION_PROPERTY_CATEGORY || 'category';
+const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 
 const heroPalette = {
@@ -262,7 +263,7 @@ const feedStyles = `
 }
 .feed-card__foot {
   margin-top: auto;
-  display: flex;
+  display: flex,
   justify-content: space-between;
   align-items: center;
   color: ${heroPalette.accent1};
@@ -311,13 +312,16 @@ const normalizeSummary = (summary) => {
       .map((item) => {
         if (typeof item === 'string') return item;
         if (typeof item === 'object' && item?.plain_text) return item.plain_text;
+        if (item?.text?.content) return item.text.content;
         return '';
       })
       .filter(Boolean)
       .join('');
   }
   if (typeof summary === 'object') {
-    return summary.plain_text || summary.text || JSON.stringify(summary);
+    if (summary.plain_text) return summary.plain_text;
+    if (summary.text?.content) return summary.text.content;
+    return JSON.stringify(summary);
   }
   return String(summary);
 };
@@ -325,33 +329,66 @@ const normalizeSummary = (summary) => {
 const truncateText = (text, maxLength = 80) =>
   text && text.length > maxLength ? `${text.slice(0, maxLength)}…` : text || '';
 
+/**
+ * 抽取 Notion 属性真实值（兼容 multi_select / select / title / rich_text 等）
+ */
+const extractNotionPropertyPayload = (property) => {
+  if (!property || typeof property !== 'object') return property;
+
+  // Notion property with explicit type
+  if (property.type && property[property.type] !== undefined) {
+    return property[property.type];
+  }
+
+  // Common shortcuts
+  if (Array.isArray(property.multi_select)) return property.multi_select;
+  if (property.select) return property.select;
+  if (Array.isArray(property.results)) return property.results;
+  if (property.value !== undefined) return property.value;
+
+  return property;
+};
+
 const normalizeCategoryValue = (value) => {
   if (!value) return [];
-  if (typeof value === 'string') return value.trim() ? [value.trim()] : [];
+
+  const handleRichText = (node) => {
+    if (!node) return '';
+    if (typeof node === 'string') return node;
+    if (node.plain_text) return node.plain_text;
+    if (node.text?.content) return node.text.content;
+    if (node.name) return node.name;
+    return '';
+  };
+
+  if (typeof value === 'string') {
+    return value.trim() ? [value.trim()] : [];
+  }
+
   if (Array.isArray(value)) {
     return value
       .map((item) => {
+        if (!item) return '';
         if (typeof item === 'string') return item.trim();
-        if (typeof item === 'object') {
-          return (
-            item.name ||
-            item.title ||
-            item.plain_text ||
-            item.text ||
-            item.id ||
-            ''
-          );
-        }
-        return '';
+        if (item.name) return item.name.trim();
+        if (item.plain_text) return item.plain_text.trim();
+        if (item.text?.content) return item.text.content.trim();
+        return handleRichText(item).trim();
       })
-      .map((item) => item.trim())
       .filter(Boolean);
   }
+
   if (typeof value === 'object') {
-    const candidate =
-      value.name || value.title || value.plain_text || value.text || '';
-    return candidate.trim() ? [candidate.trim()] : [];
+    // If still a Notion property wrapper, peel it again
+    if (value.type || value.multi_select || value.select || value.results || value.value) {
+      return normalizeCategoryValue(extractNotionPropertyPayload(value));
+    }
+
+    if (value.name) return [value.name.trim()];
+    if (value.plain_text) return [value.plain_text.trim()];
+    if (value.text?.content) return [value.text.content.trim()];
   }
+
   return [];
 };
 
@@ -362,13 +399,20 @@ const getPostCategories = (post, propertyName) => {
     post?.Category,
     post?.categories,
     post?.Categories,
+    post?.ext?.[propertyName],
+    post?.ext?.category,
     post?.properties?.[propertyName],
+    post?.properties?.[propertyName]?.value,
+    post?.properties?.[propertyName]?.results,
+    post?.properties?.[propertyName]?.multi_select,
   ];
 
   for (const candidate of candidates) {
-    const normalized = normalizeCategoryValue(candidate);
+    const payload = extractNotionPropertyPayload(candidate);
+    const normalized = normalizeCategoryValue(payload);
     if (normalized.length) return normalized;
   }
+
   return [];
 };
 
