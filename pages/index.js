@@ -1,8 +1,138 @@
 // pages/index.js
 import Link from 'next/link';
-import { getPosts } from '../lib/notion';
+import { getPosts, getNotices, getSubMenus } from '../lib/notion';
 
 const PAGE_SIZE = 20;
+
+const HERO_STATS = [
+  { label: 'Attack Logs', value: '92 条', desc: '实战复盘 & payload 迭代' },
+  { label: 'Custom Toolchain', value: '21 个', desc: '自研自动化脚本与插件' },
+  { label: 'Intel Sync', value: '极速', desc: '零日追踪 / 情报联动' },
+];
+
+const heroPalette = {
+  accent1: '#69f0ae',
+  accent2: '#00e5ff',
+  accent3: '#b388ff',
+  text: '#e9f6ff',
+  muted: '#93a3b8',
+  panel: 'rgba(6, 10, 18, 0.94)',
+  panelAccent: 'rgba(4, 18, 26, 0.9)',
+};
+
+const heroStyles = {
+  wrapper: {
+    borderRadius: '34px',
+    border: '1px solid rgba(255,255,255,0.08)',
+    background: 'linear-gradient(135deg, rgba(8,14,26,0.95), rgba(2,24,30,0.95))',
+    padding: 'clamp(28px, 5vw, 48px)',
+    position: 'relative',
+    overflow: 'hidden',
+    boxShadow: '0 30px 70px rgba(0,0,0,0.55)',
+    marginBottom: '48px',
+  },
+  overlay: {
+    position: 'absolute',
+    inset: 0,
+    backgroundImage:
+      'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+    backgroundSize: '46px 46px',
+    opacity: 0.4,
+    pointerEvents: 'none',
+  },
+  badge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    borderRadius: '999px',
+    border: `1px solid ${heroPalette.accent1}80`,
+    padding: '6px 16px',
+    fontSize: '0.85rem',
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
+    color: heroPalette.accent1,
+    background: `${heroPalette.accent1}1f`,
+    marginBottom: '18px',
+  },
+  title: {
+    fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
+    margin: '0 0 16px',
+    lineHeight: 1.25,
+    color: heroPalette.text,
+  },
+  titleAccent: {
+    display: 'inline-block',
+    padding: '4px 16px',
+    borderRadius: '18px',
+    background:
+      'linear-gradient(120deg, rgba(105,240,174,0.25), rgba(0,229,255,0.3))',
+  },
+  paragraph: {
+    margin: 0,
+    color: heroPalette.muted,
+    fontSize: '1rem',
+    lineHeight: 1.7,
+    maxWidth: '720px',
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '18px',
+    marginTop: '28px',
+  },
+  card: {
+    borderRadius: '20px',
+    border: '1px solid rgba(255,255,255,0.08)',
+    background: 'rgba(255,255,255,0.03)',
+    padding: '18px',
+  },
+  cardLabel: {
+    textTransform: 'uppercase',
+    fontSize: '0.8rem',
+    letterSpacing: '0.08em',
+    color: heroPalette.muted,
+  },
+  cardValue: { fontSize: '1.6rem', color: heroPalette.accent1, margin: '8px 0 4px' },
+  cardDesc: { color: '#c7d6e5', fontSize: '0.95rem' },
+  terminal: {
+    borderRadius: '20px',
+    border: `1px solid ${heroPalette.accent2}59`,
+    background: `${heroPalette.accent2}14`,
+    padding: '20px',
+    fontSize: '0.95rem',
+    color: heroPalette.text,
+    minHeight: '180px',
+  },
+  prompt: { color: heroPalette.accent2 },
+  timestamp: { color: heroPalette.accent3, marginRight: '8px' },
+  layersCard: {
+    borderRadius: '20px',
+    border: '1px solid rgba(255,255,255,0.04)',
+    background: heroPalette.panelAccent,
+    padding: '20px',
+  },
+  layersTitle: {
+    textTransform: 'uppercase',
+    fontSize: '0.8rem',
+    letterSpacing: '0.08em',
+    color: heroPalette.muted,
+    marginBottom: '14px',
+  },
+  layerList: { display: 'grid', gap: '12px' },
+  layerItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: '16px',
+    padding: '12px 16px',
+    border: '1px solid rgba(255,255,255,0.08)',
+    background: heroPalette.panel,
+    color: heroPalette.muted,
+    fontSize: '0.9rem',
+    textDecoration: 'none',
+  },
+  layerLinkLabel: { color: heroPalette.text, fontSize: '1rem' },
+};
 
 const formatDate = (dateString) => {
   if (!dateString) return '';
@@ -14,6 +144,18 @@ const formatDate = (dateString) => {
     }).format(new Date(dateString));
   } catch {
     return dateString;
+  }
+};
+
+const formatTime = (dateString) => {
+  if (!dateString) return '--:--';
+  try {
+    return new Intl.DateTimeFormat('zh-CN', {
+      hour: '2-digit',
+      minute: '2-digit',
+    }).format(new Date(dateString));
+  } catch {
+    return '--:--';
   }
 };
 
@@ -54,7 +196,11 @@ const PostCard = ({ post }) => {
             {tags.length > 0 && (
               <div className="post-tags">
                 {tags.map((tag) => (
-                  <span key={tag.id || tag.name || tag} className="post-tag" data-tag={tag.name || tag}>
+                  <span
+                    key={tag.id || tag.name || tag}
+                    className="post-tag"
+                    data-tag={tag.name || tag}
+                  >
                     {tag.name || tag}
                   </span>
                 ))}
@@ -69,46 +215,162 @@ const PostCard = ({ post }) => {
   );
 };
 
+const HeroSection = ({ notices = [], subMenus = [] }) => {
+  const fallbackNotices = [
+    { id: 'placeholder-1', title: '暂无 Notice 数据', date: null, summary: '' },
+  ];
+  const fallbackLinks = [
+    {
+      id: 'placeholder-link',
+      title: '等待 SubMenu 链接',
+      url: '#',
+      summary: '',
+    },
+  ];
+
+  const renderNotices = notices.length > 0 ? notices : fallbackNotices;
+  const renderLinks = subMenus.length > 0 ? subMenus : fallbackLinks;
+  const accentPool = [heroPalette.accent1, heroPalette.accent2, heroPalette.accent3];
+
+  return (
+    <section style={heroStyles.wrapper}>
+      <div style={heroStyles.overlay} aria-hidden="true" />
+      <div style={{ position: 'relative' }}>
+        <div style={heroStyles.badge}>黑客驰 · fusion mode</div>
+        <h1 style={heroStyles.title}>
+          <span style={heroStyles.titleAccent}>
+            黑客驰：分块思维 / 终端精神 / 战术矩阵
+          </span>
+        </h1>
+        <p style={heroStyles.paragraph}>
+          将实战指标、终端日志与三层攻防结构融为一体。这里既有冷静的数据面板，也有实时滚动的
+          exploit feed，更有清晰可复现的策略路径。
+        </p>
+
+        <div style={heroStyles.grid}>
+          {HERO_STATS.map((stat) => (
+            <div key={stat.label} style={heroStyles.card}>
+              <div style={heroStyles.cardLabel}>{stat.label}</div>
+              <div style={heroStyles.cardValue}>{stat.value}</div>
+              <div style={heroStyles.cardDesc}>{stat.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            ...heroStyles.grid,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            marginTop: '32px',
+          }}
+        >
+          <div style={heroStyles.terminal}>
+            <div style={heroStyles.prompt}>┌─ hackerchi@lab</div>
+            <div style={heroStyles.prompt}>└─$ tail -f notice.log</div>
+            {renderNotices.map((notice) => (
+              <div key={notice.id} style={{ marginTop: '4px', lineHeight: 1.4 }}>
+                <span style={heroStyles.timestamp}>
+                  [{formatTime(notice.date)}]
+                </span>
+                <strong>{notice.title}</strong>
+                {notice.summary && ` — ${notice.summary}`}
+              </div>
+            ))}
+          </div>
+
+          <div style={heroStyles.layersCard}>
+            <div style={heroStyles.layersTitle}>tactics matrix</div>
+            <div style={heroStyles.layerList}>
+              {renderLinks.map((link, index) => (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target={link.url?.startsWith('#') ? '_self' : '_blank'}
+                  rel="noopener noreferrer"
+                  style={{
+                    ...heroStyles.layerItem,
+                    borderColor: `${accentPool[index % accentPool.length]}33`,
+                  }}
+                >
+                  <span>{link.title}</span>
+                  <strong
+                    style={{
+                      ...heroStyles.layerLinkLabel,
+                      color: accentPool[index % accentPool.length],
+                    }}
+                  >
+                    访问
+                  </strong>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export async function getStaticProps() {
   try {
-    const posts = await getPosts();
-    const safePosts = Array.isArray(posts) ? posts : [];
-    const pagePosts = safePosts.slice(0, PAGE_SIZE);
+    const [posts, notices, subMenus] = await Promise.all([
+      getPosts(),
+      getNotices(4),
+      getSubMenus(3),
+    ]);
+
+    const pagePosts = posts.slice(0, PAGE_SIZE);
 
     return {
       props: {
         posts: pagePosts,
+        notices,
+        subMenus,
         currentPage: 1,
-        totalPages: Math.max(1, Math.ceil(safePosts.length / PAGE_SIZE)),
-        errorMessage: safePosts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
+        totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
+        errorMessage:
+          posts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
       },
+      revalidate: 60,
     };
   } catch (error) {
-    console.error('[pages/index] getPosts failed:', error);
+    console.error('[pages/index] getStaticProps failed:', error);
     return {
       props: {
         posts: [],
+        notices: [],
+        subMenus: [],
         currentPage: 1,
         totalPages: 1,
         errorMessage:
-          error?.message || '获取文章列表失败，请检查 Notion 环境变量、数据库授权或字段配置。',
+          error?.message ||
+          '获取数据失败，请检查 Notion 环境变量、数据库授权或字段配置。',
       },
     };
   }
 }
 
-export default function Home({ posts, currentPage, totalPages, errorMessage }) {
+export default function Home({
+  posts,
+  notices,
+  subMenus,
+  currentPage,
+  totalPages,
+  errorMessage,
+}) {
   try {
     const showEmpty = posts.length === 0;
 
     return (
-      <main className="page">
-        <section className="site-hero floating">
-          <h1 className="hero-title">
-            <span className="highlight">黑客驰 · Blog</span>
-          </h1>
-          <p>专注安全研究、极客分享与实践笔记。</p>
-        </section>
+      <main
+        className="page"
+        style={{
+          background: '#05060b',
+          minHeight: '100vh',
+          padding: '48px 20px',
+        }}
+      >
+        <HeroSection notices={notices} subMenus={subMenus} />
 
         {errorMessage && (
           <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
@@ -146,13 +408,7 @@ export default function Home({ posts, currentPage, totalPages, errorMessage }) {
     console.error('[pages/index] render failed:', error);
     return (
       <main className="page">
-        <section className="site-hero floating">
-          <h1 className="hero-title">
-            <span className="highlight">黑客驰 · Blog</span>
-          </h1>
-          <p>专注安全研究、极客分享与实践笔记。</p>
-        </section>
-
+        <HeroSection notices={notices} subMenus={subMenus} />
         <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
           首页渲染失败：{error?.message || '未知错误，请查看构建日志。'}
         </div>
