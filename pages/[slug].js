@@ -1,113 +1,46 @@
 // pages/[slug].js
-import Head from 'next/head';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { getAllSlugs, getPostBySlug } from '../lib/notion';
-import 'react-notion-x/src/styles.css';
-
-const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then((m) => m.Code)
-);
-const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then(
-    (m) => m.Collection
-  )
-);
-const NotionRenderer = dynamic(
-  () => import('react-notion-x').then((m) => m.NotionRenderer),
-  { ssr: false }
-);
-
-const dateFormatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
-const formatDate = (iso) => (iso ? dateFormatter.format(new Date(iso)) : '');
+import { getAllPosts, getMenus, getPostBySlug } from '../lib/notion';
+import NotionRenderer from '../components/NotionRenderer';
 
 export async function getStaticPaths() {
-  const slugs = await getAllSlugs();
-
+  const { pinPosts, normalPosts } = await getAllPosts();
+  const all = [...pinPosts, ...normalPosts];
   return {
-    paths: slugs.map((slug) => ({
-      params: { slug }
-    })),
-    fallback: false
+    paths: all.map(post => ({ params: { slug: post.slug } })),
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const { slug } = params;
-  const post = await getPostBySlug(slug);
-
-  if (!post) {
-    return { notFound: true };
-  }
-
-  return {
-    props: {
-      meta: post.meta,
-      recordMap: post.recordMap
-    }
-  };
+  const menus = await getMenus();
+  const post = await getPostBySlug(params.slug);
+  return { props: { menus, post } };
 }
 
-export default function PostPage({ meta, recordMap }) {
-  if (!recordMap) {
-    return (
-      <main className="article-shell">
-        <h1>{meta?.title || '文章加载失败'}</h1>
-        <p>无法加载内容，请检查服务器日志。</p>
-      </main>
-    );
-  }
-
+export default function Article({ menus, post }) {
+  if (!post) return <div>文章不存在</div>;
   return (
-    <>
-      <Head>
-        <title>{meta.title}</title>
-        <meta
-          name="description"
-          content={meta.summary || 'Notion 文章详情'}
-        />
-      </Head>
-
-      <article className="article-shell">
-        <Link href="/" className="back-link">
-          ← 返回首页
-        </Link>
-
-        {meta.date && (
-          <p className="hero__eyebrow" style={{ marginTop: 24 }}>
-            {formatDate(meta.date)}
-          </p>
-        )}
-
-        <h1 className="article-title">{meta.title}</h1>
-
-        {(meta.categories?.length || meta.tags?.length) && (
-          <div className="article-meta">
-            {meta.categories?.map((cat) => (
-              <span key={cat.id} className="pill">
-                {cat.name}
-              </span>
-            ))}
-            {meta.tags?.map((tag) => (
-              <span key={tag.id}>#{tag.name}</span>
-            ))}
-          </div>
-        )}
-
-        <div className="notion-container">
-          <NotionRenderer
-            className="notion-only-body"
-            recordMap={recordMap}
-            fullPage={false}
-            darkMode
-            disableHeader
-            components={{
-              Code,
-              Collection
-            }}
-          />
-        </div>
-      </article>
-    </>
+    <div className="container">
+      <nav className="topnav">
+        <Link href="/"><b>首页</b></Link>
+        {menus.map(menu => (
+          <Link key={menu.slug} href={`/page/${menu.slug}`}>{menu.title}</Link>
+        ))}
+      </nav>
+      <h1>{post.title}</h1>
+      <div className="meta">
+        {post.category.map(c => <span key={c} className="cat">{c}</span>)}
+        <span className="date">{post.date}</span>
+      </div>
+      <NotionRenderer blocks={post.blocks} />
+      <style jsx>{`
+        .container { max-width: 880px; margin: 0 auto; }
+        .topnav { display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid #eee;}
+        .meta { margin-bottom: 16px;}
+        .cat { margin-right: 8px; color: #b27aff;}
+        .date { color: #aaa;}
+      `}</style>
+    </div>
   );
 }
