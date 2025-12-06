@@ -531,7 +531,7 @@ const HeroSection = ({
     <section style={heroStyles.wrapper}>
       <div style={heroStyles.overlay} aria-hidden="true" />
       <div style={{ position: 'relative' }}>
-        <div style={heroStyles.badge}>黑客驰 · fusion mode</div>
+        <div style={heroStyles.badge}>黑客驰 · 官网</div>
         <h1 style={heroStyles.title}>
           <span style={heroStyles.titleAccent}>
             黑客驰：分享 / 探索 / 进取
@@ -616,7 +616,7 @@ const HeroSection = ({
           </div>
 
           <div style={heroStyles.layersCard}>
-            <div style={heroStyles.layersTitle}>tactics matrix</div>
+            <div style={heroStyles.layersTitle}>视频矩阵</div>
             <div style={heroStyles.layerList}>
               {renderLinks.map((link, index) => (
                 <a
