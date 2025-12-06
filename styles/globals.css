@@ -463,7 +463,7 @@ h6 {
 .not-found p {
   color: var(--text-muted);
   font-size: 1.05rem;
-  margin-bottom: 32px;
+  margin-bottom: 32px.
 }
 
 @media (max-width: 768px) {
