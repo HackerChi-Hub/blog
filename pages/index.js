@@ -54,8 +54,8 @@ const PostCard = ({ post }) => {
             {tags.length > 0 && (
               <div className="post-tags">
                 {tags.map((tag) => (
-                  <span key={tag} className="post-tag" data-tag={tag}>
-                    {tag}
+                  <span key={tag.id || tag.name || tag} className="post-tag" data-tag={tag.name || tag}>
+                    {tag.name || tag}
                   </span>
                 ))}
               </div>
@@ -82,6 +82,7 @@ export async function getStaticProps() {
         totalPages: Math.max(1, Math.ceil(safePosts.length / PAGE_SIZE)),
         errorMessage: safePosts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
       },
+      revalidate: 60,
     };
   } catch (error) {
     console.error('[pages/index] getPosts failed:', error);
@@ -93,6 +94,7 @@ export async function getStaticProps() {
         errorMessage:
           error?.message || '获取文章列表失败，请检查 Notion 环境变量、数据库授权或字段配置。',
       },
+      revalidate: 60,
     };
   }
 }
@@ -111,13 +113,7 @@ export default function Home({ posts, currentPage, totalPages, errorMessage }) {
         </section>
 
         {errorMessage && (
-          <div
-            className="empty-state"
-            style={{
-              fontWeight: 600,
-              color: '#d93025',
-            }}
-          >
+          <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
             {errorMessage}
           </div>
         )}
