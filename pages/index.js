@@ -329,23 +329,15 @@ const normalizeSummary = (summary) => {
 const truncateText = (text, maxLength = 80) =>
   text && text.length > maxLength ? `${text.slice(0, maxLength)}…` : text || '';
 
-/**
- * 抽取 Notion 属性真实值（兼容 multi_select / select / title / rich_text 等）
- */
 const extractNotionPropertyPayload = (property) => {
   if (!property || typeof property !== 'object') return property;
-
-  // Notion property with explicit type
   if (property.type && property[property.type] !== undefined) {
     return property[property.type];
   }
-
-  // Common shortcuts
   if (Array.isArray(property.multi_select)) return property.multi_select;
   if (property.select) return property.select;
   if (Array.isArray(property.results)) return property.results;
   if (property.value !== undefined) return property.value;
-
   return property;
 };
 
@@ -379,11 +371,9 @@ const normalizeCategoryValue = (value) => {
   }
 
   if (typeof value === 'object') {
-    // If still a Notion property wrapper, peel it again
     if (value.type || value.multi_select || value.select || value.results || value.value) {
       return normalizeCategoryValue(extractNotionPropertyPayload(value));
     }
-
     if (value.name) return [value.name.trim()];
     if (value.plain_text) return [value.plain_text.trim()];
     if (value.text?.content) return [value.text.content.trim()];
@@ -419,16 +409,30 @@ const getPostCategories = (post, propertyName) => {
 const buildFeaturedCategoryBuckets = (posts, propertyName, featuredNames) => {
   const map = new Map();
 
+  const ensureBucket = (key) => {
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    return map.get(key);
+  };
+
   posts.forEach((post) => {
-    const categories = getPostCategories(post, propertyName);
-    if (categories.length === 0) {
-      if (!map.has('未分类')) map.set('未分类', []);
-      map.get('未分类').push(post);
+    const explicitNames = Array.isArray(post.categoryNames)
+      ? post.categoryNames
+      : [];
+    const detectedNames =
+      explicitNames.length > 0
+        ? explicitNames
+        : getPostCategories(post, propertyName);
+
+    if (detectedNames.length === 0) {
+      ensureBucket('未分类').push(post);
       return;
     }
-    categories.forEach((category) => {
-      if (!map.has(category)) map.set(category, []);
-      map.get(category).push(post);
+
+    detectedNames.forEach((category) => {
+      if (!category) return;
+      ensureBucket(category).push(post);
     });
   });
 
