@@ -46,49 +46,43 @@ const heroStyles = {
     opacity: 0.4,
     pointerEvents: 'none',
   },
-  badge: {
+  // 让“黑客驰 · 官网”保留原来上面的圆角外边框外观
+  badgeLikeTitle: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '8px',
     borderRadius: '999px',
     border: `1px solid ${heroPalette.accent1}80`,
-    padding: '8px 20px',
-    fontSize: '0.9rem',
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase',
-    color: heroPalette.accent1,
-    background: `${heroPalette.accent1}1f`,
-    marginBottom: '20px',
+    padding: '10px 26px',
+    fontSize: 'clamp(1.6rem, 3.4vw, 2.1rem)',
+    fontWeight: 700,
+    letterSpacing: '0.08em',
+    color: heroPalette.text,
+    background: 'rgba(5, 28, 24, 0.6)',
+    boxShadow: '0 18px 38px rgba(0,0,0,0.55)',
+    whiteSpace: 'nowrap',
   },
-  // 标题行容器：左右排版
+  // 标题行容器：左“黑客驰 · 官网”，右“分享 / 探索 / 进取”
   titleRow: {
     display: 'flex',
-    alignItems: 'center', // 让两侧文字垂直居中对齐
+    alignItems: 'center',
     flexWrap: 'wrap',
-    gap: '12px',
+    gap: '16px',
     marginBottom: '14px',
-    justifyContent: 'space-between', // 左右拉开
+    justifyContent: 'space-between',
   },
-  // 左侧：黑客驰 · 官网
-  siteTitle: {
-    fontSize: 'clamp(2.4rem, 5vw, 3.4rem)',
-    lineHeight: 1.2,
-    fontWeight: 700,
-    color: heroPalette.text,
-  },
-  // 备用副标题样式（当前没有直接使用）
-  subTitle: {
-    fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
-    fontWeight: 500,
-    color: heroPalette.text,
-  },
-  // 右侧：分享 / 探索 / 进取 的高亮背景标签
+  // 右侧：分享 / 探索 / 进取 的高亮标签
   subTitleAccent: {
     display: 'inline-block',
-    padding: '4px 14px',
+    padding: '10px 26px',
     borderRadius: '999px',
     background:
-      'linear-gradient(120deg, rgba(105,240,174,0.18), rgba(0,229,255,0.22))',
+      'linear-gradient(120deg, rgba(8, 125, 114, 0.96), rgba(0, 150, 136, 0.92))',
+    fontSize: 'clamp(1.6rem, 3.4vw, 2.1rem)',
+    fontWeight: 700,
+    color: heroPalette.text,
+    whiteSpace: 'nowrap',
+    boxShadow: '0 18px 38px rgba(0,0,0,0.55)',
   },
   paragraph: {
     margin: 0,
@@ -548,21 +542,13 @@ const HeroSection = ({
     <section style={heroStyles.wrapper}>
       <div style={heroStyles.overlay} aria-hidden="true" />
       <div style={{ position: 'relative' }}>
-        {/* 顶部 badge 可保留或删掉，这里保留 */}
-        <div style={heroStyles.badge}>黑客驰 · 官网</div>
-
-        {/* 标题行：左「黑客驰 · 官网」，右「分享 / 探索 / 进取」，字号相同 */}
+        {/* 删除顶部的 badge，只保留下方一行标题 */}
         <div style={heroStyles.titleRow}>
-          <h1 style={heroStyles.siteTitle}>黑客驰 · 官网</h1>
-          <span
-            style={{
-              ...heroStyles.siteTitle,        // 与左侧同字号
-              ...heroStyles.subTitleAccent,   // 使用渐变背景和圆角
-              fontWeight: 700,
-            }}
-          >
-            分享 / 探索 / 进取
-          </span>
+          {/* 左侧：保留“黑客驰 · 官网”的徽章风格外观 */}
+          <div style={heroStyles.badgeLikeTitle}>黑客驰 · 官网</div>
+
+          {/* 右侧：分享 / 探索 / 进取 */}
+          <span style={heroStyles.subTitleAccent}>分享 / 探索 / 进取</span>
         </div>
 
         <p style={heroStyles.paragraph}>
