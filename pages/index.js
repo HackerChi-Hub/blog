@@ -331,7 +331,6 @@ export async function getStaticProps() {
         errorMessage:
           posts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
       },
-      revalidate: 60,
     };
   } catch (error) {
     console.error('[pages/index] getStaticProps failed:', error);
