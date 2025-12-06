@@ -80,7 +80,6 @@ export async function getStaticProps({ params }) {
         totalPages,
         errorMessage: posts.length === 0 ? '该分页暂无内容，请检查 Notion 数据。' : '',
       },
-      revalidate: 60,
     };
   } catch (error) {
     console.error('[page/[page]] getStaticProps failed:', error);
@@ -92,7 +91,6 @@ export async function getStaticProps({ params }) {
         errorMessage:
           error?.message || '获取分页文章失败，请检查 Notion 环境变量、数据库授权或字段配置。',
       },
-      revalidate: 60,
     };
   }
 }
