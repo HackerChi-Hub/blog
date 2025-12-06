@@ -14,7 +14,6 @@ export async function getStaticProps() {
       currentPage: 1,
       totalPages: Math.max(1, Math.ceil(posts.length / PAGE_SIZE)),
     },
-    //revalidate: 60,
   };
 }
 
