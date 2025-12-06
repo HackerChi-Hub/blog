@@ -52,21 +52,23 @@ export default function Home({ posts, currentPage, totalPages }) {
               const href = `/${slug}/`;
               return (
                 <article className="post-card floating" key={post.id}>
-                  <Link href={href} className="post-card__inner">
-                    <h2 className="post-title">{post.title || slug}</h2>
-                    <div className="post-meta">
-                      {post.date && <span className="post-date">{post.date}</span>}
-                      {post.tags?.length > 0 && (
-                        <div className="post-tags">
-                          {post.tags.map((tag) => (
-                            <span className="post-tag" data-tag={tag} key={`${post.id}-${tag}`}>
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    {post.summary && <p className="post-excerpt">{post.summary}</p>}
+                  <Link href={href} legacyBehavior>
+                    <a className="post-card__inner">
+                      <h2 className="post-title">{post.title || slug}</h2>
+                      <div className="post-meta">
+                        {post.date && <span className="post-date">{post.date}</span>}
+                        {post.tags?.length > 0 && (
+                          <div className="post-tags">
+                            {post.tags.map((tag) => (
+                              <span className="post-tag" data-tag={tag} key={`${post.id}-${tag}`}>
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {post.summary && <p className="post-excerpt">{post.summary}</p>}
+                    </a>
                   </Link>
                 </article>
               );
@@ -80,8 +82,8 @@ export default function Home({ posts, currentPage, totalPages }) {
               第 {currentPage} 页 / 共 {totalPages} 页
             </span>
             {currentPage < totalPages && (
-              <Link href={`/page/${currentPage + 1}/`} className="pagination__next">
-                下一页
+              <Link href={`/page/${currentPage + 1}/`} legacyBehavior>
+                <a className="pagination__next">下一页</a>
               </Link>
             )}
           </nav>
