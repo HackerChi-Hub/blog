@@ -90,7 +90,8 @@ export async function getStaticProps({ params }) {
         posts,
         currentPage,
         totalPages,
-        errorMessage: posts.length === 0 ? '该分页暂无内容，请检查 Notion 数据。' : '',
+        errorMessage:
+          posts.length === 0 ? '该分页暂无内容，请检查 Notion 数据。' : '',
       },
     };
   } catch (error) {
@@ -101,13 +102,19 @@ export async function getStaticProps({ params }) {
         currentPage: 1,
         totalPages: 1,
         errorMessage:
-          error?.message || '获取分页文章失败，请检查 Notion 环境变量、数据库授权或字段配置。',
+          error?.message ||
+          '获取分页文章失败，请检查 Notion 环境变量、数据库授权或字段配置。',
       },
     };
   }
 }
 
-export default function PostListPage({ posts, currentPage, totalPages, errorMessage }) {
+export default function PostListPage({
+  posts,
+  currentPage,
+  totalPages,
+  errorMessage,
+}) {
   const showEmpty = !posts || posts.length === 0;
 
   return (
@@ -153,13 +160,16 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
       {errorMessage && <div className="empty-state">{errorMessage}</div>}
 
       {showEmpty ? (
-        <div className="empty-state">该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。</div>
+        <div className="empty-state">
+          该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。
+        </div>
       ) : (
         <section className="posts-grid">
           {posts.map((post) => {
             const slug = post.slug || post.rawId || post.id;
             const href = `/${slug}/`;
-            const summaryText = normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
+            const summaryText =
+              normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
             const tags = resolveTags(post.tags);
 
             return (
@@ -170,11 +180,19 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
                   </Link>
 
                   <div className="post-meta">
-                    {post.date && <span className="post-date">{formatDate(post.date)}</span>}
+                    {post.date && (
+                      <span className="post-date">
+                        {formatDate(post.date)}
+                      </span>
+                    )}
                     {tags.length > 0 && (
                       <div className="post-tags">
                         {tags.map((tag) => (
-                          <span className="post-tag" data-tag={tag} key={`${slug}-${tag}`}>
+                          <span
+                            className="post-tag"
+                            data-tag={tag}
+                            key={`${slug}-${tag}`}
+                          >
                             {tag}
                           </span>
                         ))}
@@ -182,7 +200,9 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
                     )}
                   </div>
 
-                  {summaryText && <p className="post-excerpt">{summaryText}</p>}
+                  {summaryText && (
+                    <p className="post-excerpt">{summaryText}</p>
+                  )}
                 </div>
               </article>
             );
@@ -196,7 +216,9 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
             {currentPage > 1 ? (
               <Link
                 className="pagination__next"
-                href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}/`}
+                href={
+                  currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}/`
+                }
               >
                 ← 上一页
               </Link>
@@ -209,7 +231,10 @@ export default function PostListPage({ posts, currentPage, totalPages, errorMess
           </div>
           <div>
             {currentPage < totalPages ? (
-              <Link className="pagination__next" href={`/page/${currentPage + 1}/`}>
+              <Link
+                className="pagination__next"
+                href={`/page/${currentPage + 1}/`}
+              >
                 下一页 →
               </Link>
             ) : (
