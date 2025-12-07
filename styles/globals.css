@@ -232,17 +232,58 @@ pre[class*='language-sh'] {
     var(--code-panel);
 }
 
+pre[data-lang*='py'],
+pre[class*='language-python'] {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(92, 225, 230, 0.2), transparent 55%),
+    radial-gradient(circle at 85% 65%, rgba(255, 127, 209, 0.13), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='json'],
+pre[class*='language-json'] {
+  background:
+    radial-gradient(circle at 15% 80%, rgba(0, 229, 255, 0.18), transparent 50%),
+    var(--code-panel);
+}
+
+pre[data-lang*='diff'],
+pre[class*='language-diff'] {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(105, 240, 174, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 83, 112, 0.16), transparent 45%),
+    var(--code-panel);
+}
+
+pre[data-lang*='yaml'],
+pre[data-lang*='yml'],
+pre[class*='language-yaml'] {
+  background:
+    radial-gradient(circle at 70% 30%, rgba(255, 179, 71, 0.18), transparent 55%),
+    var(--code-panel);
+}
+
+pre[data-lang*='md'],
+pre[data-lang*='markdown'],
+pre[class*='language-markdown'] {
+  background:
+    radial-gradient(circle at 10% 30%, rgba(179, 136, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(105, 240, 174, 0.14), transparent 55%),
+    var(--code-panel);
+}
+
 /* Token 色彩（Prism / Highlight.js 通用） */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--token-comment);
+  color: var(--token-comment) !important;
   font-style: italic;
+  text-shadow: 0 0 8px rgba(112, 140, 158, 0.25);
 }
 
 .token.punctuation {
-  color: var(--token-punctuation);
+  color: var(--token-punctuation) !important;
 }
 
 .token.property,
@@ -250,13 +291,15 @@ pre[class*='language-sh'] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: var(--token-property);
+  color: var(--token-property) !important;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.22);
 }
 
 .token.boolean,
 .token.number {
-  color: var(--token-number);
+  color: var(--token-number) !important;
   font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 199, 119, 0.35);
 }
 
 .token.selector,
@@ -264,43 +307,48 @@ pre[class*='language-sh'] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: var(--token-selector);
+  color: var(--token-selector) !important;
+  text-shadow: 0 0 10px rgba(179, 136, 255, 0.35);
 }
 
 .token.string,
 .token.url {
-  color: var(--token-string);
+  color: var(--token-string) !important;
+  text-shadow: 0 0 10px rgba(108, 184, 255, 0.3);
 }
 
 .token.operator,
 .token.entity {
-  color: var(--token-operator);
+  color: var(--token-operator) !important;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: var(--token-keyword);
+  color: var(--token-keyword) !important;
   font-weight: 600;
+  text-shadow: 0 0 14px rgba(105, 240, 174, 0.35);
 }
 
 .token.function,
 .token.class-name {
-  color: var(--token-function);
+  color: var(--token-function) !important;
+  text-shadow: 0 0 12px rgba(255, 127, 209, 0.35);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: var(--token-important);
+  color: var(--token-important) !important;
+  text-shadow: 0 0 12px rgba(255, 83, 112, 0.35);
 }
 
 .token.bold {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 .token.italic {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 /* 代码选中提示 */
@@ -565,13 +613,12 @@ img:hover {
 .notion,
 .notion p,
 .notion li,
-.notion span,
 .notion .notion-text,
 .notion .notion-toggle,
 .notion .notion-callout-text,
 .notion .notion-quote,
 .notion .notion-quote p {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .notion p {
@@ -618,7 +665,7 @@ img:hover {
 .article-hero__meta-label,
 .article-hero__tags,
 .article-hero__tags .tag {
-  color: var(--text-secondary) !重要;
+  color: var(--text-secondary) !important;
 }
 
 .article-hero__tags .tag {
