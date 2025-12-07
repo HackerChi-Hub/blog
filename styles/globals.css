@@ -232,7 +232,7 @@ pre[class*='language-sh'] {
     var(--code-panel);
 }
 
-/* Prism / Highlight.js token 色彩 */
+/* Token 色彩（Prism / Highlight.js 通用） */
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -310,7 +310,7 @@ code ::selection {
   color: var(--accent-green);
 }
 
-/* 全局图片样式：稍微收敛，避免“太重”影响观感 */
+/* 全局图片样式 */
 img {
   max-width: 100%;
   height: auto;
@@ -319,7 +319,6 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(6, 12, 24, 0.82);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-  padding: 0;
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast),
@@ -349,7 +348,7 @@ img:hover {
   color: var(--text-secondary);
 }
 
-/* Hero（与首页保持一致） */
+/* Hero */
 .site-hero {
   width: 100%;
   padding: clamp(2.8rem, 5vw, 4.2rem);
@@ -453,7 +452,7 @@ img:hover {
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-/* 文章列表/卡片中的元信息：日期 + 标签 */
+/* 元信息 */
 .post-meta {
   display: flex;
   flex-wrap: wrap;
@@ -470,7 +469,6 @@ img:hover {
   color: var(--text-secondary);
 }
 
-/* 标签容器 */
 .post-tags {
   display: flex;
   gap: 0.45rem;
@@ -489,23 +487,20 @@ img:hover {
 
 .post-tag[data-tag='Design'] {
   background: rgba(255, 179, 71, 0.16);
-  color: var(--text-secondary);
   border-color: rgba(255, 179, 71, 0.4);
 }
 
 .post-tag[data-tag='Dev'] {
   background: rgba(179, 136, 255, 0.22);
-  color: var(--text-secondary);
   border-color: rgba(179, 136, 255, 0.42);
 }
 
 .post-tag[data-tag='Product'] {
   background: rgba(105, 240, 174, 0.2);
-  color: var(--text-secondary);
   border-color: rgba(105, 240, 174, 0.4);
 }
 
-/* 列表中的摘要 */
+/* 摘要 */
 .post-excerpt {
   margin: 0.25rem 0 0;
   color: var(--text-secondary);
@@ -542,7 +537,7 @@ img:hover {
   transform: translateX(4px);
 }
 
-/* Notion 内容区：文章正文容器 */
+/* Notion 内容区 */
 .notion {
   background: var(--panel-primary);
   border-radius: var(--radius-lg);
@@ -623,7 +618,7 @@ img:hover {
 .article-hero__meta-label,
 .article-hero__tags,
 .article-hero__tags .tag {
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary) !重要;
 }
 
 .article-hero__tags .tag {
@@ -648,9 +643,47 @@ img:hover {
   }
 }
 
+/* 图片裁剪（Notion） */
+.notion figure,
+.notion .notion-asset-wrapper,
+.notion .notion-asset-wrapper > div,
+.notion img {
+  border-radius: clamp(18px, 2vw, var(--radius-lg)) !important;
+  overflow: hidden;
+}
+
+.notion img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: none !important;
+  clip-path: inset(0 round clamp(18px, 2vw, var(--radius-lg)));
+}
+
 /* 响应式 */
 @media (max-width: 768px) {
   .page {
     gap: 2rem;
-  }>
-ekelejust-bcame:e
+    padding: 0 1.25rem 3rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+  }
+
+  .site-hero,
+  .post-card,
+  .notion,
+  pre {
+    border-radius: 22px;
+  }
+
+  .floating {
+    animation: none;
+  }
+
+  img {
+    border-radius: 18px;
+  }
+}
