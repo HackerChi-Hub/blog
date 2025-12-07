@@ -31,6 +31,21 @@
   --code-inline: rgba(0, 229, 255, 0.16);
   --code-highlight: rgba(105, 240, 174, 0.2);
   --code-text: #f4faff;
+
+  /* token 色板 */
+  --token-comment: #708c9e;
+  --token-keyword: #69f0ae;
+  --token-boolean: #ffb347;
+  --token-number: #ffc777;
+  --token-string: #6cb8ff;
+  --token-function: #ff7fd1;
+  --token-operator: #f9fbff;
+  --token-punctuation: rgba(249, 251, 255, 0.7);
+  --token-property: #00e5ff;
+  --token-selector: #b388ff;
+  --token-attr: #ffd54f;
+  --token-builtin: #82f7ff;
+  --token-important: #ff5370;
 }
 
 *,
@@ -80,7 +95,8 @@ a:hover {
 
 /* 代码展示 */
 pre,
-code {
+code,
+:not(pre) > code[class*='language-'] {
   font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas,
     'Liberation Mono', monospace;
 }
@@ -109,7 +125,8 @@ pre::before {
   pointer-events: none;
 }
 
-pre[data-lang]::after {
+pre[data-lang]::after,
+pre[class*='language-']::after {
   content: attr(data-lang);
   position: absolute;
   top: 0.4rem;
@@ -124,6 +141,10 @@ pre[data-lang]::after {
   border-radius: 999px;
 }
 
+pre[class*='language-']::after {
+  content: attr(class);
+}
+
 pre code {
   display: block;
   padding: 0;
@@ -132,7 +153,8 @@ pre code {
   white-space: pre;
 }
 
-code {
+code,
+:not(pre) > code[class*='language-'] {
   background: var(--code-inline);
   color: var(--code-text);
   border-radius: 0.45rem;
@@ -166,6 +188,126 @@ pre mark {
   color: var(--code-text);
   border-radius: 0.35rem;
   padding: 0.05rem 0.35rem;
+}
+
+/* 按语言定制背景光晕 */
+pre[data-lang*='js'],
+pre[data-lang*='ts'],
+pre[class*='language-javascript'],
+pre[class*='language-typescript'] {
+  background:
+    radial-gradient(circle at 5% 15%, rgba(255, 183, 77, 0.16), transparent 45%),
+    var(--code-panel);
+}
+
+pre[data-lang*='css'],
+pre[data-lang*='scss'],
+pre[data-lang*='less'],
+pre[class*='language-css'],
+pre[class*='language-scss'],
+pre[class*='language-less'] {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(108, 184, 255, 0.18), transparent 50%),
+    var(--code-panel);
+}
+
+pre[data-lang*='html'],
+pre[data-lang*='xml'],
+pre[class*='language-markup'],
+pre[class*='language-html'],
+pre[class*='language-xml'] {
+  background:
+    radial-gradient(circle at 12% 80%, rgba(179, 136, 255, 0.18), transparent 55%),
+    var(--code-panel);
+}
+
+pre[data-lang*='shell'],
+pre[data-lang*='bash'],
+pre[data-lang*='sh'],
+pre[class*='language-bash'],
+pre[class*='language-shell'],
+pre[class*='language-sh'] {
+  background:
+    radial-gradient(circle at 90% 70%, rgba(105, 240, 174, 0.18), transparent 52%),
+    var(--code-panel);
+}
+
+/* Prism / Highlight.js token 色彩 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--token-comment);
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: var(--token-punctuation);
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--token-property);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--token-number);
+  font-weight: 600;
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--token-selector);
+}
+
+.token.string,
+.token.url {
+  color: var(--token-string);
+}
+
+.token.operator,
+.token.entity {
+  color: var(--token-operator);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--token-keyword);
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: var(--token-function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--token-important);
+}
+
+.token.bold {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+/* 代码选中提示 */
+pre code ::selection,
+code ::selection {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-green);
 }
 
 /* 全局图片样式：稍微收敛，避免“太重”影响观感 */
@@ -322,7 +464,6 @@ img:hover {
   font-weight: 500;
 }
 
-/* 日期：使用次级文本色，统一风格 */
 .post-date {
   letter-spacing: 0.08em;
   font-weight: 600;
@@ -336,7 +477,6 @@ img:hover {
   flex-wrap: wrap;
 }
 
-/* 标签：次级文字色 + 轻微背景 */
 .post-tag {
   padding: 0.28rem 0.9rem;
   border-radius: 999px;
@@ -477,7 +617,7 @@ img:hover {
   font-style: italic;
 }
 
-/* 文章详情页元信息（如以后需要用类选择器时可以复用） */
+/* 文章详情页元信息 */
 .article-hero__meta,
 .article-hero__meta time,
 .article-hero__meta-label,
@@ -512,25 +652,5 @@ img:hover {
 @media (max-width: 768px) {
   .page {
     gap: 2rem;
-    padding: 0 1.25rem 3rem;
-  }
-
-  .pagination {
-    flex-direction: column;
-  }
-
-  .site-hero,
-  .post-card,
-  .notion,
-  pre {
-    border-radius: 22px;
-  }
-
-  .floating {
-    animation: none;
-  }
-
-  img {
-    border-radius: 18px;
-  }
-}
+  }>
+ekelejust-bcame:e
