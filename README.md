@@ -4,7 +4,6 @@
 
 ---
 ## ✨ 核心特性
-
 - **Notion 即 CMS**
   - 使用官方 `@notionhq/client` 读取数据库
   - 结合 `react-notion-x` 尽可能还原 Notion 原貌
