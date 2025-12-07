@@ -25,6 +25,12 @@
   --transition-fast: 180ms ease;
   --transition-normal: 320ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 520ms cubic-bezier(0.33, 1, 0.68, 1);
+  --code-bg: #070d1a;
+  --code-panel: rgba(7, 14, 26, 0.96);
+  --code-border: rgba(0, 229, 255, 0.32);
+  --code-inline: rgba(0, 229, 255, 0.16);
+  --code-highlight: rgba(105, 240, 174, 0.2);
+  --code-text: #f4faff;
 }
 
 *,
@@ -72,6 +78,96 @@ a:hover {
   color: var(--accent-green);
 }
 
+/* 代码展示 */
+pre,
+code {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas,
+    'Liberation Mono', monospace;
+}
+
+pre {
+  background: var(--code-panel);
+  color: var(--code-text);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--code-border);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), var(--shadow-card);
+  padding: 1.35rem 1.5rem;
+  margin: 1.5rem 0;
+  line-height: 1.7;
+  font-size: 0.94rem;
+  overflow: auto;
+  position: relative;
+}
+
+pre::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.25), transparent);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+pre[data-lang]::after {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.4rem;
+  right: 0.65rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  padding: 0.1rem 0.65rem;
+  border-radius: 999px;
+}
+
+pre code {
+  display: block;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  white-space: pre;
+}
+
+code {
+  background: var(--code-inline);
+  color: var(--code-text);
+  border-radius: 0.45rem;
+  border: 1px solid rgba(0, 229, 255, 0.24);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.92em;
+  box-shadow: inset 0 0 12px rgba(0, 229, 255, 0.08);
+}
+
+pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 999px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 255, 0.4);
+  border-radius: 999px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(105, 240, 174, 0.6);
+}
+
+pre mark {
+  background: var(--code-highlight);
+  color: var(--code-text);
+  border-radius: 0.35rem;
+  padding: 0.05rem 0.35rem;
+}
+
 /* 全局图片样式：稍微收敛，避免“太重”影响观感 */
 img {
   max-width: 100%;
@@ -93,16 +189,6 @@ img:hover {
   box-shadow: 0 30px 60px rgba(0, 229, 255, 0.22);
   transform: translateY(-2px);
 }
-
-/* 只想在正文里再细化的话，可以用 .notion img 单独控制 */
-/*
-.notion img {
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: transparent;
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
-}
-*/
 
 .page {
   width: min(1200px, 100%);
@@ -360,12 +446,29 @@ img:hover {
 
 .notion .notion-code {
   border-radius: var(--radius-md);
-  background: #0d1117;
-  color: #f6f8fa;
-  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono',
-    monospace;
-  padding: 1rem 1.25rem;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  background: var(--code-panel);
+  color: var(--code-text);
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas,
+    'Liberation Mono', monospace;
+  padding: 1.2rem 1.35rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), var(--shadow-card);
+  border: 1px solid var(--code-border);
+  position: relative;
+}
+
+.notion .notion-code::after {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.45rem;
+  right: 0.75rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.64);
+  background: rgba(105, 240, 174, 0.12);
+  border: 1px solid rgba(105, 240, 174, 0.32);
+  padding: 0.08rem 0.55rem;
+  border-radius: 999px;
 }
 
 .notion .notion-quote {
@@ -418,7 +521,8 @@ img:hover {
 
   .site-hero,
   .post-card,
-  .notion {
+  .notion,
+  pre {
     border-radius: 22px;
   }
 
