@@ -3,8 +3,31 @@ import dynamic from 'next/dynamic';
 import { getAllSlugs, getPostBySlug } from '../lib/notion';
 import 'react-notion-x/src/styles.css';
 
-const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then((m) => m.Code)
+const loadPrismLanguages = async () => {
+  if (typeof window === 'undefined') return;
+  await Promise.all([
+    import('prismjs/components/prism-javascript'),
+    import('prismjs/components/prism-typescript'),
+    import('prismjs/components/prism-jsx'),
+    import('prismjs/components/prism-tsx'),
+    import('prismjs/components/prism-bash'),
+    import('prismjs/components/prism-json'),
+    import('prismjs/components/prism-markdown'),
+    import('prismjs/components/prism-css'),
+    import('prismjs/components/prism-scss'),
+    import('prismjs/components/prism-python'),
+    import('prismjs/components/prism-diff'),
+    import('prismjs/components/prism-yaml'),
+  ]);
+};
+
+const Code = dynamic(
+  async () => {
+    const m = await import('react-notion-x/build/third-party/code');
+    await loadPrismLanguages();
+    return m.Code;
+  },
+  { ssr: false }
 );
 
 const Collection = dynamic(() =>
@@ -94,9 +117,7 @@ export default function PostPage({ meta, recordMap }) {
         <title>{meta.title}</title>
       </Head>
 
-      {/* 使用与你首页统一的 .page 布局，背景由全局 CSS 控制 */}
       <main className="page">
-        {/* 顶部 Hero：标题 + 日期 + 分类、标签，风格统一 */}
         <section
           style={{
             width: '100%',
@@ -110,7 +131,6 @@ export default function PostPage({ meta, recordMap }) {
             overflow: 'hidden',
           }}
         >
-          {/* 背景网格 */}
           <div
             style={{
               position: 'absolute',
@@ -123,7 +143,6 @@ export default function PostPage({ meta, recordMap }) {
             }}
           />
           <div style={{ position: 'relative' }}>
-            {/* 标题 */}
             <h1
               style={{
                 fontSize: 'clamp(2.0rem, 3.6vw, 2.6rem)',
@@ -136,7 +155,6 @@ export default function PostPage({ meta, recordMap }) {
               {meta.title}
             </h1>
 
-            {/* 日期 */}
             {meta.date && (
               <div
                 style={{
@@ -150,7 +168,6 @@ export default function PostPage({ meta, recordMap }) {
               </div>
             )}
 
-            {/* 分类与标签区域：和正文风格统一 */}
             {(categories.length || tags.length) > 0 && (
               <section
                 style={{
@@ -162,7 +179,6 @@ export default function PostPage({ meta, recordMap }) {
                   color: 'var(--text-secondary)',
                 }}
               >
-                {/* 分类 */}
                 {categories.length > 0 && (
                   <div
                     style={{
@@ -198,7 +214,6 @@ export default function PostPage({ meta, recordMap }) {
                   </div>
                 )}
 
-                {/* 标签 */}
                 {tags.length > 0 && (
                   <div
                     style={{
@@ -238,14 +253,13 @@ export default function PostPage({ meta, recordMap }) {
           </div>
         </section>
 
-        {/* 正文 Notion 内容，暗色卡片，与首页/列表统一 */}
         <section className="notion">
           <NotionRenderer
             className="notion-only-body"
             recordMap={recordMap}
             fullPage={false}
-            darkMode={false}
             disableHeader
+            darkMode
             components={{
               Code,
               Collection,
