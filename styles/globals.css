@@ -272,6 +272,56 @@ pre[class*='language-markdown'] {
     var(--code-panel);
 }
 
+/* 新增常见语言光晕 */
+pre[data-lang*='go'],
+pre[class*='language-go'] {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 200, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(105, 240, 174, 0.16), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='rust'],
+pre[class*='language-rust'] {
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255, 137, 93, 0.22), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(255, 83, 112, 0.18), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='java'],
+pre[class*='language-java'] {
+  background:
+    radial-gradient(circle at 15% 35%, rgba(255, 205, 130, 0.22), transparent 58%),
+    radial-gradient(circle at 85% 65%, rgba(108, 184, 255, 0.16), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='cs'],
+pre[data-lang*='csharp'],
+pre[class*='language-csharp'] {
+  background:
+    radial-gradient(circle at 20% 70%, rgba(179, 136, 255, 0.23), transparent 55%),
+    radial-gradient(circle at 80% 25%, rgba(105, 240, 174, 0.18), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='php'],
+pre[class*='language-php'] {
+  background:
+    radial-gradient(circle at 25% 25%, rgba(136, 164, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 75% 75%, rgba(255, 127, 209, 0.16), transparent 60%),
+    var(--code-panel);
+}
+
+pre[data-lang*='sql'],
+pre[class*='language-sql'] {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.23), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(255, 183, 77, 0.18), transparent 60%),
+    var(--code-panel);
+}
+
 /* Token 色彩（Prism / Highlight.js 通用） */
 .token.comment,
 .token.prolog,
@@ -683,7 +733,7 @@ img:hover {
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(0, -8px, 0);
+  transform: translate3d(0, -8px, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -711,25 +761,20 @@ img:hover {
 /* 响应式 */
 @media (max-width: 768px) {
   .page {
-    gap: 2rem;
-    padding: 0 1.25rem 3rem;
+    gap: 2rem
   }
-
   .pagination {
     flex-direction: column;
   }
-
   .site-hero,
   .post-card,
   .notion,
   pre {
     border-radius: 22px;
   }
-
   .floating {
     animation: none;
   }
-
   img {
     border-radius: 18px;
   }
