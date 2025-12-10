@@ -1,0 +1,48 @@
+name: Deploy Next.js Blog to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # 每小时执行一次（UTC 时间）
+    - cron: '0 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          # 先不要用缓存，等以后加了 lock 文件再开。
+          # cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build (static export)
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          npm run build
+          ls -R
+          touch out/.nojekyll
+          # 写入 CNAME，确保每次部署后 gh-pages 根目录都有该文件
+          echo "hackerchi.top" > out/CNAME
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages

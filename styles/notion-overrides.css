@@ -1,0 +1,5 @@
+/* 隐藏所有数据库属性，不区分页面 */
+.notion .notion-collection-page-properties,
+.notion .notion-page-properties {
+  display: none !important;
+}
