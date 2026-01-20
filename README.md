@@ -3,7 +3,6 @@
 > 基于 **Next.js 14 + Notion API** 的纯静态博客方案，支持一键导出 `out` 目录，零后端部署到任意静态托管平台。
 ---
 ## ✨ 核心特性
-
 - **Notion 即 CMS**
   - 使用官方 `@notionhq/client` 读取数据库
   - 结合 `react-notion-x` 尽可能还原 Notion 原貌
