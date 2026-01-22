@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[984],{4984:function(e,s,o){let t=o(4984);e.exports=t,e.exports.useLocalStorage=t.useLocalStorage,e.exports.useWindowSize=t.useWindowSize}}]);
