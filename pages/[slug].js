@@ -38,10 +38,12 @@ const Code = dynamic(
   { ssr: false }
 );
 
-const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection.js').then(
-    (m) => m.Collection
-  )
+const Collection = dynamic(
+  () =>
+    import('react-notion-x/build/third-party/collection.js').then(
+      (m) => m.Collection
+    ),
+  { ssr: false }
 );
 
 const NotionRenderer = dynamic(

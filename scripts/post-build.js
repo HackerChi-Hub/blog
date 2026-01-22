@@ -44,6 +44,15 @@ function processFile(filePath, targetFile) {
     .replace(/&#x2F;/g, '/')
     .trim();
 
+  // 如果目标路径是目录，先删除它
+  if (fs.existsSync(targetPath)) {
+    const stat = fs.statSync(targetPath);
+    if (stat.isDirectory()) {
+      fs.rmSync(targetPath, { recursive: true, force: true });
+      console.log(`[post-build] 已删除目录: ${targetFile}`);
+    }
+  }
+
   // 写入目标文件
   fs.writeFileSync(targetPath, content, 'utf-8');
   console.log(`[post-build] ✓ 已生成: ${targetFile}`);

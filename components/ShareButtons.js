@@ -34,7 +34,13 @@ export default function ShareButtons({ title, url, description }) {
 
   // 分享到微信
   const shareToWeChat = () => {
-    // 检测是否在微信内置浏览器中
+    // 检测是否在微信内置浏览器中（仅在客户端）
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+      setShowWeChatQR(true);
+      copyLink();
+      return;
+    }
+    
     const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
     
     if (isWeChat) {
@@ -85,32 +91,48 @@ export default function ShareButtons({ title, url, description }) {
 
   // 复制链接
   const copyLink = async () => {
+    // 仅在客户端执行
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+      return;
+    }
+    
     try {
-      await navigator.clipboard.writeText(fullUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(fullUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        throw new Error('Clipboard API not available');
+      }
     } catch (err) {
       console.error('复制失败:', err);
       // 降级方案：使用传统方法
-      const textArea = document.createElement('textarea');
-      textArea.value = fullUrl;
-      textArea.style.position = 'fixed';
-      textArea.style.opacity = '0';
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      } catch (err) {
-        console.error('复制失败:', err);
+      if (typeof document !== 'undefined') {
+        const textArea = document.createElement('textarea');
+        textArea.value = fullUrl;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+          console.error('复制失败:', err);
+        }
+        document.body.removeChild(textArea);
       }
-      document.body.removeChild(textArea);
     }
   };
 
   // 使用 Web Share API（如果支持）
   const shareNative = async () => {
+    // 仅在客户端执行
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+      return;
+    }
+    
     if (navigator.share) {
       try {
         await navigator.share({
@@ -173,7 +195,7 @@ export default function ShareButtons({ title, url, description }) {
       </span>
 
       {/* 原生分享（移动端） */}
-      {navigator.share && (
+      {typeof window !== 'undefined' && typeof navigator !== 'undefined' && navigator.share && (
         <button
           onClick={shareNative}
           style={buttonStyle}
