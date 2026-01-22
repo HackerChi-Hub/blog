@@ -1,8 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPosts, getNotices, getSubMenus } from '../lib/notion';
 import { NOTION_PROPERTY_NAME } from '../lib/config';
+import SEO from '../components/SEO';
+import Search from '../components/Search';
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 21;
 const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 
@@ -35,7 +38,7 @@ const heroStyles = {
     position: 'relative',
     overflow: 'hidden',
     boxShadow: '0 30px 70px rgba(0,0,0,0.55)',
-    marginBottom: '48px',
+    marginBottom: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
   },
   overlay: {
     position: 'absolute',
@@ -99,8 +102,8 @@ const heroStyles = {
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '18px',
-    marginTop: '28px',
+    gap: '20px',
+    marginTop: '32px',
   },
   card: {
     borderRadius: '20px',
@@ -462,7 +465,19 @@ const PostCover = ({ cover }) => {
 
   return (
     <div className="post-cover">
-      <img src={src} alt="" loading="lazy" />
+      <Image
+        src={src}
+        alt=""
+        width={800}
+        height={450}
+        style={{
+          width: '100%',
+          height: 'auto',
+          objectFit: 'cover',
+        }}
+        loading="lazy"
+        unoptimized
+      />
     </div>
   );
 };
@@ -521,6 +536,7 @@ const HeroSection = ({
   subMenus = [],
   categoryBuckets = [],
   categoryPropertyLabel = 'category',
+  searchComponent = null,
 }) => {
   const fallbackNotices = [
     { id: 'placeholder-1', title: '暂无 Notice 数据', date: null, summary: '' },
@@ -546,9 +562,11 @@ const HeroSection = ({
         <div style={heroStyles.titleRow}>
           {/* 左侧：保留"黑客驰 · 官网"的徽章风格外观 */}
           <div style={heroStyles.badgeLikeTitle}>
-            <img
+            <Image
               src="/favicon-32x32.png"
               alt=""
+              width={32}
+              height={32}
               style={{
                 width: '1.2em',
                 height: '1.2em',
@@ -558,6 +576,7 @@ const HeroSection = ({
                 verticalAlign: 'middle',
                 flexShrink: 0,
               }}
+              unoptimized
             />
             黑客驰 · 官网
           </div>
@@ -566,13 +585,17 @@ const HeroSection = ({
           <span style={heroStyles.subTitleAccent}>效率提速，安全不怵</span>
         </div>
 
-        <p style={heroStyles.paragraph}>
-          点赞、评论、转发
-        </p>
-        <p style={heroStyles.hint}>
-          锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
-        </p>
+        {/* 文字说明 */}
+        <div style={{ marginTop: '20px' }}>
+          <p style={heroStyles.paragraph}>
+            点赞、评论、转发
+          </p>
+          <p style={heroStyles.hint}>
+            锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
+          </p>
+        </div>
 
+        {/* 分类卡片区域 */}
         <div style={heroStyles.grid}>
           {categoryBuckets.map((bucket) => (
             <div key={bucket.name} style={heroStyles.card}>
@@ -623,11 +646,12 @@ const HeroSection = ({
           ))}
         </div>
 
+        {/* Notice 和视频矩阵区域 */}
         <div
           style={{
             ...heroStyles.grid,
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            marginTop: '32px',
+            marginTop: '40px',
           }}
         >
           <div style={heroStyles.terminal}>
@@ -673,9 +697,11 @@ const HeroSection = ({
                         lineHeight: 0,
                       }}
                     >
-                      <img
+                      <Image
                         src={notice.image}
                         alt={notice.title}
+                        width={160}
+                        height={120}
                         style={{
                           width: '100%',
                           height: 'auto',
@@ -686,11 +712,16 @@ const HeroSection = ({
                           console.error('[Notice] Image load failed:', {
                             url: notice.image,
                             title: notice.title,
-                            error: e.target.error
+                            error: e.target?.error
                           });
-                          const parent = e.target.parentElement?.parentElement;
-                          if (parent) {
-                            parent.innerHTML = '<span style="color: rgba(255,255,255,0.4); font-size: 10px; text-align: center; padding: 4px; display: block;">加载失败</span>';
+                          // 如果图片加载失败，显示错误提示
+                          const img = e.target;
+                          if (img) {
+                            img.style.display = 'none';
+                            const errorDiv = document.createElement('div');
+                            errorDiv.style.cssText = 'color: rgba(255,255,255,0.4); font-size: 10px; text-align: center; padding: 4px; display: block;';
+                            errorDiv.textContent = '加载失败';
+                            img.parentElement?.appendChild(errorDiv);
                           }
                         }}
                         onLoad={() => {
@@ -698,6 +729,7 @@ const HeroSection = ({
                         }}
                         loading="lazy"
                         referrerPolicy="no-referrer"
+                        unoptimized
                       />
                     </div>
                     {notice.imageCaption && (
@@ -836,15 +868,22 @@ export default function Home({
     const showEmpty = posts.length === 0;
 
     return (
-      <main
-        className="page"
-        style={{
-          background: '#05060b',
-          minHeight: '100vh',
-          padding: '48px 20px',
-        }}
-      >
-        <style>{feedStyles}</style>
+      <>
+        <SEO
+          title=""
+          description="效率提速，安全不怵。分享技术、学习思考、资源分享。"
+          url="/"
+          type="website"
+        />
+        <main
+          className="page"
+          style={{
+            background: '#05060b',
+            minHeight: '100vh',
+            padding: '48px 20px',
+          }}
+        >
+          <style>{feedStyles}</style>
 
         <HeroSection
           notices={notices}
@@ -852,6 +891,29 @@ export default function Home({
           categoryBuckets={categoryBuckets}
           categoryPropertyLabel={CATEGORY_FIELD}
         />
+
+        {/* 搜索区域 - 独立出来 */}
+        {posts.length > 0 && (
+          <section
+            style={{
+              marginTop: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
+              marginBottom: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
+              padding: '12px',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: 'rgba(255, 255, 255, 0.02)',
+            }}
+          >
+            <div
+              style={{
+                maxWidth: '600px',
+                margin: '0 auto',
+              }}
+            >
+              <Search posts={posts} />
+            </div>
+          </section>
+        )}
 
         {errorMessage && (
           <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
@@ -884,21 +946,30 @@ export default function Home({
           </nav>
         )}
       </main>
+      </>
     );
   } catch (error) {
     console.error('[pages/index] render failed:', error);
     return (
-      <main className="page">
-        <HeroSection
-          notices={notices}
-          subMenus={subMenus}
-          categoryBuckets={categoryBuckets || []}
-          categoryPropertyLabel={CATEGORY_FIELD}
+      <>
+        <SEO
+          title=""
+          description="效率提速，安全不怵。分享技术、学习思考、资源分享。"
+          url="/"
+          type="website"
         />
-        <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
-          首页渲染失败：{error?.message || '未知错误，请查看构建日志。'}
-        </div>
-      </main>
+        <main className="page">
+          <HeroSection
+            notices={notices}
+            subMenus={subMenus}
+            categoryBuckets={categoryBuckets || []}
+            categoryPropertyLabel={CATEGORY_FIELD}
+          />
+          <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
+            首页渲染失败：{error?.message || '未知错误，请查看构建日志。'}
+          </div>
+        </main>
+      </>
     );
   }
 }

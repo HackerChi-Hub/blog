@@ -517,8 +517,10 @@ img:hover {
 /* 文章栅格 */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: clamp(1.6rem, 3.2vw, 2.6rem);
+  width: 100%;
+  grid-auto-rows: min-content;
 }
 
 .post-card {

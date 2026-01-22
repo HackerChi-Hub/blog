@@ -14,7 +14,32 @@ const nextConfig = {
   // assetPrefix: '',
 
   trailingSlash: true,
-  reactStrictMode: true
+  reactStrictMode: true,
+
+  // 图片优化配置
+  images: {
+    // 静态导出模式下，需要禁用图片优化或使用 unoptimized
+    unoptimized: true,
+    // 允许的外部图片域名
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.notion.so',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.notion-static.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.s3.amazonaws.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

@@ -1,6 +1,14 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import { getAllSlugs, getPostBySlug } from '../lib/notion';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
+import SEO from '../components/SEO';
+import ShareButtons from '../components/ShareButtons';
+import RelatedPosts from '../components/RelatedPosts';
+import { getRelatedPosts } from '../lib/related-posts';
+import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
+import { SITE_CONFIG } from '../lib/seo';
 import 'react-notion-x/src/styles.css';
 
 const loadPrismLanguages = async () => {
@@ -31,7 +39,7 @@ const Code = dynamic(
 );
 
 const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then(
+  import('react-notion-x/build/third-party/collection.js').then(
     (m) => m.Collection
   )
 );
@@ -62,17 +70,24 @@ export async function getStaticProps({ params }) {
 
   console.log('[getStaticProps] slug:', slug);
 
-  const post = await getPostBySlug(slug);
+  const [post, allPosts] = await Promise.all([
+    getPostBySlug(slug),
+    getPosts(),
+  ]);
 
   if (!post) {
     console.warn('[getStaticProps] NOT FOUND slug:', slug);
     return { notFound: true };
   }
 
+  // 获取相关文章
+  const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
+
   return {
     props: {
       meta: post.meta,
       recordMap: post.recordMap,
+      relatedPosts,
     },
   };
 }
@@ -90,32 +105,83 @@ const formatDate = (dateString) => {
   }
 };
 
-export default function PostPage({ meta, recordMap }) {
+export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
+  const router = useRouter();
+  const slug = router.query.slug;
+  
   if (!recordMap) {
     return (
-      <main
-        style={{
-          maxWidth: '720px',
-          margin: '40px auto',
-          padding: '0 16px',
-          fontFamily:
-            'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-        }}
-      >
-        <h1>{meta?.title || '文章加载失败'}</h1>
-        <p>无法加载 Notion 内容，请检查服务器日志。</p>
-      </main>
+      <>
+        <SEO
+          title={meta?.title || '文章加载失败'}
+          description="无法加载 Notion 内容，请检查服务器日志。"
+          url={`/${slug}/`}
+          type="article"
+        />
+        <main
+          style={{
+            maxWidth: '720px',
+            margin: '40px auto',
+            padding: '0 16px',
+            fontFamily:
+              'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+          }}
+        >
+          <h1>{meta?.title || '文章加载失败'}</h1>
+          <p>无法加载 Notion 内容，请检查服务器日志。</p>
+        </main>
+      </>
     );
   }
 
   const categories = Array.isArray(meta.categories) ? meta.categories : [];
   const tags = Array.isArray(meta.tags) ? meta.tags : [];
+  
+  // 提取摘要文本
+  const normalizeSummary = (summary) => {
+    if (!summary) return '';
+    if (typeof summary === 'string') return summary;
+    if (Array.isArray(summary)) {
+      return summary
+        .map((item) => {
+          if (typeof item === 'string') return item;
+          if (typeof item === 'object' && item?.plain_text) return item.plain_text;
+          if (item?.text?.content) return item.text.content;
+          return '';
+        })
+        .filter(Boolean)
+        .join('');
+    }
+    if (typeof summary === 'object') {
+      if (summary.plain_text) return summary.plain_text;
+      if (summary.text?.content) return summary.text.content;
+      return JSON.stringify(summary);
+    }
+    return String(summary);
+  };
+  
+  const description = normalizeSummary(meta.summary) || `${meta.title} - ${SITE_CONFIG.name}`;
+  const tagNames = tags.map(tag => typeof tag === 'string' ? tag : tag.name || tag).filter(Boolean);
+  const articleUrl = `/${meta.slug || slug}/`;
+  const publishedTime = meta.date ? new Date(meta.date).toISOString() : null;
+  
+  // 计算阅读时间
+  const readingTime = estimateReadingTime({ meta, recordMap });
+  const readingTimeText = formatReadingTime(readingTime);
 
   return (
     <>
-      <Head>
-        <title>{meta.title}</title>
-      </Head>
+      <SEO
+        title={meta.title}
+        description={description}
+        image={meta.image}
+        url={articleUrl}
+        type="article"
+        publishedTime={publishedTime}
+        modifiedTime={publishedTime}
+        tags={tagNames}
+        author={SITE_CONFIG.author}
+      />
 
       <main className="page">
         <section
@@ -155,18 +221,42 @@ export default function PostPage({ meta, recordMap }) {
               {meta.title}
             </h1>
 
-            {meta.date && (
-              <div
+            <div
+              style={{
+                marginTop: '1.1rem',
+                display: 'flex',
+                gap: '16px',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                fontSize: '0.95rem',
+                color: 'var(--text-secondary)',
+              }}
+            >
+              {meta.date && (
+                <span style={{ letterSpacing: '0.18em' }}>
+                  {formatDate(meta.date)}
+                </span>
+              )}
+              <span
                 style={{
-                  marginTop: '1.1rem',
-                  fontSize: '0.95rem',
-                  letterSpacing: '0.18em',
-                  color: 'var(--text-secondary)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  background: 'rgba(105, 240, 174, 0.1)',
+                  border: '1px solid rgba(105, 240, 174, 0.2)',
+                  color: 'var(--accent-green)',
+                  fontSize: '0.9rem',
                 }}
               >
-                {formatDate(meta.date)}
-              </div>
-            )}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                {readingTimeText}
+              </span>
+            </div>
 
             {(categories.length || tags.length) > 0 && (
               <section
@@ -265,7 +355,74 @@ export default function PostPage({ meta, recordMap }) {
               Collection,
             }}
           />
+
+          {/* 分享按钮 - 融入文章区域末尾 */}
+          <div
+            style={{
+              marginTop: '48px',
+              padding: '24px',
+              borderRadius: '16px',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: 'rgba(255, 255, 255, 0.02)',
+            }}
+          >
+            <ShareButtons
+              title={meta.title}
+              url={articleUrl}
+              description={description}
+            />
+          </div>
+
+          {/* 相关文章 - 融入文章区域末尾 */}
+          <div style={{ marginTop: '32px' }}>
+            <RelatedPosts posts={relatedPosts} />
+          </div>
         </section>
+
+        {/* 返回首页按钮 */}
+        <div
+          style={{
+            marginTop: '40px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              borderRadius: '12px',
+              border: '1px solid rgba(105, 240, 174, 0.3)',
+              background: 'rgba(105, 240, 174, 0.1)',
+              color: 'var(--accent-green)',
+              fontSize: '0.95rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(105, 240, 174, 0.15)';
+              e.currentTarget.style.borderColor = 'rgba(105, 240, 174, 0.5)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(105, 240, 174, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(105, 240, 174, 0.1)';
+              e.currentTarget.style.borderColor = 'rgba(105, 240, 174, 0.3)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            返回首页
+          </Link>
+        </div>
       </main>
     </>
   );

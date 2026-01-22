@@ -6,6 +6,9 @@ node_modules/
 .next/
 out/
 
+# 备份
+backups/
+
 # 日志
 *.log
 npm-debug.log*
