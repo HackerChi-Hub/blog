@@ -7,7 +7,7 @@
     "build": "next build && node scripts/post-build.js",
     "start": "next start",
     "backup": "node scripts/backup.js",
-    "predeploy": "npm run backup"
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "next": "14.2.3",

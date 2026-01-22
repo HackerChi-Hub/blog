@@ -15,9 +15,12 @@
 
 - **完整路由体系**
   - `/`：文章列表首页（带 Hero 区域、分类展示、通知、子菜单）
-  - `/page/[page]`：分页列表（每页 20 篇）
+  - `/page/[page]`：分页列表（每页 21 篇）
   - `/[slug]`：文章详情页
   - `/404`：自定义 404 页面
+  - `/feed.xml`：RSS 订阅源
+  - `/sitemap.xml`：网站地图
+  - `/robots.txt`：搜索引擎爬虫配置
 
 - **丰富的功能特性**
   - 代码高亮支持（Prism.js，支持多种语言）
@@ -25,6 +28,13 @@
   - 深色主题 UI
   - 响应式设计
   - 内容保护（禁用右键菜单和复制，代码区域除外）
+  - **SEO 优化**：完整的 meta 标签、Open Graph、Twitter Card、JSON-LD 结构化数据
+  - **RSS 订阅**：自动生成 RSS feed，支持内容订阅
+  - **文章分享**：支持分享到 Twitter、Facebook、LinkedIn、微信、微博、QQ、QQ空间等平台
+  - **相关文章推荐**：基于标签、分类和内容相似度的智能推荐
+  - **阅读时间估算**：自动计算并显示文章预计阅读时间
+  - **全局搜索**：客户端实时搜索，支持标题、摘要、标签搜索（快捷键 Ctrl+K）
+  - **自动备份**：部署前自动创建项目备份
 
 - **现代技术栈**
   - Next.js 14.2.3 + React 18.3.1
@@ -38,20 +48,39 @@
 
 ```text
 .
-├── lib
-│   ├── config.js              # Notion 属性名配置（支持环境变量覆盖）
-│   └── notion.js              # Notion API 封装（getPosts, getNotices, getSubMenus 等）
-├── pages
-│   ├── _app.js               # 全局应用配置（GA、内容保护等）
+├── components/                # React 组件
+│   ├── OptimizedImage.js     # 图片优化组件
+│   ├── RelatedPosts.js        # 相关文章组件
+│   ├── Search.js             # 全局搜索组件
+│   ├── SEO.js                # SEO 元标签组件
+│   └── ShareButtons.js       # 文章分享组件
+├── lib/                      # 工具库
+│   ├── config.js             # Notion 属性名配置（支持环境变量覆盖）
+│   ├── notion.js             # Notion API 封装
+│   ├── reading-time.js        # 阅读时间计算
+│   ├── related-posts.js      # 相关文章推荐算法
+│   ├── rss.js                # RSS feed 生成
+│   ├── seo.js                # SEO 配置和工具
+│   └── sitemap.js            # 网站地图生成
+├── pages/                    # Next.js 页面
+│   ├── _app.js               # 全局应用配置
 │   ├── index.js              # 首页（Hero 区域 + 文章列表）
 │   ├── [slug].js             # 文章详情页
 │   ├── page/[page].js        # 分页列表页
+│   ├── feed.xml.js           # RSS feed 页面
+│   ├── sitemap.xml.js        # 网站地图页面
+│   ├── robots.txt.js         # robots.txt 页面
 │   └── 404.js                # 404 页面
-├── styles
-│   ├── globals.css            # 全局样式（深色主题、代码高亮等）
-│   └── notion-overrides.css   # Notion 样式覆盖
-├── next.config.mjs            # Next.js 配置（静态导出、trailingSlash）
-└── package.json               # 依赖与脚本
+├── scripts/                  # 构建脚本
+│   ├── backup.js             # 项目备份脚本
+│   ├── deploy.js             # 自动部署脚本
+│   ├── generate-sitemap.js   # 网站地图生成脚本
+│   └── post-build.js         # 构建后处理脚本
+├── styles/                   # 样式文件
+│   ├── globals.css           # 全局样式
+│   └── notion-overrides.css  # Notion 样式覆盖
+├── next.config.mjs           # Next.js 配置
+└── package.json              # 依赖与脚本
 ```
 
 ---
@@ -100,6 +129,9 @@ NOTION_DATABASE_ID=xxxxxxxxxxxxxxxx
 # 可选：Google Analytics
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
+# 可选：GitHub Token（用于自动部署）
+GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
+
 # 可选：Notion 属性名自定义（默认值见 lib/config.js）
 NEXT_PUBLIC_NOTION_PROPERTY_TITLE=title
 NEXT_PUBLIC_NOTION_PROPERTY_SLUG=slug
@@ -130,6 +162,12 @@ npm run build
 
 # 预览静态构建（可选）
 npm run start
+
+# 创建项目备份（排除 node_modules、.next、out 等）
+npm run backup
+
+# 自动部署到 GitHub（备份 + 提交 + 推送）
+npm run deploy
 ```
 
 > 因已启用 `output: 'export'`，无需额外执行 `next export`。
@@ -155,19 +193,37 @@ npm run start
 - **Hero 区域**：展示站点标题、分类统计、最新通知、子菜单链接
 - **分类展示**：支持按分类（如"技术分享"、"学习思考"、"资源分享"）展示文章
 - **文章卡片**：显示标题、日期、标签、摘要，支持封面图
-- **分页导航**：每页 20 篇文章，支持分页浏览
+- **全局搜索**：实时搜索功能，支持快捷键 Ctrl+K，可搜索标题、摘要、标签
+- **分页导航**：每页 21 篇文章，支持分页浏览
 
 ### 文章详情页
 
 - **Notion 渲染**：使用 `react-notion-x` 完整渲染 Notion 页面内容
 - **代码高亮**：支持 JavaScript、TypeScript、Python、Bash、JSON、Markdown、CSS、YAML 等多种语言
-- **元信息展示**：显示标题、日期、分类、标签
+- **元信息展示**：显示标题、日期、分类、标签、阅读时间
+- **文章分享**：支持分享到多个社交平台（Twitter、Facebook、LinkedIn、微信、微博、QQ、QQ空间等）
+- **相关文章推荐**：基于标签、分类和内容相似度的智能推荐
+- **SEO 优化**：完整的 meta 标签、Open Graph、Twitter Card、JSON-LD 结构化数据
 - **深色主题**：统一的深色 UI 设计
 
 ### 内容保护
 
 - 默认禁用右键菜单、复制、粘贴、文本选择、拖拽
 - **代码区域例外**：代码块（`<pre>`、`<code>`）内允许选择和复制
+
+### SEO 和内容发现
+
+- **RSS 订阅**：自动生成 `/feed.xml`，支持 RSS 阅读器订阅
+- **网站地图**：自动生成 `/sitemap.xml`，便于搜索引擎索引
+- **robots.txt**：自动生成 `/robots.txt`，控制搜索引擎爬虫行为
+- **结构化数据**：使用 JSON-LD 格式提供结构化数据，提升搜索引擎理解
+
+### 备份和部署
+
+- **自动备份**：`npm run backup` 创建项目压缩包，自动保留最近 10 个备份
+- **自动部署**：`npm run deploy` 自动执行备份、提交更改并推送到 GitHub
+  - 从 `.env.local` 读取 `GITHUB_TOKEN` 进行身份验证
+  - 支持自定义提交信息：`npm run deploy "你的提交信息"`
 
 ---
 
