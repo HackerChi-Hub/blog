@@ -544,11 +544,26 @@ const HeroSection = ({
       <div style={{ position: 'relative' }}>
         {/* 删除顶部的 badge，只保留下方一行标题 */}
         <div style={heroStyles.titleRow}>
-          {/* 左侧：保留“黑客驰 · 官网”的徽章风格外观 */}
-          <div style={heroStyles.badgeLikeTitle}>黑客驰 · 官网</div>
+          {/* 左侧：保留"黑客驰 · 官网"的徽章风格外观 */}
+          <div style={heroStyles.badgeLikeTitle}>
+            <img
+              src="/favicon-32x32.png"
+              alt=""
+              style={{
+                width: '1.2em',
+                height: '1.2em',
+                borderRadius: '8px',
+                objectFit: 'cover',
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                flexShrink: 0,
+              }}
+            />
+            黑客驰 · 官网
+          </div>
 
-          {/* 右侧：分享 / 探索 / 进取 */}
-          <span style={heroStyles.subTitleAccent}>分享 / 探索 / 进取</span>
+          {/* 右侧：效率提速，安全不怵 */}
+          <span style={heroStyles.subTitleAccent}>效率提速，安全不怵</span>
         </div>
 
         <p style={heroStyles.paragraph}>
@@ -619,12 +634,110 @@ const HeroSection = ({
             <div style={heroStyles.prompt}>┌─ hackerchi@lab</div>
             <div style={heroStyles.prompt}>└─$ tail -f notice.log</div>
             {renderNotices.map((notice) => (
-              <div key={notice.id} style={{ marginTop: '4px', lineHeight: 1.4 }}>
-                <span style={heroStyles.timestamp}>
-                  [{formatTime(notice.date)}]
-                </span>
-                <strong>{notice.title}</strong>
-                {notice.summary && ` — ${notice.summary}`}
+              <div
+                key={notice.id}
+                style={{
+                  marginTop: '12px',
+                  padding: notice.image ? '14px' : '0',
+                  borderRadius: notice.image ? '14px' : '0',
+                  background: notice.image ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
+                  display: 'flex',
+                  flexDirection: notice.image ? 'row' : 'column',
+                  gap: notice.image ? '14px' : '0',
+                  alignItems: notice.image ? 'flex-start' : 'flex-start',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                {notice.image && (
+                  <div
+                    style={{
+                      width: '160px',
+                      minWidth: '160px',
+                      flexShrink: 0,
+                      borderRadius: '12px',
+                      border: `1px solid ${heroPalette.accent2}50`,
+                      background: 'rgba(0, 0, 0, 0.25)',
+                      overflow: 'hidden',
+                      position: 'relative',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignSelf: 'center',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        lineHeight: 0,
+                      }}
+                    >
+                      <img
+                        src={notice.image}
+                        alt={notice.title}
+                        style={{
+                          width: '100%',
+                          height: 'auto',
+                          display: 'block',
+                          borderRadius: notice.imageCaption ? '11px 11px 0 0' : '11px',
+                        }}
+                        onError={(e) => {
+                          console.error('[Notice] Image load failed:', {
+                            url: notice.image,
+                            title: notice.title,
+                            error: e.target.error
+                          });
+                          const parent = e.target.parentElement?.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<span style="color: rgba(255,255,255,0.4); font-size: 10px; text-align: center; padding: 4px; display: block;">加载失败</span>';
+                          }
+                        }}
+                        onLoad={() => {
+                          console.log('[Notice] Image loaded successfully:', notice.image?.substring(0, 100));
+                        }}
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    {notice.imageCaption && (
+                      <div
+                        style={{
+                          padding: '6px 8px',
+                          fontSize: '0.75rem',
+                          color: heroPalette.muted,
+                          textAlign: 'center',
+                          borderTop: `1px solid ${heroPalette.accent2}30`,
+                          background: 'rgba(0, 0, 0, 0.15)',
+                        }}
+                      >
+                        {notice.imageCaption}
+                      </div>
+                    )}
+                  </div>
+                )}
+                <div style={{ flex: 1, lineHeight: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <div style={{ marginBottom: '4px' }}>
+                    <span style={heroStyles.timestamp}>
+                      [{formatTime(notice.date)}]
+                    </span>
+                    <strong style={{ color: heroPalette.text }}>
+                      {notice.title}
+                    </strong>
+                  </div>
+                  {notice.summary && (
+                    <div
+                      style={{
+                        color: heroPalette.muted,
+                        fontSize: '0.9rem',
+                        marginTop: '4px',
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {notice.summary}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
