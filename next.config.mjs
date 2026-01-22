@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const isProd = process.env.NODE_ENV === 'production';
 const repoName = 'blog';
@@ -15,6 +22,19 @@ const nextConfig = {
 
   trailingSlash: true,
   reactStrictMode: true,
+
+  // 转译 CommonJS 模块（解决 react-use 等模块的导入问题）
+  transpilePackages: ['react-use'],
+
+  // Webpack 配置：处理 CommonJS 模块
+  webpack: (config, { isServer }) => {
+    // 使用别名将 react-use 重定向到包装器
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react-use': path.resolve(__dirname, 'lib/react-use-wrapper.cjs'),
+    };
+    return config;
+  },
 
   // 图片优化配置
   images: {
