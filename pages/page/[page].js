@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getPosts } from '../../lib/notion';
+import SEO from '../../components/SEO';
 
-const PAGE_SIZE = 20;
+const PAGE_SIZE = 21;
 
 const formatDate = (dateString) => {
   if (!dateString) return '';
@@ -74,7 +75,8 @@ export async function getStaticProps({ params }) {
   try {
     const allPosts = await getPosts();
     const safePosts = Array.isArray(allPosts) ? allPosts : [];
-    const totalPages = Math.max(1, Math.ceil(safePosts.length / PAGE_SIZE));
+    const totalPosts = safePosts.length;
+    const totalPages = Math.max(1, Math.ceil(totalPosts / PAGE_SIZE));
     const currentPage = Number(params?.page) || 1;
 
     if (currentPage < 1 || currentPage > totalPages) {
@@ -82,8 +84,22 @@ export async function getStaticProps({ params }) {
     }
 
     const start = (currentPage - 1) * PAGE_SIZE;
-    const end = start + PAGE_SIZE;
+    const end = Math.min(start + PAGE_SIZE, totalPosts); // 确保不超过总数
     const posts = safePosts.slice(start, end);
+
+    console.log(`[page/[page]] Page ${currentPage}:`, {
+      totalPosts,
+      start,
+      end,
+      postsCount: posts.length,
+      totalPages,
+      expectedCount: Math.min(PAGE_SIZE, totalPosts - start),
+    });
+
+    // 验证获取的文章数量
+    if (posts.length !== Math.min(PAGE_SIZE, totalPosts - start)) {
+      console.warn(`[page/[page]] 文章数量不匹配: 期望 ${Math.min(PAGE_SIZE, totalPosts - start)}, 实际 ${posts.length}`);
+    }
 
     return {
       props: {
@@ -118,7 +134,14 @@ export default function PostListPage({
   const showEmpty = !posts || posts.length === 0;
 
   return (
-    <main className="page">
+    <>
+      <SEO
+        title={`第 ${currentPage} 页`}
+        description={`第 ${currentPage} / ${totalPages} 页 · 每页 ${PAGE_SIZE} 篇。精彩依旧继续，我们等待着您。`}
+        url={`/page/${currentPage}/`}
+        type="website"
+      />
+      <main className="page">
       <section className="site-hero floating">
         <div
           style={{
@@ -164,16 +187,21 @@ export default function PostListPage({
           该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。
         </div>
       ) : (
-        <section className="posts-grid">
-          {posts.map((post) => {
+        <section className="posts-grid" style={{ width: '100%' }}>
+          {posts && posts.length > 0 ? posts.map((post, index) => {
             const slug = post.slug || post.rawId || post.id;
             const href = `/${slug}/`;
             const summaryText =
               normalizeSummary(post.summary) || '暂无摘要，点击查看完整内容。';
             const tags = resolveTags(post.tags);
 
+            if (!post || !slug) {
+              console.warn(`[page/[page]] 无效的文章数据，索引: ${index}`, post);
+              return null;
+            }
+
             return (
-              <article className="post-card" key={post.id || slug}>
+              <article className="post-card" key={`${post.id || slug}-${index}`}>
                 <div className="post-card__inner">
                   <Link href={href} className="post-title">
                     {post.title || slug}
@@ -206,7 +234,11 @@ export default function PostListPage({
                 </div>
               </article>
             );
-          })}
+          }).filter(Boolean) : (
+            <div className="empty-state">
+              该分页暂无文章数据
+            </div>
+          )}
         </section>
       )}
 
@@ -244,5 +276,6 @@ export default function PostListPage({
         </nav>
       )}
     </main>
+    </>
   );
 }
