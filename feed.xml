@@ -5,11 +5,24 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Jan 2026 14:11:01 GMT</lastBuildDate>
-    <pubDate>Sat, 24 Jan 2026 14:11:01 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Jan 2026 15:11:01 GMT</lastBuildDate>
+    <pubDate>Sat, 24 Jan 2026 15:11:01 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>🚀告别提示词工程，拥抱大模型 Skill 时代：全方位深度解析 </title>
+      <link>https://hackerchi.top/2f2999681bdb809ea850df29ae133f28/</link>
+      <guid isPermaLink="true">https://hackerchi.top/2f2999681bdb809ea850df29ae133f28/</guid>
+      <description>家人们谁懂啊！最近 AI 圈造词的速度，简直比老板给我画饼的速度还要快！ 从提示词工程（Prompt Engineering）到智能体（Agent），再到 MCP，现在又蹦出一个 Agent Skill。如果你还觉得自己是在跟 AI “聊天”，那可能已经落伍了。
+今天咱们不整那些高大上的学术黑话，黑客驰带你深度扒一扒：这个让 Anthropic 宁愿将其作为全球开放标准也要推广的 Skill，到底是什么“神仙操作”？</description>
+      <pubDate>Sat, 24 Jan 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>Skill</category>
+    <category>GPT</category>
+    <category>大语言模型</category>
+    <category>思考</category>
+    </item>
     <item>
       <title>🚀Win11 25H2 卡顿救星！3步原生关闭VBS+TRIM优化，实测提速15%|2026最新|少折腾，多倍增 [黑客驰]</title>
       <link>https://hackerchi.top/2ee999681bdb80d2a12af5c2e3579a1a/</link>
@@ -215,16 +228,6 @@
     <category>Archlinux</category>
     <category>Linux</category>
     <category>教程</category>
-    </item>
-    <item>
-      <title>远程管理工具：PyChi 远程管理系统</title>
-      <link>https://hackerchi.top/168999681bdb805fa8f1f1185b23d4f8/</link>
-      <guid isPermaLink="true">https://hackerchi.top/168999681bdb805fa8f1f1185b23d4f8/</guid>
-      <description>在现代 IT 环境中，远程管理工具是开发者和运维人员必不可少的利器。本文将为大家介绍一个基于 Python 构建的多功能远程管理工具 Pychi，它能够让你轻松地对远程客户端进行管理操作，包括文件管理、系统命令执行、截图、录音等功能。</description>
-      <pubDate>Thu, 26 Dec 2024 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>python</category>
-    <category>远程控制</category>
     </item>
   </channel>
 </rss>
