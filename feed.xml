@@ -5,11 +5,22 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 28 Jan 2026 15:22:00 GMT</lastBuildDate>
-    <pubDate>Wed, 28 Jan 2026 15:22:00 GMT</pubDate>
+    <lastBuildDate>Wed, 28 Jan 2026 16:23:53 GMT</lastBuildDate>
+    <pubDate>Wed, 28 Jan 2026 16:23:53 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>🚀 2026年最强个人AI员工：Clawdbot (Moltbot) 终极保姆级上手指南</title>
+      <link>https://hackerchi.top/2f6999681bdb803592c9fe8b42c095b7/</link>
+      <guid isPermaLink="true">https://hackerchi.top/2f6999681bdb803592c9fe8b42c095b7/</guid>
+      <description>摘要：这不仅仅是一个聊天机器人。Clawdbot（现名 Moltbot）是一个具备持久记忆、能够操控浏览器、自动写代码并在本地运行的开源 AI Agent。本文将手把手教你如何部署这个风靡硅谷的“太空龙虾”。</description>
+      <pubDate>Wed, 28 Jan 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>Clawdbot</category>
+    <category>Moltbot</category>
+    </item>
     <item>
       <title>🚀告别提示词工程，拥抱大模型 Skill 时代：全方位深度解析 </title>
       <link>https://hackerchi.top/2f2999681bdb809ea850df29ae133f28/</link>
@@ -217,17 +228,6 @@
     <category>python</category>
     <category>网站</category>
     <category>情报</category>
-    </item>
-    <item>
-      <title>2025 Arch Linux 配置与常用操作指南</title>
-      <link>https://hackerchi.top/18e999681bdb80f0b12ef818c435279e/</link>
-      <guid isPermaLink="true">https://hackerchi.top/18e999681bdb80f0b12ef818c435279e/</guid>
-      <description>本文档整理了 Arch Linux 的基础配置与常用操作，亲自实践，包括镜像源、字体、语言、驱动、输入法等内容，适合新手和日常参考使用。</description>
-      <pubDate>Sun, 02 Feb 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>Archlinux</category>
-    <category>Linux</category>
-    <category>教程</category>
     </item>
   </channel>
 </rss>
