@@ -5,11 +5,21 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Jan 2026 03:59:33 GMT</lastBuildDate>
-    <pubDate>Thu, 29 Jan 2026 03:59:33 GMT</pubDate>
+    <lastBuildDate>Thu, 29 Jan 2026 05:05:54 GMT</lastBuildDate>
+    <pubDate>Thu, 29 Jan 2026 05:05:54 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Win11 精简工具箱：让系统更轻更快的一体化解决方案</title>
+      <link>https://hackerchi.top/2f7999681bdb8069b350eea6a201d1bb/</link>
+      <guid isPermaLink="true">https://hackerchi.top/2f7999681bdb8069b350eea6a201d1bb/</guid>
+      <description>Windows 11 系统虽然功能强大，但预装了许多用户可能不需要的应用和服务，这些应用不仅占用磁盘空间，还会在后台运行消耗系统资源。如果你想让系统更轻、更快，那么今天介绍的 Win11 精简工具箱（CTT） 就是你的不二之选。</description>
+      <pubDate>Thu, 29 Jan 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>Win11</category>
+    <category>精简</category>
+    </item>
     <item>
       <title>🚀 2026年最强个人AI员工：Clawdbot (Moltbot) 终极保姆级上手指南</title>
       <link>https://hackerchi.top/2f6999681bdb803592c9fe8b42c095b7/</link>
@@ -215,19 +225,6 @@
     <category>开发</category>
     <category>Linux</category>
     <category>命令</category>
-    </item>
-    <item>
-      <title>自动化RSS管理器 —— 让安全资讯触手可及</title>
-      <link>https://hackerchi.top/1b5999681bdb80b485c3c53f29718130/</link>
-      <guid isPermaLink="true">https://hackerchi.top/1b5999681bdb80b485c3c53f29718130/</guid>
-      <description>在网络安全领域，获取最新的行业动态至关重要 🔥。然而，手动浏览多个网站、论坛和博客不仅耗时，还容易错过关键信息 📉。今天，我要向大家介绍一个 高效、自动化的 RSS 订阅管理方案，它能够 定期抓取网络安全新闻，并整理到 Notion，让你随时随地掌握最新资讯 📑。</description>
-      <pubDate>Thu, 13 Mar 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>工具</category>
-    <category>新闻</category>
-    <category>python</category>
-    <category>网站</category>
-    <category>情报</category>
     </item>
   </channel>
 </rss>
