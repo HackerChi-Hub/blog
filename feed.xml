@@ -5,11 +5,21 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 30 Jan 2026 05:08:55 GMT</lastBuildDate>
-    <pubDate>Fri, 30 Jan 2026 05:08:55 GMT</pubDate>
+    <lastBuildDate>Fri, 30 Jan 2026 06:35:01 GMT</lastBuildDate>
+    <pubDate>Fri, 30 Jan 2026 06:35:01 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>AI 竞赛的下半场：为什么胜负手可能不在晶片，而在“电力”与“散热”？</title>
+      <link>https://hackerchi.top/2f8999681bdb80edab41ed2bc8aec234/</link>
+      <guid isPermaLink="true">https://hackerchi.top/2f8999681bdb80edab41ed2bc8aec234/</guid>
+      <description>在全球 AI 算力竞赛进入白热化的当下，市场焦点往往局限于先进封装或 2nm 节点的制程突破。然而，作为资深分析师，我们必须洞察到底层逻辑的深刻移位：随着算力需求呈指数级增长，AI 的竞争正迅速撞向物理极限的“墙”。当单一芯片的性能增益边际递减，决定胜负的“杀手锏”正转向能源效率、材料科学以及系统级的资源调度。</description>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>中美竞争</category>
+    </item>
     <item>
       <title>Win11 精简工具箱：让系统更轻更快的一体化解决方案</title>
       <link>https://hackerchi.top/2f7999681bdb8069b350eea6a201d1bb/</link>
@@ -213,18 +223,6 @@
     <category>学习思考</category>
     <category>新闻</category>
     <category>情报</category>
-    </item>
-    <item>
-      <title>2025年你必须知道的43个Linux命令</title>
-      <link>https://hackerchi.top/268999681bdb80b28d63dbe0add949f8/</link>
-      <guid isPermaLink="true">https://hackerchi.top/268999681bdb80b28d63dbe0add949f8/</guid>
-      <description>2025年你必须知道的33个Linux命令,每个附带3个经典实用范例（为便于阅读，命令较多，内容较长，欢迎收藏！）</description>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>工具</category>
-    <category>开发</category>
-    <category>Linux</category>
-    <category>命令</category>
     </item>
   </channel>
 </rss>
