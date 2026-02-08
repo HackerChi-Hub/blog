@@ -5,11 +5,23 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Feb 2026 13:38:00 GMT</lastBuildDate>
-    <pubDate>Sun, 08 Feb 2026 13:38:00 GMT</pubDate>
+    <lastBuildDate>Sun, 08 Feb 2026 14:44:27 GMT</lastBuildDate>
+    <pubDate>Sun, 08 Feb 2026 14:44:27 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>2026 AI 简报进化论（爱波斯坦公开档案·信息验证版）+30 套PPT生成提示词模板</title>
+      <link>https://hackerchi.top/301999681bdb801d972dd6e28845b5df/</link>
+      <guid isPermaLink="true">https://hackerchi.top/301999681bdb801d972dd6e28845b5df/</guid>
+      <description>30 套“现实可用、专业详细版”的PPT生成提示词模板。每套都包含：输入字段（你填空）→硬性输出结构（模型必须按这个出）→图表/版式建议→数据口径→素材关键词→检查清单。
+复制任意一套，把【】替换成你的信息直接用。</description>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>ppt</category>
+    <category>AI</category>
+    <category>大模型</category>
+    </item>
     <item>
       <title>2026安卓最强开源“收割机” YTDLnis</title>
       <link>https://hackerchi.top/2fa999681bdb80f58c40c0abe44cf10d/</link>
@@ -212,16 +224,6 @@
       <link>https://hackerchi.top/2b1999681bdb80c39b4be911bbc4c2cd/</link>
       <guid isPermaLink="true">https://hackerchi.top/2b1999681bdb80c39b4be911bbc4c2cd/</guid>
       <description> 第三回：东学党燃起烈火，金玉均魂断沪上</description>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>新闻</category>
-    <category>情报</category>
-    </item>
-    <item>
-      <title>【甲午中日战争】第二回：宗藩体系到黄昏，列强王国来叩关</title>
-      <link>https://hackerchi.top/2ae999681bdb80adae95e0cff629cbb5/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2ae999681bdb80adae95e0cff629cbb5/</guid>
-      <description>第二回：宗藩体系到黄昏，列强王国来叩关</description>
       <pubDate>Mon, 17 Nov 2025 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>新闻</category>
