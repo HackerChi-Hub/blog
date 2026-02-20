@@ -5,11 +5,27 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 20 Feb 2026 08:29:27 GMT</lastBuildDate>
-    <pubDate>Fri, 20 Feb 2026 08:29:27 GMT</pubDate>
+    <lastBuildDate>Fri, 20 Feb 2026 09:31:16 GMT</lastBuildDate>
+    <pubDate>Fri, 20 Feb 2026 09:31:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>把大模型装进手机：本地聊天/看图/听写全离线｜Ollama & AI Edge Gallery</title>
+      <link>https://hackerchi.top/30d999681bdb803eb449cc9424b0d7cc/</link>
+      <guid isPermaLink="true">https://hackerchi.top/30d999681bdb803eb449cc9424b0d7cc/</guid>
+      <description>这期我用 两条路线把“手机离线本地大模型”完整跑通：
+• 路线 1：Termux + Ollama（CPU） 部署 3B 模型，并接入我定制的 赛博朋克网页对话框（流式输出、STOP 立即中断、chars/s 速率监控、加载/等待提示）。手机本机浏览器可用，同 Wi-Fi 的电脑也能直接访问。
+• 路线 2：Google AI Edge Gallery 官方 App，上手体验 AI Chat / Ask Image（看图问答）/ Audio Scribe（音频转写），并学会用性能指标判断卡顿与降频。
+适合想要：离线隐私、可复现部署、端侧性能实测、以及做视频演示/工作流的人。</description>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>手机</category>
+    <category>安卓</category>
+    <category>大模型</category>
+    <category>教程</category>
+    </item>
     <item>
       <title>告别版权流氓！我用 Gemini 生成了 4 种风格的神级 BGM（附提示词）</title>
       <link>https://hackerchi.top/30c999681bdb8083a639f1d4f57ead8b/</link>
@@ -216,16 +232,6 @@
       <description>archlinux（中国网络优化+桌面娱乐体验+系统备份）全面单独使用5年后真心推荐！</description>
       <pubDate>Wed, 19 Nov 2025 00:00:00 GMT</pubDate>
     <category>技术分享</category>
-    </item>
-    <item>
-      <title>【甲午中日战争】第四回：谍影重重迷津渡，将失先机误战机</title>
-      <link>https://hackerchi.top/2b4999681bdb8099b960ebf4462dbee4/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2b4999681bdb8099b960ebf4462dbee4/</guid>
-      <description>第四回：谍影重重迷津渡，将失先机误战机</description>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>新闻</category>
-    <category>情报</category>
     </item>
   </channel>
 </rss>
