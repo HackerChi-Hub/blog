@@ -5,11 +5,22 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 27 Feb 2026 07:39:22 GMT</lastBuildDate>
-    <pubDate>Fri, 27 Feb 2026 07:39:22 GMT</pubDate>
+    <lastBuildDate>Fri, 27 Feb 2026 08:29:52 GMT</lastBuildDate>
+    <pubDate>Fri, 27 Feb 2026 08:29:52 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>从视频制作到电影视觉语言的深层解构：超越原始素材的意义构建与认知美学</title>
+      <link>https://hackerchi.top/314999681bdb80fc998bd6c03c29f95b/</link>
+      <guid isPermaLink="true">https://hackerchi.top/314999681bdb80fc998bd6c03c29f95b/</guid>
+      <description>最近，专心在研究视频制作，突然发现，我欠缺还很多，风格摇摆不定，内容也是东一下，西一下。我感觉，我需要冲一冲电了。先从最基本的视频逻辑开始了解。后续开始再实践，我感觉离我的目标越来越近了，希望朋友们多关注。视频的最经典我想还是电影，这是源头，极大程度的是精华的表达，我这里把我搜集的资料一并展出，希望可以自我激励，也可以给想做视频额人给予参考。</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>文字</category>
+    <category>思考</category>
+    <category>电影</category>
+    </item>
     <item>
       <title>把大模型装进手机：本地聊天/看图/听写全离线｜Ollama & AI Edge Gallery</title>
       <link>https://hackerchi.top/30d999681bdb803eb449cc9424b0d7cc/</link>
@@ -224,14 +235,6 @@
       <description>2026 年最佳[免费]下载工具推荐：老司机必备 </description>
       <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>Arch Linux 深度安装与优化全攻略</title>
-      <link>https://hackerchi.top/2b0999681bdb803fa323e09a79204ade/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2b0999681bdb803fa323e09a79204ade/</guid>
-      <description>archlinux（中国网络优化+桌面娱乐体验+系统备份）全面单独使用5年后真心推荐！</description>
-      <pubDate>Wed, 19 Nov 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
