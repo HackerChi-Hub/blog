@@ -5,11 +5,29 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Mar 2026 05:32:03 GMT</lastBuildDate>
-    <pubDate>Sat, 07 Mar 2026 05:32:03 GMT</pubDate>
+    <lastBuildDate>Sat, 07 Mar 2026 06:25:57 GMT</lastBuildDate>
+    <pubDate>Sat, 07 Mar 2026 06:25:57 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>我把 OpenClaw 装进了 Termux：一条命令安装、自动接 DeepSeek、真实排坑全记录</title>
+      <link>https://hackerchi.top/31c999681bdb80f0a4f2e7dd01d35518/</link>
+      <guid isPermaLink="true">https://hackerchi.top/31c999681bdb80f0a4f2e7dd01d35518/</guid>
+      <description>这篇我不讲虚的，直接讲我现在主推的安装方案。
+目标很明确：
+• 在 Termux 里把 OpenClaw 装起来
+• 尽量少手动敲命令
+• 尽量少手改配置
+• 尽量让 DeepSeek 直接可用
+• 尽量适合中国网络环境</description>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>openclaw</category>
+    <category>AI</category>
+    <category>大模型</category>
+    <category>termux</category>
+    </item>
     <item>
       <title>从视频制作到电影视觉语言的深层解构：超越原始素材的意义构建与认知美学</title>
       <link>https://hackerchi.top/314999681bdb80fc998bd6c03c29f95b/</link>
@@ -227,14 +245,6 @@
     <category>学习思考</category>
     <category>历史</category>
     <category>计算机</category>
-    </item>
-    <item>
-      <title>2026 年最佳[免费]下载工具推荐：老司机必备         </title>
-      <link>https://hackerchi.top/2b6999681bdb8059a841fe76144c996b/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2b6999681bdb8059a841fe76144c996b/</guid>
-      <description>2026 年最佳[免费]下载工具推荐：老司机必备 </description>
-      <pubDate>Tue, 25 Nov 2025 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
