@@ -1,36 +1,7 @@
 // scripts/deploy.js
 // 部署脚本：自动备份 + 推送到 GitHub
 
-const fs = require('fs');
-const path = require('path');
 const { execSync } = require('child_process');
-
-/**
- * 从 .env.local 读取环境变量
- */
-function loadEnvLocal() {
-  const envPath = path.join(process.cwd(), '.env.local');
-  
-  if (!fs.existsSync(envPath)) {
-    console.error('[deploy] ✗ .env.local 文件不存在');
-    process.exit(1);
-  }
-
-  const envContent = fs.readFileSync(envPath, 'utf-8');
-  const env = {};
-  
-  envContent.split('\n').forEach((line) => {
-    const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith('#')) {
-      const [key, ...valueParts] = trimmed.split('=');
-      if (key && valueParts.length > 0) {
-        env[key.trim()] = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
-      }
-    }
-  });
-  
-  return env;
-}
 
 /**
  * 执行备份
@@ -78,46 +49,15 @@ function checkGitStatus() {
  */
 function pushToGitHub() {
   console.log('[deploy] 步骤 3/3: 推送到 GitHub...');
-  
-  const env = loadEnvLocal();
-  const token = env.GITHUB_TOKEN;
-  
-  if (!token) {
-    console.error('[deploy] ✗ .env.local 中未找到 GITHUB_TOKEN');
-    console.error('[deploy] 请在 .env.local 中添加: GITHUB_TOKEN=your_token_here');
-    process.exit(1);
-  }
-  
+
   try {
-    // 获取远程仓库 URL
-    const remoteUrl = execSync('git remote get-url origin', { encoding: 'utf-8' }).trim();
-    
-    // 如果使用 HTTPS，替换为带 token 的 URL
-    let pushUrl = remoteUrl;
-    if (remoteUrl.startsWith('https://')) {
-      // 提取仓库路径
-      const match = remoteUrl.match(/https:\/\/(.*)@github\.com\/(.*)\.git/) || 
-                    remoteUrl.match(/https:\/\/github\.com\/(.*)\.git/);
-      if (match) {
-        const repoPath = match[2] || match[1];
-        pushUrl = `https://${token}@github.com/${repoPath}.git`;
-      }
-    } else if (remoteUrl.startsWith('git@')) {
-      // SSH 方式，直接使用
-      pushUrl = remoteUrl;
-    }
-    
-    // 获取当前分支
     const branch = execSync('git branch --show-current', { encoding: 'utf-8' }).trim();
-    
     console.log(`[deploy] 推送到: ${branch} 分支`);
-    
-    // 执行推送
-    execSync(`git push ${pushUrl} ${branch}`, { stdio: 'inherit' });
-    
+    execSync(`git push origin ${branch}`, { stdio: 'inherit' });
     console.log('[deploy] ✓ 推送成功！\n');
   } catch (error) {
     console.error('[deploy] ✗ 推送失败:', error.message);
+    console.error('[deploy] 提示: 请确保 git 已配置代理和凭证');
     process.exit(1);
   }
 }
