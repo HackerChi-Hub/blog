@@ -52,6 +52,11 @@ function pushToGitHub() {
 
   try {
     const branch = execSync('git branch --show-current', { encoding: 'utf-8' }).trim();
+
+    // 先拉取远程更新，避免 push 被拒绝
+    console.log('[deploy] 拉取远程更新...');
+    execSync(`git pull --rebase origin ${branch}`, { stdio: 'inherit' });
+
     console.log(`[deploy] 推送到: ${branch} 分支`);
     execSync(`git push origin ${branch}`, { stdio: 'inherit' });
     console.log('[deploy] ✓ 推送成功！\n');
