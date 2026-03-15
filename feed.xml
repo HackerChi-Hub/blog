@@ -5,8 +5,8 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2026 04:23:53 GMT</lastBuildDate>
-    <pubDate>Sun, 15 Mar 2026 04:23:53 GMT</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2026 05:59:57 GMT</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2026 05:59:57 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -35,14 +35,6 @@
     <category>大模型</category>
     <category>工具</category>
     <category>微信</category>
-    </item>
-    <item>
-      <title>【OpenClaw 系列】OpenClaw 全平台安装指南：Windows Linux Termux Docker 树莓派 + 飞书微信接入</title>
-      <link>https://hackerchi.top/openclaw-all-platform-guide/</link>
-      <guid isPermaLink="true">https://hackerchi.top/openclaw-all-platform-guide/</guid>
-      <description>OpenClaw 全平台安装指南，包含 Windows、Linux、Termux、Docker、树莓派安装方式，以及飞书和微信接入方法。</description>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
     <item>
       <title>【OpenClaw 系列】Skill 深度解析——从 </title>
@@ -248,6 +240,18 @@
     <category>操作系统</category>
     <category>Linux</category>
     <category>树莓派</category>
+    </item>
+    <item>
+      <title>2026手机安装Kali Linux（下）</title>
+      <link>https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</link>
+      <guid isPermaLink="true">https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</guid>
+      <description>很久前，我出了一期termux安装kali linux视频，有很多问题，这次加以记录和整理，总体来说，大多是国际网络问题和linux命令错误，就算实现了国际网络，但你的安装程序不一定通过国际网络进行！如果出现安装错误，多考虑这两个问题。</description>
+      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>手机</category>
+    <category>安卓</category>
+    <category>Kali Linux</category>
+    <category>系统安装</category>
     </item>
   </channel>
 </rss>
