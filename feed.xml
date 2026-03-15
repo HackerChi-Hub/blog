@@ -5,13 +5,60 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2026 01:18:07 GMT</lastBuildDate>
-    <pubDate>Sun, 15 Mar 2026 01:18:07 GMT</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2026 04:23:53 GMT</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2026 04:23:53 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>我把 OpenClaw 装进了 Termux：一条命令安装、自动接 DeepSeek、真实排坑全记录</title>
+      <title>【OpenClaw 系列】ClawHub 暗藏杀机——Skill 生态的安全真相</title>
+      <link>https://hackerchi.top/324999681bdb811596fccdfc7b3e439b/</link>
+      <guid isPermaLink="true">https://hackerchi.top/324999681bdb811596fccdfc7b3e439b/</guid>
+      <description>ClawHub 上每九个 Skill 就有一个被确认为恶意。攻击载荷是纯自然语言 Markdown，传统杀毒软件完全检测不到。本文把供应链攻击的运作机制和防护建议全部摆开。</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>openclaw</category>
+    <category>AI</category>
+    <category>安全</category>
+    <category>黑客</category>
+    <category>网络安全</category>
+    </item>
+    <item>
+      <title>【OpenClaw 系列】接入 DeepSeek / 飞书 / 微信——高频踩坑完全指南</title>
+      <link>https://hackerchi.top/324999681bdb811e8b83ea9b741976f9/</link>
+      <guid isPermaLink="true">https://hackerchi.top/324999681bdb811e8b83ea9b741976f9/</guid>
+      <description>接入 DeepSeek 有一个致命的 context window 限制——低于 16k 的模型一律被拦截。飞书要对公网 webhook，微信有 IP 白名单和 token 过期的坑。本文把高频踩坑全部摆出来。</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>openclaw</category>
+    <category>AI</category>
+    <category>大模型</category>
+    <category>工具</category>
+    <category>微信</category>
+    </item>
+    <item>
+      <title>【OpenClaw 系列】OpenClaw 全平台安装指南：Windows Linux Termux Docker 树莓派 + 飞书微信接入</title>
+      <link>https://hackerchi.top/openclaw-all-platform-guide/</link>
+      <guid isPermaLink="true">https://hackerchi.top/openclaw-all-platform-guide/</guid>
+      <description>OpenClaw 全平台安装指南，包含 Windows、Linux、Termux、Docker、树莓派安装方式，以及飞书和微信接入方法。</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    </item>
+    <item>
+      <title>【OpenClaw 系列】Skill 深度解析——从 </title>
+      <link>https://hackerchi.top/324999681bdb8197a7aff50b60f210a1/</link>
+      <guid isPermaLink="true">https://hackerchi.top/324999681bdb8197a7aff50b60f210a1/</guid>
+      <description>OpenClaw 真正的威力藏在 Skill 系统里——用纯 Markdown 给 AI 装上新武器，不需要写一行代码。本文深度解析 SKILL.md 每个字段的含义与效果，并带你从零写一个安全内容草稿 Skill。</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>openclaw</category>
+    <category>AI</category>
+    <category>Skill</category>
+    <category>Linux</category>
+    <category>大语言模型</category>
+    </item>
+    <item>
+      <title>【OpenClaw 系列】我把 OpenClaw 装进了 Termux：一条命令安装、自动接 DeepSeek、真实排坑全记录</title>
       <link>https://hackerchi.top/31c999681bdb80f0a4f2e7dd01d35518/</link>
       <guid isPermaLink="true">https://hackerchi.top/31c999681bdb80f0a4f2e7dd01d35518/</guid>
       <description>这篇我不讲虚的，直接讲我现在主推的安装方案。
@@ -201,50 +248,6 @@
     <category>操作系统</category>
     <category>Linux</category>
     <category>树莓派</category>
-    </item>
-    <item>
-      <title>2026手机安装Kali Linux（下）</title>
-      <link>https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</guid>
-      <description>很久前，我出了一期termux安装kali linux视频，有很多问题，这次加以记录和整理，总体来说，大多是国际网络问题和linux命令错误，就算实现了国际网络，但你的安装程序不一定通过国际网络进行！如果出现安装错误，多考虑这两个问题。</description>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>手机</category>
-    <category>安卓</category>
-    <category>Kali Linux</category>
-    <category>系统安装</category>
-    </item>
-    <item>
-      <title>2026手机安装Kali Linux（上）</title>
-      <link>https://hackerchi.top/0fdff63182d84b189775d4dd967750a0/</link>
-      <guid isPermaLink="true">https://hackerchi.top/0fdff63182d84b189775d4dd967750a0/</guid>
-      <description>很久前，我出了一期termux安装kali linux视频，有很多问题，这次加以记录和整理，总体来说，大多是国际网络问题和linux命令错误，就算实现了国际网络，但你的安装程序不一定通过国际网络进行！如果出现安装错误，多考虑这两个问题。</description>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>手机</category>
-    <category>安卓</category>
-    <category>Kali Linux</category>
-    <category>系统安装</category>
-    </item>
-    <item>
-      <title>计算机操作系统发展史（下）</title>
-      <link>https://hackerchi.top/2b8999681bdb803ca8f6c797ed986781/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2b8999681bdb803ca8f6c797ed986781/</guid>
-      <description>计算机操作系统发展史（下）</description>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>新闻</category>
-    <category>情报</category>
-    </item>
-    <item>
-      <title>计算机操作系统发展史（上）</title>
-      <link>https://hackerchi.top/2b8999681bdb80448a76f5a09628e336/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2b8999681bdb80448a76f5a09628e336/</guid>
-      <description>计算机操作系统发展史（上）</description>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>历史</category>
-    <category>计算机</category>
     </item>
   </channel>
 </rss>
