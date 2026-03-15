@@ -5,8 +5,8 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2026 05:59:57 GMT</lastBuildDate>
-    <pubDate>Sun, 15 Mar 2026 05:59:57 GMT</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2026 06:59:21 GMT</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2026 06:59:21 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -24,7 +24,7 @@
     <category>网络安全</category>
     </item>
     <item>
-      <title>【OpenClaw 系列】接入 DeepSeek / 飞书 / 微信——高频踩坑完全指南</title>
+      <title>【OpenClaw 系列】接入 DeepSeek / 飞书 / 微信/ QQ——高频踩坑完全指南</title>
       <link>https://hackerchi.top/324999681bdb811e8b83ea9b741976f9/</link>
       <guid isPermaLink="true">https://hackerchi.top/324999681bdb811e8b83ea9b741976f9/</guid>
       <description>接入 DeepSeek 有一个致命的 context window 限制——低于 16k 的模型一律被拦截。飞书要对公网 webhook，微信有 IP 白名单和 token 过期的坑。本文把高频踩坑全部摆出来。</description>
