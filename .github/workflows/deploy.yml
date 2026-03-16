@@ -40,6 +40,9 @@ jobs:
           # 写入 CNAME，确保每次部署后 gh-pages 根目录都有该文件
           echo "hackerchi.top" > out/CNAME
 
+      - name: Force unique build
+        run: echo "${{ github.run_id }}-$(date +%s)" > out/.build-id
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -18,25 +18,27 @@ function runBackup() {
 }
 
 /**
- * 检查 Git 状态
+ * 检查 Git 状态，返回是否有新提交
  */
 function checkGitStatus() {
   console.log('[deploy] 步骤 2/3: 检查 Git 状态...');
-  
+
   try {
     // 检查是否有未提交的更改
     const status = execSync('git status --porcelain', { encoding: 'utf-8' });
-    
+
     if (status.trim()) {
       console.log('[deploy] 发现未提交的更改，正在添加...');
       execSync('git add .', { stdio: 'inherit' });
-      
+
       // 生成提交信息
       const commitMsg = process.argv[2] || 'chore: 自动提交更改';
       execSync(`git commit -m "${commitMsg}"`, { stdio: 'inherit' });
       console.log('[deploy] ✓ 更改已提交\n');
+      return true;
     } else {
       console.log('[deploy] ✓ 没有未提交的更改\n');
+      return false;
     }
   } catch (error) {
     console.error('[deploy] ✗ Git 操作失败:', error.message);
@@ -79,7 +81,7 @@ function main() {
   runBackup();
   checkGitStatus();
   pushToGitHub();
-  
+
   console.log('='.repeat(50));
   console.log('[deploy] ✓ 部署完成！');
   console.log('='.repeat(50));
