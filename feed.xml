@@ -5,11 +5,27 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 16 Mar 2026 23:21:21 GMT</lastBuildDate>
-    <pubDate>Mon, 16 Mar 2026 23:21:21 GMT</pubDate>
+    <lastBuildDate>Tue, 17 Mar 2026 01:09:23 GMT</lastBuildDate>
+    <pubDate>Tue, 17 Mar 2026 01:09:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>🛰️ OSINT 实战教程：公开源情报搜集与分析全指南 —— 以 ShadowBroker 工具为例</title>
+      <link>https://hackerchi.top/326999681bdb812d9613c55f33fe1ac1/</link>
+      <guid isPermaLink="true">https://hackerchi.top/326999681bdb812d9613c55f33fe1ac1/</guid>
+      <description>一篇面向安全研究者的 OSINT（公开源情报）实战教程，结合 ShadowBroker 实时地理空间情报仪表盘，涵盖法律警示、工具详解、部署配置、实战分析场景和操作安全（OPSEC）等核心内容。</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>情报</category>
+    <category>工具</category>
+    <category>黑客</category>
+    <category>安全</category>
+    <category>教程</category>
+    <category>github</category>
+    <category>信息收集</category>
+    <category>网络安全</category>
+    </item>
     <item>
       <title>【OpenClaw 系列】ClawHub 暗藏杀机——Skill 生态的安全真相</title>
       <link>https://hackerchi.top/324999681bdb811596fccdfc7b3e439b/</link>
@@ -240,18 +256,6 @@
     <category>操作系统</category>
     <category>Linux</category>
     <category>树莓派</category>
-    </item>
-    <item>
-      <title>2026手机安装Kali Linux（下）</title>
-      <link>https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2bb999681bdb802aa984fa2c16fd8f7c/</guid>
-      <description>很久前，我出了一期termux安装kali linux视频，有很多问题，这次加以记录和整理，总体来说，大多是国际网络问题和linux命令错误，就算实现了国际网络，但你的安装程序不一定通过国际网络进行！如果出现安装错误，多考虑这两个问题。</description>
-      <pubDate>Sun, 30 Nov 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>手机</category>
-    <category>安卓</category>
-    <category>Kali Linux</category>
-    <category>系统安装</category>
     </item>
   </channel>
 </rss>
