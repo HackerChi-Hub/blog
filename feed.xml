@@ -5,11 +5,27 @@
     <link>https://hackerchi.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 21 Mar 2026 01:04:25 GMT</lastBuildDate>
-    <pubDate>Sat, 21 Mar 2026 01:04:25 GMT</pubDate>
+    <lastBuildDate>Sat, 21 Mar 2026 03:55:22 GMT</lastBuildDate>
+    <pubDate>Sat, 21 Mar 2026 03:55:22 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>【OpenClaw 系列】五步加固 OpenClaw——从漏洞修补到记忆保护全操作指南</title>
+      <link>https://hackerchi.top/openclaw-security-hardening-5-steps/</link>
+      <guid isPermaLink="true">https://hackerchi.top/openclaw-security-hardening-5-steps/</guid>
+      <description>OpenClaw 火了，安全事故也跟着来了。本文基于实战录屏脚本，手把手教你五步加固 OpenClaw：升级补丁版本、绑定 localhost、Docker 沙箱隔离、Snyk 审计恶意技能、SHA-256 守护记忆文件。每一步都有可直接复制的命令和验证方法，适合所有 OpenClaw 用户对照自查。</description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>openclaw</category>
+    <category>docker</category>
+    <category>安全</category>
+    <category>网络安全</category>
+    <category>Linux</category>
+    <category>容器</category>
+    <category>沙箱</category>
+    <category>Skill</category>
+    </item>
     <item>
       <title>🛰️ OSINT 实战教程：公开源情报搜集与分析全指南 —— 以 ShadowBroker 工具为例</title>
       <link>https://hackerchi.top/326999681bdb812d9613c55f33fe1ac1/</link>
@@ -245,17 +261,6 @@
     <category>GPT</category>
     <category>人工智能</category>
     <category>声音克隆</category>
-    </item>
-    <item>
-      <title>树莓派设备系统无头安装教程（以 Zero 2 W & 4B为例）</title>
-      <link>https://hackerchi.top/2c0999681bdb80a79a84f24eba4dab8a/</link>
-      <guid isPermaLink="true">https://hackerchi.top/2c0999681bdb80a79a84f24eba4dab8a/</guid>
-      <description>🍓 目标：在 不接 HDMI 显示器、不接键盘鼠标 的情况下，完成树莓派系统安装与基础配置（即“无头 / Headless 安装”）。</description>
-      <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>操作系统</category>
-    <category>Linux</category>
-    <category>树莓派</category>
     </item>
   </channel>
 </rss>
