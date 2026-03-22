@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>黑客驰 · 官网</title>
-    <link>https://hackerchi.top</link>
+    <title>黑粉科技 · 官网</title>
+    <link>https://hyphentech.top</link>
     <description>效率提速，安全不怵。分享技术、学习思考、资源分享。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Mar 2026 14:18:42 GMT</lastBuildDate>
-    <pubDate>Sun, 22 Mar 2026 14:18:42 GMT</pubDate>
+    <lastBuildDate>Sun, 22 Mar 2026 14:50:20 GMT</lastBuildDate>
+    <pubDate>Sun, 22 Mar 2026 14:50:20 GMT</pubDate>
     <ttl>60</ttl>
-    <atom:link href="https://hackerchi.top/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
 
   </channel>
