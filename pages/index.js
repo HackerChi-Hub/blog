@@ -49,7 +49,7 @@ const heroStyles = {
     opacity: 0.4,
     pointerEvents: 'none',
   },
-  // 让“黑客驰 · 官网”保留原来上面的圆角外边框外观
+  // 让”黑粉科技 · 官网”保留原来上面的圆角外边框外观
   badgeLikeTitle: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -65,7 +65,7 @@ const heroStyles = {
     boxShadow: '0 18px 38px rgba(0,0,0,0.55)',
     whiteSpace: 'nowrap',
   },
-  // 标题行容器：左“黑客驰 · 官网”，右“分享 / 探索 / 进取”
+  // 标题行容器：左”黑粉科技 · 官网”，右”分享 / 探索 / 进取”
   titleRow: {
     display: 'flex',
     alignItems: 'center',
@@ -560,7 +560,7 @@ const HeroSection = ({
       <div style={{ position: 'relative' }}>
         {/* 删除顶部的 badge，只保留下方一行标题 */}
         <div style={heroStyles.titleRow}>
-          {/* 左侧：保留"黑客驰 · 官网"的徽章风格外观 */}
+          {/* 左侧：保留"黑粉科技 · 官网"的徽章风格外观 */}
           <div style={heroStyles.badgeLikeTitle}>
             <Image
               src="/favicon-32x32.png"
@@ -578,7 +578,7 @@ const HeroSection = ({
               }}
               unoptimized
             />
-            黑客驰 · 官网
+            黑粉科技 · 官网
           </div>
 
           {/* 右侧：效率提速，安全不怵 */}
@@ -655,7 +655,7 @@ const HeroSection = ({
           }}
         >
           <div style={heroStyles.terminal}>
-            <div style={heroStyles.prompt}>┌─ hackerchi@lab</div>
+            <div style={heroStyles.prompt}>┌─ hyphentech@lab</div>
             <div style={heroStyles.prompt}>└─$ tail -f notice.log</div>
             {renderNotices.map((notice) => (
               <div

@@ -152,7 +152,7 @@ export default function PostListPage({
             flexWrap: 'wrap',
           }}
         >
-          <h1 className="hero-title">黑客驰 · 全部文章</h1>
+          <h1 className="hero-title">黑粉科技 · 全部文章</h1>
           <Link
             href="/"
             className="hero-button"

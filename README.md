@@ -242,7 +242,7 @@ npm run deploy
 ## 📄 开源提示
 
 1. 视情况在 `package.json` 移除或调整 `"private": true`
-2. 黑客驰作品
+2. 黑粉科技作品
 
 ---
 
