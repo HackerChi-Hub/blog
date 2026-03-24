@@ -581,8 +581,8 @@ const HeroSection = ({
             黑粉科技 · 官网
           </div>
 
-          {/* 右侧：效率提速，安全不怵 */}
-          <span style={heroStyles.subTitleAccent}>效率提速，安全不怵</span>
+          {/* 右侧：用 AI 变强 */}
+          <span style={heroStyles.subTitleAccent}>用 AI 变强</span>
         </div>
 
         {/* 文字说明 */}
@@ -871,7 +871,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="效率提速，安全不怵。分享技术、学习思考、资源分享。"
+          description="帮普通人用 AI 变强的技术朋友。"
           url="/"
           type="website"
         />
@@ -954,7 +954,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="效率提速，安全不怵。分享技术、学习思考、资源分享。"
+          description="帮普通人用 AI 变强的技术朋友。"
           url="/"
           type="website"
         />
