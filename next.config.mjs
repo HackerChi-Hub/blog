@@ -14,7 +14,7 @@ const nextConfig = {
   // 关键：启用静态导出模式（取代 next export 命令）
   output: 'export',
 
-  // 如果你以后只通过 hac.top 访问，而不再走 hackerchi-hub.github.io/blog
+  // 如果你以后只通过 hyphentech.top 访问，而不再走 GitHub Pages 子路径
   // 可以直接不用 basePath / assetPrefix
   // basePath: '',
   // basePath: '',
