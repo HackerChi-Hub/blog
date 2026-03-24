@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Mar 2026 14:19:31 GMT</lastBuildDate>
-    <pubDate>Tue, 24 Mar 2026 14:19:31 GMT</pubDate>
+    <lastBuildDate>Tue, 24 Mar 2026 15:55:30 GMT</lastBuildDate>
+    <pubDate>Tue, 24 Mar 2026 15:55:30 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
-
+    <item>
+      <title>「提示词 → React代码 → MP4」完整管线：用Remotion + Claude Code从零做一个AI视频</title>
+      <link>https://hyphentech.top/remotion-claude-code-prompt-to-video-guide/</link>
+      <guid isPermaLink="true">https://hyphentech.top/remotion-claude-code-prompt-to-video-guide/</guid>
+      <description>一篇面向开发者的Remotion实战指南。完整覆盖环境搭建、Agent Skills安装、提示词框架设计、核心API详解（useCurrentFrame/interpolate/spring/Sequence）、主题注入系统、渲染与导出等全部技术细节。附带多个可直接套用的提示词模板。</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>视频</category>
+    <category>工具</category>
+    <category>教程</category>
+    <category>人工智能</category>
+    <category>前端</category>
+    <category>编程</category>
+    </item>
   </channel>
 </rss>
