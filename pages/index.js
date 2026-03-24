@@ -871,7 +871,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="帮普通人用 AI 变强的技术朋友。"
+          description="让普通人也能驾驭 AI。"
           url="/"
           type="website"
         />
@@ -954,7 +954,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="帮普通人用 AI 变强的技术朋友。"
+          description="让普通人也能驾驭 AI。"
           url="/"
           type="website"
         />
