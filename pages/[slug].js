@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
 import SEO from '../components/SEO';
@@ -186,12 +187,42 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
       />
 
       <main className="page">
+        {/* 封面图 */}
+        {meta.image && (
+          <div
+            style={{
+              width: '100%',
+              borderRadius: '40px 40px 0 0',
+              overflow: 'hidden',
+              lineHeight: 0,
+              border: '1px solid var(--border-color)',
+              borderBottom: 'none',
+            }}
+          >
+            <Image
+              src={meta.image}
+              alt={meta.title}
+              width={1600}
+              height={900}
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'cover',
+                aspectRatio: '16 / 9',
+              }}
+              priority
+              unoptimized
+            />
+          </div>
+        )}
+
         <section
           style={{
             width: '100%',
             padding: '2.4rem 2rem 1.6rem',
-            borderRadius: '40px',
+            borderRadius: meta.image ? '0 0 40px 40px' : '40px',
             border: '1px solid var(--border-color)',
+            borderTop: meta.image ? 'none' : '1px solid var(--border-color)',
             background:
               'linear-gradient(135deg, rgba(3, 48, 54, 0.98), rgba(3, 70, 76, 0.95))',
             boxShadow: 'var(--shadow-soft)',
@@ -344,6 +375,13 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
             )}
           </div>
         </section>
+
+        {/* 如果有封面图，隐藏 Notion 内容中的第一张图片避免重复 */}
+        {meta.coverBlockId && (
+          <style>{`
+            .notion-block-${meta.coverBlockId} { display: none !important; }
+          `}</style>
+        )}
 
         <section className="notion">
           <NotionRenderer
