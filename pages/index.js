@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPosts, getNotices, getSubMenus } from '../lib/notion';
+import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/notion';
 import { NOTION_PROPERTY_NAME } from '../lib/config';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
@@ -816,6 +816,14 @@ export async function getStaticProps() {
     ]);
 
     const pagePosts = allPosts.slice(0, PAGE_SIZE);
+
+    // 批量获取文章封面图
+    const coverMap = await getPostCovers(pagePosts);
+    const postsWithCovers = pagePosts.map((post) => ({
+      ...post,
+      cover: coverMap[post.id] || null,
+    }));
+
     const categoryBuckets = buildFeaturedCategoryBuckets(
       allPosts,
       CATEGORY_FIELD,
@@ -824,7 +832,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        posts: pagePosts,
+        posts: postsWithCovers,
         notices,
         subMenus,
         categoryBuckets,
