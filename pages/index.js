@@ -581,8 +581,8 @@ const HeroSection = ({
             黑粉科技 · 官网
           </div>
 
-          {/* 右侧：用 AI 变强 */}
-          <span style={heroStyles.subTitleAccent}>用 AI 变强</span>
+          {/* 右侧：让普通人也能驾驭 AI */}
+          <span style={heroStyles.subTitleAccent}>让普通人也能驾驭 AI</span>
         </div>
 
         {/* 文字说明 */}
