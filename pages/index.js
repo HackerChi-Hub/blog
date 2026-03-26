@@ -559,27 +559,6 @@ const HeroSection = ({
     <section style={heroStyles.wrapper}>
       <div style={heroStyles.overlay} aria-hidden="true" />
       <div style={{ position: 'relative' }}>
-        {/* 删除顶部的 badge，只保留下方一行标题 */}
-        <div style={heroStyles.titleRow}>
-          {/* 左侧：保留"黑粉科技 · 官网"的徽章风格外观 */}
-          <div style={heroStyles.badgeLikeTitle}>
-            黑粉科技 · 官网
-          </div>
-
-          {/* 右侧：让普通人也能驾驭 AI */}
-          <span style={heroStyles.subTitleAccent}>让普通人也能驾驭 AI</span>
-        </div>
-
-        {/* 文字说明 */}
-        <div style={{ marginTop: '20px' }}>
-          <p style={heroStyles.paragraph}>
-            点赞、评论、转发
-          </p>
-          <p style={heroStyles.hint}>
-            锚定 {FEATURED_CATEGORIES.join(' / ')} 三大内容分区，洞察知识脉络。
-          </p>
-        </div>
-
         {/* 分类卡片区域 */}
         <div style={heroStyles.grid}>
           {categoryBuckets.map((bucket) => (
@@ -878,30 +857,64 @@ export default function Home({
         >
           <style>{feedStyles}</style>
 
-        {/* 首页封面 Banner */}
+        {/* 首页品牌 Banner：左文字 + 中Logo + 右标语 */}
         <div
           style={{
             width: '100%',
             borderRadius: '34px 34px 0 0',
             overflow: 'hidden',
-            lineHeight: 0,
             border: '1px solid rgba(255,255,255,0.08)',
             borderBottom: 'none',
+            background: '#1a2332',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 'clamp(16px, 4vw, 48px)',
+            padding: 'clamp(20px, 3vw, 36px) clamp(20px, 4vw, 48px)',
+            flexWrap: 'wrap',
           }}
         >
-          <Image
-            src="/png/banner-bilibili-2048x320.png"
-            alt="黑粉科技"
-            width={2048}
-            height={320}
+          {/* 左：黑粉科技 · 官网 */}
+          <span
             style={{
-              width: '100%',
+              fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              color: '#e9f6ff',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            黑粉科技 · 官网
+          </span>
+
+          {/* 中：Logo 图标 */}
+          <Image
+            src="/png/logo-icon-380.png"
+            alt="黑粉科技"
+            width={380}
+            height={380}
+            style={{
+              width: 'clamp(48px, 8vw, 80px)',
               height: 'auto',
-              objectFit: 'cover',
+              objectFit: 'contain',
+              flexShrink: 0,
             }}
             priority
             unoptimized
           />
+
+          {/* 右：标语 */}
+          <span
+            style={{
+              fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
+              fontWeight: 700,
+              letterSpacing: '0.08em',
+              color: 'rgba(233, 246, 255, 0.7)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            让普通人也能驾驭 AI
+          </span>
         </div>
 
         <HeroSection
