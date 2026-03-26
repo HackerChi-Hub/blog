@@ -177,7 +177,7 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
       <SEO
         title={meta.title}
         description={description}
-        image={meta.image}
+        image={meta.image || '/png/banner-youtube-2560x1440.png'}
         url={articleUrl}
         type="article"
         publishedTime={publishedTime}
@@ -187,9 +187,8 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
       />
 
       <main className="page">
-        {/* 封面图 */}
-        {meta.image && (
-          <div
+        {/* 封面图（无封面时使用默认 banner） */}
+        <div
             style={{
               width: '100%',
               borderRadius: '40px 40px 0 0',
@@ -200,7 +199,7 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
             }}
           >
             <Image
-              src={meta.image}
+              src={meta.image || '/png/banner-youtube-2560x1440.png'}
               alt={meta.title}
               width={1600}
               height={900}
@@ -214,15 +213,14 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
               unoptimized
             />
           </div>
-        )}
 
         <section
           style={{
             width: '100%',
             padding: '2.4rem 2rem 1.6rem',
-            borderRadius: meta.image ? '0 0 40px 40px' : '40px',
+            borderRadius: '0 0 40px 40px',
             border: '1px solid var(--border-color)',
-            borderTop: meta.image ? 'none' : '1px solid var(--border-color)',
+            borderTop: 'none',
             background:
               'linear-gradient(135deg, rgba(3, 48, 54, 0.98), rgba(3, 70, 76, 0.95))',
             boxShadow: 'var(--shadow-soft)',
