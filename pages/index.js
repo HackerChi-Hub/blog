@@ -31,8 +31,9 @@ const feedPalette = {
 
 const heroStyles = {
   wrapper: {
-    borderRadius: '34px',
+    borderRadius: '0 0 34px 34px',
     border: '1px solid rgba(255,255,255,0.08)',
+    borderTop: 'none',
     background: 'linear-gradient(135deg, rgba(8,14,26,0.95), rgba(2,24,30,0.95))',
     padding: 'clamp(28px, 5vw, 48px)',
     position: 'relative',
@@ -493,7 +494,7 @@ const PostCard = ({ post }) => {
     <article className="feed-card">
       <Link href={href}>
         <div className="feed-card__inner">
-          <PostCover cover={post.cover || post.thumbnail || post.heroImage} />
+          <PostCover cover={post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png'} />
 
           <div className="feed-card__body">
             <div className="feed-card__meta">
@@ -562,22 +563,6 @@ const HeroSection = ({
         <div style={heroStyles.titleRow}>
           {/* 左侧：保留"黑粉科技 · 官网"的徽章风格外观 */}
           <div style={heroStyles.badgeLikeTitle}>
-            <Image
-              src="/favicon-32x32.png"
-              alt=""
-              width={32}
-              height={32}
-              style={{
-                width: '1.2em',
-                height: '1.2em',
-                borderRadius: '8px',
-                objectFit: 'cover',
-                display: 'inline-block',
-                verticalAlign: 'middle',
-                flexShrink: 0,
-              }}
-              unoptimized
-            />
             黑粉科技 · 官网
           </div>
 
@@ -892,6 +877,32 @@ export default function Home({
           }}
         >
           <style>{feedStyles}</style>
+
+        {/* 首页封面 Banner */}
+        <div
+          style={{
+            width: '100%',
+            borderRadius: '34px 34px 0 0',
+            overflow: 'hidden',
+            lineHeight: 0,
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderBottom: 'none',
+          }}
+        >
+          <Image
+            src="/png/banner-bilibili-2048x320.png"
+            alt="黑粉科技"
+            width={2048}
+            height={320}
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'cover',
+            }}
+            priority
+            unoptimized
+          />
+        </div>
 
         <HeroSection
           notices={notices}
