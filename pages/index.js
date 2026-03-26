@@ -39,6 +39,7 @@ const heroStyles = {
     position: 'relative',
     overflow: 'hidden',
     boxShadow: '0 30px 70px rgba(0,0,0,0.55)',
+    marginTop: 0,
     marginBottom: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
   },
   overlay: {
@@ -866,6 +867,7 @@ export default function Home({
             border: '1px solid rgba(255,255,255,0.08)',
             borderBottom: 'none',
             background: '#1a2332',
+            marginBottom: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -889,12 +891,12 @@ export default function Home({
 
           {/* 中：Logo 图标 */}
           <Image
-            src="/png/logo-icon-380.png"
+            src="/png/logo-icon-traced.png"
             alt="黑粉科技"
-            width={380}
-            height={380}
+            width={933}
+            height={828}
             style={{
-              width: 'clamp(48px, 8vw, 80px)',
+              width: 'clamp(56px, 10vw, 100px)',
               height: 'auto',
               objectFit: 'contain',
               flexShrink: 0,
