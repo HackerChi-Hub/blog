@@ -858,73 +858,75 @@ export default function Home({
         >
           <style>{feedStyles}</style>
 
-        {/* 首页品牌 Banner：左文字 + 中Logo + 右标语 */}
-        <div
-          style={{
-            width: '100%',
-            borderRadius: '34px 34px 0 0',
-            overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,0.08)',
-            borderBottom: 'none',
-            background: '#1a2332',
-            marginBottom: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 'clamp(16px, 4vw, 48px)',
-            padding: 'clamp(20px, 3vw, 36px) clamp(20px, 4vw, 48px)',
-            flexWrap: 'wrap',
-          }}
-        >
-          {/* 左：黑粉科技 · 官网 */}
-          <span
+        {/* Banner + Hero 整体容器，避免 .page gap 在它们之间产生间隙 */}
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* 首页品牌 Banner：左文字 + 中Logo + 右标语 */}
+          <div
             style={{
-              fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              color: '#e9f6ff',
-              whiteSpace: 'nowrap',
+              width: '100%',
+              borderRadius: '34px 34px 0 0',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderBottom: 'none',
+              background: '#1a2332',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 'clamp(16px, 4vw, 48px)',
+              padding: 'clamp(20px, 3vw, 36px) clamp(20px, 4vw, 48px)',
+              flexWrap: 'wrap',
             }}
           >
-            黑粉科技 · 官网
-          </span>
+            {/* 左：黑粉科技 · 官网 */}
+            <span
+              style={{
+                fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                color: '#e9f6ff',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              黑粉科技 · 官网
+            </span>
 
-          {/* 中：Logo 图标 */}
-          <Image
-            src="/png/logo-icon-traced.png"
-            alt="黑粉科技"
-            width={933}
-            height={828}
-            style={{
-              width: 'clamp(56px, 10vw, 100px)',
-              height: 'auto',
-              objectFit: 'contain',
-              flexShrink: 0,
-            }}
-            priority
-            unoptimized
+            {/* 中：Logo 图标 */}
+            <Image
+              src="/png/logo-icon-traced.png"
+              alt="黑粉科技"
+              width={933}
+              height={828}
+              style={{
+                width: 'clamp(56px, 10vw, 100px)',
+                height: 'auto',
+                objectFit: 'contain',
+                flexShrink: 0,
+              }}
+              priority
+              unoptimized
+            />
+
+            {/* 右：标语 */}
+            <span
+              style={{
+                fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                color: 'rgba(233, 246, 255, 0.7)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              让普通人也能驾驭 AI
+            </span>
+          </div>
+
+          <HeroSection
+            notices={notices}
+            subMenus={subMenus}
+            categoryBuckets={categoryBuckets}
+            categoryPropertyLabel={CATEGORY_FIELD}
           />
-
-          {/* 右：标语 */}
-          <span
-            style={{
-              fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
-              fontWeight: 700,
-              letterSpacing: '0.08em',
-              color: 'rgba(233, 246, 255, 0.7)',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            让普通人也能驾驭 AI
-          </span>
         </div>
-
-        <HeroSection
-          notices={notices}
-          subMenus={subMenus}
-          categoryBuckets={categoryBuckets}
-          categoryPropertyLabel={CATEGORY_FIELD}
-        />
 
         {/* 搜索区域 - 独立出来 */}
         {posts.length > 0 && (
