@@ -892,7 +892,7 @@ export default function Home({
 
             {/* 中：Logo 图标 */}
             <img
-              src="/png/logo-icon-traced.png"
+              src="/png/logo-icon-traced.png?v=2"
               alt="黑粉科技"
               style={{
                 width: 'clamp(56px, 10vw, 100px)',
