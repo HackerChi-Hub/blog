@@ -899,6 +899,10 @@ export default function Home({
                 height: 'auto',
                 objectFit: 'contain',
                 flexShrink: 0,
+                border: 'none',
+                borderRadius: 0,
+                background: 'none',
+                boxShadow: 'none',
               }}
             />
 
