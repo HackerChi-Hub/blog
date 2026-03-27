@@ -891,19 +891,15 @@ export default function Home({
             </span>
 
             {/* 中：Logo 图标 */}
-            <Image
+            <img
               src="/png/logo-icon-traced.png"
               alt="黑粉科技"
-              width={933}
-              height={828}
               style={{
                 width: 'clamp(56px, 10vw, 100px)',
                 height: 'auto',
                 objectFit: 'contain',
                 flexShrink: 0,
               }}
-              priority
-              unoptimized
             />
 
             {/* 右：标语 */}
