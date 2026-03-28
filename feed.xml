@@ -5,24 +5,11 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 28 Mar 2026 11:18:53 GMT</lastBuildDate>
-    <pubDate>Sat, 28 Mar 2026 11:18:53 GMT</pubDate>
+    <lastBuildDate>Sat, 28 Mar 2026 12:30:52 GMT</lastBuildDate>
+    <pubDate>Sat, 28 Mar 2026 12:30:52 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
-    <item>
-      <title>我用 AI + 命令行，零设计软件做了一套频道品牌素材</title>
-      <link>https://hyphentech.top/ai-logo-brand-assets-workflow/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-logo-brand-assets-workflow/</guid>
-      <description>用 Gemini 生成 logo 概念图，再用 ImageMagick 命令行裁切、去背、批量生成全平台品牌素材。零设计软件，全程命令行完成。</description>
-      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>工具</category>
-    <category>教程</category>
-    <category>Linux</category>
-    <category>图片</category>
-    </item>
     <item>
       <title>用Remotion + Claude Code从零做一个AI视频</title>
       <link>https://hyphentech.top/remotion-claude-code-prompt-to-video-guide/</link>
