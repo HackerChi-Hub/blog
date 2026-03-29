@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 29 Mar 2026 01:20:08 GMT</lastBuildDate>
-    <pubDate>Sun, 29 Mar 2026 01:20:08 GMT</pubDate>
+    <lastBuildDate>Sun, 29 Mar 2026 04:28:18 GMT</lastBuildDate>
+    <pubDate>Sun, 29 Mar 2026 04:28:18 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>6 种 AI Logo 提示词策略：从零基础到精准生成的完整指南</title>
+      <link>https://hyphentech.top/332999681bdb808f9875d15b22e74c59/</link>
+      <guid isPermaLink="true">https://hyphentech.top/332999681bdb808f9875d15b22e74c59/</guid>
+      <description>一句话总结：不同起点的人需要不同的提示词策略。本文整理了 6 种经过实测的 Logo 生成提示词，每种都附完整 Prompt（中英双语），覆盖从"完全没想法"到"精确复刻"的全部场景。</description>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>Logo</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>我用 AI + 命令行，零设计软件做了一套频道品牌素材</title>
       <link>https://hyphentech.top/ai-logo-brand-assets-workflow/</link>
