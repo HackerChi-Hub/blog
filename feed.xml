@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 31 Mar 2026 09:54:02 GMT</lastBuildDate>
-    <pubDate>Tue, 31 Mar 2026 09:54:02 GMT</pubDate>
+    <lastBuildDate>Tue, 31 Mar 2026 10:43:56 GMT</lastBuildDate>
+    <pubDate>Tue, 31 Mar 2026 10:43:56 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>我用AI做了个全球公共WiFi密码查询器</title>
+      <link>https://hyphentech.top/wifi-finder-vibe-coding/</link>
+      <guid isPermaLink="true">https://hyphentech.top/wifi-finder-vibe-coding/</guid>
+      <description>用 Vibe Coding 花 30 分钟做了一个覆盖 15+ 国家、150+ 热点的离线公共 WiFi 密码查询器</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>wifi</category>
+    <category>工具</category>
+    <category>教程</category>
+    <category>html</category>
+    <category>前端</category>
+    </item>
     <item>
       <title>6 种 AI Logo 提示词策略：从零基础到精准生成的完整指南</title>
       <link>https://hyphentech.top/332999681bdb808f9875d15b22e74c59/</link>
@@ -19,6 +33,30 @@
     <category>技术分享</category>
     <category>Logo</category>
     <category>AI</category>
+    </item>
+    <item>
+      <title>大模型学习免费资料合集——不花一分钱，从零到入门</title>
+      <link>https://hyphentech.top/llm-free-learning-resources/</link>
+      <guid isPermaLink="true">https://hyphentech.top/llm-free-learning-resources/</guid>
+      <description>整理了 2026 年最全的大模型免费学习资源：视频课程、开源书籍、实战项目、论文导读、工具平台——全部免费，收藏即用。</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>人工智能</category>
+    <category>教程</category>
+    <category>大语言模型</category>
+    </item>
+    <item>
+      <title>大模型到底是怎么工作的？——用人话讲清 AI 底层原理</title>
+      <link>https://hyphentech.top/llm-fundamentals-explained/</link>
+      <guid isPermaLink="true">https://hyphentech.top/llm-fundamentals-explained/</guid>
+      <description>Transformer、注意力机制、Token、预训练、微调、RLHF——这些听起来很唬人的概念，其实没那么复杂。本文用最通俗的方式帮你搞懂大模型的底层原理，附带最佳学习视频推荐。</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>人工智能</category>
+    <category>教程</category>
+    <category>大语言模型</category>
     </item>
     <item>
       <title>我用 AI + 命令行，零设计软件做了一套频道品牌素材</title>
