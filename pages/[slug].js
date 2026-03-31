@@ -3,6 +3,9 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import fs from 'fs';
+import path from 'path';
+import https from 'https';
 import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
@@ -11,6 +14,88 @@ import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
 import 'react-notion-x/src/styles.css';
+
+// 构建时下载 Notion 文件附件到 public/downloads/
+async function downloadNotionFiles(recordMap, slug) {
+  if (!recordMap?.block) return recordMap;
+
+  const downloadDir = path.join(process.cwd(), 'public', 'downloads');
+  if (!fs.existsSync(downloadDir)) {
+    fs.mkdirSync(downloadDir, { recursive: true });
+  }
+
+  for (const [blockId, blockData] of Object.entries(recordMap.block)) {
+    const block = blockData?.value;
+    if (!block || block.type !== 'file') continue;
+
+    // 获取文件 URL（优先 signed_urls）
+    const fileUrl =
+      recordMap.signed_urls?.[blockId] ||
+      block.properties?.source?.[0]?.[0] ||
+      block.format?.display_source;
+
+    if (!fileUrl || !fileUrl.startsWith('http')) continue;
+
+    // 从 URL 或属性中提取文件名
+    let fileName = 'file';
+    try {
+      const urlPath = new URL(fileUrl).pathname;
+      const parts = urlPath.split('/');
+      fileName = decodeURIComponent(parts[parts.length - 1]) || 'file';
+    } catch {}
+    // 如果文件名中包含 attachment: 前缀，提取实际文件名
+    if (block.properties?.source?.[0]?.[0]) {
+      const src = block.properties.source[0][0];
+      const match = src.match(/attachment:[^:]+:(.+)/);
+      if (match) fileName = match[1];
+    }
+
+    const safeName = `${slug}-${fileName}`.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const localPath = path.join(downloadDir, safeName);
+    const publicUrl = `/downloads/${safeName}`;
+
+    // 下载文件（如果尚未存在）
+    if (!fs.existsSync(localPath)) {
+      try {
+        await new Promise((resolve, reject) => {
+          const file = fs.createWriteStream(localPath);
+          https.get(fileUrl, (res) => {
+            if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+              // 跟随重定向
+              https.get(res.headers.location, (res2) => {
+                res2.pipe(file);
+                file.on('finish', () => { file.close(); resolve(); });
+              }).on('error', reject);
+            } else {
+              res.pipe(file);
+              file.on('finish', () => { file.close(); resolve(); });
+            }
+          }).on('error', (err) => {
+            fs.unlinkSync(localPath);
+            reject(err);
+          });
+        });
+        console.log(`[downloadNotionFiles] Downloaded: ${fileName} -> ${publicUrl}`);
+      } catch (err) {
+        console.warn(`[downloadNotionFiles] Failed to download ${fileName}:`, err.message);
+        continue;
+      }
+    }
+
+    // 替换 recordMap 中的 URL 为本地路径
+    if (recordMap.signed_urls) {
+      recordMap.signed_urls[blockId] = publicUrl;
+    }
+    if (block.properties?.source?.[0]) {
+      block.properties.source[0][0] = publicUrl;
+    }
+    if (block.format?.display_source) {
+      block.format.display_source = publicUrl;
+    }
+  }
+
+  return recordMap;
+}
 
 const loadPrismLanguages = async () => {
   if (typeof window === 'undefined') return;
@@ -83,13 +168,16 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
+  // 构建时下载文件附件到本地
+  const recordMap = await downloadNotionFiles(post.recordMap, slug);
+
   // 获取相关文章
   const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
 
   return {
     props: {
       meta: post.meta,
-      recordMap: post.recordMap,
+      recordMap,
       relatedPosts,
     },
   };
