@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>WiFi Finder - Global Public WiFi Database | HyphenTech</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a14;--bg2:#12121f;--bg3:#1a1a2e;--bg4:#22223a;
+--cyan:#00f0ff;--purple:#b44aff;--pink:#ff2d95;--green:#00ff88;--yellow:#ffd000;
+--text:#e0e0f0;--text2:#8888aa;--text3:#555570;
+--glow-cyan:0 0 20px rgba(0,240,255,.3);
+--glow-purple:0 0 20px rgba(180,74,255,.3);
+--radius:12px;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh;overflow-x:hidden}
+body.light{--bg:#f0f2f8;--bg2:#fff;--bg3:#e8eaf0;--bg4:#d8dae0;--text:#1a1a2e;--text2:#666;--text3:#999;--glow-cyan:0 0 10px rgba(0,180,200,.15);--glow-purple:0 0 10px rgba(140,60,200,.15)}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+/* Scan line overlay */
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
+background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);opacity:.5}
+body.light::after{opacity:.15}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,240,255,.1);padding:12px 16px}
+body.light .header{background:rgba(240,242,248,.9);border-bottom-color:rgba(0,180,200,.15)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:700;white-space:nowrap}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--cyan),var(--purple));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--glow-cyan)}
+.logo span{background:linear-gradient(90deg,var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Search */
+.search-wrap{flex:1;min-width:200px;position:relative}
+.search-wrap input{width:100%;padding:10px 16px 10px 40px;border-radius:24px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text);font-size:15px;outline:none;transition:.3s}
+.search-wrap input:focus{border-color:var(--cyan);box-shadow:var(--glow-cyan)}
+.search-wrap .icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:16px}
+
+/* Header buttons */
+.hdr-btns{display:flex;gap:8px}
+.hdr-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.2s}
+.hdr-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.hdr-btn.active{background:var(--cyan);color:var(--bg);border-color:var(--cyan)}
+
+/* Stats bar */
+.stats-bar{max-width:1200px;margin:12px auto 0;padding:0 16px;display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text2)}
+.stat{display:flex;align-items:center;gap:4px}
+.stat b{color:var(--cyan);font-weight:600}
+
+/* Tabs / Filters */
+.filters{max-width:1200px;margin:12px auto 0;padding:0 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.tab{padding:6px 14px;border-radius:20px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text2);cursor:pointer;font-size:13px;white-space:nowrap;transition:.2s;user-select:none}
+.tab:hover{border-color:var(--cyan);color:var(--text)}
+.tab.active{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;border-color:transparent;font-weight:600}
+
+/* Region filter */
+.region-bar{max-width:1200px;margin:8px auto 0;padding:0 16px;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.region-bar::-webkit-scrollbar{display:none}
+.rtab{padding:4px 10px;border-radius:14px;border:1px solid var(--bg4);background:transparent;color:var(--text3);cursor:pointer;font-size:12px;white-space:nowrap;transition:.2s}
+.rtab:hover{color:var(--text2);border-color:var(--text3)}
+.rtab.active{background:var(--bg4);color:var(--text);border-color:var(--text2)}
+
+/* Card Grid */
+.grid{max-width:1200px;margin:16px auto;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
+
+/* Card */
+.card{background:var(--bg2);border:1px solid var(--bg4);border-radius:var(--radius);padding:16px;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));opacity:0;transition:.3s}
+.card:hover{border-color:rgba(0,240,255,.3);transform:translateY(-2px);box-shadow:var(--glow-cyan)}
+.card:hover::before{opacity:1}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px}
+.card-brand{font-size:15px;font-weight:600;line-height:1.3}
+.card-brand small{font-weight:400;color:var(--text2);font-size:12px;display:block;margin-top:2px}
+.card-badge{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.badge-password{background:rgba(0,255,136,.12);color:var(--green)}
+.badge-portal{background:rgba(255,208,0,.12);color:var(--yellow)}
+.badge-open{background:rgba(0,240,255,.12);color:var(--cyan)}
+.badge-sms{background:rgba(255,45,149,.12);color:var(--pink)}
+
+.card-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px}
+.card-row .label{color:var(--text3);min-width:44px;flex-shrink:0}
+.card-row .val{color:var(--text);word-break:break-all}
+
+.ssid-val{font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:var(--cyan)!important;font-size:13px}
+.pwd-wrap{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.pwd-val{font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:var(--green)!important;font-size:14px;font-weight:600;letter-spacing:.5px}
+.copy-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--bg4);background:var(--bg3);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;transition:.2s}
+.copy-btn:hover{border-color:var(--green);color:var(--green)}
+.copy-btn.copied{background:var(--green);color:var(--bg);border-color:var(--green)}
+
+.card-tips{font-size:12px;color:var(--text2);margin-top:8px;padding-top:8px;border-top:1px solid var(--bg3);line-height:1.5}
+.card-region{position:absolute;top:14px;right:14px;font-size:18px}
+.card-meta{display:flex;gap:12px;margin-top:8px;font-size:11px;color:var(--text3)}
+
+/* Empty state */
+.empty{text-align:center;padding:60px 20px;color:var(--text3)}
+.empty .icon{font-size:48px;margin-bottom:12px}
+.empty p{font-size:14px}
+
+/* Modal */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.show{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--bg4);border-radius:16px;padding:24px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto;position:relative}
+.modal h3{font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;border:none;background:var(--bg3);color:var(--text2);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{color:var(--text)}
+
+/* Form */
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:13px;color:var(--text2);margin-bottom:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--bg4);background:var(--bg3);color:var(--text);font-size:14px;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--cyan)}
+.form-group textarea{resize:vertical;min-height:60px}
+.form-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff}
+.btn-primary:hover{opacity:.9;transform:scale(1.02)}
+.btn-ghost{background:var(--bg3);color:var(--text2);border:1px solid var(--bg4)}
+.btn-ghost:hover{border-color:var(--text3);color:var(--text)}
+.btn-github{background:#24292e;color:#fff;display:inline-flex;align-items:center;gap:6px}
+.btn-github:hover{background:#2f363d}
+.btn-feedback{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff}
+.btn-feedback:hover{opacity:.9}
+
+/* Toast */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:#000;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;z-index:300;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* Footer nav (mobile) */
+.footer-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--bg4);display:none;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
+body.light .footer-nav{background:rgba(240,242,248,.95)}
+@media(max-width:768px){.footer-nav{display:flex}.grid{margin-bottom:80px}.copyright{margin-bottom:80px}}
+.footer-nav button{flex:1;padding:10px 0 8px;border:none;background:none;color:var(--text3);font-size:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:.2s}
+.footer-nav button .fi{font-size:20px}
+.footer-nav button.active{color:var(--cyan)}
+
+/* Import/Export modal */
+.ie-area{width:100%;min-height:120px;padding:10px;border-radius:8px;border:1px solid var(--bg4);background:var(--bg3);color:var(--text);font-family:monospace;font-size:12px;resize:vertical}
+
+/* Suggest info box */
+.suggest-info{background:var(--bg3);border:1px solid var(--bg4);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;line-height:1.6;color:var(--text2)}
+.suggest-info b{color:var(--text)}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeIn .3s ease both}
+.card:nth-child(2){animation-delay:.03s}
+.card:nth-child(3){animation-delay:.06s}
+.card:nth-child(4){animation-delay:.09s}
+.card:nth-child(5){animation-delay:.12s}
+.card:nth-child(6){animation-delay:.15s}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.scanning{animation:pulse 1.5s infinite}
+
+/* Copyright footer */
+.copyright{max-width:1200px;margin:32px auto 16px;padding:0 16px;text-align:center;font-size:12px;color:var(--text3);line-height:1.8}
+.copyright a{color:var(--cyan);text-decoration:none;opacity:.7;transition:.2s}
+.copyright a:hover{opacity:1;text-decoration:underline}
+
+/* Print */
+@media print{.header,.footer-nav,.modal-overlay,.copyright{display:none!important}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+<div class="header-inner">
+  <div class="logo">
+    <div class="logo-icon">&#x1F4F6;</div>
+    <span>WiFi Finder</span>
+  </div>
+  <div class="search-wrap">
+    <span class="icon">&#x1F50D;</span>
+    <input id="searchInput" type="text" placeholder="Search brand, SSID, city, password...">
+  </div>
+  <div class="hdr-btns">
+    <button class="hdr-btn" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">&#x1F319;</button>
+    <button class="hdr-btn" onclick="showModal('suggest')" title="Suggest WiFi">&#x2795;</button>
+    <button class="hdr-btn" onclick="showModal('importexport')" title="Import/Export">&#x1F4BE;</button>
+  </div>
+</div>
+<div class="stats-bar">
+  <span class="stat">&#x1F4CA; <b id="totalCount">0</b>&nbsp;entries</span>
+  <span class="stat">&#x1F30D; <b id="regionCount">0</b>&nbsp;regions</span>
+  <span class="stat">&#x1F512; <b id="pwdCount">0</b>&nbsp;passwords</span>
+  <span class="stat">&#x1F465; <b id="userCount">0</b>&nbsp;user-added</span>
+</div>
+</div>
+
+<!-- Category tabs -->
+<div class="filters" id="categoryTabs"></div>
+<!-- Region tabs -->
+<div class="region-bar" id="regionTabs"></div>
+
+<!-- Card grid -->
+<div class="grid" id="grid"></div>
+
+<!-- Empty state -->
+<div class="empty" id="empty" style="display:none">
+  <div class="icon">&#x1F50D;</div>
+  <p>No results found. Try a different search or filter.</p>
+</div>
+
+<!-- Suggest WiFi Modal -->
+<div class="modal-overlay" id="modal-suggest">
+<div class="modal">
+  <button class="modal-close" onclick="hideModal('suggest')">&#x2715;</button>
+  <h3>&#x2795; Suggest WiFi / Report Issue</h3>
+  <div class="suggest-info">
+    <b>How it works:</b><br>
+    Fill in the form below and click "Submit via GitHub". This will open a pre-filled GitHub Issue for review. Once approved, your suggestion will be added to the database.<br><br>
+    You can also <b>save locally</b> for your own use (stored in your browser only).
+  </div>
+  <div class="form-group"><label>Brand / Place *</label><input id="f-brand" placeholder="e.g. Starbucks"></div>
+  <div class="form-group"><label>SSID *</label><input id="f-ssid" placeholder="WiFi network name"></div>
+  <div class="form-group"><label>Password</label><input id="f-pwd" placeholder="Leave empty if open/portal"></div>
+  <div class="form-group"><label>Auth Type</label>
+    <select id="f-auth"><option value="password">Password</option><option value="open">Open (no password)</option><option value="portal">Portal (web login)</option><option value="sms">SMS verification</option></select>
+  </div>
+  <div class="form-group"><label>Category</label>
+    <select id="f-cat"><option value="cafe">Cafe / Coffee</option><option value="fastfood">Fast Food</option><option value="restaurant">Restaurant</option><option value="hotel">Hotel</option><option value="airport">Airport</option><option value="transit">Transit</option><option value="mall">Mall / Retail</option><option value="public">Public Facility</option><option value="cowork">Coworking</option><option value="other">Other</option></select>
+  </div>
+  <div class="form-group"><label>Region</label>
+    <select id="f-region"><option value="CN">China</option><option value="HK">Hong Kong</option><option value="JP">Japan</option><option value="KR">Korea</option><option value="SG">Singapore</option><option value="TH">Thailand</option><option value="MY">Malaysia</option><option value="VN">Vietnam</option><option value="IN">India</option><option value="US">USA</option><option value="CA">Canada</option><option value="GB">UK</option><option value="FR">France</option><option value="DE">Germany</option><option value="AU">Australia</option><option value="AE">UAE</option><option value="GLOBAL">Global / Multiple</option></select>
+  </div>
+  <div class="form-group"><label>City</label><input id="f-city" placeholder="* for nationwide"></div>
+  <div class="form-group"><label>Tips / Notes</label><textarea id="f-tips" placeholder="Any useful info..."></textarea></div>
+  <div class="form-actions">
+    <button class="btn btn-github" onclick="submitToGitHub()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      Submit via GitHub
+    </button>
+    <button class="btn btn-primary" onclick="saveLocally()">Save Locally</button>
+    <button class="btn btn-ghost" onclick="hideModal('suggest')">Cancel</button>
+  </div>
+</div>
+</div>
+
+<!-- Feedback Modal -->
+<div class="modal-overlay" id="modal-feedback">
+<div class="modal">
+  <button class="modal-close" onclick="hideModal('feedback')">&#x2715;</button>
+  <h3>&#x1F4AC; Feedback / Report</h3>
+  <div class="suggest-info">
+    Found an incorrect password? Have a suggestion? Leave feedback via GitHub Issue and we'll update the database.
+  </div>
+  <div class="form-group"><label>Type</label>
+    <select id="fb-type">
+      <option value="wrong-password">Wrong / Outdated Password</option>
+      <option value="new-wifi">New WiFi to Add</option>
+      <option value="bug">Bug Report</option>
+      <option value="feature">Feature Request</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="form-group"><label>Details *</label><textarea id="fb-details" placeholder="Describe the issue or suggestion..." style="min-height:100px"></textarea></div>
+  <div class="form-actions">
+    <button class="btn btn-github" onclick="submitFeedback()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      Submit via GitHub
+    </button>
+    <button class="btn btn-ghost" onclick="hideModal('feedback')">Cancel</button>
+  </div>
+</div>
+</div>
+
+<!-- Import/Export Modal -->
+<div class="modal-overlay" id="modal-importexport">
+<div class="modal">
+  <button class="modal-close" onclick="hideModal('importexport')">&#x2715;</button>
+  <h3>&#x1F4BE; Import / Export Data</h3>
+  <div class="form-actions" style="margin-top:0;margin-bottom:14px">
+    <button class="btn btn-primary" onclick="exportData()">Export All</button>
+    <button class="btn btn-ghost" onclick="exportUserData()">Export User Data</button>
+    <button class="btn btn-ghost" onclick="importData()">Import</button>
+  </div>
+  <textarea class="ie-area" id="ie-data" placeholder="Paste JSON here to import, or click Export to see data..."></textarea>
+</div>
+</div>
+
+<!-- Copyright -->
+<div class="copyright">
+  &copy; 2026 <a href="https://hyphentech.top" target="_blank" rel="noopener">hyphentech.top</a> | All Rights Reserved<br>
+  <span style="font-size:11px;color:var(--text3)">Data is community-sourced and may be outdated. Always verify before use.</span>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Footer nav -->
+<div class="footer-nav">
+  <button class="active" onclick="setView('all',this)"><span class="fi">&#x1F4F6;</span>All</button>
+  <button onclick="setView('password',this)"><span class="fi">&#x1F511;</span>Passwords</button>
+  <button onclick="showModal('suggest')"><span class="fi">&#x2795;</span>Suggest</button>
+  <button onclick="showModal('feedback')"><span class="fi">&#x1F4AC;</span>Feedback</button>
+  <button onclick="toggleTheme()"><span class="fi" id="footerThemeIcon">&#x1F319;</span>Theme</button>
+</div>
+
+<script>
+// ==================== GITHUB CONFIG ====================
+var GITHUB_REPO = 'HackerChi-Hub/blog';
+var GITHUB_ISSUES_URL = 'https://github.com/' + GITHUB_REPO + '/issues/new';
+
+// ==================== WIFI DATABASE ====================
+var WIFI_DB = [
+// ===== CHINA - COFFEE/TEA =====
+{id:"cn-luckin-1",brand:"Luckin Coffee",brandZh:"\u7451\u5e78\u5496\u5561",ssid:["Luckin Coffee"],password:"luckin123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Most common password across stores",updated:"2025"},
+{id:"cn-luckin-2",brand:"Luckin Coffee",brandZh:"\u7451\u5e78\u5496\u5561",ssid:["Luckin Coffee"],password:"luckin123456",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Alternative password in some stores",updated:"2025"},
+{id:"cn-luckin-3",brand:"Luckin Coffee",brandZh:"\u7451\u5e78\u5496\u5561",ssid:["Luckin Coffee"],password:"stnt819",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Seen in some locations, passwords rotate every 3 months",updated:"2025"},
+{id:"cn-heytea",brand:"HEYTEA",brandZh:"\u559c\u8336",ssid:["HEYTEA","HEYTEA_5G"],password:"zsttsftsng",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Relatively consistent password across stores",updated:"2025"},
+{id:"cn-nayuki",brand:"Nayuki",brandZh:"\u5948\u96ea\u7684\u8336",ssid:["NaixueVip","Nayuki"],password:"ykhcykrob",auth:"password",category:"cafe",region:"CN",city:"*",tips:"\u4e00\u53e3\u597d\u8336\u4e00\u53e3\u8f6f\u6b27\u5305 (yi kou hao cha yi kou ruan ou bao) initials",updated:"2025"},
+{id:"cn-bawangchaji",brand:"Chagee",brandZh:"\u9738\u738b\u8336\u59ec",ssid:["\u9738\u738b\u8336\u59ec","BWCJ"],password:"bwcj1117",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand founding date Nov 17",updated:"2025"},
+{id:"cn-mixue-1",brand:"Mixue Bingcheng",brandZh:"\u871c\u96ea\u51b0\u57ce",ssid:["\u871c\u96ea\u51b0\u57ce","MXBC"],password:"mxbc1997",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand founded in 1997",updated:"2025"},
+{id:"cn-mixue-2",brand:"Mixue Bingcheng",brandZh:"\u871c\u96ea\u51b0\u57ce",ssid:["\u871c\u96ea\u51b0\u57ce","MXBC"],password:"mxbc8888",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Alternative lucky number password",updated:"2025"},
+{id:"cn-guming-1",brand:"Gu Ming",brandZh:"\u53e4\u8317",ssid:["\u53e4\u8317","GUMING"],password:"GUMING123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand name + 123",updated:"2025"},
+{id:"cn-guming-2",brand:"Gu Ming",brandZh:"\u53e4\u8317",ssid:["\u53e4\u8317","GUMING"],password:"goodme123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"English name variant",updated:"2025"},
+{id:"cn-cotti",brand:"Cotti Coffee",brandZh:"\u5e93\u8fea\u5496\u5561",ssid:["CottiCoffee","\u5e93\u8fea\u5496\u5561"],password:"Cotti123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand name + 123",updated:"2025"},
+{id:"cn-chabaidao",brand:"Cha Bai Dao",brandZh:"\u8336\u767e\u9053",ssid:["\u8336\u767e\u9053","CBD"],password:"bhqf2356",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Internal code",updated:"2025"},
+{id:"cn-molinai",brand:"Moli Naibai",brandZh:"\u8309\u8389\u5976\u767d",ssid:["\u8309\u8389\u5976\u767d"],password:"xiaomoli2022",auth:"password",category:"cafe",region:"CN",city:"*",tips:"\u5c0f\u8309\u83892022",updated:"2025"},
+{id:"cn-molinai-2",brand:"Moli Naibai",brandZh:"\u8309\u8389\u5976\u767d",ssid:["\u8309\u8389\u5976\u767d"],password:"88888888",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Alternative lucky 8s password",updated:"2025"},
+{id:"cn-costa",brand:"Costa Coffee",brandZh:"Costa\u5496\u5561",ssid:["Costa","CostaCoffee"],password:"costa123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Simple brand + 123",updated:"2025"},
+{id:"cn-starbucks",brand:"Starbucks",brandZh:"\u661f\u5df4\u514b",ssid:["CMCC-Starbucks","Starbucks"],password:"",auth:"portal",category:"cafe",region:"CN",city:"*",tips:"Phone number registration + SMS code via portal page",updated:"2025"},
+{id:"cn-manner",brand:"Manner Coffee",brandZh:"Manner\u5496\u5561",ssid:["Manner","MannerCoffee"],password:"manner123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Ask staff for current password, varies by store",updated:"2025"},
+{id:"cn-tims",brand:"Tim Hortons",brandZh:"Tims\u5496\u5561",ssid:["TimsCoffee","Tims"],password:"tims1234",auth:"password",category:"cafe",region:"CN",city:"*",tips:"May vary by location",updated:"2025"},
+{id:"cn-pacific",brand:"Pacific Coffee",brandZh:"\u592a\u5e73\u6d0b\u5496\u5561",ssid:["PacificCoffee"],password:"",auth:"portal",category:"cafe",region:"CN",city:"*",tips:"Portal-based, accept terms",updated:"2025"},
+{id:"cn-yidiandian",brand:"Yi Dian Dian",brandZh:"\u4e00\u70b9\u70b9",ssid:["\u4e00\u70b9\u70b9"],password:"1dd12345",auth:"password",category:"cafe",region:"CN",city:"*",tips:"May vary by franchise",updated:"2025"},
+{id:"cn-shuyi",brand:"Shuyi Shaoxiancao",brandZh:"\u4e66\u4ea6\u70e7\u4ed9\u8349",ssid:["\u4e66\u4ea6\u70e7\u4ed9\u8349"],password:"shuyi666",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand name + lucky number",updated:"2025"},
+{id:"cn-7fenchatang",brand:"7 Fen Tian",brandZh:"\u4e03\u5206\u751c",ssid:["\u4e03\u5206\u751c"],password:"qifentian",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-yihetang",brand:"Yi He Tang",brandZh:"\u76ca\u79be\u5802",ssid:["\u76ca\u79be\u5802","YHT"],password:"yihetang",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-chayan",brand:"Cha Yan Yue Se",brandZh:"\u8336\u989c\u60a6\u8272",ssid:["\u8336\u989c\u60a6\u8272"],password:"chayanyuese",auth:"password",category:"cafe",region:"CN",city:"Changsha",tips:"Changsha-based brand, pinyin password",updated:"2025"},
+{id:"cn-lelecha",brand:"Le Le Cha",brandZh:"\u4e50\u4e50\u8336",ssid:["\u4e50\u4e50\u8336","LELECHA"],password:"lelecha1",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand name + 1",updated:"2025"},
+{id:"cn-nowwa",brand:"Nowwa Coffee",brandZh:"\u631a\u7984\u5496\u5561",ssid:["Nowwa"],password:"nowwa123",auth:"password",category:"cafe",region:"CN",city:"*",tips:"Brand + 123",updated:"2025"},
+
+// ===== CHINA - FAST FOOD =====
+{id:"cn-mcd",brand:"McDonald's",brandZh:"\u9ea6\u5f53\u52b3",ssid:["McDonald-OC"],password:"Ac28Idfjla92ifjsl3jsHdowIo",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"Hidden SSID - must add manually. Note: l=lowercase L, o=letter O not zero. Some stores switched to SMS auth.",updated:"2025"},
+{id:"cn-kfc",brand:"KFC",brandZh:"\u80af\u5fb7\u57fa",ssid:["KFC FREE WIFI"],password:"",auth:"sms",category:"fastfood",region:"CN",city:"*",tips:"Phone number + SMS verification code via portal page",updated:"2025"},
+{id:"cn-pizzahut",brand:"Pizza Hut",brandZh:"\u5fc5\u80dc\u5ba2",ssid:["PizzaHut","\u5fc5\u80dc\u5ba2WiFi"],password:"pizza789",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"May vary by store",updated:"2025"},
+{id:"cn-tastien",brand:"Tastien",brandZh:"\u5854\u65af\u6c40",ssid:["\u5854\u65af\u6c40","TASTIEN"],password:"88888888",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"Lucky 8s - very common default",updated:"2025"},
+{id:"cn-wallace",brand:"Wallace",brandZh:"\u534e\u83b1\u58eb",ssid:["\u534e\u83b1\u58eb","Wallace"],password:"12345678",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"Simple numeric password, varies by franchise",updated:"2025"},
+{id:"cn-zhengxin",brand:"Zhengxin Chicken",brandZh:"\u6b63\u65b0\u9e21\u6392",ssid:["\u6b63\u65b0\u9e21\u6392"],password:"zhengxin1",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"Brand + 1",updated:"2025"},
+{id:"cn-dicos",brand:"Dicos",brandZh:"\u5fb7\u514b\u58eb",ssid:["Dicos","\u5fb7\u514b\u58ebWiFi"],password:"dicos123",auth:"password",category:"fastfood",region:"CN",city:"*",tips:"Brand + 123",updated:"2025"},
+{id:"cn-burger-king",brand:"Burger King",brandZh:"\u6c49\u5821\u738b",ssid:["BurgerKing","\u6c49\u5821\u738b"],password:"",auth:"portal",category:"fastfood",region:"CN",city:"*",tips:"Portal authentication in most stores",updated:"2025"},
+
+// ===== CHINA - RESTAURANTS =====
+{id:"cn-laoxiangji",brand:"Lao Xiang Ji",brandZh:"\u8001\u4e61\u9e21",ssid:["\u8001\u4e61\u9e21","LaoxiangJi"],password:"ganjingweisheng",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"\u5e72\u51c0\u536b\u751f (clean & hygienic) - brand slogan in pinyin",updated:"2025"},
+{id:"cn-micun",brand:"Mi Cun Ban Fan",brandZh:"\u7c73\u6751\u62cc\u996d",ssid:["\u7c73\u6751\u62cc\u996d","MiCun"],password:"woaimicun",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"\u6211\u7231\u7c73\u6751 (I love Micun) in pinyin",updated:"2025"},
+{id:"cn-bantianyao",brand:"Ban Tian Yao",brandZh:"\u534a\u5929\u5996",ssid:["\u534a\u5929\u5996"],password:"bantianyao",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-xibei",brand:"Xibei",brandZh:"\u897f\u8d1d\u83dc\u9762\u6751",ssid:["\u897f\u8d1d","XIBEI"],password:"15880529",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Some stores use this, not universal. Ask staff.",updated:"2025"},
+{id:"cn-haidilao",brand:"Haidilao",brandZh:"\u6d77\u5e95\u635e",ssid:["\u6d77\u5e95\u635e","Haidilao"],password:"",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"No universal password - ask your server. Different per store.",updated:"2025"},
+{id:"cn-xiabuxiabu",brand:"Xiabu Xiabu",brandZh:"\u5446\u5446\u5446\u5446",ssid:["\u5446\u5446\u5446\u5446"],password:"xiabuxiabu",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-yangguofu",brand:"Yang Guo Fu Malatang",brandZh:"\u6768\u56fd\u798f\u9ebb\u8fa3\u70eb",ssid:["\u6768\u56fd\u798f","YGF"],password:"yangguofu",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-zhangliangmlt",brand:"Zhang Liang Malatang",brandZh:"\u5f20\u4eae\u9ebb\u8fa3\u70eb",ssid:["\u5f20\u4eae\u9ebb\u8fa3\u70eb"],password:"zhangliang",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-manzu",brand:"Man Zu Fan",brandZh:"\u6ee1\u8db3\u996d",ssid:["\u6ee1\u8db3\u996d"],password:"88888888",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Lucky 8s default",updated:"2025"},
+{id:"cn-juewei",brand:"Juewei Duck Neck",brandZh:"\u7edd\u5473\u9e2d\u8116",ssid:["\u7edd\u5473"],password:"juewei123",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand + 123",updated:"2025"},
+{id:"cn-luckyhunan",brand:"Feichangxiang",brandZh:"\u8d39\u5927\u53a8\u8fa3\u6912\u7092\u8089",ssid:["\u8d39\u5927\u53a8"],password:"feidachu1",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin + 1",updated:"2025"},
+{id:"cn-nayou",brand:"Nayou Ramen",brandZh:"\u90a3\u6709\u62c9\u9762",ssid:["\u90a3\u6709\u62c9\u9762"],password:"nayou123",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand + 123",updated:"2025"},
+{id:"cn-tongxianghui",brand:"Tong Xiang Hui",brandZh:"\u540c\u4eab\u6c47",ssid:["\u540c\u4eab\u6c47"],password:"88888888",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Common 8s password",updated:"2025"},
+{id:"cn-wuming",brand:"Wu Ming Fen",brandZh:"\u65e0\u540d\u7c89",ssid:["\u65e0\u540d\u7c89"],password:"wumingfen",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-laoyuchun",brand:"Lao Yu Chun",brandZh:"\u8001\u4e8e\u6625",ssid:["\u8001\u4e8e\u6625"],password:"laoyuchun",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-xiaoyang",brand:"Xiao Yang Sheng Jian",brandZh:"\u5c0f\u6768\u751f\u714e",ssid:["\u5c0f\u6768\u751f\u714e"],password:"xysj1234",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand abbreviation + 1234",updated:"2025"},
+{id:"cn-yonghe",brand:"Yonghe King",brandZh:"\u6c38\u548c\u5927\u738b",ssid:["\u6c38\u548c\u5927\u738b","YongheKing"],password:"yonghe123",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand + 123",updated:"2025"},
+{id:"cn-kungfu",brand:"Real Kungfu",brandZh:"\u771f\u529f\u592b",ssid:["\u771f\u529f\u592b","ZGF"],password:"zhengongfu",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-caidian",brand:"Cai Dian",brandZh:"\u83dc\u5e97",ssid:["\u83dc\u5e97WiFi"],password:"12345678",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Common simple password",updated:"2025"},
+{id:"cn-grilledfish",brand:"Tan Shao",brandZh:"\u63a2\u9c7c",ssid:["\u63a2\u9c7c"],password:"tanyu2015",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand + founding year",updated:"2025"},
+{id:"cn-tongderen",brand:"Tong De Ren",brandZh:"\u540c\u5fb7\u4ec1",ssid:["\u540c\u5fb7\u4ec1"],password:"tongderen",auth:"password",category:"restaurant",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+
+// ===== CHINA - BOOKSTORE / CULTURE =====
+{id:"cn-sisyphe",brand:"Sisyphe Books",brandZh:"\u897f\u897f\u5f17\u4e66\u5e97",ssid:["SISYPHE","\u897f\u897f\u5f17"],password:"sysphe1993",auth:"password",category:"other",region:"CN",city:"*",tips:"Brand abbreviation + founding year 1993",updated:"2025"},
+{id:"cn-fandeng",brand:"Fan Deng Reading",brandZh:"\u6a0a\u767b\u8bfb\u4e66",ssid:["\u6a0a\u767b\u8bfb\u4e66"],password:"fandeng66",auth:"password",category:"other",region:"CN",city:"*",tips:"Brand + 66",updated:"2025"},
+{id:"cn-zhongshuge",brand:"Zhongshu Ge",brandZh:"\u949f\u4e66\u9601",ssid:["\u949f\u4e66\u9601"],password:"zhongshuge",auth:"password",category:"other",region:"CN",city:"*",tips:"Brand pinyin",updated:"2025"},
+{id:"cn-yanji",brand:"Yan Ji You",brandZh:"\u8a00\u51e0\u53c8",ssid:["\u8a00\u51e0\u53c8","YanJiYou"],password:"yanjiyou1",auth:"password",category:"other",region:"CN",city:"*",tips:"Brand pinyin + 1",updated:"2025"},
+
+// ===== CHINA - HOTELS =====
+{id:"cn-hanting",brand:"Hanting Hotel",brandZh:"\u6c49\u5ead\u9152\u5e97",ssid:["Hanting","\u6c49\u5ead WiFi"],password:"88888888",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Common default. Check room card or hallway signs.",updated:"2025"},
+{id:"cn-homeinns",brand:"Home Inn",brandZh:"\u5982\u5bb6\u9152\u5e97",ssid:["HomeInn","\u5982\u5bb6WiFi"],password:"4008203333",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Customer service hotline. Also check order card in room.",updated:"2025"},
+{id:"cn-ji-lobby",brand:"Ji Hotel (lobby)",brandZh:"\u5168\u5b63\u9152\u5e97(\u5927\u5385)",ssid:["JiHotel","\u5168\u5b63WiFi"],password:"7777777",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Lobby WiFi. Can also use phone portal auth.",updated:"2025"},
+{id:"cn-ji-room",brand:"Ji Hotel (room)",brandZh:"\u5168\u5b63\u9152\u5e97(\u5ba2\u623f)",ssid:["JiHotel_Room"],password:"(room number)",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Room WiFi password = your room number",updated:"2025"},
+{id:"cn-7days",brand:"7 Days Inn",brandZh:"7\u5929\u9152\u5e97",ssid:["7DaysInn","7\u5929WiFi"],password:"77777777",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Lucky 7s. May differ by franchise.",updated:"2025"},
+{id:"cn-jinjiang",brand:"Jinjiang Inn",brandZh:"\u9526\u6c5f\u4e4b\u661f",ssid:["JinjiangInn","\u9526\u6c5f\u4e4b\u661f"],password:"4008209999",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Hotline number.",updated:"2025"},
+{id:"cn-huazhu",brand:"Huazhu Group",brandZh:"\u534e\u4f4f\u96c6\u56e2",ssid:["Huazhu","\u534e\u4f4fWiFi"],password:"",auth:"portal",category:"hotel",region:"CN",city:"*",tips:"Portal auth: room number + surname.",updated:"2025"},
+{id:"cn-atour",brand:"Atour Hotel",brandZh:"\u4e9a\u6735\u9152\u5e97",ssid:["Atour","\u4e9a\u6735WiFi"],password:"",auth:"portal",category:"hotel",region:"CN",city:"*",tips:"Get credentials via Atour app after check-in",updated:"2025"},
+{id:"cn-greentree",brand:"GreenTree Inn",brandZh:"\u683c\u6797\u8c6a\u6cf0",ssid:["GreenTree","\u683c\u6797WiFi"],password:"12345678",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Common simple password",updated:"2025"},
+{id:"cn-viennahotel",brand:"Vienna Hotel",brandZh:"\u7ef4\u4e5f\u7eb3\u9152\u5e97",ssid:["Vienna","\u7ef4\u4e5f\u7eb3WiFi"],password:"88888888",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Lucky 8s",updated:"2025"},
+{id:"cn-ibis",brand:"Ibis Hotel",brandZh:"\u5b9c\u5fc5\u601d\u9152\u5e97",ssid:["ibis","\u5b9c\u5fc5\u601dWiFi"],password:"",auth:"portal",category:"hotel",region:"CN",city:"*",tips:"Portal: room + name. Part of Accor group.",updated:"2025"},
+{id:"cn-orangehotel",brand:"Orange Hotel",brandZh:"\u6a58\u5b50\u9152\u5e97",ssid:["OrangeHotel"],password:"12345678",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Ask front desk",updated:"2025"},
+{id:"cn-podinns",brand:"Pod Inn",brandZh:"\u5e03\u4e01\u9152\u5e97",ssid:["PodInn","\u5e03\u4e01WiFi"],password:"12345678",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Common default",updated:"2025"},
+{id:"cn-citycomfort",brand:"City Comfort Inn",brandZh:"\u57ce\u5e02\u4fbf\u6377\u9152\u5e97",ssid:["CityComfort"],password:"88888888",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Lucky 8s default",updated:"2025"},
+{id:"cn-lavande",brand:"Lavande Hotel",brandZh:"\u4e3d\u67ab\u9152\u5e97",ssid:["Lavande","\u4e3d\u67abWiFi"],password:"lavande1",auth:"password",category:"hotel",region:"CN",city:"*",tips:"Brand + 1",updated:"2025"},
+
+// ===== CHINA - AIRPORTS =====
+{id:"cn-pek",brand:"Beijing Capital Airport",brandZh:"\u5317\u4eac\u9996\u90fd\u673a\u573a",ssid:["Airport-Free-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Beijing",tips:"SMS verification, 2-hour sessions",updated:"2025"},
+{id:"cn-pkx",brand:"Beijing Daxing Airport",brandZh:"\u5317\u4eac\u5927\u5174\u673a\u573a",ssid:["PKX-Free-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Beijing",tips:"SMS verification",updated:"2025"},
+{id:"cn-pvg",brand:"Shanghai Pudong Airport",brandZh:"\u4e0a\u6d77\u6d66\u4e1c\u673a\u573a",ssid:["Airport-Free-WiFi","#PVG-Free-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Shanghai",tips:"SMS verification, portal login",updated:"2025"},
+{id:"cn-sha",brand:"Shanghai Hongqiao Airport",brandZh:"\u4e0a\u6d77\u8679\u6865\u673a\u573a",ssid:["Airport-Free-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Shanghai",tips:"SMS verification",updated:"2025"},
+{id:"cn-can",brand:"Guangzhou Baiyun Airport",brandZh:"\u5e7f\u5dde\u767d\u4e91\u673a\u573a",ssid:["CAN-Airport-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Guangzhou",tips:"SMS verification",updated:"2025"},
+{id:"cn-szx",brand:"Shenzhen Baoan Airport",brandZh:"\u6df1\u5733\u5b9d\u5b89\u673a\u573a",ssid:["SZX-Airport-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Shenzhen",tips:"SMS verification",updated:"2025"},
+{id:"cn-ctu",brand:"Chengdu Tianfu Airport",brandZh:"\u6210\u90fd\u5929\u5e9c\u673a\u573a",ssid:["CTU-Free-WiFi"],password:"",auth:"sms",category:"airport",region:"CN",city:"Chengdu",tips:"SMS verification",updated:"2025"},
+
+// ===== CHINA - TRANSIT =====
+{id:"cn-crwifi",brand:"China Railway WiFi",brandZh:"\u9ad8\u94c1WiFi",ssid:["CR-WiFi","\u9ad8\u94c1WiFi"],password:"",auth:"portal",category:"transit",region:"CN",city:"*",tips:"Download dedicated app or scan QR code.",updated:"2025"},
+
+// ===== CHINA - MALLS =====
+{id:"cn-wanda",brand:"Wanda Plaza",brandZh:"\u4e07\u8fbe\u5e7f\u573a",ssid:["Wanda","\u4e07\u8fbe\u667aWiFi"],password:"",auth:"sms",category:"mall",region:"CN",city:"*",tips:"Phone + SMS verification. Works across all Wanda malls.",updated:"2025"},
+{id:"cn-joycity",brand:"Joy City",brandZh:"\u5927\u60a6\u57ce",ssid:["JoyCity","\u5927\u60a6\u57ceWiFi"],password:"",auth:"portal",category:"mall",region:"CN",city:"*",tips:"Follow WeChat official account or ask info desk.",updated:"2025"},
+{id:"cn-ikea",brand:"IKEA",brandZh:"\u5b9c\u5bb6",ssid:["IKEA-WiFi"],password:"",auth:"sms",category:"mall",region:"CN",city:"*",tips:"SMS real-name verification",updated:"2025"},
+
+// ===== CHINA - TELECOM =====
+{id:"cn-cmcc",brand:"China Mobile",brandZh:"\u4e2d\u56fd\u79fb\u52a8",ssid:["CMCC","CMCC-FREE"],password:"",auth:"sms",category:"public",region:"CN",city:"*",tips:"Auto-connect for China Mobile subscribers",updated:"2025"},
+{id:"cn-chinanet",brand:"China Telecom",brandZh:"\u4e2d\u56fd\u7535\u4fe1",ssid:["ChinaNet","ChinaNet-FREE"],password:"",auth:"sms",category:"public",region:"CN",city:"*",tips:"Auto-connect for China Telecom subscribers",updated:"2025"},
+{id:"cn-unicom",brand:"China Unicom",brandZh:"\u4e2d\u56fd\u8054\u901a",ssid:["ChinaUnicom","China-Unicom"],password:"",auth:"sms",category:"public",region:"CN",city:"*",tips:"Auto-connect for China Unicom subscribers",updated:"2025"},
+
+// ===== CHINA - COMMON PATTERNS =====
+{id:"cn-pattern-8",brand:"Common Pattern: 8s",brandZh:"\u901a\u7528\u5bc6\u7801: 8\u4e2a8",ssid:["Various"],password:"88888888",auth:"password",category:"other",region:"CN",city:"*",tips:"The most common WiFi password in China. Try this first!",updated:"2025"},
+{id:"cn-pattern-123",brand:"Common Pattern: 12345678",brandZh:"\u901a\u7528\u5bc6\u7801: 12345678",ssid:["Various"],password:"12345678",auth:"password",category:"other",region:"CN",city:"*",tips:"Second most common default password in China",updated:"2025"},
+
+// ===== HONG KONG =====
+{id:"hk-airport",brand:"Hong Kong Airport",brandZh:"\u9999\u6e2f\u673a\u573a",ssid:["#HKAirport"],password:"",auth:"open",category:"airport",region:"HK",city:"Hong Kong",tips:"Free, no password needed",updated:"2025"},
+{id:"hk-mtr",brand:"MTR WiFi",brandZh:"\u6e2f\u94c1WiFi",ssid:["MTR Free Wi-Fi"],password:"",auth:"portal",category:"transit",region:"HK",city:"Hong Kong",tips:"Available in stations, 15 min sessions",updated:"2025"},
+{id:"hk-govwifi",brand:"GovWiFi",brandZh:"\u653f\u5e9cWiFi\u901a",ssid:["freegovwifi-e"],password:"",auth:"open",category:"public",region:"HK",city:"Hong Kong",tips:"Free in government buildings, libraries, parks",updated:"2025"},
+
+// ===== JAPAN =====
+{id:"jp-narita",brand:"Narita Airport",brandZh:"\u6210\u7530\u673a\u573a",ssid:["FreeWiFi-NARITA"],password:"",auth:"open",category:"airport",region:"JP",city:"Tokyo",tips:"Free, no registration",updated:"2025"},
+{id:"jp-haneda",brand:"Haneda Airport",brandZh:"\u7fbd\u7530\u673a\u573a",ssid:["HANEDA-FREE-WIFI"],password:"",auth:"open",category:"airport",region:"JP",city:"Tokyo",tips:"Free, no registration",updated:"2025"},
+{id:"jp-7spot",brand:"7-Eleven Japan",brandZh:"7-11(\u65e5\u672c)",ssid:["7SPOT"],password:"",auth:"portal",category:"other",region:"JP",city:"*",tips:"Email registration, 60 min x 3 per day",updated:"2025"},
+{id:"jp-jreast",brand:"JR East Stations",brandZh:"JR\u4e1c\u65e5\u672c\u8f66\u7ad9",ssid:["JR-EAST_FREE_Wi-Fi"],password:"",auth:"portal",category:"transit",region:"JP",city:"*",tips:"Email registration, 3-hour sessions",updated:"2025"},
+{id:"jp-starbucks",brand:"Starbucks Japan",brandZh:"\u661f\u5df4\u514b(\u65e5\u672c)",ssid:["at_STARBUCKS_Wi2"],password:"",auth:"portal",category:"cafe",region:"JP",city:"*",tips:"Email registration required",updated:"2025"},
+
+// ===== KOREA =====
+{id:"kr-seoul",brand:"Seoul City WiFi",brandZh:"\u9996\u5c14\u516c\u5171WiFi",ssid:["SEOUL"],password:"",auth:"open",category:"public",region:"KR",city:"Seoul",tips:"Free citywide WiFi, open access",updated:"2025"},
+{id:"kr-incheon",brand:"Incheon Airport",brandZh:"\u4ec1\u5ddd\u673a\u573a",ssid:["AirportWiFi"],password:"",auth:"open",category:"airport",region:"KR",city:"Incheon",tips:"Free, open access",updated:"2025"},
+
+// ===== SINGAPORE =====
+{id:"sg-changi",brand:"Changi Airport",brandZh:"\u6a1f\u5b9c\u673a\u573a",ssid:["#WiFi@Changi"],password:"",auth:"portal",category:"airport",region:"SG",city:"Singapore",tips:"May require passport number",updated:"2025"},
+{id:"sg-wireless",brand:"Wireless@SG",brandZh:"\u65b0\u52a0\u5761\u516c\u5171WiFi",ssid:["Wireless@SG","Wireless@SGx"],password:"",auth:"portal",category:"public",region:"SG",city:"Singapore",tips:"Free nationwide. Register via SingPass or SMS.",updated:"2025"},
+
+// ===== THAILAND =====
+{id:"th-bkk",brand:"Suvarnabhumi Airport",brandZh:"\u7d20\u4e07\u90a3\u666e\u673a\u573a",ssid:["Airport Free WiFi"],password:"",auth:"portal",category:"airport",region:"TH",city:"Bangkok",tips:"Free, accept terms",updated:"2025"},
+
+// ===== USA =====
+{id:"us-starbucks",brand:"Starbucks",brandZh:"\u661f\u5df4\u514b(\u7f8e\u56fd)",ssid:["Google Starbucks"],password:"",auth:"portal",category:"cafe",region:"US",city:"*",tips:"No password, captive portal. Powered by Google.",updated:"2025"},
+{id:"us-mcd",brand:"McDonald's",brandZh:"\u9ea6\u5f53\u52b3(\u7f8e\u56fd)",ssid:["McDonald's Free WiFi"],password:"",auth:"portal",category:"fastfood",region:"US",city:"*",tips:"Accept terms",updated:"2025"},
+{id:"us-panera",brand:"Panera Bread",brandZh:"Panera\u9762\u5305",ssid:["Panera Wi-Fi","Panera_Guest"],password:"",auth:"open",category:"cafe",region:"US",city:"*",tips:"No password",updated:"2025"},
+{id:"us-walmart",brand:"Walmart",brandZh:"\u6c83\u5c14\u739b",ssid:["Walmart WiFi","WMGuest"],password:"",auth:"open",category:"mall",region:"US",city:"*",tips:"No password",updated:"2025"},
+{id:"us-target",brand:"Target",brandZh:"Target",ssid:["Target Wireless"],password:"",auth:"open",category:"mall",region:"US",city:"*",tips:"No password",updated:"2025"},
+{id:"us-sfo",brand:"San Francisco Airport",brandZh:"\u65e7\u91d1\u5c71\u673a\u573a",ssid:["#SFO FREE WIFI"],password:"",auth:"open",category:"airport",region:"US",city:"San Francisco",tips:"Open, free",updated:"2025"},
+
+// ===== USA - AIRPORT LOUNGES =====
+{id:"us-jfk-delta",brand:"Delta Sky Club JFK",brandZh:"\u8fbe\u7f8e\u8d35\u5bbe\u5ba4(JFK)",ssid:["Delta Sky Club"],password:"faster",auth:"password",category:"airport",region:"US",city:"New York",tips:"",updated:"2025"},
+{id:"us-jfk-admirals",brand:"Admirals Club JFK",brandZh:"\u6d77\u519b\u4e0a\u5c06\u4ff1\u4e50\u90e8(JFK)",ssid:["Admirals Club"],password:"StVincent2019",auth:"password",category:"airport",region:"US",city:"New York",tips:"Same password across many AA lounges",updated:"2025"},
+{id:"us-lax-oneworld",brand:"Oneworld Lounge LAX",brandZh:"\u5bd0\u5b87\u4e00\u5bb6\u8d35\u5bbe\u5ba4(LAX)",ssid:["oneworld"],password:"oneworld",auth:"password",category:"airport",region:"US",city:"Los Angeles",tips:"",updated:"2025"},
+{id:"us-lax-delta",brand:"Delta Sky Club LAX",brandZh:"\u8fbe\u7f8e\u8d35\u5bbe\u5ba4(LAX)",ssid:["Delta Sky Club"],password:"faster",auth:"password",category:"airport",region:"US",city:"Los Angeles",tips:"",updated:"2025"},
+
+// ===== USA - HOTELS =====
+{id:"us-marriott",brand:"Marriott",brandZh:"\u4e07\u8c6a\u9152\u5e97",ssid:["MarriottBonvoy_Guest"],password:"",auth:"portal",category:"hotel",region:"US",city:"*",tips:"Last name + room number",updated:"2025"},
+{id:"us-hilton",brand:"Hilton",brandZh:"\u5e0c\u5c14\u987f\u9152\u5e97",ssid:["Hilton Honors","hhonors"],password:"",auth:"portal",category:"hotel",region:"US",city:"*",tips:"Last name + room number or HHonors login",updated:"2025"},
+
+// ===== CANADA =====
+{id:"ca-timhortons",brand:"Tim Hortons",brandZh:"Tim Hortons",ssid:["Tim Hortons WiFi"],password:"",auth:"portal",category:"cafe",region:"CA",city:"*",tips:"No password, accept use policy",updated:"2025"},
+{id:"ca-yvr",brand:"Vancouver Airport",brandZh:"\u6e29\u54e5\u534e\u673a\u573a",ssid:["#YVR Free WiFi"],password:"",auth:"portal",category:"airport",region:"CA",city:"Vancouver",tips:"Captive portal",updated:"2025"},
+
+// ===== UK =====
+{id:"gb-lhr",brand:"Heathrow Airport",brandZh:"\u5e0c\u601d\u7f57\u673a\u573a",ssid:["_Heathrow Wi-Fi"],password:"",auth:"portal",category:"airport",region:"GB",city:"London",tips:"Email registration",updated:"2025"},
+{id:"gb-pret",brand:"Pret a Manger",brandZh:"Pret\u4e09\u660e\u6cbb",ssid:["Pret WiFi"],password:"",auth:"open",category:"cafe",region:"GB",city:"*",tips:"No password",updated:"2025"},
+
+// ===== FRANCE =====
+{id:"fr-cdg",brand:"Paris CDG Airport",brandZh:"\u5df4\u9ece\u6234\u9ad8\u4e50\u673a\u573a",ssid:["WIFI-AIRPORT"],password:"",auth:"portal",category:"airport",region:"FR",city:"Paris",tips:"Free, portal login",updated:"2025"},
+
+// ===== GERMANY =====
+{id:"de-fra",brand:"Frankfurt Airport",brandZh:"\u6cd5\u5170\u514b\u798f\u673a\u573a",ssid:["Airport-Frankfurt-Free-WiFi"],password:"",auth:"open",category:"airport",region:"DE",city:"Frankfurt",tips:"Open, free",updated:"2025"},
+{id:"de-db-ice",brand:"ICE Train WiFi",brandZh:"ICE\u9ad8\u901fWiFi",ssid:["WIFIonICE"],password:"",auth:"open",category:"transit",region:"DE",city:"*",tips:"Free on ICE trains",updated:"2025"},
+
+// ===== UAE =====
+{id:"ae-dxb",brand:"Dubai Airport",brandZh:"\u8fea\u62dc\u673a\u573a",ssid:["DXB Free WiFi"],password:"",auth:"open",category:"airport",region:"AE",city:"Dubai",tips:"Open, free",updated:"2025"},
+
+// ===== AUSTRALIA =====
+{id:"au-syd",brand:"Sydney Airport",brandZh:"\u6089\u5c3c\u673a\u573a",ssid:["FREE SYD WiFi"],password:"",auth:"portal",category:"airport",region:"AU",city:"Sydney",tips:"Captive portal",updated:"2025"},
+
+// ===== GLOBAL CHAINS =====
+{id:"gl-mcd",brand:"McDonald's (Global)",brandZh:"\u9ea6\u5f53\u52b3(\u5168\u7403)",ssid:["McDonald's Free WiFi"],password:"",auth:"portal",category:"fastfood",region:"GLOBAL",city:"*",tips:"Accept terms. Available in 30,000+ locations worldwide.",updated:"2025"},
+{id:"gl-starbucks",brand:"Starbucks (Global)",brandZh:"\u661f\u5df4\u514b(\u5168\u7403)",ssid:["Starbucks WiFi"],password:"",auth:"portal",category:"cafe",region:"GLOBAL",city:"*",tips:"No password in most countries. Portal login.",updated:"2025"},
+{id:"gl-marriott",brand:"Marriott (Global)",brandZh:"\u4e07\u8c6a(\u5168\u7403)",ssid:["MarriottBonvoy_Guest","Sheraton_Guest","Westin_Guest"],password:"",auth:"portal",category:"hotel",region:"GLOBAL",city:"*",tips:"Last name + room number. All Marriott brands.",updated:"2025"},
+{id:"gl-hilton",brand:"Hilton (Global)",brandZh:"\u5e0c\u5c14\u987f(\u5168\u7403)",ssid:["Hilton Honors","hhonors"],password:"",auth:"portal",category:"hotel",region:"GLOBAL",city:"*",tips:"Last name + room number, or HHonors member login",updated:"2025"},
+];
+
+// ==================== APP LOGIC ====================
+var CATEGORIES = {
+  all:{label:"All / \u5168\u90e8",icon:"&#x1F4F6;"},
+  cafe:{label:"Cafe / \u5496\u5561\u8336\u996e",icon:"&#x2615;"},
+  fastfood:{label:"Fast Food / \u5feb\u9910",icon:"&#x1F354;"},
+  restaurant:{label:"Restaurant / \u9910\u5385",icon:"&#x1F37D;"},
+  hotel:{label:"Hotel / \u9152\u5e97",icon:"&#x1F3E8;"},
+  airport:{label:"Airport / \u673a\u573a",icon:"&#x2708;"},
+  transit:{label:"Transit / \u4ea4\u901a",icon:"&#x1F689;"},
+  mall:{label:"Mall / \u5546\u573a",icon:"&#x1F6CD;"},
+  public:{label:"Public / \u516c\u5171",icon:"&#x1F3DB;"},
+  cowork:{label:"Cowork / \u529e\u516c",icon:"&#x1F4BC;"},
+  other:{label:"Other / \u5176\u4ed6",icon:"&#x1F4CC;"}
+};
+
+var REGIONS = {
+  all:{label:"All",flag:"&#x1F30D;"},
+  CN:{label:"China",flag:"&#x1F1E8;&#x1F1F3;"},
+  HK:{label:"HK",flag:"&#x1F1ED;&#x1F1F0;"},
+  JP:{label:"Japan",flag:"&#x1F1EF;&#x1F1F5;"},
+  KR:{label:"Korea",flag:"&#x1F1F0;&#x1F1F7;"},
+  SG:{label:"Singapore",flag:"&#x1F1F8;&#x1F1EC;"},
+  TH:{label:"Thailand",flag:"&#x1F1F9;&#x1F1ED;"},
+  MY:{label:"Malaysia",flag:"&#x1F1F2;&#x1F1FE;"},
+  VN:{label:"Vietnam",flag:"&#x1F1FB;&#x1F1F3;"},
+  IN:{label:"India",flag:"&#x1F1EE;&#x1F1F3;"},
+  US:{label:"USA",flag:"&#x1F1FA;&#x1F1F8;"},
+  CA:{label:"Canada",flag:"&#x1F1E8;&#x1F1E6;"},
+  GB:{label:"UK",flag:"&#x1F1EC;&#x1F1E7;"},
+  FR:{label:"France",flag:"&#x1F1EB;&#x1F1F7;"},
+  DE:{label:"Germany",flag:"&#x1F1E9;&#x1F1EA;"},
+  AE:{label:"UAE",flag:"&#x1F1E6;&#x1F1EA;"},
+  AU:{label:"Australia",flag:"&#x1F1E6;&#x1F1FA;"},
+  GLOBAL:{label:"Global",flag:"&#x1F30E;"}
+};
+
+var allData = [];
+var userData = [];
+var currentCategory = 'all';
+var currentRegion = 'all';
+var currentSearch = '';
+var currentView = 'all';
+
+function init(){
+  userData = JSON.parse(localStorage.getItem('wifi_user_data')||'[]');
+  allData = [].concat(WIFI_DB, userData.map(function(u){ return Object.assign({}, u, {isUser:true}); }));
+  renderCategoryTabs();
+  renderRegionTabs();
+  renderCards();
+  updateStats();
+
+  document.getElementById('searchInput').addEventListener('input',function(e){
+    currentSearch=e.target.value.toLowerCase().trim();
+    renderCards();
+  });
+
+  if(localStorage.getItem('wifi_theme')==='light'){
+    document.body.classList.add('light');
+    document.getElementById('themeBtn').innerHTML='&#x2600;';
+    document.getElementById('footerThemeIcon').innerHTML='&#x2600;';
+  }
+}
+
+function renderCategoryTabs(){
+  var c=document.getElementById('categoryTabs');
+  c.innerHTML=Object.keys(CATEGORIES).map(function(k){
+    var v=CATEGORIES[k];
+    return '<div class="tab'+(currentCategory===k?' active':'')+'" onclick="setCategory(\''+k+'\')">'+v.icon+' '+v.label+'</div>';
+  }).join('');
+}
+
+function renderRegionTabs(){
+  var c=document.getElementById('regionTabs');
+  var activeRegions={};
+  allData.forEach(function(d){ activeRegions[d.region]=true; });
+  c.innerHTML=Object.keys(REGIONS).filter(function(k){ return k==='all'||activeRegions[k]; }).map(function(k){
+    var v=REGIONS[k];
+    return '<div class="rtab'+(currentRegion===k?' active':'')+'" onclick="setRegion(\''+k+'\')">'+v.flag+' '+v.label+'</div>';
+  }).join('');
+}
+
+function setCategory(cat){
+  currentCategory=cat;
+  renderCategoryTabs();
+  renderCards();
+}
+
+function setRegion(reg){
+  currentRegion=reg;
+  renderRegionTabs();
+  renderCards();
+}
+
+function setView(view,btn){
+  currentView=view;
+  var btns=document.querySelectorAll('.footer-nav button');
+  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
+  if(btn)btn.classList.add('active');
+  renderCards();
+}
+
+function filterData(){
+  return allData.filter(function(d){
+    if(currentView==='password'&&d.auth!=='password')return false;
+    if(currentView==='user'&&!d.isUser)return false;
+    if(currentCategory!=='all'&&d.category!==currentCategory)return false;
+    if(currentRegion!=='all'&&d.region!==currentRegion)return false;
+    if(currentSearch){
+      var hay=[d.brand,d.brandZh||'',d.ssid.join(' '),d.password||'',d.city||'',d.tips||'',d.region].join(' ').toLowerCase();
+      return hay.indexOf(currentSearch)!==-1;
+    }
+    return true;
+  });
+}
+
+function renderCards(){
+  var data=filterData();
+  var grid=document.getElementById('grid');
+  var empty=document.getElementById('empty');
+
+  if(!data.length){
+    grid.innerHTML='';
+    empty.style.display='block';
+    return;
+  }
+  empty.style.display='none';
+
+  grid.innerHTML=data.map(function(d,i){
+    var authBadge={password:'badge-password',open:'badge-open',portal:'badge-portal',sms:'badge-sms'}[d.auth]||'badge-portal';
+    var authLabel={password:'Password',open:'Open',portal:'Portal',sms:'SMS'}[d.auth]||d.auth;
+    var regionInfo=REGIONS[d.region]||{label:'Other',flag:'&#x1F30F;'};
+    var brandDisplay=d.brandZh?d.brandZh+'<small>'+d.brand+'</small>':d.brand;
+
+    var pwdHtml='';
+    if(d.password){
+      pwdHtml='<div class="card-row"><span class="label">Pass:</span><div class="pwd-wrap"><span class="val pwd-val">'+escHtml(d.password)+'</span><button class="copy-btn" onclick="event.stopPropagation();copyPwd(this,\''+escAttr(d.password)+'\')" title="Copy">&#x1F4CB;</button></div></div>';
+    }
+
+    return '<div class="card" style="animation-delay:'+Math.min(i*0.02,0.3)+'s">'+
+      '<div class="card-head">'+
+        '<div class="card-brand">'+brandDisplay+'</div>'+
+        '<span class="card-badge '+authBadge+'">'+authLabel+'</span>'+
+      '</div>'+
+      '<div class="card-row"><span class="label">SSID:</span><span class="val ssid-val">'+d.ssid.map(escHtml).join(' / ')+'</span></div>'+
+      pwdHtml+
+      (d.tips?'<div class="card-tips">'+escHtml(d.tips)+'</div>':'')+
+      '<div class="card-meta"><span>'+regionInfo.flag+' '+(d.city||'')+'</span>'+(d.isUser?'<span style="color:var(--purple)">User Added</span>':'')+'</div>'+
+    '</div>';
+  }).join('');
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function escAttr(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;')}
+
+function copyPwd(btn,pwd){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(pwd).then(function(){
+      doCopied(btn);
+    }).catch(function(){
+      fallbackCopy(btn,pwd);
+    });
+  }else{
+    fallbackCopy(btn,pwd);
+  }
+}
+
+function fallbackCopy(btn,pwd){
+  var ta=document.createElement('textarea');
+  ta.value=pwd;document.body.appendChild(ta);ta.select();
+  document.execCommand('copy');document.body.removeChild(ta);
+  doCopied(btn);
+}
+
+function doCopied(btn){
+  btn.classList.add('copied');
+  btn.innerHTML='&#x2714;';
+  showToast('Password copied!');
+  if(navigator.vibrate)navigator.vibrate(50);
+  setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='&#x1F4CB;';},1500);
+}
+
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2000);
+}
+
+function updateStats(){
+  document.getElementById('totalCount').textContent=allData.length;
+  document.getElementById('regionCount').textContent=Object.keys(allData.reduce(function(a,d){a[d.region]=1;return a;},{})).length;
+  document.getElementById('pwdCount').textContent=allData.filter(function(d){return d.password&&d.auth==='password';}).length;
+  document.getElementById('userCount').textContent=userData.length;
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  var isLight=document.body.classList.contains('light');
+  localStorage.setItem('wifi_theme',isLight?'light':'dark');
+  document.getElementById('themeBtn').innerHTML=isLight?'&#x2600;':'&#x1F319;';
+  document.getElementById('footerThemeIcon').innerHTML=isLight?'&#x2600;':'&#x1F319;';
+}
+
+function showModal(name){document.getElementById('modal-'+name).classList.add('show')}
+function hideModal(name){document.getElementById('modal-'+name).classList.remove('show')}
+
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('modal-overlay'))e.target.classList.remove('show');
+});
+
+// ==================== GITHUB SUBMIT ====================
+function buildGitHubIssueUrl(title, body, labels){
+  var url = GITHUB_ISSUES_URL + '?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
+  if(labels) url += '&labels=' + encodeURIComponent(labels);
+  return url;
+}
+
+function submitToGitHub(){
+  var brand = document.getElementById('f-brand').value.trim();
+  var ssid = document.getElementById('f-ssid').value.trim();
+  if(!brand||!ssid){showToast('Brand and SSID are required!');return;}
+
+  var pwd = document.getElementById('f-pwd').value.trim();
+  var auth = document.getElementById('f-auth').value;
+  var cat = document.getElementById('f-cat').value;
+  var region = document.getElementById('f-region').value;
+  var city = document.getElementById('f-city').value.trim()||'*';
+  var tips = document.getElementById('f-tips').value.trim();
+
+  var title = '[WiFi] ' + brand + ' - ' + ssid;
+  var body = '## New WiFi Suggestion\n\n' +
+    '| Field | Value |\n|-------|-------|\n' +
+    '| Brand | ' + brand + ' |\n' +
+    '| SSID | `' + ssid + '` |\n' +
+    '| Password | `' + (pwd||'N/A') + '` |\n' +
+    '| Auth Type | ' + auth + ' |\n' +
+    '| Category | ' + cat + ' |\n' +
+    '| Region | ' + region + ' |\n' +
+    '| City | ' + city + ' |\n' +
+    '| Tips | ' + (tips||'N/A') + ' |\n\n' +
+    '---\n*Submitted via WiFi Finder on ' + new Date().toISOString().slice(0,10) + '*';
+
+  window.open(buildGitHubIssueUrl(title, body, 'wifi-suggestion'), '_blank');
+}
+
+function submitFeedback(){
+  var type = document.getElementById('fb-type').value;
+  var details = document.getElementById('fb-details').value.trim();
+  if(!details){showToast('Please enter details!');return;}
+
+  var title = '[WiFi Feedback] ' + type;
+  var body = '## Feedback\n\n' +
+    '**Type:** ' + type + '\n\n' +
+    '**Details:**\n' + details + '\n\n' +
+    '---\n*Submitted via WiFi Finder on ' + new Date().toISOString().slice(0,10) + '*';
+
+  window.open(buildGitHubIssueUrl(title, body, 'wifi-feedback'), '_blank');
+}
+
+// ==================== LOCAL SAVE ====================
+function saveLocally(){
+  var brand = document.getElementById('f-brand').value.trim();
+  var ssid = document.getElementById('f-ssid').value.trim();
+  if(!brand||!ssid){showToast('Brand and SSID are required!');return;}
+
+  var entry={
+    id:'user-'+Date.now(),
+    brand:brand,
+    brandZh:'',
+    ssid:[ssid],
+    password:document.getElementById('f-pwd').value.trim(),
+    auth:document.getElementById('f-auth').value,
+    category:document.getElementById('f-cat').value,
+    region:document.getElementById('f-region').value,
+    city:document.getElementById('f-city').value.trim()||'*',
+    tips:document.getElementById('f-tips').value.trim(),
+    updated:new Date().toISOString().slice(0,7),
+    isUser:true
+  };
+
+  userData.push(entry);
+  localStorage.setItem('wifi_user_data',JSON.stringify(userData));
+  allData.push(entry);
+
+  ['f-brand','f-ssid','f-pwd','f-city','f-tips'].forEach(function(id){document.getElementById(id).value='';});
+  hideModal('suggest');
+  renderCards();
+  updateStats();
+  showToast('WiFi saved locally!');
+}
+
+// ==================== IMPORT/EXPORT ====================
+function exportData(){
+  document.getElementById('ie-data').value=JSON.stringify(allData,null,2);
+  showToast('Data exported to textarea');
+}
+function exportUserData(){
+  document.getElementById('ie-data').value=JSON.stringify(userData,null,2);
+  showToast('User data exported');
+}
+function importData(){
+  var raw=document.getElementById('ie-data').value.trim();
+  if(!raw){showToast('Paste JSON first!');return;}
+  try{
+    var imported=JSON.parse(raw);
+    if(!Array.isArray(imported)){showToast('Must be a JSON array!');return;}
+    var count=0;
+    imported.forEach(function(item){
+      if(item.brand&&item.ssid){
+        item.isUser=true;
+        item.id=item.id||'user-'+Date.now()+'-'+Math.random().toString(36).slice(2,6);
+        userData.push(item);
+        allData.push(item);
+        count++;
+      }
+    });
+    localStorage.setItem('wifi_user_data',JSON.stringify(userData));
+    renderCards();
+    updateStats();
+    renderRegionTabs();
+    showToast('Imported '+count+' entries!');
+  }catch(e){showToast('Invalid JSON: '+e.message);}
+}
+
+init();
+</script>
+</body>
+</html>

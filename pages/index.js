@@ -951,6 +951,70 @@ export default function Home({
           </section>
         )}
 
+        {/* 实用工具区域 */}
+        <section
+          style={{
+            marginTop: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
+            marginBottom: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
+            padding: '24px',
+            borderRadius: '20px',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: 'rgba(8, 14, 26, 0.82)',
+          }}
+        >
+          <div
+            style={{
+              textTransform: 'uppercase',
+              fontSize: '0.8rem',
+              letterSpacing: '0.08em',
+              color: heroPalette.muted,
+              marginBottom: '16px',
+            }}
+          >
+            Tools / 实用工具
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+              gap: '12px',
+            }}
+          >
+            <a
+              href="/wifi/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                borderRadius: '16px',
+                border: `1px solid ${heroPalette.accent2}33`,
+                background: heroPalette.panel,
+                padding: '16px 20px',
+                textDecoration: 'none',
+                transition: 'border-color 220ms ease, transform 220ms ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = `${heroPalette.accent2}88`;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = `${heroPalette.accent2}33`;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <span style={{ fontSize: '1.8rem', lineHeight: 1 }}>&#x1F4F6;</span>
+              <div>
+                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '1rem' }}>
+                  WiFi Finder
+                </div>
+                <div style={{ color: heroPalette.muted, fontSize: '0.85rem', marginTop: '2px' }}>
+                  Global public WiFi password database
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
         {errorMessage && (
           <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
             {errorMessage}
