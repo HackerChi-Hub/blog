@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#0a0a14">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>WiFi Finder - Global Public WiFi Database | HyphenTech</title>
+<title>WiFi Finder - 全球公共 WiFi 密码查询 | 黑粉科技</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -183,19 +183,19 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
   </div>
   <div class="search-wrap">
     <span class="icon">&#x1F50D;</span>
-    <input id="searchInput" type="text" placeholder="Search brand, SSID, city, password...">
+    <input id="searchInput" type="text" placeholder="搜索品牌、SSID、城市、密码...">
   </div>
   <div class="hdr-btns">
-    <button class="hdr-btn" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">&#x1F319;</button>
-    <button class="hdr-btn" onclick="showModal('suggest')" title="Suggest WiFi">&#x2795;</button>
-    <button class="hdr-btn" onclick="showModal('importexport')" title="Import/Export">&#x1F4BE;</button>
+    <button class="hdr-btn" onclick="toggleTheme()" title="切换主题" id="themeBtn">&#x1F319;</button>
+    <button class="hdr-btn" onclick="showModal('suggest')" title="提交 WiFi">&#x2795;</button>
+    <button class="hdr-btn" onclick="showModal('importexport')" title="导入/导出">&#x1F4BE;</button>
   </div>
 </div>
 <div class="stats-bar">
-  <span class="stat">&#x1F4CA; <b id="totalCount">0</b>&nbsp;entries</span>
-  <span class="stat">&#x1F30D; <b id="regionCount">0</b>&nbsp;regions</span>
-  <span class="stat">&#x1F512; <b id="pwdCount">0</b>&nbsp;passwords</span>
-  <span class="stat">&#x1F465; <b id="userCount">0</b>&nbsp;user-added</span>
+  <span class="stat">&#x1F4CA; <b id="totalCount">0</b>&nbsp;条记录</span>
+  <span class="stat">&#x1F30D; <b id="regionCount">0</b>&nbsp;个地区</span>
+  <span class="stat">&#x1F512; <b id="pwdCount">0</b>&nbsp;个密码</span>
+  <span class="stat">&#x1F465; <b id="userCount">0</b>&nbsp;条用户添加</span>
 </div>
 </div>
 
@@ -210,40 +210,40 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
 <!-- Empty state -->
 <div class="empty" id="empty" style="display:none">
   <div class="icon">&#x1F50D;</div>
-  <p>No results found. Try a different search or filter.</p>
+  <p>未找到结果，请尝试其他搜索词或筛选条件。</p>
 </div>
 
 <!-- Suggest WiFi Modal -->
 <div class="modal-overlay" id="modal-suggest">
 <div class="modal">
   <button class="modal-close" onclick="hideModal('suggest')">&#x2715;</button>
-  <h3>&#x2795; Suggest WiFi / Report Issue</h3>
+  <h3>&#x2795; 提交 WiFi / 报告问题</h3>
   <div class="suggest-info">
-    <b>How it works:</b><br>
-    Fill in the form below and click "Submit via GitHub". This will open a pre-filled GitHub Issue for review. Once approved, your suggestion will be added to the database.<br><br>
-    You can also <b>save locally</b> for your own use (stored in your browser only).
+    <b>提交方式：</b><br>
+    填写下方表单后点击「提交到 GitHub」，将自动创建一个 Issue 供审核。审核通过后会添加到数据库中。<br><br>
+    你也可以点击<b>「保存到本地」</b>仅存储在自己的浏览器中。
   </div>
-  <div class="form-group"><label>Brand / Place *</label><input id="f-brand" placeholder="e.g. Starbucks"></div>
-  <div class="form-group"><label>SSID *</label><input id="f-ssid" placeholder="WiFi network name"></div>
-  <div class="form-group"><label>Password</label><input id="f-pwd" placeholder="Leave empty if open/portal"></div>
-  <div class="form-group"><label>Auth Type</label>
-    <select id="f-auth"><option value="password">Password</option><option value="open">Open (no password)</option><option value="portal">Portal (web login)</option><option value="sms">SMS verification</option></select>
+  <div class="form-group"><label>品牌 / 地点 *</label><input id="f-brand" placeholder="如：星巴克"></div>
+  <div class="form-group"><label>SSID *</label><input id="f-ssid" placeholder="WiFi 网络名称"></div>
+  <div class="form-group"><label>密码</label><input id="f-pwd" placeholder="开放/Portal 网络留空"></div>
+  <div class="form-group"><label>认证方式</label>
+    <select id="f-auth"><option value="password">密码</option><option value="open">开放（无密码）</option><option value="portal">Portal（网页登录）</option><option value="sms">短信验证</option></select>
   </div>
-  <div class="form-group"><label>Category</label>
-    <select id="f-cat"><option value="cafe">Cafe / Coffee</option><option value="fastfood">Fast Food</option><option value="restaurant">Restaurant</option><option value="hotel">Hotel</option><option value="airport">Airport</option><option value="transit">Transit</option><option value="mall">Mall / Retail</option><option value="public">Public Facility</option><option value="cowork">Coworking</option><option value="other">Other</option></select>
+  <div class="form-group"><label>分类</label>
+    <select id="f-cat"><option value="cafe">咖啡 / 茶饮</option><option value="fastfood">快餐</option><option value="restaurant">餐厅</option><option value="hotel">酒店</option><option value="airport">机场</option><option value="transit">交通</option><option value="mall">商场 / 零售</option><option value="public">公共设施</option><option value="cowork">联合办公</option><option value="other">其他</option></select>
   </div>
-  <div class="form-group"><label>Region</label>
-    <select id="f-region"><option value="CN">China</option><option value="HK">Hong Kong</option><option value="JP">Japan</option><option value="KR">Korea</option><option value="SG">Singapore</option><option value="TH">Thailand</option><option value="MY">Malaysia</option><option value="VN">Vietnam</option><option value="IN">India</option><option value="US">USA</option><option value="CA">Canada</option><option value="GB">UK</option><option value="FR">France</option><option value="DE">Germany</option><option value="AU">Australia</option><option value="AE">UAE</option><option value="GLOBAL">Global / Multiple</option></select>
+  <div class="form-group"><label>地区</label>
+    <select id="f-region"><option value="CN">中国大陆</option><option value="HK">中国香港</option><option value="JP">日本</option><option value="KR">韩国</option><option value="SG">新加坡</option><option value="TH">泰国</option><option value="MY">马来西亚</option><option value="VN">越南</option><option value="IN">印度</option><option value="US">美国</option><option value="CA">加拿大</option><option value="GB">英国</option><option value="FR">法国</option><option value="DE">德国</option><option value="AU">澳大利亚</option><option value="AE">阿联酋</option><option value="GLOBAL">全球 / 多地区</option></select>
   </div>
-  <div class="form-group"><label>City</label><input id="f-city" placeholder="* for nationwide"></div>
-  <div class="form-group"><label>Tips / Notes</label><textarea id="f-tips" placeholder="Any useful info..."></textarea></div>
+  <div class="form-group"><label>城市</label><input id="f-city" placeholder="* 表示全国通用"></div>
+  <div class="form-group"><label>备注</label><textarea id="f-tips" placeholder="任何有用的信息..."></textarea></div>
   <div class="form-actions">
     <button class="btn btn-github" onclick="submitToGitHub()">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      Submit via GitHub
+      提交到 GitHub
     </button>
-    <button class="btn btn-primary" onclick="saveLocally()">Save Locally</button>
-    <button class="btn btn-ghost" onclick="hideModal('suggest')">Cancel</button>
+    <button class="btn btn-primary" onclick="saveLocally()">保存到本地</button>
+    <button class="btn btn-ghost" onclick="hideModal('suggest')">取消</button>
   </div>
 </div>
 </div>
@@ -252,26 +252,26 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
 <div class="modal-overlay" id="modal-feedback">
 <div class="modal">
   <button class="modal-close" onclick="hideModal('feedback')">&#x2715;</button>
-  <h3>&#x1F4AC; Feedback / Report</h3>
+  <h3>&#x1F4AC; 反馈 / 报告</h3>
   <div class="suggest-info">
-    Found an incorrect password? Have a suggestion? Leave feedback via GitHub Issue and we'll update the database.
+    发现密码错误？有新的建议？通过 GitHub Issue 提交反馈，我们会及时更新数据库。
   </div>
-  <div class="form-group"><label>Type</label>
+  <div class="form-group"><label>类型</label>
     <select id="fb-type">
-      <option value="wrong-password">Wrong / Outdated Password</option>
-      <option value="new-wifi">New WiFi to Add</option>
-      <option value="bug">Bug Report</option>
-      <option value="feature">Feature Request</option>
-      <option value="other">Other</option>
+      <option value="wrong-password">密码错误 / 已过期</option>
+      <option value="new-wifi">新增 WiFi</option>
+      <option value="bug">Bug 反馈</option>
+      <option value="feature">功能建议</option>
+      <option value="other">其他</option>
     </select>
   </div>
-  <div class="form-group"><label>Details *</label><textarea id="fb-details" placeholder="Describe the issue or suggestion..." style="min-height:100px"></textarea></div>
+  <div class="form-group"><label>详细描述 *</label><textarea id="fb-details" placeholder="请描述问题或建议..." style="min-height:100px"></textarea></div>
   <div class="form-actions">
     <button class="btn btn-github" onclick="submitFeedback()">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      Submit via GitHub
+      提交到 GitHub
     </button>
-    <button class="btn btn-ghost" onclick="hideModal('feedback')">Cancel</button>
+    <button class="btn btn-ghost" onclick="hideModal('feedback')">取消</button>
   </div>
 </div>
 </div>
@@ -280,20 +280,20 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
 <div class="modal-overlay" id="modal-importexport">
 <div class="modal">
   <button class="modal-close" onclick="hideModal('importexport')">&#x2715;</button>
-  <h3>&#x1F4BE; Import / Export Data</h3>
+  <h3>&#x1F4BE; 导入 / 导出数据</h3>
   <div class="form-actions" style="margin-top:0;margin-bottom:14px">
-    <button class="btn btn-primary" onclick="exportData()">Export All</button>
-    <button class="btn btn-ghost" onclick="exportUserData()">Export User Data</button>
-    <button class="btn btn-ghost" onclick="importData()">Import</button>
+    <button class="btn btn-primary" onclick="exportData()">导出全部</button>
+    <button class="btn btn-ghost" onclick="exportUserData()">导出用户数据</button>
+    <button class="btn btn-ghost" onclick="importData()">导入</button>
   </div>
-  <textarea class="ie-area" id="ie-data" placeholder="Paste JSON here to import, or click Export to see data..."></textarea>
+  <textarea class="ie-area" id="ie-data" placeholder="粘贴 JSON 数据进行导入，或点击导出查看数据..."></textarea>
 </div>
 </div>
 
 <!-- Copyright -->
 <div class="copyright">
   &copy; 2026 <a href="https://hyphentech.top" target="_blank" rel="noopener">hyphentech.top</a> | All Rights Reserved<br>
-  <span style="font-size:11px;color:var(--text3)">Data is community-sourced and may be outdated. Always verify before use.</span>
+  <span style="font-size:11px;color:var(--text3)">数据由社区贡献，可能已过期，使用前请自行验证。</span>
 </div>
 
 <!-- Toast -->
@@ -301,11 +301,11 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
 
 <!-- Footer nav -->
 <div class="footer-nav">
-  <button class="active" onclick="setView('all',this)"><span class="fi">&#x1F4F6;</span>All</button>
-  <button onclick="setView('password',this)"><span class="fi">&#x1F511;</span>Passwords</button>
-  <button onclick="showModal('suggest')"><span class="fi">&#x2795;</span>Suggest</button>
-  <button onclick="showModal('feedback')"><span class="fi">&#x1F4AC;</span>Feedback</button>
-  <button onclick="toggleTheme()"><span class="fi" id="footerThemeIcon">&#x1F319;</span>Theme</button>
+  <button class="active" onclick="setView('all',this)"><span class="fi">&#x1F4F6;</span>全部</button>
+  <button onclick="setView('password',this)"><span class="fi">&#x1F511;</span>有密码</button>
+  <button onclick="showModal('suggest')"><span class="fi">&#x2795;</span>提交</button>
+  <button onclick="showModal('feedback')"><span class="fi">&#x1F4AC;</span>反馈</button>
+  <button onclick="toggleTheme()"><span class="fi" id="footerThemeIcon">&#x1F319;</span>主题</button>
 </div>
 
 <script>
@@ -496,38 +496,38 @@ var WIFI_DB = [
 
 // ==================== APP LOGIC ====================
 var CATEGORIES = {
-  all:{label:"All / \u5168\u90e8",icon:"&#x1F4F6;"},
-  cafe:{label:"Cafe / \u5496\u5561\u8336\u996e",icon:"&#x2615;"},
-  fastfood:{label:"Fast Food / \u5feb\u9910",icon:"&#x1F354;"},
-  restaurant:{label:"Restaurant / \u9910\u5385",icon:"&#x1F37D;"},
-  hotel:{label:"Hotel / \u9152\u5e97",icon:"&#x1F3E8;"},
-  airport:{label:"Airport / \u673a\u573a",icon:"&#x2708;"},
-  transit:{label:"Transit / \u4ea4\u901a",icon:"&#x1F689;"},
-  mall:{label:"Mall / \u5546\u573a",icon:"&#x1F6CD;"},
-  public:{label:"Public / \u516c\u5171",icon:"&#x1F3DB;"},
-  cowork:{label:"Cowork / \u529e\u516c",icon:"&#x1F4BC;"},
-  other:{label:"Other / \u5176\u4ed6",icon:"&#x1F4CC;"}
+  all:{label:"\u5168\u90e8",icon:"&#x1F4F6;"},
+  cafe:{label:"\u5496\u5561\u8336\u996e",icon:"&#x2615;"},
+  fastfood:{label:"\u5feb\u9910",icon:"&#x1F354;"},
+  restaurant:{label:"\u9910\u5385",icon:"&#x1F37D;"},
+  hotel:{label:"\u9152\u5e97",icon:"&#x1F3E8;"},
+  airport:{label:"\u673a\u573a",icon:"&#x2708;"},
+  transit:{label:"\u4ea4\u901a",icon:"&#x1F689;"},
+  mall:{label:"\u5546\u573a",icon:"&#x1F6CD;"},
+  public:{label:"\u516c\u5171\u8bbe\u65bd",icon:"&#x1F3DB;"},
+  cowork:{label:"\u8054\u5408\u529e\u516c",icon:"&#x1F4BC;"},
+  other:{label:"\u5176\u4ed6",icon:"&#x1F4CC;"}
 };
 
 var REGIONS = {
-  all:{label:"All",flag:"&#x1F30D;"},
-  CN:{label:"China",flag:"&#x1F1E8;&#x1F1F3;"},
-  HK:{label:"HK",flag:"&#x1F1ED;&#x1F1F0;"},
-  JP:{label:"Japan",flag:"&#x1F1EF;&#x1F1F5;"},
-  KR:{label:"Korea",flag:"&#x1F1F0;&#x1F1F7;"},
-  SG:{label:"Singapore",flag:"&#x1F1F8;&#x1F1EC;"},
-  TH:{label:"Thailand",flag:"&#x1F1F9;&#x1F1ED;"},
-  MY:{label:"Malaysia",flag:"&#x1F1F2;&#x1F1FE;"},
-  VN:{label:"Vietnam",flag:"&#x1F1FB;&#x1F1F3;"},
-  IN:{label:"India",flag:"&#x1F1EE;&#x1F1F3;"},
-  US:{label:"USA",flag:"&#x1F1FA;&#x1F1F8;"},
-  CA:{label:"Canada",flag:"&#x1F1E8;&#x1F1E6;"},
-  GB:{label:"UK",flag:"&#x1F1EC;&#x1F1E7;"},
-  FR:{label:"France",flag:"&#x1F1EB;&#x1F1F7;"},
-  DE:{label:"Germany",flag:"&#x1F1E9;&#x1F1EA;"},
-  AE:{label:"UAE",flag:"&#x1F1E6;&#x1F1EA;"},
-  AU:{label:"Australia",flag:"&#x1F1E6;&#x1F1FA;"},
-  GLOBAL:{label:"Global",flag:"&#x1F30E;"}
+  all:{label:"\u5168\u90e8",flag:"&#x1F30D;"},
+  CN:{label:"\u4e2d\u56fd",flag:"&#x1F1E8;&#x1F1F3;"},
+  HK:{label:"\u9999\u6e2f",flag:"&#x1F1ED;&#x1F1F0;"},
+  JP:{label:"\u65e5\u672c",flag:"&#x1F1EF;&#x1F1F5;"},
+  KR:{label:"\u97e9\u56fd",flag:"&#x1F1F0;&#x1F1F7;"},
+  SG:{label:"\u65b0\u52a0\u5761",flag:"&#x1F1F8;&#x1F1EC;"},
+  TH:{label:"\u6cf0\u56fd",flag:"&#x1F1F9;&#x1F1ED;"},
+  MY:{label:"\u9a6c\u6765\u897f\u4e9a",flag:"&#x1F1F2;&#x1F1FE;"},
+  VN:{label:"\u8d8a\u5357",flag:"&#x1F1FB;&#x1F1F3;"},
+  IN:{label:"\u5370\u5ea6",flag:"&#x1F1EE;&#x1F1F3;"},
+  US:{label:"\u7f8e\u56fd",flag:"&#x1F1FA;&#x1F1F8;"},
+  CA:{label:"\u52a0\u62ff\u5927",flag:"&#x1F1E8;&#x1F1E6;"},
+  GB:{label:"\u82f1\u56fd",flag:"&#x1F1EC;&#x1F1E7;"},
+  FR:{label:"\u6cd5\u56fd",flag:"&#x1F1EB;&#x1F1F7;"},
+  DE:{label:"\u5fb7\u56fd",flag:"&#x1F1E9;&#x1F1EA;"},
+  AE:{label:"\u963f\u8054\u914b",flag:"&#x1F1E6;&#x1F1EA;"},
+  AU:{label:"\u6fb3\u5927\u5229\u4e9a",flag:"&#x1F1E6;&#x1F1FA;"},
+  GLOBAL:{label:"\u5168\u7403",flag:"&#x1F30E;"}
 };
 
 var allData = [];
@@ -623,13 +623,13 @@ function renderCards(){
 
   grid.innerHTML=data.map(function(d,i){
     var authBadge={password:'badge-password',open:'badge-open',portal:'badge-portal',sms:'badge-sms'}[d.auth]||'badge-portal';
-    var authLabel={password:'Password',open:'Open',portal:'Portal',sms:'SMS'}[d.auth]||d.auth;
+    var authLabel={password:'\u5bc6\u7801',open:'\u5f00\u653e',portal:'Portal',sms:'\u77ed\u4fe1\u9a8c\u8bc1'}[d.auth]||d.auth;
     var regionInfo=REGIONS[d.region]||{label:'Other',flag:'&#x1F30F;'};
     var brandDisplay=d.brandZh?d.brandZh+'<small>'+d.brand+'</small>':d.brand;
 
     var pwdHtml='';
     if(d.password){
-      pwdHtml='<div class="card-row"><span class="label">Pass:</span><div class="pwd-wrap"><span class="val pwd-val">'+escHtml(d.password)+'</span><button class="copy-btn" onclick="event.stopPropagation();copyPwd(this,\''+escAttr(d.password)+'\')" title="Copy">&#x1F4CB;</button></div></div>';
+      pwdHtml='<div class="card-row"><span class="label">\u5bc6\u7801:</span><div class="pwd-wrap"><span class="val pwd-val">'+escHtml(d.password)+'</span><button class="copy-btn" onclick="event.stopPropagation();copyPwd(this,\''+escAttr(d.password)+'\')" title="Copy">&#x1F4CB;</button></div></div>';
     }
 
     return '<div class="card" style="animation-delay:'+Math.min(i*0.02,0.3)+'s">'+
@@ -640,7 +640,7 @@ function renderCards(){
       '<div class="card-row"><span class="label">SSID:</span><span class="val ssid-val">'+d.ssid.map(escHtml).join(' / ')+'</span></div>'+
       pwdHtml+
       (d.tips?'<div class="card-tips">'+escHtml(d.tips)+'</div>':'')+
-      '<div class="card-meta"><span>'+regionInfo.flag+' '+(d.city||'')+'</span>'+(d.isUser?'<span style="color:var(--purple)">User Added</span>':'')+'</div>'+
+      '<div class="card-meta"><span>'+regionInfo.flag+' '+(d.city||'')+'</span>'+(d.isUser?'<span style="color:var(--purple)">\u7528\u6237\u6dfb\u52a0</span>':'')+'</div>'+
     '</div>';
   }).join('');
 }
@@ -670,7 +670,7 @@ function fallbackCopy(btn,pwd){
 function doCopied(btn){
   btn.classList.add('copied');
   btn.innerHTML='&#x2714;';
-  showToast('Password copied!');
+  showToast('\u5bc6\u7801\u5df2\u590d\u5236');
   if(navigator.vibrate)navigator.vibrate(50);
   setTimeout(function(){btn.classList.remove('copied');btn.innerHTML='&#x1F4CB;';},1500);
 }
@@ -713,7 +713,7 @@ function buildGitHubIssueUrl(title, body, labels){
 function submitToGitHub(){
   var brand = document.getElementById('f-brand').value.trim();
   var ssid = document.getElementById('f-ssid').value.trim();
-  if(!brand||!ssid){showToast('Brand and SSID are required!');return;}
+  if(!brand||!ssid){showToast('\u54c1\u724c\u548c SSID \u4e0d\u80fd\u4e3a\u7a7a\uff01');return;}
 
   var pwd = document.getElementById('f-pwd').value.trim();
   var auth = document.getElementById('f-auth').value;
@@ -723,17 +723,17 @@ function submitToGitHub(){
   var tips = document.getElementById('f-tips').value.trim();
 
   var title = '[WiFi] ' + brand + ' - ' + ssid;
-  var body = '## New WiFi Suggestion\n\n' +
-    '| Field | Value |\n|-------|-------|\n' +
-    '| Brand | ' + brand + ' |\n' +
+  var body = '## \u65b0 WiFi \u63d0\u4ea4\n\n' +
+    '| \u5b57\u6bb5 | \u5185\u5bb9 |\n|------|------|\n' +
+    '| \u54c1\u724c | ' + brand + ' |\n' +
     '| SSID | `' + ssid + '` |\n' +
-    '| Password | `' + (pwd||'N/A') + '` |\n' +
-    '| Auth Type | ' + auth + ' |\n' +
-    '| Category | ' + cat + ' |\n' +
-    '| Region | ' + region + ' |\n' +
-    '| City | ' + city + ' |\n' +
-    '| Tips | ' + (tips||'N/A') + ' |\n\n' +
-    '---\n*Submitted via WiFi Finder on ' + new Date().toISOString().slice(0,10) + '*';
+    '| \u5bc6\u7801 | `' + (pwd||'\u65e0') + '` |\n' +
+    '| \u8ba4\u8bc1\u65b9\u5f0f | ' + auth + ' |\n' +
+    '| \u5206\u7c7b | ' + cat + ' |\n' +
+    '| \u5730\u533a | ' + region + ' |\n' +
+    '| \u57ce\u5e02 | ' + city + ' |\n' +
+    '| \u5907\u6ce8 | ' + (tips||'\u65e0') + ' |\n\n' +
+    '---\n*\u901a\u8fc7 WiFi Finder \u63d0\u4ea4\u4e8e ' + new Date().toISOString().slice(0,10) + '*';
 
   window.open(buildGitHubIssueUrl(title, body, 'wifi-suggestion'), '_blank');
 }
@@ -741,13 +741,13 @@ function submitToGitHub(){
 function submitFeedback(){
   var type = document.getElementById('fb-type').value;
   var details = document.getElementById('fb-details').value.trim();
-  if(!details){showToast('Please enter details!');return;}
+  if(!details){showToast('\u8bf7\u586b\u5199\u8be6\u7ec6\u63cf\u8ff0\uff01');return;}
 
-  var title = '[WiFi Feedback] ' + type;
-  var body = '## Feedback\n\n' +
-    '**Type:** ' + type + '\n\n' +
-    '**Details:**\n' + details + '\n\n' +
-    '---\n*Submitted via WiFi Finder on ' + new Date().toISOString().slice(0,10) + '*';
+  var title = '[WiFi \u53cd\u9988] ' + type;
+  var body = '## \u53cd\u9988\n\n' +
+    '**\u7c7b\u578b\uff1a**' + type + '\n\n' +
+    '**\u8be6\u7ec6\u63cf\u8ff0\uff1a**\n' + details + '\n\n' +
+    '---\n*\u901a\u8fc7 WiFi Finder \u63d0\u4ea4\u4e8e ' + new Date().toISOString().slice(0,10) + '*';
 
   window.open(buildGitHubIssueUrl(title, body, 'wifi-feedback'), '_blank');
 }
@@ -756,7 +756,7 @@ function submitFeedback(){
 function saveLocally(){
   var brand = document.getElementById('f-brand').value.trim();
   var ssid = document.getElementById('f-ssid').value.trim();
-  if(!brand||!ssid){showToast('Brand and SSID are required!');return;}
+  if(!brand||!ssid){showToast('\u54c1\u724c\u548c SSID \u4e0d\u80fd\u4e3a\u7a7a\uff01');return;}
 
   var entry={
     id:'user-'+Date.now(),
@@ -781,24 +781,24 @@ function saveLocally(){
   hideModal('suggest');
   renderCards();
   updateStats();
-  showToast('WiFi saved locally!');
+  showToast('WiFi \u5df2\u4fdd\u5b58\u5230\u672c\u5730\uff01');
 }
 
 // ==================== IMPORT/EXPORT ====================
 function exportData(){
   document.getElementById('ie-data').value=JSON.stringify(allData,null,2);
-  showToast('Data exported to textarea');
+  showToast('\u6570\u636e\u5df2\u5bfc\u51fa\u5230\u6587\u672c\u6846');
 }
 function exportUserData(){
   document.getElementById('ie-data').value=JSON.stringify(userData,null,2);
-  showToast('User data exported');
+  showToast('\u7528\u6237\u6570\u636e\u5df2\u5bfc\u51fa');
 }
 function importData(){
   var raw=document.getElementById('ie-data').value.trim();
-  if(!raw){showToast('Paste JSON first!');return;}
+  if(!raw){showToast('\u8bf7\u5148\u7c98\u8d34 JSON \u6570\u636e\uff01');return;}
   try{
     var imported=JSON.parse(raw);
-    if(!Array.isArray(imported)){showToast('Must be a JSON array!');return;}
+    if(!Array.isArray(imported)){showToast('\u5fc5\u987b\u662f JSON \u6570\u7ec4\u683c\u5f0f\uff01');return;}
     var count=0;
     imported.forEach(function(item){
       if(item.brand&&item.ssid){
@@ -813,8 +813,8 @@ function importData(){
     renderCards();
     updateStats();
     renderRegionTabs();
-    showToast('Imported '+count+' entries!');
-  }catch(e){showToast('Invalid JSON: '+e.message);}
+    showToast('\u5df2\u5bfc\u5165 '+count+' \u6761\u8bb0\u5f55\uff01');
+  }catch(e){showToast('JSON \u683c\u5f0f\u9519\u8bef: '+e.message);}
 }
 
 init();
