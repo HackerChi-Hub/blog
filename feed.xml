@@ -5,11 +5,27 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 01 Apr 2026 01:25:02 GMT</lastBuildDate>
-    <pubDate>Wed, 01 Apr 2026 01:25:02 GMT</pubDate>
+    <lastBuildDate>Wed, 01 Apr 2026 04:39:11 GMT</lastBuildDate>
+    <pubDate>Wed, 01 Apr 2026 04:39:11 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Claude Code 51万行源码泄露：一个 .npmignore 配置失误引发的行业地震</title>
+      <link>https://hyphentech.top/claude-code-source-leak-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/claude-code-source-leak-2026/</guid>
+      <description>2026年3月31日，安全研究员 Chaofan Shou 发现 Anthropic 旗舰编程工具 Claude Code 的完整 TypeScript 源码（51万行、1900+文件）通过 npm Source Map 意外泄露。泄露内容包含未发布功能、反蒸馏机制、宠物系统等大量内部信息。这是 Anthropic 同一个错误犯的第二次。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+    <category>网络新闻</category>
+    <category>人工智能</category>
+    <category>泄露</category>
+    <category>源代码</category>
+    <category>安全</category>
+    <category>TypeScript</category>
+    <category>AI</category>
+    <category>github</category>
+    <category>安全事件</category>
+    </item>
     <item>
       <title>我用AI做了个全球公共WiFi密码查询器</title>
       <link>https://hyphentech.top/wifi-finder-vibe-coding/</link>
