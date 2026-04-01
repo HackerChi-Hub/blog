@@ -600,7 +600,7 @@ const HeroSection = ({
                   WiFi Finder
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  Global public WiFi password database
+                  全球公共 WiFi 密码查询
                 </div>
               </div>
             </a>
