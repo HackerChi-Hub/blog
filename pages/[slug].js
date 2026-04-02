@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Component } from 'react';
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
@@ -140,6 +141,29 @@ const NotionRenderer = dynamic(
   { ssr: false }
 );
 
+class NotionErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error, info) {
+    console.error('[NotionRenderer] Render error:', error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '40px 20px', textAlign: 'center', color: '#888' }}>
+          <p>Content rendering failed. Please try refreshing the page.</p>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
 
@@ -170,6 +194,21 @@ export async function getStaticProps({ params }) {
 
   // 构建时下载文件附件到本地
   const recordMap = await downloadNotionFiles(post.recordMap, slug);
+
+  // 清洗 recordMap：移除无效 block 条目，防止 react-notion-x 渲染时崩溃
+  if (recordMap?.block) {
+    for (const [blockId, blockData] of Object.entries(recordMap.block)) {
+      if (!blockData?.value?.id) {
+        delete recordMap.block[blockId];
+        continue;
+      }
+      // 过滤 content 中引用不存在的子 block
+      const content = blockData.value.content;
+      if (Array.isArray(content)) {
+        blockData.value.content = content.filter(childId => childId && recordMap.block[childId]);
+      }
+    }
+  }
 
   // 获取相关文章
   const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
@@ -470,17 +509,19 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
         )}
 
         <section className="notion">
-          <NotionRenderer
-            className="notion-only-body"
-            recordMap={recordMap}
-            fullPage={false}
-            disableHeader
-            darkMode
-            components={{
-              Code,
-              Collection,
-            }}
-          />
+          <NotionErrorBoundary>
+            <NotionRenderer
+              className="notion-only-body"
+              recordMap={recordMap}
+              fullPage={false}
+              disableHeader
+              darkMode
+              components={{
+                Code,
+                Collection,
+              }}
+            />
+          </NotionErrorBoundary>
 
           {/* 分享按钮 - 融入文章区域末尾 */}
           <div
