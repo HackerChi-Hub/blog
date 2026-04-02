@@ -7,7 +7,7 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import '../styles/notion-overrides.css';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLLG23LT3H';
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
