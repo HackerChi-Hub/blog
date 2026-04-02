@@ -192,19 +192,8 @@ export async function getStaticProps({ params }) {
     return { notFound: true };
   }
 
-  // 构建时下载文件附件到本地
+  // 构建时下载文件附件到本地（recordMap 已在 getPostBySlug 中修复了嵌套问题）
   const recordMap = await downloadNotionFiles(post.recordMap, slug);
-
-  // 修复 notion-client 返回的双层 value 嵌套问题
-  // notion-client 有时返回 block[id] = { value: { value: { id, type, ... } } }
-  // 而 react-notion-x 期望 block[id] = { value: { id, type, ... } }
-  if (recordMap?.block) {
-    for (const [blockId, blockData] of Object.entries(recordMap.block)) {
-      if (blockData?.value?.value?.id && !blockData?.value?.id) {
-        recordMap.block[blockId] = { ...blockData, value: blockData.value.value };
-      }
-    }
-  }
 
   // 获取相关文章
   const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
@@ -300,7 +289,7 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
       <SEO
         title={meta.title}
         description={description}
-        image={meta.image || '/png/banner-youtube-2560x1440.png'}
+        image={meta.image || '/favicon-512x512.png'}
         url={articleUrl}
         type="article"
         publishedTime={publishedTime}
@@ -310,8 +299,9 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
       />
 
       <main className="page">
-        {/* 封面图（无封面时使用默认 banner） */}
-        <div
+        {/* 封面图（使用文章中的第一张图片） */}
+        {meta.image && (
+          <div
             style={{
               width: '100%',
               borderRadius: '40px 40px 0 0',
@@ -322,7 +312,7 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
             }}
           >
             <Image
-              src={meta.image || '/png/banner-youtube-2560x1440.png'}
+              src={meta.image}
               alt={meta.title}
               width={1600}
               height={900}
@@ -336,14 +326,15 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
               unoptimized
             />
           </div>
+        )}
 
         <section
           style={{
             width: '100%',
             padding: '2.4rem 2rem 1.6rem',
-            borderRadius: '0 0 40px 40px',
+            borderRadius: meta.image ? '0 0 40px 40px' : '40px',
             border: '1px solid var(--border-color)',
-            borderTop: 'none',
+            borderTop: meta.image ? 'none' : undefined,
             background:
               'linear-gradient(135deg, rgba(3, 48, 54, 0.98), rgba(3, 70, 76, 0.95))',
             boxShadow: 'var(--shadow-soft)',
