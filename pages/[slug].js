@@ -195,6 +195,16 @@ export async function getStaticProps({ params }) {
   // 构建时下载文件附件到本地
   const recordMap = await downloadNotionFiles(post.recordMap, slug);
 
+  // 修复 notion-client 返回的双层 value 嵌套问题
+  // notion-client 有时返回 block[id] = { value: { value: { id, type, ... } } }
+  // 而 react-notion-x 期望 block[id] = { value: { id, type, ... } }
+  if (recordMap?.block) {
+    for (const [blockId, blockData] of Object.entries(recordMap.block)) {
+      if (blockData?.value?.value?.id && !blockData?.value?.id) {
+        recordMap.block[blockId] = { ...blockData, value: blockData.value.value };
+      }
+    }
+  }
 
   // 获取相关文章
   const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
