@@ -495,7 +495,7 @@ const PostCard = ({ post }) => {
     <article className="feed-card">
       <Link href={href}>
         <div className="feed-card__inner">
-          <PostCover cover={post.cover || post.thumbnail || post.heroImage} />
+          <PostCover cover={post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png'} />
 
           <div className="feed-card__body">
             <div className="feed-card__meta">
