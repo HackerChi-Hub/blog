@@ -195,20 +195,6 @@ export async function getStaticProps({ params }) {
   // 构建时下载文件附件到本地
   const recordMap = await downloadNotionFiles(post.recordMap, slug);
 
-  // 清洗 recordMap：移除无效 block 条目，防止 react-notion-x 渲染时崩溃
-  if (recordMap?.block) {
-    for (const [blockId, blockData] of Object.entries(recordMap.block)) {
-      if (!blockData?.value?.id) {
-        delete recordMap.block[blockId];
-        continue;
-      }
-      // 过滤 content 中引用不存在的子 block
-      const content = blockData.value.content;
-      if (Array.isArray(content)) {
-        blockData.value.content = content.filter(childId => childId && recordMap.block[childId]);
-      }
-    }
-  }
 
   // 获取相关文章
   const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
