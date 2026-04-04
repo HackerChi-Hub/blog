@@ -149,13 +149,17 @@ export default function RadarPage() {
                 实时追踪全球 AI 动态 · 每 30 分钟更新
               </p>
             </div>
-            <input
-              type="text"
-              className="radar-search"
-              placeholder="🔍 搜索新闻..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
+            <div className="radar-header-right">
+              <input
+                type="text"
+                className="radar-search"
+                placeholder="🔍 搜索新闻..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+              <button className="radar-site-btn" title="分享本站" onClick={shareSite}>🔗 分享</button>
+              <button className="radar-site-btn" title="收藏本站" onClick={favSite}>⭐ 收藏</button>
+            </div>
           </div>
         </div>
       </header>
@@ -291,44 +295,22 @@ export default function RadarPage() {
   );
 }
 
-// ── Helpers ──────────────────────────────────────────────────────
-function handleShare(e, article) {
-  e.preventDefault();
-  e.stopPropagation();
-  const title = article.title_zh || article.title;
-  const text = `${title}\n${article.url}`;
+// ── Site share & favorite ─────────────────────────────────────────
+const SITE_URL = 'https://hyphentech.top/radar/';
+const SITE_TITLE = '📡 AI 新闻雷达 — 黑粉科技 HyphenTech';
+
+function shareSite() {
   if (navigator.share) {
-    navigator.share({ title, url: article.url }).catch(() => {});
+    navigator.share({ title: SITE_TITLE, url: SITE_URL }).catch(() => {});
   } else {
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = e.currentTarget;
-      btn.textContent = '✅';
-      setTimeout(() => { btn.textContent = '🔗'; }, 1200);
+    navigator.clipboard.writeText(`${SITE_TITLE}\n${SITE_URL}`).then(() => {
+      alert('链接已复制到剪贴板！');
     });
   }
 }
 
-function handleFav(e, article) {
-  e.preventDefault();
-  e.stopPropagation();
-  const KEY = 'radar_favorites';
-  const favs = JSON.parse(localStorage.getItem(KEY) || '[]');
-  const idx = favs.findIndex(f => f.id === article.id);
-  const btn = e.currentTarget;
-  if (idx >= 0) {
-    favs.splice(idx, 1);
-    btn.textContent = '☆';
-  } else {
-    favs.push({ id: article.id, title: article.title_zh || article.title, url: article.url });
-    btn.textContent = '★';
-  }
-  localStorage.setItem(KEY, JSON.stringify(favs));
-}
-
-function isFaved(id) {
-  if (typeof window === 'undefined') return false;
-  const favs = JSON.parse(localStorage.getItem('radar_favorites') || '[]');
-  return favs.some(f => f.id === id);
+function favSite() {
+  alert('请按 Ctrl+D (Windows) 或 ⌘+D (Mac) 将本页加入浏览器书签');
 }
 
 // ── NewsCard ─────────────────────────────────────────────────────
@@ -338,49 +320,35 @@ function NewsCard({ article }) {
   const srcEmoji = SOURCE_EMOJI[article.source] || '📰';
 
   return (
-    <div className="radar-card-wrap">
-      <a
-        href={article.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="radar-card"
-      >
-        <div className="radar-card-top">
-          <span
-            className="radar-card-badge"
-            style={{ background: cat.bg, color: cat.color }}
-          >
-            {catEmoji} {article.category}
-          </span>
-          <span className="radar-card-source">
-            {srcEmoji} {article.source}
-          </span>
-          <span className="radar-card-time">
-            {relativeTime(article.published)}
-          </span>
-        </div>
-
-        <div className="radar-card-title">
-          {article.title_zh || article.title}
-        </div>
-
-        <div className="radar-card-summary">
-          {article.summary_zh}
-        </div>
-      </a>
-      <div className="radar-card-actions">
-        <button
-          className="radar-action-btn"
-          title="分享"
-          onClick={(e) => handleShare(e, article)}
-        >🔗</button>
-        <button
-          className="radar-action-btn"
-          title="收藏"
-          onClick={(e) => handleFav(e, article)}
-        >{isFaved(article.id) ? '★' : '☆'}</button>
+    <a
+      href={article.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="radar-card"
+    >
+      <div className="radar-card-top">
+        <span
+          className="radar-card-badge"
+          style={{ background: cat.bg, color: cat.color }}
+        >
+          {catEmoji} {article.category}
+        </span>
+        <span className="radar-card-source">
+          {srcEmoji} {article.source}
+        </span>
+        <span className="radar-card-time">
+          {relativeTime(article.published)}
+        </span>
       </div>
-    </div>
+
+      <div className="radar-card-title">
+        {article.title_zh || article.title}
+      </div>
+
+      <div className="radar-card-summary">
+        {article.summary_zh}
+      </div>
+    </a>
   );
 }
 

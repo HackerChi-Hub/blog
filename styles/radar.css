@@ -357,43 +357,40 @@
   color: #69f0ae;
 }
 
-/* Card wrapper + action buttons */
-.radar-card-wrap {
-  position: relative;
-}
-
-.radar-card-actions {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
+/* Header right: search + site buttons */
+.radar-header-right {
   display: flex;
-  gap: 2px;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-}
-
-.radar-card-wrap:hover .radar-card-actions {
-  opacity: 1;
-}
-
-.radar-action-btn {
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  cursor: pointer;
-  font-size: 0.78rem;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: background 0.15s ease;
-  padding: 0;
-  line-height: 1;
+  gap: 8px;
 }
 
-.radar-action-btn:hover {
-  background: rgba(105, 240, 174, 0.15);
+.radar-site-btn {
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(196, 208, 233, 0.7);
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.radar-site-btn:hover {
+  background: rgba(105, 240, 174, 0.1);
+  border-color: rgba(105, 240, 174, 0.25);
+  color: #69f0ae;
+}
+
+@media (max-width: 640px) {
+  .radar-header-right {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .radar-site-btn {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+  }
 }
 
 .radar-card-summary {
