@@ -6,6 +6,20 @@ import SEO from '../components/SEO';
 const DATA_URL = 'https://hackerchi-hub.github.io/NewsRadar/data/news.json';
 const REFRESH_MS = 5 * 60 * 1000;
 
+// ── Category emoji lookup ────────────────────────────────────────
+const CAT_EMOJI = {
+  // AI
+  LLM: '🤖', CV: '👁️', '机器人': '🦾', 'AI产品': '🛠️', '研究': '🔬', '开源': '💻',
+  // 安全
+  '漏洞': '🐛', '攻防': '⚔️', '隐私': '🔐', '安全工具': '🛡️',
+  // 经济
+  '宏观': '📊', '市场': '📈', '投融资': '💵', '加密': '🪙',
+  // 科技
+  '软件': '📦', '硬件': '🔧', '互联网': '🌐', '开发': '⌨️',
+  // fallback
+  '未分类': '📰',
+};
+
 // ── Domain tabs (top level) ──────────────────────────────────────
 const DOMAINS = [
   { key: '全部', emoji: '📡' },
@@ -166,7 +180,7 @@ export default function RadarPage() {
         (a.tags || []).some(t => t.includes(q))
       );
     });
-  }, [articles, category, search]);
+  }, [domainArticles, category, search]);
 
   return (
     <div className="radar-page">
@@ -278,7 +292,7 @@ export default function RadarPage() {
           <ol className="radar-digest-list">
             {digest.items.map((item, i) => {
               const catConf = CAT_STYLE[item.category] || CAT_STYLE['未分类'];
-              const catEmoji = CATEGORIES.find(c => c.key === item.category)?.emoji || '📰';
+              const catEmoji = CAT_EMOJI[item.category] || '📰';
               return (
                 <li key={i} className="radar-digest-item">
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
