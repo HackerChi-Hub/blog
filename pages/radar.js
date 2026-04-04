@@ -80,6 +80,7 @@ function uniqueSources(articles) {
 // ── Component ────────────────────────────────────────────────────
 export default function RadarPage() {
   const [articles, setArticles] = useState([]);
+  const [digest, setDigest] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
@@ -92,6 +93,7 @@ export default function RadarPage() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       setArticles(data.articles || []);
+      setDigest(data.digest || null);
       setLastUpdated(data.last_updated || '');
       setError('');
     } catch (e) {
@@ -191,6 +193,42 @@ export default function RadarPage() {
           <span>📊 共 {filtered.length} 条新闻</span>
           <span>🌐 来自 {uniqueSources(articles)} 个信源</span>
           {lastUpdated && <span>{relativeTime(lastUpdated)} 更新</span>}
+        </div>
+      )}
+
+      {/* ── Digest ── */}
+      {!loading && digest && digest.items && digest.items.length > 0 && (
+        <div className="radar-digest">
+          <div className="radar-digest-header">
+            <span>📋 AI 速报 · 最重要的 {digest.items.length} 条</span>
+            {digest.generated_at && (
+              <span className="radar-digest-time">{relativeTime(digest.generated_at)} 生成</span>
+            )}
+          </div>
+          <ol className="radar-digest-list">
+            {digest.items.map((item, i) => {
+              const catConf = CAT_STYLE[item.category] || CAT_STYLE['未分类'];
+              const catEmoji = CATEGORIES.find(c => c.key === item.category)?.emoji || '📰';
+              return (
+                <li key={i} className="radar-digest-item">
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    <span className="radar-digest-rank">{i + 1}</span>
+                    <span
+                      className="radar-digest-badge"
+                      style={{ background: catConf.bg, color: catConf.color }}
+                    >
+                      {catEmoji}
+                    </span>
+                    <span className="radar-digest-title">{item.title}</span>
+                    <span className="radar-digest-summary">{item.summary}</span>
+                    {item.source && (
+                      <span className="radar-digest-source">{item.source}</span>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       )}
 
