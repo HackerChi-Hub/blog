@@ -624,7 +624,7 @@ const HeroSection = ({
                   新闻雷达
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  AI·安全·经济·科技 · 每 30 分钟更新
+                  AI·安全·经济·科技·国际 · 每 30 分钟更新
                 </div>
               </div>
             </a>
