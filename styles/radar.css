@@ -289,7 +289,8 @@
 
 /* Card — COMPACT */
 .radar-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: rgba(8, 14, 26, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
@@ -297,6 +298,7 @@
   text-decoration: none;
   color: inherit;
   transition: all 0.2s ease;
+  min-height: 100px;
 }
 
 .radar-card:hover {
@@ -401,6 +403,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1;
 }
 
 /* Back link */
