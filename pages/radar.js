@@ -281,40 +281,7 @@ export default function RadarPage() {
       )}
 
       {/* ── Digest ── */}
-      {!loading && digest && digest.items && digest.items.length > 0 && (
-        <div className="radar-digest">
-          <div className="radar-digest-header">
-            <span>📋 AI 速报 · 最重要的 {digest.items.length} 条</span>
-            {digest.generated_at && (
-              <span className="radar-digest-time">{relativeTime(digest.generated_at)} 生成</span>
-            )}
-          </div>
-          <ol className="radar-digest-list">
-            {digest.items.map((item, i) => {
-              const catConf = CAT_STYLE[item.category] || CAT_STYLE['未分类'];
-              const catEmoji = CAT_EMOJI[item.category] || '📰';
-              return (
-                <li key={i} className="radar-digest-item">
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    <span className="radar-digest-rank">{i + 1}</span>
-                    <span
-                      className="radar-digest-badge"
-                      style={{ background: catConf.bg, color: catConf.color }}
-                    >
-                      {catEmoji}
-                    </span>
-                    <span className="radar-digest-title">{item.title}</span>
-                    <span className="radar-digest-summary">{item.summary}</span>
-                    {item.source && (
-                      <span className="radar-digest-source">{item.source}</span>
-                    )}
-                  </a>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
-      )}
+      {!loading && digest && <DigestSection digest={digest} />}
 
       {/* ── Content ── */}
       <div className="radar-grid">
@@ -391,6 +358,77 @@ function shareSite() {
 
 function favSite() {
   alert('请按 Ctrl+D (Windows) 或 ⌘+D (Mac) 将本页加入浏览器书签');
+}
+
+// ── DigestSection ────────────────────────────────────────────────
+const DIGEST_DOMAINS = [
+  { key: 'AI', emoji: '🤖', label: 'AI' },
+  { key: '安全', emoji: '🔒', label: '安全' },
+  { key: '经济', emoji: '💰', label: '经济' },
+  { key: '科技', emoji: '💻', label: '科技' },
+];
+
+function DigestSection({ digest }) {
+  const [activeDom, setActiveDom] = useState('AI');
+
+  const availableDomains = DIGEST_DOMAINS.filter(d => digest[d.key] && digest[d.key].length > 0);
+  if (availableDomains.length === 0) return null;
+
+  // Default to first available domain
+  const currentDom = availableDomains.find(d => d.key === activeDom) ? activeDom : availableDomains[0].key;
+  const items = digest[currentDom] || [];
+  const ds = DOMAIN_STYLE[currentDom];
+
+  return (
+    <div className="radar-digest">
+      <div className="radar-digest-header">
+        <span>📋 速报 · Top 10</span>
+        <div className="radar-digest-tabs">
+          {availableDomains.map(({ key, emoji, label }) => {
+            const isActive = currentDom === key;
+            const s = DOMAIN_STYLE[key];
+            return (
+              <button
+                key={key}
+                className={`radar-digest-tab ${isActive ? 'radar-digest-tab-active' : ''}`}
+                style={isActive ? { background: s.bg, color: s.color, borderColor: s.border } : {}}
+                onClick={() => setActiveDom(key)}
+              >
+                {emoji} {label}
+              </button>
+            );
+          })}
+        </div>
+        {digest.generated_at && (
+          <span className="radar-digest-time">{relativeTime(digest.generated_at)} 生成</span>
+        )}
+      </div>
+      <ol className="radar-digest-list">
+        {items.map((item, i) => {
+          const catConf = CAT_STYLE[item.category] || CAT_STYLE['未分类'];
+          const catEmoji = CAT_EMOJI[item.category] || '📰';
+          return (
+            <li key={i} className="radar-digest-item">
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
+                <span className="radar-digest-rank">{i + 1}</span>
+                <span
+                  className="radar-digest-badge"
+                  style={{ background: catConf.bg, color: catConf.color }}
+                >
+                  {catEmoji}
+                </span>
+                <span className="radar-digest-title">{item.title}</span>
+                <span className="radar-digest-summary">{item.summary}</span>
+                {item.source && (
+                  <span className="radar-digest-source">{item.source}</span>
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
 }
 
 // ── NewsCard ─────────────────────────────────────────────────────
