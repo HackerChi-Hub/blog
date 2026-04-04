@@ -176,7 +176,11 @@ export default function RadarPage() {
 
   const activeCats = useMemo(() => {
     if (domain === '全部') {
-      return Object.keys(catCounts).filter(k => k !== '全部' && catCounts[k] > 0);
+      // Show top 8 categories by count to avoid pill overflow on mobile
+      return Object.keys(catCounts)
+        .filter(k => k !== '全部' && catCounts[k] > 0)
+        .sort((a, b) => catCounts[b] - catCounts[a])
+        .slice(0, 8);
     }
     return DOMAIN_CATEGORIES[domain] || [];
   }, [domain, catCounts]);
