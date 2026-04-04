@@ -188,7 +188,6 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
   <div class="hdr-btns">
     <button class="hdr-btn" onclick="toggleTheme()" title="切换主题" id="themeBtn">&#x1F319;</button>
     <button class="hdr-btn" onclick="showModal('suggest')" title="提交 WiFi">&#x2795;</button>
-    <button class="hdr-btn" onclick="showModal('importexport')" title="导入/导出">&#x1F4BE;</button>
   </div>
 </div>
 <div class="stats-bar">
@@ -276,19 +275,6 @@ body.light .footer-nav{background:rgba(240,242,248,.95)}
 </div>
 </div>
 
-<!-- Import/Export Modal -->
-<div class="modal-overlay" id="modal-importexport">
-<div class="modal">
-  <button class="modal-close" onclick="hideModal('importexport')">&#x2715;</button>
-  <h3>&#x1F4BE; 导入 / 导出数据</h3>
-  <div class="form-actions" style="margin-top:0;margin-bottom:14px">
-    <button class="btn btn-primary" onclick="exportData()">导出全部</button>
-    <button class="btn btn-ghost" onclick="exportUserData()">导出用户数据</button>
-    <button class="btn btn-ghost" onclick="importData()">导入</button>
-  </div>
-  <textarea class="ie-area" id="ie-data" placeholder="粘贴 JSON 数据进行导入，或点击导出查看数据..."></textarea>
-</div>
-</div>
 
 <!-- Copyright -->
 <div class="copyright">

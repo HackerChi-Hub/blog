@@ -357,6 +357,45 @@
   color: #69f0ae;
 }
 
+/* Card wrapper + action buttons */
+.radar-card-wrap {
+  position: relative;
+}
+
+.radar-card-actions {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.radar-card-wrap:hover .radar-card-actions {
+  opacity: 1;
+}
+
+.radar-action-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.radar-action-btn:hover {
+  background: rgba(105, 240, 174, 0.15);
+}
+
 .radar-card-summary {
   font-size: 0.72rem;
   line-height: 1.45;

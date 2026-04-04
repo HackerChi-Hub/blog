@@ -291,6 +291,46 @@ export default function RadarPage() {
   );
 }
 
+// ── Helpers ──────────────────────────────────────────────────────
+function handleShare(e, article) {
+  e.preventDefault();
+  e.stopPropagation();
+  const title = article.title_zh || article.title;
+  const text = `${title}\n${article.url}`;
+  if (navigator.share) {
+    navigator.share({ title, url: article.url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = e.currentTarget;
+      btn.textContent = '✅';
+      setTimeout(() => { btn.textContent = '🔗'; }, 1200);
+    });
+  }
+}
+
+function handleFav(e, article) {
+  e.preventDefault();
+  e.stopPropagation();
+  const KEY = 'radar_favorites';
+  const favs = JSON.parse(localStorage.getItem(KEY) || '[]');
+  const idx = favs.findIndex(f => f.id === article.id);
+  const btn = e.currentTarget;
+  if (idx >= 0) {
+    favs.splice(idx, 1);
+    btn.textContent = '☆';
+  } else {
+    favs.push({ id: article.id, title: article.title_zh || article.title, url: article.url });
+    btn.textContent = '★';
+  }
+  localStorage.setItem(KEY, JSON.stringify(favs));
+}
+
+function isFaved(id) {
+  if (typeof window === 'undefined') return false;
+  const favs = JSON.parse(localStorage.getItem('radar_favorites') || '[]');
+  return favs.some(f => f.id === id);
+}
+
 // ── NewsCard ─────────────────────────────────────────────────────
 function NewsCard({ article }) {
   const cat = CAT_STYLE[article.category] || CAT_STYLE['未分类'];
@@ -298,35 +338,49 @@ function NewsCard({ article }) {
   const srcEmoji = SOURCE_EMOJI[article.source] || '📰';
 
   return (
-    <a
-      href={article.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="radar-card"
-    >
-      <div className="radar-card-top">
-        <span
-          className="radar-card-badge"
-          style={{ background: cat.bg, color: cat.color }}
-        >
-          {catEmoji} {article.category}
-        </span>
-        <span className="radar-card-source">
-          {srcEmoji} {article.source}
-        </span>
-        <span className="radar-card-time">
-          {relativeTime(article.published)}
-        </span>
-      </div>
+    <div className="radar-card-wrap">
+      <a
+        href={article.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="radar-card"
+      >
+        <div className="radar-card-top">
+          <span
+            className="radar-card-badge"
+            style={{ background: cat.bg, color: cat.color }}
+          >
+            {catEmoji} {article.category}
+          </span>
+          <span className="radar-card-source">
+            {srcEmoji} {article.source}
+          </span>
+          <span className="radar-card-time">
+            {relativeTime(article.published)}
+          </span>
+        </div>
 
-      <div className="radar-card-title">
-        {article.title_zh || article.title}
-      </div>
+        <div className="radar-card-title">
+          {article.title_zh || article.title}
+        </div>
 
-      <div className="radar-card-summary">
-        {article.summary_zh}
+        <div className="radar-card-summary">
+          {article.summary_zh}
+        </div>
+      </a>
+      <div className="radar-card-actions">
+        <button
+          className="radar-action-btn"
+          title="分享"
+          onClick={(e) => handleShare(e, article)}
+        >🔗</button>
+        <button
+          className="radar-action-btn"
+          title="收藏"
+          onClick={(e) => handleFav(e, article)}
+        >{isFaved(article.id) ? '★' : '☆'}</button>
       </div>
-    </a>
+    </div>
   );
 }
 
