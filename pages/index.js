@@ -621,10 +621,10 @@ const HeroSection = ({
               <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>📡</span>
               <div>
                 <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  AI 新闻雷达
+                  新闻雷达
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  实时 AI 动态 · 每 30 分钟更新
+                  AI·安全·经济·科技 · 每 30 分钟更新
                 </div>
               </div>
             </a>

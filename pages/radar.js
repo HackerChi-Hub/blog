@@ -6,57 +6,77 @@ import SEO from '../components/SEO';
 const DATA_URL = 'https://hackerchi-hub.github.io/NewsRadar/data/news.json';
 const REFRESH_MS = 5 * 60 * 1000;
 
-// ── Category config ──────────────────────────────────────────────
-const CATEGORIES = [
+// ── Domain tabs (top level) ──────────────────────────────────────
+const DOMAINS = [
   { key: '全部', emoji: '📡' },
-  { key: 'LLM', emoji: '🤖' },
-  { key: 'CV', emoji: '👁️' },
-  { key: '机器人', emoji: '🦾' },
-  { key: 'AI产品', emoji: '🛠️' },
-  { key: '研究', emoji: '🔬' },
-  { key: '行业', emoji: '🏢' },
-  { key: '政策', emoji: '⚖️' },
-  { key: '开源', emoji: '💻' },
-  { key: '未分类', emoji: '📰' },
+  { key: 'AI', emoji: '🤖' },
+  { key: '安全', emoji: '🔒' },
+  { key: '经济', emoji: '💰' },
+  { key: '科技', emoji: '💻' },
 ];
 
+const DOMAIN_STYLE = {
+  'AI': { color: '#69f0ae', bg: 'rgba(105,240,174,0.10)', border: 'rgba(105,240,174,0.3)' },
+  '安全': { color: '#ff5370', bg: 'rgba(255,83,112,0.10)', border: 'rgba(255,83,112,0.3)' },
+  '经济': { color: '#ffb347', bg: 'rgba(255,179,71,0.10)', border: 'rgba(255,179,71,0.3)' },
+  '科技': { color: '#6cb8ff', bg: 'rgba(108,184,255,0.10)', border: 'rgba(108,184,255,0.3)' },
+};
+
+// ── Category config (per domain) ────────────────────────────────
+const DOMAIN_CATEGORIES = {
+  'AI': ['LLM', 'CV', '机器人', 'AI产品', '研究', '开源'],
+  '安全': ['漏洞', '攻防', '隐私', '安全工具'],
+  '经济': ['宏观', '市场', '投融资', '加密'],
+  '科技': ['软件', '硬件', '互联网', '开发'],
+};
+
 const CAT_STYLE = {
+  // AI
   LLM: { color: '#69f0ae', bg: 'rgba(105,240,174,0.12)' },
   CV: { color: '#6cb8ff', bg: 'rgba(108,184,255,0.12)' },
   '机器人': { color: '#ffb347', bg: 'rgba(255,179,71,0.12)' },
   'AI产品': { color: '#b388ff', bg: 'rgba(179,136,255,0.12)' },
   '研究': { color: '#ffd54f', bg: 'rgba(255,213,79,0.12)' },
-  '行业': { color: '#00e5ff', bg: 'rgba(0,229,255,0.12)' },
-  '政策': { color: '#ff5370', bg: 'rgba(255,83,112,0.12)' },
   '开源': { color: '#ff7fd1', bg: 'rgba(255,127,209,0.12)' },
+  // 安全
+  '漏洞': { color: '#ff5370', bg: 'rgba(255,83,112,0.12)' },
+  '攻防': { color: '#ff7043', bg: 'rgba(255,112,67,0.12)' },
+  '隐私': { color: '#ffab40', bg: 'rgba(255,171,64,0.12)' },
+  '安全工具': { color: '#69f0ae', bg: 'rgba(105,240,174,0.12)' },
+  // 经济
+  '宏观': { color: '#ffb347', bg: 'rgba(255,179,71,0.12)' },
+  '市场': { color: '#00e5ff', bg: 'rgba(0,229,255,0.12)' },
+  '投融资': { color: '#b388ff', bg: 'rgba(179,136,255,0.12)' },
+  '加密': { color: '#ffd54f', bg: 'rgba(255,213,79,0.12)' },
+  // 科技
+  '软件': { color: '#6cb8ff', bg: 'rgba(108,184,255,0.12)' },
+  '硬件': { color: '#ffb347', bg: 'rgba(255,179,71,0.12)' },
+  '互联网': { color: '#00e5ff', bg: 'rgba(0,229,255,0.12)' },
+  '开发': { color: '#69f0ae', bg: 'rgba(105,240,174,0.12)' },
+  // fallback
   '未分类': { color: '#93a3b8', bg: 'rgba(147,163,184,0.10)' },
 };
 
 const SOURCE_EMOJI = {
-  'Hacker News': '🟠',
-  'arXiv': '📄',
-  'TechCrunch AI': '🚀',
-  'The Verge AI': '📱',
-  'MIT Tech Review': '🎓',
-  'VentureBeat AI': '💰',
-  'Ars Technica AI': '🔧',
-  '机器之心': '🧠',
-  '量子位': '⚛️',
-  '雷锋网 AI': '⚡',
-  'OpenAI Blog': '🟢',
-  'DeepMind Blog': '🔷',
-  'Google AI Blog': '🔍',
-  'Hugging Face Blog': '🤗',
-  'The Decoder': '🔓',
-  'Microsoft AI Blog': '🪟',
-  'Meta AI Blog': '🔵',
-  'AWS AI Blog': '☁️',
-  'NVIDIA Blog': '🟩',
-  '36氪': '💡',
-  'InfoQ 中文': '📋',
-  '虎嗅': '🐯',
-  '钛媒体': '🔗',
-  '爱范儿': '❤️',
+  // AI
+  'Hacker News': '🟠', 'arXiv': '📄', 'TechCrunch AI': '🚀',
+  'The Verge AI': '📱', 'MIT Tech Review': '🎓', 'VentureBeat AI': '💰',
+  'OpenAI Blog': '🟢', 'DeepMind Blog': '🔷', 'Google AI Blog': '🔍',
+  'Hugging Face Blog': '🤗', 'The Decoder': '🔓', 'Microsoft AI Blog': '🪟',
+  'Meta AI Blog': '🔵', 'AWS AI Blog': '☁️', 'NVIDIA Blog': '🟩',
+  'Wired AI': '📰', 'InfoQ AI': '📋',
+  // 安全
+  'The Hacker News': '🔴', 'BleepingComputer': '💻', 'Krebs on Security': '🔐',
+  'SecurityWeek': '🛡️', 'FreeBuf': '🇨🇳', '嘶吼': '📢',
+  // 经济
+  'Bloomberg Markets': '📈', 'CNBC': '📺', 'Reuters Business': '🌐',
+  'Bloomberg Tech': '📊',
+  // 科技
+  'Engadget': '⚙️', 'Ars Technica': '🔧', 'IT之家': '🏠',
+  // 综合中文
+  '机器之心': '🧠', '量子位': '⚛️', '雷锋网 AI': '⚡',
+  '36氪': '💡', 'InfoQ 中文': '📋', '虎嗅': '🐯',
+  '钛媒体': '🔗', '爱范儿': '❤️', '少数派': '✨',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -84,6 +104,7 @@ export default function RadarPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [search, setSearch] = useState('');
+  const [domain, setDomain] = useState('全部');
   const [category, setCategory] = useState('全部');
   const [lastUpdated, setLastUpdated] = useState('');
 
@@ -109,15 +130,33 @@ export default function RadarPage() {
     return () => clearInterval(timer);
   }, [fetchData]);
 
-  const counts = useMemo(() => {
+  const domainCounts = useMemo(() => {
     const c = { '全部': articles.length };
-    for (const a of articles) c[a.category] = (c[a.category] || 0) + 1;
+    for (const a of articles) c[a.domain || 'AI'] = (c[a.domain || 'AI'] || 0) + 1;
     return c;
   }, [articles]);
 
+  const domainArticles = useMemo(() => {
+    if (domain === '全部') return articles;
+    return articles.filter(a => (a.domain || 'AI') === domain);
+  }, [articles, domain]);
+
+  const catCounts = useMemo(() => {
+    const c = { '全部': domainArticles.length };
+    for (const a of domainArticles) c[a.category] = (c[a.category] || 0) + 1;
+    return c;
+  }, [domainArticles]);
+
+  const activeCats = useMemo(() => {
+    if (domain === '全部') {
+      return Object.keys(catCounts).filter(k => k !== '全部' && catCounts[k] > 0);
+    }
+    return DOMAIN_CATEGORIES[domain] || [];
+  }, [domain, catCounts]);
+
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
-    return articles.filter(a => {
+    return domainArticles.filter(a => {
       if (category !== '全部' && a.category !== category) return false;
       if (!q) return true;
       return (
@@ -132,8 +171,8 @@ export default function RadarPage() {
   return (
     <div className="radar-page">
       <SEO
-        title="📡 AI 新闻雷达"
-        description="实时追踪全球 AI 动态，每 30 分钟自动采集，Gemini AI 中文摘要"
+        title="📡 新闻雷达 — AI·安全·经济·科技"
+        description="实时追踪全球科技动态，AI、网络安全、经济、科技新闻，每 30 分钟自动采集"
         url="/radar/"
       />
 
@@ -143,10 +182,10 @@ export default function RadarPage() {
           <Link href="/" className="radar-back">← 返回首页</Link>
           <div className="radar-title-row">
             <div>
-              <h1 className="radar-title">📡 AI 新闻雷达</h1>
+              <h1 className="radar-title">📡 新闻雷达</h1>
               <p className="radar-subtitle">
                 <span className="radar-live-dot" />
-                实时追踪全球 AI 动态 · 每 30 分钟更新
+                AI · 安全 · 经济 · 科技 · 每 30 分钟更新
               </p>
             </div>
             <div className="radar-header-right">
@@ -164,25 +203,22 @@ export default function RadarPage() {
         </div>
       </header>
 
-      {/* ── Categories ── */}
-      <div className="radar-categories">
-        {CATEGORIES.map(({ key, emoji }) => {
-          const count = counts[key] || 0;
+      {/* ── Domain Tabs ── */}
+      <div className="radar-domains">
+        {DOMAINS.map(({ key, emoji }) => {
+          const count = domainCounts[key] || 0;
           if (key !== '全部' && count === 0) return null;
-          const isActive = category === key;
-          const style = isActive
-            ? {
-                background: CAT_STYLE[key]?.bg || 'rgba(105,240,174,0.12)',
-                color: CAT_STYLE[key]?.color || '#69f0ae',
-                borderColor: `${CAT_STYLE[key]?.color || '#69f0ae'}50`,
-              }
+          const isActive = domain === key;
+          const ds = DOMAIN_STYLE[key];
+          const style = isActive && ds
+            ? { background: ds.bg, color: ds.color, borderColor: ds.border }
             : {};
           return (
             <button
               key={key}
-              className={`radar-pill ${isActive ? 'radar-pill-active' : ''}`}
+              className={`radar-domain-tab ${isActive ? 'radar-domain-active' : ''}`}
               style={style}
-              onClick={() => setCategory(key)}
+              onClick={() => { setDomain(key); setCategory('全部'); }}
             >
               {emoji} {key}
               <span className="radar-pill-count">{count}</span>
@@ -191,11 +227,41 @@ export default function RadarPage() {
         })}
       </div>
 
+      {/* ── Sub-categories ── */}
+      {activeCats.length > 0 && (
+        <div className="radar-categories">
+          <button
+            className={`radar-pill ${category === '全部' ? 'radar-pill-active' : ''}`}
+            style={category === '全部' ? { background: 'rgba(105,240,174,0.12)', color: '#69f0ae', borderColor: 'rgba(105,240,174,0.3)' } : {}}
+            onClick={() => setCategory('全部')}
+          >
+            全部 <span className="radar-pill-count">{domainArticles.length}</span>
+          </button>
+          {activeCats.map(key => {
+            const count = catCounts[key] || 0;
+            if (count === 0) return null;
+            const isActive = category === key;
+            const cs = CAT_STYLE[key] || CAT_STYLE['未分类'];
+            const style = isActive ? { background: cs.bg, color: cs.color, borderColor: cs.color + '50' } : {};
+            return (
+              <button
+                key={key}
+                className={`radar-pill ${isActive ? 'radar-pill-active' : ''}`}
+                style={style}
+                onClick={() => setCategory(key)}
+              >
+                {key} <span className="radar-pill-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* ── Stats ── */}
       {!loading && articles.length > 0 && (
         <div className="radar-stats">
-          <span>📊 共 {filtered.length} 条新闻</span>
-          <span>🌐 来自 {uniqueSources(articles)} 个信源</span>
+          <span>📊 共 {filtered.length} 条</span>
+          <span>🌐 {uniqueSources(articles)} 个信源</span>
           {lastUpdated && <span>{relativeTime(lastUpdated)} 更新</span>}
         </div>
       )}
