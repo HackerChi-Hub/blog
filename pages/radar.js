@@ -16,6 +16,8 @@ const CAT_EMOJI = {
   '宏观': '📊', '市场': '📈', '投融资': '💵', '加密': '🪙',
   // 科技
   '软件': '📦', '硬件': '🔧', '互联网': '🌐', '开发': '⌨️',
+  // 国际
+  '外交': '🤝', '贸易': '📦', '气候': '🌱', '科学': '🚀',
   // fallback
   '未分类': '📰',
 };
@@ -27,6 +29,7 @@ const DOMAINS = [
   { key: '安全', emoji: '🔒' },
   { key: '经济', emoji: '💰' },
   { key: '科技', emoji: '💻' },
+  { key: '国际', emoji: '🌍' },
 ];
 
 const DOMAIN_STYLE = {
@@ -34,6 +37,7 @@ const DOMAIN_STYLE = {
   '安全': { color: '#ff5370', bg: 'rgba(255,83,112,0.10)', border: 'rgba(255,83,112,0.3)' },
   '经济': { color: '#ffb347', bg: 'rgba(255,179,71,0.10)', border: 'rgba(255,179,71,0.3)' },
   '科技': { color: '#6cb8ff', bg: 'rgba(108,184,255,0.10)', border: 'rgba(108,184,255,0.3)' },
+  '国际': { color: '#82f7ff', bg: 'rgba(130,247,255,0.10)', border: 'rgba(130,247,255,0.3)' },
 };
 
 // ── Category config (per domain) ────────────────────────────────
@@ -42,6 +46,7 @@ const DOMAIN_CATEGORIES = {
   '安全': ['漏洞', '攻防', '隐私', '安全工具'],
   '经济': ['宏观', '市场', '投融资', '加密'],
   '科技': ['软件', '硬件', '互联网', '开发'],
+  '国际': ['外交', '贸易', '气候', '科学'],
 };
 
 const CAT_STYLE = {
@@ -67,6 +72,11 @@ const CAT_STYLE = {
   '硬件': { color: '#ffb347', bg: 'rgba(255,179,71,0.12)' },
   '互联网': { color: '#00e5ff', bg: 'rgba(0,229,255,0.12)' },
   '开发': { color: '#69f0ae', bg: 'rgba(105,240,174,0.12)' },
+  // 国际
+  '外交': { color: '#82f7ff', bg: 'rgba(130,247,255,0.12)' },
+  '贸易': { color: '#ffb347', bg: 'rgba(255,179,71,0.12)' },
+  '气候': { color: '#69f0ae', bg: 'rgba(105,240,174,0.12)' },
+  '科学': { color: '#b388ff', bg: 'rgba(179,136,255,0.12)' },
   // fallback
   '未分类': { color: '#93a3b8', bg: 'rgba(147,163,184,0.10)' },
 };
@@ -87,6 +97,9 @@ const SOURCE_EMOJI = {
   'Bloomberg Tech': '📊',
   // 科技
   'Engadget': '⚙️', 'Ars Technica': '🔧', 'IT之家': '🏠',
+  // 国际
+  'UN News': '🇺🇳', 'BBC World': '📻', 'NPR World': '🎙️',
+  'Reuters World': '🌐', 'NASA': '🚀', '新华网': '🇨🇳', '环球时报': '🌏',
   // 综合中文
   '机器之心': '🧠', '量子位': '⚛️', '雷锋网 AI': '⚡',
   '36氪': '💡', 'InfoQ 中文': '📋', '虎嗅': '🐯',
@@ -185,8 +198,8 @@ export default function RadarPage() {
   return (
     <div className="radar-page">
       <SEO
-        title="📡 新闻雷达 — AI·安全·经济·科技"
-        description="实时追踪全球科技动态，AI、网络安全、经济、科技新闻，每 30 分钟自动采集"
+        title="📡 新闻雷达 — AI·安全·经济·科技·国际"
+        description="实时追踪全球动态，AI、网络安全、经济、科技、国际新闻，每 30 分钟自动采集"
         url="/radar/"
       />
 
@@ -199,7 +212,7 @@ export default function RadarPage() {
               <h1 className="radar-title">📡 新闻雷达</h1>
               <p className="radar-subtitle">
                 <span className="radar-live-dot" />
-                AI · 安全 · 经济 · 科技 · 每 30 分钟更新
+                AI · 安全 · 经济 · 科技 · 国际 · 每 30 分钟更新
               </p>
             </div>
             <div className="radar-header-right">
@@ -366,6 +379,7 @@ const DIGEST_DOMAINS = [
   { key: '安全', emoji: '🔒', label: '安全' },
   { key: '经济', emoji: '💰', label: '经济' },
   { key: '科技', emoji: '💻', label: '科技' },
+  { key: '国际', emoji: '🌍', label: '国际' },
 ];
 
 function DigestSection({ digest }) {
