@@ -285,7 +285,7 @@ export default function RadarPage() {
 
       {/* ── Footer ── */}
       <footer className="radar-footer">
-        📡 NewsRadar · Powered by GitHub Actions + Gemini AI · 数据每 30 分钟自动更新
+        📡 黑粉科技 HyphenTech · 数据每 30 分钟自动更新
       </footer>
     </div>
   );
