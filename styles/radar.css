@@ -121,6 +121,128 @@
   opacity: 0.45;
 }
 
+/* ── Digest ── */
+.radar-digest {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 20px 4px;
+}
+
+.radar-digest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, rgba(105, 240, 174, 0.06), rgba(0, 229, 255, 0.04));
+  border: 1px solid rgba(105, 240, 174, 0.1);
+  border-radius: 10px;
+}
+
+.radar-digest-time {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(196, 208, 233, 0.35);
+}
+
+.radar-digest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.radar-digest-item a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+  font-size: 0.78rem;
+}
+
+.radar-digest-item a:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.radar-digest-item a:hover .radar-digest-title {
+  color: #69f0ae;
+}
+
+.radar-digest-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: rgba(105, 240, 174, 0.1);
+  color: #69f0ae;
+}
+
+.radar-digest-item:nth-child(1) .radar-digest-rank,
+.radar-digest-item:nth-child(2) .radar-digest-rank,
+.radar-digest-item:nth-child(3) .radar-digest-rank {
+  background: rgba(255, 179, 71, 0.15);
+  color: #ffb347;
+}
+
+.radar-digest-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.radar-digest-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.radar-digest-summary {
+  color: rgba(196, 208, 233, 0.4);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 2;
+  min-width: 0;
+}
+
+.radar-digest-source {
+  color: rgba(196, 208, 233, 0.25);
+  font-size: 0.65rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .radar-digest-summary {
+    display: none;
+  }
+}
+
 /* Stats bar */
 .radar-stats {
   max-width: 1400px;
