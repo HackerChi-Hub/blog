@@ -285,21 +285,9 @@ function NewsCard({ article }) {
         {article.title_zh || article.title}
       </div>
 
-      {article.title_zh && article.title_zh !== article.title && (
-        <div className="radar-card-original">{article.title}</div>
-      )}
-
       <div className="radar-card-summary">
         {article.summary_zh}
       </div>
-
-      {article.tags && article.tags.length > 0 && (
-        <div className="radar-card-tags">
-          {article.tags.map(tag => (
-            <span key={tag} className="radar-tag">#{tag}</span>
-          ))}
-        </div>
-      )}
     </a>
   );
 }
