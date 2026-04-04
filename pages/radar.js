@@ -396,7 +396,7 @@ function favSite() {
 // ── NewsCard ─────────────────────────────────────────────────────
 function NewsCard({ article }) {
   const cat = CAT_STYLE[article.category] || CAT_STYLE['未分类'];
-  const catEmoji = CATEGORIES.find(c => c.key === article.category)?.emoji || '📰';
+  const catEmoji = CAT_EMOJI[article.category] || '📰';
   const srcEmoji = SOURCE_EMOJI[article.source] || '📰';
 
   return (
