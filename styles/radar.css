@@ -3,6 +3,7 @@
 .radar-page {
   min-height: 100vh;
   padding-bottom: 40px;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -349,11 +350,101 @@
   .radar-grid {
     grid-template-columns: 1fr;
   }
-  .radar-search { width: 140px; }
-  .radar-search:focus { width: 180px; }
   .radar-header-inner { padding: 10px 14px; }
   .radar-categories { padding: 6px 14px; }
   .radar-grid { padding: 4px 14px; }
+
+  /* Title row stacks vertically on mobile */
+  .radar-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Search + buttons row: full width */
+  .radar-header-right {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .radar-search {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+  .radar-search:focus {
+    width: auto;
+  }
+  .radar-site-btn {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* Domain tabs: horizontal scroll */
+  .radar-domains {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px 14px 0;
+    gap: 4px;
+  }
+  .radar-domains::-webkit-scrollbar {
+    display: none;
+  }
+  .radar-domain-tab {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* Category pills: horizontal scroll */
+  .radar-categories {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .radar-categories::-webkit-scrollbar {
+    display: none;
+  }
+  .radar-pill {
+    flex-shrink: 0;
+  }
+
+  /* Stats bar wrap */
+  .radar-stats {
+    padding: 4px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Digest tabs: horizontal scroll */
+  .radar-digest {
+    padding: 8px 14px 4px;
+  }
+  .radar-digest-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .radar-digest-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .radar-digest-tab {
+    flex-shrink: 0;
+  }
+
+  /* Digest item: tighter layout */
+  .radar-digest-item a {
+    padding: 6px 8px;
+    font-size: 0.73rem;
+  }
+  .radar-digest-title {
+    font-size: 0.73rem;
+  }
 }
 
 /* Card — COMPACT */
@@ -453,16 +544,7 @@
   color: #69f0ae;
 }
 
-@media (max-width: 640px) {
-  .radar-header-right {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .radar-site-btn {
-    padding: 5px 8px;
-    font-size: 0.7rem;
-  }
-}
+/* Mobile header-right styles moved to main 640px media query below */
 
 .radar-card-summary {
   font-size: 0.72rem;
