@@ -178,10 +178,43 @@
   border-radius: 10px;
 }
 
+.radar-digest-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.radar-digest-tab {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(196, 208, 233, 0.5);
+  transition: all 0.15s ease;
+}
+
+.radar-digest-tab:hover {
+  color: var(--text-primary);
+}
+
+.radar-digest-tab-active {
+  color: var(--text-primary);
+}
+
 .radar-digest-time {
   font-size: 0.65rem;
   font-weight: 400;
   color: rgba(196, 208, 233, 0.35);
+}
+
+@media (max-width: 640px) {
+  .radar-digest-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .radar-digest-time { display: none; }
 }
 
 .radar-digest-list {
