@@ -6,6 +6,21 @@ import SEO from '../components/SEO';
 const DATA_URL = 'https://hackerchi-hub.github.io/NewsRadar/data/news.json';
 const REFRESH_MS = 5 * 60 * 1000;
 
+// ── Category alias map (collector → frontend name) ──────────────
+// Fixes naming mismatches between collector categories and frontend display names
+const CAT_ALIAS = {
+  // collector name → frontend name
+  '研究突破': '研究',
+  '攻击': '攻防',
+  '隐私合规': '隐私',
+  'AI工具': 'AI产品',
+  '加密货币': '加密',
+  '开发者': '开发',
+  '太空科学': '科学',
+  '政策': '研究',     // AI监管政策归入"研究"
+  '行业': 'AI产品',   // 行业新闻归入AI产品（公司/产品类）
+};
+
 // ── Category emoji lookup ────────────────────────────────────────
 const CAT_EMOJI = {
   // AI
@@ -41,6 +56,7 @@ const DOMAIN_STYLE = {
 };
 
 // ── Category config (per domain) ────────────────────────────────
+// Note: AI domain has 6 sub-categories; 'AI工具' is aliased to 'AI产品' server-side
 const DOMAIN_CATEGORIES = {
   'AI': ['LLM', 'CV', '机器人', 'AI产品', '研究', '开源'],
   '安全': ['漏洞', '攻防', '隐私', '安全工具'],
@@ -107,6 +123,10 @@ const SOURCE_EMOJI = {
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
+function resolveCat(cat) {
+  return CAT_ALIAS[cat] || cat;
+}
+
 function relativeTime(iso) {
   const diff = Date.now() - new Date(iso).getTime();
   if (isNaN(diff)) return '';
@@ -170,7 +190,10 @@ export default function RadarPage() {
 
   const catCounts = useMemo(() => {
     const c = { '全部': domainArticles.length };
-    for (const a of domainArticles) c[a.category] = (c[a.category] || 0) + 1;
+    for (const a of domainArticles) {
+      const cat = resolveCat(a.category);
+      c[cat] = (c[cat] || 0) + 1;
+    }
     return c;
   }, [domainArticles]);
 
@@ -188,7 +211,7 @@ export default function RadarPage() {
   const filtered = useMemo(() => {
     const q = search.toLowerCase();
     return domainArticles.filter(a => {
-      if (category !== '全部' && a.category !== category) return false;
+      if (category !== '全部' && resolveCat(a.category) !== category) return false;
       if (!q) return true;
       return (
         (a.title_zh || '').toLowerCase().includes(q) ||
@@ -423,8 +446,9 @@ function DigestSection({ digest }) {
       </div>
       <ol className="radar-digest-list">
         {items.map((item, i) => {
-          const catConf = CAT_STYLE[item.category] || CAT_STYLE['未分类'];
-          const catEmoji = CAT_EMOJI[item.category] || '📰';
+          const itemCat = resolveCat(item.category);
+          const catConf = CAT_STYLE[itemCat] || CAT_STYLE['未分类'];
+          const catEmoji = CAT_EMOJI[itemCat] || '📰';
           return (
             <li key={i} className="radar-digest-item">
               <a href={item.url} target="_blank" rel="noopener noreferrer">
@@ -451,8 +475,9 @@ function DigestSection({ digest }) {
 
 // ── NewsCard ─────────────────────────────────────────────────────
 function NewsCard({ article }) {
-  const cat = CAT_STYLE[article.category] || CAT_STYLE['未分类'];
-  const catEmoji = CAT_EMOJI[article.category] || '📰';
+  const cat = resolveCat(article.category);
+  const catStyle = CAT_STYLE[cat] || CAT_STYLE['未分类'];
+  const catEmoji = CAT_EMOJI[cat] || '📰';
   const srcEmoji = SOURCE_EMOJI[article.source] || '📰';
 
   return (
@@ -465,9 +490,9 @@ function NewsCard({ article }) {
       <div className="radar-card-top">
         <span
           className="radar-card-badge"
-          style={{ background: cat.bg, color: cat.color }}
+          style={{ background: catStyle.bg, color: catStyle.color }}
         >
-          {catEmoji} {article.category}
+          {catEmoji} {cat}
         </span>
         <span className="radar-card-source">
           {srcEmoji} {article.source}
