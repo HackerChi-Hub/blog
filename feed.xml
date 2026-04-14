@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 14 Apr 2026 22:36:17 GMT</lastBuildDate>
-    <pubDate>Tue, 14 Apr 2026 22:36:17 GMT</pubDate>
+    <lastBuildDate>Tue, 14 Apr 2026 23:34:51 GMT</lastBuildDate>
+    <pubDate>Tue, 14 Apr 2026 23:34:51 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Claude Managed Agents 深度解析：Anthropic 的 AI Agent 架构设计哲学</title>
+      <link>https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</link>
+      <guid isPermaLink="true">https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</guid>
+      <description>深入解析 Anthropic Claude Managed Agents 的三层解耦架构——Session/Harness/Sandbox，以及安全边界设计、多Agent协作模式和 TTFT 性能优化策略。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>人工智能</category>
+    <category>技术</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>AI名词解释 EP03：什么是上下文窗口（Context Window）？</title>
       <link>https://hyphentech.top/ai-term-context-window/</link>
