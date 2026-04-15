@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反物质隔离 | Antimatter Isolation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000008;
+      overflow: hidden;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      user-select: none;
+    }
+    canvas { display: block; }
+    #hud {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .hud-item {
+      color: #fff;
+      font-size: 18px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    .hud-item span {
+      color: #0ff;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    #lives {
+      display: flex;
+      gap: 8px;
+    }
+    .life {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px #fff;
+      transition: all 0.3s;
+    }
+    .life.lost {
+      background: #333;
+      box-shadow: none;
+    }
+    #game-over {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+    #game-over h1 {
+      font-size: 64px;
+      color: #f00;
+      text-shadow: 0 0 30px #f00, 0 0 60px #f00;
+      margin-bottom: 20px;
+    }
+    #game-over p {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    #game-over button {
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      border: none;
+      padding: 15px 50px;
+      font-size: 20px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 30px;
+      pointer-events: auto;
+    }
+    #game-over button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0,255,255,0.5);
+    }
+    #instructions {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      pointer-events: none;
+    }
+    #wave-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ff0;
+      font-size: 32px;
+      font-weight: bold;
+      text-shadow: 0 0 20px #ff0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 50;
+      transition: opacity 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div class="hud-item">时间 <span id="time">0.0</span>s</div>
+    <div id="lives">
+      <div class="life" id="life1"></div>
+      <div class="life" id="life2"></div>
+      <div class="life" id="life3"></div>
+    </div>
+    <div class="hud-item">能量
+      <div id="energy-bar" style="display:inline-block;width:80px;height:10px;background:#222;border-radius:5px;vertical-align:middle;margin-left:6px">
+        <div id="energy-fill" style="height:100%;background:linear-gradient(90deg,#0af,#0ff);border-radius:5px;width:100%"></div>
+      </div>
+    </div>
+    <div class="hud-item">湮灭 <span id="score">0</span></div>
+    <div class="hud-item">Combo <span id="combo">x1</span></div>
+  </div>
+  <div id="wave-alert">⚡ 粒子浪潮来袭</div>
+  <div id="game-over">
+    <h1>隔离失败</h1>
+    <p>存活 <span id="final-time">0</span>s · 湮灭 <span id="final-score">0</span> 粒子</p>
+    <button onclick="restartGame()">再来一次</button>
+  </div>
+  <div id="instructions">按住鼠标产生斥力场 · 保护白色目标 · 目标会移动</div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+
+    // ===== GAME CONSTANTS =====
+    const INITIAL_PARTICLE_COUNT = 20;
+    const MAX_PARTICLE_COUNT = 80;
+    const TARGET_RADIUS = 0.07;
+    const PARTICLE_RADIUS = 0.035;
+    const SPAWN_RADIUS = 2.2;
+    const REPULSION_STRENGTH = 0.003;
+    const REPULSION_RANGE = 1.0;
+    const GRAVITY_STRENGTH = 0.00001;
+    const ANNIHILATION_DISTANCE = 0.1;
+    const TARGET_HIT_DISTANCE = 0.07;
+    const INITIAL_LIVES = 3;
+    const WAVE_INTERVAL = 12; // seconds between waves
+    const WAVE_PARTICLE_COUNT = 30;
+    const SHOCKWAVE_RADIUS = 0.35;
+    const SHOCKWAVE_FORCE = 0.015;
+    const MAX_REPULSION_ENERGY = 2.5;
+    const REPULSION_RECHARGE_RATE = 0.6;
+    const REPULSION_DRAIN_RATE = 1.0;
+
+    // ===== GLOBALS =====
+    let scene, camera, renderer;
+    let particles = [];
+    let targetMesh, targetGlow;
+    let gameRunning = false;
+    let gameTime = 0;
+    let score = 0;
+    let combo = 1;
+    let comboTimer = 0;
+    let lives = INITIAL_LIVES;
+    let mousePos = new THREE.Vector2();
+    let mouseWorldPos = new THREE.Vector3();
+    let isRepelling = false;
+    let repulsionEnergy = MAX_REPULSION_ENERGY;
+    let canRepel = true;
+    let annihilationEffects = [];
+    let repulsionField = null;
+    let targetVelocity = { x: 0.0004, y: 0.0003 };
+    let shockwaveEffects = [];
+    let waveTimer = WAVE_INTERVAL;
+    let waveCountdown = 0;
+    let stars;
+
+    // ===== INIT =====
+    function init() {
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x000008);
+
+      // Starfield - 3D depth with varied sizes
+      const starCount = 500;
+      const starGeo = new THREE.BufferGeometry();
+      const starPositions = new Float32Array(starCount * 3);
+      const starSizes = new Float32Array(starCount);
+      for (let i = 0; i < starCount; i++) {
+        const r = 1.5 + Math.random() * 8;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.random() * Math.PI;
+        starPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        starPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        starPositions[i * 3 + 2] = -0.5 - Math.random() * 6;
+        starSizes[i] = 0.02 + Math.random() * 0.15;
+      }
+      starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+      starGeo.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+      const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05, transparent: true, opacity: 0.9, sizeAttenuation: true });
+      const starsMesh = new THREE.Points(starGeo, starMat);
+      scene.add(starsMesh);
+      stars = starsMesh;
+
+      // Nebula planes for depth layers
+      const nebulaLayers = [
+        { color: 0x0a0025, opacity: 0.35, z: -4, rx: 0.1, ry: 0.2, rz: 0.0 },
+        { color: 0x050020, opacity: 0.45, z: -2.5, rx: -0.2, ry: 0.15, rz: 0.3 },
+        { color: 0x001525, opacity: 0.40, z: -1.5, rx: 0.3, ry: -0.1, rz: 0.5 },
+        { color: 0x100530, opacity: 0.30, z: -1.0, rx: -0.4, ry: 0.25, rz: 0.2 },
+      ];
+      nebulaLayers.forEach(l => {
+        const nGeo = new THREE.PlaneGeometry(24, 24);
+        const nMat = new THREE.MeshBasicMaterial({ color: l.color, transparent: true, opacity: l.opacity, side: THREE.DoubleSide });
+        const nebula = new THREE.Mesh(nGeo, nMat);
+        nebula.position.z = l.z;
+        scene.add(nebula);
+      });
+
+      const aspect = window.innerWidth / window.innerHeight;
+      const viewSize = 2.4;
+      camera = new THREE.OrthographicCamera(
+        -viewSize * aspect, viewSize * aspect,
+        viewSize, -viewSize,
+        0.1, 100
+      );
+      camera.position.z = 5;
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      document.body.appendChild(renderer.domElement);
+
+      createTarget();
+      createRepulsionField();
+      createParticles(INITIAL_PARTICLE_COUNT);
+      setupEvents();
+      startGame();
+      animate();
+    }
+
+    function createTarget() {
+      const geo = new THREE.SphereGeometry(TARGET_RADIUS, 32, 32);
+      const mat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.9
+      });
+      targetMesh = new THREE.Mesh(geo, mat);
+      scene.add(targetMesh);
+
+      // Glow pulse
+      const glowGeo = new THREE.SphereGeometry(TARGET_RADIUS * 2.5, 32, 32);
+      const glowMat = new THREE.MeshBasicMaterial({
+        color: 0x4444ff,
+        transparent: true,
+        opacity: 0.15
+      });
+      targetGlow = new THREE.Mesh(glowGeo, glowMat);
+      scene.add(targetGlow);
+    }
+
+    function createRepulsionField() {
+      const geo = new THREE.TorusGeometry(REPULSION_RANGE * 0.5, 0.02, 16, 64);
+      const mat = new THREE.MeshBasicMaterial({
+        color: 0x0088ff,
+        transparent: true,
+        opacity: 0,
+        side: THREE.DoubleSide
+      });
+      repulsionField = new THREE.Mesh(geo, mat);
+      repulsionField.position.z = 0.1;
+      scene.add(repulsionField);
+    }
+
+    function createParticles(count) {
+      for (let i = 0; i < count; i++) {
+        spawnParticle(i < count / 2 ? 1 : -1);
+      }
+    }
+
+    function spawnParticle(type, pos = null) {
+      const angle = Math.random() * Math.PI * 2;
+      const radius = SPAWN_RADIUS + Math.random() * 0.3;
+      const x = pos ? pos.x : Math.cos(angle) * radius;
+      const y = pos ? pos.y : Math.sin(angle) * radius;
+      const z = (Math.random() - 0.5) * 1.0;
+
+      const geo = new THREE.SphereGeometry(PARTICLE_RADIUS, 16, 16);
+      const color = type > 0 ? 0x00ffff : 0xff00ff;
+      const mat = new THREE.MeshBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0.9
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(x, y, z);
+      scene.add(mesh);
+
+      // Glow
+      const glowGeo = new THREE.CircleGeometry(PARTICLE_RADIUS * 3, 16);
+      const glowMat = new THREE.MeshBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0.2
+      });
+      const glow = new THREE.Mesh(glowGeo, glowMat);
+      glow.position.z = 0.02;
+      mesh.add(glow);
+
+      // Initial tangential velocity for orbital motion
+      const tangentAngle = Math.atan2(y, x) + (Math.random() > 0.5 ? Math.PI / 2 : -Math.PI / 2);
+      const orbitSpeed = 0.0008 + Math.random() * 0.0004;
+      particles.push({
+        mesh,
+        glow,
+        type,
+        vx: Math.cos(tangentAngle) * orbitSpeed,
+        vy: Math.sin(tangentAngle) * orbitSpeed,
+        alive: true
+      });
+    }
+
+    function setupEvents() {
+      window.addEventListener('resize', onResize);
+      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mousedown', () => isRepelling = true);
+      window.addEventListener('mouseup', () => isRepelling = false);
+      window.addEventListener('touchstart', e => { isRepelling = true; onTouch(e); }, { passive: true });
+      window.addEventListener('touchmove', onTouch, { passive: true });
+      window.addEventListener('touchend', () => isRepelling = false);
+    }
+
+    function onResize() {
+      const aspect = window.innerWidth / window.innerHeight;
+      const viewSize = 2.4;
+      camera.left = -viewSize * aspect;
+      camera.right = viewSize * aspect;
+      camera.top = viewSize;
+      camera.bottom = -viewSize;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    function onMouseMove(e) {
+      mousePos.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    }
+
+    function onTouch(e) {
+      if (e.touches.length > 0) {
+        mousePos.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+        mousePos.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+      }
+    }
+
+    function startGame() {
+      gameRunning = true;
+      gameTime = 0;
+      score = 0;
+      combo = 1;
+      comboTimer = 0;
+      lives = INITIAL_LIVES;
+      repulsionEnergy = MAX_REPULSION_ENERGY;
+      canRepel = true;
+      waveTimer = WAVE_INTERVAL;
+      waveCountdown = 0;
+      targetVelocity = { x: 0.0004, y: 0.0003 };
+      updateLivesDisplay();
+      document.getElementById('game-over').style.display = 'none';
+      updateHUD();
+    }
+
+    function updateLivesDisplay() {
+      for (let i = 1; i <= INITIAL_LIVES; i++) {
+        const el = document.getElementById(`life${i}`);
+        if (i > lives) {
+          el.classList.add('lost');
+        } else {
+          el.classList.remove('lost');
+        }
+      }
+    }
+
+    function loseLife() {
+      lives--;
+      updateLivesDisplay();
+      if (lives <= 0) {
+        endGame();
+      } else {
+        // Bounce target velocity
+        targetVelocity.x *= -1.3;
+        targetVelocity.y *= -1.3;
+      }
+    }
+
+    function endGame() {
+      gameRunning = false;
+      document.getElementById('final-time').textContent = gameTime.toFixed(1);
+      document.getElementById('final-score').textContent = score;
+      document.getElementById('game-over').style.display = 'flex';
+    }
+
+    window.restartGame = function() {
+      particles.forEach(p => scene.remove(p.mesh));
+      particles = [];
+      annihilationEffects.forEach(e => {
+        if (e.flash) scene.remove(e.flash);
+        if (e.ring) scene.remove(e.ring);
+        e.debris.forEach(d => scene.remove(d.mesh));
+      });
+      annihilationEffects = [];
+      shockwaveEffects.forEach(e => {
+        scene.remove(e.ring);
+        scene.remove(e.inner);
+      });
+      shockwaveEffects = [];
+      repulsionField.material.opacity = 0;
+      createParticles(INITIAL_PARTICLE_COUNT);
+      startGame();
+    };
+
+    function updateHUD() {
+      document.getElementById('time').textContent = gameTime.toFixed(1);
+      document.getElementById('score').textContent = score;
+      document.getElementById('combo').textContent = `x${combo}`;
+      const fill = document.getElementById('energy-fill');
+      fill.style.width = (repulsionEnergy / MAX_REPULSION_ENERGY * 100) + '%';
+      fill.style.background = canRepel
+        ? 'linear-gradient(90deg,#0af,#0ff)'
+        : 'linear-gradient(90deg,#f60,#f00)';
+    }
+
+    function createAnnihilationEffect(pos) {
+      // INTENSE WHITE FLASH - much bigger
+      const flashGeo = new THREE.CircleGeometry(0.6, 32);
+      const flashMat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 1
+      });
+      const flash = new THREE.Mesh(flashGeo, flashMat);
+      flash.position.set(pos.x, pos.y, 0.5);
+      scene.add(flash);
+
+      // CENTRAL BRIGHT CORE
+      const coreGeo = new THREE.CircleGeometry(0.15, 32);
+      const coreMat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 1
+      });
+      const core = new THREE.Mesh(coreGeo, coreMat);
+      core.position.set(pos.x, pos.y, 0.6);
+      scene.add(core);
+
+      // MULTIPLE SHOCKWAVE RINGS
+      const rings = [];
+      const ringColors = [0xff8800, 0xffcc00, 0xffffff];
+      for (let r = 0; r < 3; r++) {
+        const ringGeo = new THREE.RingGeometry(0.05 + r * 0.15, 0.18 + r * 0.15, 48);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: ringColors[r],
+          transparent: true,
+          opacity: 0.9 - r * 0.25,
+          side: THREE.DoubleSide
+        });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.position.set(pos.x, pos.y, 0.4 + r * 0.05);
+        scene.add(ring);
+        rings.push(ring);
+      }
+
+      // BROKEN PARTICLE DEBRIS - more pieces, more violent
+      const debris = [];
+      for (let i = 0; i < 20; i++) {
+        const size = 0.01 + Math.random() * 0.025;
+        const dGeo = new THREE.CircleGeometry(size, 8);
+        const dMat = new THREE.MeshBasicMaterial({
+          color: Math.random() > 0.5 ? 0x00ffff : 0xff00ff,
+          transparent: true,
+          opacity: 1
+        });
+        const d = new THREE.Mesh(dGeo, dMat);
+        d.position.set(pos.x, pos.y, 0.25);
+        d.rotation.z = Math.random() * Math.PI;
+        const angle = (i / 20) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+        const speed = 0.025 + Math.random() * 0.045;
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed;
+        const rotSpeed = (Math.random() - 0.5) * 0.3;
+        scene.add(d);
+        debris.push({ mesh: d, vx, vy, rotSpeed, alive: true });
+      }
+
+      // SPINNING SHARD FRAGMENTS - larger triangular pieces
+      const shards = [];
+      for (let i = 0; i < 6; i++) {
+        const sGeo = new THREE.CircleGeometry(0.035, 3);
+        const sMat = new THREE.MeshBasicMaterial({
+          color: i % 2 === 0 ? 0x00ffff : 0xff00ff,
+          transparent: true,
+          opacity: 0.9
+        });
+        const s = new THREE.Mesh(sGeo, sMat);
+        s.position.set(pos.x, pos.y, 0.3);
+        const angle = (i / 6) * Math.PI * 2;
+        const speed = 0.03 + Math.random() * 0.03;
+        scene.add(s);
+        shards.push({ mesh: s, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, rotSpeed: (Math.random() - 0.5) * 0.2 });
+      }
+
+      annihilationEffects.push({
+        flash, core, rings, debris, shards,
+        age: 0,
+        duration: 1.0
+      });
+
+      createShockwave(pos);
+    }
+
+    function createShockwave(pos) {
+      const ringGeo = new THREE.RingGeometry(SHOCKWAVE_RADIUS * 0.3, SHOCKWAVE_RADIUS, 48);
+      const ringMat = new THREE.MeshBasicMaterial({
+        color: 0xffaa00,
+        transparent: true,
+        opacity: 0.9,
+        side: THREE.DoubleSide
+      });
+      const ring = new THREE.Mesh(ringGeo, ringMat);
+      ring.position.set(pos.x, pos.y, 0.3);
+      scene.add(ring);
+
+      const innerGeo = new THREE.CircleGeometry(SHOCKWAVE_RADIUS * 0.25, 48);
+      const innerMat = new THREE.MeshBasicMaterial({
+        color: 0xff8800,
+        transparent: true,
+        opacity: 0.6
+      });
+      const inner = new THREE.Mesh(innerGeo, innerMat);
+      inner.position.set(pos.x, pos.y, 0.31);
+      scene.add(inner);
+
+      shockwaveEffects.push({ ring, inner, age: 0, duration: 0.5 });
+    }
+
+    function updateAnnihilationEffects(dt) {
+      for (let i = annihilationEffects.length - 1; i >= 0; i--) {
+        const e = annihilationEffects[i];
+        e.age += dt;
+        const t = e.age / e.duration;
+
+        e.flash.material.opacity = Math.max(0, 1 - t * 2.5);
+        e.flash.scale.setScalar(1 + t * 4);
+
+        if (e.core) {
+          e.core.material.opacity = Math.max(0, 1 - t * 3);
+          e.core.scale.setScalar(1 + t * 1.5);
+        }
+
+        e.rings.forEach((ring, ri) => {
+          ring.material.opacity = Math.max(0, (0.9 - ri * 0.25) * (1 - t));
+          ring.scale.setScalar(1 + t * (3 + ri));
+        });
+
+        e.debris.forEach(d => {
+          if (!d.alive) return;
+          d.mesh.position.x += d.vx;
+          d.mesh.position.y += d.vy;
+          d.vx *= 0.97;
+          d.vy *= 0.97;
+          d.mesh.rotation.z += d.rotSpeed;
+          d.mesh.material.opacity = Math.max(0, 1 - t * 1.5);
+          if (t > 0.6) { d.alive = false; scene.remove(d.mesh); }
+        });
+
+        e.shards.forEach(s => {
+          s.mesh.position.x += s.vx;
+          s.mesh.position.y += s.vy;
+          s.mesh.rotation.z += s.rotSpeed;
+          s.mesh.material.opacity = Math.max(0, 0.9 - t * 1.2);
+        });
+
+        if (e.age >= e.duration) {
+          scene.remove(e.flash);
+          if (e.core) scene.remove(e.core);
+          e.rings.forEach(r => scene.remove(r));
+          e.debris.forEach(d => { if (d.alive) scene.remove(d.mesh); });
+          e.shards.forEach(s => scene.remove(s.mesh));
+          annihilationEffects.splice(i, 1);
+        }
+      }
+    }
+
+    function updateShockwaves(dt) {
+      for (let i = shockwaveEffects.length - 1; i >= 0; i--) {
+        const e = shockwaveEffects[i];
+        e.age += dt;
+        const t = e.age / e.duration;
+        e.ring.material.opacity = 0.9 * (1 - t);
+        e.ring.scale.setScalar(1 + t * 3);
+        e.inner.material.opacity = 0.6 * (1 - t);
+        e.inner.scale.setScalar(1 + t * 2.5);
+        if (e.age >= e.duration) {
+          scene.remove(e.ring);
+          scene.remove(e.inner);
+          shockwaveEffects.splice(i, 1);
+        }
+      }
+    }
+
+    function triggerWave() {
+      // Spawn particles from random edge positions, aimed roughly toward center
+      const types = [1, -1];
+      const centerX = targetMesh.position.x;
+      const centerY = targetMesh.position.y;
+      for (let i = 0; i < WAVE_PARTICLE_COUNT; i++) {
+        const type = types[i % 2];
+        // Random position on a circle around the edges
+        const angle = Math.random() * Math.PI * 2;
+        const radius = SPAWN_RADIUS + 0.3 + Math.random() * 0.5;
+        const px = Math.cos(angle) * radius;
+        const py = Math.sin(angle) * radius;
+        spawnParticle(type, { x: px, y: py });
+      }
+      const alert = document.getElementById('wave-alert');
+      alert.style.opacity = '1';
+      setTimeout(() => alert.style.opacity = '0', 1500);
+    }
+
+    // ===== GAME LOOP =====
+    let lastTime = 0;
+    function animate(time = 0) {
+      requestAnimationFrame(animate);
+      const dt = Math.min((time - lastTime) / 1000, 0.05);
+      lastTime = time;
+
+      if (gameRunning) {
+        gameTime += dt;
+        if (combo > 1) {
+          comboTimer += dt;
+          if (comboTimer > 3) {
+            combo = 1;
+            comboTimer = 0;
+          }
+        }
+
+        // Wave timer
+        waveTimer -= dt;
+        waveCountdown = Math.max(0, Math.ceil(waveTimer));
+        if (waveTimer <= 0) {
+          triggerWave();
+          waveTimer = WAVE_INTERVAL;
+        }
+
+        updateHUD();
+        updateTarget(dt);
+        updatePhysics(dt);
+        checkCollisions();
+        updateRepulsionField(dt);
+        updateAnnihilationEffects(dt);
+        updateShockwaves(dt);
+      }
+
+      // Pulse target
+      if (targetGlow) {
+        targetGlow.scale.setScalar(1 + Math.sin(time * 0.003) * 0.15);
+        targetGlow.material.opacity = 0.1 + Math.sin(time * 0.005) * 0.05;
+      }
+
+      // Slowly rotate starfield layers for depth
+      if (stars) stars.rotation.z += 0.00005;
+
+      renderer.render(scene, camera);
+    }
+
+    function updateTarget(dt) {
+      // Speed multiplier - capped
+      const speedMult = Math.min(4, 1 + gameTime * 0.04);
+
+      // Move target
+      targetMesh.position.x += targetVelocity.x * speedMult;
+      targetMesh.position.y += targetVelocity.y * speedMult;
+      targetGlow.position.x = targetMesh.position.x;
+      targetGlow.position.y = targetMesh.position.y;
+
+      // Bounce off edges with clamping
+      const viewH = 2.4;
+      const viewW = viewH * (window.innerWidth / window.innerHeight);
+      const margin = TARGET_RADIUS * 3;
+
+      if (targetMesh.position.x > viewW - margin) {
+        targetMesh.position.x = viewW - margin;
+        targetVelocity.x *= -1;
+      }
+      if (targetMesh.position.x < -(viewW - margin)) {
+        targetMesh.position.x = -(viewW - margin);
+        targetVelocity.x *= -1;
+      }
+      if (targetMesh.position.y > viewH - margin) {
+        targetMesh.position.y = viewH - margin;
+        targetVelocity.y *= -1;
+      }
+      if (targetMesh.position.y < -(viewH - margin)) {
+        targetMesh.position.y = -(viewH - margin);
+        targetVelocity.y *= -1;
+      }
+    }
+
+    function updatePhysics(dt) {
+      mouseWorldPos.set(
+        mousePos.x * (window.innerWidth / window.innerHeight) * 2.4,
+        mousePos.y * 2.4,
+        0
+      );
+
+      particles.forEach(p => {
+        if (!p.alive) return;
+
+        // Gravity toward center (around target, not origin)
+        const tx = targetMesh.position.x;
+        const ty = targetMesh.position.y;
+        p.vx -= (p.mesh.position.x - tx) * GRAVITY_STRENGTH;
+        p.vy -= (p.mesh.position.y - ty) * GRAVITY_STRENGTH;
+
+        // Repulsion from mouse (only when energy available)
+        if (isRepelling && canRepel) {
+          const dx = p.mesh.position.x - mouseWorldPos.x;
+          const dy = p.mesh.position.y - mouseWorldPos.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < REPULSION_RANGE && dist > 0.01) {
+            const force = REPULSION_STRENGTH / (dist * dist);
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // Apply velocity with damping
+        p.mesh.position.x += p.vx;
+        p.mesh.position.y += p.vy;
+        p.vx *= 0.992;
+        p.vy *= 0.992;
+      });
+    }
+
+    function checkCollisions() {
+      const tx = targetMesh.position.x;
+      const ty = targetMesh.position.y;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        if (!p.alive) continue;
+
+        const px = p.mesh.position.x;
+        const py = p.mesh.position.y;
+
+        // Check target hit
+        const distToTarget = Math.sqrt((px - tx) ** 2 + (py - ty) ** 2);
+        if (distToTarget < TARGET_HIT_DISTANCE) {
+          p.alive = false;
+          scene.remove(p.mesh);
+          loseLife();
+          if (!gameRunning) return;
+          continue;
+        }
+
+        // Check annihilation with other particles
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          if (!q.alive) continue;
+
+          const dx = px - q.mesh.position.x;
+          const dy = py - q.mesh.position.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < ANNIHILATION_DISTANCE) {
+            if (p.type !== q.type) {
+              // Annihilate!
+              const midX = (px + q.mesh.position.x) / 2;
+              const midY = (py + q.mesh.position.y) / 2;
+              createAnnihilationEffect({ x: midX, y: midY });
+
+              p.alive = false;
+              q.alive = false;
+              scene.remove(p.mesh);
+              scene.remove(q.mesh);
+
+              score += combo * 10;
+              combo = Math.min(combo + 1, 10);
+              comboTimer = 0;
+            } else {
+              // Same type - repel each other
+              const nx = dx / dist;
+              const ny = dy / dist;
+              const push = 0.003;
+              p.vx += nx * push;
+              p.vy += ny * push;
+              q.vx -= nx * push;
+              q.vy -= ny * push;
+            }
+          }
+        }
+      }
+    }
+
+    function updateRepulsionField(dt) {
+      // Energy recharge / drain
+      if (isRepelling && canRepel) {
+        repulsionEnergy -= REPULSION_DRAIN_RATE * dt;
+        if (repulsionEnergy <= 0) {
+          repulsionEnergy = 0;
+          canRepel = false;
+        }
+      } else if (!isRepelling || !canRepel) {
+        repulsionEnergy = Math.min(MAX_REPULSION_ENERGY, repulsionEnergy + REPULSION_RECHARGE_RATE * dt);
+        if (canRepel === false && repulsionEnergy >= MAX_REPULSION_ENERGY * 0.3) {
+          canRepel = true;
+        }
+      }
+
+      if (isRepelling && canRepel) {
+        repulsionField.position.x = mouseWorldPos.x;
+        repulsionField.position.y = mouseWorldPos.y;
+        repulsionField.position.z = 0.1;
+        repulsionField.rotation.z = Date.now() * 0.002;
+        repulsionField.material.opacity = 0.5 + Math.sin(Date.now() * 0.01) * 0.15;
+        const nearbyPos = particles.filter(p => {
+          const dx = p.mesh.position.x - mouseWorldPos.x;
+          const dy = p.mesh.position.y - mouseWorldPos.y;
+          return Math.sqrt(dx*dx + dy*dy) < REPULSION_RANGE;
+        });
+        const moreNeg = nearbyPos.filter(p => p.type < 0).length;
+        repulsionField.material.color.setHex(moreNeg > nearbyPos.length / 2 ? 0xff0088 : 0x0088ff);
+      } else {
+        repulsionField.material.opacity *= 0.5;
+        if (repulsionField.material.opacity < 0.005) {
+          repulsionField.material.opacity = 0;
+        }
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

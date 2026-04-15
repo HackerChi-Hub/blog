@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/notion';
 import { NOTION_PROPERTY_NAME } from '../lib/config';
+import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
 
@@ -295,19 +296,6 @@ const feedStyles = `
 }
 `;
 
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return dateString;
-  }
-};
-
 const formatTime = (dateString) => {
   if (!dateString) return '--:--';
   try {
@@ -318,28 +306,6 @@ const formatTime = (dateString) => {
   } catch {
     return '--:--';
   }
-};
-
-const normalizeSummary = (summary) => {
-  if (!summary) return '';
-  if (typeof summary === 'string') return summary;
-  if (Array.isArray(summary)) {
-    return summary
-      .map((item) => {
-        if (typeof item === 'string') return item;
-        if (typeof item === 'object' && item?.plain_text) return item.plain_text;
-        if (item?.text?.content) return item.text.content;
-        return '';
-      })
-      .filter(Boolean)
-      .join('');
-  }
-  if (typeof summary === 'object') {
-    if (summary.plain_text) return summary.plain_text;
-    if (summary.text?.content) return summary.text.content;
-    return JSON.stringify(summary);
-  }
-  return String(summary);
 };
 
 const truncateText = (text, maxLength = 80) =>
@@ -625,6 +591,30 @@ const HeroSection = ({
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
                   AI·安全·经济·科技·国际 · 每 30 分钟更新
+                </div>
+              </div>
+            </a>
+            <a
+              href="/games/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                borderRadius: '16px',
+                border: '1px solid rgba(179, 136, 255, 0.2)',
+                background: 'rgba(179, 136, 255, 0.06)',
+                padding: '14px 18px',
+                textDecoration: 'none',
+                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
+              }}
+            >
+              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🎮</span>
+              <div>
+                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
+                  游戏合集
+                </div>
+                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
+                  黑粉科技互动游戏 · 持续更新中
                 </div>
               </div>
             </a>
