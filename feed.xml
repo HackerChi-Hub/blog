@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Apr 2026 14:33:57 GMT</lastBuildDate>
-    <pubDate>Sat, 18 Apr 2026 14:33:57 GMT</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2026 16:27:02 GMT</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2026 16:27:02 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>快乐生蚝 Happy Oyster：阿里世界模型的产品野心与技术深潜</title>
+      <link>https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</guid>
+      <description>阿里 ATH 事业群推出的 Happy Oyster（快乐生蚝）是一款实时 AI 世界模型，支持导演模式和漫游模式，最长可生成 3 分钟 720p 实时交互视频。它采用流式生成框架，具备音视频联合生成、持续状态复用等核心能力，超越了 Genie、Marble 等竞品的技术天花板。本文从产品体验、技术架构和行业趋势三个维度进行深度分析。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+    <category>AI 科技</category>
+    <category>AI</category>
+    <category>世界模型</category>
+    <category>阿里巴巴</category>
+    <category>实时渲染</category>
+    <category>视频生成</category>
+    <category>交互式AI</category>
+    </item>
     <item>
       <title>Claude Managed Agents 深度解析：Anthropic 的 AI Agent 架构设计哲学</title>
       <link>https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</link>
@@ -20,33 +34,6 @@
     <category>人工智能</category>
     <category>技术</category>
     <category>AI</category>
-    </item>
-    <item>
-      <title>AI名词解释 EP03：什么是上下文窗口（Context Window）？</title>
-      <link>https://hyphentech.top/ai-term-context-window/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-term-context-window/</guid>
-      <description>上下文窗口是 AI 的短期记忆容量，决定了它一次能读多少信息。本文从 4K 到百万词元的进化史，到 Lost in the Middle 的注意力陷阱，全面拆解这个关键概念。</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
-    </item>
-    <item>
-      <title>AI名词解释 EP02：什么是嵌入（Embedding）？</title>
-      <link>https://hyphentech.top/ai-term-embedding/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-term-embedding/</guid>
-      <description>嵌入是让 AI 理解含义的关键技术——把符号变成向量，把词元放进高维空间。本文从 Word2Vec 到全模态嵌入，解析语义搜索、RAG 和推荐系统背后的核心原理。</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
-    </item>
-    <item>
-      <title>AI名词解释 EP01：什么是词元（Token）？</title>
-      <link>https://hyphentech.top/ai-term-token/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-term-token/</guid>
-      <description>词元是 AI 处理信息的最小单元，也是整个行业的计费货币。本文从词源、分词算法、定价变迁到向量表示，全面拆解 Token 的底层逻辑。</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
     </item>
     <item>
       <title>我用Claude Code一个下午搭了个AI新闻收集器，GitHub Pages免费部署</title>
