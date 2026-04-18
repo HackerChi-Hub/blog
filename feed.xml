@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 15 Apr 2026 01:21:50 GMT</lastBuildDate>
-    <pubDate>Wed, 15 Apr 2026 01:21:50 GMT</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2026 13:00:04 GMT</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2026 13:00:04 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>AI Agent 三国杀：Claude Code vs OpenClaw vs Hermes Agent 记忆与 Skill 系统深度拆解</title>
+      <link>https://hyphentech.top/ai-agent-comparison/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-agent-comparison/</guid>
+      <description>深度对比 Claude Code、OpenClaw、Hermes Agent 三大 AI Agent 的记忆系统、Skill 生态和 Token 消耗效率。从结构化笔记卡到向量金字塔再到自学习闭环，三者设计哲学截然不同。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>Anthropic</category>
+    <category>Claude</category>
+    <category>openclaw</category>
+    <category>大模型</category>
+    <category>Skill</category>
+    </item>
     <item>
       <title>Claude Managed Agents 深度解析：Anthropic 的 AI Agent 架构设计哲学</title>
       <link>https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</link>

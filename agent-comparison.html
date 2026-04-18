@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 三国杀 — Claude Code vs OpenClaw vs Hermes Agent</title>
+<meta name="description" content="深度对比 Claude Code、OpenClaw、Hermes Agent 三大 AI Agent 的架构、记忆系统、Skill 系统及 Token 消耗">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg-primary: #03040a;
+  --bg-secondary: #050a16;
+  --panel-primary: rgba(8, 12, 24, 0.95);
+  --panel-soft: rgba(10, 16, 32, 0.88);
+  --panel-highlight: rgba(18, 32, 64, 0.7);
+  --border-color: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(102, 255, 214, 0.55);
+  --text-primary: #f9fbff;
+  --text-secondary: rgba(230, 239, 255, 0.9);
+  --text-muted: rgba(196, 208, 233, 0.75);
+  --accent-green: #69f0ae;
+  --accent-cyan: #00e5ff;
+  --accent-blue: #6cb8ff;
+  --accent-violet: #b388ff;
+  --accent-orange: #ffb347;
+  --accent-pink: #ff7fd1;
+  --accent-red: #ff5370;
+  --radius-xl: 40px;
+  --radius-lg: 30px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-primary);
+  background:
+    radial-gradient(circle at 15% 25%, rgba(105, 240, 174, 0.15), transparent 58%),
+    radial-gradient(circle at 80% 0%, rgba(0, 229, 255, 0.18), transparent 55%),
+    linear-gradient(135deg, #02040a 0%, #050913 55%, #02040a 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan), var(--accent-blue), var(--accent-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: var(--panel-soft);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.hero-badge:hover { transform: translateY(-2px); }
+.hero-badge.claude { border-color: rgba(105, 240, 174, 0.5); color: var(--accent-green); }
+.hero-badge.openclaw { border-color: rgba(0, 229, 255, 0.5); color: var(--accent-cyan); }
+.hero-badge.hermes { border-color: rgba(179, 136, 255, 0.5); color: var(--accent-violet); }
+.hero-badge .icon { font-size: 1.2rem; }
+
+/* ── Nav ── */
+.toc {
+  background: var(--panel-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc h2 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.toc a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.toc a:hover { background: var(--panel-highlight); color: var(--accent-green); }
+.toc a .num { color: var(--accent-cyan); font-weight: 700; font-size: 0.8rem; min-width: 20px; }
+
+/* ── Section ── */
+.section {
+  margin-bottom: 64px;
+}
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title .icon { font-size: 1.6rem; }
+.section-title .num {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.12);
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+.section-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--panel-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.card:hover { border-color: rgba(255, 255, 255, 0.22); }
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card h3 .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── Table ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+th {
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 16px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+}
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+/* Color coding for columns */
+td:nth-child(2) { color: var(--accent-green); }
+td:nth-child(3) { color: var(--accent-cyan); }
+td:nth-child(4) { color: var(--accent-violet); }
+
+th:nth-child(2) { color: var(--accent-green); }
+th:nth-child(3) { color: var(--accent-cyan); }
+th:nth-child(4) { color: var(--accent-violet); }
+
+/* ── Chart Container ── */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.chart-card {
+  background: var(--panel-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.chart-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+.chart-card canvas { max-height: 320px; }
+
+/* ── Architecture Diagram ── */
+.arch-flow {
+  background: var(--panel-soft);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  overflow-x: auto;
+  white-space: pre;
+  color: var(--text-muted);
+}
+.arch-flow .highlight { color: var(--accent-green); font-weight: 600; }
+.arch-flow .cyan { color: var(--accent-cyan); }
+.arch-flow .violet { color: var(--accent-violet); }
+.arch-flow .orange { color: var(--accent-orange); }
+.arch-flow .dim { opacity: 0.5; }
+
+/* ── 3-col cards ── */
+.triple-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.triple-grid .card { margin-bottom: 0; }
+.triple-grid .card.claude { border-top: 3px solid var(--accent-green); }
+.triple-grid .card.openclaw { border-top: 3px solid var(--accent-cyan); }
+.triple-grid .card.hermes { border-top: 3px solid var(--accent-violet); }
+
+/* ── Feature tag ── */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 2px 3px;
+}
+.tag-green { background: rgba(105, 240, 174, 0.15); color: var(--accent-green); }
+.tag-cyan { background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan); }
+.tag-violet { background: rgba(179, 136, 255, 0.15); color: var(--accent-violet); }
+.tag-orange { background: rgba(255, 179, 71, 0.15); color: var(--accent-orange); }
+.tag-red { background: rgba(255, 83, 112, 0.15); color: var(--accent-red); }
+
+/* ── Metric cards ── */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.metric {
+  background: var(--panel-soft);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+}
+.metric .value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.metric .label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.metric.green .value { color: var(--accent-green); }
+.metric.cyan .value { color: var(--accent-cyan); }
+.metric.violet .value { color: var(--accent-violet); }
+.metric.orange .value { color: var(--accent-orange); }
+.metric.red .value { color: var(--accent-red); }
+
+/* ── Bar list ── */
+.bar-list { list-style: none; }
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.bar-label {
+  min-width: 100px;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--bg-primary);
+  transition: width 1s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.bar-fill.green { background: linear-gradient(90deg, var(--accent-green), rgba(105, 240, 174, 0.7)); }
+.bar-fill.cyan { background: linear-gradient(90deg, var(--accent-cyan), rgba(0, 229, 255, 0.7)); }
+.bar-fill.violet { background: linear-gradient(90deg, var(--accent-violet), rgba(179, 136, 255, 0.7)); }
+.bar-fill.orange { background: linear-gradient(90deg, var(--accent-orange), rgba(255, 179, 71, 0.7)); }
+.bar-fill.red { background: linear-gradient(90deg, var(--accent-red), rgba(255, 83, 112, 0.7)); }
+
+/* ── Summary box ── */
+.summary-box {
+  background: linear-gradient(135deg, rgba(105, 240, 174, 0.08), rgba(0, 229, 255, 0.08));
+  border: 1px solid rgba(105, 240, 174, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+}
+.summary-box p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.summary-box strong { color: var(--accent-green); }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 48px;
+}
+.footer a { color: var(--accent-cyan); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero { padding: 48px 16px 40px; }
+  .card { padding: 20px; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .triple-grid { grid-template-columns: 1fr; }
+  .toc-grid { grid-template-columns: 1fr 1fr; }
+  .arch-flow { font-size: 0.72rem; padding: 16px; }
+  table { font-size: 0.8rem; }
+  th, td { padding: 10px 10px; }
+}
+
+/* ── Animate on scroll ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<header class="hero">
+  <h1>AI Agent 三国杀</h1>
+  <p>深度拆解 Claude Code、OpenClaw、Hermes Agent 三大系统的架构原理——聚焦记忆系统、Skill 生态与 Token 消耗效率</p>
+  <div class="hero-badges">
+    <span class="hero-badge claude"><span class="icon">⚡</span> Claude Code</span>
+    <span class="hero-badge openclaw"><span class="icon">🦞</span> OpenClaw</span>
+    <span class="hero-badge hermes"><span class="icon">🧠</span> Hermes Agent</span>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ═══════════════════ TOC ═══════════════════ -->
+<nav class="toc fade-in">
+  <h2>目录导航</h2>
+  <div class="toc-grid">
+    <a href="#overview"><span class="num">01</span> 产品定位与架构</a>
+    <a href="#memory-arch"><span class="num">02</span> 记忆系统架构</a>
+    <a href="#memory-detail"><span class="num">03</span> 记忆系统详解</a>
+    <a href="#skill-arch"><span class="num">04</span> Skill 系统架构</a>
+    <a href="#skill-detail"><span class="num">05</span> Skill 系统详解</a>
+    <a href="#token"><span class="num">06</span> Token 消耗分析</a>
+    <a href="#agent-loop"><span class="num">07</span> Agent 执行循环</a>
+    <a href="#selection"><span class="num">08</span> 选型指南</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ 01 OVERVIEW ═══════════════════ -->
+<section id="overview" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🏛️</span> 产品定位与架构 <span class="num">01</span></h2>
+  <p class="section-desc">三者定位截然不同：Claude Code 是 Anthropic 官方编码工具，OpenClaw 是多平台消息网关先驱，Hermes Agent 是后来者的自学习闭环。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>⚡ Claude Code</th>
+          <th>🦞 OpenClaw</th>
+          <th>🧠 Hermes Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>开发者</strong></td><td>Anthropic（官方）</td><td>Peter Steinberger（社区）</td><td>Nous Research</td></tr>
+        <tr><td><strong>本质</strong></td><td>终端/IDE 编码 Agent</td><td>多平台消息网关 + Agent</td><td>多平台网关 + 自学习 Agent</td></tr>
+        <tr><td><strong>技术栈</strong></td><td>TypeScript CLI</td><td>Node.js + Rust (Pi)</td><td>Python CLI + Gateway</td></tr>
+        <tr><td><strong>开源</strong></td><td><span class="tag tag-red">闭源</span></td><td><span class="tag tag-green">MIT 开源</span></td><td><span class="tag tag-green">MIT 开源</span></td></tr>
+        <tr><td><strong>模型绑定</strong></td><td>仅 Anthropic Claude</td><td>任意（Claude/GPT/DeepSeek/GLM/Ollama）</td><td>任意（200+ via OpenRouter）</td></tr>
+        <tr><td><strong>交互方式</strong></td><td>终端 / IDE / Web</td><td>20+ 聊天平台</td><td>6+ 平台 + CLI</td></tr>
+        <tr><td><strong>设计哲学</strong></td><td>「最强编码刀」</td><td>「最广连接网」</td><td>「唯一会自己长大的 Agent」</td></tr>
+        <tr><td><strong>GitHub Stars</strong></td><td>N/A（闭源）</td><td>310K+</td><td>~30K（2 个月）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>生态规模对比</h4>
+      <canvas id="chartEcosystem"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>平台接入覆盖</h4>
+      <canvas id="chartPlatforms"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 02 MEMORY ARCH ═══════════════════ -->
+<section id="memory-arch" class="section fade-in">
+  <h2 class="section-title"><span class="icon">💾</span> 记忆系统架构 <span class="num">02</span></h2>
+  <p class="section-desc">三者记忆架构差异巨大——从「结构化笔记卡」到「向量金字塔」再到「闭环自学习」，构成一条清晰的进化线。</p>
+
+  <div class="triple-grid">
+    <!-- Claude Code -->
+    <div class="card claude">
+      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code — 结构化笔记卡</h3>
+      <div class="arch-flow"><span class="highlight">~/.claude/projects/&lt;hash&gt;/memory/</span>
+├── <span class="cyan">MEMORY.md</span>         ← 索引（≤200行，始终加载）
+├── <span class="highlight">user_role.md</span>      ← 单条记忆
+├── <span class="highlight">feedback_xxx.md</span>   ← 单条记忆
+└── <span class="highlight">project_xxx.md</span>    ← 单条记忆
+
+<span class="dim">━━━ 工作流 ━━━━━━━━━━━━━━━━━━━</span>
+对话开始 → <span class="cyan">MEMORY.md</span> 加载到上下文
+         → 发现相关 → <span class="highlight">Read</span> 单个文件
+         → 写入时机：Agent 主动 / <span class="orange">/remember</span>
+         → <span class="dim">无搜索，靠标题浏览</span></div>
+      <div style="margin-top:12px">
+        <span class="tag tag-green">简单透明</span>
+        <span class="tag tag-green">硬上限控制</span>
+        <span class="tag tag-orange">无语义搜索</span>
+      </div>
+    </div>
+
+    <!-- OpenClaw -->
+    <div class="card openclaw">
+      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw — 四层金字塔</h3>
+      <div class="arch-flow"><span class="highlight">~/.openclaw/workspace/</span>
+├── <span class="orange">SOUL.md</span>        L1 ← 人格/语气（始终注入）
+├── <span class="orange">USER.md</span>        L2 ← 用户偏好（始终注入）
+├── <span class="orange">MEMORY.md</span>      L3 ← 长期记忆（持续膨胀！）
+├── <span class="orange">HEARTBEAT.md</span>   ← 心跳检查清单
+├── <span class="orange">AGENTS.md</span>      ← 工作区指令
+<span class="highlight">~/.openclaw/memory/</span>
+└── <span class="cyan">&lt;cid&gt;.sqlite</span>   ← 向量索引
+
+<span class="dim">━━━ 工作流 ━━━━━━━━━━━━━━━━━━━</span>
+请求 → <span class="orange">四层</span> 全部注入 system prompt
+     → <span class="cyan">向量搜索</span> 召回历史记忆
+     → 写入：Agent 自动 / <span class="orange">/save</span>
+     → 心跳机制定期自检</div>
+      <div style="margin-top:12px">
+        <span class="tag tag-cyan">向量搜索</span>
+        <span class="tag tag-cyan">心跳自检</span>
+        <span class="tag tag-red">记忆膨胀</span>
+        <span class="tag tag-red">安全风险</span>
+      </div>
+    </div>
+
+    <!-- Hermes -->
+    <div class="card hermes">
+      <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes — 闭环自学习</h3>
+      <div class="arch-flow"><span class="highlight">~/.hermes/</span>
+├── <span class="violet">MEMORY.md</span>        ← 继承 OpenClaw 格式
+├── <span class="violet">USER.md</span>          ← 用户偏好
+├── <span class="violet">SOUL.md</span>          ← 人格定义
+└── <span class="cyan">sessions.db</span>      ← FTS5 全文索引
+
+<span class="dim">━━━ 闭环学习 ━━━━━━━━━━━━━━━━━━</span>
+任务完成 → 自动提炼 → 写入记忆
+    ↑                      ↓
+<span class="cyan">FTS5 全文检索</span> ← <span class="violet">Honcho 用户建模</span>
+    ↑                      ↓
+  召回历史              理解"你是谁"
+    ↑                      ↓
+<span class="orange">Periodic Nudge</span> → 自我提醒持久化</div>
+      <div style="margin-top:12px">
+        <span class="tag tag-violet">FTS5 全文搜索</span>
+        <span class="tag tag-violet">用户建模</span>
+        <span class="tag tag-violet">自动学习</span>
+        <span class="tag tag-orange">黑盒度高</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 03 MEMORY DETAIL ═══════════════════ -->
+<section id="memory-detail" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🔬</span> 记忆系统详解 <span class="num">03</span></h2>
+  <p class="section-desc">逐维度拆解记忆系统的存储、检索、写入和用户建模机制。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>⚡ Claude Code</th>
+          <th>🦞 OpenClaw</th>
+          <th>🧠 Hermes Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>架构模式</strong></td><td>文件型笔记卡</td><td>四层金字塔 + 向量索引</td><td>闭环学习 + FTS5 + 用户建模</td></tr>
+        <tr><td><strong>存储格式</strong></td><td>Markdown 文件</td><td>Markdown + SQLite 向量</td><td>Markdown + SQLite FTS5</td></tr>
+        <tr><td><strong>检索方式</strong></td><td>索引浏览（无搜索）</td><td>向量搜索</td><td>全文搜索 + LLM 摘要</td></tr>
+        <tr><td><strong>用户建模</strong></td><td>无</td><td>无</td><td>Honcho 辩证建模</td></tr>
+        <tr><td><strong>自动持久化</strong></td><td>否（Agent 主动判断）</td><td>是（+ 心跳）</td><td>是（+ Nudge 自检）</td></tr>
+        <tr><td><strong>跨会话检索</strong></td><td>仅 MEMORY.md</td><td>向量搜索历史会话</td><td>FTS5 全文检索所有历史</td></tr>
+        <tr><td><strong>透明度</strong></td><td><span class="tag tag-green">高</span> 所有文件可读可编辑</td><td><span class="tag tag-orange">中</span> SQLite + Markdown</td><td><span class="tag tag-red">低</span> 自动学习黑盒</td></tr>
+        <tr><td><strong>增长控制</strong></td><td>200 行硬上限</td><td>无自动压缩，持续膨胀</td><td>LLM 摘要自动压缩</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>记忆系统雷达图</h4>
+      <canvas id="chartMemoryRadar"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>记忆始终注入的固定开销（tokens）</h4>
+      <canvas id="chartMemoryOverhead"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 04 SKILL ARCH ═══════════════════ -->
+<section id="skill-arch" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🧩</span> Skill 系统架构 <span class="num">04</span></h2>
+  <p class="section-desc">从「预设提示词库」到「插件市场」再到「自生长的程序性记忆」——三者对 Skill 的理解完全不同。</p>
+
+  <div class="triple-grid">
+    <div class="card claude">
+      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code — 专家提示词库</h3>
+      <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px">&#x2022; Skill = 结构化提示词 (SKILL.md)</li>
+        <li style="margin-bottom:8px">&#x2022; <code>/skill-name</code> 展开为完整 prompt</li>
+        <li style="margin-bottom:8px">&#x2022; 创建方式：<span class="tag tag-orange">手动</span></li>
+        <li style="margin-bottom:8px">&#x2022; 无官方市场，无自改进</li>
+        <li style="margin-bottom:8px">&#x2022; 调用时才注入，不用不花 token</li>
+      </ul>
+    </div>
+    <div class="card openclaw">
+      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw — 插件市场生态</h3>
+      <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px">&#x2022; 三层优先级：Built-in > ClawHub > User</li>
+        <li style="margin-bottom:8px">&#x2022; ClawHub 市场 <span class="tag tag-red">13,000+</span> 技能</li>
+        <li style="margin-bottom:8px">&#x2022; 创建方式：<span class="tag tag-orange">手动</span></li>
+        <li style="margin-bottom:8px">&#x2022; 已安装技能<span class="tag tag-red">始终注入</span> system prompt</li>
+        <li style="margin-bottom:8px">&#x2022; ~20% 已标记为恶意</li>
+      </ul>
+    </div>
+    <div class="card hermes">
+      <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes — 自生长程序性记忆</h3>
+      <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:8px">&#x2022; 解决问题后<span class="tag tag-violet">自动生成</span> Skill</li>
+        <li style="margin-bottom:8px">&#x2022; Skill 在使用中<span class="tag tag-violet">自改进</span></li>
+        <li style="margin-bottom:8px">&#x2022; 兼容 <span class="tag tag-green">agentskills.io</span> 开放标准</li>
+        <li style="margin-bottom:8px">&#x2022; Skills Hub 在线分享</li>
+        <li style="margin-bottom:8px">&#x2022; 按需加载，不预注入</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 05 SKILL DETAIL ═══════════════════ -->
+<section id="skill-detail" class="section fade-in">
+  <h2 class="section-title"><span class="icon">📊</span> Skill 系统详解 <span class="num">05</span></h2>
+  <p class="section-desc">逐维度对比 Skill 系统的创建、分发、安全和生态。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>⚡ Claude Code</th>
+          <th>🦞 OpenClaw</th>
+          <th>🧠 Hermes Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>创建方式</strong></td><td>手动</td><td>手动</td><td><span class="tag tag-violet">自动 + 手动</span></td></tr>
+        <tr><td><strong>自改进</strong></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-violet">是</span></td></tr>
+        <tr><td><strong>注入策略</strong></td><td>按需加载</td><td><span class="tag tag-red">始终注入</span></td><td>按需加载</td></tr>
+        <tr><td><strong>市场/生态</strong></td><td>无官方市场</td><td>ClawHub (13K+)</td><td>Skills Hub</td></tr>
+        <tr><td><strong>开放标准</strong></td><td>自有格式</td><td>自有格式</td><td>agentskills.io</td></tr>
+        <tr><td><strong>安全审核</strong></td><td>无</td><td>白名单 + 审核工具</td><td>内置沙箱</td></tr>
+        <tr><td><strong>核心差异</strong></td><td>提示词注入</td><td>插件市场</td><td><span class="tag tag-violet">自生长程序性记忆</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>Skill 生态规模对比</h4>
+      <canvas id="chartSkillSize"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>Skill 注入策略对 Token 的影响</h4>
+      <canvas id="chartSkillInjection"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 06 TOKEN ═══════════════════ -->
+<section id="token" class="section fade-in">
+  <h2 class="section-title"><span class="icon">💰</span> Token 消耗深度分析 <span class="num">06</span></h2>
+  <p class="section-desc">记忆和 Skill 对 token 消耗的影响是三者成本差异的根本原因。</p>
+
+  <!-- Token formula -->
+  <div class="card">
+    <h3>每次 API 调用的 Token 构成公式</h3>
+    <div class="arch-flow" style="font-size:0.9rem; text-align:center;">
+<span class="highlight">总 Token</span> = <span class="orange">System Prompt</span> + <span class="cyan">记忆注入</span> + <span class="violet">Skill 注入</span> + <span class="highlight">当前对话</span> + <span class="dim">Tool 结果</span> + <span class="dim">LLM 输出</span>
+              ↑ 固定开销       ↑ 记忆系统决定    ↑ Skill 系统决定    ↑ 用户行为决定
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="metric-row">
+    <div class="metric green">
+      <div class="value">~11K</div>
+      <div class="label">Claude Code<br>固定开销/请求</div>
+    </div>
+    <div class="metric cyan">
+      <div class="value">~29K</div>
+      <div class="label">OpenClaw<br>固定开销/请求</div>
+    </div>
+    <div class="metric violet">
+      <div class="value">~11K</div>
+      <div class="label">Hermes Agent<br>固定开销/请求</div>
+    </div>
+    <div class="metric red">
+      <div class="value">~40%</div>
+      <div class="label">OpenClaw<br>固定税占比</div>
+    </div>
+  </div>
+
+  <!-- Token breakdown table -->
+  <div class="table-wrap" style="margin-bottom:24px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Token 来源</th>
+          <th>⚡ Claude Code</th>
+          <th>🦞 OpenClaw</th>
+          <th>🧠 Hermes Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>System Prompt（内置）</strong></td><td>3-5K</td><td>5-10K</td><td>6K</td></tr>
+        <tr><td><strong>人格/指令文件</strong></td><td>1-3K (CLAUDE.md)</td><td>1-5K (SOUL.md)</td><td>1-5K (SOUL.md)</td></tr>
+        <tr><td><strong>用户偏好</strong></td><td>—</td><td>0.5-3K (USER.md)</td><td>0.5-3K (USER.md)</td></tr>
+        <tr><td><strong>记忆索引/内容</strong></td><td>2-4K (MEMORY.md)</td><td>2-20K (MEMORY.md)</td><td>2-5K (+Honcho 画像)</td></tr>
+        <tr><td><strong>心跳/自检</strong></td><td>—</td><td>1-5K (HEARTBEAT.md)</td><td>0.5-2K (Nudge)</td></tr>
+        <tr><td><strong>Skill 描述（已安装）</strong></td><td><span class="tag tag-green">0（按需）</span></td><td><span class="tag tag-red">3-10K+（始终）</span></td><td><span class="tag tag-green">0（按需）</span></td></tr>
+        <tr><td><strong>记忆搜索结果</strong></td><td>0.5-2K（Read 文件）</td><td>1-5K（向量结果）</td><td>1-3K（FTS5+LLM 摘要）</td></tr>
+        <tr style="border-top:2px solid rgba(105,240,174,0.3);">
+          <td><strong>始终注入合计</strong></td>
+          <td><strong style="color:var(--accent-green)">~11K (30%)</strong></td>
+          <td><strong style="color:var(--accent-cyan)">~29K (40%)</strong></td>
+          <td><strong style="color:var(--accent-violet)">~11K (22%)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <h4>单次完整任务 Token 消耗对比（「重构认证模块」）</h4>
+      <canvas id="chartTokenTask"></canvas>
+    </div>
+    <div class="chart-card">
+      <h4>固定开销 Token 构成饼图</h4>
+      <canvas id="chartTokenPie"></canvas>
+    </div>
+  </div>
+
+  <!-- Cost control -->
+  <div class="card" style="margin-top:24px;">
+    <h3>成本控制策略对比</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>策略</th><th>⚡ Claude Code</th><th>🦞 OpenClaw</th><th>🧠 Hermes Agent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>预算上限</strong></td><td>无内置（上下文窗口天然限制）</td><td><code>maxCostPerDay</code> / <code>maxTokensPerDay</code></td><td>未明确提及</td></tr>
+          <tr><td><strong>模型降级</strong></td><td>不可选（绑定 Anthropic）</td><td>Fallback 链（Claude→Haiku→DeepSeek）</td><td><code>/model</code> 随时切换任意模型</td></tr>
+          <tr><td><strong>Prompt Caching</strong></td><td><span class="tag tag-green">原生 90% 折扣</span></td><td>取决于模型提供商</td><td>取决于模型提供商</td></tr>
+          <tr><td><strong>记忆瘦身</strong></td><td>手动删除 MEMORY.md 条目</td><td><code>memory index</code> 重建</td><td>LLM 自动摘要</td></tr>
+          <tr><td><strong>Skill 减负</strong></td><td>不调用就不耗 token</td><td><span class="tag tag-red">必须卸载不用的 Skill</span></td><td>按需加载，无需卸载</td></tr>
+          <tr><td><strong>上下文压缩</strong></td><td><span class="tag tag-green">自动压缩历史</span></td><td><span class="tag tag-red">无内置压缩</span></td><td><code>/compress</code> 手动触发</td></tr>
+          <tr><td><strong>成本失控风险</strong></td><td><span class="tag tag-green">低</span></td><td><span class="tag tag-red">高</span></td><td><span class="tag tag-orange">中</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="summary-box" style="margin-top:24px;">
+    <p><strong>Token 效率核心结论：</strong>Claude Code 是「按需取用」——不用就不花 token，用 Prompt Caching 进一步打折；OpenClaw 是「全量预加载」——装了多少 Skill、记了多少事，每次请求都要付固定税，24/7 运行下成本极易失控；Hermes Agent 介于两者之间——按需加载 Skill + LLM 摘要压缩记忆召回，但自学习闭环（Nudge + Auto-skill）会产生额外的「隐形 API 调用」。</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 07 AGENT LOOP ═══════════════════ -->
+<section id="agent-loop" class="section fade-in">
+  <h2 class="section-title"><span class="icon">⚙️</span> Agent 执行循环 <span class="num">07</span></h2>
+  <p class="section-desc">三者的 Agent Loop 从简单到复杂，决定了任务执行方式和并行能力。</p>
+
+  <div class="triple-grid">
+    <div class="card claude">
+      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code</h3>
+      <div class="arch-flow"><span class="highlight">用户输入</span>
+  ↓
+<span class="cyan">System Prompt</span> (含 CLAUDE.md + MEMORY.md)
+  ↓
+<span class="highlight">LLM 推理</span>
+  ↓
+<span class="highlight">Tool 调用</span> (Read/Write/Edit/Bash/Grep/Glob)
+  ↓
+结果返回 → 继续推理 → 输出
+
+<span class="dim">特点：单线程 · 单会话 · 无后台</span>
+<span class="dim">自动压缩上下文 · Prompt Caching</span></div>
+    </div>
+    <div class="card openclaw">
+      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw</h3>
+      <div class="arch-flow"><span class="highlight">消息平台</span> (Telegram/Discord/微信...)
+  ↓
+<span class="cyan">Gateway</span> (路由 + 会话管理)
+  ↓
+<span class="orange">四层记忆注入</span> → LLM 推理
+  ↓
+<span class="cyan">Skill / Tool</span> 执行
+  ↓
+响应回平台 → 记忆更新
+
+<span class="dim">特点：多平台 · 多会话 · 心跳 · 子代理</span>
+<span class="dim">DM配对 · 群组沙箱 · 工具白名单</span></div>
+    </div>
+    <div class="card hermes">
+      <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes Agent</h3>
+      <div class="arch-flow"><span class="highlight">消息平台 / CLI</span>
+  ↓
+<span class="cyan">Gateway</span>
+  ↓
+<span class="cyan">FTS5 搜索</span> + <span class="violet">Honcho 用户建模</span>
+  ↓
+<span class="highlight">LLM 推理</span> → Skill/Tool 执行
+  ↓
+<span class="violet">经验提炼</span> → 自动写 Skill + 持久化
+  ↓
+<span class="orange">Nudge 自检</span> → 响应回平台
+
+<span class="dim">特点：学习闭环 · 并行子代理 · RL 训练</span>
+<span class="dim">Atropos RL · 轨迹导出微调 · RPC</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 08 SELECTION ═══════════════════ -->
+<section id="selection" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🎯</span> 选型指南 <span class="num">08</span></h2>
+  <p class="section-desc">根据你的具体需求，选择最合适的工具。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>你的需求</th><th>推荐</th><th>理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>纯编码（写代码、调试、重构）</td><td><span class="tag tag-green">Claude Code</span></td><td>编码质量最高，模型最懂代码</td></tr>
+        <tr><td>全能生活助理（消息、邮件、日程）</td><td><span class="tag tag-cyan">OpenClaw</span></td><td>平台接入最广，生态最大</td></tr>
+        <tr><td>让 AI 越来越懂你、自动积累经验</td><td><span class="tag tag-violet">Hermes Agent</span></td><td>唯一有学习闭环的</td></tr>
+        <tr><td>多平台 + 编码组合</td><td><span class="tag tag-cyan">OpenClaw</span> + <span class="tag tag-green">Claude Code</span></td><td>社区有桥接 Skill</td></tr>
+        <tr><td>ML 研究 / 训练数据生成</td><td><span class="tag tag-violet">Hermes Agent</span></td><td>Atropos RL + 轨迹导出</td></tr>
+        <tr><td>数据敏感、完全离线</td><td><span class="tag tag-cyan">OpenClaw</span> 或 <span class="tag tag-violet">Hermes</span></td><td>自托管 + 本地模型</td></tr>
+        <tr><td>成本敏感</td><td><span class="tag tag-green">Claude Code</span></td><td>Prompt Caching 90% 折扣 + 按需加载</td></tr>
+        <tr><td>24/7 无人值守</td><td><span class="tag tag-cyan">OpenClaw</span></td><td>心跳 + Cron + 多平台推送</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-box">
+    <p><strong>一句话总结：</strong>Claude Code 是<strong>最强编码刀</strong>，OpenClaw 是<strong>最广连接网</strong>，Hermes Agent 是<strong>唯一会自己长大的 Agent</strong>。三者的记忆和 Skill 系统从简单到复杂恰好构成一条进化线：静态笔记 → 向量搜索 → 自学习闭环。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>AI Agent 三国杀 — Claude Code vs OpenClaw vs Hermes Agent 深度对比 | 数据更新于 2026 年 4 月</p>
+  <p style="margin-top:8px"><a href="/">返回首页</a></p>
+</footer>
+
+<script>
+// ── Fade-in on scroll ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Chart.js defaults ──
+Chart.defaults.color = 'rgba(196, 208, 233, 0.75)';
+Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.08)';
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+
+const GREEN = '#69f0ae';
+const CYAN = '#00e5ff';
+const VIOLET = '#b388ff';
+const ORANGE = '#ffb347';
+const PINK = '#ff7fd1';
+const RED = '#ff5370';
+
+// ── 01 Ecosystem ──
+new Chart(document.getElementById('chartEcosystem'), {
+  type: 'bar',
+  data: {
+    labels: ['GitHub Stars', '内置 Skills', '社区 Skills', '支持平台数'],
+    datasets: [
+      { label: 'Claude Code', data: [0, 100, 0, 3], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
+      { label: 'OpenClaw', data: [310, 60, 13700, 22], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
+      { label: 'Hermes Agent', data: [30, 60, 0, 7], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { type: 'logarithmic', grid: { color: 'rgba(255,255,255,0.04)' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── 01 Platforms ──
+new Chart(document.getElementById('chartPlatforms'), {
+  type: 'doughnut',
+  data: {
+    labels: ['OpenClaw (22+)', 'Hermes Agent (7)', 'Claude Code (3)'],
+    datasets: [{
+      data: [22, 7, 3],
+      backgroundColor: [CYAN + 'cc', VIOLET + 'cc', GREEN + 'cc'],
+      borderColor: [CYAN, VIOLET, GREEN],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom' },
+      title: { display: false }
+    }
+  }
+});
+
+// ── 03 Memory Radar ──
+new Chart(document.getElementById('chartMemoryRadar'), {
+  type: 'radar',
+  data: {
+    labels: ['检索能力', '自动持久化', '用户建模', '透明度', '增长控制', '跨会话'],
+    datasets: [
+      { label: 'Claude Code', data: [1, 2, 0, 5, 5, 1], borderColor: GREEN, backgroundColor: GREEN + '22', pointBackgroundColor: GREEN },
+      { label: 'OpenClaw', data: [3, 4, 0, 3, 1, 3], borderColor: CYAN, backgroundColor: CYAN + '22', pointBackgroundColor: CYAN },
+      { label: 'Hermes Agent', data: [5, 5, 5, 1, 4, 5], borderColor: VIOLET, backgroundColor: VIOLET + '22', pointBackgroundColor: VIOLET }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: { r: { beginAtZero: true, max: 5, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, ticks: { display: false } } },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// ── 03 Memory Overhead ──
+new Chart(document.getElementById('chartMemoryOverhead'), {
+  type: 'bar',
+  data: {
+    labels: ['Claude Code', 'OpenClaw', 'Hermes Agent'],
+    datasets: [
+      { label: '始终注入', data: [11, 29, 11], backgroundColor: [GREEN + '99', CYAN + '99', VIOLET + '99'], borderColor: [GREEN, CYAN, VIOLET], borderWidth: 1 },
+      { label: '按需加载', data: [1.5, 3, 4], backgroundColor: [GREEN + '44', CYAN + '44', VIOLET + '44'], borderColor: [GREEN + '88', CYAN + '88', VIOLET + '88'], borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    indexAxis: 'y',
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { stacked: true, title: { display: true, text: 'Tokens (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { stacked: true, grid: { display: false } }
+    }
+  }
+});
+
+// ── 05 Skill Size ──
+new Chart(document.getElementById('chartSkillSize'), {
+  type: 'bar',
+  data: {
+    labels: ['内置 Skills', '社区市场 Skills', '恶意标记比例 (%)'],
+    datasets: [
+      { label: 'Claude Code', data: [100, 0, 0], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
+      { label: 'OpenClaw', data: [60, 13700, 20], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
+      { label: 'Hermes Agent', data: [60, 0, 0], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { type: 'logarithmic', grid: { color: 'rgba(255,255,255,0.04)' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── 05 Skill Injection ──
+new Chart(document.getElementById('chartSkillInjection'), {
+  type: 'bar',
+  data: {
+    labels: ['安装 3 个 Skill', '安装 5 个 Skill', '安装 10 个 Skill'],
+    datasets: [
+      { label: 'Claude Code (按需)', data: [0, 0, 0], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
+      { label: 'OpenClaw (始终注入)', data: [5, 8, 15], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
+      { label: 'Hermes Agent (按需)', data: [0, 0, 0], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' }, subtitle: { display: true, text: 'OpenClaw 的 Skill 描述每次请求都注入 system prompt，其他两者按需加载', color: 'rgba(255,83,112,0.8)', font: { size: 11 } } },
+    scales: {
+      y: { title: { display: true, text: '额外 Token 开销 (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+// ── 06 Token Task ──
+new Chart(document.getElementById('chartTokenTask'), {
+  type: 'bar',
+  data: {
+    labels: ['Claude Code', 'OpenClaw', 'Hermes Agent'],
+    datasets: [
+      { label: '始终注入 (固定税)', data: [11, 29, 11], backgroundColor: RED + '88', borderColor: RED, borderWidth: 1 },
+      { label: '记忆召回', data: [1, 3, 4], backgroundColor: CYAN + '88', borderColor: CYAN, borderWidth: 1 },
+      { label: 'Skill 注入', data: [0, 8, 2], backgroundColor: VIOLET + '88', borderColor: VIOLET, borderWidth: 1 },
+      { label: '对话+工具', data: [15, 25, 20], backgroundColor: ORANGE + '88', borderColor: ORANGE, borderWidth: 1 },
+      { label: 'LLM 输出', data: [10, 15, 12], backgroundColor: GREEN + '88', borderColor: GREEN, borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { stacked: true, title: { display: true, text: 'Tokens (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      x: { stacked: true, grid: { display: false } }
+    }
+  }
+});
+
+// ── 06 Token Pie (OpenClaw breakdown) ──
+new Chart(document.getElementById('chartTokenPie'), {
+  type: 'doughnut',
+  data: {
+    labels: ['OpenClaw 四层记忆 (10K)', 'OpenClaw Skills描述 (8K)', 'OpenClaw System (8K)', 'OpenClaw 其他 (3K)'],
+    datasets: [{
+      data: [10, 8, 8, 3],
+      backgroundColor: [CYAN + 'cc', RED + 'cc', ORANGE + 'cc', 'rgba(255,255,255,0.15)'],
+      borderColor: [CYAN, RED, ORANGE, 'rgba(255,255,255,0.3)'],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom' },
+      subtitle: { display: true, text: 'OpenClaw 始终注入 ~29K tokens 的构成', color: 'rgba(255,179,71,0.8)', font: { size: 11 } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
