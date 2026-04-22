@@ -618,6 +618,30 @@ const HeroSection = ({
                 </div>
               </div>
             </a>
+            <a
+              href="/ai-hardware-survey/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                borderRadius: '16px',
+                border: '1px solid rgba(179, 136, 255, 0.2)',
+                background: 'rgba(179, 136, 255, 0.06)',
+                padding: '14px 18px',
+                textDecoration: 'none',
+                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
+              }}
+            >
+              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>&#x1F5A5;&#xFE0F;</span>
+              <div>
+                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
+                  AI 装机指南
+                </div>
+                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
+                  本地跑 Qwen 3.5 27B + Wan2GP 设备全景对比
+                </div>
+              </div>
+            </a>
           </div>
         </div>
 
