@@ -170,13 +170,16 @@ td.danger { color: var(--accent-red); font-weight: 600; }
 .chart-card {
   background: var(--panel-primary); border: 1px solid var(--border-color);
   border-radius: var(--radius-md); padding: 20px;
+  overflow: hidden; min-width: 0;
 }
 .chart-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--text-secondary); }
-.chart-card canvas { max-height: 320px; }
+.chart-card canvas { max-height: 320px; width: 100% !important; max-width: 100%; display: block; position: relative; aspect-ratio: unset; }
 .chart-full { grid-column: 1 / -1; }
 
 @media (max-width: 768px) {
   .chart-grid { grid-template-columns: 1fr; }
+  .chart-card { padding: 14px; }
+  .chart-card canvas { max-height: 240px; }
 }
 
 /* ── Spec Grid ── */
@@ -906,6 +909,7 @@ new Chart(document.getElementById('chartVram'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { position: 'top', labels: { color: tickColor, font: chartFont } }
     },
@@ -935,6 +939,7 @@ new Chart(document.getElementById('chartDDR5'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     indexAxis: 'y',
     plugins: {
       legend: { display: false }
@@ -965,6 +970,7 @@ new Chart(document.getElementById('chartPrice'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: {
       y: {
@@ -1004,6 +1010,7 @@ new Chart(document.getElementById('chartSpeed'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     indexAxis: 'y',
     plugins: { legend: { display: false } },
     scales: {
@@ -1040,6 +1047,7 @@ new Chart(document.getElementById('chartMemory'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     indexAxis: 'y',
     plugins: { legend: { display: false } },
     scales: {
@@ -1078,6 +1086,7 @@ new Chart(document.getElementById('chartBandwidth'), {
   },
   options: {
     responsive: true,
+    maintainAspectRatio: false,
     indexAxis: 'y',
     plugins: { legend: { display: false } },
     scales: {
