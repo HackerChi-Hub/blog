@@ -292,6 +292,14 @@ td.danger { color: var(--accent-red); font-weight: 600; }
 </head>
 <body>
 
+<!-- ═══════ Disclaimer Banner ═══════ -->
+<div style="background:rgba(255,83,112,0.08);border:1px solid rgba(255,83,112,0.25);border-radius:12px;padding:14px 20px;margin:20px auto 0;max-width:900px;display:flex;gap:10px;align-items:flex-start;">
+  <span style="font-size:1.1rem;flex-shrink:0;margin-top:1px;">⚠️</span>
+  <div style="font-size:0.85rem;color:rgba(230,239,255,0.9);line-height:1.6;">
+    <strong style="color:#f9fbff;">数据免责</strong>：除官方标注外，本文价格/参数均为互联网估算值，<strong style="color:#ffb347;">推理速度（tok/s）为理论推算，非实测 Benchmark</strong>。DGX Spark 等未上市产品数据以官方最终发布为准。有购买意向的读者请自行核实实时价格。
+  </div>
+</div>
+
 <!-- ═══════ Hero ═══════ -->
 <div class="container">
   <a href="/" class="back-link">&larr; 返回首页</a>
@@ -453,7 +461,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <h3><span class="dot" style="background:var(--accent-orange)"></span> DDR5 内存价格专题（2026.04 实际行情）</h3>
     <div class="chart-grid">
       <div class="chart-card chart-full">
-        <h4>📊 DDR5 内存价格对比（2026 年 4 月）</h4>
+        <h4>📊 DDR5 内存价格对比（2026 年 4 月）<span style="font-size:0.75rem;color:var(--text-muted);font-weight:400;">（64GB 为估算值）</span></h4>
         <canvas id="chartDDR5"></canvas>
       </div>
     </div>
@@ -487,7 +495,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">GPU</span><span class="spec-card-value">RTX 5090 移动 24GB</span></div>
         <div class="spec-card-row"><span class="spec-card-label">内存</span><span class="spec-card-value">64GB DDR5</span></div>
         <div class="spec-card-row"><span class="spec-card-label">存储</span><span class="spec-card-value">2TB SSD</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-green)">~56</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~56</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-violet)">
         <div class="spec-card-header">
@@ -500,7 +508,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">统一内存</span><span class="spec-card-value" style="color:var(--accent-green)">48-128GB</span></div>
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">614 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">接口</span><span class="spec-card-value">Thunderbolt 5, Wi-Fi 7</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-green)">~38 (128GB)</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~38 (128GB)</span></div>
       </div>
     </div>
     <p style="font-size:0.85rem;color:var(--text-muted)">
@@ -523,7 +531,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">最高内存</span><span class="spec-card-value">128GB 统一</span></div>
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">546 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">128GB 价</span><span class="spec-card-value">~¥29,999</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-green)">~34</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~34</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-violet)">
         <div class="spec-card-header">
@@ -536,7 +544,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">最高内存</span><span class="spec-card-value" style="color:var(--accent-green)">256GB 统一</span></div>
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value" style="color:var(--accent-green)">819 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">256GB 价</span><span class="spec-card-value">~¥47,999</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-green)">~51</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~51</span></div>
       </div>
     </div>
     <div class="callout callout-info">
@@ -562,7 +570,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">统一内存</span><span class="spec-card-value">128GB LPDDR5x</span></div>
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">273 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">算力</span><span class="spec-card-value">1,000 AI TOPS (FP4)</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-yellow)">~17</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-yellow)">~17</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-red)">
         <div class="spec-card-header">
@@ -575,7 +583,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">统一内存</span><span class="spec-card-value">128GB LPDDR5x</span></div>
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">~256 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">核显</span><span class="spec-card-value">RDNA 3.5, 40 CU</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s</span><span class="spec-card-value" style="color:var(--accent-yellow)">~16</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-yellow)">~16</span></div>
       </div>
     </div>
     <div class="callout callout-warning">
@@ -638,7 +646,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s</th><th>Wan2GP</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
+          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s 📐</th><th>Wan2GP</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -810,19 +818,38 @@ td.danger { color: var(--accent-red); font-weight: 600; }
   <div class="section-title">
     <span class="num">07</span>
     <span class="icon">📚</span>
-    数据来源
+    数据来源与免责声明
   </div>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-text">
+      <strong>重要免责</strong>：本文数据为互联网搜集整理，<strong>除特别注明外均为估算值，非官方实测数据</strong>。推理速度（tokens/s）基于「带宽÷参数量」理论推算，非实际 Benchmark。价格可能随市场波动，请以购买时实际报价为准。建议有购买意向的读者自行核实各电商平台当日价格。
+    </div>
+  </div>
+
+  <div class="callout callout-warning">
+    <span class="callout-icon">📌</span>
+    <div class="callout-text">
+      <strong>数据可信度分级</strong>：⭐⭐⭐ 官方规格（Apple 官网、NVIDIA 官网）| ⭐⭐ 第三方媒体报道（带具体日期/链接）| ⭐ 估算/推断/无链接来源
+    </div>
+  </div>
+
   <ul class="source-list">
-    <li><strong>RTX 5090 D v2 规格/价格</strong> — IT之家、ZOL、英伟达官方</li>
-    <li><strong>RTX 5090 D 原版禁售</strong> — 腾讯新闻报道</li>
-    <li><strong>RX 7900 XTX 价格</strong> — gpuxianka 2025 报价</li>
-    <li><strong>Mac Studio 定价</strong> — 苹果官网、新浪科技、腾讯新闻</li>
-    <li><strong>MacBook Pro M5 定价</strong> — V2EX 汇总帖、苹果官网、36氪评测</li>
-    <li><strong>DGX Spark 价格</strong> — 新浪财经 2026-04-21、超能网、快科技</li>
-    <li><strong>Y9000P 价格</strong> — 知乎 RTX5090 笔记本购买指南</li>
-    <li><strong>DDR5 内存价格</strong> — 用户京东截图 + 知乎 2026-04 行情 + EET-China 涨价报道</li>
-    <li><strong>Apple M5 Max 128GB 规格</strong> — Apple 官方技术规格页</li>
-    <li><strong>M5 Max 带宽 614 GB/s</strong> — Apple specs page 确认</li>
+    <li><strong>RTX 5090 D v2 价格 ⭐⭐</strong> — 英伟达 MSRP ¥16,499 / 京东第三方；规格：IT之家、ZOL</li>
+    <li><strong>RTX 5090 D v2 台式机组装总价 ⭐</strong> — 各配件价格推算求和，非整机实际报价</li>
+    <li><strong>RTX 5090 D 原版禁售 ⭐⭐</strong> — 腾讯新闻报道，需核实禁售令最新状态</li>
+    <li><strong>RX 7900 XTX 价格 ⭐⭐</strong> — gpuxianka 2025 报价；2026 年价格可能已变动，<strong>建议核实</strong></li>
+    <li><strong>Mac Studio M4 Max 定价 ⭐⭐⭐</strong> — 苹果官网；¥16,499 为 36GB 版，128GB 版约 ¥29,999</li>
+    <li><strong>Mac Studio M3 Ultra 定价 ⭐⭐⭐</strong> — 苹果官网</li>
+    <li><strong>MacBook Pro M5 定价 ⭐⭐</strong> — V2EX 汇总帖（需核实当日价格）、苹果官网、36氪评测</li>
+    <li><strong>DGX Spark 价格/参数 ⭐</strong> — 新浪财经 2026-04-21 等媒体报道；产品尚未正式开售，<strong>价格和参数均为估算，以官方最终发布为准</strong></li>
+    <li><strong>Y9000P RTX5090 价格 ⭐⭐</strong> — 知乎 RTX5090 笔记本购买指南；需核实具体 SKU 配置</li>
+    <li><strong>DDR5 内存价格 ⭐~⭐⭐</strong> — 部分来自用户截图（可信），部分"按 32GB 估算"（纯估算）</li>
+    <li><strong>Apple M5 Max 带宽 614 GB/s ⭐⭐⭐</strong> — Apple 官方技术规格页</li>
+    <li><strong>所有 tok/s 推理速度 ⭐</strong> — <strong>纯理论推算</strong>（公式：带宽 GB/s ÷ 模型体积 GB），非 Ollama/llama.cpp 实际测试结果</li>
+    <li><strong>Strix Halo 带宽 ~256 GB/s ⭐⭐</strong> — ~ 符号表示非官方确认值</li>
+    <li><strong>Qwen 3.5 27B VRAM 需求 ⭐⭐</strong> — 参考 llama.cpp 量化表，非针对 Qwen 3.5 27B 专项测试</li>
   </ul>
 </section>
 
@@ -955,7 +982,7 @@ new Chart(document.getElementById('chartSpeed'), {
   data: {
     labels: ['Strix Halo', 'DGX Spark', 'Studio M4 Max', 'MBP M5 Max', 'Studio M3 Ultra', 'Y9000P', 'RX 7900 XTX', 'RTX 5090 D v2'],
     datasets: [{
-      label: 'tokens/s (Q4_K_M)',
+      label: 'tokens/s (Q4_K_M) 📐',
       data: [16, 17, 34, 38, 51, 56, 60, 83],
       backgroundColor: function(ctx) {
         const v = ctx.raw;
