@@ -642,6 +642,30 @@ const HeroSection = ({
                 </div>
               </div>
             </a>
+            <a
+              href="/llm-guide/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                borderRadius: '16px',
+                border: '1px solid rgba(105, 240, 174, 0.2)',
+                background: 'rgba(105, 240, 174, 0.06)',
+                padding: '14px 18px',
+                textDecoration: 'none',
+                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
+              }}
+            >
+              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🤖</span>
+              <div>
+                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
+                  本地 LLM 指南
+                </div>
+                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
+                  Ollama · LM Studio · GGUF 框架与格式全解
+                </div>
+              </div>
+            </a>
           </div>
         </div>
 
