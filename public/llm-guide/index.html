@@ -697,8 +697,26 @@ table.hw .vram{font-weight:800;font-size:1.05rem;color:var(--green)}
           <div class="kv-token kv-new">MoE</div>
         </div>
         KV Cache 大小 ≈ <code>2 × layers × heads × head_dim × context_len × fp16</code><br>
-        27B模型，context=8192时 ≈ <strong>2.5 GB</strong>。所以长对话会吃掉更多显存。<br><br>
-        <code>-c 4096</code> 设置上下文长度，越小越省显存。
+        Qwen3.6-27B 每 token 约 <strong>256 KB</strong>（FP16）；context=8192 时 KV ≈ <strong>2 GB</strong>。<br><br>
+        <strong>各设备推荐 num_ctx（Qwen3.6-27B Q4_K_M）：</strong>
+        <div style="overflow-x:auto;margin:10px 0 6px">
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+            <thead>
+              <tr style="background:rgba(255,179,71,0.08)">
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">GPU / 设备</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">可用显存</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">KV 可用</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">推荐 num_ctx</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 4070 Laptop 8 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">8 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange)">~1.7 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">8192 ⚠️</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 4090 / 5090 D v2 24 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">24 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">~7.9 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">32768 ✅</td></tr>
+              <tr><td style="padding:6px 10px;color:var(--sub)">Apple M 统一内存 128 GB+</td><td style="padding:6px 10px;color:var(--sub)">128 GB+</td><td style="padding:6px 10px;color:var(--green)">~112 GB</td><td style="padding:6px 10px;color:var(--green);font-weight:700">32768 ✅</td></tr>
+            </tbody>
+          </table>
+        </div>
+        Ollama 设置方式：<code>PARAMETER num_ctx 8192</code>（写入 Modelfile 永久生效，见 §6 教程）。超出 VRAM 的 KV 会溢出到 CPU 内存，速度会骤降至 CPU 带宽瓶颈（~60 GB/s）。
       </div>
     </div>
 
@@ -1351,6 +1369,7 @@ model = FastLanguageModel.get_peft_model(
           <th>推荐模型+量化</th>
           <th>框架</th>
           <th>预期速度</th>
+          <th>推荐 num_ctx</th>
         </tr>
       </thead>
       <tbody>
@@ -1360,6 +1379,7 @@ model = FastLanguageModel.get_peft_model(
           <td>Qwen3 4B Q8 · Qwen3 8B Q4（混跑 16G内存）</td>
           <td>Ollama</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--orange)"></span>15-25 tok/s</span></td>
+          <td style="color:var(--orange);font-weight:600">4096</td>
         </tr>
         <tr style="background:rgba(105,240,174,.02)">
           <td><strong>RTX 4070 / 3070</strong></td>
@@ -1367,6 +1387,7 @@ model = FastLanguageModel.get_peft_model(
           <td><strong>Qwen3.6-27B Q4_K_M（8G显存+12G内存）</strong></td>
           <td>Ollama</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--green)"></span>5-10 tok/s</span></td>
+          <td style="color:var(--orange);font-weight:600">8192 ⚠️</td>
         </tr>
         <tr>
           <td>RTX 4070 Ti / 3090</td>
@@ -1374,6 +1395,7 @@ model = FastLanguageModel.get_peft_model(
           <td>Qwen3.6-27B Q6_K · Qwen3.5-35B Q4（混跑）</td>
           <td>Ollama / LM Studio</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--cyan)"></span>10-18 tok/s</span></td>
+          <td style="color:var(--cyan);font-weight:600">16384</td>
         </tr>
         <tr>
           <td>RTX 4090</td>
@@ -1381,6 +1403,7 @@ model = FastLanguageModel.get_peft_model(
           <td>Qwen3.6-27B Q8（全装）· Qwen3 32B Q4</td>
           <td>Ollama / vLLM</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--violet)"></span>25-40 tok/s</span></td>
+          <td style="color:var(--green);font-weight:600">32768 ✅</td>
         </tr>
         <tr>
           <td>2× RTX 4090 / A100</td>
@@ -1388,6 +1411,7 @@ model = FastLanguageModel.get_peft_model(
           <td>Qwen3.5-397B Q4 · Qwen3.6-27B BF16</td>
           <td>vLLM（tensor parallel）</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--pink)"></span>60-120 tok/s</span></td>
+          <td style="color:var(--green);font-weight:600">32768 ✅</td>
         </tr>
         <tr>
           <td>Apple M3/M4 Max</td>
@@ -1395,6 +1419,7 @@ model = FastLanguageModel.get_peft_model(
           <td>Qwen3.6-27B Q6_K · 任意 Q8（Metal加速）</td>
           <td>Ollama / MLX</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--yellow)"></span>15-30 tok/s</span></td>
+          <td style="color:var(--green);font-weight:600">32768 ✅</td>
         </tr>
       </tbody>
     </table>

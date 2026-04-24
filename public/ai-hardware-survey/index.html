@@ -417,10 +417,23 @@ td.danger { color: var(--accent-red); font-weight: 600; }
       <div class="dim-title">统一 vs 独立显存</div>
       <div class="dim-desc">容量-速度取舍</div>
     </div>
+    <div class="dim-card">
+      <div class="dim-icon">📋</div>
+      <div class="dim-title">上下文长度</div>
+      <div class="dim-desc">决定「能记多长」</div>
+    </div>
   </div>
 
   <div class="formula-box">
     理论 tokens/s = 内存带宽 (GB/s) &divide; 模型量化体积 (GB)
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📋</span>
+    <div class="callout-text">
+      <strong>上下文长度（Context Length）</strong>：模型在一次对话里能"记住"多少内容，由 KV 缓存占用的显存决定。KV 缓存大小 ≈ <code>2 × 层数 × KV头 × head_dim × context_len × 2字节</code>。Qwen3.6-27B 每个 token 约占 <strong>256 KB</strong> 显存。
+      24GB 独显（扣掉 ~16.1 GB 模型权重后剩余 ~7.9 GB）可支撑完整 <strong>32768 token</strong> 上下文；8 GB 混合推理的笔电仅剩约 1.7 GB，推荐设置 <strong>8192 token</strong>（Ollama：<code>PARAMETER num_ctx 8192</code>）。
+    </div>
   </div>
 </section>
 
@@ -649,56 +662,62 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s 📐</th><th>Wan2GP</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
+          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s 📐</th><th>推荐 ctx</th><th>Wan2GP</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>RTX 5090 D v2 台式</strong></td>
             <td>24GB GDDR7</td><td>1,344 GB/s</td>
-            <td class="highlight">~83</td><td>✅ 720p</td><td>CUDA ⭐</td>
+            <td class="highlight">~83</td><td class="highlight">32768</td><td>✅ 720p</td><td>CUDA ⭐</td>
             <td class="price">31,000-33,000</td><td>⭐⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>RX 7900 XTX 台式</strong></td>
-            <td>24GB GDDR6</td><td>960 GB/s</td>
-            <td>~60</td><td>✅ 720p</td><td>ROCm ⚠️</td>
+            <td>24GB GDDR7</td><td>960 GB/s</td>
+            <td>~60</td><td class="highlight">32768</td><td>✅ 720p</td><td>ROCm ⚠️</td>
             <td class="price">18,000-22,000</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Y9000P RTX5090</strong></td>
             <td>24GB GDDR7</td><td>~900 GB/s</td>
-            <td>~56</td><td>✅ 720p</td><td>CUDA ⭐</td>
+            <td>~56</td><td class="highlight">32768</td><td>✅ 720p</td><td>CUDA ⭐</td>
             <td class="price">25,499</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>MacBook Pro 16" M5 Max</strong></td>
             <td>128GB 统一</td><td>614 GB/s</td>
-            <td>~38</td><td>⚠️ 480p</td><td>MLX</td>
+            <td>~38</td><td class="highlight">32768</td><td>⚠️ 480p</td><td>MLX</td>
             <td class="price">35,999-57,999</td><td>⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Mac Studio M4 Max</strong></td>
             <td>128GB 统一</td><td>546 GB/s</td>
-            <td>~34</td><td>⚠️ 480p</td><td>MLX</td>
+            <td>~34</td><td class="highlight">32768</td><td>⚠️ 480p</td><td>MLX</td>
             <td class="price">16,499-42,000</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Mac Studio M3 Ultra</strong></td>
             <td>256GB 统一</td><td>819 GB/s</td>
-            <td>~51</td><td>⚠️ 720p</td><td>MLX</td>
+            <td>~51</td><td class="highlight">32768</td><td>⚠️ 720p</td><td>MLX</td>
             <td class="price">32,999-108,749</td><td>⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>DGX Spark</strong></td>
             <td>128GB LPDDR5x</td><td>273 GB/s</td>
-            <td>~17</td><td>❌ 无GPU</td><td>CUDA</td>
+            <td>~17</td><td class="highlight">32768</td><td>❌ 无GPU</td><td>CUDA</td>
             <td class="price">30,000-40,000</td><td>⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Strix Halo 395</strong></td>
             <td>128GB LPDDR5x</td><td>~256 GB/s</td>
-            <td>~16</td><td>❌ 核显弱</td><td>ROCm</td>
+            <td>~16</td><td class="highlight">32768</td><td>❌ 核显弱</td><td>ROCm</td>
             <td class="price">15,000-25,000</td><td>⭐⭐</td>
+          </tr>
+          <tr style="border-top:1px solid rgba(255,83,112,0.25)">
+            <td><strong>RTX 4070 Laptop 8GB</strong> <span style="font-size:0.8rem;color:var(--text-muted)">（混合推理）</span></td>
+            <td>8GB GDDR6</td><td>504 GB/s</td>
+            <td class="warn">~5-10</td><td class="warn">8192 ⚠️</td><td>❌ VRAM不足</td><td>CUDA</td>
+            <td class="price">参考整机价</td><td>⭐⭐</td>
           </tr>
         </tbody>
       </table>
@@ -709,6 +728,16 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <span class="callout-icon">💡</span>
     <div class="callout-text">
       <strong>速度 vs 容量取舍</strong>：NVIDIA/AMD 独显带宽高（900-1,344 GB/s）但显存固定 24GB；Apple 统一内存容量大（128-256GB）但带宽低（273-819 GB/s）。如果主要跑 27B 模型，显存 24GB 够用，NVIDIA 带宽优势明显。如果需要跑 72B+，必须选 Apple 统一内存。
+    </div>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📋</span>
+    <div class="callout-text">
+      <strong>上下文长度取舍</strong>：Qwen3.6-27B Q4_K_M 模型权重约 16.1 GB，每个 token 的 KV 缓存占用 <strong>256 KB</strong>（FP16）。
+      24GB 独显扣掉权重后剩余约 7.9 GB，可完整装下 <strong>32768 token</strong> 的 KV 缓存（7.9 GB ÷ 256 KB = ~31,500 token）。
+      Apple 统一内存和大容量方案同样不受限制。
+      <strong>例外：</strong>8 GB 笔记本 GPU（RTX 4070 Laptop 等）因 6.4 GB 已被模型占用，KV 缓存仅剩 ~1.7 GB，推荐设置 <strong>num_ctx 8192</strong>，更大的值会溢出到 CPU 内存，速度骤降。
     </div>
   </div>
 </section>
