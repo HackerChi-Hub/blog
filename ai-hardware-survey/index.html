@@ -422,6 +422,11 @@ td.danger { color: var(--accent-red); font-weight: 600; }
       <div class="dim-title">上下文长度</div>
       <div class="dim-desc">决定「能记多长」</div>
     </div>
+    <div class="dim-card">
+      <div class="dim-icon">🔊</div>
+      <div class="dim-title">噪音与散热</div>
+      <div class="dim-desc">决定「能不能放桌面」</div>
+    </div>
   </div>
 
   <div class="formula-box">
@@ -432,7 +437,25 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <span class="callout-icon">📋</span>
     <div class="callout-text">
       <strong>上下文长度（Context Length）</strong>：模型在一次对话里能"记住"多少内容，由 KV 缓存占用的显存决定。KV 缓存大小 ≈ <code>2 × 层数 × KV头 × head_dim × context_len × 2字节</code>。Qwen3.6-27B 每个 token 约占 <strong>256 KB</strong> 显存。
-      24GB 独显（扣掉 ~16.1 GB 模型权重后剩余 ~7.9 GB）可支撑完整 <strong>32768 token</strong> 上下文；8 GB 混合推理的笔电仅剩约 1.7 GB，推荐设置 <strong>8192 token</strong>（Ollama：<code>PARAMETER num_ctx 8192</code>）。
+      24GB 独显（扣掉 ~16.1 GB 模型权重后剩余 ~7.9 GB）可支撑完整 <strong>32768 token</strong> 上下文；8 GB 混合推理的笔电仅剩约 1.7 GB，推荐设置 <strong>8192 token</strong>（Ollama：<code>PARAMETER num_ctx 8192</code>）。<br><br>
+      <strong>Token 换算成实际内容（Qwen 分词器）：</strong>
+      <div style="overflow-x:auto;margin:10px 0 6px">
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+          <thead>
+            <tr style="background:rgba(0,229,255,0.08)">
+              <th style="padding:7px 10px;text-align:left;color:var(--accent-cyan);border-bottom:1px solid var(--border-color)">上下文长度</th>
+              <th style="padding:7px 10px;text-align:left;color:var(--accent-cyan);border-bottom:1px solid var(--border-color)">英文</th>
+              <th style="padding:7px 10px;text-align:left;color:var(--accent-cyan);border-bottom:1px solid var(--border-color)">中文</th>
+              <th style="padding:7px 10px;text-align:left;color:var(--accent-cyan);border-bottom:1px solid var(--border-color)">代码</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--accent-orange);font-weight:700">8,192 token</td><td style="padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary)">~6,000 词 (~12 页)</td><td style="padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary)">~12,000 字 (~25 页)</td><td style="padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--text-secondary)">~500-800 行</td></tr>
+            <tr><td style="padding:6px 10px;color:var(--accent-green);font-weight:700">32,768 token</td><td style="padding:6px 10px;color:var(--text-secondary)">~24,000 词 (~48 页)</td><td style="padding:6px 10px;color:var(--text-secondary)">~48,000 字 (~100 页)</td><td style="padding:6px 10px;color:var(--text-secondary)">~2,000-3,200 行</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <strong>上下文溢出会怎样？</strong>对话超出上下文窗口后，最早的消息被自动丢弃（滑动窗口机制），模型"忘记"之前说过的话。具体表现：① 系统提示词被挤出窗口 → 回答风格跑偏、不再遵循角色设定；② 长对话中模型不记得你之前的要求，反复追问相同问题；③ RAG 场景下检索到的参考文档被截断，关键信息遗漏。此外，8 GB 设备如果把 num_ctx 设得过大，KV 缓存会从 GPU 显存溢出到 CPU 内存，生成速度从 GPU 带宽（~500 GB/s）骤降至 CPU 带宽（~60 GB/s），<strong>速度下降 8-10 倍</strong>。
     </div>
   </div>
 </section>
@@ -462,6 +485,32 @@ td.danger { color: var(--accent-red); font-weight: 600; }
           <tr style="border-top:2px solid rgba(105,240,174,0.3)"><td colspan="2" style="font-weight:700;color:var(--text-primary)">合计</td><td class="price" style="font-size:1.1rem">31,394-32,894</td><td style="color:var(--accent-green);font-weight:600">推荐方案</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- A2. RX 7900 XTX Build -->
+  <div class="card">
+    <h3><span class="dot" style="background:var(--accent-orange)"></span> A2. 台式组装机 — RX 7900 XTX 高性价比方案</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>配件</th><th>规格</th><th>价格 (¥)</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td>CPU</td><td>AMD Ryzen 7 9700X (8C/16T)</td><td class="price">~2,199</td><td>京东第三方</td></tr>
+          <tr><td>主板</td><td>B650 中端 ATX</td><td class="price">~1,099</td><td>京东自营</td></tr>
+          <tr><td>GPU</td><td>AMD RX 7900 XTX 24GB GDDR6</td><td class="price">~6,499</td><td>京东自营</td></tr>
+          <tr><td>内存</td><td>DDR5 64GB (32×2) 6000</td><td class="price">4,600-5,200</td><td>DRAM 涨价后</td></tr>
+          <tr><td>SSD</td><td>2TB NVMe PCIe 4.0</td><td class="price">~899</td><td>京东自营</td></tr>
+          <tr><td>电源</td><td>850W ATX 3.0 金牌</td><td class="price">~699</td><td>京东自营</td></tr>
+          <tr><td>机箱+散热</td><td>中塔 + 360水冷</td><td class="price">~699</td><td>京东自营</td></tr>
+          <tr style="border-top:2px solid rgba(255,179,71,0.3)"><td colspan="2" style="font-weight:700;color:var(--text-primary)">合计</td><td class="price" style="font-size:1.1rem">16,694-17,294</td><td style="color:var(--accent-orange);font-weight:600">性价比之选</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-text">
+        <strong>ROCm 生态提醒</strong>：RX 7900 XTX 使用 ROCm 而非 CUDA，部分模型/工具需要额外适配。Ollama 已原生支持 AMD GPU，但 PyTorch 生态下 CUDA 兼容性仍优于 ROCm。适合愿意折腾的用户。
+      </div>
     </div>
   </div>
 
@@ -512,6 +561,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">内存</span><span class="spec-card-value">64GB DDR5</span></div>
         <div class="spec-card-row"><span class="spec-card-label">存储</span><span class="spec-card-value">2TB SSD</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~56</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-orange)">🔊 50-55 dB（满载）</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-violet)">
         <div class="spec-card-header">
@@ -525,6 +575,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">614 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">接口</span><span class="spec-card-value">Thunderbolt 5, Wi-Fi 7</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~38 (128GB)</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-green)">🔇 ~25-35 dB（极静）</span></div>
       </div>
     </div>
     <p style="font-size:0.85rem;color:var(--text-muted)">
@@ -548,6 +599,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">546 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">128GB 价</span><span class="spec-card-value">~¥29,999</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~34</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-green)">🔇 ~25-30 dB（极静）</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-violet)">
         <div class="spec-card-header">
@@ -561,6 +613,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value" style="color:var(--accent-green)">819 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">256GB 价</span><span class="spec-card-value">~¥47,999</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-green)">~51</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-green)">🔇 ~28-32 dB（极静）</span></div>
       </div>
     </div>
     <div class="callout callout-info">
@@ -587,6 +640,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">273 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">算力</span><span class="spec-card-value">1,000 AI TOPS (FP4)</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-yellow)">~17</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-green)">🔇 ~0 dB（被动散热）</span></div>
       </div>
       <div class="spec-card" style="border-left:3px solid var(--accent-red)">
         <div class="spec-card-header">
@@ -600,6 +654,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
         <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">~256 GB/s</span></div>
         <div class="spec-card-row"><span class="spec-card-label">核显</span><span class="spec-card-value">RDNA 3.5, 40 CU</span></div>
         <div class="spec-card-row"><span class="spec-card-label">Q4 tok/s <span title="理论估算：带宽÷模型体积">📐</span></span><span class="spec-card-value" style="color:var(--accent-yellow)">~16</span></div>
+        <div class="spec-card-row"><span class="spec-card-label">噪音</span><span class="spec-card-value" style="color:var(--accent-orange)">🔊 35-45 dB（OEM 定）</span></div>
       </div>
     </div>
     <div class="callout callout-warning">
@@ -662,61 +717,61 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s 📐</th><th>推荐 ctx</th><th>Wan2GP</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
+          <tr><th>设备</th><th>显存/内存</th><th>带宽</th><th>Q4 tok/s 📐</th><th>推荐 ctx</th><th>Wan2GP</th><th>噪音</th><th>生态</th><th>价格 (¥)</th><th>性价比</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>RTX 5090 D v2 台式</strong></td>
             <td>24GB GDDR7</td><td>1,344 GB/s</td>
-            <td class="highlight">~83</td><td class="highlight">32768</td><td>✅ 720p</td><td>CUDA ⭐</td>
+            <td class="highlight">~83</td><td class="highlight">32768</td><td>✅ 720p</td><td class="warn">🔊 48-55 dB</td><td>CUDA ⭐</td>
             <td class="price">31,000-33,000</td><td>⭐⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>RX 7900 XTX 台式</strong></td>
             <td>24GB GDDR7</td><td>960 GB/s</td>
-            <td>~60</td><td class="highlight">32768</td><td>✅ 720p</td><td>ROCm ⚠️</td>
-            <td class="price">18,000-22,000</td><td>⭐⭐⭐⭐</td>
+            <td>~60</td><td class="highlight">32768</td><td>✅ 720p</td><td>🔊 40-48 dB</td><td>ROCm ⚠️</td>
+            <td class="price">16,700-17,300</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Y9000P RTX5090</strong></td>
             <td>24GB GDDR7</td><td>~900 GB/s</td>
-            <td>~56</td><td class="highlight">32768</td><td>✅ 720p</td><td>CUDA ⭐</td>
+            <td>~56</td><td class="highlight">32768</td><td>✅ 720p</td><td class="warn">🔊 50-55 dB</td><td>CUDA ⭐</td>
             <td class="price">25,499</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>MacBook Pro 16" M5 Max</strong></td>
             <td>128GB 统一</td><td>614 GB/s</td>
-            <td>~38</td><td class="highlight">32768</td><td>⚠️ 480p</td><td>MLX</td>
+            <td>~38</td><td class="highlight">32768</td><td>⚠️ 480p</td><td class="highlight">🔇 25-35 dB</td><td>MLX</td>
             <td class="price">35,999-57,999</td><td>⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Mac Studio M4 Max</strong></td>
             <td>128GB 统一</td><td>546 GB/s</td>
-            <td>~34</td><td class="highlight">32768</td><td>⚠️ 480p</td><td>MLX</td>
+            <td>~34</td><td class="highlight">32768</td><td>⚠️ 480p</td><td class="highlight">🔇 25-30 dB</td><td>MLX</td>
             <td class="price">16,499-42,000</td><td>⭐⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Mac Studio M3 Ultra</strong></td>
             <td>256GB 统一</td><td>819 GB/s</td>
-            <td>~51</td><td class="highlight">32768</td><td>⚠️ 720p</td><td>MLX</td>
+            <td>~51</td><td class="highlight">32768</td><td>⚠️ 720p</td><td class="highlight">🔇 28-32 dB</td><td>MLX</td>
             <td class="price">32,999-108,749</td><td>⭐⭐⭐</td>
           </tr>
           <tr>
             <td><strong>DGX Spark</strong></td>
             <td>128GB LPDDR5x</td><td>273 GB/s</td>
-            <td>~17</td><td class="highlight">32768</td><td>❌ 无GPU</td><td>CUDA</td>
+            <td>~17</td><td class="highlight">32768</td><td>❌ 无GPU</td><td class="highlight">🔇 ~0 dB</td><td>CUDA</td>
             <td class="price">30,000-40,000</td><td>⭐⭐</td>
           </tr>
           <tr>
             <td><strong>Strix Halo 395</strong></td>
             <td>128GB LPDDR5x</td><td>~256 GB/s</td>
-            <td>~16</td><td class="highlight">32768</td><td>❌ 核显弱</td><td>ROCm</td>
+            <td>~16</td><td class="highlight">32768</td><td>❌ 核显弱</td><td>🔊 35-45 dB</td><td>ROCm</td>
             <td class="price">15,000-25,000</td><td>⭐⭐</td>
           </tr>
           <tr style="border-top:1px solid rgba(255,83,112,0.25)">
             <td><strong>RTX 4070 Laptop 8GB</strong> <span style="font-size:0.8rem;color:var(--text-muted)">（混合推理）</span></td>
             <td>8GB GDDR6</td><td>504 GB/s</td>
-            <td class="warn">~5-10</td><td class="warn">8192 ⚠️</td><td>❌ VRAM不足</td><td>CUDA</td>
+            <td class="warn">~5-10</td><td class="warn">8192 ⚠️</td><td>❌ VRAM不足</td><td class="warn">🔊 45-50 dB</td><td>CUDA</td>
             <td class="price">参考整机价</td><td>⭐⭐</td>
           </tr>
         </tbody>
@@ -734,10 +789,13 @@ td.danger { color: var(--accent-red); font-weight: 600; }
   <div class="callout callout-info">
     <span class="callout-icon">📋</span>
     <div class="callout-text">
-      <strong>上下文长度取舍</strong>：Qwen3.6-27B Q4_K_M 模型权重约 16.1 GB，每个 token 的 KV 缓存占用 <strong>256 KB</strong>（FP16）。
-      24GB 独显扣掉权重后剩余约 7.9 GB，可完整装下 <strong>32768 token</strong> 的 KV 缓存（7.9 GB ÷ 256 KB = ~31,500 token）。
-      Apple 统一内存和大容量方案同样不受限制。
-      <strong>例外：</strong>8 GB 笔记本 GPU（RTX 4070 Laptop 等）因 6.4 GB 已被模型占用，KV 缓存仅剩 ~1.7 GB，推荐设置 <strong>num_ctx 8192</strong>，更大的值会溢出到 CPU 内存，速度骤降。
+      <strong>上下文长度取舍</strong>：24GB 独显扣掉模型权重后剩余 ~7.9 GB，可装下完整 <strong>32768 token</strong>（~48,000 汉字）KV 缓存。8 GB 笔记本仅剩 ~1.7 GB，推荐 <strong>num_ctx 8192</strong>（~12,000 汉字）。溢出后果详见 §02。
+    </div>
+  </div>
+  <div class="callout callout-warning">
+    <span class="callout-icon">🔊</span>
+    <div class="callout-text">
+      <strong>噪音取舍</strong>：台式机配 5090 D v2（600W TDP）高负载 ~48-55 dB，相当于嘈杂办公室；RX 7900 XTX（355W TDP）~40-48 dB，明显更安静。Mac Studio / DGX Spark 接近静音（~25-35 dB）。游戏本满载 50-55 dB，不适合安静环境长时间使用。详见下方矩阵「噪音」列。
     </div>
   </div>
 </section>
@@ -761,7 +819,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="tree-node branch">💰 预算 &lt; 2万
       <span class="tree-price">→ RX 7900 XTX 台式机</span>
     </div>
-    <div class="tree-node leaf">⚠️ ROCm 生态不如 CUDA，部分模型需适配<span class="tree-price">¥18,000-22,000</span></div>
+    <div class="tree-node leaf">⚠️ ROCm 生态不如 CUDA，部分模型需适配<span class="tree-price">¥16,700-17,300</span></div>
 
     <div class="tree-node branch">🧠 需要跑 72B+ 大模型
       <span class="tree-price">→ Apple 统一内存</span>
@@ -784,7 +842,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="tree-node branch">🪙 极限预算，只要能跑
       <span class="tree-price">→ 最便宜方案</span>
     </div>
-    <div class="tree-node leaf">RX 7900 XTX + 金百达 64GB DDR5 6000<span class="tree-price">约 ¥4,600</span></div>
+    <div class="tree-node leaf">RX 7900 XTX 台式整机（Ryzen 7 9700X + 64GB DDR5）<span class="tree-price">¥16,700-17,300</span></div>
   </div>
 </section>
 
@@ -990,7 +1048,7 @@ new Chart(document.getElementById('chartPrice'), {
     labels: ['Strix Halo', 'RX 7900 XTX\n台式', 'Y9000P', 'Mac Studio\nM4 Max', 'RTX 5090 D v2\n台式', 'DGX\nSpark', 'Mac Studio\nM3 Ultra'],
     datasets: [{
       label: '价格 (¥)',
-      data: [20000, 20000, 25499, 29999, 32144, 35000, 47999],
+      data: [20000, 17000, 25499, 29999, 32144, 35000, 47999],
       backgroundColor: [RED+'88', ORANGE+'88', GREEN+'88', BLUE+'88', GREEN+'cc', YELLOW+'88', VIOLET+'88'],
       borderColor: [RED, ORANGE, GREEN, BLUE, GREEN, YELLOW, VIOLET],
       borderWidth: 2,

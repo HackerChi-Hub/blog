@@ -716,7 +716,25 @@ table.hw .vram{font-weight:800;font-size:1.05rem;color:var(--green)}
             </tbody>
           </table>
         </div>
-        Ollama 设置方式：<code>PARAMETER num_ctx 8192</code>（写入 Modelfile 永久生效，见 §6 教程）。超出 VRAM 的 KV 会溢出到 CPU 内存，速度会骤降至 CPU 带宽瓶颈（~60 GB/s）。
+        Ollama 设置方式：<code>PARAMETER num_ctx 8192</code>（写入 Modelfile 永久生效，见 §6 教程）。超出 VRAM 的 KV 会溢出到 CPU 内存，速度会骤降至 CPU 带宽瓶颈（~60 GB/s）。<br><br>
+        <strong>Token 换算成实际内容（Qwen 分词器）：</strong>
+        <div style="overflow-x:auto;margin:10px 0 6px">
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+            <thead>
+              <tr style="background:rgba(255,179,71,0.08)">
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">上下文长度</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">英文</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">中文</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">代码</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">8,192 token</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~6,000 词 (~12 页)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~12,000 字 (~25 页)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~500-800 行</td></tr>
+              <tr><td style="padding:6px 10px;color:var(--green);font-weight:700">32,768 token</td><td style="padding:6px 10px;color:var(--sub)">~24,000 词 (~48 页)</td><td style="padding:6px 10px;color:var(--sub)">~48,000 字 (~100 页)</td><td style="padding:6px 10px;color:var(--sub)">~2,000-3,200 行</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <strong>上下文溢出后果：</strong>对话超出 num_ctx 设定值后，最早的消息被自动丢弃（滑动窗口），模型"忘记"之前的对话。具体表现：① <strong>系统提示词丢失</strong>——角色设定、输出格式等约束不再生效，回答风格跑偏；② <strong>长对话失忆</strong>——模型不再记得你之前提过的要求，反复追问相同问题；③ <strong>RAG 文档截断</strong>——检索到的参考文档超出窗口被截断，关键信息遗漏，回答不完整。对于 8 GB 设备，设过大的 num_ctx 还会导致 KV 缓存从 GPU 溢出到 CPU 内存，生成速度从 ~500 GB/s 骤降至 ~60 GB/s，<strong>下降 8-10 倍</strong>。
       </div>
     </div>
 
