@@ -166,16 +166,24 @@ class NotionErrorBoundary extends Component {
 }
 
 export async function getStaticPaths() {
-  const slugs = await getAllSlugs();
+  try {
+    const slugs = await getAllSlugs();
 
-  console.log('[getStaticPaths] slugs:', slugs);
+    console.log('[getStaticPaths] slugs:', slugs);
 
-  return {
-    paths: slugs.map((slug) => ({
-      params: { slug },
-    })),
-    fallback: false,
-  };
+    return {
+      paths: slugs.map((slug) => ({
+        params: { slug },
+      })),
+      fallback: false,
+    };
+  } catch (error) {
+    console.error('[getStaticPaths] failed:', error?.message || error);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
 }
 
 export async function getStaticProps({ params }) {
@@ -183,29 +191,34 @@ export async function getStaticProps({ params }) {
 
   console.log('[getStaticProps] slug:', slug);
 
-  const [post, allPosts] = await Promise.all([
-    getPostBySlug(slug),
-    getPosts(),
-  ]);
+  try {
+    const [post, allPosts] = await Promise.all([
+      getPostBySlug(slug),
+      getPosts(),
+    ]);
 
-  if (!post) {
-    console.warn('[getStaticProps] NOT FOUND slug:', slug);
+    if (!post) {
+      console.warn('[getStaticProps] NOT FOUND slug:', slug);
+      return { notFound: true };
+    }
+
+    // 构建时下载文件附件到本地（recordMap 已在 getPostBySlug 中修复了嵌套问题）
+    const recordMap = await downloadNotionFiles(post.recordMap, slug);
+
+    // 获取相关文章
+    const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
+
+    return {
+      props: {
+        meta: post.meta,
+        recordMap,
+        relatedPosts,
+      },
+    };
+  } catch (error) {
+    console.error(`[getStaticProps] FAILED for slug: ${slug}`, error?.message || error);
     return { notFound: true };
   }
-
-  // 构建时下载文件附件到本地（recordMap 已在 getPostBySlug 中修复了嵌套问题）
-  const recordMap = await downloadNotionFiles(post.recordMap, slug);
-
-  // 获取相关文章
-  const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
-
-  return {
-    props: {
-      meta: post.meta,
-      recordMap,
-      relatedPosts,
-    },
-  };
 }
 
 const formatDate = (dateString) => {
