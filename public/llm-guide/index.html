@@ -697,44 +697,87 @@ table.hw .vram{font-weight:800;font-size:1.05rem;color:var(--green)}
           <div class="kv-token kv-new">MoE</div>
         </div>
         KV Cache 大小 ≈ <code>2 × layers × heads × head_dim × context_len × fp16</code><br>
-        Qwen3.6-27B 每 token 约 <strong>256 KB</strong>（FP16）；context=8192 时 KV ≈ <strong>2 GB</strong>。<br><br>
-        <strong>各设备推荐 num_ctx（Qwen3.6-27B Q4_K_M）：</strong>
+        Qwen3.6-27B 每 token 约 <strong>256 KB</strong>（FP16）。KV Cache 和模型权重<strong>分开占用显存</strong>，随上下文线性增长。<br><br>
+
+        <div style="background:rgba(255,83,112,0.12);border:1px solid rgba(255,83,112,.3);border-radius:10px;padding:12px 16px;margin-bottom:16px">
+          <strong style="color:var(--red)">⚠️ Ollama 默认只给 2048 tokens</strong>——而 Qwen3.6-27B 训练支持 <strong>262K</strong>，差了 128 倍。默认 2048 只约 3,000 中文字 / 60 行代码，<strong>粘贴一篇新闻就溢出</strong>。Ollama <strong>静默截断不报错</strong>，模型基于不完整信息回答而你不知道。解决：Modelfile 加 <code>PARAMETER num_ctx 32768</code>（见 §6 教程）。
+        </div>
+
+        <strong>KV Cache 显存开销（Qwen3.6-27B Q4_K_M 实测）：</strong>
         <div style="overflow-x:auto;margin:10px 0 6px">
           <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
             <thead>
               <tr style="background:rgba(255,179,71,0.08)">
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">GPU / 设备</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">上下文</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">KV Cache</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">总 VRAM</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">24GB?</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">≈ 中文</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">≈ 代码</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--red);font-weight:700">2K (Ollama默认)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~0.1 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">16.2 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">✅</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~3,000 字</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~60 行</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">8K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~0.5 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">16.6 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">✅</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~12,000 字</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~240 行</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">32K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">1.96 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">18.1 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">✅</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~48,000 字</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~960 行</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">64K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">3.96 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">20.1 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">✅ 刚好</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~96,000 字 ≈1本短篇</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~1,900 行</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">131K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">7.9 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange)">24.0 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange)">⚠️ 打满</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~196,000 字 ≈1本长篇</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~3,900 行</td></tr>
+              <tr><td style="padding:6px 10px;color:var(--red);font-weight:700">262K</td><td style="padding:6px 10px;color:var(--sub)">16.9 GB</td><td style="padding:6px 10px;color:var(--red)">33.0 GB</td><td style="padding:6px 10px;color:var(--red)">❌ 超出</td><td style="padding:6px 10px;color:var(--sub)">~393,000 字 ≈2-3本书</td><td style="padding:6px 10px;color:var(--sub)">~7,800 行</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size:.8rem;color:var(--muted);margin-bottom:14px">换算：1 token ≈ 1.5 中文字 ≈ 0.75 英文单词 ≈ 3-4 代码字符（Qwen 分词器对中文高效）</div>
+
+        <strong>各设备推荐上下文上限（Qwen3.6-27B Q4_K_M）：</strong>
+        <div style="overflow-x:auto;margin:10px 0 6px">
+          <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+            <thead>
+              <tr style="background:rgba(255,179,71,0.08)">
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">设备</th>
                 <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">可用显存</th>
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">KV 可用</th>
                 <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">推荐 num_ctx</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">首字延迟</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">生成速度</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 4070 Laptop 8 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">8 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange)">~1.7 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">8192 ⚠️</td></tr>
-              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 4090 / 5090 D v2 24 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">24 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green)">~7.9 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">32768 ✅</td></tr>
-              <tr><td style="padding:6px 10px;color:var(--sub)">Apple M 统一内存 128 GB+</td><td style="padding:6px 10px;color:var(--sub)">128 GB+</td><td style="padding:6px 10px;color:var(--green)">~112 GB</td><td style="padding:6px 10px;color:var(--green);font-weight:700">32768 ✅</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">8GB GPU (RTX 3060/4070 Laptop)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~7 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">4K-8K ⚠️</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">&lt;1s</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~30 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 5090 D v2 24GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~23 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">131K ✅</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~2 min</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~44 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RTX 5090 D v2（日常推荐）</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~23 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">32K ✅</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~14s</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~54 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">RX 7900 XTX 24GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~23 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">~86K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~2.4 min</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~28 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">Y9000P RTX5090 移动</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~22 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">~65K</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~1.6 min</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~29 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">MacBook Pro M5 Max 128GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~120 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">262K+</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~7+ min</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~38 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">Mac Studio M3 Ultra 256GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~240 GB</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--green);font-weight:700">262K 随便用</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~5 min</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~51 tok/s</td></tr>
+              <tr><td style="padding:6px 10px;color:var(--sub)">DGX Spark 128GB</td><td style="padding:6px 10px;color:var(--sub)">~120 GB</td><td style="padding:6px 10px;color:var(--orange);font-weight:700">262K（但很慢）</td><td style="padding:6px 10px;color:var(--sub)">~24+ min</td><td style="padding:6px 10px;color:var(--sub)">~17 tok/s</td></tr>
             </tbody>
           </table>
         </div>
-        Ollama 设置方式：<code>PARAMETER num_ctx 8192</code>（写入 Modelfile 永久生效，见 §6 教程）。超出 VRAM 的 KV 会溢出到 CPU 内存，速度会骤降至 CPU 带宽瓶颈（~60 GB/s）。<br><br>
-        <strong>Token 换算成实际内容（Qwen 分词器）：</strong>
+
+        <div style="background:rgba(105,240,174,0.08);border:1px solid rgba(105,240,174,.22);border-radius:10px;padding:12px 16px;margin:6px 0 14px">
+          <strong style="color:var(--green)">💡 KV Cache 量化省钱大招</strong>：把 KV Cache 从 FP16 量化到 8-bit（llama.cpp：<code>--cache-type-k q8_0 --cache-type-v q8_0</code>），显存占用<strong>直接砍半</strong>。32K 从 1.96 GB → 0.98 GB，131K 从 7.9 GB → 3.95 GB。Qwen 3.5 系列对 KV 量化容忍度很高，Q8_0 几乎无感，推荐所有用户开启。
+        </div>
+
+        <strong>上下文溢出后果：</strong>
         <div style="overflow-x:auto;margin:10px 0 6px">
           <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
             <thead>
-              <tr style="background:rgba(255,179,71,0.08)">
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">上下文长度</th>
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">英文</th>
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">中文</th>
-                <th style="padding:7px 10px;text-align:left;color:var(--muted);border-bottom:1px solid var(--border2)">代码</th>
+              <tr style="background:rgba(255,83,112,0.08)">
+                <th style="padding:7px 10px;text-align:left;color:var(--red);border-bottom:1px solid var(--border2)">场景</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--red);border-bottom:1px solid var(--border2)">溢出行为</th>
+                <th style="padding:7px 10px;text-align:left;color:var(--red);border-bottom:1px solid var(--border2)">你感知到什么</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:700">8,192 token</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~6,000 词 (~12 页)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~12,000 字 (~25 页)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">~500-800 行</td></tr>
-              <tr><td style="padding:6px 10px;color:var(--green);font-weight:700">32,768 token</td><td style="padding:6px 10px;color:var(--sub)">~24,000 词 (~48 页)</td><td style="padding:6px 10px;color:var(--sub)">~48,000 字 (~100 页)</td><td style="padding:6px 10px;color:var(--sub)">~2,000-3,200 行</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">Ollama 超 num_ctx</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--red);font-weight:600"><strong>静默截断</strong>，最早 token 被丢</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">模型"忘记"开头，<strong>没有任何报错</strong></td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">llama.cpp 显存不够</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--red);font-weight:600">OOM 崩溃 / offload CPU</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">闪退，或速度暴跌 10-50×</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">显存刚好打满</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:600">勉强运行，显存竞争</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">随机卡顿、黑屏、系统卡死</td></tr>
+              <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">超过模型训练上下文</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--orange);font-weight:600">能运行但质量退化</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);color:var(--sub)">幻觉、重复、遗忘中间内容</td></tr>
+              <tr><td style="padding:6px 10px;color:var(--sub)">多轮对话越聊越慢</td><td style="padding:6px 10px;color:var(--orange);font-weight:600">KV Cache 累积</td><td style="padding:6px 10px;color:var(--sub)">首字延迟从 1s 涨到几十秒</td></tr>
             </tbody>
           </table>
         </div>
-        <strong>上下文溢出后果：</strong>对话超出 num_ctx 设定值后，最早的消息被自动丢弃（滑动窗口），模型"忘记"之前的对话。具体表现：① <strong>系统提示词丢失</strong>——角色设定、输出格式等约束不再生效，回答风格跑偏；② <strong>长对话失忆</strong>——模型不再记得你之前提过的要求，反复追问相同问题；③ <strong>RAG 文档截断</strong>——检索到的参考文档超出窗口被截断，关键信息遗漏，回答不完整。对于 8 GB 设备，设过大的 num_ctx 还会导致 KV 缓存从 GPU 溢出到 CPU 内存，生成速度从 ~500 GB/s 骤降至 ~60 GB/s，<strong>下降 8-10 倍</strong>。
+
+        <strong>实用建议：</strong>日常聊天设 8K-16K；代码辅助设 32K；长文档分析设 64K-131K；RAG/Agent 设 64K+。<strong>绝对不要</strong>在 24GB 显卡上对 27B 模型设 262K——必崩。
       </div>
     </div>
 
