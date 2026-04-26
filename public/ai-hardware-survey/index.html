@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 装机指南 — 本地跑 Qwen 3.5 27B + Wan2GP 全设备对比</title>
-<meta name="description" content="2026年4月全网设备摸底：RTX 5090 D v2、Mac Studio、DGX Spark 等 8 类设备规格、价格、推理速度横评，帮你找到本地部署 Qwen 3.5 27B 和 Wan2GP 视频生成的最优解">
-<meta name="keywords" content="AI装机,Qwen 3.5 27B,Wan2GP,RTX 5090D,Mac Studio,DGX Spark,本地大模型,GPU选型">
+<title>AI 装机指南 — 本地跑 Qwen 3.6 27B + Wan2GP 全设备对比</title>
+<meta name="description" content="2026年4月全网设备摸底：RTX 5090 D v2、Mac Studio、DGX Spark 等 8 类设备规格、价格、推理速度横评，帮你找到本地部署 Qwen 3.6 27B 和 Wan2GP 视频生成的最优解">
+<meta name="keywords" content="AI装机,Qwen 3.6 27B,Wan2GP,RTX 5090D,Mac Studio,DGX Spark,本地大模型,GPU选型">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -309,9 +309,9 @@ td.danger { color: var(--accent-red); font-weight: 600; }
 
   <div class="hero">
     <h1>AI 装机指南</h1>
-    <p class="hero-subtitle">本地部署 Qwen 3.5 27B + Wan2GP 视频生成，全网设备摸底横评。<br>8 类设备、6 张图表、实时价格，帮你找到最优解。</p>
+    <p class="hero-subtitle">本地部署 Qwen 3.6 27B + Wan2GP 视频生成，全网设备摸底横评。<br>8 类设备、6 张图表、实时价格，帮你找到最优解。</p>
     <div class="hero-badges">
-      <span class="hero-badge green"><span class="icon">🧠</span> Qwen 3.5 27B</span>
+      <span class="hero-badge green"><span class="icon">🧠</span> Qwen 3.6 27B</span>
       <span class="hero-badge cyan"><span class="icon">🎬</span> Wan2GP 视频生成</span>
       <span class="hero-badge orange"><span class="icon">📅</span> 2026.04 更新</span>
     </div>
@@ -324,7 +324,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
 <nav class="toc">
   <h2>目录导航</h2>
   <div class="toc-grid">
-    <a href="#s1"><span class="num">01</span> 为什么选 Qwen 3.5 27B</a>
+    <a href="#s1"><span class="num">01</span> 为什么选 Qwen 3.6 27B</a>
     <a href="#s2"><span class="num">02</span> 五大硬件维度</a>
     <a href="#s3"><span class="num">03</span> 设备清单与价格</a>
     <a href="#s4"><span class="num">04</span> 硬件能力对比</a>
@@ -334,15 +334,15 @@ td.danger { color: var(--accent-red); font-weight: 600; }
   </div>
 </nav>
 
-<!-- ═══════ §1 Why Qwen 3.5 27B ═══════ -->
+<!-- ═══════ §1 Why Qwen 3.6 27B ═══════ -->
 <section class="section" id="s1">
   <div class="section-title">
     <span class="num">01</span>
     <span class="icon">🧠</span>
-    为什么以 Qwen 3.5 27B 作为门槛？
+    为什么以 Qwen 3.6 27B 作为门槛？
   </div>
   <p class="section-desc">
-    Qwen 3.5 27B 是消费级 AI 的"甜点"——大到足够好用（接近 GPT-4 水平），小到还能被消费级硬件装下。能跑 27B 的设备也能跑几乎所有其他消费级 AI 任务。
+    Qwen 3.6 27B 是消费级 AI 的"甜点"——大到足够好用（接近 GPT-4 水平），小到还能被消费级硬件装下。能跑 27B 的设备也能跑几乎所有其他消费级 AI 任务。
   </p>
 
   <div class="callout callout-info">
@@ -377,7 +377,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
   <div class="callout callout-info">
     <span class="callout-icon">🎬</span>
     <div class="callout-text">
-      <strong>视频生成重叠需求</strong>：Wan2GP 480p=6GB, 720p=12-16GB, 1080p=24GB+。一张 24GB 显卡同时覆盖 Qwen 3.5 27B Q4 和 Wan2GP 720p，是性价比最优解。
+      <strong>视频生成重叠需求</strong>：Wan2GP 480p=6GB, 720p=12-16GB, 1080p=24GB+。一张 24GB 显卡同时覆盖 Qwen 3.6 27B Q4 和 Wan2GP 720p，是性价比最优解。
     </div>
   </div>
 </section>
@@ -619,7 +619,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <div class="callout callout-info">
       <span class="callout-icon">💡</span>
       <div class="callout-text">
-        <strong>Apple Silicon 核心优势</strong>：超大统一内存（128GB/256GB），可跑 72B+ 甚至 235B 模型。这是任何消费级 NVIDIA 显卡做不到的。M3 Ultra 256GB 可跑 Qwen 3.5 235B Q2_K。
+        <strong>Apple Silicon 核心优势</strong>：超大统一内存（128GB/256GB），可跑 72B+ 甚至 235B 模型。这是任何消费级 NVIDIA 显卡做不到的。M3 Ultra 256GB 可跑 Qwen 3.6 235B Q2_K。
       </div>
     </div>
   </div>
@@ -939,7 +939,7 @@ td.danger { color: var(--accent-red); font-weight: 600; }
     <li><strong>Apple M5 Max 带宽 614 GB/s ⭐⭐⭐</strong> — Apple 官方技术规格页</li>
     <li><strong>所有 tok/s 推理速度 ⭐</strong> — <strong>纯理论推算</strong>（公式：带宽 GB/s ÷ 模型体积 GB），非 Ollama/llama.cpp 实际测试结果</li>
     <li><strong>Strix Halo 带宽 ~256 GB/s ⭐⭐</strong> — ~ 符号表示非官方确认值</li>
-    <li><strong>Qwen 3.5 27B VRAM 需求 ⭐⭐</strong> — 参考 llama.cpp 量化表，非针对 Qwen 3.5 27B 专项测试</li>
+    <li><strong>Qwen 3.6 27B VRAM 需求 ⭐⭐</strong> — 参考 llama.cpp 量化表，非针对 Qwen 3.6 27B 专项测试</li>
   </ul>
 </section>
 
