@@ -638,7 +638,7 @@ const HeroSection = ({
                   AI 装机指南
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  本地跑 Qwen 3.5 27B + Wan2GP 设备全景对比
+                  本地跑 Qwen 3.6 27B + Wan2GP 设备全景对比
                 </div>
               </div>
             </a>
