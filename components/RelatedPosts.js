@@ -2,19 +2,7 @@
 // 相关文章推荐组件
 
 import Link from 'next/link';
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return dateString;
-  }
-};
+import { formatDate } from '../lib/utils';
 
 export default function RelatedPosts({ posts }) {
   if (!posts || posts.length === 0) {

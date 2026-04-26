@@ -1,40 +1,9 @@
 import Link from 'next/link';
 import { getPosts } from '../../lib/notion';
+import { formatDate, normalizeSummary } from '../../lib/utils';
 import SEO from '../../components/SEO';
 
 const PAGE_SIZE = 21;
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return dateString;
-  }
-};
-
-const normalizeSummary = (summary) => {
-  if (!summary) return '';
-  if (typeof summary === 'string') return summary;
-  if (Array.isArray(summary)) {
-    return summary
-      .map((item) => {
-        if (typeof item === 'string') return item;
-        if (typeof item === 'object' && item?.plain_text) return item.plain_text;
-        return '';
-      })
-      .filter(Boolean)
-      .join('');
-  }
-  if (typeof summary === 'object') {
-    return summary.plain_text || summary.text || JSON.stringify(summary);
-  }
-  return String(summary);
-};
 
 const resolveTags = (tags) => {
   if (!Array.isArray(tags)) return [];

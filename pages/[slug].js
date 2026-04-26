@@ -119,10 +119,11 @@ const loadPrismLanguages = async () => {
 const Code = dynamic(
   async () => {
     const m = await import('react-notion-x/build/third-party/code');
+    // Load Prism languages only in browser (SSR renders without syntax highlighting)
     await loadPrismLanguages();
     return m.Code;
   },
-  { ssr: false }
+  { ssr: true }
 );
 
 const Collection = dynamic(
@@ -130,7 +131,7 @@ const Collection = dynamic(
     import('react-notion-x/build/third-party/collection.js').then(
       (m) => m.Collection
     ),
-  { ssr: false }
+  { ssr: true }
 );
 
 const NotionRenderer = dynamic(
@@ -138,7 +139,7 @@ const NotionRenderer = dynamic(
     import('react-notion-x').then(
       (m) => m.NotionRenderer
     ),
-  { ssr: false }
+  { ssr: true }
 );
 
 class NotionErrorBoundary extends Component {

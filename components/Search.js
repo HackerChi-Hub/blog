@@ -3,41 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return dateString;
-  }
-};
-
-const normalizeSummary = (summary) => {
-  if (!summary) return '';
-  if (typeof summary === 'string') return summary;
-  if (Array.isArray(summary)) {
-    return summary
-      .map((item) => {
-        if (typeof item === 'string') return item;
-        if (typeof item === 'object' && item?.plain_text) return item.plain_text;
-        if (item?.text?.content) return item.text.content;
-        return '';
-      })
-      .filter(Boolean)
-      .join('');
-  }
-  if (typeof summary === 'object') {
-    if (summary.plain_text) return summary.plain_text;
-    if (summary.text?.content) return summary.text.content;
-    return JSON.stringify(summary);
-  }
-  return String(summary);
-};
+import { formatDate, normalizeSummary } from '../lib/utils';
 
 /**
  * 搜索文章
