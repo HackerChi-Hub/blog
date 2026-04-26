@@ -28,8 +28,8 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
 
-  // 转译 CommonJS 模块（解决 react-use 等模块的导入问题）
-  transpilePackages: ['react-use'],
+  // 转译 CommonJS 模块（解决 react-use / react-notion-x 的 ESM↔CJS 兼容问题）
+  transpilePackages: ['react-use', 'react-notion-x'],
 
   // Webpack 配置：处理 CommonJS 模块
   webpack: (config, { isServer }) => {
