@@ -754,7 +754,7 @@ table.hw .vram{font-weight:800;font-size:1.05rem;color:var(--green)}
         </div>
 
         <div style="background:rgba(105,240,174,0.08);border:1px solid rgba(105,240,174,.22);border-radius:10px;padding:12px 16px;margin:6px 0 14px">
-          <strong style="color:var(--green)">💡 KV Cache 量化省钱大招</strong>：把 KV Cache 从 FP16 量化到 8-bit（llama.cpp：<code>--cache-type-k q8_0 --cache-type-v q8_0</code>），显存占用<strong>直接砍半</strong>。32K 从 1.96 GB → 0.98 GB，131K 从 7.9 GB → 3.95 GB。Qwen 3.5 系列对 KV 量化容忍度很高，Q8_0 几乎无感，推荐所有用户开启。
+          <strong style="color:var(--green)">💡 KV Cache 量化省钱大招</strong>：把 KV Cache 从 FP16 量化到 8-bit（llama.cpp：<code>--cache-type-k q8_0 --cache-type-v q8_0</code>），显存占用<strong>直接砍半</strong>。32K 从 1.96 GB → 0.98 GB，131K 从 7.9 GB → 3.95 GB。Qwen 3.6 系列对 KV 量化容忍度很高，Q8_0 几乎无感，推荐所有用户开启。
         </div>
 
         <strong>上下文溢出后果：</strong>
@@ -1453,7 +1453,7 @@ model = FastLanguageModel.get_peft_model(
         <tr>
           <td>RTX 4070 Ti / 3090</td>
           <td><span class="vram" style="color:var(--cyan)">12-16 GB</span></td>
-          <td>Qwen3.6-27B Q6_K · Qwen3.5-35B Q4（混跑）</td>
+          <td>Qwen3.6-27B Q6_K · Qwen3.6-35B Q4（混跑）</td>
           <td>Ollama / LM Studio</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--cyan)"></span>10-18 tok/s</span></td>
           <td style="color:var(--cyan);font-weight:600">16384</td>
@@ -1469,7 +1469,7 @@ model = FastLanguageModel.get_peft_model(
         <tr>
           <td>2× RTX 4090 / A100</td>
           <td><span class="vram" style="color:var(--pink)">48+ GB</span></td>
-          <td>Qwen3.5-397B Q4 · Qwen3.6-27B BF16</td>
+          <td>Qwen3.6-397B Q4 · Qwen3.6-27B BF16</td>
           <td>vLLM（tensor parallel）</td>
           <td><span class="speed"><span class="speed-dot" style="background:var(--pink)"></span>60-120 tok/s</span></td>
           <td style="color:var(--green);font-weight:600">32768 ✅</td>
