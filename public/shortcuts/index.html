@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a0a14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>快捷键大全 - Windows / Mac 150+ 快捷键速查 | 黑粉科技</title>
+<meta name="description" content="Windows 和 Mac 快捷键完全手册，按场景分类，150+ 快捷键一网打尽。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a14;--bg2:#12121f;--bg3:#1a1a2e;--bg4:#22223a;
+--cyan:#00f0ff;--purple:#b44aff;--pink:#ff2d95;--green:#00ff88;--yellow:#ffd000;--orange:#ff8c42;
+--text:#e0e0f0;--text2:#8888aa;--text3:#555570;
+--glow-cyan:0 0 20px rgba(0,240,255,.3);
+--radius:12px;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh;overflow-x:hidden}
+body.light{--bg:#f0f2f8;--bg2:#fff;--bg3:#e8eaf0;--bg4:#d8dae0;--text:#1a1a2e;--text2:#666;--text3:#999;--glow-cyan:0 0 10px rgba(0,180,200,.15)}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);opacity:.5}
+body.light::after{opacity:.15}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,20,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,240,255,.1);padding:12px 16px}
+body.light .header{background:rgba(240,242,248,.9);border-bottom-color:rgba(0,180,200,.15)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:700;white-space:nowrap}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 15px rgba(255,140,66,.3)}
+.logo span{background:linear-gradient(90deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.search-wrap{flex:1;min-width:200px;position:relative}
+.search-wrap input{width:100%;padding:10px 16px 10px 40px;border-radius:24px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text);font-size:15px;outline:none;transition:.3s}
+.search-wrap input:focus{border-color:var(--orange);box-shadow:0 0 15px rgba(255,140,66,.2)}
+.search-wrap .icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:16px}
+
+.hdr-btns{display:flex;gap:8px}
+.hdr-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.2s}
+.hdr-btn:hover{border-color:var(--orange);color:var(--orange)}
+.hdr-btn.active{background:var(--orange);color:var(--bg);border-color:var(--orange)}
+
+/* OS Toggle */
+.os-toggle{display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--bg4)}
+.os-btn{padding:8px 16px;border:none;background:var(--bg2);color:var(--text2);cursor:pointer;font-size:13px;font-weight:600;transition:.2s;white-space:nowrap}
+.os-btn:hover{color:var(--text)}
+.os-btn.active{background:var(--orange);color:#fff}
+
+/* Stats */
+.stats-bar{max-width:1200px;margin:12px auto 0;padding:0 16px;display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text2)}
+.stat{display:flex;align-items:center;gap:4px}
+.stat b{color:var(--orange);font-weight:600}
+
+/* Category Tabs */
+.filters{max-width:1200px;margin:12px auto 0;padding:0 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.tab{padding:6px 14px;border-radius:20px;border:1px solid var(--bg4);background:var(--bg2);color:var(--text2);cursor:pointer;font-size:13px;white-space:nowrap;transition:.2s;user-select:none}
+.tab:hover{border-color:var(--orange);color:var(--text)}
+.tab.active{background:linear-gradient(135deg,var(--orange),var(--yellow));color:#000;border-color:transparent;font-weight:600}
+
+/* Section */
+.section{max-width:1200px;margin:20px auto 0;padding:0 16px}
+.section-title{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:var(--text)}
+.section-title .emoji{font-size:22px}
+.section-count{font-size:12px;color:var(--text3);font-weight:400;margin-left:4px}
+
+/* Shortcut Table */
+.sc-table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.sc-table th{text-align:left;padding:10px 12px;font-size:12px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--bg4)}
+.sc-table td{padding:10px 12px;border-bottom:1px solid var(--bg3);font-size:14px;vertical-align:middle}
+.sc-table tr:last-child td{border-bottom:none}
+.sc-table tr:hover td{background:var(--bg3)}
+.sc-desc{color:var(--text)}
+.sc-key{font-family:'SF Mono','Fira Code','Cascadia Code','Consolas',monospace;font-size:13px;padding:4px 8px;border-radius:6px;display:inline-block;min-width:60px;text-align:center}
+.sc-key-win{background:rgba(0,120,215,.15);color:#4fc3f7;border:1px solid rgba(0,120,215,.2)}
+.sc-key-mac{background:rgba(255,140,66,.12);color:var(--orange);border:1px solid rgba(255,140,66,.2)}
+.sc-na{color:var(--text3);font-style:italic;font-size:12px}
+
+/* Card view for mobile */
+.sc-cards{display:none}
+.sc-card{background:var(--bg2);border:1px solid var(--bg4);border-radius:var(--radius);padding:14px;margin-bottom:10px;transition:.2s}
+.sc-card:hover{border-color:rgba(255,140,66,.3)}
+.sc-card-desc{font-size:14px;font-weight:600;margin-bottom:8px}
+.sc-card-keys{display:flex;gap:8px;flex-wrap:wrap}
+.sc-card-key{display:flex;align-items:center;gap:6px;font-size:12px}
+.sc-card-key .label{color:var(--text3);font-size:11px}
+.sc-card-key .sc-key{font-size:12px}
+
+@media(max-width:768px){
+  .sc-table{display:none}
+  .sc-cards{display:block}
+  .os-toggle{font-size:12px}
+  .os-btn{padding:6px 12px}
+}
+
+/* Empty */
+.empty{text-align:center;padding:60px 20px;color:var(--text3)}
+.empty .icon{font-size:48px;margin-bottom:12px}
+
+/* Toast */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:#000;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;z-index:300;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* Footer */
+.footer{max-width:1200px;margin:32px auto 16px;padding:0 16px;text-align:center;font-size:12px;color:var(--text3);line-height:1.8}
+.footer a{color:var(--orange);text-decoration:none;opacity:.7;transition:.2s}
+.footer a:hover{opacity:1;text-decoration:underline}
+
+/* Print */
+@media print{.header,.footer{display:none!important}.sc-table tr{break-inside:avoid}}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.section{animation:fadeIn .3s ease both}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+<div class="header-inner">
+  <div class="logo">
+    <div class="logo-icon">⌨️</div>
+    <span>快捷键大全</span>
+  </div>
+  <div class="search-wrap">
+    <span class="icon">🔍</span>
+    <input id="searchInput" type="text" placeholder="搜索操作名称...">
+  </div>
+  <div class="os-toggle">
+    <button class="os-btn active" onclick="setOS('win')" id="btnWin">Windows</button>
+    <button class="os-btn" onclick="setOS('mac')" id="btnMac">Mac</button>
+    <button class="os-btn" onclick="setOS('both')" id="btnBoth">对比</button>
+  </div>
+  <div class="hdr-btns">
+    <button class="hdr-btn" onclick="toggleTheme()" title="切换主题" id="themeBtn">🌙</button>
+  </div>
+</div>
+<div class="stats-bar">
+  <span class="stat">📊 <b id="totalCount">0</b> 个快捷键</span>
+  <span class="stat">📁 <b id="catCount">0</b> 个分类</span>
+</div>
+<div class="filters" id="filters"></div>
+</div>
+
+<!-- Main content -->
+<div id="content"></div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>数据来源：Microsoft Support · Apple Support · Chrome Help</p>
+  <p>© 2026 <a href="https://hyphentech.top">黑粉科技</a> · 让普通人也能驾驭 AI</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = [
+  {
+    cat: "基础操作", emoji: "📝",
+    items: [
+      { d: "复制", w: "Ctrl + C", m: "Cmd + C" },
+      { d: "剪切", w: "Ctrl + X", m: "Cmd + X" },
+      { d: "粘贴", w: "Ctrl + V", m: "Cmd + V" },
+      { d: "纯文本粘贴（去格式）", w: "Ctrl + Shift + V", m: "Cmd + Shift + Opt + V" },
+      { d: "撤销", w: "Ctrl + Z", m: "Cmd + Z" },
+      { d: "重做", w: "Ctrl + Y", m: "Cmd + Shift + Z" },
+      { d: "全选", w: "Ctrl + A", m: "Cmd + A" },
+      { d: "查找", w: "Ctrl + F", m: "Cmd + F" },
+      { d: "查找并替换", w: "Ctrl + H", m: "Cmd + Opt + F" },
+      { d: "保存", w: "Ctrl + S", m: "Cmd + S" },
+      { d: "另存为", w: "F12", m: "Cmd + Shift + S" },
+      { d: "打印", w: "Ctrl + P", m: "Cmd + P" },
+      { d: "打开文件", w: "Ctrl + O", m: "Cmd + O" },
+      { d: "新建窗口", w: "Ctrl + N", m: "Cmd + N" },
+      { d: "关闭窗口/标签页", w: "Ctrl + W", m: "Cmd + W" },
+      { d: "退出应用", w: "Alt + F4", m: "Cmd + Q" },
+      { d: "加粗", w: "Ctrl + B", m: "Cmd + B" },
+      { d: "斜体", w: "Ctrl + I", m: "Cmd + I" },
+      { d: "下划线", w: "Ctrl + U", m: "Cmd + U" },
+    ]
+  },
+  {
+    cat: "窗口管理", emoji: "🪟",
+    items: [
+      { d: "切换应用程序", w: "Alt + Tab", m: "Cmd + Tab" },
+      { d: "反向切换应用", w: "Alt + Shift + Tab", m: "Cmd + Shift + Tab" },
+      { d: "同应用多窗口切换", w: "Alt + Tab（同组）", m: "Cmd + `" },
+      { d: "最小化窗口", w: "Win + ↓", m: "Cmd + M" },
+      { d: "最小化所有窗口", w: "Win + M", m: "Cmd + Opt + M" },
+      { d: "最大化/还原窗口", w: "Win + ↑", m: "Ctrl + Cmd + F" },
+      { d: "显示桌面", w: "Win + D", m: "Fn + F11" },
+      { d: "窗口贴靠左侧 50%", w: "Win + ←", m: "—" },
+      { d: "窗口贴靠右侧 50%", w: "Win + →", m: "—" },
+      { d: "窗口贴靠上半屏", w: "Win + Alt + ↑", m: "—" },
+      { d: "窗口贴靠下半屏", w: "Win + Alt + ↓", m: "—" },
+      { d: "贴靠布局选择", w: "Win + Z", m: "—" },
+      { d: "移到左显示器", w: "Win + Shift + ←", m: "—" },
+      { d: "移到右显示器", w: "Win + Shift + →", m: "—" },
+      { d: "任务视图", w: "Win + Tab", m: "Ctrl + ↑ (Mission Control)" },
+      { d: "新建虚拟桌面", w: "Win + Ctrl + D", m: "Mission Control → +" },
+      { d: "切换虚拟桌面", w: "Win + Ctrl + ←/→", m: "Ctrl + ←/→" },
+      { d: "关闭虚拟桌面", w: "Win + Ctrl + F4", m: "—" },
+      { d: "最小化除当前外所有窗口", w: "Win + Home", m: "—" },
+      { d: "全屏切换", w: "F11", m: "Ctrl + Cmd + F" },
+    ]
+  },
+  {
+    cat: "文件操作", emoji: "📁",
+    items: [
+      { d: "重命名文件", w: "F2", m: "Enter（选中后）" },
+      { d: "删除到回收站", w: "Delete", m: "Cmd + Delete" },
+      { d: "永久删除", w: "Shift + Delete", m: "Cmd + Opt + Delete" },
+      { d: "新建文件夹", w: "Ctrl + Shift + N", m: "Cmd + Shift + N" },
+      { d: "打开文件管理器", w: "Win + E", m: "Finder → Cmd + N" },
+      { d: "查看文件属性", w: "Alt + Enter", m: "Cmd + I" },
+      { d: "地址栏", w: "Alt + D", m: "Cmd + Shift + G" },
+      { d: "搜索文件", w: "F3 / Ctrl + F", m: "Cmd + F" },
+      { d: "后退", w: "Alt + ←", m: "Cmd + [" },
+      { d: "前进", w: "Alt + →", m: "Cmd + ]" },
+      { d: "上级文件夹", w: "Alt + ↑", m: "Cmd + ↑" },
+      { d: "刷新", w: "F5", m: "Cmd + R" },
+      { d: "预览文件", w: "Alt + P", m: "Space（Quick Look）" },
+      { d: "复制文件（拖拽时）", w: "Ctrl + 拖拽", m: "Opt + 拖拽" },
+      { d: "创建快捷方式", w: "Alt + 拖拽", m: "Cmd + Opt + 拖拽" },
+    ]
+  },
+  {
+    cat: "浏览器", emoji: "🌐",
+    items: [
+      { d: "新建标签页", w: "Ctrl + T", m: "Cmd + T" },
+      { d: "关闭标签页", w: "Ctrl + W", m: "Cmd + W" },
+      { d: "恢复关闭的标签页", w: "Ctrl + Shift + T", m: "Cmd + Shift + T" },
+      { d: "新建无痕窗口", w: "Ctrl + Shift + N", m: "Cmd + Shift + N" },
+      { d: "下一个标签页", w: "Ctrl + Tab", m: "Cmd + Opt + →" },
+      { d: "上一个标签页", w: "Ctrl + Shift + Tab", m: "Cmd + Opt + ←" },
+      { d: "跳到第 N 个标签页", w: "Ctrl + 1~8", m: "Cmd + 1~8" },
+      { d: "跳到最后一个标签页", w: "Ctrl + 9", m: "Cmd + 9" },
+      { d: "跳转到地址栏", w: "Ctrl + L / F6", m: "Cmd + L" },
+      { d: "添加书签", w: "Ctrl + D", m: "Cmd + D" },
+      { d: "显示/隐藏书签栏", w: "Ctrl + Shift + B", m: "Cmd + Shift + B" },
+      { d: "打开历史记录", w: "Ctrl + H", m: "Cmd + Y" },
+      { d: "打开下载列表", w: "Ctrl + J", m: "Cmd + Shift + J" },
+      { d: "刷新页面", w: "F5", m: "Cmd + R" },
+      { d: "强制刷新（忽略缓存）", w: "Ctrl + Shift + R", m: "Cmd + Shift + R" },
+      { d: "放大页面", w: "Ctrl + +", m: "Cmd + +" },
+      { d: "缩小页面", w: "Ctrl + -", m: "Cmd + -" },
+      { d: "恢复默认缩放", w: "Ctrl + 0", m: "Cmd + 0" },
+      { d: "打开开发者工具", w: "F12", m: "Cmd + Opt + I" },
+      { d: "查看源代码", w: "Ctrl + U", m: "Cmd + Opt + U" },
+      { d: "清除浏览数据", w: "Ctrl + Shift + Del", m: "Cmd + Shift + Delete" },
+    ]
+  },
+  {
+    cat: "文本编辑", emoji: "✏️",
+    items: [
+      { d: "光标左移一个单词", w: "Ctrl + ←", m: "Opt + ←" },
+      { d: "光标右移一个单词", w: "Ctrl + →", m: "Opt + →" },
+      { d: "光标移到行首", w: "Home", m: "Cmd + ←" },
+      { d: "光标移到行尾", w: "End", m: "Cmd + →" },
+      { d: "光标移到文档开头", w: "Ctrl + Home", m: "Cmd + ↑" },
+      { d: "光标移到文档结尾", w: "Ctrl + End", m: "Cmd + ↓" },
+      { d: "选中左边一个单词", w: "Ctrl + Shift + ←", m: "Opt + Shift + ←" },
+      { d: "选中右边一个单词", w: "Ctrl + Shift + →", m: "Opt + Shift + →" },
+      { d: "选中到行首", w: "Shift + Home", m: "Cmd + Shift + ←" },
+      { d: "选中到行尾", w: "Shift + End", m: "Cmd + Shift + →" },
+      { d: "选中到文档开头", w: "Ctrl + Shift + Home", m: "Cmd + Shift + ↑" },
+      { d: "选中到文档结尾", w: "Ctrl + Shift + End", m: "Cmd + Shift + ↓" },
+      { d: "删除左边一个单词", w: "Ctrl + Backspace", m: "Opt + Delete" },
+      { d: "删除右边一个单词", w: "Ctrl + Delete", m: "Fn + Opt + Delete" },
+    ]
+  },
+  {
+    cat: "截图录屏", emoji: "📸",
+    items: [
+      { d: "全屏截图到文件", w: "Win + PrtScn", m: "Cmd + Shift + 3" },
+      { d: "全屏截图到剪贴板", w: "PrtScn", m: "Cmd + Shift + Ctrl + 3" },
+      { d: "区域截图", w: "Win + Shift + S", m: "Cmd + Shift + 4" },
+      { d: "窗口截图", w: "Win + Shift + S → 选窗口", m: "Cmd + Shift + 4 → Space → 点击" },
+      { d: "截图工具栏（含录屏）", w: "Win + Shift + S", m: "Cmd + Shift + 5" },
+      { d: "屏幕录制", w: "Win + Shift + R", m: "Cmd + Shift + 5 → 选录制" },
+    ]
+  },
+  {
+    cat: "系统功能", emoji: "⚙️",
+    items: [
+      { d: "锁定屏幕", w: "Win + L", m: "Ctrl + Cmd + Q" },
+      { d: "任务管理器 / 强制退出", w: "Ctrl + Shift + Esc", m: "Cmd + Opt + Esc" },
+      { d: "搜索 / Spotlight", w: "Win + S", m: "Cmd + Space" },
+      { d: "打开设置", w: "Win + I", m: "Cmd + ," },
+      { d: "Emoji 表情面板", w: "Win + .", m: "Ctrl + Cmd + Space" },
+      { d: "剪贴板历史", w: "Win + V", m: "—（需第三方）" },
+      { d: "语音输入", w: "Win + H", m: "Fn + D" },
+      { d: "通知中心", w: "Win + N", m: "—" },
+      { d: "打开运行对话框", w: "Win + R", m: "—" },
+      { d: "投影/外接显示器", w: "Win + P", m: "—" },
+      { d: "快速链接菜单", w: "Win + X", m: "—" },
+      { d: "Copilot", w: "Win + C", m: "—" },
+      { d: "放大镜", w: "Win + +/-", m: "Cmd + Opt + +/-" },
+      { d: "快速备忘录", w: "Win + N", m: "Fn + Q" },
+      { d: "Quick Look 预览", w: "—", m: "Space" },
+    ]
+  },
+  {
+    cat: "Excel / 表格", emoji: "📊",
+    items: [
+      { d: "自动求和", w: "Alt + =", m: "Cmd + Shift + T" },
+      { d: "向下填充", w: "Ctrl + D", m: "Cmd + D" },
+      { d: "向右填充", w: "Ctrl + R", m: "Cmd + R" },
+      { d: "选中整行", w: "Shift + Space", m: "Shift + Space" },
+      { d: "选中整列", w: "Ctrl + Space", m: "Ctrl + Space" },
+      { d: "插入行/列", w: "Ctrl + Shift + +", m: "Cmd + Shift + +" },
+      { d: "删除行/列", w: "Ctrl + -", m: "Cmd + -" },
+      { d: "编辑单元格", w: "F2", m: "Ctrl + U" },
+      { d: "单元格内换行", w: "Alt + Enter", m: "Ctrl + Opt + Enter" },
+      { d: "输入当前日期", w: "Ctrl + ;", m: "Ctrl + ;" },
+      { d: "输入当前时间", w: "Ctrl + Shift + ;", m: "Cmd + ;" },
+      { d: "设置单元格格式", w: "Ctrl + 1", m: "Cmd + 1" },
+      { d: "应用货币格式", w: "Ctrl + Shift + $", m: "Cmd + Shift + $" },
+      { d: "应用百分比格式", w: "Ctrl + Shift + %", m: "Cmd + Shift + %" },
+      { d: "切换工作表", w: "Ctrl + PgDn/PgUp", m: "Cmd + Fn + ↓/↑" },
+      { d: "创建图表", w: "Alt + F1", m: "Fn + Opt + F1" },
+      { d: "插入表格", w: "Ctrl + T", m: "Cmd + T" },
+      { d: "函数向导", w: "Shift + F3", m: "Fn + Shift + F3" },
+      { d: "绝对/相对引用切换", w: "F4", m: "Cmd + T" },
+      { d: "定位到单元格", w: "Ctrl + G / F5", m: "Fn + F5" },
+      { d: "冻结窗格", w: "Alt + W, F, F", m: "Cmd + Opt + F" },
+      { d: "筛选开关", w: "Ctrl + Shift + L", m: "Cmd + Shift + F" },
+    ]
+  },
+  {
+    cat: "效率提升", emoji: "🚀",
+    items: [
+      { d: "剪贴板历史", w: "Win + V", m: "—（用 Paste / Maccy）" },
+      { d: "窗口分屏左右 50%", w: "Win + ←/→", m: "—（Magnet / Rectangle）" },
+      { d: "快速启动栏第 N 个应用", w: "Win + 1~9", m: "—" },
+      { d: "任务栏应用新实例", w: "Win + Shift + 1~9", m: "—" },
+      { d: "管理员运行（点任务栏）", w: "Ctrl + Shift + 点击", m: "—" },
+      { d: "游戏栏（截图/录屏）", w: "Win + G", m: "Cmd + Shift + 5" },
+      { d: "麦克风静音切换", w: "Win + Alt + K", m: "—" },
+      { d: "语音输入", w: "Win + H", m: "Fn + D" },
+      { d: "颜色滤镜切换", w: "Win + Ctrl + C", m: "Ctrl + Opt + Cmd + 8" },
+      { d: "快速助手（远程协助）", w: "Win + Ctrl + Q", m: "—" },
+    ]
+  },
+  {
+    cat: "终端 / 开发", emoji: "💻",
+    items: [
+      { d: "复制（终端内）", w: "Ctrl + Shift + C", m: "Cmd + C" },
+      { d: "粘贴（终端内）", w: "Ctrl + Shift + V", m: "Cmd + V" },
+      { d: "中断命令", w: "Ctrl + C", m: "Ctrl + C" },
+      { d: "结束输入 (EOF)", w: "Ctrl + D", m: "Ctrl + D" },
+      { d: "挂起进程", w: "Ctrl + Z", m: "Ctrl + Z" },
+      { d: "清屏", w: "Ctrl + L / cls", m: "Cmd + K" },
+      { d: "光标到行首", w: "Home / Ctrl + A", m: "Ctrl + A" },
+      { d: "光标到行尾", w: "End / Ctrl + E", m: "Ctrl + E" },
+      { d: "删除到行首", w: "Ctrl + Home", m: "Ctrl + U" },
+      { d: "删除到行尾", w: "Ctrl + End", m: "Ctrl + K" },
+      { d: "删除前一个单词", w: "Ctrl + W", m: "Ctrl + W" },
+      { d: "历史命令搜索", w: "Ctrl + R", m: "Ctrl + R" },
+      { d: "自动补全", w: "Tab", m: "Tab" },
+      { d: "新终端标签页", w: "Ctrl + Shift + T", m: "Cmd + T" },
+      { d: "关闭终端标签页", w: "Ctrl + Shift + W", m: "Cmd + W" },
+      { d: "分割终端窗格", w: "Alt + Shift + D", m: "Cmd + D" },
+      { d: "新终端窗口", w: "Ctrl + Shift + N", m: "Cmd + N" },
+    ]
+  },
+];
+
+// State
+let currentOS = 'win';
+let currentCat = 'all';
+let searchQuery = '';
+
+// Init
+function init() {
+  const total = DATA.reduce((s, c) => s + c.items.length, 0);
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('catCount').textContent = DATA.length;
+  renderFilters();
+  render();
+  // Load theme
+  if (localStorage.getItem('sc-theme') === 'light') {
+    document.body.classList.add('light');
+    document.getElementById('themeBtn').textContent = '☀️';
+  }
+}
+
+function renderFilters() {
+  const el = document.getElementById('filters');
+  let html = `<button class="tab active" onclick="setCat('all')">全部</button>`;
+  DATA.forEach((c, i) => {
+    html += `<button class="tab" onclick="setCat('${c.cat}')">${c.emoji} ${c.cat}</button>`;
+  });
+  el.innerHTML = html;
+}
+
+function render() {
+  const container = document.getElementById('content');
+  const q = searchQuery.toLowerCase();
+  let html = '';
+  let count = 0;
+
+  DATA.forEach(section => {
+    if (currentCat !== 'all' && section.cat !== currentCat) return;
+    const filtered = section.items.filter(item =>
+      !q || item.d.toLowerCase().includes(q) || item.w.toLowerCase().includes(q) || item.m.toLowerCase().includes(q)
+    );
+    if (!filtered.length) return;
+    count += filtered.length;
+
+    html += `<div class="section"><div class="section-title"><span class="emoji">${section.emoji}</span>${section.cat}<span class="section-count">(${filtered.length})</span></div>`;
+
+    // Desktop table
+    html += `<table class="sc-table"><thead><tr><th>操作</th>`;
+    if (currentOS === 'both') {
+      html += `<th>Windows</th><th>Mac</th>`;
+    } else {
+      html += `<th>${currentOS === 'win' ? 'Windows' : 'Mac'}</th>`;
+    }
+    html += `</tr></thead><tbody>`;
+    filtered.forEach(item => {
+      html += `<tr><td class="sc-desc">${item.d}</td>`;
+      if (currentOS === 'both') {
+        html += `<td>${fmtKey(item.w, 'win')}</td><td>${fmtKey(item.m, 'mac')}</td>`;
+      } else {
+        const key = currentOS === 'win' ? item.w : item.m;
+        html += `<td>${fmtKey(key, currentOS)}</td>`;
+      }
+      html += `</tr>`;
+    });
+    html += `</tbody></table>`;
+
+    // Mobile cards
+    html += `<div class="sc-cards">`;
+    filtered.forEach(item => {
+      html += `<div class="sc-card"><div class="sc-card-desc">${item.d}</div><div class="sc-card-keys">`;
+      if (currentOS === 'both' || currentOS === 'win') {
+        html += `<div class="sc-card-key"><span class="label">Win</span>${fmtKey(item.w, 'win')}</div>`;
+      }
+      if (currentOS === 'both' || currentOS === 'mac') {
+        html += `<div class="sc-card-key"><span class="label">Mac</span>${fmtKey(item.m, 'mac')}</div>`;
+      }
+      html += `</div></div>`;
+    });
+    html += `</div></div>`;
+  });
+
+  if (!count) {
+    html = `<div class="empty"><div class="icon">🔍</div><p>没有找到匹配的快捷键</p></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function fmtKey(key, os) {
+  if (key === '—' || key.startsWith('—')) return `<span class="sc-na">—</span>`;
+  // Split on + and wrap each part
+  const parts = key.split(' + ');
+  const cls = os === 'win' ? 'sc-key sc-key-win' : 'sc-key sc-key-mac';
+  return parts.map(p => `<span class="${cls}">${p.trim()}</span>`).join(' <span style="color:var(--text3)">+</span> ');
+}
+
+function setOS(os) {
+  currentOS = os;
+  document.querySelectorAll('.os-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(os === 'win' ? 'btnWin' : os === 'mac' ? 'btnMac' : 'btnBoth').classList.add('active');
+  render();
+}
+
+function setCat(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  render();
+}
+
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('sc-theme', isLight ? 'light' : 'dark');
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input', function() {
+  searchQuery = this.value;
+  render();
+});
+
+init();
+</script>
+</body>
+</html>
