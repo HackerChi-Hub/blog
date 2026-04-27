@@ -5,11 +5,51 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Apr 2026 06:43:08 GMT</lastBuildDate>
-    <pubDate>Mon, 27 Apr 2026 06:43:08 GMT</pubDate>
+    <lastBuildDate>Mon, 27 Apr 2026 12:01:44 GMT</lastBuildDate>
+    <pubDate>Mon, 27 Apr 2026 12:01:44 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
+      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
+      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    </item>
+    <item>
+      <title>免费 AI 工具箱——64 款亲测推荐</title>
+      <link>https://hyphentech.top/free-ai-tools-64/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-ai-tools-64/</guid>
+      <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>全国运营商宽带故障自查手册</title>
+      <link>https://hyphentech.top/broadband-troubleshooting-guide/</link>
+      <guid isPermaLink="true">https://hyphentech.top/broadband-troubleshooting-guide/</guid>
+      <description>全国三大运营商宽带故障自查指南，含客服电话、光猫指示灯、错误代码。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    </item>
+    <item>
+      <title>设计师/程序员免费资源站大全</title>
+      <link>https://hyphentech.top/free-design-resources/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-design-resources/</guid>
+      <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>AI 名词解释精选 50 词</title>
+      <link>https://hyphentech.top/ai-terms-50-words/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-terms-50-words/</guid>
+      <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    </item>
     <item>
       <title>快乐生蚝 Happy Oyster：阿里世界模型的产品野心与技术深潜</title>
       <link>https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</link>
