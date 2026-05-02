@@ -5,11 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 01 May 2026 23:39:55 GMT</lastBuildDate>
-    <pubDate>Fri, 01 May 2026 23:39:55 GMT</pubDate>
+    <lastBuildDate>Sat, 02 May 2026 06:21:45 GMT</lastBuildDate>
+    <pubDate>Sat, 02 May 2026 06:21:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
+      <link>https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</link>
+      <guid isPermaLink="true">https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</guid>
+      <description>前两天有人让 DeepSeek 数手指。它思考了一通，自己吐槽「我真的是数晕了」，然后答错了。
+以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
+      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
+    <category>AI 科技</category>
+    </item>
     <item>
       <title>AI 提示词模板库——覆盖 12 个日常场景</title>
       <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
