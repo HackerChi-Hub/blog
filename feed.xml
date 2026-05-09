@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 May 2026 11:13:25 GMT</lastBuildDate>
-    <pubDate>Sat, 09 May 2026 11:13:25 GMT</pubDate>
+    <lastBuildDate>Sat, 09 May 2026 17:15:29 GMT</lastBuildDate>
+    <pubDate>Sat, 09 May 2026 17:15:29 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
+      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
+      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+    <category>技术前沿</category>
+    <category>AI</category>
+    <category>Gemma4</category>
+    <category>MLX</category>
+    <category>AppleSilicon</category>
+    <category>推理加速</category>
+    </item>
     <item>
       <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
       <link>https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</link>
