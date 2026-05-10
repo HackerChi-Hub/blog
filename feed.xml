@@ -5,11 +5,50 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 May 2026 23:08:40 GMT</lastBuildDate>
-    <pubDate>Sat, 09 May 2026 23:08:40 GMT</pubDate>
+    <lastBuildDate>Sun, 10 May 2026 06:47:44 GMT</lastBuildDate>
+    <pubDate>Sun, 10 May 2026 06:47:44 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>为什么AI用起来越来越便宜，但算力公司越来越赚钱</title>
+      <link>https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</link>
+      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</guid>
+      <description>揭示AI行业Token定价权争夺背后的商业逻辑。用户觉得AI越来越便宜，但算力公司赚钱越来越多——这是Token账单转移机制在起作用。解析算力军备竞赛、云厂商收入暴增的真相，以及用户如何在这场游戏中真正买单。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI商业模式</category>
+    <category>算力通胀</category>
+    <category>Token经济</category>
+    <category>科技商业</category>
+    <category>行业分析</category>
+    </item>
+    <item>
+      <title>AI开始自己进化了？DeepMind的新系统把我吓到了</title>
+      <link>https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</link>
+      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</guid>
+      <description>DeepMind发布AlphaEvolve系统，通过AI自我改进实现了数据中心效率提升0.7%、TPU芯片优化、AI训练加速23%、数学突破56年记录。这是AI递归自我改进的里程碑事件，标志着从AI帮助人类到AI改进AI的转折点。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI技术</category>
+    <category>DeepMind</category>
+    <category>AlphaEvolve</category>
+    <category>科技前沿</category>
+    <category>自我进化</category>
+    </item>
+    <item>
+      <title>Chrome偷偷给你装了个4GB的后门，我差点把电脑砸了</title>
+      <link>https://hyphentech.top/35c999681bdb8193a562cce15193e2f9/</link>
+      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb8193a562cce15193e2f9/</guid>
+      <description>Chrome偷偷给全球8.5亿用户装了4GB的Gemini模型，占用存储、消耗性能、引发隐私担忧。本文详细分析了事件经过、影响范围、Google的回应、检查方法，并提供了Firefox、Brave、Safari等替代方案。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <category>技术评论</category>
+    <category>隐私安全</category>
+    <category>Google</category>
+    <category>Chrome</category>
+    <category>科技吐槽</category>
+    <category>AI伦理</category>
+    </item>
     <item>
       <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
       <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
@@ -17,11 +56,11 @@
       <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
       <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
     <category>技术前沿</category>
-    <category>AI</category>
-    <category>Gemma4</category>
-    <category>MLX</category>
-    <category>AppleSilicon</category>
+    <category>人工智能</category>
+    <category>Apple Silicon</category>
+    <category>Gemma</category>
     <category>推理加速</category>
+    <category>性能优化</category>
     </item>
     <item>
       <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
