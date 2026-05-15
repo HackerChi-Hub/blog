@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 15 May 2026 07:34:53 GMT</lastBuildDate>
-    <pubDate>Fri, 15 May 2026 07:34:53 GMT</pubDate>
+    <lastBuildDate>Fri, 15 May 2026 12:15:20 GMT</lastBuildDate>
+    <pubDate>Fri, 15 May 2026 12:15:20 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -35,19 +35,6 @@
     <category>AlphaEvolve</category>
     <category>科技前沿</category>
     <category>自我进化</category>
-    </item>
-    <item>
-      <title>Chrome偷偷给你装了个4GB的后门，我差点把电脑砸了</title>
-      <link>https://hyphentech.top/35c999681bdb8193a562cce15193e2f9/</link>
-      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb8193a562cce15193e2f9/</guid>
-      <description>Chrome偷偷给全球8.5亿用户装了4GB的Gemini模型，占用存储、消耗性能、引发隐私担忧。本文详细分析了事件经过、影响范围、Google的回应、检查方法，并提供了Firefox、Brave、Safari等替代方案。</description>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <category>技术评论</category>
-    <category>隐私安全</category>
-    <category>Google</category>
-    <category>Chrome</category>
-    <category>科技吐槽</category>
-    <category>AI伦理</category>
     </item>
     <item>
       <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
