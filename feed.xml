@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 15 May 2026 12:15:20 GMT</lastBuildDate>
-    <pubDate>Fri, 15 May 2026 12:15:20 GMT</pubDate>
+    <lastBuildDate>Fri, 15 May 2026 17:54:26 GMT</lastBuildDate>
+    <pubDate>Fri, 15 May 2026 17:54:26 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>M5 Pro 跑完 5 个维度，本地 AI 到底能做什么</title>
+      <link>https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</link>
+      <guid isPermaLink="true">https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</guid>
+      <description>在 M5 Pro 64GB 上做了一次完整的本地 AI 评测：4 个大模型、mlx-audio TTS、FLUX 图像生成、LTX-2.3 视频生成、Qwen2-VL 视觉理解，五个维度，全部真实数据、完整提示词、效果如实评价。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI</category>
+    <category>工具</category>
+    <category>开发</category>
+    </item>
     <item>
       <title>为什么AI用起来越来越便宜，但算力公司越来越赚钱</title>
       <link>https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</link>
