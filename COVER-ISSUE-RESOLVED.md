@@ -33,18 +33,43 @@ Host github.com
   ProxyCommand connect -S 127.0.0.1:7897 %h %p  # Clash代理端口
 ```
 
-## 🔗 正确的封面URL
+## 🎨 Blog封面逻辑说明
 
-### Blog项目公开URL
-```
-https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/m5-pro-local-ai-cover.png
-```
+### Blog封面获取优先级
+Blog系统按以下优先级获取文章封面：
 
-### Notion文章设置
+1. **Notion页面封面** (最高优先级)
+   - 如果在Notion中手动设置了页面封面
+   - 代码路径: `page.cover.external.url` 或 `page.cover.file.url`
+
+2. **文章内容第一张图片** (默认)
+   - 如果没有设置页面封面
+   - 自动从文章内容中提取第一张图片
+   - 代码路径: `extractFirstImageFromRecordMap(recordMap)`
+
+3. **无封面**
+   - 如果既没有页面封面，文章中也没有图片
+   - 显示默认占位图
+
+### 当前M5 Pro文章状态
+- **首页显示**: ✅ 正常（第一篇文章）
+- **封面来源**: 🔄 **文章内容第一张图片**（非页面封面）
+- **页面封面**: ❌ 未设置
+
+## 🔗 设置Notion页面封面（推荐）
+
+### 方法1: 通过Notion界面
 1. 打开文章: https://www.notion.so/M5-Pro-5-AI-361999681bdb815b94fad9dbf028ab2c
-2. 点击封面 → "更换封面" → "链接"
-3. 粘贴上述URL
-4. 等待5-10分钟刷新缓存
+2. 点击页面顶部的"添加封面"
+3. 选择"链接"
+4. 粘贴URL: `https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/m5-pro-local-ai-cover.png`
+5. 等待5-10分钟让Notion和Blog刷新缓存
+
+### 方法2: 直接上传封面文件
+1. 在Finder中找到封面文件: `/Volumes/BigDisk/通用素材/图片素材/blog-covers/blog-m5-pro-local-ai-cover.png`
+2. 在Notion中点击"添加封面" → "上传"
+3. 选择上述文件
+4. 保存后等待Blog自动更新
 
 ## 📚 新增记忆和技能
 
