@@ -18,3 +18,7 @@ npm-debug.log*
 ._*
 Thumbs.db
 *.bak
+
+# 敏感配置文件 - 仅推送加密版本
+.env.local
+*.plaintext
