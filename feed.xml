@@ -5,11 +5,35 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 20 May 2026 07:58:00 GMT</lastBuildDate>
-    <pubDate>Wed, 20 May 2026 07:58:00 GMT</pubDate>
+    <lastBuildDate>Wed, 20 May 2026 12:40:08 GMT</lastBuildDate>
+    <pubDate>Wed, 20 May 2026 12:40:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Gemini 3.5 全系出击：Google 这次要让 ChatGPT 睡不着觉</title>
+      <link>https://hyphentech.top/gemini-35-google-io-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-35-google-io-2026/</guid>
+      <description>Google I/O 2026 发布 Gemini 3.5 全系，Flash 主打 Agent 方向，Omni 升级全模态旗舰，Spark 定位于 24/7 私人 AI 助手。Huxiu/TechCrunch/DeepMind 同步聚焦，Google 战略全面转向 Agent 优先，正面对抗 ChatGPT/Claude 生态。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+    <category>AI大模型</category>
+    <category>AI大模型</category>
+    <category>Google</category>
+    <category>Gemini</category>
+    <category>Google I/O</category>
+    </item>
+    <item>
+      <title>Karpathy 加入 Anthropic：OpenAI 联合创始人为什么选了对手？</title>
+      <link>https://hyphentech.top/karpathy-anthropic/</link>
+      <guid isPermaLink="true">https://hyphentech.top/karpathy-anthropic/</guid>
+      <description>OpenAI 联合创始人 Karpathy 宣布加入 Anthropic 预训练团队，36kr 连发5篇追踪，华尔街称其「看懂大模型资本逻辑」。Gates Foundation/Blackstone/SpaceX 算力 deal 背后是 Anthropic 的超级资金储备，OpenAI「宫斗疲劳」则是 Karpathy 出走的另一面。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+    <category>AI大模型</category>
+    <category>AI大模型</category>
+    <category>Anthropic</category>
+    <category>Karpathy</category>
+    <category>OpenAI</category>
+    </item>
     <item>
       <title>M5 Pro 跑完 5 个维度，本地 AI 到底能做什么</title>
       <link>https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</link>
@@ -208,34 +232,6 @@
     <category>人工智能</category>
     <category>教程</category>
     <category>大语言模型</category>
-    </item>
-    <item>
-      <title>我用 AI + 命令行，零设计软件做了一套频道品牌素材</title>
-      <link>https://hyphentech.top/ai-logo-brand-assets-workflow/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-logo-brand-assets-workflow/</guid>
-      <description>用 Gemini 生成 logo 概念图，再用 ImageMagick 命令行裁切、去背、批量生成全平台品牌素材。零设计软件，全程命令行完成。</description>
-      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>工具</category>
-    <category>教程</category>
-    <category>Linux</category>
-    <category>图片</category>
-    </item>
-    <item>
-      <title>用Remotion + Claude Code从零做一个AI视频</title>
-      <link>https://hyphentech.top/remotion-claude-code-prompt-to-video-guide/</link>
-      <guid isPermaLink="true">https://hyphentech.top/remotion-claude-code-prompt-to-video-guide/</guid>
-      <description>一篇面向开发者的Remotion实战指南。完整覆盖环境搭建、Agent Skills安装、提示词框架设计、核心API详解（useCurrentFrame/interpolate/spring/Sequence）、主题注入系统、渲染与导出等全部技术细节。附带多个可直接套用的提示词模板。</description>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>视频</category>
-    <category>工具</category>
-    <category>教程</category>
-    <category>人工智能</category>
-    <category>前端</category>
-    <category>编程</category>
     </item>
   </channel>
 </rss>
