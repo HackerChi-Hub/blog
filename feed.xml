@@ -5,11 +5,44 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 May 2026 08:05:30 GMT</lastBuildDate>
-    <pubDate>Thu, 21 May 2026 08:05:30 GMT</pubDate>
+    <lastBuildDate>Thu, 21 May 2026 13:34:08 GMT</lastBuildDate>
+    <pubDate>Thu, 21 May 2026 13:34:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>M5 Pro 跑 6 个本地 AI：全量实测数据，踩了 4 个坑</title>
+      <link>https://hyphentech.top/mlx-local-ai-test-m5pro/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
+      <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>MLX</category>
+    <category>实测</category>
+    <category>Apple Silicon</category>
+    </item>
+    <item>
+      <title>M5 Pro 跑 6 个本地 AI：全量实测数据，踩了 4 个坑</title>
+      <link>https://hyphentech.top/mlx-local-ai-test-m5pro/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
+      <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>MLX</category>
+    <category>实测</category>
+    <category>Apple Silicon</category>
+    </item>
+    <item>
+      <title>M5 Pro 跑 6 个本地 AI：全量实测数据，踩了 4 个坑</title>
+      <link>https://hyphentech.top/mlx-local-ai-test-m5pro/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
+      <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>MLX</category>
+    <category>实测</category>
+    <category>Apple Silicon</category>
+    </item>
     <item>
       <title>Gemini 3.5 全系出击：Google 这次要让 ChatGPT 睡不着觉</title>
       <link>https://hyphentech.top/gemini-35-google-io-2026/</link>
@@ -198,40 +231,6 @@
     <category>教程</category>
     <category>html</category>
     <category>前端</category>
-    </item>
-    <item>
-      <title>6 种 AI Logo 提示词策略：从零基础到精准生成的完整指南</title>
-      <link>https://hyphentech.top/332999681bdb808f9875d15b22e74c59/</link>
-      <guid isPermaLink="true">https://hyphentech.top/332999681bdb808f9875d15b22e74c59/</guid>
-      <description>一句话总结：不同起点的人需要不同的提示词策略。本文整理了 6 种经过实测的 Logo 生成提示词，每种都附完整 Prompt（中英双语），覆盖从"完全没想法"到"精确复刻"的全部场景。</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>Logo</category>
-    <category>AI</category>
-    </item>
-    <item>
-      <title>大模型学习免费资料合集——不花一分钱，从零到入门</title>
-      <link>https://hyphentech.top/llm-free-learning-resources/</link>
-      <guid isPermaLink="true">https://hyphentech.top/llm-free-learning-resources/</guid>
-      <description>整理了 2026 年最全的大模型免费学习资源：视频课程、开源书籍、实战项目、论文导读、工具平台——全部免费，收藏即用。</description>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>人工智能</category>
-    <category>教程</category>
-    <category>大语言模型</category>
-    </item>
-    <item>
-      <title>大模型到底是怎么工作的？——用人话讲清 AI 底层原理</title>
-      <link>https://hyphentech.top/llm-fundamentals-explained/</link>
-      <guid isPermaLink="true">https://hyphentech.top/llm-fundamentals-explained/</guid>
-      <description>Transformer、注意力机制、Token、预训练、微调、RLHF——这些听起来很唬人的概念，其实没那么复杂。本文用最通俗的方式帮你搞懂大模型的底层原理，附带最佳学习视频推荐。</description>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>人工智能</category>
-    <category>教程</category>
-    <category>大语言模型</category>
     </item>
   </channel>
 </rss>
