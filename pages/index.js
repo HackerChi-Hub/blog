@@ -526,6 +526,19 @@ const HeroSection = ({
     <section style={heroStyles.wrapper}>
       <div style={heroStyles.overlay} aria-hidden="true" />
       <div style={{ position: 'relative' }}>
+        {/* 搜索框区域 */}
+        {searchComponent && (
+          <div
+            style={{
+              marginBottom: '24px',
+              maxWidth: '600px',
+              margin: '0 auto 24px auto',
+            }}
+          >
+            {searchComponent}
+          </div>
+        )}
+
         {/* 实用工具区域 */}
         <div style={{ marginBottom: '20px' }}>
           <div
@@ -1082,31 +1095,9 @@ export default function Home({
             subMenus={subMenus}
             categoryBuckets={categoryBuckets}
             categoryPropertyLabel={CATEGORY_FIELD}
+            searchComponent={posts.length > 0 ? <Search posts={posts} /> : null}
           />
         </div>
-
-        {/* 搜索区域 - 独立出来 */}
-        {posts.length > 0 && (
-          <section
-            style={{
-              marginTop: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
-              marginBottom: 'clamp(0.006rem, 0.01vw, 0.0093rem)',
-              padding: '12px',
-              borderRadius: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              background: 'rgba(255, 255, 255, 0.02)',
-            }}
-          >
-            <div
-              style={{
-                maxWidth: '600px',
-                margin: '0 auto',
-              }}
-            >
-              <Search posts={posts} />
-            </div>
-          </section>
-        )}
 
         {errorMessage && (
           <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
