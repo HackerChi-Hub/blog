@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 23 May 2026 23:13:53 GMT</lastBuildDate>
-    <pubDate>Sat, 23 May 2026 23:13:53 GMT</pubDate>
+    <lastBuildDate>Sun, 24 May 2026 07:31:23 GMT</lastBuildDate>
+    <pubDate>Sun, 24 May 2026 07:31:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -16,6 +16,7 @@
       <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
       <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
       <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
     <category>AI</category>
     <category>MLX</category>
     <category>实测</category>
