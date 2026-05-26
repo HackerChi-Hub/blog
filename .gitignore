@@ -22,3 +22,4 @@ Thumbs.db
 # 敏感配置文件 - 仅推送加密版本
 .env.local
 *.plaintext
+.rtk/
