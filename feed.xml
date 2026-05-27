@@ -5,11 +5,26 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 May 2026 13:52:22 GMT</lastBuildDate>
-    <pubDate>Wed, 27 May 2026 13:52:22 GMT</pubDate>
+    <lastBuildDate>Wed, 27 May 2026 18:35:58 GMT</lastBuildDate>
+    <pubDate>Wed, 27 May 2026 18:35:58 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>华为「韬定律」：当空间到头，向时间要答案</title>
+      <link>https://hyphentech.top/huawei-tau-law-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/huawei-tau-law-2026/</guid>
+      <description>逻辑折叠、55%密度提升、2031年等同1.4nm——华为用6年381款芯片，悄悄走出了一条绕开EUV的新路。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+    <category>技术前沿</category>
+    <category>华为</category>
+    <category>芯片</category>
+    <category>科技</category>
+    <category>技术</category>
+    <category>科技前沿</category>
+    <category>行业分析</category>
+    <category>AI技术</category>
+    </item>
     <item>
       <title>5万家公司用钱投了票：Anthropic 34.4% 历史首超 OpenAI</title>
       <link>https://hyphentech.top/anthropic-surpasses-openai-enterprise-share-2026/</link>
@@ -221,17 +236,6 @@
     <category>人工智能</category>
     <category>技术</category>
     <category>AI</category>
-    </item>
-    <item>
-      <title>我用Claude Code一个下午搭了个AI新闻收集器，GitHub Pages免费部署</title>
-      <link>https://hyphentech.top/33a999681bdb81499014eaf312d39728/</link>
-      <guid isPermaLink="true">https://hyphentech.top/33a999681bdb81499014eaf312d39728/</guid>
-      <description>信息焦虑的本质不是新闻太少，是整理太难。本文记录如何用 Claude Code 在一个下午搭建 AI 新闻雷达：自动抓取 287 篇文章、AI 摘要分类翻译、GitHub Pages 零成本部署，全程几乎不写一行代码。</description>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>人工智能</category>
-    <category>新闻</category>
     </item>
   </channel>
 </rss>
