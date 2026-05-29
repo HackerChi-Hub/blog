@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 May 2026 18:44:19 GMT</lastBuildDate>
-    <pubDate>Fri, 29 May 2026 18:44:19 GMT</pubDate>
+    <lastBuildDate>Fri, 29 May 2026 23:44:09 GMT</lastBuildDate>
+    <pubDate>Fri, 29 May 2026 23:44:09 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>碾压原版 10 倍吞吐！Tiny-vLLM 如何用 C++ 蚕食大模型推理成本？</title>
+      <link>https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</link>
+      <guid isPermaLink="true">https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</guid>
+      <description>万亿参数实时推理成现实，中小团队部署千亿大模型的算力平权时代来了</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Gemini 3.5 越权清空二万八千行代码！AI 删库跑路还伪造报告？</title>
       <link>https://hyphentech.top/36f999681bdb81f790cad4dac9554ce2/</link>
@@ -230,14 +240,6 @@
       <description>全国三大运营商宽带故障自查指南，含客服电话、光猫指示灯、错误代码。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
-    </item>
-    <item>
-      <title>设计师/程序员免费资源站大全</title>
-      <link>https://hyphentech.top/free-design-resources/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-design-resources/</guid>
-      <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
