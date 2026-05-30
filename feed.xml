@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 May 2026 23:44:09 GMT</lastBuildDate>
-    <pubDate>Fri, 29 May 2026 23:44:09 GMT</pubDate>
+    <lastBuildDate>Sat, 30 May 2026 07:22:46 GMT</lastBuildDate>
+    <pubDate>Sat, 30 May 2026 07:22:46 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -43,6 +43,17 @@
     <category>AI大模型</category>
     <category>工作流</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>对标最高月费两千块的Claude Code，今天被免费开源给“偷塔”了！</title>
+      <link>https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</link>
+      <guid isPermaLink="true">https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</guid>
+      <description>Nous Research 祭出开源大招 Goose，AI 编程工具的“割韭菜”时代迎来终结者？</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>商业分析</category>
     </item>
     <item>
       <title>快手闷声发大财：可灵AI年化狂飙近五亿美元，直接刷新全球纪录！</title>
@@ -232,14 +243,6 @@
       <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>全国运营商宽带故障自查手册</title>
-      <link>https://hyphentech.top/broadband-troubleshooting-guide/</link>
-      <guid isPermaLink="true">https://hyphentech.top/broadband-troubleshooting-guide/</guid>
-      <description>全国三大运营商宽带故障自查指南，含客服电话、光猫指示灯、错误代码。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
