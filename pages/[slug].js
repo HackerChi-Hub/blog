@@ -7,6 +7,7 @@ import { Component } from 'react';
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
+import http from 'http';
 import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
@@ -25,57 +26,153 @@ async function downloadNotionFiles(recordMap, slug) {
     fs.mkdirSync(downloadDir, { recursive: true });
   }
 
+  const getPlainProperty = (property) => {
+    if (!Array.isArray(property)) return '';
+    return property
+      .map((part) => part?.[0] || '')
+      .join('')
+      .trim();
+  };
+
+  const decodeFileName = (name) => {
+    try {
+      return decodeURIComponent(name);
+    } catch {
+      return name;
+    }
+  };
+
+  const fileNameFromAttachment = (source) => {
+    if (!source || typeof source !== 'string') return '';
+    const match = source.match(/^attachment:[^:]+:(.+)$/);
+    return match ? decodeFileName(match[1]) : '';
+  };
+
+  const fileNameFromUrl = (url) => {
+    try {
+      const urlPath = new URL(url).pathname;
+      const parts = urlPath.split('/').filter(Boolean);
+      return decodeFileName(parts[parts.length - 1] || '');
+    } catch {
+      return '';
+    }
+  };
+
+  const makeSafeDownloadName = (fileName, blockId) => {
+    const fallback = `notion-file-${blockId}`;
+    const rawName = decodeFileName(fileName || fallback);
+    return `${slug}-${rawName}`
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9._\-\u4e00-\u9fa5]/g, '_');
+  };
+
+  const getSignedUrl = (blockId, source) => {
+    const signed = recordMap.signed_urls || {};
+    const direct = signed[blockId] || signed[source];
+    if (direct && /^https?:\/\//i.test(direct)) return direct;
+
+    // notion-client sometimes stores the signed URL under a derived key.
+    // Match by decoded attachment filename as a last resort.
+    const fileName = fileNameFromAttachment(source);
+    if (fileName) {
+      const encoded = encodeURIComponent(fileName);
+      for (const value of Object.values(signed)) {
+        if (
+          typeof value === 'string' &&
+          /^https?:\/\//i.test(value) &&
+          (value.includes(fileName) || value.includes(encoded))
+        ) {
+          return value;
+        }
+      }
+    }
+    return '';
+  };
+
+  const downloadFile = async (url, localPath, redirects = 0) => {
+    const client = url.startsWith('http://') ? http : https;
+    await new Promise((resolve, reject) => {
+      const file = fs.createWriteStream(localPath);
+      const req = client.get(url, (res) => {
+        const location = res.headers.location;
+        if (res.statusCode >= 300 && res.statusCode < 400 && location && redirects < 5) {
+          file.close(() => fs.rmSync(localPath, { force: true }));
+          const nextUrl = new URL(location, url).toString();
+          downloadFile(nextUrl, localPath, redirects + 1).then(resolve).catch(reject);
+          return;
+        }
+
+        if (res.statusCode !== 200) {
+          file.close(() => fs.rmSync(localPath, { force: true }));
+          reject(new Error(`HTTP ${res.statusCode}`));
+          return;
+        }
+
+        res.pipe(file);
+        file.on('finish', () => {
+          file.close(resolve);
+        });
+      });
+      req.on('error', (err) => {
+        file.close(() => fs.rmSync(localPath, { force: true }));
+        reject(err);
+      });
+    });
+  };
+
+  const replaceDeep = (value, replacements) => {
+    if (!value || typeof value !== 'object') return;
+    if (Array.isArray(value)) {
+      for (let i = 0; i < value.length; i += 1) {
+        if (typeof value[i] === 'string' && replacements.has(value[i])) {
+          value[i] = replacements.get(value[i]);
+        } else {
+          replaceDeep(value[i], replacements);
+        }
+      }
+      return;
+    }
+    for (const key of Object.keys(value)) {
+      if (typeof value[key] === 'string' && replacements.has(value[key])) {
+        value[key] = replacements.get(value[key]);
+      } else {
+        replaceDeep(value[key], replacements);
+      }
+    }
+  };
+
   for (const [blockId, blockData] of Object.entries(recordMap.block)) {
-    const block = blockData?.value;
+    const block = blockData?.value?.value || blockData?.value;
     if (!block || block.type !== 'file') continue;
 
-    // 获取文件 URL（优先 signed_urls）
+    const source = getPlainProperty(block.properties?.source) || block.format?.display_source || '';
+    const displaySource = block.format?.display_source || '';
+    const signedUrl = getSignedUrl(blockId, source);
     const fileUrl =
-      recordMap.signed_urls?.[blockId] ||
-      block.properties?.source?.[0]?.[0] ||
-      block.format?.display_source;
+      signedUrl ||
+      (/^https?:\/\//i.test(source) ? source : '') ||
+      (/^https?:\/\//i.test(displaySource) ? displaySource : '');
 
-    if (!fileUrl || !fileUrl.startsWith('http')) continue;
-
-    // 从 URL 或属性中提取文件名
-    let fileName = 'file';
-    try {
-      const urlPath = new URL(fileUrl).pathname;
-      const parts = urlPath.split('/');
-      fileName = decodeURIComponent(parts[parts.length - 1]) || 'file';
-    } catch {}
-    // 如果文件名中包含 attachment: 前缀，提取实际文件名
-    if (block.properties?.source?.[0]?.[0]) {
-      const src = block.properties.source[0][0];
-      const match = src.match(/attachment:[^:]+:(.+)/);
-      if (match) fileName = match[1];
+    if (!fileUrl) {
+      console.warn(
+        `[downloadNotionFiles] No signed URL for Notion attachment block ${blockId}: ${source || '(empty source)'}`
+      );
+      continue;
     }
 
-    const safeName = `${slug}-${fileName}`.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const fileName =
+      fileNameFromAttachment(source) ||
+      fileNameFromUrl(displaySource) ||
+      fileNameFromUrl(fileUrl) ||
+      `notion-file-${blockId}`;
+    const safeName = makeSafeDownloadName(fileName, blockId);
     const localPath = path.join(downloadDir, safeName);
     const publicUrl = `/downloads/${safeName}`;
 
     // 下载文件（如果尚未存在）
     if (!fs.existsSync(localPath)) {
       try {
-        await new Promise((resolve, reject) => {
-          const file = fs.createWriteStream(localPath);
-          https.get(fileUrl, (res) => {
-            if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-              // 跟随重定向
-              https.get(res.headers.location, (res2) => {
-                res2.pipe(file);
-                file.on('finish', () => { file.close(); resolve(); });
-              }).on('error', reject);
-            } else {
-              res.pipe(file);
-              file.on('finish', () => { file.close(); resolve(); });
-            }
-          }).on('error', (err) => {
-            fs.unlinkSync(localPath);
-            reject(err);
-          });
-        });
+        await downloadFile(fileUrl, localPath);
         console.log(`[downloadNotionFiles] Downloaded: ${fileName} -> ${publicUrl}`);
       } catch (err) {
         console.warn(`[downloadNotionFiles] Failed to download ${fileName}:`, err.message);
@@ -83,15 +180,14 @@ async function downloadNotionFiles(recordMap, slug) {
       }
     }
 
-    // 替换 recordMap 中的 URL 为本地路径
+    // 替换 recordMap 中的 URL / attachment 引用为本地稳定路径
+    const replacements = new Map(
+      [source, displaySource, signedUrl, fileUrl].filter(Boolean).map((oldUrl) => [oldUrl, publicUrl])
+    );
+    replaceDeep(block, replacements);
     if (recordMap.signed_urls) {
       recordMap.signed_urls[blockId] = publicUrl;
-    }
-    if (block.properties?.source?.[0]) {
-      block.properties.source[0][0] = publicUrl;
-    }
-    if (block.format?.display_source) {
-      block.format.display_source = publicUrl;
+      if (source) recordMap.signed_urls[source] = publicUrl;
     }
   }
 
