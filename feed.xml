@@ -5,11 +5,32 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 May 2026 23:17:56 GMT</lastBuildDate>
-    <pubDate>Sat, 30 May 2026 23:17:56 GMT</pubDate>
+    <lastBuildDate>Sun, 31 May 2026 07:54:08 GMT</lastBuildDate>
+    <pubDate>Sun, 31 May 2026 07:54:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>大模型卷不动了，资本开始把人送上天</title>
+      <link>https://hyphentech.top/371999681bdb81e29574d60c14b70392/</link>
+      <guid isPermaLink="true">https://hyphentech.top/371999681bdb81e29574d60c14b70392/</guid>
+      <description>「穿越者」载人航天获亿元融资，估值突破十亿：互联网战投集体押注星辰大海</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>商业分析</category>
+    </item>
+    <item>
+      <title>估值二十亿美元的机器人独角兽，居然拿爱彼迎当免费实验室？</title>
+      <link>https://hyphentech.top/371999681bdb817a9f4bd3bf4217bf27/</link>
+      <guid isPermaLink="true">https://hyphentech.top/371999681bdb817a9f4bd3bf4217bf27/</guid>
+      <description>搞完测试拍拍屁股走人，多套房源惨遭毒手，硅谷精英的体面碎了一地。</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>碾压原版 10 倍吞吐！Tiny-vLLM 如何用 C++ 蚕食大模型推理成本？</title>
       <link>https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</link>
@@ -227,22 +248,6 @@
 以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
       <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
     <category>AI 科技</category>
-    </item>
-    <item>
-      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
-      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
-      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    </item>
-    <item>
-      <title>免费 AI 工具箱——64 款亲测推荐</title>
-      <link>https://hyphentech.top/free-ai-tools-64/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-ai-tools-64/</guid>
-      <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
