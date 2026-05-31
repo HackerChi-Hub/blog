@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 31 May 2026 07:54:08 GMT</lastBuildDate>
-    <pubDate>Sun, 31 May 2026 07:54:08 GMT</pubDate>
+    <lastBuildDate>Sun, 31 May 2026 08:39:19 GMT</lastBuildDate>
+    <pubDate>Sun, 31 May 2026 08:39:19 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
+      <link>https://hyphentech.top/movie-model-benchmark/</link>
+      <guid isPermaLink="true">https://hyphentech.top/movie-model-benchmark/</guid>
+      <description>我把同一套电影数据分析任务交给 Codex、Claude、DeepSeek、GLM 和 MiniMax，逐项拆解数据搜集、Excel、Word、PPT 的真实体验。结论：Codex 小胜 Claude，DeepSeek 因未参与数据搜索测试，不能当完整端到端样本看。</description>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+    <category>AI大模型</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>AI技术</category>
+    <category>实测</category>
+    <category>工具</category>
+    <category>工作流</category>
+    </item>
     <item>
       <title>大模型卷不动了，资本开始把人送上天</title>
       <link>https://hyphentech.top/371999681bdb81e29574d60c14b70392/</link>
@@ -239,15 +253,6 @@
     <category>Gemma</category>
     <category>推理加速</category>
     <category>性能优化</category>
-    </item>
-    <item>
-      <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
-      <link>https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</link>
-      <guid isPermaLink="true">https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</guid>
-      <description>前两天有人让 DeepSeek 数手指。它思考了一通，自己吐槽「我真的是数晕了」，然后答错了。
-以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
-      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
-    <category>AI 科技</category>
     </item>
   </channel>
 </rss>
