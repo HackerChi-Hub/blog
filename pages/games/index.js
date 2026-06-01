@@ -11,15 +11,6 @@ const GAMES = [
     desc: '操纵飞碟吸取敌方小兵、释放为我方作战 · 4兵种 · 策略对战',
     status: 'new',
   },
-  {
-    id: 'antimatter',
-    title: '反物质隔离',
-    slug: 'antimatter-isolation',
-    href: '/games/antimatter/',
-    emoji: '⚛️',
-    desc: '保护白色目标不被粒子碰撞 · 斥力场 + 3条命',
-    status: '',
-  },
 ];
 
 const styles = `
