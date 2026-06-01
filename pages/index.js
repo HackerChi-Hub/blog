@@ -235,13 +235,19 @@ const feedStyles = `
   flex-direction: column;
   height: 100%;
 }
+.post-cover {
+  aspect-ratio: 16 / 9;
+  background: rgba(9, 14, 28, 0.72);
+  overflow: hidden;
+}
 .post-cover img {
+  display: block;
   width: 100%;
+  height: 100%;
   border-radius: 0;
   border: 0;
   padding: 0;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 .feed-card__body {
   display: flex;
@@ -440,8 +446,8 @@ const PostCover = ({ cover }) => {
         height={450}
         style={{
           width: '100%',
-          height: 'auto',
-          objectFit: 'cover',
+          height: '100%',
+          objectFit: 'contain',
         }}
         loading="lazy"
         unoptimized
@@ -724,6 +730,30 @@ const HeroSection = ({
                 </div>
                 <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
                   M5 Pro 本地 4 模型深度评测 · 含越狱对比
+                </div>
+              </div>
+            </a>
+            <a
+              href="/games/"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '14px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 215, 0, 0.25)',
+                background: 'rgba(255, 215, 0, 0.06)',
+                padding: '14px 18px',
+                textDecoration: 'none',
+                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
+              }}
+            >
+              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🕹️</span>
+              <div>
+                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
+                  游戏中心
+                </div>
+                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
+                  浏览器可玩 · 像素风小游戏合集
                 </div>
               </div>
             </a>
