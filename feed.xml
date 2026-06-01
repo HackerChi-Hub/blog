@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 31 May 2026 23:32:54 GMT</lastBuildDate>
-    <pubDate>Sun, 31 May 2026 23:32:54 GMT</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2026 07:07:55 GMT</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2026 07:07:55 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>黄仁勋台北演讲全拆解：Agent时代到货，老黄一口气掀了三张桌子</title>
+      <link>https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</link>
+      <guid isPermaLink="true">https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</guid>
+      <description>中国台湾2026，老黄宣布Vera Rubin量产、为Agent造CPU、40年来头一回重新发明PC。一句话：过去6个月，一切都变了。</description>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>AI技术</category>
+    </item>
     <item>
       <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
       <link>https://hyphentech.top/movie-model-benchmark/</link>
@@ -23,6 +34,28 @@
     <category>实测</category>
     <category>工具</category>
     <category>工作流</category>
+    </item>
+    <item>
+      <title>大厂战投杀疯了！「穿越者」拿数亿融资，送人上天是一门什么好生意？</title>
+      <link>https://hyphentech.top/371999681bdb81029097da4b9c21524e/</link>
+      <guid isPermaLink="true">https://hyphentech.top/371999681bdb81029097da4b9c21524e/</guid>
+      <description>估值干破十亿，互联网巨头为何突然盯上了物理意义上的「上天」？</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>商业分析</category>
+    </item>
+    <item>
+      <title>造火箭估值干破十亿，大厂战投杀疯了！</title>
+      <link>https://hyphentech.top/371999681bdb814a996af9eba7c97696/</link>
+      <guid isPermaLink="true">https://hyphentech.top/371999681bdb814a996af9eba7c97696/</guid>
+      <description>互联网流量见顶，这回他们要把生意做到天上去</description>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>商业分析</category>
     </item>
     <item>
       <title>大模型卷不动了，资本开始把人送上天</title>
@@ -214,45 +247,6 @@
     <category>AI</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>为什么AI用起来越来越便宜，但算力公司越来越赚钱</title>
-      <link>https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</link>
-      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</guid>
-      <description>揭示AI行业Token定价权争夺背后的商业逻辑。用户觉得AI越来越便宜，但算力公司赚钱越来越多——这是Token账单转移机制在起作用。解析算力军备竞赛、云厂商收入暴增的真相，以及用户如何在这场游戏中真正买单。</description>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI商业模式</category>
-    <category>算力通胀</category>
-    <category>Token经济</category>
-    <category>科技商业</category>
-    <category>行业分析</category>
-    </item>
-    <item>
-      <title>AI开始自己进化了？DeepMind的新系统把我吓到了</title>
-      <link>https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</link>
-      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</guid>
-      <description>DeepMind发布AlphaEvolve系统，通过AI自我改进实现了数据中心效率提升0.7%、TPU芯片优化、AI训练加速23%、数学突破56年记录。这是AI递归自我改进的里程碑事件，标志着从AI帮助人类到AI改进AI的转折点。</description>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <category>AI技术</category>
-    <category>AI技术</category>
-    <category>DeepMind</category>
-    <category>AlphaEvolve</category>
-    <category>科技前沿</category>
-    <category>自我进化</category>
-    </item>
-    <item>
-      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
-      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
-      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
-      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-    <category>技术前沿</category>
-    <category>人工智能</category>
-    <category>Apple Silicon</category>
-    <category>Gemma</category>
-    <category>推理加速</category>
-    <category>性能优化</category>
     </item>
   </channel>
 </rss>
