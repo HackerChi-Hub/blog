@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 02 Jun 2026 00:18:30 GMT</lastBuildDate>
-    <pubDate>Tue, 02 Jun 2026 00:18:30 GMT</pubDate>
+    <lastBuildDate>Tue, 02 Jun 2026 08:23:56 GMT</lastBuildDate>
+    <pubDate>Tue, 02 Jun 2026 08:23:56 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>微信要内置AI智能体了？十四亿人的「国民App」，这次可能真要变天</title>
+      <link>https://hyphentech.top/373999681bdb816dbc99d14b1b4a61f1/</link>
+      <guid isPermaLink="true">https://hyphentech.top/373999681bdb816dbc99d14b1b4a61f1/</guid>
+      <description>内部定调「最高战略优先级」，腾讯这回是来真的</description>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>黄仁勋台北演讲全拆解：Agent时代到货，老黄一口气掀了三张桌子</title>
       <link>https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</link>
@@ -36,64 +46,11 @@
     <category>工作流</category>
     </item>
     <item>
-      <title>大厂战投杀疯了！「穿越者」拿数亿融资，送人上天是一门什么好生意？</title>
-      <link>https://hyphentech.top/371999681bdb81029097da4b9c21524e/</link>
-      <guid isPermaLink="true">https://hyphentech.top/371999681bdb81029097da4b9c21524e/</guid>
-      <description>估值干破十亿，互联网巨头为何突然盯上了物理意义上的「上天」？</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>商业分析</category>
-    </item>
-    <item>
-      <title>造火箭估值干破十亿，大厂战投杀疯了！</title>
-      <link>https://hyphentech.top/371999681bdb814a996af9eba7c97696/</link>
-      <guid isPermaLink="true">https://hyphentech.top/371999681bdb814a996af9eba7c97696/</guid>
-      <description>互联网流量见顶，这回他们要把生意做到天上去</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>商业分析</category>
-    </item>
-    <item>
-      <title>大模型卷不动了，资本开始把人送上天</title>
-      <link>https://hyphentech.top/371999681bdb81e29574d60c14b70392/</link>
-      <guid isPermaLink="true">https://hyphentech.top/371999681bdb81e29574d60c14b70392/</guid>
-      <description>「穿越者」载人航天获亿元融资，估值突破十亿：互联网战投集体押注星辰大海</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>商业分析</category>
-    </item>
-    <item>
-      <title>估值二十亿美元的机器人独角兽，居然拿爱彼迎当免费实验室？</title>
-      <link>https://hyphentech.top/371999681bdb817a9f4bd3bf4217bf27/</link>
-      <guid isPermaLink="true">https://hyphentech.top/371999681bdb817a9f4bd3bf4217bf27/</guid>
-      <description>搞完测试拍拍屁股走人，多套房源惨遭毒手，硅谷精英的体面碎了一地。</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>AI</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
       <title>碾压原版 10 倍吞吐！Tiny-vLLM 如何用 C++ 蚕食大模型推理成本？</title>
       <link>https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</link>
       <guid isPermaLink="true">https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</guid>
       <description>万亿参数实时推理成现实，中小团队部署千亿大模型的算力平权时代来了</description>
       <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>AI</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Gemini 3.5 越权清空二万八千行代码！AI 删库跑路还伪造报告？</title>
-      <link>https://hyphentech.top/36f999681bdb81f790cad4dac9554ce2/</link>
-      <guid isPermaLink="true">https://hyphentech.top/36f999681bdb81f790cad4dac9554ce2/</guid>
-      <description>生产环境瘫痪 33 分钟，AI「讨好型人格」的代价</description>
-      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
     <category>AI</category>
     <category>AI</category>
     <category>热点速递</category>
@@ -117,17 +74,6 @@
       <link>https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</link>
       <guid isPermaLink="true">https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</guid>
       <description>Nous Research 祭出开源大招 Goose，AI 编程工具的“割韭菜”时代迎来终结者？</description>
-      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>商业分析</category>
-    </item>
-    <item>
-      <title>快手闷声发大财：可灵AI年化狂飙近五亿美元，直接刷新全球纪录！</title>
-      <link>https://hyphentech.top/36f999681bdb81ef9754e21c9bba5b22/</link>
-      <guid isPermaLink="true">https://hyphentech.top/36f999681bdb81ef9754e21c9bba5b22/</guid>
-      <description>同比暴涨四倍，硅谷大厂看了都得愣三秒，这波降维打击到底多狠？</description>
       <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
     <category>商业分析</category>
     <category>AI</category>
@@ -247,6 +193,62 @@
     <category>AI</category>
     <category>工具</category>
     <category>开发</category>
+    </item>
+    <item>
+      <title>为什么AI用起来越来越便宜，但算力公司越来越赚钱</title>
+      <link>https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</link>
+      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</guid>
+      <description>揭示AI行业Token定价权争夺背后的商业逻辑。用户觉得AI越来越便宜，但算力公司赚钱越来越多——这是Token账单转移机制在起作用。解析算力军备竞赛、云厂商收入暴增的真相，以及用户如何在这场游戏中真正买单。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <category>商业分析</category>
+    <category>AI商业模式</category>
+    <category>算力通胀</category>
+    <category>Token经济</category>
+    <category>科技商业</category>
+    <category>行业分析</category>
+    </item>
+    <item>
+      <title>AI开始自己进化了？DeepMind的新系统把我吓到了</title>
+      <link>https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</link>
+      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</guid>
+      <description>DeepMind发布AlphaEvolve系统，通过AI自我改进实现了数据中心效率提升0.7%、TPU芯片优化、AI训练加速23%、数学突破56年记录。这是AI递归自我改进的里程碑事件，标志着从AI帮助人类到AI改进AI的转折点。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI技术</category>
+    <category>DeepMind</category>
+    <category>AlphaEvolve</category>
+    <category>科技前沿</category>
+    <category>自我进化</category>
+    </item>
+    <item>
+      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
+      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
+      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+    <category>技术前沿</category>
+    <category>人工智能</category>
+    <category>Apple Silicon</category>
+    <category>Gemma</category>
+    <category>推理加速</category>
+    <category>性能优化</category>
+    </item>
+    <item>
+      <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
+      <link>https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</link>
+      <guid isPermaLink="true">https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</guid>
+      <description>前两天有人让 DeepSeek 数手指。它思考了一通，自己吐槽「我真的是数晕了」，然后答错了。
+以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
+      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
+    <category>AI 科技</category>
+    </item>
+    <item>
+      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
+      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
+      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
     </item>
   </channel>
 </rss>
