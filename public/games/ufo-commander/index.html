@@ -1,682 +1,802 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>飞碟指挥官 - UFO Commander</title>
+<title>飞碟指挥官 — UFO Commander</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0a0a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: monospace; overflow-x: hidden; overflow-y: auto; padding: 10px; }
-#gameWrapper { position: relative; max-width: 100%; }
-canvas { display: block; border: 2px solid #333; image-rendering: pixelated; max-width: 100%; height: auto; }
-#debugPanel {
-  position: relative; width: 100%; max-width: 800px; margin-top: 10px;
-  background: rgba(0,0,0,0.92); border: 1px solid #444; padding: 12px;
-  color: #0f0; font-size: 12px; line-height: 2; border-radius: 4px;
-}
-#debugPanel h3 { color: #ff0; margin-bottom: 8px; border-bottom: 1px solid #555; padding-bottom: 4px; font-size: 13px; }
-#debugPanel .row { display: flex; justify-content: space-between; }
-#debugPanel .label { color: #999; }
-#debugPanel .val { font-weight: bold; }
-#debugPanel .v-green { color: #0f0; }
-#debugPanel .v-red { color: #f44; }
-#debugPanel .v-blue { color: #4af; }
-#debugPanel .v-yellow { color: #ff0; }
-#controls {
-  width: 100%; max-width: 800px; margin-top: 8px;
-  color: #666; font-size: 11px; text-align: center;
-}
-#inventory {
-  position: absolute; top: 32px; left: 50%; transform: translateX(-50%);
-  color: #aaa; font-size: 10px; text-align: center; pointer-events: none;
-  background: rgba(0,0,0,0.4); padding: 2px 8px; border-radius: 3px;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:monospace;color:#fff;overflow:hidden}
+canvas{border:2px solid #333;image-rendering:pixelated;cursor:crosshair}
+#ui{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:10px;font-size:12px;z-index:10;flex-wrap:wrap;justify-content:center}
+#ui span{background:rgba(0,0,0,.8);padding:4px 8px;border-radius:4px;white-space:nowrap}
+#overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.8);z-index:20}
+#overlay h1{font-size:44px;margin-bottom:12px}
+#overlay p{font-size:16px;margin-bottom:24px;text-align:center;line-height:1.7;max-width:520px}
+#overlay button{font-size:20px;padding:10px 32px;background:#4a2;border:none;color:#fff;border-radius:6px;cursor:pointer;font-family:monospace}
+#overlay button:hover{background:#5b3}
+#hud{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);display:flex;gap:6px;font-size:11px;z-index:10}
+.hud-box{background:rgba(0,0,0,.75);padding:3px 7px;border-radius:3px}
 </style>
 </head>
 <body>
-<div id="gameWrapper">
-  <canvas id="gameCanvas"></canvas>
-  <div id="debugPanel">
-    <h3>[ DEBUG PANEL ]</h3>
-    <div class="row"><span class="label">游戏状态:</span><span class="val v-yellow" id="dbgState">--</span></div>
-    <div class="row"><span class="label">我方基地HP:</span><span class="val v-blue" id="dbgPlayerHP">--</span></div>
-    <div class="row"><span class="label">敌方城堡HP:</span><span class="val v-red" id="dbgEnemyHP">--</span></div>
-    <div class="row"><span class="label">飞碟能量:</span><span class="val v-yellow" id="dbgEnergy">--</span></div>
-    <div class="row"><span class="label">我方单位数:</span><span class="val v-blue" id="dbgPlayerUnits">--</span></div>
-    <div class="row"><span class="label">敌方单位数:</span><span class="val v-red" id="dbgEnemyUnits">--</span></div>
-    <div class="row"><span class="label">已吸单位数:</span><span class="val v-yellow" id="dbgCaptured">--</span></div>
-    <div class="row"><span class="label">飞碟位置:</span><span class="val v-green" id="dbgUFOPos">--</span></div>
-    <div class="row"><span class="label">游戏时间:</span><span class="val v-green" id="dbgTime">--</span></div>
-  </div>
-  <div id="controls">WASD/方向键:移动 | 空格:吸取 | 1:战士 2:弓箭手 3:法师 4:坦克</div>
+<div id="ui">
+  <span id="uiBaseHp">🏰 基地: 2000</span>
+  <span id="uiUfoHp">🛸 飞碟: 100</span>
+  <span id="uiBeam">⚡ 光束: 100</span>
+  <span id="uiCapture">🪤 俘虏: 0</span>
+  <span id="uiCastleHp">🏯 城堡: 2000</span>
+  <span id="uiWave">🌊 波次: 0</span>
+</div>
+<canvas id="game"></canvas>
+<div id="hud">
+  <div class="hud-box">WASD/方向键: 移动飞碟</div>
+  <div class="hud-box">空格: 牵引光束(有持续时间)</div>
+  <div class="hud-box">1步兵(2) 2盾兵(3) 3弓兵(2) 4爆破(4)</div>
+</div>
+<div id="overlay">
+  <h1>🛸 飞碟指挥官</h1>
+  <p>
+    操作飞碟，用牵引光束俘虏敌兵<br>
+    消耗俘虏释放我方士兵攻城<br>
+    飞碟会受攻击，光束有时间限制<br>
+    攻破敌方城堡获胜！
+  </p>
+  <button id="startBtn">开始游戏</button>
 </div>
 <script>
-const W = 800, H = 500;
-const PLAYER_BASE_X = 70, ENEMY_BASE_X = 730;
-const BASE_Y = 250, BASE_W = 48, BASE_H = 56;
-const BASE_MAX_HP = 600;
-const UFO_SPEED = 3.2;
-const BEAM_RANGE = 90;
-const BEAM_HALF_W = 35;
-const ENERGY_MAX = 100;
-const ENERGY_REGEN = 0.2;
-const BEAM_COST = 0.5;
-const CAPTURE_NEED = 50;
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const W = 960, H = 540;
+canvas.width = W; canvas.height = H;
 
-const TYPES = {
-  1: { name:'战士',  color:'#4af', hp:50,  atk:10, spd:1.4, rng:22,  sz:6,  atkSpd:25 },
-  2: { name:'弓箭手',color:'#0c0', hp:30,  atk:6,  spd:1.0, rng:130, sz:5,  atkSpd:35 },
-  3: { name:'法师',  color:'#c4f', hp:25,  atk:14, spd:0.8, rng:90,  sz:5,  atkSpd:45, splash:35 },
-  4: { name:'坦克',  color:'#ec0', hp:100, atk:8,  spd:0.5, rng:24,  sz:9,  atkSpd:35 },
+const overlay = document.getElementById('overlay');
+const startBtn = document.getElementById('startBtn');
+const uiBaseHp = document.getElementById('uiBaseHp');
+const uiUfoHp = document.getElementById('uiUfoHp');
+const uiBeam = document.getElementById('uiBeam');
+const uiCapture = document.getElementById('uiCapture');
+const uiCastleHp = document.getElementById('uiCastleHp');
+const uiWave = document.getElementById('uiWave');
+
+const GROUND_Y = H - 80;
+const keys = {};
+document.addEventListener('keydown', e => { keys[e.code] = true; if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) e.preventDefault(); });
+document.addEventListener('keyup', e => { keys[e.code] = false; });
+
+let game = null;
+
+const SOLDIER_TYPES = {
+  infantry: { name:'步兵', hp:70, speed:1.3, atk:10, range:22, atkSpeed:35, cost:2, castleDmg:1 },
+  shield:   { name:'盾兵', hp:200, speed:0.6, atk:4, range:18, atkSpeed:55, cost:3, castleDmg:1 },
+  archer:   { name:'弓兵', hp:40, speed:1.1, atk:15, range:130, atkSpeed:55, cost:2, castleDmg:1 },
+  bomber:   { name:'爆破兵', hp:55, speed:0.85, atk:5, range:20, atkSpeed:45, cost:4, castleDmg:10 },
 };
+const TYPE_ORDER = ['infantry','shield','archer','bomber'];
 
-let canvas, ctx, keys = {}, gameState = 'menu', frame = 0;
-let ufo, pBase, eBase, pUnits, eUnits, particles, texts, projectiles;
-let beamOn, spawnTimer, difficulty;
+class Entity {
+  constructor(x, y, team, type) {
+    const t = SOLDIER_TYPES[type];
+    this.x = x; this.y = y; this.team = team; this.type = type;
+    this.maxHp = t.hp; this.hp = t.hp;
+    this.speed = t.speed; this.atk = t.atk;
+    this.range = t.range; this.atkSpeed = t.atkSpeed;
+    this.cost = t.cost; this.castleDmg = t.castleDmg;
+    this.atkCooldown = 0; this.alive = true;
+    this.w = 14; this.h = 20;
+    this.animFrame = 0; this.animTimer = 0;
+    this.beingSucked = false;
+  }
+}
 
-function makeUnit(x, y, type, team) {
-  let t = TYPES[type];
+class Base {
+  constructor(x, team) {
+    this.x = x; this.team = team;
+    this.maxHp = 2000; this.hp = 2000;
+    this.w = 55; this.h = 75;
+  }
+}
+
+function createGame() {
   return {
-    x, y, type, team, hp: t.hp, maxHp: t.hp, atk: t.atk, spd: t.spd,
-    rng: t.rng, sz: t.sz, atkSpd: t.atkSpd, splash: t.splash || 0,
-    atkTimer: 0, attacking: false, capProg: 0, beingPulled: false
+    base: new Base(65, 'player'),
+    castle: new Base(W - 65, 'enemy'),
+    soldiers: [],
+    projectiles: [],
+    particles: [],
+    ufo: {
+      x: W/2, y: 130, w: 40, h: 20,
+      hp: 100, maxHp: 100,
+      beamGauge: 100, maxBeamGauge: 100,
+      beamTarget: null, beamActive: false,
+      captures: 8,
+      invulnTimer: 0,
+    },
+    wave: 0, waveTimer: 0, waveInterval: 600,
+    state: 'playing', time: 0,
+    autoSpawnTimer: 0,
+    ufoHitFlash: 0,
   };
 }
 
-function reset() {
-  gameState = 'playing'; frame = 0;
-  ufo = { x: 200, y: 200, energy: ENERGY_MAX, captured: [] };
-  pBase = { x: PLAYER_BASE_X, y: BASE_Y, hp: BASE_MAX_HP };
-  eBase = { x: ENEMY_BASE_X, y: BASE_Y, hp: BASE_MAX_HP };
-  pUnits = []; eUnits = []; particles = []; texts = []; projectiles = [];
-  beamOn = false; spawnTimer = 0; difficulty = 1;
+function spawnEnemyWave(g) {
+  const enemyCount = g.soldiers.filter(s => s.alive && s.team === 'enemy').length;
+  if (enemyCount >= 60) return;
+  const baseCount = g.wave <= 1 ? 2 : (g.wave <= 3 ? 3 : 4);
+  const count = Math.min(baseCount + Math.floor(g.wave * 0.8), 60 - enemyCount);
+  for (let i = 0; i < count; i++) {
+    let pool;
+    if (g.wave <= 1) {
+      pool = ['infantry','infantry','infantry','infantry','infantry'];
+    } else if (g.wave <= 3) {
+      pool = ['infantry','infantry','infantry','shield','archer'];
+    } else {
+      pool = ['infantry','infantry','infantry','shield','shield','archer','archer','bomber'];
+    }
+    const t = pool[Math.floor(Math.random() * pool.length)];
+    const s = new Entity(g.castle.x - 45 + Math.random()*15, GROUND_Y - 12 - Math.random()*18, 'enemy', t);
+    g.soldiers.push(s);
+  }
 }
 
-function init() {
-  canvas = document.getElementById('gameCanvas');
-  canvas.width = W; canvas.height = H;
-  ctx = canvas.getContext('2d');
-  ctx.imageSmoothingEnabled = false;
+function tryDeploySoldier(g, type) {
+  const cost = SOLDIER_TYPES[type].cost;
+  if (g.ufo.captures < cost) return;
+  g.ufo.captures -= cost;
+  const s = new Entity(g.base.x + 45, GROUND_Y - 12 - Math.random()*18, 'player', type);
+  g.soldiers.push(s);
+  spawnParticles(g, s.x, s.y, '#4f4', 6);
+}
 
-  window.addEventListener('keydown', e => {
-    let k = e.key.toLowerCase();
-    keys[k] = true; keys[e.code] = true;
-    if (['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) e.preventDefault();
-    if (gameState === 'menu' && e.code === 'Space') reset();
-    if ((gameState === 'win' || gameState === 'lose') && (e.code === 'KeyR' || e.code === 'Space')) reset();
-    if (gameState === 'playing' && '1234'.includes(e.key)) releaseUnit(+e.key);
+function spawnParticles(g, x, y, color, count) {
+  if (g.particles.length > 300) return;
+  for (let i = 0; i < count; i++) {
+    g.particles.push({
+      x, y, vx: (Math.random()-0.5)*4, vy: -Math.random()*3-1,
+      life: 12 + Math.random()*15, maxLife: 27, color,
+    });
+  }
+}
+
+function fireProjectile(g, from, to) {
+  const dx = to.x - from.x, dy = (to.y - to.h/2) - from.y;
+  const d = Math.max(1, Math.sqrt(dx*dx+dy*dy));
+  const spd = 4;
+  g.projectiles.push({
+    x: from.x, y: from.y,
+    vx: dx/d*spd, vy: dy/d*spd,
+    team: from.team, damage: from.atk,
+    life: 60, color: from.team === 'player' ? '#ff0' : '#f80',
   });
-  window.addEventListener('keyup', e => {
-    keys[e.key.toLowerCase()] = false; keys[e.code] = false;
-  });
-  requestAnimationFrame(loop);
 }
 
-function loop() {
-  if (gameState === 'playing') update();
-  render();
-  requestAnimationFrame(loop);
-}
+function update(g) {
+  if (g.state !== 'playing') return;
+  g.time++;
+  if (g.ufoHitFlash > 0) g.ufoHitFlash--;
+  if (g.ufo.invulnTimer > 0) g.ufo.invulnTimer--;
 
-// ==================== UPDATE ====================
-function update() {
-  frame++;
-  difficulty = 1 + frame / 3600; // ramps up over time
+  // UFO movement
+  const spd = 3.2;
+  if (keys['KeyW'] || keys['ArrowUp']) g.ufo.y -= spd;
+  if (keys['KeyS'] || keys['ArrowDown']) g.ufo.y += spd;
+  if (keys['KeyA'] || keys['ArrowLeft']) g.ufo.x -= spd;
+  if (keys['KeyD'] || keys['ArrowRight']) g.ufo.x += spd;
+  g.ufo.x = Math.max(25, Math.min(W-25, g.ufo.x));
+  g.ufo.y = Math.max(25, Math.min(H-50, g.ufo.y));
 
-  // --- UFO movement ---
-  let dx = 0, dy = 0;
-  if (keys['w'] || keys['arrowup'])    dy = -1;
-  if (keys['s'] || keys['arrowdown'])  dy = 1;
-  if (keys['a'] || keys['arrowleft'])  dx = -1;
-  if (keys['d'] || keys['arrowright']) dx = 1;
-  if (dx || dy) { let l = Math.hypot(dx,dy); ufo.x += dx/l*UFO_SPEED; ufo.y += dy/l*UFO_SPEED; }
-  ufo.x = clamp(ufo.x, 25, W-25);
-  ufo.y = clamp(ufo.y, 25, H-50);
+  // Beam gauge: recharges when not beaming
+  if (!keys['Space'] || g.ufo.beamGauge <= 0) {
+    g.ufo.beamGauge = Math.min(g.ufo.maxBeamGauge, g.ufo.beamGauge + 0.5);
+  }
 
-  // --- Energy ---
-  ufo.energy = Math.min(ENERGY_MAX, ufo.energy + ENERGY_REGEN);
-  beamOn = !!keys['Space'] && ufo.energy > 3;
-  if (beamOn) { ufo.energy -= BEAM_COST; if (ufo.energy <= 0) { ufo.energy = 0; beamOn = false; } }
+  // Beam activation
+  g.ufo.beamActive = false;
+  if (keys['Space'] && g.ufo.beamGauge > 0 && g.ufo.hp > 0) {
+    g.ufo.beamActive = true;
+    g.ufo.beamGauge -= 0.45;
+    if (g.ufo.beamGauge < 0) g.ufo.beamGauge = 0;
 
-  // --- Beam capture ---
-  for (let e of eUnits) { e.beingPulled = false; if (!beamOn) e.capProg = 0; }
-  if (beamOn) {
-    for (let e of eUnits) {
-      let ex = e.x - ufo.x, ey = e.y - ufo.y;
-      let d = Math.hypot(ex, ey);
-      // beam cone: below UFO, within range, within width
-      if (ey > -10 && d < BEAM_RANGE && Math.abs(ex) < BEAM_HALF_W * (d / BEAM_RANGE + 0.3)) {
-        e.beingPulled = true;
-        let pull = 3.0;
-        e.x += (-ex/d) * pull;
-        e.y += (-ey/d) * pull;
-        e.capProg++;
-        if (d < 18 || e.capProg >= CAPTURE_NEED) {
-          ufo.captured.push(e.type);
-          addText(ufo.x, ufo.y - 24, '+1 ' + TYPES[e.type].name, '#ff0');
-          burst(e.x, e.y, TYPES[e.type].color, 6);
-          e.hp = 0;
-        }
+    const beamRange = 85;
+    let closest = null, closestDist = beamRange;
+    for (const s of g.soldiers) {
+      if (!s.alive || s.team === 'player') continue;
+      const dx = s.x - g.ufo.x, dy = s.y - g.ufo.y;
+      const d = Math.sqrt(dx*dx+dy*dy);
+      if (d < closestDist) { closest = s; closestDist = d; }
+    }
+    if (closest) {
+      closest.beingSucked = true;
+      closest.x += (g.ufo.x - closest.x) * 0.1;
+      closest.y += (g.ufo.y + 30 - closest.y) * 0.1;
+      closest.hp -= 1.2;
+      g.ufo.beamTarget = closest;
+      if (g.time % 3 === 0) spawnParticles(g, closest.x, closest.y, '#0ff', 1);
+      if (closest.hp <= 0) {
+        closest.alive = false;
+        closest.beingSucked = false;
+        g.ufo.captures += closest.cost;
+        g.ufo.beamTarget = null;
+        spawnParticles(g, closest.x, closest.y, '#0ff', 8);
+        spawnParticles(g, g.ufo.x, g.ufo.y, '#ff0', 4);
       }
+    } else {
+      g.ufo.beamTarget = null;
+    }
+  } else {
+    g.ufo.beamTarget = null;
+  }
+  // Reset sucked flag
+  for (const s of g.soldiers) {
+    if (s.beingSucked && s !== g.ufo.beamTarget) s.beingSucked = false;
+  }
+
+  // Deploy soldiers (costs captures)
+  for (let i = 0; i < 4; i++) {
+    if (keys['Digit'+(i+1)]) {
+      keys['Digit'+(i+1)] = false;
+      tryDeploySoldier(g, TYPE_ORDER[i]);
     }
   }
 
-  // --- Enemy spawn ---
-  let interval = Math.max(60, 200 - frame / 30);
-  spawnTimer++;
-  if (spawnTimer >= interval) {
-    spawnTimer = 0;
-    let pool = [1,1,2,1,3,2,4];
-    if (frame > 1800) pool.push(4,3);
-    if (frame > 3600) pool.push(3,4,4);
-    let t = pool[Math.floor(Math.random()*pool.length)];
-    let eu = makeUnit(ENEMY_BASE_X - 25, BASE_Y + (Math.random()-0.5)*120, t, 'enemy');
-    eu.hp = Math.floor(eu.hp * difficulty);
-    eu.maxHp = eu.hp;
-    eu.atk = Math.floor(eu.atk * difficulty);
-    eUnits.push(eu);
+  // Enemy wave
+  g.waveTimer++;
+  if (g.waveTimer >= g.waveInterval) {
+    g.waveTimer = 0;
+    g.wave++;
+    spawnEnemyWave(g);
   }
 
-  // --- Update units ---
-  for (let u of pUnits) unitAI(u, eUnits, eBase);
-  for (let u of eUnits) {
-    if (u.beingPulled) continue; // pulled units don't act
-    unitAI(u, pUnits, pBase);
+  // Update soldiers
+  for (const s of g.soldiers) {
+    if (!s.alive) continue;
+    s.animTimer++;
+    if (s.animTimer >= 8) { s.animTimer = 0; s.animFrame = (s.animFrame+1)%4; }
+    if (s.atkCooldown > 0) s.atkCooldown--;
+
+    if (s.beingSucked) continue;
+
+    // Find target: nearest enemy soldier or base (capped search)
+    let target = null;
+    let minDist = Infinity;
+    const searchLimit = 200;
+    for (const o of g.soldiers) {
+      if (!o.alive || o.team === s.team || o.beingSucked) continue;
+      const dist = Math.abs(o.x - s.x);
+      if (dist > searchLimit) continue;
+      if (dist < minDist) { minDist = dist; target = o; }
+    }
+    const enemyBase = s.team === 'player' ? g.castle : g.base;
+    const baseDist = Math.abs(enemyBase.x - s.x);
+    if (baseDist < minDist) { minDist = baseDist; target = enemyBase; }
+
+    // Move
+    if (target && minDist > s.range) {
+      const dir = target.x > s.x ? 1 : -1;
+      s.x += dir * s.speed;
+    }
+
+    // Attack
+    if (target && minDist <= s.range + 12 && s.atkCooldown <= 0) {
+      s.atkCooldown = s.atkSpeed;
+      if (s.type === 'archer' && !(target instanceof Base)) {
+        fireProjectile(g, s, target);
+      } else if (target instanceof Base) {
+        const dmg = s.atk * s.castleDmg;
+        target.hp -= dmg;
+        spawnParticles(g, target.x + (Math.random()-0.5)*20, target.y - target.h/2, '#f44', 3);
+      } else {
+        target.hp -= s.atk;
+        spawnParticles(g, target.x, target.y - 5, '#ff0', 2);
+        if (target.hp <= 0) {
+          target.alive = false;
+          spawnParticles(g, target.x, target.y, target.team === 'player' ? '#4f4' : '#f44', 8);
+        }
+      }
+    }
+
+    // Enemy soldiers attack UFO if nearby
+    if (s.team === 'enemy' && s.type !== 'archer') {
+      const dx = g.ufo.x - s.x, dy = g.ufo.y - s.y;
+      const ud = Math.sqrt(dx*dx+dy*dy);
+      if (ud < 45 && g.ufo.invulnTimer <= 0 && g.ufo.hp > 0) {
+        g.ufo.hp -= 2;
+        g.ufo.invulnTimer = 15;
+        g.ufoHitFlash = 8;
+        spawnParticles(g, g.ufo.x, g.ufo.y, '#f44', 3);
+      }
+    }
+
+    s.y = Math.max(GROUND_Y - 28, Math.min(GROUND_Y, s.y));
   }
 
-  // --- Projectiles ---
-  for (let p of projectiles) {
+  // Update projectiles
+  for (const p of g.projectiles) {
     p.x += p.vx; p.y += p.vy; p.life--;
     if (p.life <= 0) { p.dead = true; continue; }
-    // hit check
-    let targets = p.team === 'player' ? eUnits : pUnits;
-    for (let t of targets) {
-      if (t.hp <= 0) continue;
-      if (Math.abs(p.x - t.x) < t.sz + 2 && Math.abs(p.y - t.y) < t.sz + 2) {
-        dealDamage(t, p.dmg, p.team);
-        // splash
-        if (p.splash) {
-          for (let t2 of targets) {
-            if (t2 !== t && t2.hp > 0 && Math.hypot(t2.x-t.x, t2.y-t.y) < p.splash)
-              dealDamage(t2, Math.floor(p.dmg*0.5), p.team);
-          }
+    // Check hit
+    for (const s of g.soldiers) {
+      if (!s.alive || s.team === p.team || s.beingSucked) continue;
+      if (Math.abs(s.x - p.x) < 10 && Math.abs(s.y - s.h/2 - p.y) < 12) {
+        s.hp -= p.damage;
+        p.dead = true;
+        spawnParticles(g, s.x, s.y, '#ff0', 3);
+        if (s.hp <= 0) {
+          s.alive = false;
+          spawnParticles(g, s.x, s.y, s.team === 'player' ? '#4f4' : '#f44', 6);
         }
-        p.dead = true; break;
+        break;
       }
     }
   }
-  projectiles = projectiles.filter(p => !p.dead);
 
-  // --- Cleanup ---
-  pUnits = pUnits.filter(u => u.hp > 0);
-  eUnits = eUnits.filter(u => u.hp > 0);
-  particles = particles.filter(p => { p.life--; p.x += p.vx; p.y += p.vy; p.vy += 0.04; return p.life > 0; });
-  texts = texts.filter(t => { t.life--; t.y -= 0.6; return t.life > 0; });
+  g.soldiers = g.soldiers.filter(s => s.alive);
+  g.projectiles = g.projectiles.filter(p => !p.dead && p.life > 0);
 
-  // --- Win/Lose ---
-  if (eBase.hp <= 0) { eBase.hp = 0; gameState = 'win'; }
-  if (pBase.hp <= 0) { pBase.hp = 0; gameState = 'lose'; }
-}
-
-function unitAI(u, enemies, targetBase) {
-  u.atkTimer = Math.max(0, u.atkTimer - 1);
-
-  let closest = null, closestD = Infinity;
-  for (let e of enemies) {
-    if (e.hp <= 0) continue;
-    let d = Math.hypot(e.x - u.x, e.y - u.y);
-    if (d < closestD) { closestD = d; closest = e; }
+  // Particles
+  for (const p of g.particles) {
+    p.x += p.vx; p.y += p.vy; p.vy += 0.12; p.life--;
   }
-  let bd = Math.hypot(targetBase.x - u.x, targetBase.y - u.y);
-  if (bd < closestD) { closestD = bd; closest = targetBase; }
+  g.particles = g.particles.filter(p => p.life > 0);
 
-  if (closest && closestD <= u.rng + (closest.sz || BASE_W/2)) {
-    if (u.atkTimer <= 0) {
-      u.atkTimer = u.atkSpd;
-      if (u.rng > 30) {
-        // ranged: spawn projectile
-        let angle = Math.atan2(closest.y - u.y, closest.x - u.x);
-        let spd = 4;
-        projectiles.push({
-          x: u.x, y: u.y, vx: Math.cos(angle)*spd, vy: Math.sin(angle)*spd,
-          team: u.team, dmg: u.atk, life: 40, splash: u.splash, color: TYPES[u.type].color
-        });
-      } else {
-        dealDamage(closest, u.atk, u.team);
-        burst(closest.x, closest.y, '#f88', 3);
-      }
-    }
-    u.attacking = true;
-  } else {
-    // move
-    if (closest) {
-      let dir = u.team === 'player' ? 1 : -1;
-      if (closest === targetBase) {
-        u.x += dir * u.spd;
-      } else {
-        let d = Math.max(1, closestD);
-        u.x += (closest.x - u.x) / d * u.spd;
-        u.y += (closest.y - u.y) / d * u.spd;
-      }
-    }
-    u.attacking = false;
-  }
-  u.y = clamp(u.y, 40, H - 55);
-  u.x = clamp(u.x, 15, W - 15);
+  // Win/lose
+  if (g.castle.hp <= 0) { g.castle.hp = 0; g.state = 'win'; }
+  if (g.base.hp <= 0) { g.base.hp = 0; g.state = 'lose'; }
+  if (g.ufo.hp <= 0) { g.ufo.hp = 0; g.state = 'lose'; }
 }
 
-function dealDamage(target, dmg, attackerTeam) {
-  target.hp -= dmg;
-  addText(target.x, target.y - 12, '-' + dmg, attackerTeam === 'player' ? '#4f4' : '#f44');
-}
+// ========== RENDERING ==========
 
-function releaseUnit(type) {
-  if (ufo.captured.length === 0) {
-    addText(ufo.x, ufo.y - 30, '库存为空!', '#f88');
-    return;
-  }
-  let idx = ufo.captured.indexOf(type);
-  if (idx !== -1) {
-    ufo.captured.splice(idx, 1);
-  } else {
-    type = ufo.captured.shift();
-  }
-  let u = makeUnit(ufo.x, ufo.y + 10, type, 'player');
-  pUnits.push(u);
-  burst(ufo.x, ufo.y, TYPES[type].color, 8);
-  addText(ufo.x, ufo.y - 30, '部署: ' + TYPES[type].name, TYPES[type].color);
-}
-
-// ==================== HELPERS ====================
-function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-
-function burst(x, y, color, n) {
-  for (let i = 0; i < n; i++)
-    particles.push({ x, y, vx:(Math.random()-0.5)*3, vy:(Math.random()-0.5)*3, color, life: 18+Math.random()*15 });
-}
-
-function addText(x, y, text, color) {
-  texts.push({ x, y, text, color, life: 45 });
-}
-
-// ==================== RENDER ====================
-function render() {
-  ctx.fillStyle = '#111128';
-  ctx.fillRect(0, 0, W, H);
-
-  if (gameState === 'menu') { renderMenu(); return; }
-
-  drawBG();
-  drawBases();
-  drawProjectiles();
-  drawUnits();
-  drawBeam();
-  drawUFO();
-  drawParticles();
-  drawTexts();
-  drawHUD();
-
-  if (gameState === 'win')  drawOverlay('胜 利 !', '#0f0');
-  if (gameState === 'lose') drawOverlay('失 败 !', '#f00');
-
-  updateDebug();
-}
-
-function renderMenu() {
-  ctx.fillStyle = '#111128';
-  ctx.fillRect(0, 0, W, H);
-
-  drawStarsBG();
-
-  ctx.fillStyle = '#4af';
-  ctx.font = 'bold 32px monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText('飞碟指挥官', W/2, 100);
-
-  ctx.font = '14px monospace';
-  let lines = [
-    'WASD / 方向键  —  移动飞碟',
-    '空格键(按住)   —  牵引光束吸取敌方小兵',
-    '按 1/2/3/4    —  释放已吸取的小兵为我作战',
-    '',
-    '兵种: 1=战士 2=弓箭手 3=法师 4=坦克',
-    '',
-    '目标: 摧毁敌方城堡!',
-    '注意: 保护我方基地!',
-    '',
-    '[ 按空格键开始 ]'
-  ];
-  ctx.fillStyle = '#aaa';
-  let y = 160;
-  for (let l of lines) { ctx.fillText(l, W/2, y); y += 22; }
-
-  let t = Date.now()/1000;
-  drawPixelUFO(W/2, 400 + Math.sin(t*2)*12, t, false);
-}
-
-function drawBG() {
-  drawStarsBG();
-  ctx.fillStyle = '#1e1e3a';
-  ctx.fillRect(0, H-35, W, 35);
-  for (let x = 0; x < W; x += 20) { ctx.fillStyle = '#282848'; ctx.fillRect(x, H-35, 2, 1); }
-}
-
-let stars = null;
-function drawStarsBG() {
-  if (!stars) {
-    stars = [];
-    for (let i = 0; i < 60; i++) stars.push({ x: Math.random()*W, y: Math.random()*(H-50), s: Math.random()*2+1, b: Math.random() });
-  }
-  for (let s of stars) {
-    let a = 0.2 + 0.3 * Math.sin(frame * 0.02 + s.b * 10);
-    ctx.fillStyle = `rgba(200,200,255,${a})`;
-    ctx.fillRect(s.x, s.y, s.s, s.s);
-  }
-}
-
-function drawBases() {
-  drawOneBase(pBase, '#4af', 'player');
-  drawOneBase(eBase, '#f44', 'enemy');
-}
-
-function drawOneBase(base, color, team) {
-  let bx = base.x - BASE_W/2, by = base.y - BASE_H/2;
-
-  // shadow
-  ctx.fillStyle = 'rgba(0,0,0,0.3)';
-  ctx.fillRect(bx+3, by+3, BASE_W, BASE_H);
-
-  // body
-  ctx.fillStyle = team === 'player' ? '#2a4a6a' : '#6a2a2a';
-  ctx.fillRect(bx, by, BASE_W, BASE_H);
-
-  // battlements
-  ctx.fillStyle = team === 'player' ? '#3a6a9a' : '#9a3a3a';
-  for (let i = 0; i < 3; i++) ctx.fillRect(bx + i*17, by-9, 11, 11);
-
-  // door
-  ctx.fillStyle = team === 'player' ? '#1a3050' : '#501a1a';
-  ctx.fillRect(bx+16, by+30, 16, 26);
-
-  // windows
-  ctx.fillStyle = team === 'player' ? '#6af' : '#fa6';
-  ctx.fillRect(bx+8, by+10, 8, 8);
-  ctx.fillRect(bx+32, by+10, 8, 8);
-
-  // flag
+function drawPixelRect(x, y, w, h, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(bx+21, by-22, 2, 16);
-  let flagWave = Math.sin(frame * 0.05) * 2;
-  ctx.fillRect(bx+23, by-22+flagWave, 10, 6);
+  ctx.fillRect(Math.floor(x), Math.floor(y), w, h);
+}
 
-  // HP bar above castle
-  let hpPct = Math.max(0, base.hp / BASE_MAX_HP);
-  let barW = BASE_W + 16;
-  let barX = base.x - barW/2, barY = by - 30;
-  ctx.fillStyle = '#222';
-  ctx.fillRect(barX, barY, barW, 10);
-  ctx.fillStyle = hpPct > 0.5 ? '#0c0' : hpPct > 0.25 ? '#cc0' : '#c00';
-  ctx.fillRect(barX+1, barY+1, (barW-2)*hpPct, 8);
-  ctx.strokeStyle = '#555';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(barX, barY, barW, 10);
+function drawBar(x, y, w, h, ratio, bgColor, fgColor) {
+  drawPixelRect(x, y, w, h, bgColor);
+  drawPixelRect(x, y, Math.max(0, Math.floor(w * Math.max(0, ratio))), h, fgColor);
+}
 
+function drawBase(b, label) {
+  const bx = b.x - b.w/2, by = GROUND_Y - b.h;
+  if (b.team === 'player') {
+    // Green fortress
+    drawPixelRect(bx, by, b.w, b.h, '#1a5c2a');
+    drawPixelRect(bx+3, by+3, b.w-6, b.h-3, '#28804a');
+    // Door
+    drawPixelRect(bx+18, by+40, 18, 35, '#0d3318');
+    drawPixelRect(bx+20, by+42, 14, 33, '#1a5c2a');
+    // Windows
+    drawPixelRect(bx+6, by+12, 10, 10, '#adf');
+    drawPixelRect(bx+38, by+12, 10, 10, '#adf');
+    // Roof
+    ctx.fillStyle = '#0d3318';
+    ctx.beginPath();
+    ctx.moveTo(bx-4, by+2); ctx.lineTo(bx+b.w/2, by-18); ctx.lineTo(bx+b.w+4, by+2);
+    ctx.fill();
+    // Flag
+    drawPixelRect(bx+b.w/2-1, by-34, 2, 18, '#ccc');
+    drawPixelRect(bx+b.w/2+1, by-34, 14, 9, '#4f4');
+    // HP bar
+    drawBar(bx, by-8, b.w, 5, b.hp/b.maxHp, '#333', '#4f4');
+  } else {
+    // Red castle with battlements
+    drawPixelRect(bx, by+10, b.w, b.h-10, '#7a1a1a');
+    drawPixelRect(bx+3, by+13, b.w-6, b.h-13, '#a03030');
+    // Battlements
+    for (let i = 0; i < 5; i++) {
+      drawPixelRect(bx + i*11, by, 8, 12, '#c44');
+      drawPixelRect(bx + i*11+1, by+1, 6, 10, '#d55');
+    }
+    // Gate
+    drawPixelRect(bx+16, by+38, 22, 37, '#4a0a0a');
+    ctx.fillStyle = '#4a0a0a';
+    ctx.beginPath();
+    ctx.arc(bx+27, by+38, 11, Math.PI, 0);
+    ctx.fill();
+    // Windows
+    drawPixelRect(bx+8, by+18, 8, 8, '#fa0');
+    drawPixelRect(bx+38, by+18, 8, 8, '#fa0');
+    // Skull emblem
+    ctx.fillStyle = '#faa';
+    ctx.font = '16px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('💀', b.x, by+32);
+    // HP bar
+    drawBar(bx, by-8, b.w, 5, b.hp/b.maxHp, '#333', '#f44');
+  }
+  // Label
   ctx.fillStyle = '#fff';
-  ctx.font = 'bold 9px monospace';
+  ctx.font = 'bold 11px monospace';
   ctx.textAlign = 'center';
-  ctx.fillText(Math.ceil(base.hp)+'/'+BASE_MAX_HP, base.x, barY - 3);
-
-  // label
-  ctx.fillStyle = color;
-  ctx.font = '10px monospace';
-  ctx.fillText(team === 'player' ? '我方基地' : '敌方城堡', base.x, by + BASE_H + 15);
+  ctx.fillText(label, b.x, by - 14);
 }
 
-function drawUFO() {
-  drawPixelUFO(ufo.x, ufo.y, frame/15, beamOn);
+function drawSoldier(s, g) {
+  const px = Math.floor(s.x - s.w/2);
+  const py = Math.floor(s.y - s.h);
+  const bob = Math.sin(s.animFrame * 1.5) * (s.beingSucked ? 3 : 1);
+  const isPlayer = s.team === 'player';
+  const legOffset = s.beingSucked ? 0 : (s.animFrame % 2 === 0 ? 2 : -2);
 
-  // energy bar
-  let bw = 28;
-  ctx.fillStyle = '#222';
-  ctx.fillRect(ufo.x-bw/2, ufo.y+16, bw, 4);
-  ctx.fillStyle = ufo.energy > 20 ? '#fc0' : '#f44';
-  ctx.fillRect(ufo.x-bw/2, ufo.y+16, bw*(ufo.energy/ENERGY_MAX), 4);
-}
-
-function drawPixelUFO(x, y, t, showBeam) {
-  // shadow
-  ctx.fillStyle = 'rgba(0,0,0,0.2)';
-  ctx.fillRect(x-10, y+4, 20, 4);
-
-  // body
-  ctx.fillStyle = '#8cf';
-  ctx.fillRect(x-12, y-3, 24, 7);
-  ctx.fillRect(x-8, y-5, 16, 2);
-  ctx.fillRect(x-5, y-7, 10, 2);
-
-  // dome
-  ctx.fillStyle = '#aff';
-  ctx.fillRect(x-3, y-11, 6, 5);
-  ctx.fillRect(x-2, y-13, 4, 2);
-
-  // lights animation
-  let phase = Math.floor(t) % 3;
-  let cols = ['#f44','#fc0','#0c0'];
-  for (let i = 0; i < 3; i++) {
-    ctx.fillStyle = i === phase ? cols[i] : '#333';
-    ctx.fillRect(x-9+i*7, y+2, 3, 2);
+  // Shadow
+  if (!s.beingSucked) {
+    ctx.globalAlpha = 0.2;
+    drawPixelRect(px-2, Math.floor(s.y)+1, s.w+4, 3, '#000');
+    ctx.globalAlpha = 1;
   }
 
-  // bottom glow when beam active
-  if (showBeam) {
-    ctx.fillStyle = 'rgba(255,255,100,0.08)';
-    ctx.fillRect(x-15, y+6, 30, 4);
-  }
-}
+  if (s.type === 'infantry') {
+    // === INFANTRY: Green body, sword ===
+    const bodyCol = isPlayer ? '#3a3' : '#a33';
+    const skinCol = isPlayer ? '#cfc' : '#fcc';
+    // Legs
+    drawPixelRect(px+2+legOffset, py+s.h-5+bob, 3, 5, '#553');
+    drawPixelRect(px+s.w-5+legOffset, py+s.h-5+bob, 3, 5, '#553');
+    // Body
+    drawPixelRect(px+1, py+7+bob, s.w-2, s.h-12, bodyCol);
+    // Belt
+    drawPixelRect(px+1, py+s.h-8+bob, s.w-2, 2, '#cc0');
+    // Head
+    drawPixelRect(px+3, py+bob, s.w-6, 8, skinCol);
+    // Eyes
+    drawPixelRect(px+4, py+3+bob, 2, 2, '#000');
+    drawPixelRect(px+s.w-6, py+3+bob, 2, 2, '#000');
+    // Sword
+    drawPixelRect(px+s.w+1, py+8+bob, 2, 12, '#ddd');
+    drawPixelRect(px+s.w-1, py+7+bob, 6, 2, '#da3');
 
-function drawBeam() {
-  if (!beamOn) return;
+  } else if (s.type === 'shield') {
+    // === SHIELD: Big blue shield, stocky ===
+    const bodyCol = isPlayer ? '#33a' : '#a33';
+    const shieldCol = isPlayer ? '#66d' : '#d66';
+    // Legs (shorter, thicker)
+    drawPixelRect(px+1, py+s.h-4+bob, 4, 4, '#553');
+    drawPixelRect(px+s.w-5, py+s.h-4+bob, 4, 4, '#553');
+    // Body (wider)
+    drawPixelRect(px-1, py+6+bob, s.w+2, s.h-10, bodyCol);
+    // Head with helmet
+    drawPixelRect(px+2, py-1+bob, s.w-4, 9, shieldCol);
+    drawPixelRect(px+3, py+1+bob, s.w-6, 5, '#eee');
+    // Eyes slit
+    drawPixelRect(px+4, py+2+bob, s.w-8, 2, '#333');
+    // Big shield in front
+    const sx = isPlayer ? px-5 : px+s.w;
+    drawPixelRect(sx, py+5+bob, 8, 14, shieldCol);
+    drawPixelRect(sx+1, py+6+bob, 6, 12, '#fff');
+    drawPixelRect(sx+2, py+8+bob, 4, 2, shieldCol);
+    drawPixelRect(sx+2, py+12+bob, 4, 2, shieldCol);
 
-  let flicker = Math.sin(frame*0.4)*3;
-  let hw = BEAM_HALF_W + flicker;
-
-  // main beam cone
-  let grad = ctx.createLinearGradient(ufo.x, ufo.y+8, ufo.x, ufo.y+BEAM_RANGE);
-  grad.addColorStop(0, 'rgba(255,255,120,0.25)');
-  grad.addColorStop(1, 'rgba(255,255,120,0.03)');
-  ctx.fillStyle = grad;
-  ctx.beginPath();
-  ctx.moveTo(ufo.x-10, ufo.y+6);
-  ctx.lineTo(ufo.x+10, ufo.y+6);
-  ctx.lineTo(ufo.x+hw, ufo.y+BEAM_RANGE);
-  ctx.lineTo(ufo.x-hw, ufo.y+BEAM_RANGE);
-  ctx.fill();
-
-  // particles inside beam
-  for (let i = 0; i < 4; i++) {
-    let py = ufo.y + 12 + Math.random()*(BEAM_RANGE-15);
-    let spread = (py - ufo.y)/BEAM_RANGE * hw;
-    let px = ufo.x + (Math.random()-0.5)*spread*2;
-    ctx.fillStyle = `rgba(255,255,${80+Math.random()*175},${0.2+Math.random()*0.3})`;
-    ctx.fillRect(px, py, 2, 2);
-  }
-
-  // edge lines
-  ctx.strokeStyle = 'rgba(255,255,100,0.15)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(ufo.x-8, ufo.y+6); ctx.lineTo(ufo.x-hw, ufo.y+BEAM_RANGE);
-  ctx.moveTo(ufo.x+8, ufo.y+6); ctx.lineTo(ufo.x+hw, ufo.y+BEAM_RANGE);
-  ctx.stroke();
-}
-
-function drawUnits() {
-  for (let u of pUnits) drawOneUnit(u);
-  for (let u of eUnits) drawOneUnit(u);
-}
-
-function drawOneUnit(u) {
-  let info = TYPES[u.type];
-  let color = u.team === 'player' ? info.color : '#f66';
-  let s = u.sz;
-
-  // shadow
-  ctx.fillStyle = 'rgba(0,0,0,0.15)';
-  ctx.fillRect(u.x-s/2+1, u.y+s/2, s, 2);
-
-  // body
-  ctx.fillStyle = color;
-  ctx.fillRect(u.x-s/2, u.y-s/2, s, s);
-
-  // head
-  let hs = Math.max(2, s-2);
-  ctx.fillStyle = u.team === 'player' ? '#eee' : '#fcc';
-  ctx.fillRect(u.x-hs/2, u.y-s/2-hs, hs, hs);
-
-  // eyes
-  ctx.fillStyle = '#111';
-  ctx.fillRect(u.x-1, u.y-s/2-hs+1, 1, 1);
-  ctx.fillRect(u.x+1, u.y-s/2-hs+1, 1, 1);
-
-  // weapon visual
-  if (u.type === 2) { ctx.fillStyle = '#8c8'; ctx.fillRect(u.x+s/2, u.y-1, 5, 1); }
-  else if (u.type === 3) { ctx.fillStyle = '#c8c'; ctx.fillRect(u.x+s/2, u.y-1, 6, 1); }
-  else if (u.type === 4) { ctx.fillStyle = '#cc8'; ctx.fillRect(u.x-1, u.y+s/2, 2, 4); }
-
-  // attack flash
-  if (u.attacking && u.atkTimer > u.atkSpd - 4) {
-    ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.fillRect(u.x-s/2-1, u.y-s/2-1, s+2, s+2);
-  }
-
-  // HP bar (only if damaged)
-  if (u.hp < u.maxHp) {
-    let bw = s + 4;
-    ctx.fillStyle = '#300';
-    ctx.fillRect(u.x-bw/2, u.y-s/2-hs-5, bw, 3);
-    ctx.fillStyle = u.hp/u.maxHp > 0.5 ? '#0c0' : '#c00';
-    ctx.fillRect(u.x-bw/2, u.y-s/2-hs-5, bw*(u.hp/u.maxHp), 3);
-  }
-
-  // capture ring
-  if (u.capProg > 0 && !u.beingPulled) u.capProg = Math.max(0, u.capProg - 2);
-  if (u.capProg > 0) {
-    let pct = u.capProg / CAPTURE_NEED;
-    ctx.strokeStyle = `rgba(255,255,0,${0.3+pct*0.7})`;
+  } else if (s.type === 'archer') {
+    // === ARCHER: Slim, bow, quiver ===
+    const bodyCol = isPlayer ? '#aa3' : '#a55';
+    const skinCol = isPlayer ? '#cfc' : '#fcc';
+    // Legs (thin)
+    drawPixelRect(px+3+legOffset, py+s.h-5+bob, 2, 5, '#553');
+    drawPixelRect(px+s.w-5+legOffset, py+s.h-5+bob, 2, 5, '#553');
+    // Body (thin)
+    drawPixelRect(px+3, py+7+bob, s.w-6, s.h-12, bodyCol);
+    // Head
+    drawPixelRect(px+4, py+bob, s.w-8, 7, skinCol);
+    // Eyes
+    drawPixelRect(px+5, py+2+bob, 2, 2, '#000');
+    drawPixelRect(px+s.w-7, py+2+bob, 2, 2, '#000');
+    // Pointy hat
+    drawPixelRect(px+5, py-5+bob, 4, 6, bodyCol);
+    drawPixelRect(px+6, py-7+bob, 2, 3, bodyCol);
+    // Bow
+    const bx2 = isPlayer ? px+s.w+2 : px-5;
+    ctx.strokeStyle = '#a73';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.arc(u.x, u.y, s + 4, -Math.PI/2, -Math.PI/2 + Math.PI*2*pct);
+    ctx.arc(bx2, py+12+bob, 8, -0.8, 0.8);
     ctx.stroke();
+    ctx.strokeStyle = '#ddd';
     ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(bx2+6, py+6+bob);
+    ctx.lineTo(bx2+6, py+18+bob);
+    ctx.stroke();
+    // Quiver
+    const qx = isPlayer ? px-3 : px+s.w;
+    drawPixelRect(qx, py+7+bob, 4, 10, '#853');
+    drawPixelRect(qx+1, py+6+bob, 1, 3, '#ddd');
+    drawPixelRect(qx+2, py+5+bob, 1, 3, '#ddd');
+
+  } else if (s.type === 'bomber') {
+    // === BOMBER: Orange, carries TNT barrel ===
+    const bodyCol = isPlayer ? '#c63' : '#a33';
+    // Legs
+    drawPixelRect(px+2+legOffset, py+s.h-5+bob, 3, 5, '#553');
+    drawPixelRect(px+s.w-5+legOffset, py+s.h-5+bob, 3, 5, '#553');
+    // Body
+    drawPixelRect(px+1, py+7+bob, s.w-2, s.h-12, bodyCol);
+    // Head with goggles
+    drawPixelRect(px+3, py+bob, s.w-6, 7, '#fca');
+    drawPixelRect(px+3, py+2+bob, 3, 3, '#444');
+    drawPixelRect(px+s.w-6, py+2+bob, 3, 3, '#444');
+    // Hard hat
+    drawPixelRect(px+2, py-2+bob, s.w-4, 3, '#fa0');
+    drawPixelRect(px+1, py+bob, s.w-2, 2, '#fa0');
+    // TNT barrel on back
+    const tx = isPlayer ? px-6 : px+s.w+1;
+    drawPixelRect(tx, py+6+bob, 7, 10, '#c22');
+    drawPixelRect(tx+1, py+7+bob, 5, 8, '#e44');
+    ctx.fillStyle = '#ff0';
+    ctx.font = 'bold 6px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('TNT', tx+3.5, py+13+bob);
+    // Fuse spark
+    if (g.time % 10 < 5) {
+      drawPixelRect(tx+3, py+4+bob, 2, 2, '#ff0');
+      drawPixelRect(tx+3, py+3+bob, 1, 1, '#fff');
+    }
   }
 
-  // team indicator dot
-  ctx.fillStyle = u.team === 'player' ? '#4af' : '#f44';
-  ctx.fillRect(u.x-1, u.y + s/2 + 2, 2, 2);
+  // Team marker: small colored dot
+  if (!isPlayer) {
+    drawPixelRect(px+s.w/2-2, py-4+bob, 4, 3, '#f00');
+  }
+
+  // HP bar (only when damaged)
+  if (s.hp < s.maxHp) {
+    drawBar(px-1, py - 6 + bob, s.w+2, 3, s.hp/s.maxHp, '#333', isPlayer ? '#4f4' : '#f44');
+  }
+
+  // Sucked effect: cyan glow
+  if (s.beingSucked) {
+    ctx.globalAlpha = 0.3 + Math.sin(g.time * 0.3) * 0.15;
+    drawPixelRect(px-3, py-3+bob, s.w+6, s.h+6, '#0ff');
+    ctx.globalAlpha = 1;
+  }
 }
 
-function drawProjectiles() {
-  for (let p of projectiles) {
-    ctx.fillStyle = p.color || '#ff0';
-    ctx.fillRect(p.x-2, p.y-1, 4, 2);
-    // trail
-    ctx.fillStyle = 'rgba(255,255,100,0.2)';
-    ctx.fillRect(p.x-p.vx*2, p.y-p.vy*2, 3, 2);
-  }
-}
+function drawUFO(g) {
+  const u = g.ufo;
+  const ux = Math.floor(u.x), uy = Math.floor(u.y);
+  const hover = Math.sin(g.time * 0.07) * 3;
 
-function drawParticles() {
-  for (let p of particles) {
-    ctx.globalAlpha = Math.min(1, p.life / 12);
-    ctx.fillStyle = p.color;
-    ctx.fillRect(p.x-1, p.y-1, 3, 3);
+  // Hit flash
+  if (g.ufoHitFlash > 0 && g.ufoHitFlash % 2 === 0) return;
+
+  // Beam visual
+  if (u.beamActive) {
+    // Cone beam
+    ctx.globalAlpha = 0.18 + Math.sin(g.time*0.2)*0.05;
+    ctx.fillStyle = '#0ff';
+    ctx.beginPath();
+    ctx.moveTo(ux - 16, uy + u.h/2 + hover);
+    ctx.lineTo(ux + 16, uy + u.h/2 + hover);
+    ctx.lineTo(ux + 35, uy + 90);
+    ctx.lineTo(ux - 35, uy + 90);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Target line
+    if (u.beamTarget && u.beamTarget.alive) {
+      ctx.strokeStyle = '#0ff';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3,3]);
+      ctx.beginPath();
+      ctx.moveTo(ux, uy + u.h/2 + hover);
+      ctx.lineTo(u.beamTarget.x, u.beamTarget.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // Suction particles along line (throttled)
+      if (g.time % 4 === 0) {
+        const t = Math.random();
+        spawnParticles(g, ux+(u.beamTarget.x-ux)*t, uy+hover+(u.beamTarget.y-uy)*t, '#0ff', 1);
+      }
+    }
   }
+
+  // Shadow on ground
+  ctx.globalAlpha = 0.12;
+  const shadowScale = 1 + (GROUND_Y - uy) / 400;
+  drawPixelRect(ux - 18*shadowScale, GROUND_Y - 2, 36*shadowScale, 4, '#000');
   ctx.globalAlpha = 1;
-}
 
-function drawTexts() {
-  ctx.textAlign = 'center';
-  ctx.font = 'bold 11px monospace';
-  for (let t of texts) {
-    ctx.globalAlpha = Math.min(1, t.life / 20);
-    ctx.fillStyle = t.color;
-    ctx.fillText(t.text, t.x, t.y);
+  // UFO body - saucer shape
+  drawPixelRect(ux - 20, uy + 2 + hover, 40, 10, '#88b');
+  drawPixelRect(ux - 24, uy + 6 + hover, 48, 6, '#99c');
+  drawPixelRect(ux - 16, uy - 2 + hover, 32, 6, '#aad');
+
+  // Dome
+  ctx.fillStyle = '#ccf';
+  ctx.beginPath();
+  ctx.ellipse(ux, uy - 2 + hover, 12, 10, 0, Math.PI, 0);
+  ctx.fill();
+  ctx.fillStyle = '#eef';
+  ctx.beginPath();
+  ctx.ellipse(ux, uy - 2 + hover, 8, 6, 0, Math.PI, 0);
+  ctx.fill();
+
+  // Antenna
+  drawPixelRect(ux, uy - 14 + hover, 2, 8, '#aaa');
+  if (g.time % 20 < 10) drawPixelRect(ux-1, uy - 16 + hover, 4, 3, '#f44');
+
+  // Lights (rotating)
+  const lightColors = ['#f44','#ff0','#4f4','#f4f','#0ff','#fa0'];
+  for (let i = 0; i < 6; i++) {
+    const angle = (g.time * 0.05 + i * Math.PI/3);
+    const lx = ux + Math.cos(angle) * 20;
+    const ly = uy + 7 + hover + Math.sin(angle) * 3;
+    const on = (Math.floor(g.time / 6 + i) % 3) === 0;
+    drawPixelRect(lx-2, ly-1, 4, 3, on ? lightColors[i] : '#444');
   }
-  ctx.globalAlpha = 1;
+
+  // === UFO HP bar (red) ===
+  const hpBarW = 36;
+  drawBar(ux - hpBarW/2, uy - 24 + hover, hpBarW, 4, u.hp/u.maxHp, '#411', '#f44');
+  ctx.fillStyle = '#fff';
+  ctx.font = '7px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('HP', ux, uy - 25 + hover);
+
+  // === Beam gauge bar (cyan) ===
+  drawBar(ux - hpBarW/2, uy - 30 + hover, hpBarW, 3, u.beamGauge/u.maxBeamGauge, '#122', '#0ff');
 }
 
-function drawHUD() {
-  // top bar
-  ctx.fillStyle = 'rgba(0,0,0,0.6)';
-  ctx.fillRect(0, 0, W, 30);
-  ctx.font = '12px monospace';
-
-  ctx.textAlign = 'left';
-  ctx.fillStyle = '#4af';
-  ctx.fillText('BASE: ' + Math.ceil(pBase.hp) + '/' + BASE_MAX_HP, 10, 20);
-
-  ctx.textAlign = 'right';
-  ctx.fillStyle = '#f44';
-  ctx.fillText(Math.ceil(eBase.hp) + '/' + BASE_MAX_HP + ' :ENEMY', W-10, 20);
-
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#fc0';
-  let capStr = '';
-  if (ufo.captured.length > 0) {
-    let counts = {};
-    for (let c of ufo.captured) counts[c] = (counts[c]||0)+1;
-    capStr = ' [';
-    for (let k in counts) capStr += TYPES[k].name + 'x' + counts[k] + ' ';
-    capStr = capStr.trim() + ']';
+function drawProjectiles(g) {
+  for (const p of g.projectiles) {
+    ctx.globalAlpha = p.life / 60;
+    drawPixelRect(p.x-2, p.y-1, 4, 3, p.color);
+    // Trail
+    drawPixelRect(p.x - p.vx, p.y - p.vy, 3, 2, p.color);
+    ctx.globalAlpha = 1;
   }
-  ctx.fillText('EN:' + Math.floor(ufo.energy) + ' | CAP:' + ufo.captured.length + capStr, W/2, 20);
-
-  // unit count bottom
-  ctx.fillStyle = 'rgba(0,0,0,0.4)';
-  ctx.fillRect(0, H-30, W, 30);
-  ctx.font = '10px monospace';
-  ctx.textAlign = 'left';
-  ctx.fillStyle = '#4af';
-  ctx.fillText('P units: ' + pUnits.length, 10, H-14);
-  ctx.textAlign = 'right';
-  ctx.fillStyle = '#f44';
-  ctx.fillText('E units: ' + eUnits.length, W-10, H-14);
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#888';
-  ctx.fillText('TIME: ' + Math.floor(frame/60) + 's | DIFF: x' + difficulty.toFixed(1), W/2, H-14);
 }
 
-function drawOverlay(text, color) {
-  ctx.fillStyle = 'rgba(0,0,0,0.75)';
+function drawGround() {
+  // Sky
+  const grad = ctx.createLinearGradient(0, 0, 0, H);
+  grad.addColorStop(0, '#0a0a1e');
+  grad.addColorStop(0.5, '#121230');
+  grad.addColorStop(1, '#0f2840');
+  ctx.fillStyle = grad;
   ctx.fillRect(0, 0, W, H);
 
-  ctx.fillStyle = color;
-  ctx.font = 'bold 52px monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText(text, W/2, H/2 - 30);
+  // Stars
+  for (let i = 0; i < 60; i++) {
+    const sx = (i * 137 + 43) % W;
+    const sy = (i * 89 + 17) % (GROUND_Y - 50);
+    const bright = (Math.sin(i * 3.7 + Date.now()*0.0008) + 1) * 0.4;
+    ctx.globalAlpha = 0.2 + bright;
+    drawPixelRect(sx, sy, 2, 2, '#fff');
+  }
+  ctx.globalAlpha = 1;
 
-  ctx.fillStyle = '#ccc';
-  ctx.font = '16px monospace';
-  ctx.fillText('按 R 或 空格 重新开始', W/2, H/2 + 20);
+  // Moon
+  ctx.fillStyle = '#dde';
+  ctx.beginPath();
+  ctx.arc(W-80, 50, 20, 0, Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle = '#0a0a1e';
+  ctx.beginPath();
+  ctx.arc(W-72, 46, 18, 0, Math.PI*2);
+  ctx.fill();
 
-  ctx.fillStyle = '#888';
-  ctx.font = '12px monospace';
-  ctx.fillText('用时: ' + Math.floor(frame/60) + '秒', W/2, H/2 + 50);
+  // Ground
+  const gGrad = ctx.createLinearGradient(0, GROUND_Y, 0, H);
+  gGrad.addColorStop(0, '#2a5a1a');
+  gGrad.addColorStop(1, '#1a3a10');
+  ctx.fillStyle = gGrad;
+  ctx.fillRect(0, GROUND_Y, W, H - GROUND_Y);
+  // Ground line
+  drawPixelRect(0, GROUND_Y, W, 3, '#3c72');
+
+  // Midfield marker
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([6,6]);
+  ctx.beginPath(); ctx.moveTo(W/2, GROUND_Y); ctx.lineTo(W/2, H); ctx.stroke();
+  ctx.setLineDash([]);
 }
 
-function updateDebug() {
-  document.getElementById('dbgState').textContent = gameState;
-  document.getElementById('dbgPlayerHP').textContent = Math.ceil(pBase.hp) + ' / ' + BASE_MAX_HP;
-  document.getElementById('dbgEnemyHP').textContent = Math.ceil(eBase.hp) + ' / ' + BASE_MAX_HP;
-  document.getElementById('dbgEnergy').textContent = Math.floor(ufo.energy) + ' / ' + ENERGY_MAX;
-  document.getElementById('dbgPlayerUnits').textContent = pUnits.length;
-  document.getElementById('dbgEnemyUnits').textContent = eUnits.length;
-  document.getElementById('dbgCaptured').textContent = ufo.captured.length;
-  document.getElementById('dbgUFOPos').textContent = Math.floor(ufo.x) + ', ' + Math.floor(ufo.y);
-  document.getElementById('dbgTime').textContent = Math.floor(frame/60) + 's (x' + difficulty.toFixed(1) + ')';
+function drawParticles(g) {
+  for (const p of g.particles) {
+    ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
+    drawPixelRect(p.x - 1.5, p.y - 1.5, 3, 3, p.color);
+  }
+  ctx.globalAlpha = 1;
 }
 
-init();
+function drawCapturePool(g) {
+  const cx = 12, cy = H - 55;
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
+  ctx.fillRect(cx, cy, 140, 42);
+  ctx.strokeStyle = '#555';
+  ctx.strokeRect(cx, cy, 140, 42);
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 11px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText(`俘虏: ${g.ufo.captures}`, cx+6, cy+14);
+  ctx.font = '9px monospace';
+  ctx.fillStyle = '#aaa';
+  ctx.fillText('[1]步兵2 [2]盾兵3', cx+4, cy+27);
+  ctx.fillText('[3]弓兵2 [4]爆破4', cx+4, cy+38);
+}
+
+function drawOverlay(g) {
+  overlay.style.display = 'flex';
+  overlay.innerHTML = '';
+  const h1 = document.createElement('h1');
+  const p = document.createElement('p');
+  const btn = document.createElement('button');
+  let reason = '';
+  if (g.state === 'win') {
+    h1.textContent = '🏆 胜利！';
+    h1.style.color = '#4f4';
+    reason = `你在第 ${g.wave} 波攻破了敌方城堡！`;
+  } else {
+    h1.textContent = '💀 失败！';
+    h1.style.color = '#f44';
+    if (g.ufo.hp <= 0) {
+      reason = `你的飞碟在第 ${g.wave} 波被击毁了！`;
+    } else {
+      reason = `你的基地在第 ${g.wave} 波被攻破了！`;
+    }
+  }
+  p.innerHTML = reason + '<br><br>点击下方按钮重新开始';
+  btn.textContent = '重新开始';
+  btn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    game = createGame();
+    gameLoop();
+  });
+  overlay.appendChild(h1);
+  overlay.appendChild(p);
+  overlay.appendChild(btn);
+}
+
+function updateUI(g) {
+  uiBaseHp.textContent = `🏰 基地: ${Math.ceil(g.base.hp)}/${g.base.maxHp}`;
+  uiUfoHp.textContent = `🛸 飞碟: ${Math.ceil(g.ufo.hp)}/${g.ufo.maxHp}`;
+  uiBeam.textContent = `⚡ 光束: ${Math.ceil(g.ufo.beamGauge)}/${g.ufo.maxBeamGauge}`;
+  uiCapture.textContent = `🪤 俘虏: ${g.ufo.captures}`;
+  uiCastleHp.textContent = `🏯 城堡: ${Math.ceil(g.castle.hp)}/${g.castle.maxHp}`;
+  uiWave.textContent = `🌊 波次: ${g.wave}`;
+}
+
+function render(g) {
+  ctx.clearRect(0, 0, W, H);
+  drawGround();
+  drawBase(g.base, '我方基地');
+  drawBase(g.castle, '敌方城堡');
+
+  const sorted = [...g.soldiers].filter(s => s.alive).sort((a,b) => a.y - b.y);
+  for (const s of sorted) drawSoldier(s, g);
+
+  drawProjectiles(g);
+  drawUFO(g);
+  drawParticles(g);
+  drawCapturePool(g);
+  updateUI(g);
+}
+
+function gameLoop() {
+  if (!game) return;
+  try {
+    update(game);
+    render(game);
+  } catch(e) {
+    console.error('Game loop error:', e);
+    game.state = 'lose';
+    drawOverlay(game);
+    return;
+  }
+  if (game.state !== 'playing') {
+    drawOverlay(game);
+    return;
+  }
+  requestAnimationFrame(gameLoop);
+}
+
+startBtn.addEventListener('click', () => {
+  overlay.style.display = 'none';
+  game = createGame();
+  gameLoop();
+});
 </script>
 </body>
 </html>
