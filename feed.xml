@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 03 Jun 2026 00:03:55 GMT</lastBuildDate>
-    <pubDate>Wed, 03 Jun 2026 00:03:55 GMT</pubDate>
+    <lastBuildDate>Wed, 03 Jun 2026 09:08:47 GMT</lastBuildDate>
+    <pubDate>Wed, 03 Jun 2026 09:08:47 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>微软向 OpenAI 摊牌：发布首款纯自研高级推理模型！</title>
+      <link>https://hyphentech.top/374999681bdb81419adde1ab88c81a1f/</link>
+      <guid isPermaLink="true">https://hyphentech.top/374999681bdb81419adde1ab88c81a1f/</guid>
+      <description>昔日盟友变最强对手，承诺不蒸馏第三方模型到底在暗讽谁？</description>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI大模型</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>AI大模型</category>
+    </item>
     <item>
       <title>微信要内置AI智能体了？十四亿人的「国民App」，这次可能真要变天</title>
       <link>https://hyphentech.top/373999681bdb816dbc99d14b1b4a61f1/</link>
@@ -241,14 +252,6 @@
 以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
       <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
     <category>AI 科技</category>
-    </item>
-    <item>
-      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
-      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
-      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
