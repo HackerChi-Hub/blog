@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 03 Jun 2026 19:59:06 GMT</lastBuildDate>
-    <pubDate>Wed, 03 Jun 2026 19:59:06 GMT</pubDate>
+    <lastBuildDate>Thu, 04 Jun 2026 00:05:16 GMT</lastBuildDate>
+    <pubDate>Thu, 04 Jun 2026 00:05:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>华尔街不装了！万亿美元资管接口敞开，硅基操盘手正式上位</title>
+      <link>https://hyphentech.top/374999681bdb814ebf25edabdff15c7d/</link>
+      <guid isPermaLink="true">https://hyphentech.top/374999681bdb814ebf25edabdff15c7d/</guid>
+      <description>打工人还在卷学历，华尔街已经准备把真金白银交给AI智能体了</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>微软向 OpenAI 摊牌：发布首款纯自研高级推理模型！</title>
       <link>https://hyphentech.top/374999681bdb81419adde1ab88c81a1f/</link>
@@ -243,15 +253,6 @@
     <category>Gemma</category>
     <category>推理加速</category>
     <category>性能优化</category>
-    </item>
-    <item>
-      <title>DeepSeek 连夜删掉的论文：给 AI 装一根手指</title>
-      <link>https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</link>
-      <guid isPermaLink="true">https://hyphentech.top/354999681bdb813b8a77f7f7b6ea4c27/</guid>
-      <description>前两天有人让 DeepSeek 数手指。它思考了一通，自己吐槽「我真的是数晕了」，然后答错了。
-以为是灰度测试的小问题。但这篇论文告诉我们，数手指数晕这件事，背后藏着一个 GPT、Claude、Gemini 集体没解好的技术瓶颈。</description>
-      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
-    <category>AI 科技</category>
     </item>
   </channel>
 </rss>
