@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 04 Jun 2026 00:05:16 GMT</lastBuildDate>
-    <pubDate>Thu, 04 Jun 2026 00:05:16 GMT</pubDate>
+    <lastBuildDate>Thu, 04 Jun 2026 08:35:17 GMT</lastBuildDate>
+    <pubDate>Thu, 04 Jun 2026 08:35:17 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>老黄万字专访拆解：甩锅AI的CEO太懒惰，我想死在工作岗位上</title>
+      <link>https://hyphentech.top/375999681bdb819bbe4af49f1c5444e1/</link>
+      <guid isPermaLink="true">https://hyphentech.top/375999681bdb819bbe4af49f1c5444e1/</guid>
+      <description>解读英伟达背后的“五层蛋糕”定律，与 150 年来的财富底层逻辑</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>拆穿华为昇腾“2.87倍吊打”真相：黄仁勋到底在急什么？</title>
+      <link>https://hyphentech.top/375999681bdb81c88253fb62c445fd73/</link>
+      <guid isPermaLink="true">https://hyphentech.top/375999681bdb81c88253fb62c445fd73/</guid>
+      <description>看似碾压的纸面数据背后，是一场教科书级的田忌赛马。</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>华尔街不装了！万亿美元资管接口敞开，硅基操盘手正式上位</title>
       <link>https://hyphentech.top/374999681bdb814ebf25edabdff15c7d/</link>
@@ -227,32 +247,6 @@
     <category>Token经济</category>
     <category>科技商业</category>
     <category>行业分析</category>
-    </item>
-    <item>
-      <title>AI开始自己进化了？DeepMind的新系统把我吓到了</title>
-      <link>https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</link>
-      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81f28a0ef8da21c6654e/</guid>
-      <description>DeepMind发布AlphaEvolve系统，通过AI自我改进实现了数据中心效率提升0.7%、TPU芯片优化、AI训练加速23%、数学突破56年记录。这是AI递归自我改进的里程碑事件，标志着从AI帮助人类到AI改进AI的转折点。</description>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <category>AI技术</category>
-    <category>AI技术</category>
-    <category>DeepMind</category>
-    <category>AlphaEvolve</category>
-    <category>科技前沿</category>
-    <category>自我进化</category>
-    </item>
-    <item>
-      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
-      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
-      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
-      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-    <category>技术前沿</category>
-    <category>人工智能</category>
-    <category>Apple Silicon</category>
-    <category>Gemma</category>
-    <category>推理加速</category>
-    <category>性能优化</category>
     </item>
   </channel>
 </rss>
