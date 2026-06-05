@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 04 Jun 2026 23:40:16 GMT</lastBuildDate>
-    <pubDate>Thu, 04 Jun 2026 23:40:16 GMT</pubDate>
+    <lastBuildDate>Fri, 05 Jun 2026 08:17:34 GMT</lastBuildDate>
+    <pubDate>Fri, 05 Jun 2026 08:17:34 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>贴个跃马标就敢卖近4万？惠普法拉利联名AI PC底裤大揭秘！</title>
+      <link>https://hyphentech.top/376999681bdb819e9950c6e305b307f6/</link>
+      <guid isPermaLink="true">https://hyphentech.top/376999681bdb819e9950c6e305b307f6/</guid>
+      <description>全球限量4999台，5599美元的天价背后，是科技与狠活，还是纯纯的智商税？</description>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>老黄万字专访拆解：甩锅AI的CEO太懒惰，我想死在工作岗位上</title>
       <link>https://hyphentech.top/375999681bdb819bbe4af49f1c5444e1/</link>
@@ -234,19 +244,6 @@
     <category>AI</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>为什么AI用起来越来越便宜，但算力公司越来越赚钱</title>
-      <link>https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</link>
-      <guid isPermaLink="true">https://hyphentech.top/35c999681bdb81c4983de7a106246c7c/</guid>
-      <description>揭示AI行业Token定价权争夺背后的商业逻辑。用户觉得AI越来越便宜，但算力公司赚钱越来越多——这是Token账单转移机制在起作用。解析算力军备竞赛、云厂商收入暴增的真相，以及用户如何在这场游戏中真正买单。</description>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-    <category>商业分析</category>
-    <category>AI商业模式</category>
-    <category>算力通胀</category>
-    <category>Token经济</category>
-    <category>科技商业</category>
-    <category>行业分析</category>
     </item>
   </channel>
 </rss>
