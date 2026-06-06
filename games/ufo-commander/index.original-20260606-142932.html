@@ -25,23 +25,21 @@ canvas{border:2px solid #333;image-rendering:pixelated;cursor:crosshair}
   <span id="uiUfoHp">🛸 飞碟: 100</span>
   <span id="uiBeam">⚡ 光束: 100</span>
   <span id="uiCapture">🪤 俘虏: 0</span>
-  <span id="uiPosition">📍 位置: 中场</span>
   <span id="uiCastleHp">🏯 城堡: 2000</span>
   <span id="uiWave">🌊 波次: 0</span>
 </div>
 <canvas id="game"></canvas>
 <div id="hud">
-  <div class="hud-box">WASD/方向键: 前后左右移动</div>
-  <div class="hud-box">空格: 慢速吸引前方敌兵</div>
-  <div class="hud-box">J/点击: 发射炮弹(冷却)</div>
+  <div class="hud-box">WASD/方向键: 移动飞碟</div>
+  <div class="hud-box">空格: 牵引光束(有持续时间)</div>
   <div class="hud-box">1步兵(2) 2盾兵(3) 3弓兵(2) 4爆破(4)</div>
 </div>
 <div id="overlay">
   <h1>🛸 飞碟指挥官</h1>
   <p>
-    从下方向上进攻，操控飞碟在战场中穿梭<br>
-    空格会吸引飞碟前方固定区域内的敌兵<br>
-    消耗俘虏在飞碟附近释放我方士兵<br>
+    操作飞碟，用牵引光束俘虏敌兵<br>
+    消耗俘虏释放我方士兵攻城<br>
+    飞碟会受攻击，光束有时间限制<br>
     攻破敌方城堡获胜！
   </p>
   <button id="startBtn">开始游戏</button>
@@ -58,52 +56,13 @@ const uiBaseHp = document.getElementById('uiBaseHp');
 const uiUfoHp = document.getElementById('uiUfoHp');
 const uiBeam = document.getElementById('uiBeam');
 const uiCapture = document.getElementById('uiCapture');
-const uiPosition = document.getElementById('uiPosition');
 const uiCastleHp = document.getElementById('uiCastleHp');
 const uiWave = document.getElementById('uiWave');
 
-const FIELD_LEFT = 85;
-const FIELD_RIGHT = W - 85;
-const FIELD_TOP = 62;
-const FIELD_BOTTOM = H - 54;
-const WORLD_TOP = 0;
-const WORLD_BOTTOM = 1880;
-const CASTLE_Y = WORLD_TOP + 90;
-const BASE_Y = WORLD_BOTTOM - 70;
-const BEAM_RANGE = 132;
-const BEAM_WIDTH = 96;
-const UFO_SPEED = 2.65;
-const BEAM_PULL = 0.062;
-const BEAM_DAMAGE = 0.58;
-const CANNON_COOLDOWN = 76;
-const MAX_UFO_SHELLS = 3;
-const CANNON_AIM_RADIUS = 110;
-const CANNON_SPEED = 6.4;
-const CANNON_TURN = 0.18;
-const CAMERA_CENTER_Y = 310;
+const GROUND_Y = H - 80;
 const keys = {};
-const pointer = { x: W/2, y: H/2 };
-document.addEventListener('keydown', e => {
-  keys[e.code] = true;
-  if (handleDiscreteControl(e.code)) {
-    keys[e.code] = false;
-    e.preventDefault();
-    return;
-  }
-  if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) e.preventDefault();
-});
+document.addEventListener('keydown', e => { keys[e.code] = true; if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) e.preventDefault(); });
 document.addEventListener('keyup', e => { keys[e.code] = false; });
-canvas.addEventListener('mousemove', e => {
-  const rect = canvas.getBoundingClientRect();
-  pointer.x = (e.clientX - rect.left) * (canvas.width / rect.width);
-  pointer.y = (e.clientY - rect.top) * (canvas.height / rect.height);
-});
-canvas.addEventListener('click', e => {
-  const rect = canvas.getBoundingClientRect();
-  pointer.x = (e.clientX - rect.left) * (canvas.width / rect.width);
-  pointer.y = (e.clientY - rect.top) * (canvas.height / rect.height);
-  if (game && game.state === 'playing') fireUfoShell(game, pointer.x, pointer.y + game.cameraY);
-});
 
 let game = null;
 
@@ -114,30 +73,6 @@ const SOLDIER_TYPES = {
   bomber:   { name:'爆破兵', hp:55, speed:0.85, atk:5, range:20, atkSpeed:45, cost:4, castleDmg:10 },
 };
 const TYPE_ORDER = ['infantry','shield','archer','bomber'];
-
-function clamp(v, min, max) {
-  return Math.max(min, Math.min(max, v));
-}
-
-function depthScale(y) {
-  const t = (y - WORLD_TOP) / (WORLD_BOTTOM - WORLD_TOP);
-  return clamp(0.72 + t * 0.38, 0.72, 1.1);
-}
-
-function handleDiscreteControl(code) {
-  if (!game || game.state !== 'playing') return false;
-  if (code === 'KeyJ') {
-    fireUfoShell(game, pointer.x, pointer.y + game.cameraY);
-    return true;
-  }
-  for (let i = 0; i < TYPE_ORDER.length; i++) {
-    if (code === 'Digit' + (i + 1)) {
-      tryDeploySoldier(game, TYPE_ORDER[i]);
-      return true;
-    }
-  }
-  return false;
-}
 
 class Entity {
   constructor(x, y, team, type) {
@@ -155,8 +90,8 @@ class Entity {
 }
 
 class Base {
-  constructor(x, y, team) {
-    this.x = x; this.y = y; this.team = team;
+  constructor(x, team) {
+    this.x = x; this.team = team;
     this.maxHp = 2000; this.hp = 2000;
     this.w = 55; this.h = 75;
   }
@@ -164,23 +99,20 @@ class Base {
 
 function createGame() {
   return {
-    base: new Base(W/2, BASE_Y, 'player'),
-    castle: new Base(W/2, CASTLE_Y, 'enemy'),
+    base: new Base(65, 'player'),
+    castle: new Base(W - 65, 'enemy'),
     soldiers: [],
     projectiles: [],
-    ufoShells: [],
     particles: [],
     ufo: {
-      x: W/2, y: BASE_Y - 120, w: 40, h: 20,
+      x: W/2, y: 130, w: 40, h: 20,
       hp: 100, maxHp: 100,
       beamGauge: 100, maxBeamGauge: 100,
       beamTarget: null, beamActive: false,
       captures: 8,
       invulnTimer: 0,
-      cannonCooldown: 0,
     },
-    cameraY: clamp(BASE_Y - FIELD_BOTTOM, 0, WORLD_BOTTOM - H),
-    wave: 0, waveTimer: 0, waveInterval: 720,
+    wave: 0, waveTimer: 0, waveInterval: 600,
     state: 'playing', time: 0,
     autoSpawnTimer: 0,
     ufoHitFlash: 0,
@@ -189,22 +121,20 @@ function createGame() {
 
 function spawnEnemyWave(g) {
   const enemyCount = g.soldiers.filter(s => s.alive && s.team === 'enemy').length;
-  const cap = Math.min(10 + Math.floor(g.wave * 2.2), 34);
-  if (enemyCount >= cap) return;
-  const baseCount = g.wave <= 1 ? 1 : (g.wave <= 3 ? 2 : 3);
-  const count = Math.min(baseCount + Math.floor(g.wave * 0.35), cap - enemyCount);
+  if (enemyCount >= 60) return;
+  const baseCount = g.wave <= 1 ? 2 : (g.wave <= 3 ? 3 : 4);
+  const count = Math.min(baseCount + Math.floor(g.wave * 0.8), 60 - enemyCount);
   for (let i = 0; i < count; i++) {
     let pool;
-    if (g.wave <= 2) {
+    if (g.wave <= 1) {
       pool = ['infantry','infantry','infantry','infantry','infantry'];
-    } else if (g.wave <= 5) {
-      pool = ['infantry','infantry','infantry','infantry','shield','archer'];
+    } else if (g.wave <= 3) {
+      pool = ['infantry','infantry','infantry','shield','archer'];
     } else {
       pool = ['infantry','infantry','infantry','shield','shield','archer','archer','bomber'];
     }
     const t = pool[Math.floor(Math.random() * pool.length)];
-    const spawnX = FIELD_LEFT + 40 + Math.random() * (FIELD_RIGHT - FIELD_LEFT - 80);
-    const s = new Entity(spawnX, CASTLE_Y + 66 + Math.random()*28, 'enemy', t);
+    const s = new Entity(g.castle.x - 45 + Math.random()*15, GROUND_Y - 12 - Math.random()*18, 'enemy', t);
     g.soldiers.push(s);
   }
 }
@@ -213,9 +143,7 @@ function tryDeploySoldier(g, type) {
   const cost = SOLDIER_TYPES[type].cost;
   if (g.ufo.captures < cost) return;
   g.ufo.captures -= cost;
-  const spawnX = clamp(g.ufo.x + (Math.random() - 0.5) * 42, FIELD_LEFT + 18, FIELD_RIGHT - 18);
-  const spawnY = clamp(g.ufo.y + 48 + Math.random() * 18, WORLD_TOP + 120, WORLD_BOTTOM - 50);
-  const s = new Entity(spawnX, spawnY, 'player', type);
+  const s = new Entity(g.base.x + 45, GROUND_Y - 12 - Math.random()*18, 'player', type);
   g.soldiers.push(s);
   spawnParticles(g, s.x, s.y, '#4f4', 6);
 }
@@ -242,117 +170,46 @@ function fireProjectile(g, from, to) {
   });
 }
 
-function fireUfoShell(g, targetX, targetY) {
-  if (g.ufo.cannonCooldown > 0) return;
-  const activeShells = g.ufoShells.filter(p => !p.dead).length;
-  if (activeShells >= MAX_UFO_SHELLS) return;
-  const target = findCannonTarget(g, targetX, targetY);
-  const aimX = target ? target.x : targetX;
-  const aimY = target ? target.y - target.h / 2 : targetY;
-  const dx = aimX - g.ufo.x;
-  const dy = aimY - g.ufo.y;
-  const d = Math.max(1, Math.sqrt(dx*dx + dy*dy));
-  g.ufoShells.push({
-    x: g.ufo.x,
-    y: g.ufo.y - 12,
-    vx: dx / d * CANNON_SPEED,
-    vy: dy / d * CANNON_SPEED,
-    target,
-    targetX: aimX,
-    targetY: aimY,
-    damage: 38,
-    radius: 34,
-    life: 82,
-    maxLife: 82,
-  });
-  g.ufo.cannonCooldown = CANNON_COOLDOWN;
-  spawnParticles(g, g.ufo.x, g.ufo.y - 14, '#ff0', 5);
-}
-
-function findCannonTarget(g, targetX, targetY) {
-  let best = null;
-  let bestDist = CANNON_AIM_RADIUS;
-  for (const s of g.soldiers) {
-    if (!s.alive || s.team !== 'enemy' || s.beingSucked) continue;
-    const dx = s.x - targetX;
-    const dy = (s.y - s.h/2) - targetY;
-    const d = Math.sqrt(dx*dx + dy*dy);
-    if (d < bestDist) {
-      best = s;
-      bestDist = d;
-    }
-  }
-  return best;
-}
-
-function explodeUfoShell(g, p) {
-  if (p.exploded) return;
-  p.exploded = true;
-  p.dead = true;
-  spawnParticles(g, p.x, p.y, '#ff0', 14);
-  for (const o of g.soldiers) {
-    if (!o.alive || o.team !== 'enemy' || o.beingSucked) continue;
-    const odx = o.x - p.x;
-    const ody = o.y - p.y;
-    const dist = Math.sqrt(odx*odx + ody*ody);
-    if (dist <= p.radius) {
-      o.hp -= p.damage * (1 - dist / (p.radius * 1.35));
-      spawnParticles(g, o.x, o.y, '#f80', 3);
-      if (o.hp <= 0) {
-        o.alive = false;
-        spawnParticles(g, o.x, o.y, '#f44', 6);
-      }
-    }
-  }
-}
-
 function update(g) {
   if (g.state !== 'playing') return;
   g.time++;
   if (g.ufoHitFlash > 0) g.ufoHitFlash--;
   if (g.ufo.invulnTimer > 0) g.ufo.invulnTimer--;
-  if (g.ufo.cannonCooldown > 0) g.ufo.cannonCooldown--;
 
-  // UFO movement: from the bottom side toward the enemy castle at the top.
-  const spd = UFO_SPEED;
+  // UFO movement
+  const spd = 3.2;
   if (keys['KeyW'] || keys['ArrowUp']) g.ufo.y -= spd;
   if (keys['KeyS'] || keys['ArrowDown']) g.ufo.y += spd;
   if (keys['KeyA'] || keys['ArrowLeft']) g.ufo.x -= spd;
   if (keys['KeyD'] || keys['ArrowRight']) g.ufo.x += spd;
-  g.ufo.x = clamp(g.ufo.x, FIELD_LEFT + 20, FIELD_RIGHT - 20);
-  g.ufo.y = clamp(g.ufo.y, WORLD_TOP + 120, WORLD_BOTTOM - 30);
-  g.cameraY += (clamp(g.ufo.y - CAMERA_CENTER_Y, 0, WORLD_BOTTOM - H) - g.cameraY) * 0.12;
+  g.ufo.x = Math.max(25, Math.min(W-25, g.ufo.x));
+  g.ufo.y = Math.max(25, Math.min(H-50, g.ufo.y));
 
   // Beam gauge: recharges when not beaming
   if (!keys['Space'] || g.ufo.beamGauge <= 0) {
-    g.ufo.beamGauge = Math.min(g.ufo.maxBeamGauge, g.ufo.beamGauge + 0.36);
+    g.ufo.beamGauge = Math.min(g.ufo.maxBeamGauge, g.ufo.beamGauge + 0.5);
   }
 
   // Beam activation
   g.ufo.beamActive = false;
   if (keys['Space'] && g.ufo.beamGauge > 0 && g.ufo.hp > 0) {
     g.ufo.beamActive = true;
-    g.ufo.beamGauge -= 0.34;
+    g.ufo.beamGauge -= 0.45;
     if (g.ufo.beamGauge < 0) g.ufo.beamGauge = 0;
 
-    let closest = null, closestDist = Infinity;
-    const zoneTop = g.ufo.y - BEAM_RANGE;
-    const zoneBottom = g.ufo.y - 18;
-    const zoneLeft = g.ufo.x - BEAM_WIDTH / 2;
-    const zoneRight = g.ufo.x + BEAM_WIDTH / 2;
+    const beamRange = 85;
+    let closest = null, closestDist = beamRange;
     for (const s of g.soldiers) {
       if (!s.alive || s.team === 'player') continue;
-      if (s.x < zoneLeft || s.x > zoneRight || s.y < zoneTop || s.y > zoneBottom) continue;
-      const dx = s.x - g.ufo.x;
-      const dy = s.y - (g.ufo.y - 42);
-      const d = Math.sqrt(dx*dx + dy*dy);
+      const dx = s.x - g.ufo.x, dy = s.y - g.ufo.y;
+      const d = Math.sqrt(dx*dx+dy*dy);
       if (d < closestDist) { closest = s; closestDist = d; }
     }
     if (closest) {
       closest.beingSucked = true;
-      closest.x += (g.ufo.x - closest.x) * BEAM_PULL;
-      closest.y += (g.ufo.y - 20 - closest.y) * BEAM_PULL;
-      closest.hp -= BEAM_DAMAGE;
+      closest.x += (g.ufo.x - closest.x) * 0.1;
+      closest.y += (g.ufo.y + 30 - closest.y) * 0.1;
+      closest.hp -= 1.2;
       g.ufo.beamTarget = closest;
       if (g.time % 3 === 0) spawnParticles(g, closest.x, closest.y, '#0ff', 1);
       if (closest.hp <= 0) {
@@ -399,34 +256,24 @@ function update(g) {
 
     if (s.beingSucked) continue;
 
-    // Find target: nearest enemy soldier in front, or the enemy base.
+    // Find target: nearest enemy soldier or base (capped search)
     let target = null;
     let minDist = Infinity;
-    const searchLimit = 150;
+    const searchLimit = 200;
     for (const o of g.soldiers) {
       if (!o.alive || o.team === s.team || o.beingSucked) continue;
-      const dx = o.x - s.x;
-      const dy = o.y - s.y;
-      if (s.team === 'player' && dy > 28) continue;
-      if (s.team === 'enemy' && dy < -28) continue;
-      const dist = Math.sqrt(dx*dx + dy*dy);
+      const dist = Math.abs(o.x - s.x);
       if (dist > searchLimit) continue;
       if (dist < minDist) { minDist = dist; target = o; }
     }
     const enemyBase = s.team === 'player' ? g.castle : g.base;
-    const baseDx = enemyBase.x - s.x;
-    const baseDy = enemyBase.y - s.y;
-    const baseDist = Math.sqrt(baseDx*baseDx + baseDy*baseDy);
+    const baseDist = Math.abs(enemyBase.x - s.x);
     if (baseDist < minDist) { minDist = baseDist; target = enemyBase; }
 
     // Move
     if (target && minDist > s.range) {
-      const dx = target.x - s.x;
-      const dy = target.y - s.y;
-      const d = Math.max(1, Math.sqrt(dx*dx + dy*dy));
-      const slow = s.team === 'enemy' ? 0.58 : 0.72;
-      s.x += dx / d * s.speed * 0.42 * slow;
-      s.y += dy / d * s.speed * slow;
+      const dir = target.x > s.x ? 1 : -1;
+      s.x += dir * s.speed;
     }
 
     // Attack
@@ -460,8 +307,7 @@ function update(g) {
       }
     }
 
-    s.x = clamp(s.x, FIELD_LEFT + 12, FIELD_RIGHT - 12);
-    s.y = clamp(s.y, WORLD_TOP + 38, WORLD_BOTTOM - 26);
+    s.y = Math.max(GROUND_Y - 28, Math.min(GROUND_Y, s.y));
   }
 
   // Update projectiles
@@ -484,44 +330,8 @@ function update(g) {
     }
   }
 
-  // Update UFO shells
-  for (const p of g.ufoShells) {
-    if (p.target && p.target.alive && !p.target.beingSucked) {
-      const tx = p.target.x;
-      const ty = p.target.y - p.target.h/2;
-      const dx = tx - p.x;
-      const dy = ty - p.y;
-      const d = Math.max(1, Math.sqrt(dx*dx + dy*dy));
-      p.vx += (dx / d * CANNON_SPEED - p.vx) * CANNON_TURN;
-      p.vy += (dy / d * CANNON_SPEED - p.vy) * CANNON_TURN;
-    }
-    p.x += p.vx; p.y += p.vy; p.life--;
-    if (p.life <= 0 || p.x < FIELD_LEFT || p.x > FIELD_RIGHT || p.y < WORLD_TOP || p.y > WORLD_BOTTOM) {
-      p.dead = true;
-      continue;
-    }
-    if (!p.target) {
-      const dx = p.targetX - p.x;
-      const dy = p.targetY - p.y;
-      if (Math.sqrt(dx*dx + dy*dy) < 10) {
-        explodeUfoShell(g, p);
-        continue;
-      }
-    }
-    for (const s of g.soldiers) {
-      if (!s.alive || s.team !== 'enemy' || s.beingSucked) continue;
-      const dx = s.x - p.x;
-      const dy = (s.y - s.h/2) - p.y;
-      if (Math.sqrt(dx*dx + dy*dy) < 14) {
-        explodeUfoShell(g, p);
-        break;
-      }
-    }
-  }
-
   g.soldiers = g.soldiers.filter(s => s.alive);
   g.projectiles = g.projectiles.filter(p => !p.dead && p.life > 0);
-  g.ufoShells = g.ufoShells.filter(p => !p.dead && p.life > 0);
 
   // Particles
   for (const p of g.particles) {
@@ -548,7 +358,7 @@ function drawBar(x, y, w, h, ratio, bgColor, fgColor) {
 }
 
 function drawBase(b, label) {
-  const bx = b.x - b.w/2, by = b.y - b.h/2;
+  const bx = b.x - b.w/2, by = GROUND_Y - b.h;
   if (b.team === 'player') {
     // Green fortress
     drawPixelRect(bx, by, b.w, b.h, '#1a5c2a');
@@ -603,11 +413,6 @@ function drawBase(b, label) {
 }
 
 function drawSoldier(s, g) {
-  const scale = depthScale(s.y);
-  ctx.save();
-  ctx.translate(s.x, s.y);
-  ctx.scale(scale, scale);
-  ctx.translate(-s.x, -s.y);
   const px = Math.floor(s.x - s.w/2);
   const py = Math.floor(s.y - s.h);
   const bob = Math.sin(s.animFrame * 1.5) * (s.beingSucked ? 3 : 1);
@@ -744,7 +549,6 @@ function drawSoldier(s, g) {
     drawPixelRect(px-3, py-3+bob, s.w+6, s.h+6, '#0ff');
     ctx.globalAlpha = 1;
   }
-  ctx.restore();
 }
 
 function drawUFO(g) {
@@ -755,52 +559,42 @@ function drawUFO(g) {
   // Hit flash
   if (g.ufoHitFlash > 0 && g.ufoHitFlash % 2 === 0) return;
 
-  // Fixed forward tractor area: in this bottom-to-top view, "front" is above the UFO.
-  const zoneTop = uy - BEAM_RANGE;
-  const zoneBottom = uy - 18;
-  const zoneLeft = ux - BEAM_WIDTH / 2;
-  const zoneRight = ux + BEAM_WIDTH / 2;
-  ctx.globalAlpha = u.beamActive ? 0.22 : 0.08;
-  ctx.fillStyle = '#0ff';
-  ctx.beginPath();
-  ctx.moveTo(ux - 12, uy - 10 + hover);
-  ctx.lineTo(ux + 12, uy - 10 + hover);
-  ctx.lineTo(zoneRight, zoneTop);
-  ctx.lineTo(zoneLeft, zoneTop);
-  ctx.fill();
-  ctx.globalAlpha = u.beamActive ? 0.75 : 0.3;
-  ctx.strokeStyle = '#0ff';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([6,4]);
-  ctx.strokeRect(zoneLeft, zoneTop, BEAM_WIDTH, zoneBottom - zoneTop);
-  ctx.setLineDash([]);
-  ctx.globalAlpha = 1;
-
-  if (u.beamActive && u.beamTarget && u.beamTarget.alive) {
-    ctx.strokeStyle = '#0ff';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([3,3]);
+  // Beam visual
+  if (u.beamActive) {
+    // Cone beam
+    ctx.globalAlpha = 0.18 + Math.sin(g.time*0.2)*0.05;
+    ctx.fillStyle = '#0ff';
     ctx.beginPath();
-    ctx.moveTo(ux, uy - 8 + hover);
-    ctx.lineTo(u.beamTarget.x, u.beamTarget.y);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    if (g.time % 4 === 0) {
-      const t = Math.random();
-      spawnParticles(g, ux+(u.beamTarget.x-ux)*t, uy+hover+(u.beamTarget.y-uy)*t, '#0ff', 1);
+    ctx.moveTo(ux - 16, uy + u.h/2 + hover);
+    ctx.lineTo(ux + 16, uy + u.h/2 + hover);
+    ctx.lineTo(ux + 35, uy + 90);
+    ctx.lineTo(ux - 35, uy + 90);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Target line
+    if (u.beamTarget && u.beamTarget.alive) {
+      ctx.strokeStyle = '#0ff';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3,3]);
+      ctx.beginPath();
+      ctx.moveTo(ux, uy + u.h/2 + hover);
+      ctx.lineTo(u.beamTarget.x, u.beamTarget.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // Suction particles along line (throttled)
+      if (g.time % 4 === 0) {
+        const t = Math.random();
+        spawnParticles(g, ux+(u.beamTarget.x-ux)*t, uy+hover+(u.beamTarget.y-uy)*t, '#0ff', 1);
+      }
     }
   }
 
   // Shadow on ground
   ctx.globalAlpha = 0.12;
-  const shadowScale = depthScale(uy);
-  drawPixelRect(ux - 18*shadowScale, uy + 18, 36*shadowScale, 4, '#000');
+  const shadowScale = 1 + (GROUND_Y - uy) / 400;
+  drawPixelRect(ux - 18*shadowScale, GROUND_Y - 2, 36*shadowScale, 4, '#000');
   ctx.globalAlpha = 1;
-
-  ctx.save();
-  ctx.translate(ux, uy + hover);
-  ctx.scale(depthScale(uy), depthScale(uy));
-  ctx.translate(-ux, -uy - hover);
 
   // UFO body - saucer shape
   drawPixelRect(ux - 20, uy + 2 + hover, 40, 10, '#88b');
@@ -841,18 +635,6 @@ function drawUFO(g) {
 
   // === Beam gauge bar (cyan) ===
   drawBar(ux - hpBarW/2, uy - 30 + hover, hpBarW, 3, u.beamGauge/u.maxBeamGauge, '#122', '#0ff');
-  ctx.restore();
-
-  ctx.globalAlpha = 0.55;
-  ctx.strokeStyle = u.beamActive ? '#0ff' : '#fff';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([4,4]);
-  ctx.beginPath();
-  ctx.moveTo(ux, uy - 8 + hover);
-  ctx.lineTo(ux, zoneTop);
-  ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.globalAlpha = 1;
 }
 
 function drawProjectiles(g) {
@@ -863,15 +645,9 @@ function drawProjectiles(g) {
     drawPixelRect(p.x - p.vx, p.y - p.vy, 3, 2, p.color);
     ctx.globalAlpha = 1;
   }
-  for (const p of g.ufoShells) {
-    ctx.globalAlpha = Math.max(0.35, p.life / p.maxLife);
-    drawPixelRect(p.x-4, p.y-3, 8, 6, '#ff0');
-    drawPixelRect(p.x - p.vx*1.4 - 2, p.y - p.vy*1.4 - 2, 5, 4, '#f80');
-    ctx.globalAlpha = 1;
-  }
 }
 
-function drawGround(g) {
+function drawGround() {
   // Sky
   const grad = ctx.createLinearGradient(0, 0, 0, H);
   grad.addColorStop(0, '#0a0a1e');
@@ -883,7 +659,7 @@ function drawGround(g) {
   // Stars
   for (let i = 0; i < 60; i++) {
     const sx = (i * 137 + 43) % W;
-    const sy = (i * 89 + 17) % (FIELD_TOP - 14);
+    const sy = (i * 89 + 17) % (GROUND_Y - 50);
     const bright = (Math.sin(i * 3.7 + Date.now()*0.0008) + 1) * 0.4;
     ctx.globalAlpha = 0.2 + bright;
     drawPixelRect(sx, sy, 2, 2, '#fff');
@@ -900,129 +676,27 @@ function drawGround(g) {
   ctx.arc(W-72, 46, 18, 0, Math.PI*2);
   ctx.fill();
 
-  // Vertical battlefield floor
-  const floorTop = FIELD_TOP;
-  const gGrad = ctx.createLinearGradient(0, floorTop, 0, H);
-  gGrad.addColorStop(0, '#274f24');
-  gGrad.addColorStop(1, '#183c16');
+  // Ground
+  const gGrad = ctx.createLinearGradient(0, GROUND_Y, 0, H);
+  gGrad.addColorStop(0, '#2a5a1a');
+  gGrad.addColorStop(1, '#1a3a10');
   ctx.fillStyle = gGrad;
-  ctx.fillRect(0, floorTop, W, H - floorTop);
+  ctx.fillRect(0, GROUND_Y, W, H - GROUND_Y);
+  // Ground line
+  drawPixelRect(0, GROUND_Y, W, 3, '#3c72');
 
-  // Flatter road, with only a mild top-down taper so the map feels laid out.
-  ctx.globalAlpha = 0.48;
-  ctx.fillStyle = '#315e2a';
-  ctx.fillRect(FIELD_LEFT + 78, FIELD_TOP, FIELD_RIGHT - FIELD_LEFT - 156, FIELD_BOTTOM - FIELD_TOP);
-  ctx.globalAlpha = 0.16;
-  ctx.fillStyle = '#9ad97c';
-  ctx.beginPath();
-  ctx.moveTo(FIELD_LEFT + 95, FIELD_TOP);
-  ctx.lineTo(FIELD_LEFT + 122, FIELD_BOTTOM);
-  ctx.lineTo(FIELD_RIGHT - 122, FIELD_BOTTOM);
-  ctx.lineTo(FIELD_RIGHT - 95, FIELD_TOP);
-  ctx.fill();
-
-  // Scrolling map references: cross grid, lane lines, side posts, and distance labels.
-  const step = 120;
-  const start = Math.floor(g.cameraY / step) * step;
-  ctx.globalAlpha = 0.42;
-  ctx.strokeStyle = '#b9e6aa';
+  // Midfield marker
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
   ctx.lineWidth = 1;
-  ctx.setLineDash([8, 8]);
-  for (let wy = start; wy <= g.cameraY + H + step; wy += step) {
-    const sy = wy - g.cameraY;
-    if (sy < FIELD_TOP || sy > FIELD_BOTTOM) continue;
-    ctx.beginPath();
-    ctx.moveTo(FIELD_LEFT + 95, sy);
-    ctx.lineTo(FIELD_RIGHT - 95, sy);
-    ctx.stroke();
-    ctx.fillStyle = '#dff4cc';
-    ctx.font = '9px monospace';
-    ctx.textAlign = 'right';
-    ctx.fillText(`${Math.max(0, Math.round((WORLD_BOTTOM - wy) / 10))}m`, FIELD_RIGHT - 8, sy - 4);
-    ctx.setLineDash([]);
-    drawPixelRect(FIELD_LEFT + 74, sy - 3, 8, 6, '#cfe8bf');
-    drawPixelRect(FIELD_RIGHT - 82, sy - 3, 8, 6, '#cfe8bf');
-    ctx.setLineDash([8, 8]);
-  }
-  for (let i = -2; i <= 2; i++) {
-    const x = W/2 + i * 92;
-    ctx.beginPath();
-    ctx.moveTo(x, FIELD_TOP);
-    ctx.lineTo(x, FIELD_BOTTOM);
-    ctx.stroke();
-  }
+  ctx.setLineDash([6,6]);
+  ctx.beginPath(); ctx.moveTo(W/2, GROUND_Y); ctx.lineTo(W/2, H); ctx.stroke();
   ctx.setLineDash([]);
-
-  // Advance arrow
-  ctx.globalAlpha = 0.18;
-  ctx.strokeStyle = '#ffffff';
-  ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(W/2, FIELD_BOTTOM); ctx.lineTo(W/2, FIELD_TOP); ctx.stroke();
-  ctx.globalAlpha = 1;
 }
 
 function drawParticles(g) {
   for (const p of g.particles) {
     ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
     drawPixelRect(p.x - 1.5, p.y - 1.5, 3, 3, p.color);
-  }
-  ctx.globalAlpha = 1;
-}
-
-function drawAdvanceGuide(g) {
-  ctx.globalAlpha = 0.55;
-  ctx.fillStyle = '#dff4cc';
-  ctx.font = 'bold 10px monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText('向上推进', W/2, FIELD_BOTTOM - 22);
-  ctx.beginPath();
-  ctx.moveTo(W/2, FIELD_BOTTOM - 34);
-  ctx.lineTo(W/2 - 8, FIELD_BOTTOM - 20);
-  ctx.lineTo(W/2 + 8, FIELD_BOTTOM - 20);
-  ctx.fill();
-  ctx.globalAlpha = 1;
-}
-
-function drawAimOverlay(g) {
-  const worldY = pointer.y + g.cameraY;
-  const target = findCannonTarget(g, pointer.x, worldY);
-  const aimX = target ? target.x : pointer.x;
-  const aimWorldY = target ? target.y - target.h/2 : worldY;
-  const aimY = aimWorldY - g.cameraY;
-  if (aimY < FIELD_TOP || aimY > FIELD_BOTTOM) return;
-
-  const ready = g.ufo.cannonCooldown <= 0 && g.ufoShells.length < MAX_UFO_SHELLS;
-  const color = ready ? (target ? '#ff0' : '#f8c34a') : '#777';
-  const ufoScreenY = g.ufo.y - g.cameraY;
-  ctx.globalAlpha = ready ? 0.82 : 0.45;
-  ctx.strokeStyle = color;
-  ctx.lineWidth = target ? 2 : 1;
-  ctx.setLineDash(target ? [] : [5,5]);
-  ctx.beginPath();
-  ctx.moveTo(g.ufo.x, ufoScreenY - 12);
-  ctx.lineTo(aimX, aimY);
-  ctx.stroke();
-  ctx.setLineDash([]);
-
-  ctx.beginPath();
-  ctx.arc(aimX, aimY, target ? 16 : 11, 0, Math.PI*2);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(aimX - 22, aimY);
-  ctx.lineTo(aimX - 8, aimY);
-  ctx.moveTo(aimX + 8, aimY);
-  ctx.lineTo(aimX + 22, aimY);
-  ctx.moveTo(aimX, aimY - 22);
-  ctx.lineTo(aimX, aimY - 8);
-  ctx.moveTo(aimX, aimY + 8);
-  ctx.lineTo(aimX, aimY + 22);
-  ctx.stroke();
-
-  if (target) {
-    ctx.fillStyle = color;
-    ctx.font = 'bold 9px monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText('LOCK', aimX, aimY - 20);
   }
   ctx.globalAlpha = 1;
 }
@@ -1039,8 +713,8 @@ function drawCapturePool(g) {
   ctx.fillText(`俘虏: ${g.ufo.captures}`, cx+6, cy+14);
   ctx.font = '9px monospace';
   ctx.fillStyle = '#aaa';
-  ctx.fillText(`吸引慢速 / 炮弹:${MAX_UFO_SHELLS - g.ufoShells.length}/${MAX_UFO_SHELLS}`, cx+4, cy+27);
-  ctx.fillText(`[1]步2 [2]盾3 [3]弓2 [4]爆4 J炮:${Math.ceil(g.ufo.cannonCooldown/60)}s`, cx+4, cy+38);
+  ctx.fillText('[1]步兵2 [2]盾兵3', cx+4, cy+27);
+  ctx.fillText('[3]弓兵2 [4]爆破4', cx+4, cy+38);
 }
 
 function drawOverlay(g) {
@@ -1080,18 +754,13 @@ function updateUI(g) {
   uiUfoHp.textContent = `🛸 飞碟: ${Math.ceil(g.ufo.hp)}/${g.ufo.maxHp}`;
   uiBeam.textContent = `⚡ 光束: ${Math.ceil(g.ufo.beamGauge)}/${g.ufo.maxBeamGauge}`;
   uiCapture.textContent = `🪤 俘虏: ${g.ufo.captures}`;
-  uiPosition.textContent = `📍 位置: ${Math.round(g.ufo.x)},${Math.round(g.ufo.y)}`;
   uiCastleHp.textContent = `🏯 城堡: ${Math.ceil(g.castle.hp)}/${g.castle.maxHp}`;
   uiWave.textContent = `🌊 波次: ${g.wave}`;
 }
 
 function render(g) {
   ctx.clearRect(0, 0, W, H);
-  drawGround(g);
-  drawAdvanceGuide(g);
-
-  ctx.save();
-  ctx.translate(0, -g.cameraY);
+  drawGround();
   drawBase(g.base, '我方基地');
   drawBase(g.castle, '敌方城堡');
 
@@ -1101,9 +770,6 @@ function render(g) {
   drawProjectiles(g);
   drawUFO(g);
   drawParticles(g);
-  ctx.restore();
-
-  drawAimOverlay(g);
   drawCapturePool(g);
   updateUI(g);
 }
