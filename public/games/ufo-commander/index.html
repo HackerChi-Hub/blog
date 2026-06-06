@@ -8,8 +8,22 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:monospace;color:#fff;overflow:hidden}
 canvas{border:2px solid #333;image-rendering:pixelated;cursor:crosshair}
-#ui{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:flex;gap:10px;font-size:12px;z-index:10;flex-wrap:wrap;justify-content:center}
-#ui span{background:rgba(0,0,0,.8);padding:4px 8px;border-radius:4px;white-space:nowrap}
+#ui{position:absolute;top:8px;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:250px 190px 250px 34px;gap:8px;align-items:start;font-size:11px;z-index:10}
+.hud-panel{background:rgba(0,0,0,.78);border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:6px 8px;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.meter{display:grid;grid-template-columns:42px 1fr 48px;gap:6px;align-items:center;margin:3px 0}
+.meter label{color:#cfe8ff;white-space:nowrap}
+.meter b{font-weight:700;text-align:right;font-size:10px;color:#fff}
+.bar{height:7px;background:#171717;border:1px solid #303030;overflow:hidden}
+.fill{display:block;height:100%;width:100%;background:#4f4}
+.fill.ufo{background:#56d8ff}.fill.castle{background:#ff4d4d}.fill.beam{background:#0ff}.fill.cannon{background:#ffcf44}
+.hud-center{text-align:center;line-height:1.35}
+.hud-center strong{display:block;font-size:18px;color:#fff;margin-bottom:2px}
+.hud-center span{display:block;color:#b8d6ff}
+.hud-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;line-height:1.2}
+.hud-actions div{background:rgba(255,255,255,.06);padding:4px 5px;border-radius:3px}
+.hud-actions small{display:block;color:#aaa;margin-bottom:2px}
+#soundBtn{width:34px;height:34px;border:1px solid rgba(255,255,255,.18);border-radius:4px;background:rgba(0,0,0,.78);color:#fff;cursor:pointer;font:16px monospace}
+#soundBtn.off{color:#777}
 #overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.8);z-index:20}
 #overlay h1{font-size:44px;margin-bottom:12px}
 #overlay p{font-size:16px;margin-bottom:24px;text-align:center;line-height:1.7;max-width:520px}
@@ -21,13 +35,22 @@ canvas{border:2px solid #333;image-rendering:pixelated;cursor:crosshair}
 </head>
 <body>
 <div id="ui">
-  <span id="uiBaseHp">🏰 基地: 2000</span>
-  <span id="uiUfoHp">🛸 飞碟: 100</span>
-  <span id="uiBeam">⚡ 光束: 100</span>
-  <span id="uiCapture">🪤 俘虏: 0</span>
-  <span id="uiPosition">📍 位置: 中场</span>
-  <span id="uiCastleHp">🏯 城堡: 2000</span>
-  <span id="uiWave">🌊 波次: 0</span>
+  <div class="hud-panel">
+    <div class="meter"><label>基地</label><div class="bar"><span id="uiBaseBar" class="fill"></span></div><b id="uiBaseHp">2000</b></div>
+    <div class="meter"><label>飞碟</label><div class="bar"><span id="uiUfoBar" class="fill ufo"></span></div><b id="uiUfoHp">100</b></div>
+    <div class="meter"><label>城堡</label><div class="bar"><span id="uiCastleBar" class="fill castle"></span></div><b id="uiCastleHp">2000</b></div>
+  </div>
+  <div class="hud-panel hud-center">
+    <strong id="uiWave">第 0 波</strong>
+    <span id="uiPosition">距敌城 --m</span>
+  </div>
+  <div class="hud-panel hud-actions">
+    <div><small>俘虏</small><b id="uiCapture">0</b></div>
+    <div><small>光束</small><b id="uiBeam">100%</b><div class="bar"><span id="uiBeamBar" class="fill beam"></span></div></div>
+    <div><small>炮弹</small><b id="uiCannon">READY</b><div class="bar"><span id="uiCannonBar" class="fill cannon"></span></div></div>
+    <div><small>在场</small><b id="uiShells">0/3</b></div>
+  </div>
+  <button id="soundBtn" title="声音开关">🔊</button>
 </div>
 <canvas id="game"></canvas>
 <div id="hud">
@@ -61,6 +84,14 @@ const uiCapture = document.getElementById('uiCapture');
 const uiPosition = document.getElementById('uiPosition');
 const uiCastleHp = document.getElementById('uiCastleHp');
 const uiWave = document.getElementById('uiWave');
+const uiBaseBar = document.getElementById('uiBaseBar');
+const uiUfoBar = document.getElementById('uiUfoBar');
+const uiCastleBar = document.getElementById('uiCastleBar');
+const uiBeamBar = document.getElementById('uiBeamBar');
+const uiCannon = document.getElementById('uiCannon');
+const uiCannonBar = document.getElementById('uiCannonBar');
+const uiShells = document.getElementById('uiShells');
+const soundBtn = document.getElementById('soundBtn');
 
 const FIELD_LEFT = 85;
 const FIELD_RIGHT = W - 85;
@@ -83,6 +114,12 @@ const CANNON_TURN = 0.18;
 const CAMERA_CENTER_Y = 310;
 const keys = {};
 const pointer = { x: W/2, y: H/2 };
+const audioState = {
+  ctx: null,
+  enabled: true,
+  musicTimer: null,
+  musicStep: 0,
+};
 document.addEventListener('keydown', e => {
   keys[e.code] = true;
   if (handleDiscreteControl(e.code)) {
@@ -122,6 +159,80 @@ function clamp(v, min, max) {
 function depthScale(y) {
   const t = (y - WORLD_TOP) / (WORLD_BOTTOM - WORLD_TOP);
   return clamp(0.72 + t * 0.38, 0.72, 1.1);
+}
+
+function initAudio() {
+  if (!audioState.ctx) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return null;
+    audioState.ctx = new AudioCtx();
+  }
+  if (audioState.ctx.state === 'suspended') audioState.ctx.resume();
+  return audioState.ctx;
+}
+
+function playTone(freq, duration = 0.12, type = 'square', gain = 0.05, slideTo = null) {
+  const ctxAudio = initAudio();
+  if (!ctxAudio || !audioState.enabled) return;
+  const now = ctxAudio.currentTime;
+  const osc = ctxAudio.createOscillator();
+  const amp = ctxAudio.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+  if (slideTo) osc.frequency.exponentialRampToValueAtTime(Math.max(30, slideTo), now + duration);
+  amp.gain.setValueAtTime(0.0001, now);
+  amp.gain.exponentialRampToValueAtTime(gain, now + 0.015);
+  amp.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  osc.connect(amp);
+  amp.connect(ctxAudio.destination);
+  osc.start(now);
+  osc.stop(now + duration + 0.02);
+}
+
+function playNoise(duration = 0.16, gain = 0.04) {
+  const ctxAudio = initAudio();
+  if (!ctxAudio || !audioState.enabled) return;
+  const buffer = ctxAudio.createBuffer(1, Math.floor(ctxAudio.sampleRate * duration), ctxAudio.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+  const src = ctxAudio.createBufferSource();
+  const amp = ctxAudio.createGain();
+  amp.gain.value = gain;
+  src.buffer = buffer;
+  src.connect(amp);
+  amp.connect(ctxAudio.destination);
+  src.start();
+}
+
+function playSfx(name) {
+  if (!audioState.enabled) return;
+  if (name === 'start') { playTone(196, 0.1, 'triangle', 0.04); setTimeout(() => playTone(294, 0.12, 'triangle', 0.04), 90); }
+  if (name === 'deploy') playTone(420, 0.09, 'square', 0.035, 620);
+  if (name === 'capture') { playTone(740, 0.08, 'sine', 0.04); setTimeout(() => playTone(980, 0.1, 'sine', 0.035), 70); }
+  if (name === 'beam') playTone(240, 0.04, 'sawtooth', 0.015, 180);
+  if (name === 'shoot') playTone(180, 0.1, 'square', 0.045, 90);
+  if (name === 'explode') { playNoise(0.2, 0.055); playTone(95, 0.18, 'triangle', 0.04, 55); }
+  if (name === 'hit') playTone(120, 0.06, 'square', 0.035, 80);
+  if (name === 'win') { playTone(330, 0.12, 'triangle', 0.04); setTimeout(() => playTone(494, 0.16, 'triangle', 0.045), 120); setTimeout(() => playTone(660, 0.2, 'triangle', 0.05), 260); }
+  if (name === 'lose') { playTone(220, 0.18, 'sawtooth', 0.04, 110); setTimeout(() => playTone(140, 0.22, 'sawtooth', 0.035, 70), 160); }
+}
+
+function startMusic() {
+  const ctxAudio = initAudio();
+  if (!ctxAudio || audioState.musicTimer) return;
+  const notes = [98, 123.47, 146.83, 123.47, 110, 146.83, 164.81, 146.83];
+  audioState.musicTimer = setInterval(() => {
+    if (!audioState.enabled || !game || game.state !== 'playing') return;
+    const note = notes[audioState.musicStep % notes.length];
+    playTone(note, 0.18, 'triangle', 0.018);
+    if (audioState.musicStep % 4 === 0) playTone(note / 2, 0.22, 'sine', 0.012);
+    audioState.musicStep++;
+  }, 420);
+}
+
+function updateSoundButton() {
+  soundBtn.textContent = audioState.enabled ? '🔊' : '🔇';
+  soundBtn.classList.toggle('off', !audioState.enabled);
 }
 
 function handleDiscreteControl(code) {
@@ -218,6 +329,7 @@ function tryDeploySoldier(g, type) {
   const s = new Entity(spawnX, spawnY, 'player', type);
   g.soldiers.push(s);
   spawnParticles(g, s.x, s.y, '#4f4', 6);
+  playSfx('deploy');
 }
 
 function spawnParticles(g, x, y, color, count) {
@@ -267,6 +379,7 @@ function fireUfoShell(g, targetX, targetY) {
   });
   g.ufo.cannonCooldown = CANNON_COOLDOWN;
   spawnParticles(g, g.ufo.x, g.ufo.y - 14, '#ff0', 5);
+  playSfx('shoot');
 }
 
 function findCannonTarget(g, targetX, targetY) {
@@ -290,6 +403,7 @@ function explodeUfoShell(g, p) {
   p.exploded = true;
   p.dead = true;
   spawnParticles(g, p.x, p.y, '#ff0', 14);
+  playSfx('explode');
   for (const o of g.soldiers) {
     if (!o.alive || o.team !== 'enemy' || o.beingSucked) continue;
     const odx = o.x - p.x;
@@ -355,6 +469,7 @@ function update(g) {
       closest.hp -= BEAM_DAMAGE;
       g.ufo.beamTarget = closest;
       if (g.time % 3 === 0) spawnParticles(g, closest.x, closest.y, '#0ff', 1);
+      if (g.time % 18 === 0) playSfx('beam');
       if (closest.hp <= 0) {
         closest.alive = false;
         closest.beingSucked = false;
@@ -362,6 +477,7 @@ function update(g) {
         g.ufo.beamTarget = null;
         spawnParticles(g, closest.x, closest.y, '#0ff', 8);
         spawnParticles(g, g.ufo.x, g.ufo.y, '#ff0', 4);
+        playSfx('capture');
       }
     } else {
       g.ufo.beamTarget = null;
@@ -457,6 +573,7 @@ function update(g) {
         g.ufo.invulnTimer = 15;
         g.ufoHitFlash = 8;
         spawnParticles(g, g.ufo.x, g.ufo.y, '#f44', 3);
+        playSfx('hit');
       }
     }
 
@@ -530,9 +647,9 @@ function update(g) {
   g.particles = g.particles.filter(p => p.life > 0);
 
   // Win/lose
-  if (g.castle.hp <= 0) { g.castle.hp = 0; g.state = 'win'; }
-  if (g.base.hp <= 0) { g.base.hp = 0; g.state = 'lose'; }
-  if (g.ufo.hp <= 0) { g.ufo.hp = 0; g.state = 'lose'; }
+  if (g.castle.hp <= 0) { g.castle.hp = 0; g.state = 'win'; playSfx('win'); }
+  if (g.base.hp <= 0) { g.base.hp = 0; g.state = 'lose'; playSfx('lose'); }
+  if (g.ufo.hp <= 0) { g.ufo.hp = 0; g.state = 'lose'; playSfx('lose'); }
 }
 
 // ========== RENDERING ==========
@@ -1066,6 +1183,9 @@ function drawOverlay(g) {
   p.innerHTML = reason + '<br><br>点击下方按钮重新开始';
   btn.textContent = '重新开始';
   btn.addEventListener('click', () => {
+    initAudio();
+    startMusic();
+    playSfx('start');
     overlay.style.display = 'none';
     game = createGame();
     gameLoop();
@@ -1076,13 +1196,29 @@ function drawOverlay(g) {
 }
 
 function updateUI(g) {
-  uiBaseHp.textContent = `🏰 基地: ${Math.ceil(g.base.hp)}/${g.base.maxHp}`;
-  uiUfoHp.textContent = `🛸 飞碟: ${Math.ceil(g.ufo.hp)}/${g.ufo.maxHp}`;
-  uiBeam.textContent = `⚡ 光束: ${Math.ceil(g.ufo.beamGauge)}/${g.ufo.maxBeamGauge}`;
-  uiCapture.textContent = `🪤 俘虏: ${g.ufo.captures}`;
-  uiPosition.textContent = `📍 位置: ${Math.round(g.ufo.x)},${Math.round(g.ufo.y)}`;
-  uiCastleHp.textContent = `🏯 城堡: ${Math.ceil(g.castle.hp)}/${g.castle.maxHp}`;
-  uiWave.textContent = `🌊 波次: ${g.wave}`;
+  const baseRatio = clamp(g.base.hp / g.base.maxHp, 0, 1);
+  const ufoRatio = clamp(g.ufo.hp / g.ufo.maxHp, 0, 1);
+  const castleRatio = clamp(g.castle.hp / g.castle.maxHp, 0, 1);
+  const beamRatio = clamp(g.ufo.beamGauge / g.ufo.maxBeamGauge, 0, 1);
+  const cannonRatio = clamp(1 - g.ufo.cannonCooldown / CANNON_COOLDOWN, 0, 1);
+  const distanceToCastle = Math.max(0, Math.round((g.ufo.y - g.castle.y) / 10));
+
+  uiBaseHp.textContent = `${Math.ceil(g.base.hp)}`;
+  uiUfoHp.textContent = `${Math.ceil(g.ufo.hp)}`;
+  uiCastleHp.textContent = `${Math.ceil(g.castle.hp)}`;
+  uiBaseBar.style.width = `${baseRatio * 100}%`;
+  uiUfoBar.style.width = `${ufoRatio * 100}%`;
+  uiCastleBar.style.width = `${castleRatio * 100}%`;
+
+  uiWave.textContent = `第 ${g.wave} 波`;
+  uiPosition.textContent = `距敌城 ${distanceToCastle}m`;
+
+  uiCapture.textContent = `${g.ufo.captures}`;
+  uiBeam.textContent = `${Math.ceil(g.ufo.beamGauge)}%`;
+  uiBeamBar.style.width = `${beamRatio * 100}%`;
+  uiCannon.textContent = g.ufo.cannonCooldown <= 0 ? 'READY' : `${Math.ceil(g.ufo.cannonCooldown / 60)}s`;
+  uiCannonBar.style.width = `${cannonRatio * 100}%`;
+  uiShells.textContent = `${g.ufoShells.length}/${MAX_UFO_SHELLS}`;
 }
 
 function render(g) {
@@ -1127,10 +1263,22 @@ function gameLoop() {
 }
 
 startBtn.addEventListener('click', () => {
+  initAudio();
+  startMusic();
+  playSfx('start');
   overlay.style.display = 'none';
   game = createGame();
   gameLoop();
 });
+
+soundBtn.addEventListener('click', () => {
+  audioState.enabled = !audioState.enabled;
+  initAudio();
+  startMusic();
+  updateSoundButton();
+  if (audioState.enabled) playSfx('start');
+});
+updateSoundButton();
 </script>
 </body>
 </html>
