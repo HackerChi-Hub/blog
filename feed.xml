@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 23:14:27 GMT</lastBuildDate>
-    <pubDate>Tue, 09 Jun 2026 23:14:27 GMT</pubDate>
+    <lastBuildDate>Tue, 09 Jun 2026 23:45:15 GMT</lastBuildDate>
+    <pubDate>Tue, 09 Jun 2026 23:45:15 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -16,7 +16,7 @@
       <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</guid>
       <description>编程·推理·中文创作·长文理解·多语言，19道题、62个测试用例，每题展示原题+详细结果。综合评分91/100，推理99最强，创作88最弱但仍优秀。</description>
       <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>AI技术</category>
+    <category>资源分享</category>
     <category>AI</category>
     <category>实测</category>
     <category>开发</category>
@@ -27,7 +27,7 @@
       <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
       <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
       <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>AI大模型</category>
+    <category>学习思考</category>
     <category>Gemini</category>
     <category>Google</category>
     <category>AI</category>
