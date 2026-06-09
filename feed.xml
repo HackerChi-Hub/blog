@@ -5,11 +5,35 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 00:51:49 GMT</lastBuildDate>
-    <pubDate>Tue, 09 Jun 2026 00:51:49 GMT</pubDate>
+    <lastBuildDate>Tue, 09 Jun 2026 08:03:57 GMT</lastBuildDate>
+    <pubDate>Tue, 09 Jun 2026 08:03:57 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
+      <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-gaokao-2026-glm51/</guid>
+      <description>2026年高考刚结束，13款AI大模型同场竞技数学卷。GLM-5.1亲自上阵实测语文作文、数学、英语三科，坦白成绩单。AI能考130分，但永远拿不到「感情真挚」。探讨AI进步与人类学识的矛盾。</description>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI测评</category>
+    <category>AI</category>
+    <category>高考</category>
+    <category>GLM-5.1</category>
+    <category>大模型</category>
+    <category>教育</category>
+    </item>
+    <item>
+      <title>通义灵码“消失”了，取而代之的 Qoder CN 才是阿里下的一盘大棋</title>
+      <link>https://hyphentech.top/37a999681bdb81afb5d3ea2a36889bc5/</link>
+      <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81afb5d3ea2a36889bc5/</guid>
+      <description>100k 文件上下文、26 小时自主编程，以及把海外巨头按在地上摩擦的国产定价。</description>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    <category>AI技术</category>
+    </item>
     <item>
       <title>贴个跃马标就敢卖近4万？惠普法拉利联名AI PC底裤大揭秘！</title>
       <link>https://hyphentech.top/376999681bdb819e9950c6e305b307f6/</link>
@@ -49,6 +73,18 @@
     <category>AI</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>AI 为什么老是半路下班？我用一个 UFO 游戏做了次无人值守任务测试</title>
+      <link>https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</guid>
+      <description>我用一个飞碟吸小兵网页游戏，测试 AI 能不能像员工一样按目标、边界、验收单持续推进，并整理出可复用提示词模板。</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI实验纪实</category>
+    <category>AI Agent</category>
+    <category>提示词工程</category>
+    <category>无人值守任务</category>
+    <category>AI编程</category>
     </item>
     <item>
       <title>微软向 OpenAI 摊牌：发布首款纯自研高级推理模型！</title>
@@ -209,41 +245,6 @@
     <category>MLX</category>
     <category>实测</category>
     <category>Apple Silicon</category>
-    </item>
-    <item>
-      <title>Gemini 3.5 全系出击：Google 这次要让 ChatGPT 睡不着觉</title>
-      <link>https://hyphentech.top/gemini-35-google-io-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemini-35-google-io-2026/</guid>
-      <description>Google I/O 2026 发布 Gemini 3.5 全系，Flash 主打 Agent 方向，Omni 升级全模态旗舰，Spark 定位于 24/7 私人 AI 助手。Huxiu/TechCrunch/DeepMind 同步聚焦，Google 战略全面转向 Agent 优先，正面对抗 ChatGPT/Claude 生态。</description>
-      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    <category>AI大模型</category>
-    <category>AI大模型</category>
-    <category>Google</category>
-    <category>Gemini</category>
-    <category>Google I/O</category>
-    </item>
-    <item>
-      <title>Karpathy 加入 Anthropic：OpenAI 联合创始人为什么选了对手？</title>
-      <link>https://hyphentech.top/karpathy-anthropic/</link>
-      <guid isPermaLink="true">https://hyphentech.top/karpathy-anthropic/</guid>
-      <description>OpenAI 联合创始人 Karpathy 宣布加入 Anthropic 预训练团队，36kr 连发5篇追踪，华尔街称其「看懂大模型资本逻辑」。Gates Foundation/Blackstone/SpaceX 算力 deal 背后是 Anthropic 的超级资金储备，OpenAI「宫斗疲劳」则是 Karpathy 出走的另一面。</description>
-      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
-    <category>AI大模型</category>
-    <category>AI大模型</category>
-    <category>Anthropic</category>
-    <category>Karpathy</category>
-    <category>OpenAI</category>
-    </item>
-    <item>
-      <title>M5 Pro 跑完 5 个维度，本地 AI 到底能做什么</title>
-      <link>https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</link>
-      <guid isPermaLink="true">https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</guid>
-      <description>在 M5 Pro 64GB 上做了一次完整的本地 AI 评测：4 个大模型、mlx-audio TTS、FLUX 图像生成、LTX-2.3 视频生成、Qwen2-VL 视觉理解，五个维度，全部真实数据、完整提示词、效果如实评价。</description>
-      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
-    <category>AI技术</category>
-    <category>AI</category>
-    <category>工具</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
