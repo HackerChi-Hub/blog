@@ -5,11 +5,36 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 23:08:33 GMT</lastBuildDate>
-    <pubDate>Tue, 09 Jun 2026 23:08:33 GMT</pubDate>
+    <lastBuildDate>Tue, 09 Jun 2026 23:14:27 GMT</lastBuildDate>
+    <pubDate>Tue, 09 Jun 2026 23:14:27 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>五维实测全记录！QoderWork综合能力评测：91分是什么水平？</title>
+      <link>https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</link>
+      <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</guid>
+      <description>编程·推理·中文创作·长文理解·多语言，19道题、62个测试用例，每题展示原题+详细结果。综合评分91/100，推理99最强，创作88最弱但仍优秀。</description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI技术</category>
+    <category>AI</category>
+    <category>实测</category>
+    <category>开发</category>
+    </item>
+    <item>
+      <title>Google I/O 2026 深度解读：Gemini 进入 Agentic 时代</title>
+      <link>https://hyphentech.top/google-io-2026-gemini-agentic-era/</link>
+      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
+      <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI大模型</category>
+    <category>Gemini</category>
+    <category>Google</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>Agent</category>
+    <category>科技前沿</category>
+    </item>
     <item>
       <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
       <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
@@ -220,31 +245,6 @@
     <category>AI技术</category>
     <category>工具</category>
     <category>科技商业</category>
-    </item>
-    <item>
-      <title>谷歌出大招了！Antigravity CLI 能干掉 Claude Code 吗</title>
-      <link>https://hyphentech.top/google-io-2026-antigravity-vs-claude-code/</link>
-      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-antigravity-vs-claude-code/</guid>
-      <description>谷歌 I/O 2026 发布 Antigravity 2.0：CLI+桌面+SDK 四件套，同时宣告 Gemini CLI 6月18日关停。多 Agent 并行 vs Claude Code 单兵作战，我用了两天告诉你区别在哪。</description>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>Google</category>
-    <category>AI技术</category>
-    <category>工具</category>
-    <category>开发</category>
-    <category>技术</category>
-    </item>
-    <item>
-      <title>M5 Pro 跑 6 个本地 AI：全量实测数据，踩了 4 个坑</title>
-      <link>https://hyphentech.top/mlx-local-ai-test-m5pro/</link>
-      <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
-      <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
-      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>MLX</category>
-    <category>实测</category>
-    <category>Apple Silicon</category>
     </item>
   </channel>
 </rss>
