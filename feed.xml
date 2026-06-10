@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jun 2026 00:30:08 GMT</lastBuildDate>
-    <pubDate>Wed, 10 Jun 2026 00:30:08 GMT</pubDate>
+    <lastBuildDate>Wed, 10 Jun 2026 08:18:34 GMT</lastBuildDate>
+    <pubDate>Wed, 10 Jun 2026 08:18:34 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>半年连震三场！估值被反超、护城河被填平，OpenAI 的半条命还能保住吗？</title>
+      <link>https://hyphentech.top/37b999681bdb81388fdfcd8688869e9e/</link>
+      <guid isPermaLink="true">https://hyphentech.top/37b999681bdb81388fdfcd8688869e9e/</guid>
+      <description>从资本、技术到监管的全面大洗牌，2026 上半年的 AI 圈到底发生了什么？</description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Claude Mythos 5 发布：AI 编程王座，坐稳了吗？</title>
       <link>https://hyphentech.top/claude-fable-5-mythos-5/</link>
@@ -234,19 +244,6 @@
     <category>行业分析</category>
     <category>AI商业模式</category>
     <category>科技商业</category>
-    </item>
-    <item>
-      <title>Elo 1656 碾压 Claude Sonnet？谷歌新 Flash 我用了3天说点实话</title>
-      <link>https://hyphentech.top/gemini-35-flash-review-vs-claude-sonnet/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemini-35-flash-review-vs-claude-sonnet/</guid>
-      <description>Gemini 3.5 Flash 在 LMArena Elo 1656 超 Claude Sonnet，Terminal-Bench 2.1 拿了 76.2%，1M 上下文，但有两个坑：比旧 Flash 涨价3倍，且 thinking_level 默认从 high 悄悄降为 medium。</description>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Gemini</category>
-    <category>Google</category>
-    <category>实测</category>
-    <category>AI技术</category>
-    <category>性能优化</category>
     </item>
   </channel>
 </rss>
