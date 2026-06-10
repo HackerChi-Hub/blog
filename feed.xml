@@ -5,11 +5,26 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 23:58:16 GMT</lastBuildDate>
-    <pubDate>Tue, 09 Jun 2026 23:58:16 GMT</pubDate>
+    <lastBuildDate>Wed, 10 Jun 2026 00:30:08 GMT</lastBuildDate>
+    <pubDate>Wed, 10 Jun 2026 00:30:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Claude Mythos 5 发布：AI 编程王座，坐稳了吗？</title>
+      <link>https://hyphentech.top/claude-fable-5-mythos-5/</link>
+      <guid isPermaLink="true">https://hyphentech.top/claude-fable-5-mythos-5/</guid>
+      <description>Anthropic 同步发布 Fable 5 与 Mythos 5：同一底座、双重铠甲。SWE-bench Pro 80.3% 断层领先，Stripe 5000万行代码一天迁完，Glasswing 找出数千个零日漏洞。附官方一手跑分图表。</description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>Anthropic</category>
+    <category>Claude</category>
+    <category>AI大模型</category>
+    <category>AI编程</category>
+    <category>网络安全</category>
+    <category>热点速递</category>
+    <category>行业分析</category>
+    </item>
     <item>
       <title>五维实测全记录！QoderWork综合能力评测：91分是什么水平？</title>
       <link>https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</link>
@@ -232,19 +247,6 @@
     <category>实测</category>
     <category>AI技术</category>
     <category>性能优化</category>
-    </item>
-    <item>
-      <title>Anthropic 悄悄花了3亿买了家你没听过的公司</title>
-      <link>https://hyphentech.top/anthropic-acquires-stainless-mythos-1/</link>
-      <guid isPermaLink="true">https://hyphentech.top/anthropic-acquires-stainless-mythos-1/</guid>
-      <description>5月18日 Anthropic 官宣收购 Stainless（$300M+），这家公司生成了 OpenAI、Cloudflare、Anthropic 的官方 SDK。收购后竞品 hosted 服务关停。同一周 Mythos 1 悄然上线，仅限内部安全团队使用。</description>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Anthropic</category>
-    <category>AI商业模式</category>
-    <category>AI技术</category>
-    <category>工具</category>
-    <category>科技商业</category>
     </item>
   </channel>
 </rss>
