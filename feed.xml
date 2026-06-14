@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 14 Jun 2026 12:17:39 GMT</lastBuildDate>
-    <pubDate>Sun, 14 Jun 2026 12:17:39 GMT</pubDate>
+    <lastBuildDate>Sun, 14 Jun 2026 17:52:11 GMT</lastBuildDate>
+    <pubDate>Sun, 14 Jun 2026 17:52:11 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>GLM-5.2 全量开放：1M 上下文与开源，智谱重注开发者入口战</title>
+      <link>https://hyphentech.top/37f999681bdb81149584e00b4f58dd6e/</link>
+      <guid isPermaLink="true">https://hyphentech.top/37f999681bdb81149584e00b4f58dd6e/</guid>
+      <description>国产 Coding 模型把上下文拉到百万级，是秀肌肉还是重塑生产力工具链的底线？</description>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>半年连震三场！估值被反超、护城河被填平，OpenAI 的半条命还能保住吗？</title>
       <link>https://hyphentech.top/37b999681bdb81388fdfcd8688869e9e/</link>
@@ -231,19 +241,6 @@
     <category>科技前沿</category>
     <category>行业分析</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>5万家公司用钱投了票：Anthropic 34.4% 历史首超 OpenAI</title>
-      <link>https://hyphentech.top/anthropic-surpasses-openai-enterprise-share-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/anthropic-surpasses-openai-enterprise-share-2026/</guid>
-      <description>Ramp AI Index 4月数据：Anthropic 企业消费份额 34.4% 首次超越 OpenAI 32.3%，单月涨 3.8 个百分点，用户基数年增4倍，已在软件/金融/专业服务三大行业领先。数据来自5万+美国企业真实信用卡消费。</description>
-      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Anthropic</category>
-    <category>OpenAI</category>
-    <category>行业分析</category>
-    <category>AI商业模式</category>
-    <category>科技商业</category>
     </item>
   </channel>
 </rss>
