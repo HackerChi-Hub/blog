@@ -5,11 +5,23 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 15 Jun 2026 10:35:33 GMT</lastBuildDate>
-    <pubDate>Mon, 15 Jun 2026 10:35:33 GMT</pubDate>
+    <lastBuildDate>Mon, 15 Jun 2026 19:57:50 GMT</lastBuildDate>
+    <pubDate>Mon, 15 Jun 2026 19:57:50 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>ScreenLex 光影词库：我更推荐的影视英语学习方式</title>
+      <link>https://hyphentech.top/screenlex-movie-english-learning/</link>
+      <guid isPermaLink="true">https://hyphentech.top/screenlex-movie-english-learning/</guid>
+      <description>ScreenLex 是黑粉科技做的一款本地桌面工具。它不做播放器，也不提供影视资源，而是把本机已有电影和剧集的字幕整理成可复习的高级词汇、短语、背景知识、双语字幕和学习记录。</description>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>工具</category>
+    <category>软件</category>
+    <category>人工智能</category>
+    <category>影音</category>
+    </item>
     <item>
       <title>GLM-5.2 全量开放：1M 上下文与开源，智谱重注开发者入口战</title>
       <link>https://hyphentech.top/37f999681bdb81149584e00b4f58dd6e/</link>
@@ -226,21 +238,6 @@
     <category>AI</category>
     <category>热点速递</category>
     <category>商业分析</category>
-    </item>
-    <item>
-      <title>华为「韬定律」：当空间到头，向时间要答案</title>
-      <link>https://hyphentech.top/huawei-tau-law-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/huawei-tau-law-2026/</guid>
-      <description>逻辑折叠、55%密度提升、2031年等同1.4nm——华为用6年381款芯片，悄悄走出了一条绕开EUV的新路。</description>
-      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>华为</category>
-    <category>芯片</category>
-    <category>科技</category>
-    <category>技术</category>
-    <category>科技前沿</category>
-    <category>行业分析</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
