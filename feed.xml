@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 16 Jun 2026 09:36:25 GMT</lastBuildDate>
-    <pubDate>Tue, 16 Jun 2026 09:36:25 GMT</pubDate>
+    <lastBuildDate>Tue, 16 Jun 2026 15:23:33 GMT</lastBuildDate>
+    <pubDate>Tue, 16 Jun 2026 15:23:33 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>花200刀买“尊享”，用5小时就扣15%额度？Claude Max遭集体诉讼！</title>
+      <link>https://hyphentech.top/381999681bdb815594c0ee21389194d3/</link>
+      <guid isPermaLink="true">https://hyphentech.top/381999681bdb815594c0ee21389194d3/</guid>
+      <description>当“狂暴模式”变成“五分钟真男人”，AI算力限速的黑箱终于被端上了法庭。</description>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>ScreenLex 光影词库：我更推荐的影视英语学习方式</title>
       <link>https://hyphentech.top/screenlex-movie-english-learning/</link>
@@ -227,17 +237,6 @@
     <category>AI大模型</category>
     <category>工作流</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>对标最高月费两千块的Claude Code，今天被免费开源给“偷塔”了！</title>
-      <link>https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</link>
-      <guid isPermaLink="true">https://hyphentech.top/370999681bdb81c5a44ccd4f96050b83/</guid>
-      <description>Nous Research 祭出开源大招 Goose，AI 编程工具的“割韭菜”时代迎来终结者？</description>
-      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>商业分析</category>
     </item>
   </channel>
 </rss>
