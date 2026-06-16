@@ -143,7 +143,8 @@ async function downloadNotionFiles(recordMap, slug) {
 
   for (const [blockId, blockData] of Object.entries(recordMap.block)) {
     const block = blockData?.value?.value || blockData?.value;
-    if (!block || block.type !== 'file') continue;
+    // 正文里的图片块（image）和文件块（file/pdf/video）都可能携带会过期的签名 URL，统一本地化
+    if (!block || !['file', 'image', 'pdf', 'video'].includes(block.type)) continue;
 
     const source = getPlainProperty(block.properties?.source) || block.format?.display_source || '';
     const displaySource = block.format?.display_source || '';
@@ -613,6 +614,14 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
               fullPage={false}
               disableHeader
               darkMode
+              mapImageUrl={(url) => {
+                // 已本地化(/downloads/)、data URL、绝对外链都原样使用；
+                // 仅 Notion 内置相对路径(/images、/icons)补全域名。默认 mapImageUrl 会把 /downloads/ 误转成代理 URL，故覆盖。
+                if (!url) return url;
+                if (url.startsWith('/downloads/') || url.startsWith('data:') || /^https?:\/\//.test(url)) return url;
+                if (url.startsWith('/')) return `https://www.notion.so${url}`;
+                return url;
+              }}
               components={{
                 Code,
                 Collection,
