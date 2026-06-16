@@ -1,5 +1,24 @@
 # Blog文章封面问题解决报告
 
+> ## 🔄 2026-06-16 更新：已改为构建期本地化，下方手动设封面流程作废
+>
+> **根因**：静态站把 Notion 的 `file.notion.so` 签名图片 URL 直接烤进 HTML，
+> 这种 URL 带 `expirationTimestamp` 短时即失效（HTTP 419）。每天 4 次定时构建
+> 之间存在"签名已过期、下次构建未到"的空窗期，期间首页卡片封面、详情页大图、
+> 正文图全部空白。
+>
+> **永久修复**（提交 `a1c25af`）：构建时把所有会过期的 Notion 图片下载到
+> `public/downloads/`，HTML 只引用本地稳定路径，永不过期。
+> - `lib/notion.js`：新增 `localizeNotionImage()`，在 `getPostCovers` /
+>   `getPostBySlug` / `getNotices` 调用；`getPosts` 的 file 封面保留原始签名 URL
+>   而非 `notion.so/image` 代理（代理对未发布到 web 的页面会 404）。
+> - `pages/[slug].js`：`downloadNotionFiles` 扩展到 `image` 块；NotionRenderer
+>   加 `mapImageUrl` 透传，防止本地路径被默认逻辑误转成代理。
+>
+> **因此下面"设置 Notion 页面封面 / 手动推送封面文件"的流程不再需要**——
+> 封面会在每次构建时自动从 Notion 拉取并本地化。`public/downloads/` 已 gitignore，
+> 纯构建产物，不入库。
+
 ## ✅ 问题已解决
 
 **问题**: Blog最新文章封面没有更新显示  
