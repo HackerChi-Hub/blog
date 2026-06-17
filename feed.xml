@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 17 Jun 2026 18:37:10 GMT</lastBuildDate>
-    <pubDate>Wed, 17 Jun 2026 18:37:10 GMT</pubDate>
+    <lastBuildDate>Wed, 17 Jun 2026 23:52:32 GMT</lastBuildDate>
+    <pubDate>Wed, 17 Jun 2026 23:52:32 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>狂砸510亿！估值冲上4000亿，DeepSeek凭什么让巨头集体发疯？</title>
+      <link>https://hyphentech.top/382999681bdb81a9889dc46c20a7fccf/</link>
+      <guid isPermaLink="true">https://hyphentech.top/382999681bdb81a9889dc46c20a7fccf/</guid>
+      <description>腾讯、京东、网易all in，连宁德时代都来抢肉吃，国产AI的终极牌局开始了</description>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>花200刀买“尊享”，用5小时就扣15%额度？Claude Max遭集体诉讼！</title>
       <link>https://hyphentech.top/381999681bdb815594c0ee21389194d3/</link>
@@ -222,20 +232,6 @@
       <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Claude Opus 4.8 发布：三个新功能，一个比一个香</title>
-      <link>https://hyphentech.top/claude-opus-4-8-release/</link>
-      <guid isPermaLink="true">https://hyphentech.top/claude-opus-4-8-release/</guid>
-      <description>努力程度控制（四档）、Dynamic Workflows 数百并行子 Agent、Fast 模式降价三分之二——Opus 4.8 是一次稳扎稳打的升级，诚实性提升 4 倍，欺骗率降至 Mythos Preview 水平。</description>
-      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>Claude</category>
-    <category>Anthropic</category>
-    <category>Agent</category>
-    <category>AI大模型</category>
-    <category>工作流</category>
     <category>热点速递</category>
     </item>
   </channel>
