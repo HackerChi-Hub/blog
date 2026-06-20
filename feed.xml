@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jun 2026 00:07:19 GMT</lastBuildDate>
-    <pubDate>Sat, 20 Jun 2026 00:07:19 GMT</pubDate>
+    <lastBuildDate>Sat, 20 Jun 2026 00:30:16 GMT</lastBuildDate>
+    <pubDate>Sat, 20 Jun 2026 00:30:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>看了几百集美剧，英语还是没救？我把追剧硬生生变成了「背不完的词库」</title>
+      <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
+      <guid isPermaLink="true">https://hyphentech.top/screenlex-watch-and-learn/</guid>
+      <description>ScreenLex 光影词库：把你本地电影/美剧的字幕，离线提炼成按雅思/托福/GRE 分级的高级英语词库，自带台词例句、主动回忆复习和逐句学习播放器（原片直放、单句/AB 循环、双语字幕）。纯本地，macOS Apple Silicon。</description>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>工具</category>
+    <category>Apple Silicon</category>
+    <category>工作流</category>
+    </item>
     <item>
       <title>狂砸510亿！估值冲上4000亿，DeepSeek凭什么让巨头集体发疯？</title>
       <link>https://hyphentech.top/382999681bdb81a9889dc46c20a7fccf/</link>
@@ -223,16 +234,6 @@
     <category>实测</category>
     <category>工具</category>
     <category>工作流</category>
-    </item>
-    <item>
-      <title>碾压原版 10 倍吞吐！Tiny-vLLM 如何用 C++ 蚕食大模型推理成本？</title>
-      <link>https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</link>
-      <guid isPermaLink="true">https://hyphentech.top/36f999681bdb81b3ac6dd229c84dbd14/</guid>
-      <description>万亿参数实时推理成现实，中小团队部署千亿大模型的算力平权时代来了</description>
-      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
