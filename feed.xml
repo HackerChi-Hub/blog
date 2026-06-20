@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jun 2026 17:50:08 GMT</lastBuildDate>
-    <pubDate>Sat, 20 Jun 2026 17:50:08 GMT</pubDate>
+    <lastBuildDate>Sat, 20 Jun 2026 23:38:02 GMT</lastBuildDate>
+    <pubDate>Sat, 20 Jun 2026 23:38:02 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>“估值教父”发最高级别警告：AI泡沫一旦破裂，将是千禧年互联网泡沫的十倍惨烈！</title>
+      <link>https://hyphentech.top/385999681bdb8147828fe2aed535fe63/</link>
+      <guid isPermaLink="true">https://hyphentech.top/385999681bdb8147828fe2aed535fe63/</guid>
+      <description>万亿美元算力基建砸下去，换来的应用端收入为何“少得可怜”？科技圈的资本大洗牌真的近在眼前了吗？</description>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>看了几百集美剧，英语还是没救？我把追剧硬生生变成了「背不完的词库」</title>
       <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
@@ -220,20 +230,6 @@
     <category>AI</category>
     <category>热点速递</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
-      <link>https://hyphentech.top/movie-model-benchmark/</link>
-      <guid isPermaLink="true">https://hyphentech.top/movie-model-benchmark/</guid>
-      <description>我把同一套电影数据分析任务交给 Codex、Claude、DeepSeek、GLM 和 MiniMax，逐项拆解数据搜集、Excel、Word、PPT 的真实体验。结论：Codex 小胜 Claude，DeepSeek 因未参与数据搜索测试，不能当完整端到端样本看。</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>AI技术</category>
-    <category>实测</category>
-    <category>工具</category>
-    <category>工作流</category>
     </item>
   </channel>
 </rss>
