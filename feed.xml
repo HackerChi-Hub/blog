@@ -5,11 +5,51 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Jun 2026 09:11:54 GMT</lastBuildDate>
-    <pubDate>Mon, 29 Jun 2026 09:11:54 GMT</pubDate>
+    <lastBuildDate>Mon, 29 Jun 2026 11:38:30 GMT</lastBuildDate>
+    <pubDate>Mon, 29 Jun 2026 11:38:30 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>估值逼近百亿亿的 Anthropic：边喊暂停 AI，边连夜冲刺 IPO？</title>
+      <link>https://hyphentech.top/38e999681bdb8114ad9bffb1b6cc0045/</link>
+      <guid isPermaLink="true">https://hyphentech.top/38e999681bdb8114ad9bffb1b6cc0045/</guid>
+      <description>当卖石油的开始呼吁大家别挖石油了，你可得捂紧自己的钱包。</description>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>40万星开源神器“后院起火”：23个冒牌插件，差点掏空你的电脑！</title>
+      <link>https://hyphentech.top/38d999681bdb81cb97f1e0269387bda3/</link>
+      <guid isPermaLink="true">https://hyphentech.top/38d999681bdb81cb97f1e0269387bda3/</guid>
+      <description>全球最火的开源智能体框架，官方市场竟然成了木马的温床？黑客只需改个名字，就能拿走你电脑的最高权限。</description>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>一夜逆袭！卖内存的凭什么把Meta和特斯拉踩在脚下？</title>
+      <link>https://hyphentech.top/38a999681bdb819bb722e2a77c18cb0d/</link>
+      <guid isPermaLink="true">https://hyphentech.top/38a999681bdb819bb722e2a77c18cb0d/</guid>
+      <description>当AI算力成为唯一的硬通货，底层卖铲子的人正在拿走牌桌上最大的筹码。</description>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>一行命令干报废上万块固态硬盘？OpenAI Codex CLI这次玩脱了！</title>
+      <link>https://hyphentech.top/389999681bdb811f918fdcac999d531d/</link>
+      <guid isPermaLink="true">https://hyphentech.top/389999681bdb811f918fdcac999d531d/</guid>
+      <description>一年疯狂写入640TB垃圾日志，AI不仅想抢你的饭碗，还想顺手火化你的硬盘</description>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>ScreenLex 光影词库：把你的本地片库，变成能复习的英语词库</title>
       <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
@@ -186,52 +226,6 @@
     <category>提示词工程</category>
     <category>无人值守任务</category>
     <category>AI编程</category>
-    </item>
-    <item>
-      <title>微软向 OpenAI 摊牌：发布首款纯自研高级推理模型！</title>
-      <link>https://hyphentech.top/374999681bdb81419adde1ab88c81a1f/</link>
-      <guid isPermaLink="true">https://hyphentech.top/374999681bdb81419adde1ab88c81a1f/</guid>
-      <description>昔日盟友变最强对手，承诺不蒸馏第三方模型到底在暗讽谁？</description>
-      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>AI大模型</category>
-    </item>
-    <item>
-      <title>微信要内置AI智能体了？十四亿人的「国民App」，这次可能真要变天</title>
-      <link>https://hyphentech.top/373999681bdb816dbc99d14b1b4a61f1/</link>
-      <guid isPermaLink="true">https://hyphentech.top/373999681bdb816dbc99d14b1b4a61f1/</guid>
-      <description>内部定调「最高战略优先级」，腾讯这回是来真的</description>
-      <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>黄仁勋台北演讲全拆解：Agent时代到货，老黄一口气掀了三张桌子</title>
-      <link>https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</link>
-      <guid isPermaLink="true">https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</guid>
-      <description>中国台湾2026，老黄宣布Vera Rubin量产、为Agent造CPU、40年来头一回重新发明PC。一句话：过去6个月，一切都变了。</description>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>AI技术</category>
-    </item>
-    <item>
-      <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
-      <link>https://hyphentech.top/movie-model-benchmark/</link>
-      <guid isPermaLink="true">https://hyphentech.top/movie-model-benchmark/</guid>
-      <description>我把同一套电影数据分析任务交给 Codex、Claude、DeepSeek、GLM 和 MiniMax，逐项拆解数据搜集、Excel、Word、PPT 的真实体验。结论：Codex 小胜 Claude，DeepSeek 因未参与数据搜索测试，不能当完整端到端样本看。</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>AI技术</category>
-    <category>实测</category>
-    <category>工具</category>
-    <category>工作流</category>
     </item>
   </channel>
 </rss>
