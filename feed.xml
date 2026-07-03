@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 02 Jul 2026 23:31:58 GMT</lastBuildDate>
-    <pubDate>Thu, 02 Jul 2026 23:31:58 GMT</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2026 07:41:44 GMT</lastBuildDate>
+    <pubDate>Fri, 03 Jul 2026 07:41:44 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>闯入芯片学术最高殿堂！理想“马赫 M100”凭什么让传统巨头冒冷汗？</title>
+      <link>https://hyphentech.top/390999681bdb81aa8c29fcf885b64d69/</link>
+      <guid isPermaLink="true">https://hyphentech.top/390999681bdb81aa8c29fcf885b64d69/</guid>
+      <description>中国车企首次在 ISCA 顶会发表架构设计，从“买芯片”到“定标准”的底层突围战正式打响。</description>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>成本直接砍半！OpenAI 这波底层优化，为何让中小 AI 公司倒吸一口凉气？</title>
+      <link>https://hyphentech.top/38f999681bdb810a8c11d27d7a2e6a94/</link>
+      <guid isPermaLink="true">https://hyphentech.top/38f999681bdb810a8c11d27d7a2e6a94/</guid>
+      <description>同样的算力扛双倍请求！当模型参数军备竞赛告一段落，工程效率正在成为科技巨头真正的“护城河”。</description>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>2026年AI大爆发：6大突破重塑未来</title>
       <link>https://hyphentech.top/ai-breakthroughs-2026/</link>
@@ -203,26 +223,6 @@
       <link>https://hyphentech.top/375999681bdb819bbe4af49f1c5444e1/</link>
       <guid isPermaLink="true">https://hyphentech.top/375999681bdb819bbe4af49f1c5444e1/</guid>
       <description>解读英伟达背后的“五层蛋糕”定律，与 150 年来的财富底层逻辑</description>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>拆穿华为昇腾“2.87倍吊打”真相：黄仁勋到底在急什么？</title>
-      <link>https://hyphentech.top/375999681bdb81c88253fb62c445fd73/</link>
-      <guid isPermaLink="true">https://hyphentech.top/375999681bdb81c88253fb62c445fd73/</guid>
-      <description>看似碾压的纸面数据背后，是一场教科书级的田忌赛马。</description>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>华尔街不装了！万亿美元资管接口敞开，硅基操盘手正式上位</title>
-      <link>https://hyphentech.top/374999681bdb814ebf25edabdff15c7d/</link>
-      <guid isPermaLink="true">https://hyphentech.top/374999681bdb814ebf25edabdff15c7d/</guid>
-      <description>打工人还在卷学历，华尔街已经准备把真金白银交给AI智能体了</description>
       <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
