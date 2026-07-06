@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 Jul 2026 12:08:02 GMT</lastBuildDate>
-    <pubDate>Mon, 06 Jul 2026 12:08:02 GMT</pubDate>
+    <lastBuildDate>Mon, 06 Jul 2026 14:03:22 GMT</lastBuildDate>
+    <pubDate>Mon, 06 Jul 2026 14:03:22 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Mac 刘海屏玩游戏画面被挡？两条命令搞定</title>
+      <link>https://hyphentech.top/mac-game-res-notch-fix/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mac-game-res-notch-fix/</guid>
+      <description>MacBook Pro 刘海屏玩游戏全屏时画面被刘海挡住一块。开源脚本 game-res，两条命令切换避刘海分辨率 + 关闭热区防误触，30 秒安装，MIT 协议。</description>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>开源</category>
+    <category>工具</category>
+    <category>开发</category>
+    <category>Apple Silicon</category>
+    <category>macOS</category>
+    </item>
     <item>
       <title>桥水最新实测曝光：GPT和Claude的金融判断力，竟然不及格？</title>
       <link>https://hyphentech.top/393999681bdb81ad97b2d52b6f99a59e/</link>
@@ -217,16 +230,6 @@
     <category>AI</category>
     <category>热点速递</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>贴个跃马标就敢卖近4万？惠普法拉利联名AI PC底裤大揭秘！</title>
-      <link>https://hyphentech.top/376999681bdb819e9950c6e305b307f6/</link>
-      <guid isPermaLink="true">https://hyphentech.top/376999681bdb819e9950c6e305b307f6/</guid>
-      <description>全球限量4999台，5599美元的天价背后，是科技与狠活，还是纯纯的智商税？</description>
-      <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
