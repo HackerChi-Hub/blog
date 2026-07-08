@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jul 2026 23:16:21 GMT</lastBuildDate>
-    <pubDate>Tue, 07 Jul 2026 23:16:21 GMT</pubDate>
+    <lastBuildDate>Wed, 08 Jul 2026 06:40:43 GMT</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2026 06:40:43 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek 不买卡了？自研 AI 芯片曝光，这盘棋下得太野了！</title>
+      <link>https://hyphentech.top/396999681bdb81918221e916bea7f021/</link>
+      <guid isPermaLink="true">https://hyphentech.top/396999681bdb81918221e916bea7f021/</guid>
+      <description>左手绕开英伟达，右手不靠华为，国产大模型卷王要把算力命脉攥在自己手里</description>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>一段话干穿 ChatGPT 防线！大模型越权读取本地文档</title>
+      <link>https://hyphentech.top/396999681bdb811091b0d0b30e743d24/</link>
+      <guid isPermaLink="true">https://hyphentech.top/396999681bdb811091b0d0b30e743d24/</guid>
+      <description>当你以为 AI 在乖乖打工时，它可能正被黑客一句话忽悠瘸了。</description>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Mac 刘海屏玩游戏画面被挡？两条命令搞定</title>
       <link>https://hyphentech.top/mac-game-res-notch-fix/</link>
@@ -206,30 +226,6 @@
     <category>AI大模型</category>
     <category>Agent</category>
     <category>科技前沿</category>
-    </item>
-    <item>
-      <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
-      <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-gaokao-2026-glm51/</guid>
-      <description>2026年高考刚结束，13款AI大模型同场竞技数学卷。GLM-5.1亲自上阵实测语文作文、数学、英语三科，坦白成绩单。AI能考130分，但永远拿不到「感情真挚」。探讨AI进步与人类学识的矛盾。</description>
-      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>高考</category>
-    <category>GLM-5.1</category>
-    <category>大模型</category>
-    <category>教育</category>
-    </item>
-    <item>
-      <title>通义灵码“消失”了，取而代之的 Qoder CN 才是阿里下的一盘大棋</title>
-      <link>https://hyphentech.top/37a999681bdb81afb5d3ea2a36889bc5/</link>
-      <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81afb5d3ea2a36889bc5/</guid>
-      <description>100k文件上下文 + 26h自主编程 + 首月Pro免费 + 微信/钉钉/飞书IM直连 + 教师学生额外4000积分。深度分析 + 竞品对比 + 白嫖攻略。</description>
-      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
