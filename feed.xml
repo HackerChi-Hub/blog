@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Jul 2026 11:26:17 GMT</lastBuildDate>
-    <pubDate>Sat, 18 Jul 2026 11:26:17 GMT</pubDate>
+    <lastBuildDate>Sat, 18 Jul 2026 17:17:41 GMT</lastBuildDate>
+    <pubDate>Sat, 18 Jul 2026 17:17:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>微软偷偷搞了个AI抓漏洞神器，最快这个月就发</title>
+      <link>https://hyphentech.top/3a1999681bdb81dc98aef62ea6dec5f7/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3a1999681bdb81dc98aef62ea6dec5f7/</guid>
+      <description>对标Anthropic的Mythos模型，AI打AI的安全攻防战正式开打</description>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>DeepSeek 不买卡了？自研 AI 芯片曝光，这盘棋下得太野了！</title>
       <link>https://hyphentech.top/396999681bdb81918221e916bea7f021/</link>
@@ -212,20 +222,6 @@
     <category>AI</category>
     <category>实测</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>Google I/O 2026 深度解读：Gemini 进入 Agentic 时代</title>
-      <link>https://hyphentech.top/google-io-2026-gemini-agentic-era/</link>
-      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
-      <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Gemini</category>
-    <category>Google</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>Agent</category>
-    <category>科技前沿</category>
     </item>
   </channel>
 </rss>
