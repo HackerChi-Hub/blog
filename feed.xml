@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Jul 2026 06:43:36 GMT</lastBuildDate>
-    <pubDate>Tue, 21 Jul 2026 06:43:36 GMT</pubDate>
+    <lastBuildDate>Tue, 21 Jul 2026 12:02:18 GMT</lastBuildDate>
+    <pubDate>Tue, 21 Jul 2026 12:02:18 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>OpenAI亲口承认：让AI连续干活几小时，真出事</title>
+      <link>https://hyphentech.top/3a4999681bdb816bbf9ceaee006c52d7/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3a4999681bdb816bbf9ceaee006c52d7/</guid>
+      <description>长时任务大模型上岗第一天就翻车，OpenAI把压箱底的部署教训一次性全抖了出来</description>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>微软偷偷搞了个AI抓漏洞神器，最快这个月就发</title>
       <link>https://hyphentech.top/3a1999681bdb81dc98aef62ea6dec5f7/</link>
@@ -211,17 +221,6 @@
     <category>网络安全</category>
     <category>热点速递</category>
     <category>行业分析</category>
-    </item>
-    <item>
-      <title>五维实测全记录！QoderWork综合能力评测：91分是什么水平？</title>
-      <link>https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</link>
-      <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</guid>
-      <description>编程·推理·中文创作·长文理解·多语言，19道题、62个测试用例，每题展示原题+详细结果。综合评分91/100，推理99最强，创作88最弱但仍优秀。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>实测</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
