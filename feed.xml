@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 22 Jul 2026 12:06:37 GMT</lastBuildDate>
-    <pubDate>Wed, 22 Jul 2026 12:06:37 GMT</pubDate>
+    <lastBuildDate>Wed, 22 Jul 2026 17:44:08 GMT</lastBuildDate>
+    <pubDate>Wed, 22 Jul 2026 17:44:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>英伟达亲自下场当银行：拿芯片做抵押，帮AI云厂商贷款买自己的GPU</title>
+      <link>https://hyphentech.top/3a5999681bdb81b5b1b1eaeca9e72238/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3a5999681bdb81b5b1b1eaeca9e72238/</guid>
+      <description>卖芯片不够，老黄直接掏钱给客户兜底——一场算力军备竞赛背后的金融阳谋</description>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>OpenAI亲口承认：让AI连续干活几小时，真出事</title>
       <link>https://hyphentech.top/3a4999681bdb816bbf9ceaee006c52d7/</link>
@@ -206,21 +216,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>Claude Mythos 5 发布：AI 编程王座，坐稳了吗？</title>
-      <link>https://hyphentech.top/claude-fable-5-mythos-5/</link>
-      <guid isPermaLink="true">https://hyphentech.top/claude-fable-5-mythos-5/</guid>
-      <description>Anthropic 同步发布 Fable 5 与 Mythos 5：同一底座、双重铠甲。SWE-bench Pro 80.3% 断层领先，Stripe 5000万行代码一天迁完，Glasswing 找出数千个零日漏洞。附官方一手跑分图表。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Anthropic</category>
-    <category>Claude</category>
-    <category>AI大模型</category>
-    <category>AI编程</category>
-    <category>网络安全</category>
-    <category>热点速递</category>
-    <category>行业分析</category>
     </item>
   </channel>
 </rss>
