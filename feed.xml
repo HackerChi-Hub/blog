@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jul 2026 11:37:57 GMT</lastBuildDate>
-    <pubDate>Sat, 25 Jul 2026 11:37:57 GMT</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2026 12:48:43 GMT</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2026 12:48:43 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>机器人身上这块「皮」，凭什么值一百亿？</title>
+      <link>https://hyphentech.top/3a8999681bdb816fac65e55b5a6465b5/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3a8999681bdb816fac65e55b5a6465b5/</guid>
+      <description>触觉传感器一夜量产，一目科技估值破百亿，具身智能的下一块拼图正在被按下快进键。</description>
+      <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>卖了 56 万片芯片之后，阿里把最值钱的东西开源了</title>
+      <link>https://hyphentech.top/3a7999681bdb8104a026e4d663147d3f/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3a7999681bdb8104a026e4d663147d3f/</guid>
+      <description>不是模型，是整套工具链：SAIL 上桌，二百六十多个框架直接送</description>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>英伟达亲自下场当银行：拿芯片做抵押，帮AI云厂商贷款买自己的GPU</title>
       <link>https://hyphentech.top/3a5999681bdb81b5b1b1eaeca9e72238/</link>
@@ -193,26 +213,6 @@
       <guid isPermaLink="true">https://hyphentech.top/381999681bdb815594c0ee21389194d3/</guid>
       <description>当“狂暴模式”变成“五分钟真男人”，AI算力限速的黑箱终于被端上了法庭。</description>
       <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>GLM-5.2 全量开放：1M 上下文与开源，智谱重注开发者入口战</title>
-      <link>https://hyphentech.top/37f999681bdb81149584e00b4f58dd6e/</link>
-      <guid isPermaLink="true">https://hyphentech.top/37f999681bdb81149584e00b4f58dd6e/</guid>
-      <description>国产 Coding 模型把上下文拉到百万级，是秀肌肉还是重塑生产力工具链的底线？</description>
-      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>半年连震三场！估值被反超、护城河被填平，OpenAI 的半条命还能保住吗？</title>
-      <link>https://hyphentech.top/37b999681bdb81388fdfcd8688869e9e/</link>
-      <guid isPermaLink="true">https://hyphentech.top/37b999681bdb81388fdfcd8688869e9e/</guid>
-      <description>从资本、技术到监管的全面大洗牌，2026 上半年的 AI 圈到底发生了什么？</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
