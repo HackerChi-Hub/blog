@@ -5,11 +5,23 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jul 2026 13:18:55 GMT</lastBuildDate>
-    <pubDate>Sat, 25 Jul 2026 13:18:55 GMT</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2026 17:18:27 GMT</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2026 17:18:27 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Claude 发钱了：白送 $100，限额临时上调</title>
+      <link>https://hyphentech.top/claude-fable5-100-credit/</link>
+      <guid isPermaLink="true">https://hyphentech.top/claude-fable5-100-credit/</guid>
+      <description>Fable 5 限免落幕，Anthropic 给 Pro 用户一次性赠送 $100 使用额度（9 月 19 日过期），Claude Code 每周限额 +50% 至 8 月 19 日、Cowork 翻倍至 8 月 5 日。国产大模型混战背景下的这波福利，三分钟教你薅完。</description>
+      <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
+    <category>AI 科技</category>
+    <category>Anthropic</category>
+    <category>Claude</category>
+    <category>AI大模型</category>
+    <category>科技前沿</category>
+    </item>
     <item>
       <title>机器人身上这块「皮」，凭什么值一百亿？</title>
       <link>https://hyphentech.top/3a8999681bdb816fac65e55b5a6465b5/</link>
@@ -203,16 +215,6 @@
       <guid isPermaLink="true">https://hyphentech.top/382999681bdb81a9889dc46c20a7fccf/</guid>
       <description>腾讯、京东、网易all in，连宁德时代都来抢肉吃，国产AI的终极牌局开始了</description>
       <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>花200刀买“尊享”，用5小时就扣15%额度？Claude Max遭集体诉讼！</title>
-      <link>https://hyphentech.top/381999681bdb815594c0ee21389194d3/</link>
-      <guid isPermaLink="true">https://hyphentech.top/381999681bdb815594c0ee21389194d3/</guid>
-      <description>当“狂暴模式”变成“五分钟真男人”，AI算力限速的黑箱终于被端上了法庭。</description>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
