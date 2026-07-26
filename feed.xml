@@ -5,21 +5,11 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 26 Jul 2026 11:38:48 GMT</lastBuildDate>
-    <pubDate>Sun, 26 Jul 2026 11:38:48 GMT</pubDate>
+    <lastBuildDate>Sun, 26 Jul 2026 17:27:47 GMT</lastBuildDate>
+    <pubDate>Sun, 26 Jul 2026 17:27:47 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
-    <item>
-      <title>吴恩达把桌面 Agent 开源，真正被掀桌的不是订阅费</title>
-      <link>https://hyphentech.top/3a9999681bdb8155a572e25cc3793687/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3a9999681bdb8155a572e25cc3793687/</guid>
-      <description>本地优先、模型无关、隐私可控：表面是免费工具，背后却是一场关于入口、数据和模型选择权的争夺。</description>
-      <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
     <item>
       <title>Claude 发钱了：白送 $100，限额临时上调</title>
       <link>https://hyphentech.top/claude-fable5-100-credit/</link>
@@ -234,6 +224,20 @@
       <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
+    </item>
+    <item>
+      <title>快乐生蚝 Happy Oyster：阿里世界模型的产品野心与技术深潜</title>
+      <link>https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</guid>
+      <description>阿里 ATH 事业群推出的 Happy Oyster（快乐生蚝）是一款实时 AI 世界模型，支持导演模式和漫游模式，最长可生成 3 分钟 720p 实时交互视频。它采用流式生成框架，具备音视频联合生成、持续状态复用等核心能力，超越了 Genie、Marble 等竞品的技术天花板。本文从产品体验、技术架构和行业趋势三个维度进行深度分析。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>世界模型</category>
+    <category>阿里巴巴</category>
+    <category>实时渲染</category>
+    <category>视频生成</category>
+    <category>交互式AI</category>
     </item>
   </channel>
 </rss>
