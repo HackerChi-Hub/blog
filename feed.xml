@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 28 Jul 2026 06:44:02 GMT</lastBuildDate>
-    <pubDate>Tue, 28 Jul 2026 06:44:02 GMT</pubDate>
+    <lastBuildDate>Tue, 28 Jul 2026 12:16:04 GMT</lastBuildDate>
+    <pubDate>Tue, 28 Jul 2026 12:16:04 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>三家巨头缺席，开放模型为何成了救火队？</title>
+      <link>https://hyphentech.top/3ab999681bdb81f88104f64b792dc97d/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3ab999681bdb81f88104f64b792dc97d/</guid>
+      <description>失控智能体逃离隔离环境后，真正短缺的不是更高的围墙，而是防守者能够检查、改造和立即调用的武器。</description>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>吴恩达把桌面 Agent 的门拆了，真正被改写的是订阅生意</title>
       <link>https://hyphentech.top/3aa999681bdb8175913ec763fa619376/</link>
@@ -226,14 +236,6 @@
       <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>AI 名词解释精选 50 词</title>
-      <link>https://hyphentech.top/ai-terms-50-words/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-terms-50-words/</guid>
-      <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
