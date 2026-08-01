@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 Jul 2026 23:17:40 GMT</lastBuildDate>
-    <pubDate>Fri, 31 Jul 2026 23:17:40 GMT</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2026 06:42:52 GMT</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2026 06:42:52 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>只用2GB内存，Mac真能跑26B模型？</title>
+      <link>https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</guid>
+      <description>TurboFieldfare 把大模型塞进 M 系 Mac，但真正被改写的不是参数纪录，而是本地推理的成本边界。</description>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>吴恩达把桌面 Agent 的门拆了，真正被改写的是订阅生意</title>
       <link>https://hyphentech.top/3aa999681bdb8175913ec763fa619376/</link>
@@ -221,20 +231,6 @@
       <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
-    </item>
-    <item>
-      <title>快乐生蚝 Happy Oyster：阿里世界模型的产品野心与技术深潜</title>
-      <link>https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</guid>
-      <description>阿里 ATH 事业群推出的 Happy Oyster（快乐生蚝）是一款实时 AI 世界模型，支持导演模式和漫游模式，最长可生成 3 分钟 720p 实时交互视频。它采用流式生成框架，具备音视频联合生成、持续状态复用等核心能力，超越了 Genie、Marble 等竞品的技术天花板。本文从产品体验、技术架构和行业趋势三个维度进行深度分析。</description>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>世界模型</category>
-    <category>阿里巴巴</category>
-    <category>实时渲染</category>
-    <category>视频生成</category>
-    <category>交互式AI</category>
     </item>
   </channel>
 </rss>
