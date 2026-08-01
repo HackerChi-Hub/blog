@@ -5,18 +5,18 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2026 11:36:51 GMT</lastBuildDate>
-    <pubDate>Sat, 01 Aug 2026 11:36:51 GMT</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2026 15:23:24 GMT</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2026 15:23:24 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>只用2GB内存，Mac真能跑26B模型？</title>
-      <link>https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</guid>
-      <description>TurboFieldfare 把大模型塞进 M 系 Mac，但真正被改写的不是参数纪录，而是本地推理的成本边界。</description>
+      <title>14.3GB模型，运行真只占2GB？</title>
+      <link>https://hyphentech.top/3af999681bdb810fafdbda8e211a4d93/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3af999681bdb810fafdbda8e211a4d93/</guid>
+      <description>完整模型没有消失。我用真实安装、三组生成测试和内存采样，拆清TurboFieldfare的2GB口径、速度、用途与代价。</description>
       <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
+    <category>技术分享</category>
     <category>AI</category>
     <category>热点速递</category>
     </item>
