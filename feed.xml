@@ -5,11 +5,28 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Aug 2026 06:47:53 GMT</lastBuildDate>
-    <pubDate>Sun, 02 Aug 2026 06:47:53 GMT</pubDate>
+    <lastBuildDate>Sun, 02 Aug 2026 11:37:10 GMT</lastBuildDate>
+    <pubDate>Sun, 02 Aug 2026 11:37:10 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>本地大模型打不过云端，我为什么还做了 LocalBrain</title>
+      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
+      <description>把 Mac 变成私有 AI 盒子：不替代云端大脑，而是补上云端给不了的本地多模态与联网能力，全本地、免 API key。</description>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+    <category>AI科技</category>
+    <category>本地部署</category>
+    <category>AI</category>
+    <category>大语言模型</category>
+    <category>MLX</category>
+    <category>Apple Silicon</category>
+    <category>隐私</category>
+    <category>白嫖</category>
+    <category>免费</category>
+    <category>工具</category>
+    </item>
     <item>
       <title>14.3GB模型，运行真只占2GB？</title>
       <link>https://hyphentech.top/3af999681bdb810fafdbda8e211a4d93/</link>
@@ -223,14 +240,6 @@
       <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>AI 名词解释精选 50 词</title>
-      <link>https://hyphentech.top/ai-terms-50-words/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-terms-50-words/</guid>
-      <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
