@@ -85,6 +85,49 @@ const LAB_TOOLS = [
   { href: '/games/', icon: '◇', title: '游戏中心', desc: '浏览器可玩像素小游戏' },
 ];
 
+const MEDIA_CHANNELS = [
+  {
+    id: 'bilibili',
+    name: 'B站',
+    title: 'B站首发',
+    description: '长视频主场。先跑、先踩坑，再把结果端上来。',
+    action: '去主场围观',
+    pattern: /B站|哔哩/i,
+    fallbackUrl: 'https://space.bilibili.com/1846717524',
+    accent: '#ffd34d',
+  },
+  {
+    id: 'youtube',
+    name: 'YouTube',
+    title: '油管同步',
+    description: '同片同步，欢迎跨时区来监督我有没有偷懒。',
+    action: '去油管看看',
+    pattern: /YouTube|油管/i,
+    fallbackUrl: 'https://www.youtube.com/@hyphentech_top',
+    accent: '#ff6b6b',
+  },
+  {
+    id: 'channels',
+    name: '视频号',
+    title: '视频号刷',
+    description: '竖屏精华版，等电梯的时间也能刷完一个坑。',
+    action: '微信搜黑粉科技',
+    pattern: /视频号|微信视频/i,
+    fallbackUrl: '#media-notice',
+    accent: '#5ce1df',
+  },
+  {
+    id: 'wechat',
+    name: '公众号',
+    title: '公众号读',
+    description: '长文复盘和完整教程，适合收藏，不适合假装看过。',
+    action: '微信搜黑粉科技',
+    pattern: /公众号|微信公众/i,
+    fallbackUrl: '#media-notice',
+    accent: '#69f0ae',
+  },
+];
+
 const heroStyles = {
   wrapper: {
     borderRadius: '0 0 34px 34px',
@@ -273,7 +316,7 @@ const feedStyles = `
   --home-panel: rgba(12, 20, 34, 0.88);
   --home-border: rgba(157, 224, 232, 0.15);
   display: grid;
-  gap: clamp(2.8rem, 6vw, 5.5rem);
+  gap: clamp(2.2rem, 4.5vw, 4rem);
 }
 .home-nav {
   position: sticky;
@@ -416,6 +459,68 @@ const feedStyles = `
   line-height: 1.7;
 }
 .brand-proof strong { display: block; color: #fff; font-size: .95rem; }
+.media-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+.notice-feature,
+.media-matrix {
+  overflow: hidden;
+  border: 1px solid var(--home-border);
+  border-radius: 26px;
+  background: var(--home-panel);
+}
+.notice-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(120px, 185px);
+  min-height: 310px;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  background:
+    radial-gradient(circle at 92% 15%, rgba(255,211,77,.2), transparent 35%),
+    linear-gradient(135deg, rgba(17,26,42,.98), rgba(9,24,29,.94));
+}
+.notice-feature__copy { position: relative; z-index: 1; align-self: center; }
+.notice-feature__mark { color: var(--home-yellow); font-size: 2.3rem; line-height: 1; }
+.notice-feature h2,
+.media-matrix h2 { margin: .55rem 0 .8rem; color: #fff; font-size: clamp(1.75rem, 3vw, 2.4rem); }
+.notice-feature blockquote {
+  margin: 0;
+  color: rgba(235,242,250,.88);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.65;
+}
+.notice-feature p { margin: .85rem 0 0; color: rgba(196,208,233,.68); line-height: 1.6; }
+.notice-feature__date { display: block; margin-top: 1rem; color: var(--home-cyan); font-family: monospace; font-size: .78rem; }
+.notice-feature__image {
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 170px);
+  aspect-ratio: 1;
+  padding: .55rem;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+}
+.notice-feature__image img { width: 100%; height: 100%; object-fit: contain; border: 0; border-radius: 12px; }
+.media-matrix { padding: clamp(1.25rem, 3vw, 2rem); }
+.media-matrix__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.media-matrix__head p { max-width: 260px; margin: 0 0 .35rem; color: rgba(196,208,233,.66); font-size: .82rem; }
+.media-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .75rem; margin-top: 1rem; }
+.media-card {
+  min-height: 135px;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.09);
+  background: rgba(255,255,255,.025);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.media-card:hover { transform: translateY(-3px); border-color: var(--channel-accent); }
+.media-card__name { color: var(--channel-accent); font-size: .75rem; font-weight: 800; letter-spacing: .08em; }
+.media-card strong { display: block; margin: .5rem 0 .35rem; color: #fff; font-size: 1.05rem; }
+.media-card p { margin: 0; color: rgba(209,222,236,.68); font-size: .8rem; line-height: 1.5; }
+.media-card__action { display: block; margin-top: .7rem; color: rgba(244,249,255,.9); font-size: .76rem; }
 .section-head {
   display: flex;
   align-items: end;
@@ -493,28 +598,13 @@ const feedStyles = `
 .product-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: 1rem; font-weight: 650; }
 .product-card p { max-width: 520px; margin: 0 0 1.5rem; color: rgba(220,233,246,.76); }
 .product-card__link { color: #fff; }
-.pillar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.pillar-card {
-  min-height: 270px;
-  padding: 1.5rem;
-  border-radius: 22px;
-  border: 1px solid var(--home-border);
-  background: var(--home-panel);
-  transition: transform .25s ease, border-color .25s ease;
-}
-.pillar-card:hover { transform: translateY(-4px); border-color: rgba(92,225,223,.48); }
-.pillar-card__index { color: var(--home-yellow); font-family: monospace; }
-.pillar-card h3 { margin: 2.2rem 0 .25rem; color: #fff; font-size: 1.65rem; }
-.pillar-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: .95rem; }
-.pillar-card p { color: rgba(204,217,232,.72); line-height: 1.65; }
-.pillar-card__count { color: rgba(255,255,255,.48); font-size: .8rem; }
+.product-card__date { color: rgba(255,255,255,.48); font-size: .8rem; }
 .lab-section {
   padding: clamp(1.4rem, 4vw, 2.8rem);
   border: 1px solid var(--home-border);
   border-radius: 28px;
   background: rgba(7,14,25,.8);
 }
-.lab-search { max-width: 580px; margin: 0 0 1.5rem; }
 .lab-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
 .lab-tool {
   display: flex;
@@ -530,21 +620,12 @@ const feedStyles = `
 .lab-tool__icon { width: 34px; color: var(--home-cyan); font-size: 1.35rem; text-align: center; }
 .lab-tool strong { display: block; color: #eef8ff; font-size: .9rem; }
 .lab-tool small { display: block; margin-top: .15rem; color: rgba(196,208,233,.62); font-size: .73rem; line-height: 1.4; }
-.archive-strip { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.2rem; }
-.archive-strip span { padding: .42rem .7rem; border-radius: 999px; background: rgba(255,255,255,.04); color: rgba(220,231,244,.7); font-size: .78rem; }
-.community-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 1rem; margin-top: 1rem; }
-.notice-panel,
-.channels-panel { padding: 1.35rem; border-radius: 18px; border: 1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.025); }
-.notice-panel__line { padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.06); color: rgba(225,236,248,.76); }
-.notice-panel__line:last-child { border-bottom: 0; }
-.notice-panel__line time { margin-right: .6rem; color: var(--home-cyan); font-family: monospace; }
-.channel-links { display: grid; gap: .6rem; }
-.channel-links a { display: flex; justify-content: space-between; padding: .75rem .85rem; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); color: #edf7ff; }
 .feed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: clamp(1.8rem, 3vw, 2.8rem);
 }
+.content-search { max-width: 640px; margin: 0 0 1.4rem; }
 .feed-card {
   border-radius: 28px;
   border: 1px solid ${feedPalette.border};
@@ -564,19 +645,38 @@ const feedStyles = `
   height: 100%;
 }
 .post-cover {
+  position: relative;
   aspect-ratio: 16 / 9;
   background: rgba(9, 14, 28, 0.72);
   overflow: hidden;
 }
 .post-cover img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 0;
   border: 0;
   padding: 0;
-  object-fit: contain;
+  object-fit: cover;
 }
+.cover-visual { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0a1220; }
+.cover-visual > img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.cover-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+  background:
+    linear-gradient(135deg, rgba(92,225,223,.17), transparent 48%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 28px),
+    #091321;
+}
+.cover-fallback span { color: var(--home-yellow); font-family: monospace; font-size: .72rem; letter-spacing: .1em; }
+.cover-fallback strong { max-width: 90%; margin-top: .45rem; color: #f5f9ff; font-size: clamp(1rem, 2vw, 1.4rem); line-height: 1.3; }
 .feed-card__body {
   display: flex;
   flex-direction: column;
@@ -629,13 +729,11 @@ const feedStyles = `
   .brand-hero { grid-template-columns: 1fr; }
   .brand-hero__visual { min-height: 260px; }
   .brand-orbit { max-width: 250px; }
+  .media-section { grid-template-columns: 1fr; }
   .featured-grid { grid-template-columns: 1fr; }
   .featured-card--primary { min-height: 430px; }
   .featured-stack { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .product-grid { grid-template-columns: 1fr; }
-  .pillar-grid { grid-template-columns: 1fr; }
-  .pillar-card { min-height: 0; }
-  .pillar-card h3 { margin-top: 1.4rem; }
   .lab-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (max-width: 640px) {
@@ -648,6 +746,11 @@ const feedStyles = `
   .brand-hero__visual { min-height: 220px; }
   .brand-orbit { max-width: 205px; }
   .brand-proof { width: 100%; max-width: 270px; padding: .75rem; }
+  .notice-feature { grid-template-columns: 1fr; min-height: 0; }
+  .notice-feature__image { justify-self: start; width: 132px; margin-top: 1.1rem; }
+  .media-matrix__head { display: block; }
+  .media-matrix__head p { margin-top: .5rem; }
+  .media-grid { grid-template-columns: 1fr; }
   .hero-actions { display: grid; grid-template-columns: 1fr; }
   .section-head { display: block; }
   .section-head p { margin-top: .7rem; }
@@ -657,7 +760,6 @@ const feedStyles = `
   .featured-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .product-card { min-height: 280px; padding: 1.35rem; }
   .lab-grid { grid-template-columns: 1fr; }
-  .community-grid { grid-template-columns: 1fr; }
   .feed-grid { grid-template-columns: 1fr; gap: 1rem; }
   .feed-card {
     border-radius: 22px;
@@ -668,18 +770,6 @@ const feedStyles = `
   .feed-card__excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .9rem; }
 }
 `;
-
-const formatTime = (dateString) => {
-  if (!dateString) return '--:--';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      hour: '2-digit',
-      minute: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return '--:--';
-  }
-};
 
 const truncateText = (text, maxLength = 80) =>
   text && text.length > maxLength ? `${text.slice(0, maxLength)}…` : text || '';
@@ -799,29 +889,40 @@ const buildFeaturedCategoryBuckets = (posts, propertyName, featuredNames) => {
   }));
 };
 
-const PostCover = ({ cover }) => {
-  if (!cover) return null;
-  const src = typeof cover === 'string' ? cover : cover.url || cover.src;
-  if (!src) return null;
-
+const CoverVisual = ({ cover, title, label = '黑粉科技 · 实测记录' }) => {
+  const src = typeof cover === 'string' ? cover : cover?.url || cover?.src;
   return (
-    <div className="post-cover">
-      <Image
-        src={src}
-        alt=""
-        width={800}
-        height={450}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-        }}
-        loading="lazy"
-        unoptimized
-      />
+    <div className="cover-visual">
+      <div className="cover-fallback">
+        <span>{label}</span>
+        <strong>{truncateText(title, 40)}</strong>
+      </div>
+      {src && (
+        <Image
+          src={src}
+          alt=""
+          width={1000}
+          height={563}
+          loading="lazy"
+          unoptimized
+          onError={(event) => {
+            event.currentTarget.style.display = 'none';
+          }}
+        />
+      )}
     </div>
   );
 };
+
+const PostCover = ({ post }) => (
+  <div className="post-cover">
+    <CoverVisual
+      cover={post.cover || post.thumbnail || post.heroImage}
+      title={post.title || getPostSlug(post)}
+      label={getPostPillarLabels(post).join(' × ')}
+    />
+  </div>
+);
 
 const PostCard = ({ post }) => {
   const slug = post.slug || post.rawId;
@@ -834,7 +935,7 @@ const PostCard = ({ post }) => {
     <article className="feed-card">
       <a href={href}>
         <div className="feed-card__inner">
-          <PostCover cover={post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png'} />
+          <PostCover post={post} />
 
           <div className="feed-card__body">
             <div className="feed-card__meta">
@@ -890,15 +991,14 @@ const getPostPillarLabels = (post) => {
 const FeaturedCard = ({ post, primary = false }) => {
   if (!post) return null;
   const slug = getPostSlug(post);
-  const cover = post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png';
-  const coverSrc = typeof cover === 'string' ? cover : cover?.url || cover?.src;
+  const cover = post.cover || post.thumbnail || post.heroImage;
   const labels = getPostPillarLabels(post);
 
   return (
     <article className={`featured-card${primary ? ' featured-card--primary' : ''}`}>
       <a href={`/${slug}/`} aria-label={post.title || slug}>
         <div className="featured-card__cover">
-          <Image src={coverSrc} alt="" width={1000} height={563} unoptimized />
+          <CoverVisual cover={cover} title={post.title || slug} label={labels.join(' × ')} />
         </div>
         <div className="featured-card__body">
           <div className="featured-card__meta">
@@ -923,10 +1023,10 @@ const SiteNavigation = ({ subMenus = [] }) => {
         <span>黑粉科技</span>
       </a>
       <div className="home-nav__links">
-        <a href="#latest">最新实测</a>
-        <a href="#products">自制软件</a>
-        <a href="#themes">内容主线</a>
-        <a href="#lab">实验室</a>
+        <a href="#media">媒体矩阵</a>
+        <a href="#latest">最近折腾</a>
+        <a href="#products">我的工具</a>
+        <a href="#lab">实用工具</a>
       </div>
       <a
         className="home-nav__cta"
@@ -934,19 +1034,16 @@ const SiteNavigation = ({ subMenus = [] }) => {
         target={bilibiliHref.startsWith('#') ? undefined : '_blank'}
         rel={bilibiliHref.startsWith('#') ? undefined : 'noopener noreferrer'}
       >
-        去 B 站看实测
+        B站主场
       </a>
     </nav>
   );
 };
 
-const BrandHero = ({ subMenus = [] }) => {
-  const bilibili = subMenus.find((link) => /B站|哔哩/i.test(link?.title || ''));
-
-  return (
+const BrandHero = () => (
     <header className="brand-hero" id="top">
       <div className="brand-hero__content">
-        <div className="brand-hero__eyebrow">LOCAL AI · FREE TOOLS · BUILT IN PUBLIC</div>
+        <div className="brand-hero__eyebrow">有台 M5 Pro 的实干派</div>
         <h1>
           不花钱，把 AI<br /><em>跑起来</em>
         </h1>
@@ -955,13 +1052,8 @@ const BrandHero = ({ subMenus = [] }) => {
           把踩过的坑、测过的数据和亲手做的工具，全部交给你。
         </p>
         <div className="hero-actions">
-          <a className="hero-button" href="#latest">看最新实测</a>
-          <a className="hero-button hero-button--ghost" href="#products">下载我的工具</a>
-          {bilibili?.url && (
-            <a className="hero-button hero-button--ghost" href={bilibili.url} target="_blank" rel="noopener noreferrer">
-              关注 B 站频道
-            </a>
-          )}
+          <a className="hero-button" href="#latest">看我最近折腾啥</a>
+          <a className="hero-button hero-button--ghost" href="#media">找到全部频道</a>
         </div>
         <div className="hero-pills" aria-label="频道主线">
           <span>本地部署</span>
@@ -979,7 +1071,67 @@ const BrandHero = ({ subMenus = [] }) => {
           不复读参数，只记录安装、速度、内存、限制和最终成片。
         </div>
       </div>
-    </header>
+  </header>
+);
+
+const MediaSection = ({ notices = [], subMenus = [] }) => {
+  const notice = notices[0] || {
+    title: '掌握 AI 的人，将成为各个领域的王者。',
+    summary: '让普通人也能驾驭 AI。',
+  };
+  const noticeImage =
+    notice.image ||
+    '/downloads/notice-2f5f9643-2011-4e3c-9fcb-17e544c87e89-qrcode_for_gh_1b-90a27ee8.jpg';
+  const channels = MEDIA_CHANNELS.map((channel) => {
+    const matched = subMenus.find((link) => channel.pattern.test(link?.title || ''));
+    return { ...channel, url: matched?.url || channel.fallbackUrl };
+  });
+
+  return (
+    <section className="media-section" id="media">
+      <article className="notice-feature" id="media-notice">
+        <div className="notice-feature__copy">
+          <div className="section-eyebrow">频道公告</div>
+          <div className="notice-feature__mark">“</div>
+          <h2>先说句人话</h2>
+          <blockquote>{notice.title}</blockquote>
+          <span className="notice-feature__date">不追玄学，只交作业。</span>
+        </div>
+        <div className="notice-feature__image">
+          <img src={noticeImage} alt="黑粉科技公众号二维码" />
+        </div>
+      </article>
+
+      <div className="media-matrix" id="channels">
+        <div className="media-matrix__head">
+          <div>
+            <div className="section-eyebrow">媒体矩阵</div>
+            <h2>频道都在这</h2>
+          </div>
+          <p>平台不同，黑粉还是同一个黑粉。</p>
+        </div>
+        <div className="media-grid">
+          {channels.map((channel) => {
+            const external = /^https?:\/\//.test(channel.url);
+            return (
+              <a
+                className="media-card"
+                href={channel.url}
+                target={external ? '_blank' : undefined}
+                rel={external ? 'noopener noreferrer' : undefined}
+                style={{ '--channel-accent': channel.accent }}
+                key={channel.id}
+              >
+                <span className="media-card__name">{channel.name}</span>
+                <strong>{channel.title}</strong>
+                <p>{channel.description}</p>
+                <span className="media-card__action">{channel.action} →</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -991,10 +1143,10 @@ const FeaturedSection = ({ posts = [] }) => {
     <section id="latest">
       <div className="section-head">
         <div>
-          <div className="section-eyebrow">LATEST FIELD NOTES</div>
-          <h2>最新实测与开发记录</h2>
+          <div className="section-eyebrow">最新内容</div>
+          <h2>最近折腾</h2>
         </div>
-        <p>不只告诉你“能不能”，还会交代测试环境、成本、边界和失败结果。</p>
+        <p>成功了给你抄作业，失败了给你省时间；总得留下点什么。</p>
       </div>
       <div className="featured-grid">
         <FeaturedCard post={featured[0]} primary />
@@ -1011,10 +1163,10 @@ const ProductSection = ({ posts = [] }) => (
   <section id="products">
     <div className="section-head">
       <div>
-        <div className="section-eyebrow">MADE BY HYPHEN TECH</div>
-        <h2>我亲手做的工具</h2>
+        <div className="section-eyebrow">自制软件</div>
+        <h2>我的工具</h2>
       </div>
-      <p>不是转载软件列表，而是从需求、开发到迭代都由我完成的真实产品。</p>
+      <p>遇到问题，先找工具；找不到，就自己写一个。多少有点不服气。</p>
     </div>
     <div className="product-grid">
       {PRODUCT_DEFINITIONS.map((product) => {
@@ -1028,7 +1180,7 @@ const ProductSection = ({ posts = [] }) => (
             <a className="product-card__link" href={`/${product.slug}/`}>
               了解产品与开发故事 →
             </a>
-            {article?.date && <div className="pillar-card__count">最近更新：{formatDate(article.date)}</div>}
+            {article?.date && <div className="product-card__date">最近更新：{formatDate(article.date)}</div>}
           </article>
         );
       })}
@@ -1036,42 +1188,15 @@ const ProductSection = ({ posts = [] }) => (
   </section>
 );
 
-const PillarSection = ({ posts = [] }) => (
-  <section id="themes">
-    <div className="section-head">
-      <div>
-        <div className="section-eyebrow">THREE TRACKS, ONE PRACTITIONER</div>
-        <h2>黑粉科技只做这三件事</h2>
-      </div>
-      <p>实验纪实是表现方式；本地部署、免费白嫖和自制软件，才是内容主线。</p>
-    </div>
-    <div className="pillar-grid">
-      {CONTENT_PILLARS.map((pillar) => {
-        const count = posts.filter((post) => getPostPillarLabels(post).includes(pillar.title)).length;
-        return (
-          <a className="pillar-card" href="#all-content" key={pillar.id}>
-            <div className="pillar-card__index">{pillar.index}</div>
-            <h3>{pillar.title}</h3>
-            <h4>{pillar.subtitle}</h4>
-            <p>{pillar.description}</p>
-            <div className="pillar-card__count">本页 {count} 篇相关内容</div>
-          </a>
-        );
-      })}
-    </div>
-  </section>
-);
-
-const LabSection = ({ notices = [], subMenus = [], categoryBuckets = [], searchComponent = null }) => (
+const LabSection = () => (
   <section className="lab-section" id="lab">
     <div className="section-head">
       <div>
-        <div className="section-eyebrow">HYPHEN TECH LAB</div>
-        <h2>黑粉实验室</h2>
+        <div className="section-eyebrow">在线工具</div>
+        <h2>实用工具</h2>
       </div>
-      <p>指南、对比、查询与实验性项目统一收进这里，不再挡在主内容前面。</p>
+      <p>能点、能查、能直接用。工具就别写小作文了。</p>
     </div>
-    {searchComponent && <div className="lab-search">{searchComponent}</div>}
     <div className="lab-grid">
       {LAB_TOOLS.map((tool) => (
         <a className="lab-tool" href={tool.href} key={tool.href}>
@@ -1083,31 +1208,6 @@ const LabSection = ({ notices = [], subMenus = [], categoryBuckets = [], searchC
         </a>
       ))}
     </div>
-    <div className="archive-strip" aria-label="后台内容分类">
-      {categoryBuckets.map((bucket) => (
-        <span key={bucket.name}>{bucket.name} · {bucket.posts.length || 0} 篇</span>
-      ))}
-    </div>
-    <div className="community-grid">
-      <div className="notice-panel">
-        <div className="section-eyebrow">NOTICE.LOG</div>
-        {(notices.length ? notices : [{ id: 'empty', title: '暂无公告', date: null }]).slice(0, 2).map((notice) => (
-          <div className="notice-panel__line" key={notice.id}>
-            <time>[{formatTime(notice.date)}]</time>{notice.title}
-          </div>
-        ))}
-      </div>
-      <div className="channels-panel" id="channels">
-        <div className="section-eyebrow">视频频道</div>
-        <div className="channel-links">
-          {subMenus.map((link) => (
-            <a href={link.url} target="_blank" rel="noopener noreferrer" key={link.id}>
-              <span>{link.title}</span><span>访问 ↗</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
   </section>
 );
 
@@ -1116,7 +1216,7 @@ export async function getStaticProps() {
     const [allPosts, notices, subMenus] = await Promise.all([
       getPosts(),
       getNotices(4),
-      getSubMenus(3),
+      getSubMenus(12),
     ]);
 
     const pagePosts = allPosts.slice(0, PAGE_SIZE);
@@ -1171,7 +1271,6 @@ export default function Home({
   posts,
   notices,
   subMenus,
-  categoryBuckets,
   currentPage,
   totalPages,
   errorMessage,
@@ -1199,10 +1298,10 @@ export default function Home({
           <style suppressHydrationWarning>{feedStyles}</style>
           <div className="home-shell">
             <SiteNavigation subMenus={subMenus} />
-            <BrandHero subMenus={subMenus} />
+            <BrandHero />
+            <MediaSection notices={notices} subMenus={subMenus} />
             <FeaturedSection posts={posts} />
             <ProductSection posts={posts} />
-            <PillarSection posts={posts} />
 
             {errorMessage && (
               <div className="empty-state" style={{ fontWeight: 600, color: '#ff8a80' }}>
@@ -1213,11 +1312,12 @@ export default function Home({
             <section id="all-content">
               <div className="section-head">
                 <div>
-                  <div className="section-eyebrow">ALL FIELD NOTES</div>
-                  <h2>继续往下翻，都是真的过程</h2>
+                  <div className="section-eyebrow">文章归档</div>
+                  <h2>更多实测</h2>
                 </div>
-                <p>文章、实测、开发记录和免费资源，按发布时间持续更新。</p>
+                <p>想找哪次踩坑，直接搜；我的记性不一定比搜索框好。</p>
               </div>
+              {posts.length > 0 && <div className="content-search"><Search posts={posts} /></div>}
               {showEmpty ? (
                 <div className="empty-state">
                   暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
@@ -1231,13 +1331,6 @@ export default function Home({
               )}
             </section>
 
-            <LabSection
-              notices={notices}
-              subMenus={subMenus}
-              categoryBuckets={categoryBuckets}
-              searchComponent={posts.length > 0 ? <Search posts={posts} /> : null}
-            />
-
             {!showEmpty && totalPages > 1 && (
               <nav className="pagination">
                 <span className="pagination__info">
@@ -1250,6 +1343,8 @@ export default function Home({
                 )}
               </nav>
             )}
+
+            <LabSection />
           </div>
       </main>
       </>
