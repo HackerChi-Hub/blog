@@ -263,6 +263,11 @@ class NotionErrorBoundary extends Component {
 }
 
 export async function getStaticPaths() {
+  if (process.env.HOMEPAGE_ONLY === '1') {
+    console.warn('[getStaticPaths] HOMEPAGE_ONLY=1, skipping article regeneration');
+    return { paths: [], fallback: false };
+  }
+
   try {
     const slugs = await getAllSlugs();
 
@@ -278,6 +283,43 @@ export async function getStaticPaths() {
     console.error('[getStaticPaths] failed:', error?.message || error);
     // 获取文章列表失败不能当成“当前没有文章”，否则会部署空站。
     throw error;
+  }
+}
+
+// Notion 的非公开页面端点偶发 403 时，从当前线上静态页的
+// __NEXT_DATA__ 恢复上一份已验证内容。这只会复用确实存在的文章；
+// 新文章或线上快照不完整时仍然抛错，避免静默丢页。
+async function getLivePageSnapshot(slug) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+
+  try {
+    const response = await fetch(`https://hyphentech.top/${encodeURIComponent(slug)}/`, {
+      headers: { 'user-agent': 'hyphentech-static-build/1.0' },
+      signal: controller.signal,
+    });
+    if (!response.ok) return null;
+
+    const html = await response.text();
+    const match = html.match(
+      /<script[^>]+id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i
+    );
+    if (!match?.[1]) return null;
+
+    const data = JSON.parse(match[1]);
+    const pageProps = data?.props?.pageProps;
+    if (!pageProps?.meta || !pageProps?.recordMap?.block) return null;
+
+    console.warn(`[getStaticProps] using verified live snapshot for slug: ${slug}`);
+    return pageProps;
+  } catch (snapshotError) {
+    console.warn(
+      `[getStaticProps] live snapshot unavailable for slug: ${slug}`,
+      snapshotError?.message || snapshotError
+    );
+    return null;
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
@@ -312,6 +354,10 @@ export async function getStaticProps({ params }) {
     };
   } catch (error) {
     console.error(`[getStaticProps] FAILED for slug: ${slug}`, error?.message || error);
+    const liveSnapshot = await getLivePageSnapshot(slug);
+    if (liveSnapshot) {
+      return { props: liveSnapshot };
+    }
     // 内容源临时失败时必须让整个构建失败。若返回 notFound，静态导出会
     // 成功部署一个缺少此文章的站点，将原本正常的线上页面覆盖成 404。
     throw error;

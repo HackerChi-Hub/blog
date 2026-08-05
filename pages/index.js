@@ -30,6 +30,61 @@ const feedPalette = {
   badge: 'rgba(0, 229, 255, 0.12)',
 };
 
+const CONTENT_PILLARS = [
+  {
+    id: 'local-ai',
+    index: '01',
+    title: '本地部署',
+    subtitle: '把 AI 跑在自己的电脑上',
+    description: 'Mac、MLX、Ollama 与消费级硬件的真实安装、速度和成本实测。',
+    keywords: ['本地', 'MLX', 'Ollama', 'Apple Silicon', 'Mac'],
+  },
+  {
+    id: 'free-ai',
+    index: '02',
+    title: '免费白嫖',
+    subtitle: '把付费工作流换成免费方案',
+    description: '免费额度、开源平替和省钱攻略，同时说清限制、门槛与代价。',
+    keywords: ['免费', '白嫖', '开源', '限免', '省钱'],
+  },
+  {
+    id: 'made-by-me',
+    index: '03',
+    title: '自制软件',
+    subtitle: '从问题到产品，公开开发过程',
+    description: 'LocalBrain、ScreenLex 与其他自制工具的发布、失败记录和版本迭代。',
+    keywords: ['LocalBrain', 'ScreenLex', '自制', '工具', '开发'],
+  },
+];
+
+const PRODUCT_DEFINITIONS = [
+  {
+    slug: 'localbrain-local-ai-box',
+    name: 'LocalBrain',
+    label: '本地 AI 工具箱',
+    description: '把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。',
+    badge: '我做的 · 本地部署',
+  },
+  {
+    slug: 'screenlex-watch-and-learn',
+    name: 'ScreenLex',
+    label: '光影词库',
+    description: '把本地电影与剧集字幕变成可复习的英语词库，全程离线。',
+    badge: '我做的 · 本地工具',
+  },
+];
+
+const LAB_TOOLS = [
+  { href: '/ai-hardware-survey/', icon: '◫', title: 'AI 装机指南', desc: '本地 AI 设备全景对比' },
+  { href: '/llm-guide/', icon: '⌘', title: '本地 LLM 指南', desc: 'Ollama · LM Studio · GGUF' },
+  { href: '/mlx-model-test.html', icon: '△', title: 'MLX 模型测试', desc: 'M5 Pro 本地模型深度评测' },
+  { href: '/radar/', icon: '◉', title: '新闻雷达', desc: '重大 AI 发布与技术动态' },
+  { href: '/wifi/', icon: '≋', title: 'WiFi Finder', desc: '全球公共 WiFi 密码查询' },
+  { href: '/shortcuts/', icon: '⌨', title: '快捷键大全', desc: 'Windows / Mac 快捷键速查' },
+  { href: '/agent-comparison.html', icon: '≠', title: 'AI Agent 三国杀', desc: '三大 Agent 实战对比' },
+  { href: '/games/', icon: '◇', title: '游戏中心', desc: '浏览器可玩像素小游戏' },
+];
+
 const heroStyles = {
   wrapper: {
     borderRadius: '0 0 34px 34px',
@@ -212,6 +267,279 @@ const heroStyles = {
 };
 
 const feedStyles = `
+.home-shell {
+  --home-yellow: #ffd34d;
+  --home-cyan: #5ce1df;
+  --home-panel: rgba(12, 20, 34, 0.88);
+  --home-border: rgba(157, 224, 232, 0.15);
+  display: grid;
+  gap: clamp(2.8rem, 6vw, 5.5rem);
+}
+.home-nav {
+  position: sticky;
+  top: 14px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  background: rgba(7, 12, 22, .82);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.28);
+}
+.home-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: #f7fbff;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.home-brand img { width: 34px; height: 34px; object-fit: contain; }
+.home-nav__links { display: flex; align-items: center; gap: 1.2rem; }
+.home-nav__links a { color: rgba(226,236,250,.76); font-size: .9rem; }
+.home-nav__links a:hover { color: #fff; }
+.home-nav__cta,
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .75rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,211,77,.48);
+  background: var(--home-yellow);
+  color: #10141b;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(255,211,77,.16);
+}
+.home-nav__cta:hover,
+.hero-button:hover { color: #05070b; opacity: .92; }
+.hero-button--ghost {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.18);
+  color: #edf7ff;
+  box-shadow: none;
+}
+.hero-button--ghost:hover { color: #fff; border-color: rgba(92,225,223,.55); }
+.brand-hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(2.2rem, 6vw, 5.2rem);
+  border: 1px solid var(--home-border);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(92,225,223,.22), transparent 32%),
+    linear-gradient(135deg, rgba(8,14,25,.98), rgba(6,28,34,.96));
+  box-shadow: 0 36px 90px rgba(0,0,0,.5);
+}
+.brand-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+  pointer-events: none;
+}
+.brand-hero__content,
+.brand-hero__visual { position: relative; z-index: 1; }
+.brand-hero__eyebrow,
+.section-eyebrow {
+  color: var(--home-cyan);
+  font-family: 'JetBrains Mono', 'SFMono-Regular', monospace;
+  font-size: .8rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.brand-hero h1 {
+  max-width: 820px;
+  margin: .85rem 0 1.15rem;
+  color: #f8fbff;
+  font-size: clamp(2.45rem, 6.2vw, 5.4rem);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+.brand-hero h1 em { color: var(--home-yellow); font-style: normal; }
+.brand-hero__lead {
+  max-width: 690px;
+  margin: 0;
+  color: rgba(228,238,250,.82);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.8;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
+.hero-pills span {
+  padding: .38rem .75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(92,225,223,.22);
+  background: rgba(92,225,223,.07);
+  color: rgba(225,245,247,.84);
+  font-size: .82rem;
+}
+.brand-hero__visual {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.brand-orbit {
+  width: min(100%, 330px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(92,225,223,.22);
+  background: radial-gradient(circle, rgba(20,48,59,.95), rgba(7,14,25,.66) 60%, transparent 61%);
+  box-shadow: inset 0 0 65px rgba(92,225,223,.12), 0 0 70px rgba(92,225,223,.08);
+}
+.brand-orbit img { width: 57%; height: auto; border: 0; background: transparent; }
+.brand-proof {
+  position: static;
+  width: min(100%, 270px);
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(6,12,22,.84);
+  backdrop-filter: blur(14px);
+  color: rgba(226,237,248,.78);
+  font-size: .82rem;
+  line-height: 1.7;
+}
+.brand-proof strong { display: block; color: #fff; font-size: .95rem; }
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+.section-head h2 {
+  margin: .35rem 0 0;
+  color: #f8fbff;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.section-head p { max-width: 560px; margin: 0; color: rgba(196,208,233,.72); }
+.featured-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr);
+  gap: 1rem;
+}
+.featured-stack { display: grid; gap: 1rem; }
+.featured-card {
+  position: relative;
+  min-height: 248px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--home-border);
+  background: #0a1220;
+  box-shadow: 0 24px 60px rgba(0,0,0,.32);
+}
+.featured-card--primary { min-height: 510px; }
+.featured-card__cover { position: absolute; inset: 0; }
+.featured-card__cover img { width: 100%; height: 100%; object-fit: cover; border: 0; border-radius: 0; }
+.featured-card__cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,8,14,.02) 10%, rgba(5,8,14,.96) 92%);
+}
+.featured-card__body {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  padding: clamp(1.25rem, 3vw, 2.2rem);
+}
+.featured-card__meta { color: var(--home-cyan); font-size: .82rem; letter-spacing: .08em; }
+.featured-card h3 { margin: .55rem 0 .65rem; color: #fff; font-size: clamp(1.25rem, 2.6vw, 2.2rem); line-height: 1.28; }
+.featured-card:not(.featured-card--primary) h3 { font-size: 1.2rem; }
+.featured-card p { margin: 0; color: rgba(229,238,248,.78); line-height: 1.65; }
+.featured-card:not(.featured-card--primary) p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .88rem; }
+.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.product-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  padding: clamp(1.5rem, 3.5vw, 2.4rem);
+  border-radius: 26px;
+  border: 1px solid rgba(92,225,223,.18);
+  background: linear-gradient(140deg, rgba(9,20,34,.97), rgba(8,34,38,.9));
+  box-shadow: 0 25px 60px rgba(0,0,0,.32);
+}
+.product-card::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: -90px;
+  border-radius: 50%;
+  background: rgba(92,225,223,.09);
+  filter: blur(2px);
+}
+.product-card__badge { color: var(--home-yellow); font-size: .78rem; letter-spacing: .08em; }
+.product-card h3 { margin: 1.3rem 0 .15rem; color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.04em; }
+.product-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: 1rem; font-weight: 650; }
+.product-card p { max-width: 520px; margin: 0 0 1.5rem; color: rgba(220,233,246,.76); }
+.product-card__link { color: #fff; }
+.pillar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.pillar-card {
+  min-height: 270px;
+  padding: 1.5rem;
+  border-radius: 22px;
+  border: 1px solid var(--home-border);
+  background: var(--home-panel);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.pillar-card:hover { transform: translateY(-4px); border-color: rgba(92,225,223,.48); }
+.pillar-card__index { color: var(--home-yellow); font-family: monospace; }
+.pillar-card h3 { margin: 2.2rem 0 .25rem; color: #fff; font-size: 1.65rem; }
+.pillar-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: .95rem; }
+.pillar-card p { color: rgba(204,217,232,.72); line-height: 1.65; }
+.pillar-card__count { color: rgba(255,255,255,.48); font-size: .8rem; }
+.lab-section {
+  padding: clamp(1.4rem, 4vw, 2.8rem);
+  border: 1px solid var(--home-border);
+  border-radius: 28px;
+  background: rgba(7,14,25,.8);
+}
+.lab-search { max-width: 580px; margin: 0 0 1.5rem; }
+.lab-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+.lab-tool {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  min-height: 92px;
+  padding: 1rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.09);
+  background: rgba(255,255,255,.025);
+}
+.lab-tool:hover { border-color: rgba(92,225,223,.45); background: rgba(92,225,223,.05); }
+.lab-tool__icon { width: 34px; color: var(--home-cyan); font-size: 1.35rem; text-align: center; }
+.lab-tool strong { display: block; color: #eef8ff; font-size: .9rem; }
+.lab-tool small { display: block; margin-top: .15rem; color: rgba(196,208,233,.62); font-size: .73rem; line-height: 1.4; }
+.archive-strip { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.2rem; }
+.archive-strip span { padding: .42rem .7rem; border-radius: 999px; background: rgba(255,255,255,.04); color: rgba(220,231,244,.7); font-size: .78rem; }
+.community-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 1rem; margin-top: 1rem; }
+.notice-panel,
+.channels-panel { padding: 1.35rem; border-radius: 18px; border: 1px solid rgba(255,255,255,.09); background: rgba(255,255,255,.025); }
+.notice-panel__line { padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.06); color: rgba(225,236,248,.76); }
+.notice-panel__line:last-child { border-bottom: 0; }
+.notice-panel__line time { margin-right: .6rem; color: var(--home-cyan); font-family: monospace; }
+.channel-links { display: grid; gap: .6rem; }
+.channel-links a { display: flex; justify-content: space-between; padding: .75rem .85rem; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); color: #edf7ff; }
 .feed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -278,6 +606,7 @@ const feedStyles = `
   font-size: 1.4rem;
   margin: 0;
   color: ${feedPalette.title};
+  line-height: 1.35;
 }
 .feed-card__excerpt {
   margin: 0;
@@ -293,12 +622,50 @@ const feedStyles = `
   font-weight: 600;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
-  text-transform: uppercase;
+}
+.feed-card__cta { letter-spacing: .06em; }
+@media (max-width: 900px) {
+  .home-nav__links { display: none; }
+  .brand-hero { grid-template-columns: 1fr; }
+  .brand-hero__visual { min-height: 260px; }
+  .brand-orbit { max-width: 250px; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-card--primary { min-height: 430px; }
+  .featured-stack { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .product-grid { grid-template-columns: 1fr; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .pillar-card { min-height: 0; }
+  .pillar-card h3 { margin-top: 1.4rem; }
+  .lab-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (max-width: 640px) {
+  .home-nav { top: 8px; padding: .65rem .75rem; }
+  .home-brand { font-size: .88rem; }
+  .home-nav__cta { min-height: 38px; padding: .55rem .8rem; font-size: .78rem; }
+  .brand-hero { padding: 1.5rem; border-radius: 24px; }
+  .brand-hero h1 { font-size: clamp(2.2rem, 12vw, 3.25rem); }
+  .brand-hero__lead { font-size: .94rem; }
+  .brand-hero__visual { min-height: 220px; }
+  .brand-orbit { max-width: 205px; }
+  .brand-proof { width: 100%; max-width: 270px; padding: .75rem; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .section-head { display: block; }
+  .section-head p { margin-top: .7rem; }
+  .featured-card--primary { min-height: 400px; }
+  .featured-stack { grid-template-columns: 1fr; }
+  .featured-card { min-height: 280px; }
+  .featured-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .product-card { min-height: 280px; padding: 1.35rem; }
+  .lab-grid { grid-template-columns: 1fr; }
+  .community-grid { grid-template-columns: 1fr; }
+  .feed-grid { grid-template-columns: 1fr; gap: 1rem; }
   .feed-card {
     border-radius: 22px;
   }
+  .feed-card__body { padding: 1.15rem; }
+  .feed-card__meta { align-items: flex-start; flex-direction: column; gap: .55rem; }
+  .feed-card__title { font-size: 1.22rem; }
+  .feed-card__excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .9rem; }
 }
 `;
 
@@ -465,7 +832,7 @@ const PostCard = ({ post }) => {
 
   return (
     <article className="feed-card">
-      <Link href={href}>
+      <a href={href}>
         <div className="feed-card__inner">
           <PostCover cover={post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png'} />
 
@@ -487,7 +854,7 @@ const PostCard = ({ post }) => {
             {summaryText && <p className="feed-card__excerpt">{summaryText}</p>}
 
             <div className="feed-card__foot">
-              <span className="feed-card__cta">READ</span>
+              <span className="feed-card__cta">阅读全文</span>
               <svg width="28" height="12" viewBox="0 0 28 12" fill="none">
                 <path
                   d="M0 6h26m0 0-4-4m4 4-4 4"
@@ -500,477 +867,249 @@ const PostCard = ({ post }) => {
             </div>
           </div>
         </div>
-      </Link>
+      </a>
     </article>
   );
 };
 
-const HeroSection = ({
-  notices = [],
-  subMenus = [],
-  categoryBuckets = [],
-  categoryPropertyLabel = 'category',
-  searchComponent = null,
-}) => {
-  const fallbackNotices = [
-    { id: 'placeholder-1', title: '暂无 Notice 数据', date: null, summary: '' },
-  ];
-  const fallbackLinks = [
-    {
-      id: 'placeholder-link',
-      title: '等待 SubMenu 链接',
-      url: '#',
-      summary: '',
-    },
-  ];
+const getPostSlug = (post) => post?.slug || post?.rawId || post?.id || '';
 
-  const renderNotices = notices.length > 0 ? notices : fallbackNotices;
-  const renderLinks = subMenus.length > 0 ? subMenus : fallbackLinks;
-  const accentPool = [heroPalette.accent1, heroPalette.accent2, heroPalette.accent3];
+const getPostPillarLabels = (post) => {
+  const tags = Array.isArray(post?.tags)
+    ? post.tags.map((tag) => tag?.name || tag).filter(Boolean)
+    : [];
+  const haystack = `${post?.title || ''} ${normalizeSummary(post?.summary)} ${tags.join(' ')}`.toLowerCase();
+  if (haystack.includes('localbrain')) return ['本地部署', '自制软件'];
+  if (haystack.includes('screenlex')) return ['自制软件'];
+  const matches = CONTENT_PILLARS.filter((pillar) =>
+    pillar.keywords.some((keyword) => haystack.includes(keyword.toLowerCase()))
+  ).map((pillar) => pillar.title);
+  return matches.length ? matches.slice(0, 2) : ['真实实测'];
+};
+
+const FeaturedCard = ({ post, primary = false }) => {
+  if (!post) return null;
+  const slug = getPostSlug(post);
+  const cover = post.cover || post.thumbnail || post.heroImage || '/png/banner-youtube-2560x1440.png';
+  const coverSrc = typeof cover === 'string' ? cover : cover?.url || cover?.src;
+  const labels = getPostPillarLabels(post);
 
   return (
-    <section style={heroStyles.wrapper}>
-      <div style={heroStyles.overlay} aria-hidden="true" />
-      <div style={{ position: 'relative' }}>
-        {/* 搜索框区域 */}
-        {searchComponent && (
-          <div
-            style={{
-              marginBottom: '24px',
-              maxWidth: '600px',
-              margin: '0 auto 24px auto',
-            }}
-          >
-            {searchComponent}
-          </div>
-        )}
-
-        {/* 实用工具区域 */}
-        <div style={{ marginBottom: '20px' }}>
-          <div
-            style={{
-              textTransform: 'uppercase',
-              fontSize: '0.8rem',
-              letterSpacing: '0.08em',
-              color: heroPalette.muted,
-              marginBottom: '12px',
-            }}
-          >
-            Tools / 实用工具
-          </div>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: '12px',
-            }}
-          >
-            <a
-              href="/wifi/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(0, 229, 255, 0.2)',
-                background: 'rgba(0, 229, 255, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>&#x1F4F6;</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  WiFi Finder
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  全球公共 WiFi 密码查询
-                </div>
-              </div>
-            </a>
-            <a
-              href="/radar/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(105, 240, 174, 0.2)',
-                background: 'rgba(105, 240, 174, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>📡</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  新闻雷达
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  AI·安全·经济·科技·国际 · 每 30 分钟更新
-                </div>
-              </div>
-            </a>
-            <a
-              href="/agent-comparison.html"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 179, 71, 0.2)',
-                background: 'rgba(255, 179, 71, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>⚔️</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  AI Agent 三国杀
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  Claude Code vs OpenClaw vs Hermes 深度对比
-                </div>
-              </div>
-            </a>
-            <a
-              href="/ai-hardware-survey/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(179, 136, 255, 0.2)',
-                background: 'rgba(179, 136, 255, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>&#x1F5A5;&#xFE0F;</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  AI 装机指南
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  本地跑 Qwen 3.6 27B + Wan2GP 设备全景对比
-                </div>
-              </div>
-            </a>
-            <a
-              href="/llm-guide/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(105, 240, 174, 0.2)',
-                background: 'rgba(105, 240, 174, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🤖</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  本地 LLM 指南
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  Ollama · LM Studio · GGUF 框架与格式全解
-                </div>
-              </div>
-            </a>
-            <a
-              href="/shortcuts/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 140, 66, 0.2)',
-                background: 'rgba(255, 140, 66, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>⌨️</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  快捷键大全
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  Windows / Mac 150+ 快捷键速查
-                </div>
-              </div>
-            </a>
-            <a
-              href="/mlx-model-test.html"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(139, 92, 246, 0.2)',
-                background: 'rgba(139, 92, 246, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🧪</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  MLX 模型测试
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  M5 Pro 本地 4 模型深度评测 · 含越狱对比
-                </div>
-              </div>
-            </a>
-            <a
-              href="/games/"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 215, 0, 0.25)',
-                background: 'rgba(255, 215, 0, 0.06)',
-                padding: '14px 18px',
-                textDecoration: 'none',
-                transition: 'border-color 220ms ease, transform 220ms ease, background 220ms ease',
-              }}
-            >
-              <span style={{ fontSize: '1.6rem', lineHeight: 1 }}>🕹️</span>
-              <div>
-                <div style={{ color: heroPalette.text, fontWeight: 600, fontSize: '0.95rem' }}>
-                  游戏中心
-                </div>
-                <div style={{ color: heroPalette.muted, fontSize: '0.82rem', marginTop: '2px' }}>
-                  浏览器可玩 · 像素风小游戏合集
-                </div>
-              </div>
-            </a>
-          </div>
+    <article className={`featured-card${primary ? ' featured-card--primary' : ''}`}>
+      <a href={`/${slug}/`} aria-label={post.title || slug}>
+        <div className="featured-card__cover">
+          <Image src={coverSrc} alt="" width={1000} height={563} unoptimized />
         </div>
-
-        {/* 分类卡片区域 */}
-        <div style={heroStyles.grid}>
-          {categoryBuckets.map((bucket) => (
-            <div key={bucket.name} style={heroStyles.card}>
-              <div style={heroStyles.cardLabel}>
-                {categoryPropertyLabel} · {bucket.name}
-              </div>
-              <div style={heroStyles.cardValue}>
-                {bucket.posts.length || '0'}
-                <span style={heroStyles.cardValueUnit}>篇</span>
-              </div>
-              {bucket.posts.length > 0 ? (
-                <ul style={heroStyles.categoryList}>
-                  {bucket.posts.slice(0, 2).map((post) => {
-                    const slug = post.slug || post.rawId || post.id;
-                    const href = `/${slug}/`;
-                    const summaryText = normalizeSummary(post.summary);
-                    const displaySummary = truncateText(summaryText, 72);
-                    const dateText = formatDate(post.date);
-
-                    return (
-                      <li
-                        key={`${bucket.name}-${post.id || post.slug || href}`}
-                        style={heroStyles.categoryItem}
-                      >
-                        <Link href={href} style={heroStyles.categoryItemLink}>
-                          <span>{post.title || slug || '未命名文章'}</span>
-                          {dateText && (
-                            <span style={heroStyles.categoryItemMeta}>
-                              {dateText}
-                            </span>
-                          )}
-                        </Link>
-                        {displaySummary && (
-                          <p style={heroStyles.categoryItemExcerpt}>
-                            {displaySummary}
-                          </p>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <p style={heroStyles.categoryItemEmpty}>
-                  暂无「{bucket.name}」内容，敬请期待。
-                </p>
-              )}
-            </div>
-          ))}
+        <div className="featured-card__body">
+          <div className="featured-card__meta">
+            {formatDate(post.date)} · {labels.join(' × ')}
+          </div>
+          <h3>{post.title || slug}</h3>
+          <p>{truncateText(normalizeSummary(post.summary), primary ? 150 : 86)}</p>
         </div>
+      </a>
+    </article>
+  );
+};
 
-        {/* Notice 和视频矩阵区域 */}
-        <div
-          style={{
-            ...heroStyles.grid,
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            marginTop: '40px',
-          }}
-        >
-          <div style={heroStyles.terminal}>
-            <div style={heroStyles.prompt}>┌─ hyphentech@lab</div>
-            <div style={heroStyles.prompt}>└─$ tail -f notice.log</div>
-            {renderNotices.map((notice) => (
-              <div
-                key={notice.id}
-                style={{
-                  marginTop: '12px',
-                  padding: notice.image ? '14px' : '0',
-                  borderRadius: notice.image ? '14px' : '0',
-                  background: notice.image ? 'rgba(0, 0, 0, 0.25)' : 'transparent',
-                  display: 'flex',
-                  flexDirection: notice.image ? 'row' : 'column',
-                  gap: notice.image ? '14px' : '0',
-                  alignItems: notice.image ? 'flex-start' : 'flex-start',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                {notice.image && (
-                  <div
-                    style={{
-                      width: '160px',
-                      minWidth: '160px',
-                      flexShrink: 0,
-                      borderRadius: '12px',
-                      border: `1px solid ${heroPalette.accent2}50`,
-                      background: 'rgba(0, 0, 0, 0.25)',
-                      overflow: 'hidden',
-                      position: 'relative',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignSelf: 'center',
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        lineHeight: 0,
-                      }}
-                    >
-                      <Image
-                        src={notice.image}
-                        alt={notice.title}
-                        width={160}
-                        height={120}
-                        style={{
-                          width: '100%',
-                          height: 'auto',
-                          display: 'block',
-                          borderRadius: notice.imageCaption ? '11px 11px 0 0' : '11px',
-                        }}
-                        onError={(e) => {
-                          console.error('[Notice] Image load failed:', {
-                            url: notice.image,
-                            title: notice.title,
-                            error: e.target?.error
-                          });
-                          // 如果图片加载失败，显示错误提示
-                          const img = e.target;
-                          if (img) {
-                            img.style.display = 'none';
-                            const errorDiv = document.createElement('div');
-                            errorDiv.style.cssText = 'color: rgba(255,255,255,0.4); font-size: 10px; text-align: center; padding: 4px; display: block;';
-                            errorDiv.textContent = '加载失败';
-                            img.parentElement?.appendChild(errorDiv);
-                          }
-                        }}
-                        onLoad={() => {
-                          console.log('[Notice] Image loaded successfully:', notice.image?.substring(0, 100));
-                        }}
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        unoptimized
-                      />
-                    </div>
-                    {notice.imageCaption && (
-                      <div
-                        style={{
-                          padding: '6px 8px',
-                          fontSize: '0.75rem',
-                          color: heroPalette.muted,
-                          textAlign: 'center',
-                          borderTop: `1px solid ${heroPalette.accent2}30`,
-                          background: 'rgba(0, 0, 0, 0.15)',
-                        }}
-                      >
-                        {notice.imageCaption}
-                      </div>
-                    )}
-                  </div>
-                )}
-                <div style={{ flex: 1, lineHeight: 1.5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                  <div style={{ marginBottom: '4px' }}>
-                    <span style={heroStyles.timestamp}>
-                      [{formatTime(notice.date)}]
-                    </span>
-                    <strong style={{ color: heroPalette.text }}>
-                      {notice.title}
-                    </strong>
-                  </div>
-                  {notice.summary && (
-                    <div
-                      style={{
-                        color: heroPalette.muted,
-                        fontSize: '0.9rem',
-                        marginTop: '4px',
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      {notice.summary}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+const SiteNavigation = ({ subMenus = [] }) => {
+  const bilibili = subMenus.find((link) => /B站|哔哩/i.test(link?.title || ''));
+  const bilibiliHref = bilibili?.url || '#channels';
 
-          <div style={heroStyles.layersCard}>
-            <div style={heroStyles.layersTitle}>视频矩阵</div>
-            <div style={heroStyles.layerList}>
-              {renderLinks.map((link, index) => (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target={link.url?.startsWith('#') ? '_self' : '_blank'}
-                  rel="noopener noreferrer"
-                  style={{
-                    ...heroStyles.layerItem,
-                    borderColor: `${accentPool[index % accentPool.length]}33`,
-                  }}
-                >
-                  <span>{link.title}</span>
-                  <strong
-                    style={{
-                      ...heroStyles.layerLinkLabel,
-                      color: accentPool[index % accentPool.length],
-                    }}
-                  >
-                    访问
-                  </strong>
-                </a>
-              ))}
-            </div>
-          </div>
+  return (
+    <nav className="home-nav" aria-label="主导航">
+      <a className="home-brand" href="#top">
+        <img src="/png/logo-icon-traced.png?v=2" alt="" />
+        <span>黑粉科技</span>
+      </a>
+      <div className="home-nav__links">
+        <a href="#latest">最新实测</a>
+        <a href="#products">自制软件</a>
+        <a href="#themes">内容主线</a>
+        <a href="#lab">实验室</a>
+      </div>
+      <a
+        className="home-nav__cta"
+        href={bilibiliHref}
+        target={bilibiliHref.startsWith('#') ? undefined : '_blank'}
+        rel={bilibiliHref.startsWith('#') ? undefined : 'noopener noreferrer'}
+      >
+        去 B 站看实测
+      </a>
+    </nav>
+  );
+};
+
+const BrandHero = ({ subMenus = [] }) => {
+  const bilibili = subMenus.find((link) => /B站|哔哩/i.test(link?.title || ''));
+
+  return (
+    <header className="brand-hero" id="top">
+      <div className="brand-hero__content">
+        <div className="brand-hero__eyebrow">LOCAL AI · FREE TOOLS · BUILT IN PUBLIC</div>
+        <h1>
+          不花钱，把 AI<br /><em>跑起来</em>
+        </h1>
+        <p className="brand-hero__lead">
+          我是黑粉科技，一个有台 M5 Pro 的实干派。我把 AI 跑在自己的机器上，
+          把踩过的坑、测过的数据和亲手做的工具，全部交给你。
+        </p>
+        <div className="hero-actions">
+          <a className="hero-button" href="#latest">看最新实测</a>
+          <a className="hero-button hero-button--ghost" href="#products">下载我的工具</a>
+          {bilibili?.url && (
+            <a className="hero-button hero-button--ghost" href={bilibili.url} target="_blank" rel="noopener noreferrer">
+              关注 B 站频道
+            </a>
+          )}
+        </div>
+        <div className="hero-pills" aria-label="频道主线">
+          <span>本地部署</span>
+          <span>免费白嫖</span>
+          <span>自制软件</span>
+          <span>真实数据与失败记录</span>
+        </div>
+      </div>
+      <div className="brand-hero__visual" aria-hidden="true">
+        <div className="brand-orbit">
+          <img src="/png/avatar-800x800.png" alt="" />
+        </div>
+        <div className="brand-proof">
+          <strong>M5 Pro 64 GB · 实机环境</strong>
+          不复读参数，只记录安装、速度、内存、限制和最终成片。
+        </div>
+      </div>
+    </header>
+  );
+};
+
+const FeaturedSection = ({ posts = [] }) => {
+  const featured = posts.slice(0, 3);
+  if (!featured.length) return null;
+
+  return (
+    <section id="latest">
+      <div className="section-head">
+        <div>
+          <div className="section-eyebrow">LATEST FIELD NOTES</div>
+          <h2>最新实测与开发记录</h2>
+        </div>
+        <p>不只告诉你“能不能”，还会交代测试环境、成本、边界和失败结果。</p>
+      </div>
+      <div className="featured-grid">
+        <FeaturedCard post={featured[0]} primary />
+        <div className="featured-stack">
+          <FeaturedCard post={featured[1]} />
+          <FeaturedCard post={featured[2]} />
         </div>
       </div>
     </section>
   );
 };
+
+const ProductSection = ({ posts = [] }) => (
+  <section id="products">
+    <div className="section-head">
+      <div>
+        <div className="section-eyebrow">MADE BY HYPHEN TECH</div>
+        <h2>我亲手做的工具</h2>
+      </div>
+      <p>不是转载软件列表，而是从需求、开发到迭代都由我完成的真实产品。</p>
+    </div>
+    <div className="product-grid">
+      {PRODUCT_DEFINITIONS.map((product) => {
+        const article = posts.find((post) => getPostSlug(post) === product.slug);
+        return (
+          <article className="product-card" key={product.slug}>
+            <div className="product-card__badge">{product.badge}</div>
+            <h3>{product.name}</h3>
+            <h4>{product.label}</h4>
+            <p>{product.description}</p>
+            <a className="product-card__link" href={`/${product.slug}/`}>
+              了解产品与开发故事 →
+            </a>
+            {article?.date && <div className="pillar-card__count">最近更新：{formatDate(article.date)}</div>}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+);
+
+const PillarSection = ({ posts = [] }) => (
+  <section id="themes">
+    <div className="section-head">
+      <div>
+        <div className="section-eyebrow">THREE TRACKS, ONE PRACTITIONER</div>
+        <h2>黑粉科技只做这三件事</h2>
+      </div>
+      <p>实验纪实是表现方式；本地部署、免费白嫖和自制软件，才是内容主线。</p>
+    </div>
+    <div className="pillar-grid">
+      {CONTENT_PILLARS.map((pillar) => {
+        const count = posts.filter((post) => getPostPillarLabels(post).includes(pillar.title)).length;
+        return (
+          <a className="pillar-card" href="#all-content" key={pillar.id}>
+            <div className="pillar-card__index">{pillar.index}</div>
+            <h3>{pillar.title}</h3>
+            <h4>{pillar.subtitle}</h4>
+            <p>{pillar.description}</p>
+            <div className="pillar-card__count">本页 {count} 篇相关内容</div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+);
+
+const LabSection = ({ notices = [], subMenus = [], categoryBuckets = [], searchComponent = null }) => (
+  <section className="lab-section" id="lab">
+    <div className="section-head">
+      <div>
+        <div className="section-eyebrow">HYPHEN TECH LAB</div>
+        <h2>黑粉实验室</h2>
+      </div>
+      <p>指南、对比、查询与实验性项目统一收进这里，不再挡在主内容前面。</p>
+    </div>
+    {searchComponent && <div className="lab-search">{searchComponent}</div>}
+    <div className="lab-grid">
+      {LAB_TOOLS.map((tool) => (
+        <a className="lab-tool" href={tool.href} key={tool.href}>
+          <span className="lab-tool__icon">{tool.icon}</span>
+          <span>
+            <strong>{tool.title}</strong>
+            <small>{tool.desc}</small>
+          </span>
+        </a>
+      ))}
+    </div>
+    <div className="archive-strip" aria-label="后台内容分类">
+      {categoryBuckets.map((bucket) => (
+        <span key={bucket.name}>{bucket.name} · {bucket.posts.length || 0} 篇</span>
+      ))}
+    </div>
+    <div className="community-grid">
+      <div className="notice-panel">
+        <div className="section-eyebrow">NOTICE.LOG</div>
+        {(notices.length ? notices : [{ id: 'empty', title: '暂无公告', date: null }]).slice(0, 2).map((notice) => (
+          <div className="notice-panel__line" key={notice.id}>
+            <time>[{formatTime(notice.date)}]</time>{notice.title}
+          </div>
+        ))}
+      </div>
+      <div className="channels-panel" id="channels">
+        <div className="section-eyebrow">视频频道</div>
+        <div className="channel-links">
+          {subMenus.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer" key={link.id}>
+              <span>{link.title}</span><span>访问 ↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export async function getStaticProps() {
   try {
@@ -1039,12 +1178,13 @@ export default function Home({
 }) {
   try {
     const showEmpty = posts.length === 0;
+    const remainingPosts = posts.length > 3 ? posts.slice(3) : posts;
 
     return (
       <>
         <SEO
           title=""
-          description="让普通人也能驾驭 AI。"
+          description="黑粉科技：本地部署、免费白嫖与自制软件的真实实测和开发记录。"
           url="/"
           type="website"
         />
@@ -1056,109 +1196,61 @@ export default function Home({
             padding: '48px 20px',
           }}
         >
-          <style>{feedStyles}</style>
+          <style suppressHydrationWarning>{feedStyles}</style>
+          <div className="home-shell">
+            <SiteNavigation subMenus={subMenus} />
+            <BrandHero subMenus={subMenus} />
+            <FeaturedSection posts={posts} />
+            <ProductSection posts={posts} />
+            <PillarSection posts={posts} />
 
-        {/* Banner + Hero 整体容器，避免 .page gap 在它们之间产生间隙 */}
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {/* 首页品牌 Banner：左文字 + 中Logo + 右标语 */}
-          <div
-            style={{
-              width: '100%',
-              borderRadius: '34px 34px 0 0',
-              overflow: 'hidden',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderBottom: 'none',
-              background: '#1a2332',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 'clamp(16px, 4vw, 48px)',
-              padding: 'clamp(20px, 3vw, 36px) clamp(20px, 4vw, 48px)',
-              flexWrap: 'wrap',
-            }}
-          >
-            {/* 左：黑粉科技 · 官网 */}
-            <span
-              style={{
-                fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                color: '#e9f6ff',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              黑粉科技 · 官网
-            </span>
+            {errorMessage && (
+              <div className="empty-state" style={{ fontWeight: 600, color: '#ff8a80' }}>
+                {errorMessage}
+              </div>
+            )}
 
-            {/* 中：Logo 图标 */}
-            <img
-              src="/png/logo-icon-traced.png?v=2"
-              alt="黑粉科技"
-              style={{
-                width: 'clamp(56px, 10vw, 100px)',
-                height: 'auto',
-                objectFit: 'contain',
-                flexShrink: 0,
-                border: 'none',
-                borderRadius: 0,
-                background: 'none',
-                boxShadow: 'none',
-              }}
+            <section id="all-content">
+              <div className="section-head">
+                <div>
+                  <div className="section-eyebrow">ALL FIELD NOTES</div>
+                  <h2>继续往下翻，都是真的过程</h2>
+                </div>
+                <p>文章、实测、开发记录和免费资源，按发布时间持续更新。</p>
+              </div>
+              {showEmpty ? (
+                <div className="empty-state">
+                  暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
+                </div>
+              ) : (
+                <div className="feed-grid">
+                  {remainingPosts.map((post) => (
+                    <PostCard key={post.id || post.slug || post.rawId} post={post} />
+                  ))}
+                </div>
+              )}
+            </section>
+
+            <LabSection
+              notices={notices}
+              subMenus={subMenus}
+              categoryBuckets={categoryBuckets}
+              searchComponent={posts.length > 0 ? <Search posts={posts} /> : null}
             />
 
-            {/* 右：标语 */}
-            <span
-              style={{
-                fontSize: 'clamp(1.1rem, 2.4vw, 1.6rem)',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                color: 'rgba(233, 246, 255, 0.7)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              让普通人也能驾驭 AI
-            </span>
-          </div>
-
-          <HeroSection
-            notices={notices}
-            subMenus={subMenus}
-            categoryBuckets={categoryBuckets}
-            categoryPropertyLabel={CATEGORY_FIELD}
-            searchComponent={posts.length > 0 ? <Search posts={posts} /> : null}
-          />
-        </div>
-
-        {errorMessage && (
-          <div className="empty-state" style={{ fontWeight: 600, color: '#d93025' }}>
-            {errorMessage}
-          </div>
-        )}
-
-        {showEmpty ? (
-          <div className="empty-state">
-            暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
-          </div>
-        ) : (
-          <section className="feed-grid">
-            {posts.map((post) => (
-              <PostCard key={post.id || post.slug || post.rawId} post={post} />
-            ))}
-          </section>
-        )}
-
-        {!showEmpty && totalPages > 1 && (
-          <nav className="pagination">
-            <span className="pagination__info">
-              第 {currentPage} 页 / 共 {totalPages} 页
-            </span>
-            {currentPage < totalPages && (
-              <Link className="pagination__next" href={`/page/${currentPage + 1}/`}>
-                下一页 →
-              </Link>
+            {!showEmpty && totalPages > 1 && (
+              <nav className="pagination">
+                <span className="pagination__info">
+                  第 {currentPage} 页 / 共 {totalPages} 页
+                </span>
+                {currentPage < totalPages && (
+                  <Link className="pagination__next" href={`/page/${currentPage + 1}/`}>
+                    下一页 →
+                  </Link>
+                )}
+              </nav>
             )}
-          </nav>
-        )}
+          </div>
       </main>
       </>
     );
@@ -1168,17 +1260,12 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="让普通人也能驾驭 AI。"
+          description="黑粉科技：本地部署、免费白嫖与自制软件。"
           url="/"
           type="website"
         />
         <main className="page">
-          <HeroSection
-            notices={notices}
-            subMenus={subMenus}
-            categoryBuckets={categoryBuckets || []}
-            categoryPropertyLabel={CATEGORY_FIELD}
-          />
+          <BrandHero subMenus={subMenus} />
           <div className="empty-state" style={{ color: '#d93025', fontWeight: 600 }}>
             首页渲染失败：{error?.message || '未知错误，请查看构建日志。'}
           </div>
