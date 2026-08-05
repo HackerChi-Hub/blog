@@ -28,6 +28,12 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
 
+  // Notion 的页面内容端点会对并发构建请求返回 403/429。
+  // 串行生成文章页，避免一次构建把大量正常文章误判为 404。
+  experimental: {
+    cpus: 1,
+  },
+
   // 转译 CommonJS 模块（解决 react-use / react-notion-x 的 ESM↔CJS 兼容问题）
   transpilePackages: ['react-use', 'react-notion-x'],
 

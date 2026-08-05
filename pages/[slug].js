@@ -276,10 +276,8 @@ export async function getStaticPaths() {
     };
   } catch (error) {
     console.error('[getStaticPaths] failed:', error?.message || error);
-    return {
-      paths: [],
-      fallback: false,
-    };
+    // 获取文章列表失败不能当成“当前没有文章”，否则会部署空站。
+    throw error;
   }
 }
 
@@ -314,7 +312,9 @@ export async function getStaticProps({ params }) {
     };
   } catch (error) {
     console.error(`[getStaticProps] FAILED for slug: ${slug}`, error?.message || error);
-    return { notFound: true };
+    // 内容源临时失败时必须让整个构建失败。若返回 notFound，静态导出会
+    // 成功部署一个缺少此文章的站点，将原本正常的线上页面覆盖成 404。
+    throw error;
   }
 }
 
