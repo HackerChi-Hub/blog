@@ -4,8 +4,15 @@ import SEO from '../components/SEO';
 import StandaloneShareSection from '../components/StandaloneShareSection';
 
 
-const DATA_URL = 'https://hackerchi-hub.github.io/NewsRadar/data/news.json';
+const DATA_URLS = [
+  'https://hackerchi-hub.github.io/NewsRadar/data/news.json',
+  'https://cdn.jsdelivr.net/gh/HackerChi-Hub/NewsRadar@gh-pages/data/news.json',
+  'https://raw.githubusercontent.com/HackerChi-Hub/NewsRadar/gh-pages/data/news.json',
+];
 const REFRESH_MS = 5 * 60 * 1000;
+const FETCH_TIMEOUT_MS = 8000;
+const CACHE_KEY = 'hyphentech:news-radar:v1';
+const INITIAL_ARTICLE_LIMIT = 120;
 
 // ── Category alias map (collector → frontend name) ──────────────
 // Fixes naming mismatches between collector categories and frontend display names
@@ -132,38 +139,113 @@ function uniqueSources(articles) {
   return [...new Set(articles.map(a => a.source))].length;
 }
 
+function isValidRadarData(data) {
+  return data && Array.isArray(data.articles);
+}
+
+async function fetchWithTimeout(url, timeoutMs = FETCH_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+    if (!isValidRadarData(data)) throw new Error('数据格式异常');
+    return data;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchRadarData(timeoutMs = FETCH_TIMEOUT_MS) {
+  let lastError;
+  const deadline = Date.now() + timeoutMs;
+  const sourceBudget = Math.max(1000, Math.floor(timeoutMs / DATA_URLS.length));
+
+  for (const url of DATA_URLS) {
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) break;
+
+    try {
+      return await fetchWithTimeout(url, Math.min(sourceBudget, remaining));
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  if (lastError?.name === 'AbortError') {
+    throw new Error('新闻源响应超时');
+  }
+  throw new Error(lastError?.message || '新闻源暂时不可用');
+}
+
 // ── Component ────────────────────────────────────────────────────
-export default function RadarPage() {
-  const [articles, setArticles] = useState([]);
-  const [digest, setDigest] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function RadarPage({ initialData }) {
+  const initialArticles = Array.isArray(initialData?.articles) ? initialData.articles : [];
+  const [articles, setArticles] = useState(initialArticles);
+  const [digest, setDigest] = useState(initialData?.digest || null);
+  const [loading, setLoading] = useState(initialArticles.length === 0);
   const [error, setError] = useState('');
+  const [dataMode, setDataMode] = useState(initialArticles.length > 0 ? 'snapshot' : 'loading');
   const [search, setSearch] = useState('');
   const [domain, setDomain] = useState('全部');
   const [category, setCategory] = useState('全部');
-  const [lastUpdated, setLastUpdated] = useState('');
+  const [lastUpdated, setLastUpdated] = useState(initialData?.last_updated || '');
 
-  const fetchData = useCallback(async () => {
+  const applyData = useCallback((data, mode) => {
+    setArticles(data.articles || []);
+    setDigest(data.digest || null);
+    setLastUpdated(data.last_updated || '');
+    setDataMode(mode);
+  }, []);
+
+  const fetchData = useCallback(async ({ showLoading = false } = {}) => {
+    if (showLoading) setLoading(true);
+
     try {
-      const res = await fetch(DATA_URL);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setArticles(data.articles || []);
-      setDigest(data.digest || null);
-      setLastUpdated(data.last_updated || '');
+      const data = await fetchRadarData();
+      applyData(data, 'live');
       setError('');
+
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+      } catch {
+        // 隐私模式或存储空间不足时，页面仍可继续使用实时数据。
+      }
     } catch (e) {
-      setError(e.message || 'Failed to load');
+      setError(e.message || '新闻源暂时不可用');
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [applyData]);
 
   useEffect(() => {
+    try {
+      const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      const cachedTime = new Date(cached?.last_updated || 0).getTime();
+      const initialTime = new Date(initialData?.last_updated || 0).getTime();
+
+      if (isValidRadarData(cached) && cached.articles.length > 0 && cachedTime > initialTime) {
+        applyData(cached, 'cache');
+        setLoading(false);
+      }
+    } catch {
+      try {
+        localStorage.removeItem(CACHE_KEY);
+      } catch {
+        // 浏览器禁用本地存储时忽略，构建快照仍可保证首屏可见。
+      }
+    }
+
     fetchData();
     const timer = setInterval(fetchData, REFRESH_MS);
     return () => clearInterval(timer);
-  }, [fetchData]);
+  }, [applyData, fetchData, initialData?.last_updated]);
 
   const domainCounts = useMemo(() => {
     const c = { '全部': articles.length };
@@ -303,7 +385,9 @@ export default function RadarPage() {
         <div className="radar-stats">
           <span>📊 共 {filtered.length} 条</span>
           <span>🌐 {uniqueSources(articles)} 个信源</span>
-          {lastUpdated && <span>{relativeTime(lastUpdated)} 更新</span>}
+          {lastUpdated && <span suppressHydrationWarning>{relativeTime(lastUpdated)} 更新</span>}
+          {dataMode !== 'live' && !error && <span>🛟 快照已显示 · 正在后台更新</span>}
+          {error && <span>⚠️ 实时源暂慢 · 当前显示可用快照</span>}
         </div>
       )}
 
@@ -326,12 +410,12 @@ export default function RadarPage() {
             ))}
       </div>
 
-      {!loading && error && (
+      {!loading && error && articles.length === 0 && (
         <div className="radar-empty">
           <div className="radar-empty-emoji">⚠️</div>
           <p>加载失败：{error}</p>
           <button
-            onClick={fetchData}
+            onClick={() => fetchData({ showLoading: true })}
             style={{
               marginTop: 16,
               padding: '10px 24px',
@@ -419,7 +503,7 @@ function DigestSection({ digest }) {
           })}
         </div>
         {digest.generated_at && (
-          <span className="radar-digest-time">{relativeTime(digest.generated_at)} 生成</span>
+          <span className="radar-digest-time" suppressHydrationWarning>{relativeTime(digest.generated_at)} 生成</span>
         )}
       </div>
       <ol className="radar-digest-list">
@@ -475,7 +559,7 @@ function NewsCard({ article }) {
         <span className="radar-card-source">
           {srcEmoji} {article.source}
         </span>
-        <span className="radar-card-time">
+        <span className="radar-card-time" suppressHydrationWarning>
           {relativeTime(article.published)}
         </span>
       </div>
@@ -492,5 +576,22 @@ function NewsCard({ article }) {
 }
 
 export async function getStaticProps() {
-  return { props: {} };
+  let initialData = {
+    articles: [],
+    digest: null,
+    last_updated: '',
+  };
+
+  try {
+    const data = await fetchRadarData(12000);
+    initialData = {
+      articles: data.articles.slice(0, INITIAL_ARTICLE_LIMIT),
+      digest: data.digest || null,
+      last_updated: data.last_updated || '',
+    };
+  } catch (error) {
+    console.warn('[radar] 构建首屏快照失败：', error.message);
+  }
+
+  return { props: { initialData } };
 }
