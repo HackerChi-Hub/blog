@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import SEO from '../components/SEO';
+import StandaloneShareSection from '../components/StandaloneShareSection';
 
 
 const DATA_URL = 'https://hackerchi-hub.github.io/NewsRadar/data/news.json';
@@ -237,7 +238,6 @@ export default function RadarPage() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
               />
-              <button className="radar-site-btn" title="分享本站" onClick={shareSite}>🔗 分享</button>
               <button className="radar-site-btn" title="收藏本站" onClick={favSite}>⭐ 收藏</button>
             </div>
           </div>
@@ -361,26 +361,18 @@ export default function RadarPage() {
         </div>
       )}
 
+      <StandaloneShareSection
+        title="AI 新闻雷达"
+        url="/radar/"
+        description="实时追踪全球 AI、安全、经济与科技动态，每 30 分钟自动更新。"
+      />
+
       {/* ── Footer ── */}
       <footer className="radar-footer">
         📡 黑粉科技 HyphenTech · 数据每 30 分钟自动更新
       </footer>
     </div>
   );
-}
-
-// ── Site share & favorite ─────────────────────────────────────────
-const SITE_URL = 'https://hyphentech.top/radar/';
-const SITE_TITLE = '📡 AI 新闻雷达 — 黑粉科技 HyphenTech';
-
-function shareSite() {
-  if (navigator.share) {
-    navigator.share({ title: SITE_TITLE, url: SITE_URL }).catch(() => {});
-  } else {
-    navigator.clipboard.writeText(`${SITE_TITLE}\n${SITE_URL}`).then(() => {
-      alert('链接已复制到剪贴板！');
-    });
-  }
 }
 
 function favSite() {

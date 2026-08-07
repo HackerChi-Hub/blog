@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SEO from '../../components/SEO';
+import StandaloneShareSection from '../../components/StandaloneShareSection';
 
 const GAMES = [
   {
@@ -112,6 +113,11 @@ export default function GamesPage() {
             </Link>
           ))}
         </div>
+        <StandaloneShareSection
+          title="黑粉科技游戏合集"
+          url="/games/"
+          description="黑粉科技互动游戏合集，浏览器打开就能玩。"
+        />
       </main>
     </>
   );

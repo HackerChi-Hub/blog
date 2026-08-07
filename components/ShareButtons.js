@@ -1,7 +1,7 @@
 // components/ShareButtons.js
 // 文章分享功能组件
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SITE_CONFIG } from '../lib/seo';
 
 /**
@@ -10,9 +10,15 @@ import { SITE_CONFIG } from '../lib/seo';
 export default function ShareButtons({ title, url, description }) {
   const [copied, setCopied] = useState(false);
   const [showWeChatQR, setShowWeChatQR] = useState(false);
+  const [canNativeShare, setCanNativeShare] = useState(false);
   const fullUrl = url.startsWith('http') ? url : `${SITE_CONFIG.url}${url}`;
   const shareText = `${title} - ${SITE_CONFIG.name}`;
   const shareDescription = description || SITE_CONFIG.description;
+
+  // 首次客户端渲染保持与服务端一致，挂载后再检测原生分享能力，避免水合不匹配。
+  useEffect(() => {
+    setCanNativeShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
+  }, []);
 
   // 分享到 Twitter
   const shareToTwitter = () => {
@@ -195,7 +201,7 @@ export default function ShareButtons({ title, url, description }) {
       </span>
 
       {/* 原生分享（移动端） */}
-      {typeof window !== 'undefined' && typeof navigator !== 'undefined' && navigator.share && (
+      {canNativeShare && (
         <button
           onClick={shareNative}
           style={buttonStyle}
