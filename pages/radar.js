@@ -326,73 +326,85 @@ export default function RadarPage({ initialData }) {
         </div>
       </header>
 
-      {/* ── Domain Tabs ── */}
-      <div className="radar-domains">
-        {DOMAINS.map(({ key, emoji }) => {
-          const count = domainCounts[key] || 0;
-          if (key !== '全部' && count === 0) return null;
-          const isActive = domain === key;
-          const ds = DOMAIN_STYLE[key];
-          const style = isActive && ds
-            ? { background: ds.bg, color: ds.color, borderColor: ds.border }
-            : {};
-          return (
-            <button
-              key={key}
-              className={`radar-domain-tab ${isActive ? 'radar-domain-active' : ''}`}
-              style={style}
-              onClick={() => { setDomain(key); setCategory('全部'); }}
-            >
-              {emoji} {key}
-              <span className="radar-pill-count">{count}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* ── Sub-categories ── */}
-      {activeCats.length > 0 && (
-        <div className="radar-categories">
-          <button
-            className={`radar-pill ${category === '全部' ? 'radar-pill-active' : ''}`}
-            style={category === '全部' ? { background: 'rgba(105,240,174,0.12)', color: '#69f0ae', borderColor: 'rgba(105,240,174,0.3)' } : {}}
-            onClick={() => setCategory('全部')}
-          >
-            全部 <span className="radar-pill-count">{domainArticles.length}</span>
-          </button>
-          {activeCats.map(key => {
-            const count = catCounts[key] || 0;
-            if (count === 0) return null;
-            const isActive = category === key;
-            const cs = CAT_STYLE[key] || CAT_STYLE['未分类'];
-            const style = isActive ? { background: cs.bg, color: cs.color, borderColor: cs.color + '50' } : {};
+      <section className="radar-control-panel" aria-label="新闻筛选">
+        {/* ── Domain Tabs ── */}
+        <div className="radar-domains">
+          {DOMAINS.map(({ key, emoji }) => {
+            const count = domainCounts[key] || 0;
+            if (key !== '全部' && count === 0) return null;
+            const isActive = domain === key;
+            const ds = DOMAIN_STYLE[key];
+            const style = isActive && ds
+              ? { background: ds.bg, color: ds.color, borderColor: ds.border }
+              : {};
             return (
               <button
                 key={key}
-                className={`radar-pill ${isActive ? 'radar-pill-active' : ''}`}
+                className={`radar-domain-tab ${isActive ? 'radar-domain-active' : ''}`}
                 style={style}
-                onClick={() => setCategory(key)}
+                onClick={() => { setDomain(key); setCategory('全部'); }}
               >
-                {key} <span className="radar-pill-count">{count}</span>
+                {emoji} {key}
+                <span className="radar-pill-count">{count}</span>
               </button>
             );
           })}
         </div>
-      )}
 
-      {/* ── Stats ── */}
-      {!loading && articles.length > 0 && (
-        <div className="radar-stats">
-          <span>📊 共 {filtered.length} 条</span>
-          <span>🌐 {uniqueSources(articles)} 个信源</span>
-          {lastUpdated && <span suppressHydrationWarning>{relativeTime(lastUpdated)} 更新</span>}
-          {dataMode !== 'live' && !error && <span>🛟 快照已显示 · 正在后台更新</span>}
-          {error && <span>⚠️ 实时源暂慢 · 当前显示可用快照</span>}
-        </div>
-      )}
+        {/* ── Sub-categories ── */}
+        {activeCats.length > 0 && (
+          <div className="radar-categories">
+            <button
+              className={`radar-pill ${category === '全部' ? 'radar-pill-active' : ''}`}
+              style={category === '全部' ? { background: 'rgba(105,240,174,0.12)', color: '#69f0ae', borderColor: 'rgba(105,240,174,0.3)' } : {}}
+              onClick={() => setCategory('全部')}
+            >
+              全部 <span className="radar-pill-count">{domainArticles.length}</span>
+            </button>
+            {activeCats.map(key => {
+              const count = catCounts[key] || 0;
+              if (count === 0) return null;
+              const isActive = category === key;
+              const cs = CAT_STYLE[key] || CAT_STYLE['未分类'];
+              const style = isActive ? { background: cs.bg, color: cs.color, borderColor: cs.color + '50' } : {};
+              return (
+                <button
+                  key={key}
+                  className={`radar-pill ${isActive ? 'radar-pill-active' : ''}`}
+                  style={style}
+                  onClick={() => setCategory(key)}
+                >
+                  {key} <span className="radar-pill-count">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* ── Stats ── */}
+        {!loading && articles.length > 0 && (
+          <div className="radar-stats">
+            <span>📊 共 {filtered.length} 条</span>
+            <span>🌐 {uniqueSources(articles)} 个信源</span>
+            {lastUpdated && <span suppressHydrationWarning>{relativeTime(lastUpdated)} 更新</span>}
+            {dataMode !== 'live' && !error && <span>🛟 快照已显示 · 正在后台更新</span>}
+            {error && <span>⚠️ 实时源暂慢 · 当前显示可用快照</span>}
+          </div>
+        )}
+      </section>
 
       {/* ── Digest ── */}
       {!loading && digest && <DigestSection digest={digest} />}
+
+      {!loading && filtered.length > 0 && (
+        <div className="radar-feed-heading">
+          <div>
+            <span className="radar-section-kicker">持续更新</span>
+            <h2>雷达新报</h2>
+          </div>
+          <span className="radar-feed-hint">点击卡片，直达原始信源 ↗</span>
+        </div>
+      )}
 
       {/* ── Content ── */}
       <div className="radar-grid">
@@ -445,11 +457,13 @@ export default function RadarPage({ initialData }) {
         </div>
       )}
 
-      <StandaloneShareSection
-        title="AI 新闻雷达"
-        url="/radar/"
-        description="实时追踪全球 AI、安全、经济与科技动态，每 30 分钟自动更新。"
-      />
+      <div className="radar-share-wrap">
+        <StandaloneShareSection
+          title="AI 新闻雷达"
+          url="/radar/"
+          description="实时追踪全球 AI、安全、经济与科技动态，每 30 分钟自动更新。"
+        />
+      </div>
 
       {/* ── Footer ── */}
       <footer className="radar-footer">
@@ -485,7 +499,10 @@ function DigestSection({ digest }) {
   return (
     <div className="radar-digest">
       <div className="radar-digest-header">
-        <span>📋 速报 · Top 10</span>
+        <div className="radar-digest-label">
+          <span className="radar-section-kicker">今日重点</span>
+          <strong>📋 十条快看</strong>
+        </div>
         <div className="radar-digest-tabs">
           {availableDomains.map(({ key, emoji, label }) => {
             const isActive = currentDom === key;
