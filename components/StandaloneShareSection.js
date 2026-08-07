@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SITE_CONFIG } from '../lib/seo';
 
 const buttonStyle = {
@@ -44,7 +45,23 @@ const INLINE_SHARE_FALLBACK = `(function(){
   }
   function copy(button){
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(function(){done(button);}).catch(function(){fallbackCopy(button);});
+      var finished=false;
+      var timer=window.setTimeout(function(){
+        if(finished)return;
+        finished=true;
+        fallbackCopy(button);
+      },250);
+      navigator.clipboard.writeText(url).then(function(){
+        if(finished)return;
+        finished=true;
+        window.clearTimeout(timer);
+        done(button);
+      }).catch(function(){
+        if(finished)return;
+        finished=true;
+        window.clearTimeout(timer);
+        fallbackCopy(button);
+      });
     }else{fallbackCopy(button);}
   }
   function wechat(){
@@ -98,9 +115,26 @@ function fallbackCopy(url, button) {
 
 function copyUrl(url, button) {
   if (navigator.clipboard?.writeText) {
+    let finished = false;
+    const timer = window.setTimeout(() => {
+      if (finished) return;
+      finished = true;
+      fallbackCopy(url, button);
+    }, 250);
+
     navigator.clipboard.writeText(url)
-      .then(() => markCopied(button))
-      .catch(() => fallbackCopy(url, button));
+      .then(() => {
+        if (finished) return;
+        finished = true;
+        window.clearTimeout(timer);
+        markCopied(button);
+      })
+      .catch(() => {
+        if (finished) return;
+        finished = true;
+        window.clearTimeout(timer);
+        fallbackCopy(url, button);
+      });
   } else {
     fallbackCopy(url, button);
   }
@@ -122,6 +156,7 @@ function showWeChatModal(url, copyButton) {
 }
 
 export default function StandaloneShareSection({ title, url, description }) {
+  const [copied, setCopied] = useState(false);
   const fullUrl = url.startsWith('http') ? url : `${SITE_CONFIG.url}${url}`;
   const shareTitle = `${title} - ${SITE_CONFIG.name}`;
   const shareDescription = description || SITE_CONFIG.description;
@@ -130,14 +165,24 @@ export default function StandaloneShareSection({ title, url, description }) {
   const encodedDescription = encodeURIComponent(shareDescription);
 
   const handleControl = (action) => (event) => {
-    if (event.nativeEvent?.__hyphenShareHandled) return;
+    const showCopied = () => {
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    };
+
+    if (event.nativeEvent?.__hyphenShareHandled) {
+      if (action === 'copy') showCopied();
+      return;
+    }
 
     if (action === 'native' && navigator.share) {
       navigator.share({ title: shareTitle, text: shareDescription, url: fullUrl }).catch(() => {});
     } else if (action === 'wechat') {
       const copyButton = event.currentTarget.parentElement.querySelector('[data-share-control="copy"]');
+      showCopied();
       showWeChatModal(fullUrl, copyButton);
     } else {
+      showCopied();
       copyUrl(fullUrl, event.currentTarget);
     }
   };
@@ -183,7 +228,9 @@ export default function StandaloneShareSection({ title, url, description }) {
           <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={buttonStyle}>{label}</a>
         ))}
         <button type="button" data-share-control="wechat" onClick={handleControl('wechat')} style={{ ...buttonStyle, color: '#75e89f' }}>微信</button>
-        <button type="button" data-share-control="copy" onClick={handleControl('copy')} style={{ ...buttonStyle, color: '#75e5ff' }}>⧉ 复制链接</button>
+        <button type="button" data-share-control="copy" onClick={handleControl('copy')} style={{ ...buttonStyle, color: '#75e5ff' }}>
+          {copied ? '✓ 已复制' : '⧉ 复制链接'}
+        </button>
       </div>
 
       <script dangerouslySetInnerHTML={{ __html: INLINE_SHARE_FALLBACK }} />
