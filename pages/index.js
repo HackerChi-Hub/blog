@@ -322,9 +322,9 @@ const feedStyles = `
   position: sticky;
   top: 14px;
   z-index: 20;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   padding: 0.8rem 1rem;
   border: 1px solid rgba(255,255,255,.1);
@@ -336,16 +336,16 @@ const feedStyles = `
 .home-brand {
   display: inline-flex;
   align-items: center;
+  justify-self: start;
   gap: .7rem;
   color: #f7fbff;
   font-weight: 800;
   letter-spacing: .08em;
 }
 .home-brand img { width: 34px; height: 34px; object-fit: contain; }
-.home-nav__links { display: flex; align-items: center; gap: 1.2rem; }
+.home-nav__links { display: flex; align-items: center; justify-self: center; gap: 1.2rem; }
 .home-nav__links a { color: rgba(226,236,250,.76); font-size: .9rem; }
 .home-nav__links a:hover { color: #fff; }
-.home-nav__cta,
 .hero-button {
   display: inline-flex;
   align-items: center;
@@ -359,7 +359,6 @@ const feedStyles = `
   font-weight: 800;
   box-shadow: 0 12px 30px rgba(255,211,77,.16);
 }
-.home-nav__cta:hover,
 .hero-button:hover { color: #05070b; opacity: .92; }
 .hero-button--ghost {
   background: rgba(255,255,255,.04);
@@ -725,6 +724,7 @@ const feedStyles = `
 }
 .feed-card__cta { letter-spacing: .06em; }
 @media (max-width: 900px) {
+  .home-nav { grid-template-columns: 1fr; }
   .home-nav__links { display: none; }
   .brand-hero { grid-template-columns: 1fr; }
   .brand-hero__visual { min-height: 260px; }
@@ -739,7 +739,6 @@ const feedStyles = `
 @media (max-width: 640px) {
   .home-nav { top: 8px; padding: .65rem .75rem; }
   .home-brand { font-size: .88rem; }
-  .home-nav__cta { min-height: 38px; padding: .55rem .8rem; font-size: .78rem; }
   .brand-hero { padding: 1.5rem; border-radius: 24px; }
   .brand-hero h1 { font-size: clamp(2.2rem, 12vw, 3.25rem); }
   .brand-hero__lead { font-size: .94rem; }
@@ -1012,33 +1011,20 @@ const FeaturedCard = ({ post, primary = false }) => {
   );
 };
 
-const SiteNavigation = ({ subMenus = [] }) => {
-  const bilibili = subMenus.find((link) => /B站|哔哩/i.test(link?.title || ''));
-  const bilibiliHref = bilibili?.url || '#channels';
-
-  return (
-    <nav className="home-nav" aria-label="主导航">
-      <a className="home-brand" href="#top">
-        <img src="/png/logo-icon-traced.png?v=2" alt="" />
-        <span>黑粉科技</span>
-      </a>
-      <div className="home-nav__links">
-        <a href="#media">媒体矩阵</a>
-        <a href="#latest">最近折腾</a>
-        <a href="#products">我的工具</a>
-        <a href="#lab">实用工具</a>
-      </div>
-      <a
-        className="home-nav__cta"
-        href={bilibiliHref}
-        target={bilibiliHref.startsWith('#') ? undefined : '_blank'}
-        rel={bilibiliHref.startsWith('#') ? undefined : 'noopener noreferrer'}
-      >
-        B站主场
-      </a>
-    </nav>
-  );
-};
+const SiteNavigation = () => (
+  <nav className="home-nav" aria-label="主导航">
+    <a className="home-brand" href="#top">
+      <img src="/png/logo-icon-traced.png?v=2" alt="" />
+      <span>黑粉科技</span>
+    </a>
+    <div className="home-nav__links">
+      <a href="#media">媒体矩阵</a>
+      <a href="#latest">最近折腾</a>
+      <a href="#products">我的工具</a>
+      <a href="#lab">实用工具</a>
+    </div>
+  </nav>
+);
 
 const BrandHero = () => (
     <header className="brand-hero" id="top">
@@ -1297,7 +1283,7 @@ export default function Home({
         >
           <style suppressHydrationWarning>{feedStyles}</style>
           <div className="home-shell">
-            <SiteNavigation subMenus={subMenus} />
+            <SiteNavigation />
             <BrandHero />
             <MediaSection notices={notices} subMenus={subMenus} />
             <FeaturedSection posts={posts} />
