@@ -9,6 +9,7 @@ import Search from '../components/Search';
 const PAGE_SIZE = 21;
 const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
+const CHANNEL_MANIFESTO = '能本地跑，就不租云；能免费用，就不续费；实在没有，我自己做。';
 
 const heroPalette = {
   accent1: '#69f0ae',
@@ -38,6 +39,7 @@ const CONTENT_PILLARS = [
     subtitle: '把 AI 跑在自己的电脑上',
     description: 'Mac、MLX、Ollama 与消费级硬件的真实安装、速度和成本实测。',
     keywords: ['本地', 'MLX', 'Ollama', 'Apple Silicon', 'Mac'],
+    featureKeywords: ['LocalBrain', '本地部署', 'MLX', 'Ollama', 'Apple Silicon', '本地'],
   },
   {
     id: 'free-ai',
@@ -46,6 +48,7 @@ const CONTENT_PILLARS = [
     subtitle: '把付费工作流换成免费方案',
     description: '免费额度、开源平替和省钱攻略，同时说清限制、门槛与代价。',
     keywords: ['免费', '白嫖', '开源', '限免', '省钱'],
+    featureKeywords: ['免费', '白嫖', '0元', '限免', '省钱', '开源平替'],
   },
   {
     id: 'made-by-me',
@@ -54,6 +57,7 @@ const CONTENT_PILLARS = [
     subtitle: '从问题到产品，公开开发过程',
     description: 'LocalBrain、ScreenLex 与其他自制工具的发布、失败记录和版本迭代。',
     keywords: ['LocalBrain', 'ScreenLex', '自制', '工具', '开发'],
+    featureKeywords: ['ScreenLex', 'LocalBrain', '自制', '我做的', '开发纪实', '版本发布'],
   },
 ];
 
@@ -64,6 +68,8 @@ const PRODUCT_DEFINITIONS = [
     label: '本地 AI 工具箱',
     description: '把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。',
     badge: '我做的 · 本地部署',
+    facts: ['本地运行', 'macOS', '持续更新'],
+    action: '查看产品、下载与实测',
   },
   {
     slug: 'screenlex-watch-and-learn',
@@ -71,17 +77,22 @@ const PRODUCT_DEFINITIONS = [
     label: '光影词库',
     description: '把本地电影与剧集字幕变成可复习的英语词库，全程离线。',
     badge: '我做的 · 本地工具',
+    facts: ['本地运行', '离线使用', '持续更新'],
+    action: '查看产品、下载与实测',
   },
 ];
 
-const LAB_TOOLS = [
+const AI_LAB_TOOLS = [
   { href: '/ai-hardware-survey/', icon: '◫', title: 'AI 装机指南', desc: '本地 AI 设备全景对比' },
   { href: '/llm-guide/', icon: '⌘', title: '本地 LLM 指南', desc: 'Ollama · LM Studio · GGUF' },
   { href: '/mlx-model-test.html', icon: '△', title: 'MLX 模型测试', desc: 'M5 Pro 本地模型深度评测' },
-  { href: '/radar/', icon: '◉', title: '新闻雷达', desc: '重大 AI 发布与技术动态' },
+  { href: '/radar/', icon: '◉', title: '发布雷达', desc: '盯住 48 小时内的重大发布' },
+  { href: '/agent-comparison.html', icon: '≠', title: 'AI Agent 三国杀', desc: '三大 Agent 实战对比' },
+];
+
+const SIDE_TOOLS = [
   { href: '/wifi/', icon: '≋', title: 'WiFi Finder', desc: '全球公共 WiFi 密码查询' },
   { href: '/shortcuts/', icon: '⌨', title: '快捷键大全', desc: 'Windows / Mac 快捷键速查' },
-  { href: '/agent-comparison.html', icon: '≠', title: 'AI Agent 三国杀', desc: '三大 Agent 实战对比' },
   { href: '/games/', icon: '◇', title: '游戏中心', desc: '浏览器可玩像素小游戏' },
 ];
 
@@ -89,9 +100,9 @@ const MEDIA_CHANNELS = [
   {
     id: 'bilibili',
     name: 'B站',
-    title: 'B站首发',
-    description: '长视频主场。先跑、先踩坑，再把结果端上来。',
-    action: '去主场围观',
+    title: '完整实测',
+    description: '长视频首发：安装、速度、成本和踩坑过程一次讲透。',
+    action: '看完整视频',
     pattern: /B站|哔哩/i,
     fallbackUrl: 'https://space.bilibili.com/1846717524',
     accent: '#ffd34d',
@@ -99,9 +110,9 @@ const MEDIA_CHANNELS = [
   {
     id: 'youtube',
     name: 'YouTube',
-    title: '油管同步',
-    description: '同片同步，欢迎跨时区来监督我有没有偷懒。',
-    action: '去油管看看',
+    title: '海外同步',
+    description: '完整视频同步上架，方便海外观众观看和收藏。',
+    action: '看海外同步',
     pattern: /YouTube|油管/i,
     fallbackUrl: 'https://www.youtube.com/@hyphentech_top',
     accent: '#ff6b6b',
@@ -109,8 +120,8 @@ const MEDIA_CHANNELS = [
   {
     id: 'channels',
     name: '视频号',
-    title: '视频号刷',
-    description: '竖屏精华版，等电梯的时间也能刷完一个坑。',
+    title: '竖屏速看',
+    description: '把关键步骤压进竖屏，等电梯也能刷完一个坑。',
     action: '微信搜黑粉科技',
     pattern: /视频号|微信视频/i,
     fallbackUrl: '#media-notice',
@@ -119,8 +130,8 @@ const MEDIA_CHANNELS = [
   {
     id: 'wechat',
     name: '公众号',
-    title: '公众号读',
-    description: '长文复盘和完整教程，适合收藏，不适合假装看过。',
+    title: '长文复盘',
+    description: '完整教程、参数表和下载链接，适合收藏后真正动手。',
     action: '微信搜黑粉科技',
     pattern: /公众号|微信公众/i,
     fallbackUrl: '#media-notice',
@@ -508,6 +519,7 @@ const feedStyles = `
 .media-matrix__head p { max-width: 260px; margin: 0 0 .35rem; color: rgba(196,208,233,.66); font-size: .82rem; }
 .media-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .75rem; margin-top: 1rem; }
 .media-card {
+  position: relative;
   min-height: 135px;
   padding: 1rem;
   border-radius: 16px;
@@ -516,6 +528,23 @@ const feedStyles = `
   transition: transform .2s ease, border-color .2s ease;
 }
 .media-card:hover { transform: translateY(-3px); border-color: var(--channel-accent); }
+.media-card--primary {
+  border-color: rgba(255,211,77,.34);
+  background: linear-gradient(145deg, rgba(255,211,77,.075), rgba(255,255,255,.025));
+  box-shadow: inset 0 1px rgba(255,255,255,.035), 0 14px 30px rgba(0,0,0,.16);
+}
+.media-card__flag {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  padding: .2rem .48rem;
+  border-radius: 999px;
+  background: rgba(255,211,77,.13);
+  color: var(--home-yellow);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
 .media-card__name { color: var(--channel-accent); font-size: .75rem; font-weight: 800; letter-spacing: .08em; }
 .media-card strong { display: block; margin: .5rem 0 .35rem; color: #fff; font-size: 1.05rem; }
 .media-card p { margin: 0; color: rgba(209,222,236,.68); font-size: .8rem; line-height: 1.5; }
@@ -595,9 +624,31 @@ const feedStyles = `
 .product-card__badge { color: var(--home-yellow); font-size: .78rem; letter-spacing: .08em; }
 .product-card h3 { margin: 1.3rem 0 .15rem; color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.04em; }
 .product-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: 1rem; font-weight: 650; }
-.product-card p { max-width: 520px; margin: 0 0 1.5rem; color: rgba(220,233,246,.76); }
-.product-card__link { color: #fff; }
-.product-card__date { color: rgba(255,255,255,.48); font-size: .8rem; }
+.product-card p { max-width: 520px; margin: 0 0 1rem; color: rgba(220,233,246,.76); }
+.product-card__facts { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.35rem; }
+.product-card__facts span {
+  padding: .32rem .64rem;
+  border-radius: 999px;
+  border: 1px solid rgba(92,225,223,.18);
+  background: rgba(92,225,223,.06);
+  color: rgba(226,245,247,.82);
+  font-size: .72rem;
+}
+.product-card__link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: .68rem .9rem;
+  border: 1px solid rgba(255,211,77,.3);
+  border-radius: 11px;
+  background: rgba(255,211,77,.09);
+  color: #fff;
+  font-weight: 750;
+}
+.product-card__link:hover { border-color: rgba(255,211,77,.58); color: var(--home-yellow); }
+.product-card__date { margin-top: .9rem; color: rgba(255,255,255,.48); font-size: .8rem; }
 .lab-section {
   padding: clamp(1.4rem, 4vw, 2.8rem);
   border: 1px solid var(--home-border);
@@ -605,6 +656,7 @@ const feedStyles = `
   background: rgba(7,14,25,.8);
 }
 .lab-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; }
+.lab-section > .lab-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .lab-tool {
   display: flex;
   align-items: center;
@@ -619,6 +671,22 @@ const feedStyles = `
 .lab-tool__icon { width: 34px; color: var(--home-cyan); font-size: 1.35rem; text-align: center; }
 .lab-tool strong { display: block; color: #eef8ff; font-size: .9rem; }
 .lab-tool small { display: block; margin-top: .15rem; color: rgba(196,208,233,.62); font-size: .73rem; line-height: 1.4; }
+.lab-side {
+  margin-top: 1.65rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.lab-side__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .85rem;
+}
+.lab-side__head h3 { margin: .3rem 0 0; color: #f3f8ff; font-size: 1.18rem; }
+.lab-side__head p { max-width: 520px; margin: 0; color: rgba(196,208,233,.58); font-size: .78rem; }
+.lab-grid--side { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lab-grid--side .lab-tool { min-height: 78px; background: rgba(255,255,255,.018); }
 .feed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -735,6 +803,7 @@ const feedStyles = `
   .featured-stack { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .product-grid { grid-template-columns: 1fr; }
   .lab-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .lab-section > .lab-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (max-width: 640px) {
   .home-nav { top: 8px; padding: .65rem .75rem; }
@@ -750,6 +819,8 @@ const feedStyles = `
   .media-matrix__head { display: block; }
   .media-matrix__head p { margin-top: .5rem; }
   .media-grid { grid-template-columns: 1fr; }
+  .lab-side__head { display: block; }
+  .lab-side__head p { margin-top: .5rem; }
   .hero-actions { display: grid; grid-template-columns: 1fr; }
   .section-head { display: block; }
   .section-head p { margin-top: .7rem; }
@@ -759,6 +830,7 @@ const feedStyles = `
   .featured-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .product-card { min-height: 280px; padding: 1.35rem; }
   .lab-grid { grid-template-columns: 1fr; }
+  .lab-section > .lab-grid { grid-template-columns: 1fr; }
   .feed-grid { grid-template-columns: 1fr; gap: 1rem; }
   .feed-card {
     border-radius: 22px;
@@ -987,11 +1059,46 @@ const getPostPillarLabels = (post) => {
   return matches.length ? matches.slice(0, 2) : ['真实实测'];
 };
 
-const FeaturedCard = ({ post, primary = false }) => {
+const getPostPillarHaystack = (post) => {
+  const tags = Array.isArray(post?.tags)
+    ? post.tags.map((tag) => tag?.name || tag).filter(Boolean)
+    : [];
+  return `${post?.title || ''} ${normalizeSummary(post?.summary)} ${tags.join(' ')}`.toLowerCase();
+};
+
+const selectPillarFeaturedPosts = (posts = []) => {
+  const used = new Set();
+  const selected = [];
+
+  CONTENT_PILLARS.forEach((pillar) => {
+    const post = posts.find((candidate) => {
+      const slug = getPostSlug(candidate);
+      if (!slug || used.has(slug)) return false;
+      const haystack = getPostPillarHaystack(candidate);
+      return pillar.featureKeywords.some((keyword) => haystack.includes(keyword.toLowerCase()));
+    });
+
+    if (post) {
+      used.add(getPostSlug(post));
+      selected.push({ post, pillar });
+    }
+  });
+
+  posts.forEach((post) => {
+    const slug = getPostSlug(post);
+    if (selected.length >= 3 || !slug || used.has(slug)) return;
+    used.add(slug);
+    selected.push({ post, pillar: null });
+  });
+
+  return selected.slice(0, 3);
+};
+
+const FeaturedCard = ({ post, primary = false, pillar = null }) => {
   if (!post) return null;
   const slug = getPostSlug(post);
   const cover = post.cover || post.thumbnail || post.heroImage;
-  const labels = getPostPillarLabels(post);
+  const labels = pillar ? [pillar.title] : getPostPillarLabels(post);
 
   return (
     <article className={`featured-card${primary ? ' featured-card--primary' : ''}`}>
@@ -1019,9 +1126,9 @@ const SiteNavigation = () => (
     </a>
     <div className="home-nav__links">
       <a href="#media">媒体矩阵</a>
-      <a href="#latest">最近折腾</a>
-      <a href="#products">我的工具</a>
-      <a href="#lab">实用工具</a>
+      <a href="#latest">频道精选</a>
+      <a href="#products">自制工具</a>
+      <a href="#lab">AI实验台</a>
     </div>
   </nav>
 );
@@ -1038,7 +1145,7 @@ const BrandHero = () => (
           把踩过的坑、测过的数据和亲手做的工具，全部交给你。
         </p>
         <div className="hero-actions">
-          <a className="hero-button" href="#latest">看我最近折腾啥</a>
+          <a className="hero-button" href="#latest">先看三条主线</a>
           <a className="hero-button hero-button--ghost" href="#media">找到全部频道</a>
         </div>
         <div className="hero-pills" aria-label="频道主线">
@@ -1061,10 +1168,7 @@ const BrandHero = () => (
 );
 
 const MediaSection = ({ notices = [], subMenus = [] }) => {
-  const notice = notices[0] || {
-    title: '掌握 AI 的人，将成为各个领域的王者。',
-    summary: '让普通人也能驾驭 AI。',
-  };
+  const notice = notices[0] || {};
   const noticeImage =
     notice.image ||
     '/downloads/notice-2f5f9643-2011-4e3c-9fcb-17e544c87e89-qrcode_for_gh_1b-90a27ee8.jpg';
@@ -1080,7 +1184,7 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
           <div className="section-eyebrow">频道公告</div>
           <div className="notice-feature__mark">“</div>
           <h2>先说句人话</h2>
-          <blockquote>{notice.title}</blockquote>
+          <blockquote>{CHANNEL_MANIFESTO}</blockquote>
           <span className="notice-feature__date">不追玄学，只交作业。</span>
         </div>
         <div className="notice-feature__image">
@@ -1101,13 +1205,14 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
             const external = /^https?:\/\//.test(channel.url);
             return (
               <a
-                className="media-card"
+                className={`media-card${channel.id === 'bilibili' ? ' media-card--primary' : ''}`}
                 href={channel.url}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
                 style={{ '--channel-accent': channel.accent }}
                 key={channel.id}
               >
+                {channel.id === 'bilibili' && <span className="media-card__flag">主场首发</span>}
                 <span className="media-card__name">{channel.name}</span>
                 <strong>{channel.title}</strong>
                 <p>{channel.description}</p>
@@ -1121,24 +1226,23 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
   );
 };
 
-const FeaturedSection = ({ posts = [] }) => {
-  const featured = posts.slice(0, 3);
-  if (!featured.length) return null;
+const FeaturedSection = ({ items = [] }) => {
+  if (!items.length) return null;
 
   return (
     <section id="latest">
       <div className="section-head">
         <div>
-          <div className="section-eyebrow">最新内容</div>
-          <h2>最近折腾</h2>
+          <div className="section-eyebrow">三条主线</div>
+          <h2>从这开始</h2>
         </div>
-        <p>成功了给你抄作业，失败了给你省时间；总得留下点什么。</p>
+        <p>本地跑、免费用、自己造；各挑一篇，不让你在文章堆里迷路。</p>
       </div>
       <div className="featured-grid">
-        <FeaturedCard post={featured[0]} primary />
+        <FeaturedCard post={items[0]?.post} pillar={items[0]?.pillar} primary />
         <div className="featured-stack">
-          <FeaturedCard post={featured[1]} />
-          <FeaturedCard post={featured[2]} />
+          <FeaturedCard post={items[1]?.post} pillar={items[1]?.pillar} />
+          <FeaturedCard post={items[2]?.post} pillar={items[2]?.pillar} />
         </div>
       </div>
     </section>
@@ -1150,7 +1254,7 @@ const ProductSection = ({ posts = [] }) => (
     <div className="section-head">
       <div>
         <div className="section-eyebrow">自制软件</div>
-        <h2>我的工具</h2>
+        <h2>自制工具</h2>
       </div>
       <p>遇到问题，先找工具；找不到，就自己写一个。多少有点不服气。</p>
     </div>
@@ -1163,8 +1267,11 @@ const ProductSection = ({ posts = [] }) => (
             <h3>{product.name}</h3>
             <h4>{product.label}</h4>
             <p>{product.description}</p>
+            <div className="product-card__facts" aria-label={`${product.name} 产品特性`}>
+              {product.facts.map((fact) => <span key={fact}>{fact}</span>)}
+            </div>
             <a className="product-card__link" href={`/${product.slug}/`}>
-              了解产品与开发故事 →
+              {product.action} →
             </a>
             {article?.date && <div className="product-card__date">最近更新：{formatDate(article.date)}</div>}
           </article>
@@ -1178,13 +1285,13 @@ const LabSection = () => (
   <section className="lab-section" id="lab">
     <div className="section-head">
       <div>
-        <div className="section-eyebrow">在线工具</div>
-        <h2>实用工具</h2>
+        <div className="section-eyebrow">本地 AI · 实测数据</div>
+        <h2>AI 实验台</h2>
       </div>
-      <p>能点、能查、能直接用。工具就别写小作文了。</p>
+      <p>装机、本地模型、Agent 和 48 小时发布雷达；能点、能查、能直接用。</p>
     </div>
     <div className="lab-grid">
-      {LAB_TOOLS.map((tool) => (
+      {AI_LAB_TOOLS.map((tool) => (
         <a className="lab-tool" href={tool.href} key={tool.href}>
           <span className="lab-tool__icon">{tool.icon}</span>
           <span>
@@ -1193,6 +1300,26 @@ const LabSection = () => (
           </span>
         </a>
       ))}
+    </div>
+    <div className="lab-side">
+      <div className="lab-side__head">
+        <div>
+          <div className="section-eyebrow">额外掉落</div>
+          <h3>顺手小玩具</h3>
+        </div>
+        <p>不抢 AI 主线的镜头，但做都做了，有用就拿走。</p>
+      </div>
+      <div className="lab-grid lab-grid--side">
+        {SIDE_TOOLS.map((tool) => (
+          <a className="lab-tool" href={tool.href} key={tool.href}>
+            <span className="lab-tool__icon">{tool.icon}</span>
+            <span>
+              <strong>{tool.title}</strong>
+              <small>{tool.desc}</small>
+            </span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 );
@@ -1263,7 +1390,9 @@ export default function Home({
 }) {
   try {
     const showEmpty = posts.length === 0;
-    const remainingPosts = posts.length > 3 ? posts.slice(3) : posts;
+    const featuredItems = selectPillarFeaturedPosts(posts);
+    const featuredSlugs = new Set(featuredItems.map(({ post }) => getPostSlug(post)));
+    const remainingPosts = posts.filter((post) => !featuredSlugs.has(getPostSlug(post)));
 
     return (
       <>
@@ -1286,7 +1415,7 @@ export default function Home({
             <SiteNavigation />
             <BrandHero />
             <MediaSection notices={notices} subMenus={subMenus} />
-            <FeaturedSection posts={posts} />
+            <FeaturedSection items={featuredItems} />
             <ProductSection posts={posts} />
 
             {errorMessage && (
