@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 09 Aug 2026 16:08:33 GMT</lastBuildDate>
-    <pubDate>Sun, 09 Aug 2026 16:08:33 GMT</pubDate>
+    <lastBuildDate>Sun, 09 Aug 2026 16:30:17 GMT</lastBuildDate>
+    <pubDate>Sun, 09 Aug 2026 16:30:17 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -48,7 +48,7 @@
       <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
       <description>把 Mac 变成私有 AI 盒子：不替代云端大脑，而是补上云端给不了的本地多模态与联网能力，全本地、免 API key。</description>
       <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
-    <category>AI科技</category>
+    <category>资源分享</category>
     <category>本地部署</category>
     <category>AI</category>
     <category>大语言模型</category>
@@ -85,7 +85,7 @@
       <guid isPermaLink="true">https://hyphentech.top/claude-fable5-100-credit/</guid>
       <description>Fable 5 限免落幕，Anthropic 给 Pro 用户一次性赠送 $100 使用额度（9 月 19 日过期），Claude Code 每周限额 +50% 至 8 月 19 日、Cowork 翻倍至 8 月 5 日。国产大模型混战背景下的这波福利，三分钟教你薅完。</description>
       <pubDate>Sat, 25 Jul 2026 00:00:00 GMT</pubDate>
-    <category>AI 科技</category>
+    <category>学习思考</category>
     <category>Anthropic</category>
     <category>Claude</category>
     <category>AI大模型</category>
