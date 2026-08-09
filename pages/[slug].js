@@ -12,6 +12,7 @@ import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
+import OfficialNotionContent from '../components/OfficialNotionContent';
 import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
@@ -308,7 +309,9 @@ async function getLivePageSnapshot(slug) {
 
     const data = JSON.parse(match[1]);
     const pageProps = data?.props?.pageProps;
-    if (!pageProps?.meta || !pageProps?.recordMap?.block) return null;
+    if (!pageProps?.meta || (!pageProps?.recordMap?.block && !pageProps?.officialBlocks?.length)) {
+      return null;
+    }
 
     console.warn(`[getStaticProps] using verified live snapshot for slug: ${slug}`);
     return pageProps;
@@ -339,8 +342,11 @@ export async function getStaticProps({ params }) {
       return { notFound: true };
     }
 
-    // 构建时下载文件附件到本地（recordMap 已在 getPostBySlug 中修复了嵌套问题）
-    const recordMap = await downloadNotionFiles(post.recordMap, slug);
+    // 新主通道是官方 API blocks，资产已在 getPostBySlug 中本地化。
+    // recordMap 仅供旧线上快照兼容，不再用于新构建采集。
+    const recordMap = post.recordMap
+      ? await downloadNotionFiles(post.recordMap, slug)
+      : null;
 
     // 获取相关文章
     const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
@@ -349,6 +355,7 @@ export async function getStaticProps({ params }) {
       props: {
         meta: post.meta,
         recordMap,
+        officialBlocks: post.officialBlocks || null,
         relatedPosts,
       },
     };
@@ -377,11 +384,11 @@ const formatDate = (dateString) => {
   }
 };
 
-export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
+export default function PostPage({ meta, recordMap, officialBlocks = null, relatedPosts = [] }) {
   const router = useRouter();
   const slug = router.query.slug;
   
-  if (!recordMap) {
+  if (!recordMap && !officialBlocks?.length) {
     return (
       <>
         <SEO
@@ -438,7 +445,7 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
   const publishedTime = meta.date ? new Date(meta.date).toISOString() : null;
   
   // 计算阅读时间
-  const readingTime = estimateReadingTime({ meta, recordMap });
+  const readingTime = estimateReadingTime({ meta, recordMap, officialBlocks });
   const readingTimeText = formatReadingTime(readingTime);
 
   return (
@@ -645,35 +652,38 @@ export default function PostPage({ meta, recordMap, relatedPosts = [] }) {
           </div>
         </section>
 
-        {/* 如果有封面图，隐藏 Notion 内容中的第一张图片避免重复 */}
-        {meta.coverBlockId && (
+        {/* 旧 recordMap 快照仍用 CSS 隐藏封面；官方 blocks 由组件按 ID 跳过。 */}
+        {recordMap && meta.coverBlockId && (
           <style>{`
             .notion-block-${meta.coverBlockId} { display: none !important; }
           `}</style>
         )}
 
         <section className="notion">
-          <NotionErrorBoundary>
-            <NotionRenderer
-              className="notion-only-body"
-              recordMap={recordMap}
-              fullPage={false}
-              disableHeader
-              darkMode
-              mapImageUrl={(url) => {
-                // 已本地化(/downloads/)、data URL、绝对外链都原样使用；
-                // 仅 Notion 内置相对路径(/images、/icons)补全域名。默认 mapImageUrl 会把 /downloads/ 误转成代理 URL，故覆盖。
-                if (!url) return url;
-                if (url.startsWith('/downloads/') || url.startsWith('data:') || /^https?:\/\//.test(url)) return url;
-                if (url.startsWith('/')) return `https://www.notion.so${url}`;
-                return url;
-              }}
-              components={{
-                Code,
-                Collection,
-              }}
+          {officialBlocks?.length ? (
+            <OfficialNotionContent
+              blocks={officialBlocks}
+              hiddenBlockId={meta.coverBlockId}
             />
-          </NotionErrorBoundary>
+          ) : (
+            <NotionErrorBoundary>
+              <NotionRenderer
+                className="notion-only-body"
+                recordMap={recordMap}
+                fullPage={false}
+                disableHeader
+                darkMode
+                mapImageUrl={(url) => {
+                  // 旧线上快照兼容路径。新文章资产已由官方 API 通道本地化。
+                  if (!url) return url;
+                  if (url.startsWith('/downloads/') || url.startsWith('data:') || /^https?:\/\//.test(url)) return url;
+                  if (url.startsWith('/')) return `https://www.notion.so${url}`;
+                  return url;
+                }}
+                components={{ Code, Collection }}
+              />
+            </NotionErrorBoundary>
+          )}
 
           {/* 分享按钮 - 融入文章区域末尾 */}
           <div
