@@ -5,11 +5,43 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 04 Aug 2026 18:06:53 GMT</lastBuildDate>
-    <pubDate>Tue, 04 Aug 2026 18:06:53 GMT</pubDate>
+    <lastBuildDate>Sun, 09 Aug 2026 15:53:41 GMT</lastBuildDate>
+    <pubDate>Sun, 09 Aug 2026 15:53:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Claude 引不引用你，也能动手优化了？</title>
+      <link>https://hyphentech.top/3b5999681bdb81c29191efe9d07e3998/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3b5999681bdb81c29191efe9d07e3998/</guid>
+      <description>Reduck GEO 把模糊的曝光焦虑，变成一次可以测量、可以改进的工程尝试。</description>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>我实测了 6 家免费 AI API：全部能用，但“免费”不是一回事</title>
+      <link>https://hyphentech.top/free-ai-api-keys-tested-20260807/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-ai-api-keys-tested-20260807/</guid>
+      <description>六组自助注册密钥全部完成真实推理；真正的差别藏在额度重置、地区、商用与随时撤回的权利里。</description>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>人工智能</category>
+    <category>白嫖</category>
+    <category>免费</category>
+    <category>测试</category>
+    </item>
+    <item>
+      <title>AI 编程终端，为什么也要装上 HUD？</title>
+      <link>https://hyphentech.top/3b4999681bdb8127a028e5754710d32c/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3b4999681bdb8127a028e5754710d32c/</guid>
+      <description>模型越来越聪明，真正决定工具能否留在桌面上的，却可能是那个最不起眼的界面。</description>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>本地大模型打不过云端，我为什么还做了 LocalBrain</title>
       <link>https://hyphentech.top/localbrain-local-ai-box/</link>
@@ -216,30 +248,6 @@
       <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
-    </item>
-    <item>
-      <title>免费 AI 工具箱——64 款亲测推荐</title>
-      <link>https://hyphentech.top/free-ai-tools-64/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-ai-tools-64/</guid>
-      <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    </item>
-    <item>
-      <title>全国运营商宽带故障自查手册</title>
-      <link>https://hyphentech.top/broadband-troubleshooting-guide/</link>
-      <guid isPermaLink="true">https://hyphentech.top/broadband-troubleshooting-guide/</guid>
-      <description>全国三大运营商宽带故障自查指南，含客服电话、光猫指示灯、错误代码。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    </item>
-    <item>
-      <title>设计师/程序员免费资源站大全</title>
-      <link>https://hyphentech.top/free-design-resources/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-design-resources/</guid>
-      <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
