@@ -5,11 +5,26 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 10 Aug 2026 00:50:36 GMT</lastBuildDate>
-    <pubDate>Mon, 10 Aug 2026 00:50:36 GMT</pubDate>
+    <lastBuildDate>Mon, 10 Aug 2026 05:42:41 GMT</lastBuildDate>
+    <pubDate>Mon, 10 Aug 2026 05:42:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>64GB Mac 跑 MiniMax H3，画面差多少？</title>
+      <link>https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</guid>
+      <description>在 64GB Apple Silicon Mac 上复现 MiniMax H3 的 4bit、8bit、原生高分辨率与 MLX AI 超分，保留参数、耗时、代码、视频和失败记录，不替观众下结论。</description>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>视频生成</category>
+    <category>MLX</category>
+    <category>AppleSilicon</category>
+    <category>实测</category>
+    <category>本地部署</category>
+    <category>minimax</category>
+    </item>
     <item>
       <title>Claude 引不引用你，也能动手优化了？</title>
       <link>https://hyphentech.top/3b5999681bdb81c29191efe9d07e3998/</link>
@@ -240,14 +255,6 @@
     <category>Gemma</category>
     <category>推理加速</category>
     <category>性能优化</category>
-    </item>
-    <item>
-      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
-      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
-      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
     </item>
   </channel>
 </rss>
