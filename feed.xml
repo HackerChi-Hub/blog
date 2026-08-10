@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 10 Aug 2026 08:41:03 GMT</lastBuildDate>
-    <pubDate>Mon, 10 Aug 2026 08:41:03 GMT</pubDate>
+    <lastBuildDate>Mon, 10 Aug 2026 10:40:32 GMT</lastBuildDate>
+    <pubDate>Mon, 10 Aug 2026 10:40:32 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -14,13 +14,16 @@
       <title>64GB Mac 跑 MiniMax H3，画面差多少？</title>
       <link>https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</link>
       <guid isPermaLink="true">https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</guid>
-      <description>64GB Mac 本地实测 MiniMax H3 的 4bit、8bit、高分辨率和 AI 超分，并追加 LTX-2.3 同场景的清晰度与耗时对比。</description>
+      <description>64GB Mac 实测 MiniMax H3 与 LTX-2.3，并核对 NVIDIA Windows/Linux 官方部署参数、显存、精度与可比耗时。</description>
       <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
     <category>视频生成</category>
     <category>MLX</category>
     <category>AppleSilicon</category>
+    <category>Nvidia</category>
+    <category>Windows</category>
+    <category>Linux</category>
     <category>实测</category>
     <category>本地部署</category>
     <category>minimax</category>
