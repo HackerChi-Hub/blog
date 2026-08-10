@@ -10,6 +10,7 @@ const PAGE_SIZE = 21;
 const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 const CHANNEL_MANIFESTO = '能本地跑，就不租云；能免费用，就不续费；实在没有，我自己做。';
+const WECHAT_QR_IMAGE = '/png/wechat-official-account-qr.jpg';
 
 const heroPalette = {
   accent1: '#69f0ae',
@@ -497,9 +498,13 @@ const feedStyles = `
 .media-matrix h2 { margin: .55rem 0 .8rem; color: #fff; font-size: clamp(1.75rem, 3vw, 2.4rem); }
 .notice-feature blockquote {
   margin: 0;
-  color: rgba(235,242,250,.88);
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-  line-height: 1.65;
+  color: #f5f9ff;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 780;
+  letter-spacing: -.018em;
+  line-height: 1.48;
+  text-wrap: balance;
+  white-space: pre-line;
 }
 .notice-feature p { margin: .85rem 0 0; color: rgba(196,208,233,.68); line-height: 1.6; }
 .notice-feature__date { display: block; margin-top: 1rem; color: var(--home-cyan); font-family: monospace; font-size: .78rem; }
@@ -1229,9 +1234,7 @@ const BrandHero = () => (
 
 const MediaSection = ({ notices = [], subMenus = [] }) => {
   const notice = notices[0] || {};
-  const noticeImage =
-    notice.image ||
-    '/downloads/notice-2f5f9643-2011-4e3c-9fcb-17e544c87e89-qrcode_for_gh_1b-90a27ee8.jpg';
+  const slogan = (notice.summary || notice.title || CHANNEL_MANIFESTO).trim();
   const channels = MEDIA_CHANNELS.map((channel) => {
     const matched = subMenus.find((link) => channel.pattern.test(link?.title || ''));
     return { ...channel, url: matched?.url || channel.fallbackUrl };
@@ -1243,12 +1246,15 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
         <div className="notice-feature__copy">
           <div className="section-eyebrow">频道公告</div>
           <div className="notice-feature__mark">“</div>
-          <h2>先说句人话</h2>
-          <blockquote>{CHANNEL_MANIFESTO}</blockquote>
-          <span className="notice-feature__date">不追玄学，只交作业。</span>
+          <blockquote>{slogan}</blockquote>
         </div>
         <div className="notice-feature__image">
-          <img src={noticeImage} alt="黑粉科技公众号二维码" />
+          <img
+            src={WECHAT_QR_IMAGE}
+            alt="黑粉科技公众号二维码"
+            width="258"
+            height="258"
+          />
         </div>
       </article>
 
