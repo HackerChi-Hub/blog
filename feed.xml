@@ -5,18 +5,34 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Aug 2026 03:10:34 GMT</lastBuildDate>
-    <pubDate>Tue, 11 Aug 2026 03:10:34 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2026 03:54:26 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2026 03:54:26 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Browserbase 能被本地 AI 替代吗？</title>
+      <link>https://hyphentech.top/stagehand-browserbase-local-ai-replacement-plan/</link>
+      <guid isPermaLink="true">https://hyphentech.top/stagehand-browserbase-local-ai-replacement-plan/</guid>
+      <description>Browserbase 的模型网关、云浏览器和代理编排不是一回事。先把 Stagehand、本地 Chrome、MLX、OpenCode、Codex 与 Claude Code 的替代边界拆清楚，再决定以后怎么测。本文明确标注：未实测。</description>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI技术</category>
+    <category>开源</category>
+    <category>工具</category>
+    <category>开发</category>
+    <category>本地部署</category>
+    <category>浏览器</category>
+    <category>AI Agent</category>
+    <category>工作流</category>
+    </item>
     <item>
       <title>Meta新模型Muse Glimmer：30B塞进20GB，值得装吗？</title>
       <link>https://hyphentech.top/muse-glimmer-30b-local-agent-model/</link>
       <guid isPermaLink="true">https://hyphentech.top/muse-glimmer-30b-local-agent-model/</guid>
       <description>Meta新30B本地智能体模型，支持视觉、工具调用和DFlash。对比Qwen、Gemma与GPT-OSS。</description>
       <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
+    <category>资源分享</category>
     <category>AI</category>
     <category>AI大模型</category>
     <category>Apple Silicon</category>
@@ -29,7 +45,7 @@
       <guid isPermaLink="true">https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</guid>
       <description>64GB Mac 实测 MiniMax H3 与 LTX-2.3，并核对 NVIDIA Windows/Linux 官方部署参数、显存、精度与可比耗时。</description>
       <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
+    <category>资源分享</category>
     <category>AI</category>
     <category>视频生成</category>
     <category>MLX</category>
@@ -248,17 +264,6 @@
     <category>MLX</category>
     <category>实测</category>
     <category>Apple Silicon</category>
-    </item>
-    <item>
-      <title>M5 Pro 跑完 5 个维度，本地 AI 到底能做什么</title>
-      <link>https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</link>
-      <guid isPermaLink="true">https://hyphentech.top/361999681bdb815b94fad9dbf028ab2c/</guid>
-      <description>在 M5 Pro 64GB 上做了一次完整的本地 AI 评测：4 个大模型、mlx-audio TTS、FLUX 图像生成、LTX-2.3 视频生成、Qwen2-VL 视觉理解，五个维度，全部真实数据、完整提示词、效果如实评价。</description>
-      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>工具</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
