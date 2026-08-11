@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 10 Aug 2026 22:59:08 GMT</lastBuildDate>
-    <pubDate>Mon, 10 Aug 2026 22:59:08 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2026 03:10:34 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2026 03:10:34 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Meta新模型Muse Glimmer：30B塞进20GB，值得装吗？</title>
+      <link>https://hyphentech.top/muse-glimmer-30b-local-agent-model/</link>
+      <guid isPermaLink="true">https://hyphentech.top/muse-glimmer-30b-local-agent-model/</guid>
+      <description>Meta新30B本地智能体模型，支持视觉、工具调用和DFlash。对比Qwen、Gemma与GPT-OSS。</description>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>Apple Silicon</category>
+    <category>开源</category>
+    <category>工具</category>
+    </item>
     <item>
       <title>64GB Mac 跑 MiniMax H3，画面差多少？</title>
       <link>https://hyphentech.top/mac-minimax-h3-mlx-practice-20260810/</link>
@@ -246,19 +259,6 @@
     <category>AI</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
-      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
-      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
-      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
-    <category>Apple Silicon</category>
-    <category>Gemma</category>
-    <category>推理加速</category>
-    <category>性能优化</category>
     </item>
   </channel>
 </rss>
