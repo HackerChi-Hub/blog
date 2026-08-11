@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Aug 2026 10:11:10 GMT</lastBuildDate>
-    <pubDate>Tue, 11 Aug 2026 10:11:10 GMT</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2026 11:07:50 GMT</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2026 11:07:50 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -37,6 +37,23 @@
     <category>AI大模型</category>
     <category>Apple Silicon</category>
     <category>开源</category>
+    <category>工具</category>
+    </item>
+    <item>
+      <title>本地大模型打不过云端，我为什么还做了 LocalBrain</title>
+      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
+      <description>不是再造一个 Ollama，而是把本地模型、MCP、多媒体、文档和受控 Agent 收进一个 Mac 工作台。0.3.47 含实测安装命令。</description>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>本地部署</category>
+    <category>AI</category>
+    <category>大语言模型</category>
+    <category>MLX</category>
+    <category>Apple Silicon</category>
+    <category>隐私</category>
+    <category>白嫖</category>
+    <category>免费</category>
     <category>工具</category>
     </item>
     <item>
@@ -89,23 +106,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>本地大模型打不过云端，我为什么还做了 LocalBrain</title>
-      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
-      <description>把 Mac 变成私有 AI 盒子：不替代云端大脑，而是补上云端给不了的本地多模态与联网能力，全本地、免 API key。</description>
-      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>本地部署</category>
-    <category>AI</category>
-    <category>大语言模型</category>
-    <category>MLX</category>
-    <category>Apple Silicon</category>
-    <category>隐私</category>
-    <category>白嫖</category>
-    <category>免费</category>
-    <category>工具</category>
     </item>
     <item>
       <title>14.3GB模型，运行真只占2GB？</title>
