@@ -5,11 +5,28 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Aug 2026 23:18:31 GMT</lastBuildDate>
-    <pubDate>Wed, 12 Aug 2026 23:18:31 GMT</pubDate>
+    <lastBuildDate>Wed, 12 Aug 2026 23:34:57 GMT</lastBuildDate>
+    <pubDate>Wed, 12 Aug 2026 23:34:57 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>h3.c来了：Mac本地视频会更快吗？</title>
+      <link>https://hyphentech.top/h3c-minimax-h3-native-apple-silicon/</link>
+      <guid isPermaLink="true">https://hyphentech.top/h3c-minimax-h3-native-apple-silicon/</guid>
+      <description>Redis 作者 antirez 为 Apple Silicon 写了 h3.c。它直接运行 MiniMax H3；工程路线值得关注，但目前还不能证明它在五秒成片上快过现有 MLX。</description>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>视频生成</category>
+    <category>Apple Silicon</category>
+    <category>开源</category>
+    <category>性能优化</category>
+    <category>实测</category>
+    <category>本地部署</category>
+    <category>minimax</category>
+    <category>MLX</category>
+    </item>
     <item>
       <title>DeepSeek静默换代，0813到底发布了吗？</title>
       <link>https://hyphentech.top/3ba999681bdb81999b17dede1824088c/</link>
@@ -247,21 +264,6 @@
     <category>实测</category>
     <category>工具</category>
     <category>工作流</category>
-    </item>
-    <item>
-      <title>华为「韬定律」：当空间到头，向时间要答案</title>
-      <link>https://hyphentech.top/huawei-tau-law-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/huawei-tau-law-2026/</guid>
-      <description>逻辑折叠、55%密度提升、2031年等同1.4nm——华为用6年381款芯片，悄悄走出了一条绕开EUV的新路。</description>
-      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>华为</category>
-    <category>芯片</category>
-    <category>科技</category>
-    <category>技术</category>
-    <category>科技前沿</category>
-    <category>行业分析</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
