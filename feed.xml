@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Aug 2026 23:04:56 GMT</lastBuildDate>
-    <pubDate>Wed, 12 Aug 2026 23:04:56 GMT</pubDate>
+    <lastBuildDate>Wed, 12 Aug 2026 23:18:31 GMT</lastBuildDate>
+    <pubDate>Wed, 12 Aug 2026 23:18:31 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -14,7 +14,7 @@
       <title>DeepSeek静默换代，0813到底发布了吗？</title>
       <link>https://hyphentech.top/3ba999681bdb81999b17dede1824088c/</link>
       <guid isPermaLink="true">https://hyphentech.top/3ba999681bdb81999b17dede1824088c/</guid>
-      <description>API 已经换上新版本，网页端、App 和开放权重却仍是三个问号。真正值得盯住的，不是名字变了，而是低价代码 Agent 能力开始进入开发者工作流。</description>
+      <description>官方 API 已切到 0813，但网页端和新权重仍未确认；代码 Agent、价格和兼容边界一次说清。</description>
       <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
