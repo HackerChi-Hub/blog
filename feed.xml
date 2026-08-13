@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 13 Aug 2026 11:13:02 GMT</lastBuildDate>
-    <pubDate>Thu, 13 Aug 2026 11:13:02 GMT</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2026 17:16:22 GMT</lastBuildDate>
+    <pubDate>Thu, 13 Aug 2026 17:16:22 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>四十美元的开源键盘，真能替掉Codex吗？</title>
+      <link>https://hyphentech.top/3bb999681bdb819d8d6ff60639cf1b9a/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3bb999681bdb819d8d6ff60639cf1b9a/</guid>
+      <description>十三个按键之外，真正被撬开的可能是硬件所有权</description>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>h3.c来了：Mac本地视频会更快吗？</title>
       <link>https://hyphentech.top/h3c-minimax-h3-native-apple-silicon/</link>
@@ -250,20 +260,6 @@
     <category>AI</category>
     <category>热点速递</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
-      <link>https://hyphentech.top/movie-model-benchmark/</link>
-      <guid isPermaLink="true">https://hyphentech.top/movie-model-benchmark/</guid>
-      <description>我把同一套电影数据分析任务交给 Codex、Claude、DeepSeek、GLM 和 MiniMax，逐项拆解数据搜集、Excel、Word、PPT 的真实体验。结论：Codex 小胜 Claude，DeepSeek 因未参与数据搜索测试，不能当完整端到端样本看。</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>AI技术</category>
-    <category>实测</category>
-    <category>工具</category>
-    <category>工作流</category>
     </item>
   </channel>
 </rss>
