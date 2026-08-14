@@ -5,11 +5,27 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 14 Aug 2026 05:48:39 GMT</lastBuildDate>
-    <pubDate>Fri, 14 Aug 2026 05:48:39 GMT</pubDate>
+    <lastBuildDate>Fri, 14 Aug 2026 11:10:51 GMT</lastBuildDate>
+    <pubDate>Fri, 14 Aug 2026 11:10:51 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>GPT-5.6 的“思考”真被偷走了吗？比标题更危险的是日志里的密钥</title>
+      <link>https://hyphentech.top/gpt-5-6-reasoning-traces-and-agent-log-risks/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gpt-5-6-reasoning-traces-and-agent-log-risks/</guid>
+      <description>两种“偷思考”被混在了一起：论文曾从可重放的加密推理块提取记录，Oh My Pi 则让模型把新草稿写进 think 工具。真正需要防的是凭证和隐私进入工具参数、会话文件与日志系统。</description>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>GPT-5</category>
+    <category>人工智能</category>
+    <category>漏洞</category>
+    <category>安全</category>
+    <category>AI Agent</category>
+    <category>论文</category>
+    <category>OpenAI</category>
+    <category>Anthropic</category>
+    </item>
     <item>
       <title>四十美元的开源键盘，真能替掉Codex吗？</title>
       <link>https://hyphentech.top/3bb999681bdb819d8d6ff60639cf1b9a/</link>
@@ -249,17 +265,6 @@
     <category>提示词工程</category>
     <category>无人值守任务</category>
     <category>AI编程</category>
-    </item>
-    <item>
-      <title>黄仁勋台北演讲全拆解：Agent时代到货，老黄一口气掀了三张桌子</title>
-      <link>https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</link>
-      <guid isPermaLink="true">https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</guid>
-      <description>中国台湾2026，老黄宣布Vera Rubin量产、为Agent造CPU、40年来头一回重新发明PC。一句话：过去6个月，一切都变了。</description>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
