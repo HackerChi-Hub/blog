@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 15 Aug 2026 04:50:18 GMT</lastBuildDate>
-    <pubDate>Sat, 15 Aug 2026 04:50:18 GMT</pubDate>
+    <lastBuildDate>Sat, 15 Aug 2026 10:42:53 GMT</lastBuildDate>
+    <pubDate>Sat, 15 Aug 2026 10:42:53 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>家用显卡，真能接住千问的新模型吗？</title>
+      <link>https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</guid>
+      <description>能下载只是入场券，能部署、能商用、能处理真实工作，才是这次开放的含金量。</description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>GPT-5.6 的“思考”真被偷走了吗？比标题更危险的是日志里的密钥</title>
       <link>https://hyphentech.top/gpt-5-6-reasoning-traces-and-agent-log-risks/</link>
@@ -253,18 +263,6 @@
     <category>GLM-5.1</category>
     <category>大模型</category>
     <category>教育</category>
-    </item>
-    <item>
-      <title>AI 为什么老是半路下班？我用一个 UFO 游戏做了次无人值守任务测试</title>
-      <link>https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</guid>
-      <description>我用一个飞碟吸小兵网页游戏，测试 AI 能不能像员工一样按目标、边界、验收单持续推进，并整理出可复用提示词模板。</description>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI Agent</category>
-    <category>提示词工程</category>
-    <category>无人值守任务</category>
-    <category>AI编程</category>
     </item>
   </channel>
 </rss>
