@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 15 Aug 2026 22:41:45 GMT</lastBuildDate>
-    <pubDate>Sat, 15 Aug 2026 22:41:45 GMT</pubDate>
+    <lastBuildDate>Sun, 16 Aug 2026 01:58:53 GMT</lastBuildDate>
+    <pubDate>Sun, 16 Aug 2026 01:58:53 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Muse 对 Qwen3.8：更快的反而更慢？</title>
+      <link>https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</guid>
+      <description>Muse Glimmer 30B 与 Qwen3.8 27B 同机实测：生成速度快三成的那个，交出答案慢了三倍多。差距藏在一个没人报的指标里。</description>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>家用显卡，真能接住千问的新模型吗？</title>
       <link>https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</link>
@@ -250,19 +260,6 @@
     <category>AI大模型</category>
     <category>Agent</category>
     <category>科技前沿</category>
-    </item>
-    <item>
-      <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
-      <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-gaokao-2026-glm51/</guid>
-      <description>2026年高考刚结束，13款AI大模型同场竞技数学卷。GLM-5.1亲自上阵实测语文作文、数学、英语三科，坦白成绩单。AI能考130分，但永远拿不到「感情真挚」。探讨AI进步与人类学识的矛盾。</description>
-      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>高考</category>
-    <category>GLM-5.1</category>
-    <category>大模型</category>
-    <category>教育</category>
     </item>
   </channel>
 </rss>
