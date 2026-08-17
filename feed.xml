@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 17 Aug 2026 10:50:52 GMT</lastBuildDate>
-    <pubDate>Mon, 17 Aug 2026 10:50:52 GMT</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2026 11:37:24 GMT</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2026 11:37:24 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>ScreenLex：把本地电影字幕变成英语词库</title>
+      <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
+      <guid isPermaLink="true">https://hyphentech.top/screenlex-watch-and-learn/</guid>
+      <description>本地影视英语学习工具：扫描本机 SRT/ASS 字幕，离线整理成按考试分级的高级英语词库，配套逐句学习播放器与主动回忆复习。支持 macOS（Apple Silicon）与 Windows（x64 arm）。</description>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>工具</category>
+    <category>开发</category>
+    </item>
+    <item>
+      <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
+      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
+      <description>Mac 本地 AI 工作台：统一管理本地大语言模型、视觉理解、语音转写、语音合成、图像、视频、音乐与图片编辑后端，并提供 OpenAI 兼容接口、内置对话与本地工具调用。</description>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>工具</category>
+    <category>开发</category>
+    </item>
     <item>
       <title>DeepSeek 的新外壳，真值得装吗？</title>
       <link>https://hyphentech.top/3be999681bdb81269ddaf65518a0735a/</link>
@@ -208,28 +228,6 @@
       <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>AI 名词解释精选 50 词</title>
-      <link>https://hyphentech.top/ai-terms-50-words/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-terms-50-words/</guid>
-      <description>50 个核心 AI 概念，每个一句话定义 + 生活化类比，从基础到进阶全覆盖。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    </item>
-    <item>
-      <title>快乐生蚝 Happy Oyster：阿里世界模型的产品野心与技术深潜</title>
-      <link>https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/happy-oyster-alibaba-world-model-2026/</guid>
-      <description>阿里 ATH 事业群推出的 Happy Oyster（快乐生蚝）是一款实时 AI 世界模型，支持导演模式和漫游模式，最长可生成 3 分钟 720p 实时交互视频。它采用流式生成框架，具备音视频联合生成、持续状态复用等核心能力，超越了 Genie、Marble 等竞品的技术天花板。本文从产品体验、技术架构和行业趋势三个维度进行深度分析。</description>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>世界模型</category>
-    <category>阿里巴巴</category>
-    <category>实时渲染</category>
-    <category>视频生成</category>
-    <category>交互式AI</category>
     </item>
   </channel>
 </rss>
