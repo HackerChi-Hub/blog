@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 17 Aug 2026 05:01:08 GMT</lastBuildDate>
-    <pubDate>Mon, 17 Aug 2026 05:01:08 GMT</pubDate>
+    <lastBuildDate>Mon, 17 Aug 2026 10:50:52 GMT</lastBuildDate>
+    <pubDate>Mon, 17 Aug 2026 10:50:52 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -21,11 +21,31 @@
     <category>热点速递</category>
     </item>
     <item>
+      <title>Muse 对 Qwen3.8：更快的反而更慢？</title>
+      <link>https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</guid>
+      <description>Muse Glimmer 30B 与 Qwen3.8 27B 同机实测：生成速度快三成的那个，交出答案慢了三倍多。差距藏在一个没人报的指标里。</description>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
       <title>家用显卡，真能接住千问的新模型吗？</title>
       <link>https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</link>
       <guid isPermaLink="true">https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</guid>
       <description>能下载只是入场券，能部署、能商用、能处理真实工作，才是这次开放的含金量。</description>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>只用2GB内存，Mac真能跑26B模型？</title>
+      <link>https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</guid>
+      <description>TurboFieldfare 把大模型塞进 M 系 Mac，但真正被改写的不是参数纪录，而是本地推理的成本边界。</description>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
@@ -210,28 +230,6 @@
     <category>实时渲染</category>
     <category>视频生成</category>
     <category>交互式AI</category>
-    </item>
-    <item>
-      <title>Claude Managed Agents 深度解析：Anthropic 的 AI Agent 架构设计哲学</title>
-      <link>https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</link>
-      <guid isPermaLink="true">https://hyphentech.top/33f999681bdb813cb516df6da66f69c0/</guid>
-      <description>深入解析 Anthropic Claude Managed Agents 的三层解耦架构——Session/Harness/Sandbox，以及安全边界设计、多Agent协作模式和 TTFT 性能优化策略。</description>
-      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
-    <category>技术</category>
-    <category>AI</category>
-    </item>
-    <item>
-      <title>我用Claude Code一个下午搭了个AI新闻收集器，GitHub Pages免费部署</title>
-      <link>https://hyphentech.top/33a999681bdb81499014eaf312d39728/</link>
-      <guid isPermaLink="true">https://hyphentech.top/33a999681bdb81499014eaf312d39728/</guid>
-      <description>信息焦虑的本质不是新闻太少，是整理太难。本文记录如何用 Claude Code 在一个下午搭建 AI 新闻雷达：自动抓取 287 篇文章、AI 摘要分类翻译、GitHub Pages 零成本部署，全程几乎不写一行代码。</description>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>人工智能</category>
-    <category>新闻</category>
     </item>
   </channel>
 </rss>
