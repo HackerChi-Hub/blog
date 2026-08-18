@@ -5,11 +5,34 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 18 Aug 2026 10:49:42 GMT</lastBuildDate>
-    <pubDate>Tue, 18 Aug 2026 10:49:42 GMT</pubDate>
+    <lastBuildDate>Tue, 18 Aug 2026 16:52:00 GMT</lastBuildDate>
+    <pubDate>Tue, 18 Aug 2026 16:52:00 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Qwen3.8-27B 本地实测：6 道题全交了，翻车翻在两行 CSS 上</title>
+      <link>https://hyphentech.top/qwen3-8-27b-local-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/qwen3-8-27b-local-test/</guid>
+      <description>8 月 14 日开源的 27B 多模态模型，17GB 塞进一台 M5 Pro。6 道题全部产出可运行文件，中位 13.4 token/秒。顺带说清楚去审查版在哪拿、要多少内存。</description>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>本地部署</category>
+    <category>Apple Silicon</category>
+    <category>开源</category>
+    </item>
+    <item>
+      <title>看个ChatGPT余量，真值得装插件吗？</title>
+      <link>https://hyphentech.top/3c0999681bdb815a92b6e178f6b29231/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3c0999681bdb815a92b6e178f6b29231/</guid>
+      <description>一个极小的功能缺口，照出了网页产品最尴尬的控制权问题：用户每天都在用，却未必清楚自己还能用多少。</description>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>ScreenLex：把本地电影字幕变成英语词库</title>
       <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
@@ -210,22 +233,6 @@
       <link>https://hyphentech.top/free-ai-tools-64/</link>
       <guid isPermaLink="true">https://hyphentech.top/free-ai-tools-64/</guid>
       <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    </item>
-    <item>
-      <title>全国运营商宽带故障自查手册</title>
-      <link>https://hyphentech.top/broadband-troubleshooting-guide/</link>
-      <guid isPermaLink="true">https://hyphentech.top/broadband-troubleshooting-guide/</guid>
-      <description>全国三大运营商宽带故障自查指南，含客服电话、光猫指示灯、错误代码。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    </item>
-    <item>
-      <title>设计师/程序员免费资源站大全</title>
-      <link>https://hyphentech.top/free-design-resources/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-design-resources/</guid>
-      <description>65+ 个设计师和程序员免费资源网站，覆盖图片/图标/配色/字体/3D/音效 7 大类。</description>
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     </item>
