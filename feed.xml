@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 20 Aug 2026 08:48:14 GMT</lastBuildDate>
-    <pubDate>Thu, 20 Aug 2026 08:48:14 GMT</pubDate>
+    <lastBuildDate>Thu, 20 Aug 2026 09:35:57 GMT</lastBuildDate>
+    <pubDate>Thu, 20 Aug 2026 09:35:57 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Mac本地生视频：FastMetal-QAD官方介绍</title>
+      <link>https://hyphentech.top/fastmetal-qad-apple-silicon-official-guide/</link>
+      <guid isPermaLink="true">https://hyphentech.top/fastmetal-qad-apple-silicon-official-guide/</guid>
+      <description>FastVideo 团队为 Apple Silicon 推出 1.3B、5B、14B 三档开源视频模型。本文按官方资料整理内存门槛、速度口径、生成模式和安装入口，不包含本机实测。</description>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>视频生成</category>
+    <category>Apple Silicon</category>
+    <category>开源</category>
+    <category>本地部署</category>
+    </item>
     <item>
       <title>Qwen3.8-27B 本地实测：6 道题全交了，翻车翻在两行 CSS 上</title>
       <link>https://hyphentech.top/qwen3-8-27b-local-test/</link>
@@ -227,14 +240,6 @@
       <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>人工智能</category>
-    </item>
-    <item>
-      <title>免费 AI 工具箱——64 款亲测推荐</title>
-      <link>https://hyphentech.top/free-ai-tools-64/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-ai-tools-64/</guid>
-      <description>64 款免费 AI 工具亲测推荐，覆盖写作/图片/编程/视频/音频/设计/办公/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
