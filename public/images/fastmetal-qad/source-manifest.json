@@ -9,22 +9,22 @@
   },
   "outputs": {
     "release": {
-      "url": "https://hyphentech.top/images/fastmetal-qad/official-release.jpg",
+      "url": "https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/fastmetal-qad/official-release.jpg",
       "sha256": "9ed11d39adfc1a24d1c9b6dab90f4a8b856b59860e532a5fc3d4a32372d2f999",
       "bytes": 86234
     },
     "model_grid": {
-      "url": "https://hyphentech.top/images/fastmetal-qad/official-model-grid.jpg",
+      "url": "https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/fastmetal-qad/official-model-grid.jpg",
       "sha256": "89cfe28f0937ac46faa095966a571ce9f49b2edb6d91ab8e886a0f648eab903e",
       "bytes": 213661
     },
     "performance": {
-      "url": "https://hyphentech.top/images/fastmetal-qad/official-performance.jpg",
+      "url": "https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/fastmetal-qad/official-performance.jpg",
       "sha256": "97dc4ada65c67e0e30fcfd715984536ab3376f5f8b71675e7d0cd52ce6e0f794",
       "bytes": 92436
     },
     "cover": {
-      "url": "https://hyphentech.top/images/fastmetal-qad/cover-1x1.jpg",
+      "url": "https://raw.githubusercontent.com/HackerChi-Hub/blog/main/public/images/fastmetal-qad/cover-1x1.jpg",
       "sha256": "a6c067019940849a7453a6bf38f169d3d5f47ac9ed83f6237bfc00f313a6d370",
       "bytes": 101812
     }
