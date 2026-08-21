@@ -1,0 +1,24 @@
+{
+  "article": "AI 动画流水线：一个人做一集卡通的完整流程与真实成本",
+  "source_video": {
+    "title": "AI Animation Pipeline: How I Make Cartoons 100% With AI",
+    "creator": "Sanji Nai-Chien",
+    "published": "2026-08-11",
+    "duration": "15:05",
+    "url": "https://www.youtube.com/watch?v=JFTe5fbERGg"
+  },
+  "screenshots": [
+    {"file": "source/article-01-art-direction.jpg", "timestamp": "01:45", "caption": "艺术方向与视觉语言"},
+    {"file": "source/article-02-character-sheet.jpg", "timestamp": "02:15", "caption": "角色多角度与表情设定表"},
+    {"file": "source/article-03-asset-library.jpg", "timestamp": "09:15", "caption": "角色、场景与道具资产"},
+    {"file": "source/article-04-repeatable-locations.jpg", "timestamp": "07:45", "caption": "可复用场景"},
+    {"file": "source/article-05-shot-plan.jpg", "timestamp": "10:15", "caption": "带时码和资产占位符的分镜计划"},
+    {"file": "source/article-06-reference-binding.jpg", "timestamp": "10:45", "caption": "角色、场景、道具与音色绑定"}
+  ],
+  "pricing_sources_checked": "2026-08-21",
+  "pricing_sources": [
+    "https://docs.dev.runwayml.com/guides/pricing/",
+    "https://elevenlabs.io/pricing/api",
+    "https://www.blackmagicdesign.com/cn/products/davinciresolve"
+  ]
+}
