@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Aug 2026 14:13:18 GMT</lastBuildDate>
-    <pubDate>Fri, 21 Aug 2026 14:13:18 GMT</pubDate>
+    <lastBuildDate>Fri, 21 Aug 2026 15:03:37 GMT</lastBuildDate>
+    <pubDate>Fri, 21 Aug 2026 15:03:37 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>AI 动画流水线：一个人做一集卡通的完整流程与真实成本</title>
+      <link>https://hyphentech.top/ai-animation-pipeline-cartoon-real-cost/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-animation-pipeline-cartoon-real-cost/</guid>
+      <description>从角色资产、分镜绑定拆到生成、配音与剪辑，重算 4 分钟卡通的现金和时间成本；同时给出本地开源、免费云额度和混合路线的工具、用法、效果与边界。</description>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>AI视频</category>
+    <category>视频生成</category>
+    <category>工作流</category>
+    <category>成本</category>
+    </item>
     <item>
       <title>Mac本地生视频：FastMetal-QAD官方介绍</title>
       <link>https://hyphentech.top/fastmetal-qad-apple-silicon-official-guide/</link>
@@ -231,15 +244,6 @@
     <category>Gemma</category>
     <category>推理加速</category>
     <category>性能优化</category>
-    </item>
-    <item>
-      <title>AI 提示词模板库——覆盖 12 个日常场景</title>
-      <link>https://hyphentech.top/ai-prompt-templates-12-scenes/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-prompt-templates-12-scenes/</guid>
-      <description>12 个日常场景的 AI 提示词模板，含 CRISPF 万能公式，覆盖写作/翻译/编程/分析/学习。</description>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
     </item>
   </channel>
 </rss>
