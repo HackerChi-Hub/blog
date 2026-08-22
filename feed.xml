@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Aug 2026 22:44:48 GMT</lastBuildDate>
-    <pubDate>Fri, 21 Aug 2026 22:44:48 GMT</pubDate>
+    <lastBuildDate>Sat, 22 Aug 2026 04:53:05 GMT</lastBuildDate>
+    <pubDate>Sat, 22 Aug 2026 04:53:05 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek开源外壳，真能一键白嫖吗？</title>
+      <link>https://hyphentech.top/3c4999681bdb81b5ac69ceb1153e2500/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3c4999681bdb81b5ac69ceb1153e2500/</guid>
+      <description>六个本地工具、一个本地模型，两次点击接入；真正麻烦的不是安装，而是那些填错后仍像正常工作的默认值。</description>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>AI 动画流水线：一个人做一集卡通的完整流程与真实成本</title>
       <link>https://hyphentech.top/ai-animation-pipeline-cartoon-real-cost/</link>
@@ -231,19 +241,6 @@
     <category>AI</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>Gemma 4 性能暴增 3 倍！MTP Drafter 解锁本地 AI 新速度</title>
-      <link>https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemma-4-mtp-drafter-3x-speed/</guid>
-      <description>Google为Gemma 4发布MTP Drafter——最高3倍推理加速，完全无损质量。本地AI推理的重大突破，支持Apple Silicon。</description>
-      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>人工智能</category>
-    <category>Apple Silicon</category>
-    <category>Gemma</category>
-    <category>推理加速</category>
-    <category>性能优化</category>
     </item>
   </channel>
 </rss>
