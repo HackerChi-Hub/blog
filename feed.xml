@@ -5,11 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 23 Aug 2026 22:41:46 GMT</lastBuildDate>
-    <pubDate>Sun, 23 Aug 2026 22:41:46 GMT</pubDate>
+    <lastBuildDate>Mon, 24 Aug 2026 02:29:47 GMT</lastBuildDate>
+    <pubDate>Mon, 24 Aug 2026 02:29:47 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek Harness 架构分析与 LocalBrain 的对接</title>
+      <link>https://hyphentech.top/3c6999681bdb815f8094e4ca7339f738/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3c6999681bdb815f8094e4ca7339f738/</guid>
+      <description>harness 不是外壳是挽具；连 agent 循环都是插件，所以模型能换成本机的——附两份配置文件的实际写法与四处不写就翻车的字段。</description>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>完全免费，彻底白嫖，全网最全免费AI API大合集</title>
       <link>https://hyphentech.top/free-api-radar/</link>
@@ -228,18 +237,6 @@
     <category>科技前沿</category>
     <category>行业分析</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>M5 Pro 跑 6 个本地 AI：全量实测数据，踩了 4 个坑</title>
-      <link>https://hyphentech.top/mlx-local-ai-test-m5pro/</link>
-      <guid isPermaLink="true">https://hyphentech.top/mlx-local-ai-test-m5pro/</guid>
-      <description>MacBook Pro M5 Pro + 64GB 本地跑6个AI模型实测。多轮对话+工具调用，最快1.9秒完成写文件验证，最慢125秒，差66倍。踩坑记录+修复方案全公开。</description>
-      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>MLX</category>
-    <category>实测</category>
-    <category>Apple Silicon</category>
     </item>
   </channel>
 </rss>
