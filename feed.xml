@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 24 Aug 2026 05:05:01 GMT</lastBuildDate>
-    <pubDate>Mon, 24 Aug 2026 05:05:01 GMT</pubDate>
+    <lastBuildDate>Mon, 24 Aug 2026 10:56:19 GMT</lastBuildDate>
+    <pubDate>Mon, 24 Aug 2026 10:56:19 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>神秘模型爆了！牛来？</title>
+      <link>https://hyphentech.top/ox-alpha-stealth-model/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ox-alpha-stealth-model/</guid>
+      <description>8 月 20 日深夜，OpenRouter 多了一行 stealth/ox-alpha。没有公司、没有仓库、没有名字，两天冲上调用量第一。104 万上下文、能看视频、完全免费——代价写在页面顶上。</description>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>免费额度</category>
+    <category>OpenRouter</category>
+    <category>工具</category>
+    </item>
     <item>
       <title>DeepSeek Harness 架构分析与 LocalBrain 的对接</title>
       <link>https://hyphentech.top/3c6999681bdb815f8094e4ca7339f738/</link>
@@ -222,21 +235,6 @@
     <category>实测</category>
     <category>工具</category>
     <category>工作流</category>
-    </item>
-    <item>
-      <title>华为「韬定律」：当空间到头，向时间要答案</title>
-      <link>https://hyphentech.top/huawei-tau-law-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/huawei-tau-law-2026/</guid>
-      <description>逻辑折叠、55%密度提升、2031年等同1.4nm——华为用6年381款芯片，悄悄走出了一条绕开EUV的新路。</description>
-      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>华为</category>
-    <category>芯片</category>
-    <category>科技</category>
-    <category>技术</category>
-    <category>科技前沿</category>
-    <category>行业分析</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
