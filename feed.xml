@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 26 Aug 2026 10:53:44 GMT</lastBuildDate>
-    <pubDate>Wed, 26 Aug 2026 10:53:44 GMT</pubDate>
+    <lastBuildDate>Wed, 26 Aug 2026 14:54:31 GMT</lastBuildDate>
+    <pubDate>Wed, 26 Aug 2026 14:54:31 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Qwen4预演开源：最小量化仍装不下</title>
+      <link>https://hyphentech.top/3c8999681bdb81c8b8c8ef9d3473d6f0/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3c8999681bdb81c8b8c8ef9d3473d6f0/</guid>
+      <description>Qwen4 架构预演开放权重：每个 token 激活 6B，但当前最小 GGUF 仍有 72.55GB。本文只按官方仓库、配置与文件清单分析，没有本机实测。</description>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>神秘模型爆了！牛来？</title>
       <link>https://hyphentech.top/ox-alpha-stealth-model/</link>
@@ -221,20 +231,6 @@
     <category>AI</category>
     <category>热点速递</category>
     <category>AI技术</category>
-    </item>
-    <item>
-      <title>五个大模型做同一份电影数据报告，谁真的会干活？</title>
-      <link>https://hyphentech.top/movie-model-benchmark/</link>
-      <guid isPermaLink="true">https://hyphentech.top/movie-model-benchmark/</guid>
-      <description>我把同一套电影数据分析任务交给 Codex、Claude、DeepSeek、GLM 和 MiniMax，逐项拆解数据搜集、Excel、Word、PPT 的真实体验。结论：Codex 小胜 Claude，DeepSeek 因未参与数据搜索测试，不能当完整端到端样本看。</description>
-      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>AI技术</category>
-    <category>实测</category>
-    <category>工具</category>
-    <category>工作流</category>
     </item>
   </channel>
 </rss>
