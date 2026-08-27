@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Aug 2026 03:22:15 GMT</lastBuildDate>
-    <pubDate>Thu, 27 Aug 2026 03:22:15 GMT</pubDate>
+    <lastBuildDate>Thu, 27 Aug 2026 15:19:06 GMT</lastBuildDate>
+    <pubDate>Thu, 27 Aug 2026 15:19:06 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>四十美元复刻售罄硬件，真正值钱的是图纸？</title>
+      <link>https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</link>
+      <guid isPermaLink="true">https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</guid>
+      <description>AgentPad13 把一台卖断货的 Codex Micro 拆成了可复用的方法：成品可以买空，公开设计却不会缺货。</description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Qwen4预演开源：最小量化仍装不下</title>
       <link>https://hyphentech.top/3c8999681bdb81c8b8c8ef9d3473d6f0/</link>
@@ -220,17 +230,6 @@
     <category>提示词工程</category>
     <category>无人值守任务</category>
     <category>AI编程</category>
-    </item>
-    <item>
-      <title>黄仁勋台北演讲全拆解：Agent时代到货，老黄一口气掀了三张桌子</title>
-      <link>https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</link>
-      <guid isPermaLink="true">https://hyphentech.top/372999681bdb815f8c9bdd238edc09c6/</guid>
-      <description>中国台湾2026，老黄宣布Vera Rubin量产、为Agent造CPU、40年来头一回重新发明PC。一句话：过去6个月，一切都变了。</description>
-      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    <category>AI技术</category>
     </item>
   </channel>
 </rss>
