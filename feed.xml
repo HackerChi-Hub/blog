@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Aug 2026 15:19:06 GMT</lastBuildDate>
-    <pubDate>Thu, 27 Aug 2026 15:19:06 GMT</pubDate>
+    <lastBuildDate>Fri, 28 Aug 2026 00:59:02 GMT</lastBuildDate>
+    <pubDate>Fri, 28 Aug 2026 00:59:02 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>免费/限免大模型 API 汇总：GLM-5.3-Flash、Qwen3.8、Coding GLM</title>
+      <link>https://hyphentech.top/free-api-radar-2026-08-27/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-radar-2026-08-27/</guid>
+      <description>GLM-5.3-Flash、Qwen3.8 与 Coding GLM 免费接口复核：能不能用、怎么接、额度与隐私风险一次看清。</description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>免费白嫖</category>
+    </item>
     <item>
       <title>四十美元复刻售罄硬件，真正值钱的是图纸？</title>
       <link>https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</link>
@@ -218,18 +228,6 @@
     <category>GLM-5.1</category>
     <category>大模型</category>
     <category>教育</category>
-    </item>
-    <item>
-      <title>AI 为什么老是半路下班？我用一个 UFO 游戏做了次无人值守任务测试</title>
-      <link>https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-agent-ufo-game-prompt-template-2026/</guid>
-      <description>我用一个飞碟吸小兵网页游戏，测试 AI 能不能像员工一样按目标、边界、验收单持续推进，并整理出可复用提示词模板。</description>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI Agent</category>
-    <category>提示词工程</category>
-    <category>无人值守任务</category>
-    <category>AI编程</category>
     </item>
   </channel>
 </rss>
