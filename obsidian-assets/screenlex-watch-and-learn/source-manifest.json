@@ -1,0 +1,29 @@
+{
+  "article_slug": "screenlex-watch-and-learn",
+  "notion_id": "3bf99968-1bdb-81af-92dc-d7093d9c7c4c",
+  "generated_at": "2026-08-30T14:41:10.293Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "3bf99968-1bdb-8176-b2f2-e57e5bbcb102",
+      "file": "image-01-66cd719d7b.png",
+      "bytes": 204877,
+      "sha256": "66cd719d7b656ab67ecc3ac5c8360721fa778536e8e1b98f7e8e6d46d6e38374"
+    },
+    {
+      "kind": "image",
+      "block_id": "3bf99968-1bdb-8138-9356-f0844f050395",
+      "file": "image-02-2df01110dd.png",
+      "bytes": 742520,
+      "sha256": "2df01110dd2f4ee0c0bd031daacb37f090522dd6e739c5abfe85206ded7979dd"
+    },
+    {
+      "kind": "image",
+      "block_id": "3bf99968-1bdb-81da-b54c-ccc97e76bacb",
+      "file": "image-03-4d8ed3a80f.png",
+      "bytes": 380618,
+      "sha256": "4d8ed3a80fb83db8a856b750c4562e7e6883d114331f858b91d34318b7780ab6"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,36 @@
+{
+  "article_slug": "huawei-tau-law-2026",
+  "notion_id": "36d99968-1bdb-81cf-bdcc-df4c7e9990c3",
+  "generated_at": "2026-08-30T14:42:18.509Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "36d99968-1bdb-81c9-b70d-f747e1c3c7e7",
+      "file": "image-01-73180a9272.jpg",
+      "bytes": 124918,
+      "sha256": "73180a9272c768139904a6e9d4df2671914fe7d3f525c8886515b1e0f747c1d9"
+    },
+    {
+      "kind": "image",
+      "block_id": "36d99968-1bdb-81a3-b386-ffe9d24afeb9",
+      "file": "image-02-6038432120.jpg",
+      "bytes": 358178,
+      "sha256": "603843212087eecfcd6a77483f29675545656cc0763ff906038be8a62d8983eb"
+    },
+    {
+      "kind": "image",
+      "block_id": "36d99968-1bdb-81bc-a7d2-cc6fe7d67df0",
+      "file": "image-03-4608b294df.jpg",
+      "bytes": 110797,
+      "sha256": "4608b294df8331fb7ff2f94e6d47d9da06b510140d7cd8bf31a59e4a40b221e9"
+    },
+    {
+      "kind": "image",
+      "block_id": "36d99968-1bdb-8111-a7e2-d0f6c4e8899c",
+      "file": "image-04-c804573b5e.jpg",
+      "bytes": 168186,
+      "sha256": "c804573b5eb53d0699118dc64bf5a582cbeb7c5ed42d0f83c9a725ef46da3af0"
+    }
+  ],
+  "warnings": []
+}

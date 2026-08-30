@@ -1,0 +1,29 @@
+{
+  "article_slug": "ai-prompt-templates-12-scenes",
+  "notion_id": "34f99968-1bdb-81ed-ac9f-f5714fcce6f2",
+  "generated_at": "2026-08-30T14:42:39.189Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "f482586f-b8b9-47ea-a41c-2939d0e409ec",
+      "file": "image-01-382be160d7.jpg",
+      "bytes": 73470,
+      "sha256": "382be160d72950e6bfbd2d4656b0dd745d7939d46dfecca07467c6680b7e5ed7"
+    },
+    {
+      "kind": "image",
+      "block_id": "04666cea-79b4-4c53-962e-926c016c6cb2",
+      "file": "image-02-30e46c0d72.jpg",
+      "bytes": 212725,
+      "sha256": "30e46c0d726310c89d1fcb9137e353e4769a4d92a06370e3c2ba780b103e4d38"
+    },
+    {
+      "kind": "image",
+      "block_id": "b1ddf3d8-faea-43fa-b9d3-6c525de1e8ba",
+      "file": "image-03-ea9bf7ffcc.jpg",
+      "bytes": 80439,
+      "sha256": "ea9bf7ffccf1ec12f0fc7d20450a0ece939d81f24f8a21319a76e36ed3362df2"
+    }
+  ],
+  "warnings": []
+}

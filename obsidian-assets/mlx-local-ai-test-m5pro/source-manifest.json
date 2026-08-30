@@ -1,0 +1,43 @@
+{
+  "article_slug": "mlx-local-ai-test-m5pro",
+  "notion_id": "36799968-1bdb-810f-a48b-f9fec6969d15",
+  "generated_at": "2026-08-30T14:42:25.222Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "36899968-1bdb-815c-b1dc-e5103501dcae",
+      "file": "image-01-7250b7dcf9.png",
+      "bytes": 66183,
+      "sha256": "7250b7dcf93f941ca7bfca7b824159ff9a172a15217fa6491f92cf4ad7561bd7"
+    },
+    {
+      "kind": "image",
+      "block_id": "36899968-1bdb-81dd-8bbc-eac602eae613",
+      "file": "image-02-09a21b38ac.png",
+      "bytes": 67730,
+      "sha256": "09a21b38acf7f5c844460f281bc201f64dbb072bada458e2c7afecc2ad70aab3"
+    },
+    {
+      "kind": "image",
+      "block_id": "36899968-1bdb-81d9-913f-e7c6eeecfb3b",
+      "file": "image-03-751ecd5c5e.png",
+      "bytes": 63981,
+      "sha256": "751ecd5c5e73faad9e4484bf1edc1fdc566ea850e52899a7bec07c724af37e41"
+    },
+    {
+      "kind": "image",
+      "block_id": "36899968-1bdb-8155-a66f-e4b03defefa6",
+      "file": "image-04-1701981369.png",
+      "bytes": 64880,
+      "sha256": "170198136946746aa7d7cb827d6ec07983e0f72520c0238a3c1cf8fa7c6c4997"
+    },
+    {
+      "kind": "image",
+      "block_id": "36899968-1bdb-813e-8e63-f0286b112e20",
+      "file": "image-05-8bf81782f4.png",
+      "bytes": 71580,
+      "sha256": "8bf81782f448dc3397b5552199f21734045b965a20c9a7ab05d66cf62b1c3d13"
+    }
+  ],
+  "warnings": []
+}

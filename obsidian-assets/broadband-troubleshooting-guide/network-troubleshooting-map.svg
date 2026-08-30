@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">宽带断网排查路径图</title>
+  <desc id="desc">从光纤入户、光猫、路由器到终端设备的四段排查流程</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07141a"/>
+      <stop offset="1" stop-color="#102a31"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0l10 5-10 5z" fill="#69f0ae"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".12" stroke="#7ee8d0">
+    <path d="M0 150h1600M0 300h1600M0 450h1600M0 600h1600M0 750h1600"/>
+    <path d="M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900M1200 0v900M1400 0v900"/>
+  </g>
+  <text x="110" y="125" fill="#fff" font-size="62" font-weight="700" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">断网先看哪一段？</text>
+  <text x="112" y="180" fill="#9dc0c6" font-size="28" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">沿着信号方向逐段排除，五分钟找到故障边界</text>
+
+  <g filter="url(#shadow)" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">
+    <g transform="translate(105 285)">
+      <rect width="300" height="350" rx="28" fill="#0d2027" stroke="#2f5962" stroke-width="3"/>
+      <circle cx="150" cy="105" r="60" fill="#153944" stroke="#69f0ae" stroke-width="5"/>
+      <path d="M112 105h76M150 67v76" stroke="#69f0ae" stroke-width="10" stroke-linecap="round"/>
+      <text x="150" y="215" text-anchor="middle" fill="#fff" font-size="38" font-weight="700">光纤入户</text>
+      <text x="150" y="267" text-anchor="middle" fill="#a9c8cf" font-size="25">检查弯折与接头</text>
+      <rect x="65" y="295" width="170" height="36" rx="18" fill="#173d37"/>
+      <text x="150" y="321" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">线路层</text>
+    </g>
+    <g transform="translate(475 285)">
+      <rect width="300" height="350" rx="28" fill="#0d2027" stroke="#2f5962" stroke-width="3"/>
+      <rect x="76" y="55" width="148" height="105" rx="18" fill="#173843" stroke="#6fc8dc" stroke-width="4"/>
+      <circle cx="108" cy="135" r="8" fill="#69f0ae"/><circle cx="138" cy="135" r="8" fill="#69f0ae"/><circle cx="168" cy="135" r="8" fill="#ff5d73"/>
+      <text x="150" y="215" text-anchor="middle" fill="#fff" font-size="38" font-weight="700">光猫</text>
+      <text x="150" y="267" text-anchor="middle" fill="#a9c8cf" font-size="25">先看 PON / LOS 灯</text>
+      <rect x="65" y="295" width="170" height="36" rx="18" fill="#4a2028"/>
+      <text x="150" y="321" text-anchor="middle" fill="#ff8da0" font-size="22" font-weight="700">LOS 红灯＝报修</text>
+    </g>
+    <g transform="translate(845 285)">
+      <rect width="300" height="350" rx="28" fill="#0d2027" stroke="#2f5962" stroke-width="3"/>
+      <rect x="72" y="110" width="156" height="56" rx="15" fill="#173843" stroke="#6fc8dc" stroke-width="4"/>
+      <path d="M105 110L82 58M195 110l23-52" stroke="#6fc8dc" stroke-width="7" stroke-linecap="round"/>
+      <path d="M124 86c14-14 38-14 52 0M139 71c6-6 16-6 22 0" fill="none" stroke="#69f0ae" stroke-width="6" stroke-linecap="round"/>
+      <text x="150" y="215" text-anchor="middle" fill="#fff" font-size="38" font-weight="700">路由器</text>
+      <text x="150" y="267" text-anchor="middle" fill="#a9c8cf" font-size="25">直连光猫做隔离</text>
+      <rect x="65" y="295" width="170" height="36" rx="18" fill="#173d37"/>
+      <text x="150" y="321" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">家庭网络层</text>
+    </g>
+    <g transform="translate(1215 285)">
+      <rect width="280" height="350" rx="28" fill="#0d2027" stroke="#2f5962" stroke-width="3"/>
+      <rect x="65" y="58" width="150" height="100" rx="11" fill="#173843" stroke="#6fc8dc" stroke-width="4"/>
+      <path d="M42 180h196" stroke="#6fc8dc" stroke-width="10" stroke-linecap="round"/>
+      <text x="140" y="215" text-anchor="middle" fill="#fff" font-size="38" font-weight="700">终端设备</text>
+      <text x="140" y="267" text-anchor="middle" fill="#a9c8cf" font-size="25">电脑 / 手机交叉测试</text>
+      <rect x="55" y="295" width="170" height="36" rx="18" fill="#173d37"/>
+      <text x="140" y="321" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">设备层</text>
+    </g>
+  </g>
+
+  <g stroke="#69f0ae" stroke-width="6" fill="none" marker-end="url(#arrow)">
+    <path d="M415 460h48"/><path d="M785 460h48"/><path d="M1155 460h48"/>
+  </g>
+  <rect x="250" y="720" width="1100" height="82" rx="41" fill="#0b1b21" stroke="#2f5962" stroke-width="2"/>
+  <text x="800" y="773" text-anchor="middle" fill="#d9eef1" font-size="29" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">判断口诀：手机也断网 → 查路由器和光猫；LOS 红灯 → 停止折腾，直接报修</text>
+</svg>
