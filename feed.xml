@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Aug 2026 09:59:00 GMT</lastBuildDate>
-    <pubDate>Sun, 30 Aug 2026 09:59:00 GMT</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2026 14:53:34 GMT</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2026 14:53:34 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -24,7 +24,7 @@
       <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
       <link>https://hyphentech.top/localbrain-local-ai-box/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
-      <description>Mac 本地 AI 工作台：统一管理本地大语言模型、视觉理解、语音转写、语音合成、图像、视频、音乐与图片编辑后端，并提供 OpenAI 兼容接口、内置对话与本地工具调用。</description>
+      <description>我把 Mac 上分散的本地模型、转写、生图、视频、文档和 MCP，收进一个能下载、启停、对话和交付文件的本地工作台。</description>
       <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     <category>工具</category>
@@ -153,16 +153,6 @@
     <category>开源</category>
     </item>
     <item>
-      <title>看个ChatGPT余量，真值得装插件吗？</title>
-      <link>https://hyphentech.top/3c0999681bdb815a92b6e178f6b29231/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3c0999681bdb815a92b6e178f6b29231/</guid>
-      <description>一个极小的功能缺口，照出了网页产品最尴尬的控制权问题：用户每天都在用，却未必清楚自己还能用多少。</description>
-      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
       <title>ScreenLex：把本地电影字幕变成英语词库</title>
       <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
       <guid isPermaLink="true">https://hyphentech.top/screenlex-watch-and-learn/</guid>
@@ -193,16 +183,6 @@
     <category>热点速递</category>
     </item>
     <item>
-      <title>家用显卡，真能接住千问的新模型吗？</title>
-      <link>https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3bd999681bdb81c9a320f6fdffb0a670/</guid>
-      <description>能下载只是入场券，能部署、能商用、能处理真实工作，才是这次开放的含金量。</description>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
       <title>只用2GB内存，Mac真能跑26B模型？</title>
       <link>https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</link>
       <guid isPermaLink="true">https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</guid>
@@ -222,6 +202,33 @@
     <category>AI</category>
     <category>实测</category>
     <category>开发</category>
+    </item>
+    <item>
+      <title>Google I/O 2026 深度解读：Gemini 进入 Agentic 时代</title>
+      <link>https://hyphentech.top/google-io-2026-gemini-agentic-era/</link>
+      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
+      <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>Gemini</category>
+    <category>Google</category>
+    <category>AI</category>
+    <category>AI大模型</category>
+    <category>Agent</category>
+    <category>科技前沿</category>
+    </item>
+    <item>
+      <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
+      <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-gaokao-2026-glm51/</guid>
+      <description>2026年高考刚结束，13款AI大模型同场竞技数学卷。GLM-5.1亲自上阵实测语文作文、数学、英语三科，坦白成绩单。AI能考130分，但永远拿不到「感情真挚」。探讨AI进步与人类学识的矛盾。</description>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>高考</category>
+    <category>GLM-5.1</category>
+    <category>大模型</category>
+    <category>教育</category>
     </item>
   </channel>
 </rss>
