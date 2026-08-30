@@ -82,6 +82,15 @@ const PRODUCT_DEFINITIONS = [
     action: '查看介绍与下载',
   },
   {
+    slug: 'hyphencut-local-video-editor',
+    name: '黑粉剪辑 HyphenCut',
+    label: '本地专业剪辑',
+    description: '用 Rust 重写的专业视频剪辑：达芬奇键位、207 条命令、AI 助理改真实工程，45 MB 本地运行。',
+    badge: '我做的 · 预览版',
+    facts: ['初步构建', 'macOS', '免费下载'],
+    action: '查看介绍与下载',
+  },
+  {
     slug: 'screenlex-watch-and-learn',
     name: 'ScreenLex',
     label: '光影词库',
@@ -1127,6 +1136,7 @@ const getPostPillarLabels = (post) => {
   const haystack = `${post?.title || ''} ${normalizeSummary(post?.summary)} ${tags.join(' ')}`.toLowerCase();
   if (haystack.includes('localbrain')) return ['本地部署', '自制软件'];
   if (haystack.includes('screenlex')) return ['自制软件'];
+  if (haystack.includes('hyphencut') || haystack.includes('黑粉剪辑')) return ['自制软件'];
   const matches = CONTENT_PILLARS.filter((pillar) =>
     pillar.keywords.some((keyword) => haystack.includes(keyword.toLowerCase()))
   ).map((pillar) => pillar.title);
