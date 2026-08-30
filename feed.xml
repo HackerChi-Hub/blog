@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Aug 2026 05:12:33 GMT</lastBuildDate>
-    <pubDate>Sun, 30 Aug 2026 05:12:33 GMT</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2026 06:25:00 GMT</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2026 06:25:00 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>我用 Rust 重写了一个专业视频剪辑｜黑粉剪辑</title>
+      <link>https://hyphentech.top/hyphencut-local-video-editor/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphencut-local-video-editor/</guid>
+      <description>达芬奇键位、207 条命令、AI 助理改真实工程。45 MB 本地运行。初步构建预览版，免费。</description>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>自制软件</category>
+    </item>
     <item>
       <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
       <link>https://hyphentech.top/localbrain-local-ai-box/</link>
@@ -19,6 +29,17 @@
     <category>资源分享</category>
     <category>工具</category>
     <category>开发</category>
+    </item>
+    <item>
+      <title>完全免费：白嫖 103 家大模型 API｜黑粉盒子</title>
+      <link>https://hyphentech.top/hyphenbox-free-api-radar/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenbox-free-api-radar/</guid>
+      <description>免费大模型 API 不缺，缺的是有人替你持续验证。收录 103 家，实测 68 家能用。预览版。</description>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>免费白嫖</category>
+    <category>自制软件</category>
     </item>
     <item>
       <title>免费/限免大模型 API 汇总：GLM-5.3-Flash、Qwen3.8、Coding GLM</title>
@@ -201,33 +222,6 @@
     <category>AI</category>
     <category>实测</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>Google I/O 2026 深度解读：Gemini 进入 Agentic 时代</title>
-      <link>https://hyphentech.top/google-io-2026-gemini-agentic-era/</link>
-      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
-      <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Gemini</category>
-    <category>Google</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>Agent</category>
-    <category>科技前沿</category>
-    </item>
-    <item>
-      <title>我把高考题目喂给AI——2026全国卷实测+GLM-5.1自测全记录</title>
-      <link>https://hyphentech.top/ai-gaokao-2026-glm51/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-gaokao-2026-glm51/</guid>
-      <description>2026年高考刚结束，13款AI大模型同场竞技数学卷。GLM-5.1亲自上阵实测语文作文、数学、英语三科，坦白成绩单。AI能考130分，但永远拿不到「感情真挚」。探讨AI进步与人类学识的矛盾。</description>
-      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>高考</category>
-    <category>GLM-5.1</category>
-    <category>大模型</category>
-    <category>教育</category>
     </item>
   </channel>
 </rss>
