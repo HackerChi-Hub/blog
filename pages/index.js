@@ -56,8 +56,8 @@ const CONTENT_PILLARS = [
     index: '03',
     title: '自制软件',
     subtitle: '从问题到产品，公开开发过程',
-    description: 'LocalBrain、ScreenLex 与其他自制工具的发布、失败记录和版本迭代。',
-    keywords: ['LocalBrain', 'ScreenLex', '自制', '工具', '开发'],
+    description: 'LocalBrain、ScreenLex、黑粉盒子 HyphenBox 与其他自制工具的发布、失败记录和版本迭代。',
+    keywords: ['LocalBrain', 'ScreenLex', 'HyphenBox', '黑粉盒子', '自制', '工具', '开发'],
     featureKeywords: ['ScreenLex', 'LocalBrain', '自制', '我做的', '开发纪实', '版本发布'],
   },
 ];
@@ -71,6 +71,15 @@ const PRODUCT_DEFINITIONS = [
     badge: '我做的 · 本地部署',
     facts: ['本地运行', 'macOS', '持续更新'],
     action: '查看产品、下载与实测',
+  },
+  {
+    slug: 'hyphenbox-free-api-radar',
+    name: '黑粉盒子 HyphenBox',
+    label: '免费 API 雷达',
+    description: '收录 98 家免费大模型 API，实测可用性；Key 只存本机，auto 按额度自动挑模型。',
+    badge: '我做的 · 预览版',
+    facts: ['初步构建', 'macOS', '免费下载'],
+    action: '查看介绍与下载',
   },
   {
     slug: 'screenlex-watch-and-learn',
