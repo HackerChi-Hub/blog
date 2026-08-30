@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Aug 2026 00:25:04 GMT</lastBuildDate>
-    <pubDate>Sun, 30 Aug 2026 00:25:04 GMT</pubDate>
+    <lastBuildDate>Sun, 30 Aug 2026 03:32:23 GMT</lastBuildDate>
+    <pubDate>Sun, 30 Aug 2026 03:32:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
+      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
+      <description>Mac 本地 AI 工作台：统一管理本地大语言模型、视觉理解、语音转写、语音合成、图像、视频、音乐与图片编辑后端，并提供 OpenAI 兼容接口、内置对话与本地工具调用。</description>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>工具</category>
+    <category>开发</category>
+    </item>
     <item>
       <title>免费/限免大模型 API 汇总：GLM-5.3-Flash、Qwen3.8、Coding GLM</title>
       <link>https://hyphentech.top/free-api-radar-2026-08-27/</link>
@@ -136,16 +146,6 @@
       <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
       <guid isPermaLink="true">https://hyphentech.top/screenlex-watch-and-learn/</guid>
       <description>本地影视英语学习工具：扫描本机 SRT/ASS 字幕，离线整理成按考试分级的高级英语词库，配套逐句学习播放器与主动回忆复习。支持 macOS（Apple Silicon）与 Windows（x64 arm）。</description>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>工具</category>
-    <category>开发</category>
-    </item>
-    <item>
-      <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
-      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
-      <description>Mac 本地 AI 工作台：统一管理本地大语言模型、视觉理解、语音转写、语音合成、图像、视频、音乐与图片编辑后端，并提供 OpenAI 兼容接口、内置对话与本地工具调用。</description>
       <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     <category>工具</category>
