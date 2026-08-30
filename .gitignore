@@ -11,6 +11,7 @@ public/downloads/
 
 # 备份
 backups/
+.content-sync-*/
 
 # 日志
 *.log

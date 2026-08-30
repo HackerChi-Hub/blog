@@ -217,7 +217,7 @@ const loadPrismLanguages = async () => {
 
 const Code = dynamic(
   async () => {
-    const m = await import('react-notion-x/build/third-party/code');
+    const m = await import('react-notion-x/third-party/code');
     // Load Prism languages only in browser (SSR renders without syntax highlighting)
     await loadPrismLanguages();
     return m.Code;
@@ -227,7 +227,7 @@ const Code = dynamic(
 
 const Collection = dynamic(
   () =>
-    import('react-notion-x/build/third-party/collection.js').then(
+    import('react-notion-x/third-party/collection').then(
       (m) => m.Collection
     ),
   { ssr: true }

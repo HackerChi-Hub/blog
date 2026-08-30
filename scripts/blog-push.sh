@@ -2,51 +2,110 @@
 set -euo pipefail
 
 REPO="/Volumes/BigDisk/Scripts/10-内容制作/blog"
+SOURCE_REPO="/Volumes/BigDisk/Scripts/10-内容制作/blog-content"
 WORKFLOW="deploy.yml"
+MESSAGE="${1:-content: publish Obsidian changes}"
 
-cd "$REPO"
+fail() {
+  echo "❌ $1"
+  exit 1
+}
+
+require_clean_main() {
+  local repo="$1"
+  local label="$2"
+  local branch
+  branch=$(git -C "$repo" branch --show-current)
+  [ "$branch" = "main" ] || fail "$label 当前分支是 ${branch:-空}，只允许从 main 发布"
+}
+
+sync_remote_main() {
+  local repo="$1"
+  local label="$2"
+  git -C "$repo" fetch origin main
+  local behind ahead
+  behind=$(git -C "$repo" rev-list --count HEAD..origin/main)
+  ahead=$(git -C "$repo" rev-list --count origin/main..HEAD)
+  if [ "$behind" -gt 0 ] && [ "$ahead" -gt 0 ]; then
+    fail "$label 与 origin/main 已分叉，请人工处理；发布器不会自动 rebase"
+  fi
+  if [ "$behind" -gt 0 ]; then
+    if [ -n "$(git -C "$repo" status --porcelain)" ]; then
+      fail "$label 落后 origin/main 且有本地改动，拒绝自动拉取"
+    fi
+    git -C "$repo" pull --ff-only origin main
+  fi
+}
 
 if ! command -v gh >/dev/null 2>&1; then
-  echo "❌ 缺少 GitHub CLI（gh），无法确认部署结果"
-  exit 1
+  fail "缺少 GitHub CLI（gh），无法确认部署结果"
 fi
-
 if ! gh auth status >/dev/null 2>&1; then
-  echo "❌ GitHub CLI 未登录，无法触发并跟踪部署"
+  fail "GitHub CLI 未登录，无法推送并跟踪部署"
+fi
+git -C "$REPO" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "Blog 代码库不是 Git 仓库"
+git -C "$SOURCE_REPO" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "Obsidian 内容库尚未初始化为私有 Git 仓库"
+[ -n "$(git -C "$SOURCE_REPO" remote get-url origin 2>/dev/null || true)" ] || fail "Obsidian 内容库缺少私有 origin"
+
+require_clean_main "$REPO" "Blog 代码库"
+require_clean_main "$SOURCE_REPO" "Obsidian 内容库"
+
+if [ -n "$(git -C "$REPO" status --porcelain)" ]; then
+  fail "Blog 代码库已有未提交改动。发布器只提交受管快照，请先单独检查并提交代码改动"
+fi
+
+sync_remote_main "$REPO" "Blog 代码库"
+sync_remote_main "$SOURCE_REPO" "Obsidian 内容库"
+
+cd "$REPO"
+echo "🔎 1/5 校验内容并生成公开快照"
+npm run content:sync
+
+echo "🧪 2/5 按线上模式构建并验收"
+BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export npm run build
+
+unexpected=""
+while IFS= read -r line; do
+  [ -n "$line" ] || continue
+  file="${line:3}"
+  case "$file" in
+    content-export/*|public/obsidian-assets/*) ;;
+    *) unexpected="${unexpected}${line}\n" ;;
+  esac
+done < <(git status --porcelain --untracked-files=all)
+if [ -n "$unexpected" ]; then
+  printf "❌ 同步或构建产生了受管目录外的改动，拒绝混合提交：\n%b" "$unexpected"
   exit 1
 fi
 
-branch=$(git branch --show-current)
-if [ "$branch" != "main" ]; then
-  echo "❌ 当前分支是 $branch，blog-push 只允许从 main 部署"
-  exit 1
+echo "💾 3/5 保存私有 Obsidian 原件"
+if [ -n "$(git -C "$SOURCE_REPO" status --porcelain)" ]; then
+  git -C "$SOURCE_REPO" add -A
+  git -C "$SOURCE_REPO" commit -m "$MESSAGE"
+else
+  echo "   内容原件无 Git 变化"
+fi
+if [ "$(git -C "$SOURCE_REPO" rev-list --count origin/main..HEAD)" -gt 0 ]; then
+  git -C "$SOURCE_REPO" push origin main
 fi
 
-if ! git diff --cached --quiet; then
-  echo "❌ 暂存区有未提交改动。blog-push 不会替你提交内容，请先单独确认并提交"
-  exit 1
+echo "📦 4/5 提交并推送公开快照"
+if [ -n "$(git status --porcelain -- content-export public/obsidian-assets)" ]; then
+  git add -A -- content-export public/obsidian-assets
+  git commit -m "$MESSAGE"
+else
+  echo "   公开内容无 Git 变化"
 fi
 
-git fetch origin main
-behind=$(git rev-list --count HEAD..origin/main)
-ahead=$(git rev-list --count origin/main..HEAD)
-if [ "$behind" -gt 0 ]; then
-  if [ "$ahead" -gt 0 ]; then
-    echo "❌ 本地与 origin/main 已分叉，请先人工处理，blog-push 不自动 rebase"
-    exit 1
-  fi
-  if [ -n "$(git status --porcelain)" ]; then
-    echo "❌ 本地落后 origin/main 且工作区有改动，拒绝自动拉取"
-    exit 1
-  fi
-  git pull --ff-only origin main
+if [ "$(git rev-list --count origin/main..HEAD)" -eq 0 ]; then
+  echo "✅ 原件已保存；公开内容没有变化，不创建空提交、不触发部署"
+  exit 0
 fi
 
-git commit --allow-empty -m "chore: trigger verified rebuild"
 sha=$(git rev-parse HEAD)
 git push origin main
 
-echo "⏳ 已触发部署，等待 GitHub Actions：${sha:0:8}"
+echo "🚀 5/5 等待 GitHub Pages 并回读线上页面：${sha:0:8}"
 run_id=""
 deadline=$((SECONDS + 120))
 while [ -z "$run_id" ] && [ "$SECONDS" -lt "$deadline" ]; do
@@ -59,14 +118,8 @@ while [ -z "$run_id" ] && [ "$SECONDS" -lt "$deadline" ]; do
   [ -n "$run_id" ] || sleep 3
 done
 
-if [ -z "$run_id" ]; then
-  echo "❌ 120 秒内没有发现对应的 GitHub Actions 运行"
-  exit 1
-fi
-
-run_url="https://github.com/HackerChi-Hub/blog/actions/runs/$run_id"
-echo "🔗 $run_url"
-
+[ -n "$run_id" ] || fail "120 秒内没有发现对应的 GitHub Actions 运行"
+echo "🔗 https://github.com/HackerChi-Hub/blog/actions/runs/$run_id"
 if ! gh run watch "$run_id" --exit-status; then
   echo "❌ Blog 构建或部署失败，下面是失败步骤日志："
   gh run view "$run_id" --log-failed | tail -n 160 || true
@@ -74,5 +127,4 @@ if ! gh run watch "$run_id" --exit-status; then
 fi
 
 node scripts/verify-live.js "$run_id"
-echo "✅ Blog 部署完成，构建、上线版本和 sitemap 全部通过验收"
-
+echo "✅ Blog 发布完成：私有原件、公开快照、构建、线上版本、sitemap 与素材全部通过验收"

@@ -4,7 +4,7 @@
 Obsidian Markdown 驱动的静态博客，部署在 GitHub Pages。私有内容库是编辑真源，公开仓库只保存 `status: published` 的发布快照。
 
 ## 技术栈
-- Next.js 14 + React 18
+- Next.js 15 + React 18
 - Obsidian Markdown + YAML frontmatter
 - Notion API 仅作为只读迁移和紧急回滚兼容层
 - PrismJS 代码高亮
@@ -14,7 +14,7 @@ Obsidian Markdown 驱动的静态博客，部署在 GitHub Pages。私有内容�
 - 内容校验：`npm run content:check`
 - 同步发布快照：`npm run content:sync`
 - 正式构建：`BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export npm run build`
-- 部署：`npm run deploy`
+- 一键发布：`npm run blog-push -- "content: publish <slug>"`
 - 备份：`npm run backup`
 
 ## 注意事项
@@ -24,6 +24,7 @@ Obsidian Markdown 驱动的静态博客，部署在 GitHub Pages。私有内容�
 - 正式 CI 固定使用 `markdown-only`，不依赖 Notion 密钥
 - 构建后有 `scripts/post-build.js` 后处理步骤
 - 静态输出在 `out/` 目录
+- 私有原稿库和公开 Blog 快照必须分库；发布时先保存原稿，再推送公开快照
 
 <!-- rtk-instructions v2 -->
 # RTK (Rust Token Killer) - Token-Optimized Commands

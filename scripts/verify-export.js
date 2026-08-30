@@ -2,11 +2,63 @@
 
 const fs = require('fs');
 const path = require('path');
+const matter = require('gray-matter');
 
 const root = process.cwd();
 const outDir = path.join(root, 'out');
 const sitemapPath = path.join(outDir, 'sitemap.xml');
-const contentManifestPath = path.join(root, 'content-export', 'publish-manifest.json');
+
+function parseArgs(argv) {
+  const args = {};
+  for (let index = 0; index < argv.length; index += 1) {
+    if (argv[index] === '--content-dir') args.contentDir = argv[++index];
+    else throw new Error(`未知参数：${argv[index]}`);
+  }
+  return args;
+}
+
+function walkMarkdownFiles(directory) {
+  if (!fs.existsSync(directory)) return [];
+  const files = [];
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    if (entry.name.startsWith('.')) continue;
+    const absolutePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...walkMarkdownFiles(absolutePath));
+    else if (entry.isFile() && /\.md$/i.test(entry.name)) files.push(absolutePath);
+  }
+  return files.sort();
+}
+
+function normalizeList(value) {
+  if (Array.isArray(value)) return value.map(String);
+  return value ? String(value).split(',') : [];
+}
+
+function loadExpectedPosts(contentDir) {
+  const contentManifestPath = path.join(contentDir, 'publish-manifest.json');
+  if (fs.existsSync(contentManifestPath)) {
+    const manifest = JSON.parse(fs.readFileSync(contentManifestPath, 'utf8'));
+    const posts = Array.isArray(manifest.posts) ? manifest.posts : [];
+    if (manifest.published_post_count !== posts.length) {
+      throw new Error(
+        `Obsidian 快照数量不一致：manifest=${manifest.published_post_count}，posts=${posts.length}`
+      );
+    }
+    return posts;
+  }
+
+  return walkMarkdownFiles(path.join(contentDir, 'posts'))
+    .map((filePath) => ({ filePath, data: matter(fs.readFileSync(filePath, 'utf8')).data }))
+    .filter(({ data }) => String(data.status || 'draft').toLowerCase() === 'published')
+    .map(({ filePath, data }) => ({
+      file: path.relative(contentDir, filePath),
+      slug: String(data.slug || ''),
+      legacy_paths: normalizeList(data.legacy_paths).map((item) => item.trim()).filter(Boolean),
+    }));
+}
+
+const args = parseArgs(process.argv.slice(2));
+const contentDir = path.resolve(args.contentDir || process.env.BLOG_CONTENT_DIR || './content-export');
 
 if (!fs.existsSync(sitemapPath)) {
   console.error('❌ 导出验收失败：缺少 out/sitemap.xml');
@@ -45,15 +97,9 @@ if (failures.length) {
 
 console.log(`✅ 导出验收：sitemap 中 ${urls.length} 个页面均存在且没有错误占位内容`);
 
-if (fs.existsSync(contentManifestPath)) {
-  const manifest = JSON.parse(fs.readFileSync(contentManifestPath, 'utf8'));
-  const posts = Array.isArray(manifest.posts) ? manifest.posts : [];
-  if (manifest.published_post_count !== posts.length) {
-    console.error(
-      `❌ Obsidian 快照数量不一致：manifest=${manifest.published_post_count}，posts=${posts.length}`
-    );
-    process.exit(1);
-  }
+try {
+  const posts = loadExpectedPosts(contentDir);
+  if (posts.length === 0) throw new Error(`内容目录没有已发布文章：${contentDir}`);
 
   const obsidianFailures = [];
   for (const post of posts) {
@@ -73,6 +119,13 @@ if (fs.existsSync(contentManifestPath)) {
     if (!sitemap.includes(`/${slug}/`)) {
       obsidianFailures.push(`sitemap 缺少文章：${slug}`);
     }
+    for (const rawLegacyPath of post.legacy_paths || []) {
+      const legacyPath = String(rawLegacyPath || '').replace(/^\/+|\/+$/g, '');
+      const legacyHtmlPath = path.join(outDir, legacyPath, 'index.html');
+      if (!legacyPath || !fs.existsSync(legacyHtmlPath)) {
+        obsidianFailures.push(`缺少历史网址页面：${legacyPath || post.file}`);
+      }
+    }
   }
 
   if (obsidianFailures.length) {
@@ -81,5 +134,15 @@ if (fs.existsSync(contentManifestPath)) {
     process.exit(1);
   }
 
-  console.log(`✅ Obsidian 导出验收：${posts.length} 篇文章全部由 Markdown 渲染且网址完整`);
+  const legacyCount = posts.reduce(
+    (sum, post) => sum + (Array.isArray(post.legacy_paths) ? post.legacy_paths.length : 0),
+    0
+  );
+  console.log(
+    `✅ Obsidian 导出验收：${posts.length} 篇文章由 Markdown 渲染，` +
+      `${legacyCount} 条历史网址全部存在`
+  );
+} catch (error) {
+  console.error(`❌ Obsidian 导出验收失败：${error.message}`);
+  process.exit(1);
 }

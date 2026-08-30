@@ -6,6 +6,7 @@ const path = require('path');
 const expectedRunId = process.argv[2] || '';
 const baseUrl = 'https://hyphentech.top';
 const publicAssetRoot = path.resolve(__dirname, '..', 'public', 'obsidian-assets');
+const contentManifestPath = path.resolve(__dirname, '..', 'content-export', 'publish-manifest.json');
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -107,19 +108,34 @@ async function main() {
   const articleUrls = urls.filter((url) => url.startsWith(`${baseUrl}/`) && url !== `${baseUrl}/`);
   if (articleUrls.length === 0) throw new Error('sitemap 没有文章或分页 URL，拒绝把空站视为成功');
 
-  await verifyInBatches([baseUrl, ...articleUrls]);
-  console.log(`✅ 线上验收：主页 + sitemap 中 ${articleUrls.length} 个页面全部返回 2xx`);
+  if (!fs.existsSync(contentManifestPath)) throw new Error('缺少本地 content-export/publish-manifest.json');
+  const contentManifest = JSON.parse(fs.readFileSync(contentManifestPath, 'utf8'));
+  const expectedSlugs = (contentManifest.posts || []).map((post) => String(post.slug || '')).filter(Boolean);
+  const expectedLegacyUrls = (contentManifest.posts || []).flatMap((post) =>
+    (post.legacy_paths || [])
+      .map((legacyPath) => String(legacyPath || '').replace(/^\/+|\/+$/g, ''))
+      .filter(Boolean)
+      .map((legacyPath) => `${baseUrl}/${legacyPath}/`)
+  );
+  const missingSlugs = expectedSlugs.filter(
+    (slug) => !sitemap.includes(`<loc>${baseUrl}/${slug}/</loc>`)
+  );
+  if (missingSlugs.length) throw new Error(`sitemap 缺少已发布文章：${missingSlugs.join('、')}`);
+
+  await verifyInBatches([baseUrl, ...articleUrls, ...expectedLegacyUrls]);
+  console.log(
+    `✅ 线上验收：${expectedSlugs.length} 篇 Obsidian 文章均在 sitemap，` +
+      `主页、sitemap 中 ${articleUrls.length} 个页面和 ${expectedLegacyUrls.length} 条历史网址全部返回 2xx`
+  );
 
   const assetFiles = walkFiles(publicAssetRoot);
   if (assetFiles.length === 0) throw new Error('public/obsidian-assets 为空，拒绝把无图站点视为成功');
   const manifestFiles = assetFiles.filter((filePath) => path.basename(filePath) === 'source-manifest.json');
-  const migratedAssetCount = manifestFiles.reduce((sum, filePath) => {
-    const manifest = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    return sum + (Array.isArray(manifest.assets) ? manifest.assets.length : 0);
-  }, 0);
+  const actualAssetCount = assetFiles.length - manifestFiles.length;
   await verifyAssetsInBatches(assetFiles.map(assetUrlForFile));
   console.log(
-    `✅ 素材验收：${migratedAssetCount} 个迁移素材，连同 ${manifestFiles.length} 份清单在内共 ${assetFiles.length} 个公开文件全部可读`
+    `✅ 素材验收：${actualAssetCount} 个实际被文章引用的素材，` +
+      `连同 ${manifestFiles.length} 份来源清单在内共 ${assetFiles.length} 个公开文件全部可读`
   );
 }
 

@@ -1,6 +1,6 @@
 ---
 title: "Obsidian 内容源验收页"
-slug: obsidian-content-canary
+slug: canary
 status: published
 date: 2026-08-30
 updated: 2026-08-30
@@ -10,14 +10,14 @@ categories:
 tags:
   - Obsidian
   - Markdown
-cover: /favicon-512x512.png
+cover: /obsidian-assets/canary/cover.png
 legacy_paths:
-  - legacy-obsidian-content-canary
+  - legacy-canary
 ---
 
 # Markdown 正文
 
-这是 Markdown 与 Notion 双源读取层的自动化验收文章。
+这是 Obsidian Markdown 发布层的自动化验收文章。
 
 > [!note]
 > 这段内容用于验证 Obsidian 提示块能够安全降级为网页引用块。
@@ -36,4 +36,4 @@ const source = 'obsidian';
 console.log(source);
 ```
 
-内部链接：[[obsidian-content-canary|返回本页]]。
+内部链接：[[canary|返回本页]]。

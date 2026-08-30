@@ -1,32 +1,38 @@
 {
-  "name": "notion-blog",
+  "name": "hyphentech-obsidian-blog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && node scripts/post-build.js && node scripts/verify-export.js",
-    "build:markdown-test": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js",
+    "dev": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=../blog-content next dev",
+    "build": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./content-export",
+    "build:markdown-test": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./tests/fixtures/blog-content",
     "content:check": "node scripts/validate-content.js",
     "content:check-fixture": "node scripts/validate-content.js --content-dir ./tests/fixtures/blog-content",
     "content:inventory": "node scripts/export-notion-to-obsidian.js --inventory-only",
     "content:migrate": "node scripts/export-notion-to-obsidian.js",
     "content:sync": "node scripts/sync-obsidian-content.js",
-    "start": "next start",
+    "content:import": "node scripts/import-article-content.js",
+    "test:content": "node scripts/test-content-pipeline.js",
+    "start": "python3 -m http.server 4173 --directory out",
     "backup": "node scripts/backup.js",
-    "deploy": "node scripts/deploy.js",
+    "deploy": "bash scripts/blog-push.sh",
+    "publish": "bash scripts/blog-push.sh",
     "blog-push": "bash scripts/blog-push.sh"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.13",
+    "@notionhq/client": "^5.26.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^15.0.1",
-    "next": "14.2.3",
-    "notion-client": "^6.16.0",
-    "notion-utils": "^6.16.0",
+    "next": "^15.5.24",
+    "notion-client": "^8.0.6",
+    "notion-utils": "^8.0.6",
     "prismjs": "^1.29.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-notion-x": "^6.16.0",
+    "react-notion-x": "^8.0.6",
     "yaml": "^2.9.0"
+  },
+  "overrides": {
+    "postcss": "8.5.26"
   }
 }

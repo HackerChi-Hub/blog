@@ -1,15 +1,4 @@
 /** @type {import('next').NextConfig} */
-import { createRequire } from 'module';
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-const require = createRequire(import.meta.url);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'blog';
-
 const nextConfig = {
   // 关键：启用静态导出模式（取代 next export 命令）
   output: 'export',
@@ -28,24 +17,12 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
 
-  // Notion 的页面内容端点会对并发构建请求返回 403/429。
-  // 串行生成文章页，避免一次构建把大量正常文章误判为 404。
+  // 降低静态导出的峰值内存；启用历史 Notion 回滚层时也可避免 API 并发过高。
   experimental: {
     cpus: 1,
   },
 
-  // 转译 CommonJS 模块（解决 react-use / react-notion-x 的 ESM↔CJS 兼容问题）
-  transpilePackages: ['react-use', 'react-notion-x'],
-
-  // Webpack 配置：处理 CommonJS 模块
-  webpack: (config, { isServer }) => {
-    // 使用别名将 react-use 重定向到包装器
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react-use': path.resolve(__dirname, 'lib/react-use-wrapper.cjs'),
-    };
-    return config;
-  },
+  transpilePackages: ['react-notion-x'],
 
   // 图片优化配置
   images: {
