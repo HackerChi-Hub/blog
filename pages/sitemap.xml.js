@@ -1,7 +1,7 @@
 // pages/sitemap.xml.js
 // 静态生成 sitemap.xml
 
-import { getPosts } from '../lib/notion';
+import { getPosts } from '../lib/content';
 import { generateSitemap } from '../lib/sitemap';
 
 export default function Sitemap({ xml }) {

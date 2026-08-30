@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getPosts } from '../../lib/notion';
+import { getPosts } from '../../lib/content';
 import { formatDate, normalizeSummary } from '../../lib/utils';
 import SEO from '../../components/SEO';
 

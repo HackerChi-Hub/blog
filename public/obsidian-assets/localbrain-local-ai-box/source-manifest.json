@@ -1,0 +1,57 @@
+{
+  "article_slug": "localbrain-local-ai-box",
+  "notion_id": "3bf99968-1bdb-8136-ac56-c46ab93ce37a",
+  "generated_at": "2026-08-30T14:43:41.981Z",
+  "assets": [
+    {
+      "kind": "cover",
+      "block_id": "3bf99968-1bdb-8136-ac56-c46ab93ce37a",
+      "file": "cover-7a52f6d721.jpg",
+      "bytes": 161006,
+      "sha256": "7a52f6d7215ca692e2f993e2926928555217660e6e3496a5537a6a3a4ec04e88"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-8113-800b-e0f61f0e3275",
+      "file": "image-01-220c74ed1a.png",
+      "bytes": 330303,
+      "sha256": "220c74ed1abcdb75f5451122e82ea54a000ddd323b696120a42261fa66b05866"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-8147-8cf6-e76e0f1d2577",
+      "file": "image-02-6920a6afa3.png",
+      "bytes": 71269,
+      "sha256": "6920a6afa3d3a2667b3b0ff4df7be57e78af3156fb488b513dbeda32eeb17333"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-81f7-9ff3-c36f937b5562",
+      "file": "image-03-704e72b27b.png",
+      "bytes": 447353,
+      "sha256": "704e72b27be245db5a3cb75d9d7a3d0c9ba7fed85fac21513a288900c3c27628"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-81e0-9a7c-e4f571f59377",
+      "file": "image-04-c19e2fc74e.png",
+      "bytes": 734221,
+      "sha256": "c19e2fc74e20ff2db11a322dd1fe373768498392d07400fd59a3fead566fde77"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-81c4-a976-ed5f423cc550",
+      "file": "image-05-f609c325d3.png",
+      "bytes": 584661,
+      "sha256": "f609c325d3f67ef0e722c3a7644bb3aa03c9da127beb9c1e7e54eee10c5c0bec"
+    },
+    {
+      "kind": "image",
+      "block_id": "3cc99968-1bdb-8103-8b18-c10fc4084072",
+      "file": "image-06-e25d5e1546.png",
+      "bytes": 458311,
+      "sha256": "e25d5e154668421e2d59283ec0ecfff79f68dfae37cd0332def8edf0029bf45e"
+    }
+  ],
+  "warnings": []
+}

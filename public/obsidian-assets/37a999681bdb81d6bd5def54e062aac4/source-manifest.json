@@ -1,0 +1,43 @@
+{
+  "article_slug": "37a999681bdb81d6bd5def54e062aac4",
+  "notion_id": "37a99968-1bdb-81d6-bd5d-ef54e062aac4",
+  "generated_at": "2026-08-30T14:41:44.413Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "37a99968-1bdb-8098-9df3-d4fdd41cbede",
+      "file": "image-01-ccdc592960.gif",
+      "bytes": 5937841,
+      "sha256": "ccdc5929603cdc04ddb11a876860d8955ad5326db3afe1f0bd8a1423260432cb"
+    },
+    {
+      "kind": "image",
+      "block_id": "37a99968-1bdb-812c-bb81-e9fadbc2cee3",
+      "file": "image-02-8dc173c9a5.png",
+      "bytes": 698619,
+      "sha256": "8dc173c9a561eb9a918becc8bc7878b5ccee78c8b93f4e991842f15363802442"
+    },
+    {
+      "kind": "image",
+      "block_id": "37a99968-1bdb-81ed-bc71-ca27479a3b9d",
+      "file": "image-03-b701612b90.png",
+      "bytes": 921678,
+      "sha256": "b701612b90538078552cf3bcd59a1cb035583a78f374b259aaeae599ccc06731"
+    },
+    {
+      "kind": "image",
+      "block_id": "37a99968-1bdb-816c-a5c3-f55dbf737da7",
+      "file": "image-04-3c28400abb.png",
+      "bytes": 916280,
+      "sha256": "3c28400abb3a976d8f5c7f09c682ef9f6774ae59be259e4275040debc71b66e4"
+    },
+    {
+      "kind": "image",
+      "block_id": "37a99968-1bdb-81ab-bde0-d9d8671df86c",
+      "file": "image-05-761618518c.png",
+      "bytes": 312442,
+      "sha256": "761618518c67e728df1cfb728b6bd2abe92c3cc5424637a1a3242d1549a96b0b"
+    }
+  ],
+  "warnings": []
+}

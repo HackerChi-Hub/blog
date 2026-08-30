@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/notion';
+import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/content';
 import { NOTION_PROPERTY_NAME } from '../lib/config';
 import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
@@ -1441,7 +1441,7 @@ export async function getStaticProps() {
         currentPage: 1,
         totalPages: Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE)),
         errorMessage:
-          allPosts.length === 0 ? '暂无文章，请检查 Notion 数据库配置。' : '',
+          allPosts.length === 0 ? '暂无文章，请检查内容库配置。' : '',
       },
     };
   } catch (error) {
@@ -1459,7 +1459,7 @@ export async function getStaticProps() {
         totalPages: 1,
         errorMessage:
           error?.message ||
-          '获取数据失败，请检查 Notion 环境变量、数据库授权或字段配置。',
+          '获取数据失败，请检查 Obsidian 内容库或 Notion 回退源配置。',
       },
     };
   }
@@ -1520,7 +1520,7 @@ export default function Home({
               {posts.length > 0 && <div className="content-search"><Search posts={posts} /></div>}
               {showEmpty ? (
                 <div className="empty-state">
-                  暂无文章，请确认 Notion 数据库已授权并正确配置 Published 字段。
+                  暂无文章，请确认内容库存在已发布文章，或 Notion 回退源配置正常。
                 </div>
               ) : (
                 <div className="feed-grid">

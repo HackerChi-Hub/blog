@@ -1,0 +1,14 @@
+enabled: true
+items:
+  - id: 32a99968-1bdb-8065-be53-fdcb66f8e7a7
+    title: 快手
+    summary: 单页不会显示在博客列表，会在导航添加一个菜单。
+    url: https://www.kuaishou.com/profile/3xtk3aea2x9a6r6
+  - id: 1e6bada8-2908-41cd-b441-bdaaf80e46a7
+    title: B站
+    summary: 单页不会显示在博客列表，会在导航添加一个菜单。
+    url: https://space.bilibili.com/1846717524
+  - id: 10822623-3e1f-4905-a6bd-f5d39d9011d6
+    title: 油管
+    summary: 单页不会显示在博客列表，会在导航添加一个菜单。
+    url: https://www.youtube.com/@hyphentech_top

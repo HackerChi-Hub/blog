@@ -1,21 +1,27 @@
 # Blog — Claude Code 项目指令
 
 ## 项目概述
-Notion 驱动的静态博客，部署在 GitHub Pages / Vercel。
+Obsidian Markdown 驱动的静态博客，部署在 GitHub Pages。私有内容库是编辑真源，公开仓库只保存 `status: published` 的发布快照。
 
 ## 技术栈
 - Next.js 14 + React 18
-- Notion API (@notionhq/client + react-notion-x)
+- Obsidian Markdown + YAML frontmatter
+- Notion API 仅作为只读迁移和紧急回滚兼容层
 - PrismJS 代码高亮
 
 ## 常用命令
 - 开发：`npm run dev`
-- 构建：`npm run build`
+- 内容校验：`npm run content:check`
+- 同步发布快照：`npm run content:sync`
+- 正式构建：`BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export npm run build`
 - 部署：`npm run deploy`
 - 备份：`npm run backup`
 
 ## 注意事项
-- Notion 数据库 ID 和 API Key 通过环境变量配置，不要硬编码
+- 不得从旧快照或 Notion 恢复用户已经手动删除的稿件
+- 草稿只留在私有 Obsidian 内容库，不得进入 `content-export/`
+- Notion 数据库 ID 和 API Key 仅用于只读迁移或回滚，必须通过环境变量配置，不要硬编码
+- 正式 CI 固定使用 `markdown-only`，不依赖 Notion 密钥
 - 构建后有 `scripts/post-build.js` 后处理步骤
 - 静态输出在 `out/` 目录
 

@@ -5,19 +5,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/post-build.js && node scripts/verify-export.js",
+    "build:markdown-test": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js",
+    "content:check": "node scripts/validate-content.js",
+    "content:check-fixture": "node scripts/validate-content.js --content-dir ./tests/fixtures/blog-content",
+    "content:inventory": "node scripts/export-notion-to-obsidian.js --inventory-only",
+    "content:migrate": "node scripts/export-notion-to-obsidian.js",
+    "content:sync": "node scripts/sync-obsidian-content.js",
     "start": "next start",
     "backup": "node scripts/backup.js",
     "deploy": "node scripts/deploy.js",
     "blog-push": "bash scripts/blog-push.sh"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
     "@notionhq/client": "^2.2.13",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^15.0.1",
+    "next": "14.2.3",
     "notion-client": "^6.16.0",
     "notion-utils": "^6.16.0",
+    "prismjs": "^1.29.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-notion-x": "^6.16.0",
-    "prismjs": "^1.29.0"
+    "yaml": "^2.9.0"
   }
 }

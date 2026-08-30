@@ -1,0 +1,36 @@
+{
+  "article_slug": "wifi-finder-vibe-coding",
+  "notion_id": "33499968-1bdb-8199-973d-e64706a6ed14",
+  "generated_at": "2026-08-30T14:44:37.938Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "33499968-1bdb-80b4-a80a-fae141ece7c5",
+      "file": "image-01-cf0f87a731.png",
+      "bytes": 235108,
+      "sha256": "cf0f87a73198e4079a8fa0c762129c3b9e4838b608e16626b198c0230ba2caf2"
+    },
+    {
+      "kind": "image",
+      "block_id": "33499968-1bdb-80e3-b371-f5aa5cc6c11b",
+      "file": "image-02-5d93d994d9.jpg",
+      "bytes": 41757,
+      "sha256": "5d93d994d907e1dd6d0e5b81032503e1fcc16a90d8b29b6473a1dabd8900d862"
+    },
+    {
+      "kind": "image",
+      "block_id": "33499968-1bdb-806c-b088-f379b878910e",
+      "file": "image-03-cc660629ac.png",
+      "bytes": 830657,
+      "sha256": "cc660629acb9249f37f5658d27c89ab33f2ed3d885d1bee4cc2e1ca5739dd744"
+    },
+    {
+      "kind": "file",
+      "block_id": "33499968-1bdb-8004-92c5-c8a61fe47342",
+      "file": "file-01-wifi-finder-68d9c86c73.html",
+      "bytes": 95590,
+      "sha256": "68d9c86c73ecbbd407cba1163e7f5e5be2ac891710287e77ff39ba455311d398"
+    }
+  ],
+  "warnings": []
+}

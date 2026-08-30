@@ -1,0 +1,6 @@
+enabled: true
+items:
+  - id: canary-menu
+    title: "内容源验收"
+    summary: "自动化测试入口"
+    url: /obsidian-content-canary/

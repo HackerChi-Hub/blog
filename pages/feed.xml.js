@@ -1,7 +1,7 @@
 // pages/feed.xml.js
 // 生成 RSS Feed
 
-import { getPosts } from '../lib/notion';
+import { getPosts } from '../lib/content';
 import { generateRSSFeed } from '../lib/rss';
 
 export default function RSSFeed({ xml }) {

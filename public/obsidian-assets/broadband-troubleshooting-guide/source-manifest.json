@@ -1,0 +1,31 @@
+{
+  "article_slug": "broadband-troubleshooting-guide",
+  "notion_id": "34f99968-1bdb-81cc-ae43-e16710c09cce",
+  "generated_at": "2026-08-30T14:44:18.746Z",
+  "assets": [
+    {
+      "kind": "cover",
+      "block_id": "34f99968-1bdb-81cc-ae43-e16710c09cce",
+      "file": "cover-d196f135bf.jpg",
+      "bytes": 285179,
+      "sha256": "d196f135bf2e092d136f01c8488e0c3a35b671880e7408374aabd44d428b811e"
+    },
+    {
+      "kind": "image",
+      "block_id": "7e6115d6-45c2-4f45-a2cb-a418c7d7ae6f",
+      "file": "network-troubleshooting-map.svg",
+      "bytes": 5297,
+      "sha256": "b971349d3d5d61181e3a46af47329d60fb3452c75280d609afe87f597a657009",
+      "migration_override": true
+    },
+    {
+      "kind": "image",
+      "block_id": "f6314ee7-f34f-4658-ad34-daf3c5cb4bf8",
+      "file": "home-wifi-placement.svg",
+      "bytes": 4956,
+      "sha256": "890892ad1967bb2433e0c10d6d24f997e0cd26fd6439eb34a38fd98c543df56a",
+      "migration_override": true
+    }
+  ],
+  "warnings": []
+}

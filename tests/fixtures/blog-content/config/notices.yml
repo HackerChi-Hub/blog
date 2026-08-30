@@ -1,0 +1,6 @@
+enabled: true
+items:
+  - id: canary-notice
+    title: "Obsidian 内容源测试公告"
+    summary: "构建夹具，不会发布到正式网站。"
+    date: 2026-08-30

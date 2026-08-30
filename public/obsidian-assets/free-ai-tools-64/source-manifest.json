@@ -1,0 +1,36 @@
+{
+  "article_slug": "free-ai-tools-64",
+  "notion_id": "34f99968-1bdb-81ce-b32a-edad72d9249c",
+  "generated_at": "2026-08-30T14:42:47.867Z",
+  "assets": [
+    {
+      "kind": "image",
+      "block_id": "afec5dc8-57e7-4221-864d-b16589574611",
+      "file": "image-01-a6fc9dda6e.jpg",
+      "bytes": 124519,
+      "sha256": "a6fc9dda6eadb04b749c0a2dd5050f216330a40b59e4835d25d6aec7f18ae8b5"
+    },
+    {
+      "kind": "image",
+      "block_id": "3a12f36a-700f-4bea-b64b-8c4fa4a61cf7",
+      "file": "image-02-127862d484.jpg",
+      "bytes": 156159,
+      "sha256": "127862d4842676965222c8e29cedba561455d5401f11c22ebb47b12fc15a0f78"
+    },
+    {
+      "kind": "image",
+      "block_id": "97a09e69-1d71-4384-90ec-1747838cd4b2",
+      "file": "image-03-c8001cae35.jpg",
+      "bytes": 83045,
+      "sha256": "c8001cae3562baa0cefebd1ea3fd158ed17c7fbb8670b6e004edab1c7e1e7ef4"
+    },
+    {
+      "kind": "image",
+      "block_id": "57a8942e-6364-4156-82ee-3680cd23e4d8",
+      "file": "image-04-5b7ffd0c0e.jpg",
+      "bytes": 61373,
+      "sha256": "5b7ffd0c0e54f1d7dded90404c26d5e6c017131a94dc4e99bb1d4c1676d57386"
+    }
+  ],
+  "warnings": []
+}

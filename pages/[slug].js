@@ -8,11 +8,12 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import http from 'http';
-import { getAllSlugs, getPostBySlug, getPosts } from '../lib/notion';
+import { getAllSlugs, getPostBySlug, getPosts } from '../lib/content';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
 import OfficialNotionContent from '../components/OfficialNotionContent';
+import MarkdownContent from '../components/MarkdownContent';
 import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
@@ -356,6 +357,7 @@ export async function getStaticProps({ params }) {
         meta: post.meta,
         recordMap,
         officialBlocks: post.officialBlocks || null,
+        markdownHtml: post.markdownHtml || null,
         relatedPosts,
       },
     };
@@ -384,16 +386,22 @@ const formatDate = (dateString) => {
   }
 };
 
-export default function PostPage({ meta, recordMap, officialBlocks = null, relatedPosts = [] }) {
+export default function PostPage({
+  meta,
+  recordMap,
+  officialBlocks = null,
+  markdownHtml = null,
+  relatedPosts = [],
+}) {
   const router = useRouter();
   const slug = router.query.slug;
   
-  if (!recordMap && !officialBlocks?.length) {
+  if (!recordMap && !officialBlocks?.length && !markdownHtml) {
     return (
       <>
         <SEO
           title={meta?.title || '文章加载失败'}
-          description="无法加载 Notion 内容，请检查服务器日志。"
+          description="无法加载文章内容，请检查构建日志。"
           url={`/${slug}/`}
           type="article"
         />
@@ -407,7 +415,7 @@ export default function PostPage({ meta, recordMap, officialBlocks = null, relat
           }}
         >
           <h1>{meta?.title || '文章加载失败'}</h1>
-          <p>无法加载 Notion 内容，请检查服务器日志。</p>
+          <p>无法加载文章内容，请检查构建日志。</p>
         </main>
       </>
     );
@@ -445,7 +453,7 @@ export default function PostPage({ meta, recordMap, officialBlocks = null, relat
   const publishedTime = meta.date ? new Date(meta.date).toISOString() : null;
   
   // 计算阅读时间
-  const readingTime = estimateReadingTime({ meta, recordMap, officialBlocks });
+  const readingTime = estimateReadingTime({ meta, recordMap, officialBlocks, markdownHtml });
   const readingTimeText = formatReadingTime(readingTime);
 
   return (
@@ -660,7 +668,9 @@ export default function PostPage({ meta, recordMap, officialBlocks = null, relat
         )}
 
         <section className="notion">
-          {officialBlocks?.length ? (
+          {markdownHtml ? (
+            <MarkdownContent html={markdownHtml} />
+          ) : officialBlocks?.length ? (
             <OfficialNotionContent
               blocks={officialBlocks}
               hiddenBlockId={meta.coverBlockId}

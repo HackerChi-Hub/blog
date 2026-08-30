@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">家庭路由器摆放示意图</title>
+  <desc id="desc">路由器放在房屋中心并远离金属和水源的示意图</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08151b"/>
+      <stop offset="1" stop-color="#12333a"/>
+    </linearGradient>
+    <radialGradient id="signal" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#69f0ae" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#69f0ae" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <text x="105" y="115" fill="#fff" font-size="62" font-weight="700" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">WiFi 满格却很卡？先看摆放位置</text>
+  <text x="108" y="168" fill="#a9c8cf" font-size="28" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">中心、高处、无遮挡，比盲目更换路由器更有效</text>
+
+  <g transform="translate(105 235)" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">
+    <rect width="930" height="555" rx="30" fill="#0d2027" stroke="#3d6972" stroke-width="4"/>
+    <path d="M320 0v230H0M320 230h310V0M630 230h300M0 410h420V230M420 230v325M690 230v325" fill="none" stroke="#365963" stroke-width="9"/>
+    <text x="155" y="115" text-anchor="middle" fill="#87aab2" font-size="27">卧室</text>
+    <text x="475" y="115" text-anchor="middle" fill="#87aab2" font-size="27">书房</text>
+    <text x="785" y="115" text-anchor="middle" fill="#87aab2" font-size="27">厨房</text>
+    <text x="205" y="500" text-anchor="middle" fill="#87aab2" font-size="27">客厅</text>
+    <text x="555" y="500" text-anchor="middle" fill="#87aab2" font-size="27">走廊</text>
+    <text x="810" y="500" text-anchor="middle" fill="#87aab2" font-size="27">次卧</text>
+
+    <circle cx="470" cy="310" r="275" fill="url(#signal)"/>
+    <circle cx="470" cy="310" r="210" fill="none" stroke="#69f0ae" stroke-opacity=".28" stroke-width="4"/>
+    <circle cx="470" cy="310" r="140" fill="none" stroke="#69f0ae" stroke-opacity=".55" stroke-width="5"/>
+    <circle cx="470" cy="310" r="72" fill="#103c36" stroke="#69f0ae" stroke-width="5"/>
+    <rect x="420" y="305" width="100" height="36" rx="9" fill="#1d5a55" stroke="#a6ffe0" stroke-width="3"/>
+    <path d="M438 305l-13-40M502 305l13-40" stroke="#a6ffe0" stroke-width="5" stroke-linecap="round"/>
+    <path d="M447 290c12-12 34-12 46 0M458 277c6-6 18-6 24 0" fill="none" stroke="#69f0ae" stroke-width="5" stroke-linecap="round"/>
+    <text x="470" y="405" text-anchor="middle" fill="#fff" font-size="30" font-weight="700">推荐位置</text>
+    <text x="470" y="442" text-anchor="middle" fill="#69f0ae" font-size="24">房屋中心 · 离地 1–1.5 米</text>
+
+    <g transform="translate(742 282)">
+      <rect width="95" height="120" rx="12" fill="#593139" stroke="#ff7b8d" stroke-width="4"/>
+      <path d="M18 48h59M18 73h59" stroke="#ff9daa" stroke-width="5"/>
+      <text x="48" y="150" text-anchor="middle" fill="#ff9daa" font-size="22">金属柜</text>
+      <path d="M-20 -18l135 180" stroke="#ff5d73" stroke-width="9"/>
+    </g>
+    <g transform="translate(78 270)">
+      <path d="M48 0c30 40 48 65 48 93a48 48 0 11-96 0C0 65 18 40 48 0z" fill="#24678a" stroke="#79d6ff" stroke-width="4"/>
+      <text x="48" y="150" text-anchor="middle" fill="#8edcff" font-size="22">鱼缸 / 水源</text>
+      <path d="M-15 -18l128 180" stroke="#ff5d73" stroke-width="9"/>
+    </g>
+  </g>
+
+  <g transform="translate(1100 270)" font-family="system-ui,-apple-system,'PingFang SC',sans-serif">
+    <rect width="390" height="470" rx="28" fill="#0c1e24" stroke="#365963" stroke-width="3"/>
+    <text x="48" y="75" fill="#fff" font-size="34" font-weight="700">摆放四原则</text>
+    <g font-size="27" fill="#d9eef1">
+      <circle cx="55" cy="140" r="18" fill="#173d37" stroke="#69f0ae" stroke-width="3"/><text x="55" y="149" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">1</text><text x="92" y="150">尽量靠近房屋中心</text>
+      <circle cx="55" cy="220" r="18" fill="#173d37" stroke="#69f0ae" stroke-width="3"/><text x="55" y="229" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">2</text><text x="92" y="230">离地约一到一点五米</text>
+      <circle cx="55" cy="300" r="18" fill="#173d37" stroke="#69f0ae" stroke-width="3"/><text x="55" y="309" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">3</text><text x="92" y="310">远离金属、电器和水</text>
+      <circle cx="55" cy="380" r="18" fill="#173d37" stroke="#69f0ae" stroke-width="3"/><text x="55" y="389" text-anchor="middle" fill="#69f0ae" font-size="22" font-weight="700">4</text><text x="92" y="390">少穿混凝土承重墙</text>
+    </g>
+  </g>
+</svg>
