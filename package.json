@@ -15,9 +15,8 @@
     "test:content": "node scripts/test-content-pipeline.js",
     "start": "python3 -m http.server 4173 --directory out",
     "backup": "node scripts/backup.js",
-    "deploy": "bash scripts/blog-push.sh",
-    "publish": "bash scripts/blog-push.sh",
-    "blog-push": "bash scripts/blog-push.sh"
+    "deploy": "scripts/blog-publish",
+    "publish": "scripts/blog-publish"
   },
   "dependencies": {
     "@notionhq/client": "^5.26.0",
