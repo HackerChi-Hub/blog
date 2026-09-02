@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/content';
 import { NOTION_PROPERTY_NAME } from '../lib/config';
 import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
+import ContainedCover from '../components/ContainedCover';
 
 const PAGE_SIZE = 21;
 const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
@@ -70,7 +70,7 @@ const PRODUCT_DEFINITIONS = [
     description: '把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。',
     badge: '我做的 · 本地部署',
     facts: ['本地运行', 'macOS', '持续更新'],
-    action: '查看产品、下载与实测',
+    action: '查看产品与下载',
   },
   {
     slug: 'hyphenbox-free-api-radar',
@@ -79,7 +79,7 @@ const PRODUCT_DEFINITIONS = [
     description: '收录 98 家免费大模型 API，实测可用性；Key 只存本机，auto 按额度自动挑模型。',
     badge: '我做的 · 预览版',
     facts: ['初步构建', 'macOS', '免费下载'],
-    action: '查看介绍与下载',
+    action: '查看产品与下载',
   },
   {
     slug: 'hyphencut-local-video-editor',
@@ -88,7 +88,7 @@ const PRODUCT_DEFINITIONS = [
     description: '用 Rust 重写的专业视频剪辑：达芬奇键位、207 条命令、AI 助理改真实工程，45 MB 本地运行。',
     badge: '我做的 · 预览版',
     facts: ['初步构建', 'macOS', '免费下载'],
-    action: '查看介绍与下载',
+    action: '查看产品与下载',
   },
   {
     slug: 'screenlex-watch-and-learn',
@@ -97,7 +97,7 @@ const PRODUCT_DEFINITIONS = [
     description: '把本地电影与剧集字幕变成可复习的英语词库，全程离线。',
     badge: '我做的 · 本地工具',
     facts: ['本地运行', '离线使用', '持续更新'],
-    action: '查看产品、下载与实测',
+    action: '查看产品与下载',
   },
 ];
 
@@ -595,38 +595,30 @@ const feedStyles = `
 .featured-stack { display: grid; gap: 1rem; }
 .featured-card {
   position: relative;
-  min-height: 248px;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid var(--home-border);
   background: #0a1220;
   box-shadow: 0 24px 60px rgba(0,0,0,.32);
 }
-.featured-card--primary { min-height: 510px; }
-.featured-card__cover { position: absolute; inset: 0; }
-.featured-card__cover img { width: 100%; height: 100%; object-fit: cover; border: 0; border-radius: 0; }
-.featured-card__cover::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(3,6,11,.08), rgba(3,6,11,.22)),
-    linear-gradient(180deg, transparent 46%, rgba(3,6,11,.5) 100%);
+.featured-card > a { display: flex; flex-direction: column; height: 100%; }
+.featured-card__cover {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 2.35 / 1;
+  overflow: hidden;
+  background: #09131f;
 }
 .featured-card__body {
-  position: absolute;
-  inset: auto .75rem .75rem;
+  position: relative;
   z-index: 1;
+  flex: 1;
   padding: clamp(1rem, 2.5vw, 1.75rem);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px;
-  background: linear-gradient(145deg, rgba(4,8,15,.97), rgba(7,15,25,.94));
+  border-top: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(145deg, rgba(5,10,18,.99), rgba(7,17,28,.97));
   box-shadow:
-    0 16px 36px rgba(0,0,0,.48),
     inset 0 1px 0 rgba(255,255,255,.06);
-  -webkit-backdrop-filter: blur(16px) saturate(.72);
-  backdrop-filter: blur(16px) saturate(.72);
 }
 .featured-card__meta {
   display: inline-flex;
@@ -682,11 +674,19 @@ const feedStyles = `
   outline: 3px solid var(--home-yellow);
   outline-offset: 2px;
 }
-.product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 1rem;
+}
 .product-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 420px;
   padding: clamp(1.5rem, 3.5vw, 2.4rem);
   border-radius: 26px;
   border: 1px solid rgba(92,225,223,.18);
@@ -704,11 +704,58 @@ const feedStyles = `
   background: rgba(92,225,223,.09);
   filter: blur(2px);
 }
-.product-card__badge { color: var(--home-yellow); font-size: .78rem; letter-spacing: .08em; }
-.product-card h3 { margin: 1.3rem 0 .15rem; color: #fff; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.04em; }
-.product-card h4 { margin: 0 0 1rem; color: var(--home-cyan); font-size: 1rem; font-weight: 650; }
-.product-card p { max-width: 520px; margin: 0 0 1rem; color: rgba(220,233,246,.76); }
-.product-card__facts { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.35rem; }
+.product-card__badge {
+  position: relative;
+  z-index: 1;
+  min-height: 1.25rem;
+  color: var(--home-yellow);
+  font-size: .78rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+}
+.product-card__name {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: 2.35em;
+  max-width: 92%;
+  margin: 1.15rem 0 .25rem;
+  color: #fff;
+  font-size: clamp(1.9rem, 3.15vw, 2.65rem);
+  font-weight: 820;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.product-card__label {
+  position: relative;
+  z-index: 1;
+  min-height: 1.5em;
+  margin: 0 0 .9rem;
+  color: var(--home-cyan);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.product-card__description {
+  position: relative;
+  z-index: 1;
+  min-height: 4.8em;
+  max-width: 560px;
+  margin: 0 0 1rem;
+  color: rgba(220,233,246,.76);
+  line-height: 1.6;
+}
+.product-card__facts {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: 2rem;
+  gap: .45rem;
+  margin-bottom: 1.35rem;
+}
 .product-card__facts span {
   padding: .32rem .64rem;
   border-radius: 999px;
@@ -731,7 +778,21 @@ const feedStyles = `
   font-weight: 750;
 }
 .product-card__link:hover { border-color: rgba(255,211,77,.58); color: var(--home-yellow); }
-.product-card__date { margin-top: .9rem; color: rgba(255,255,255,.48); font-size: .8rem; }
+.product-card__footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+}
+.product-card__date {
+  margin: 0 0 .15rem;
+  color: rgba(255,255,255,.48);
+  font-size: .76rem;
+  white-space: nowrap;
+}
 .lab-section {
   padding: clamp(1.4rem, 4vw, 2.8rem);
   border: 1px solid var(--home-border);
@@ -796,23 +857,11 @@ const feedStyles = `
 }
 .post-cover {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2.35 / 1;
   background: rgba(9, 14, 28, 0.72);
   overflow: hidden;
 }
-.post-cover img {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  border: 0;
-  padding: 0;
-  object-fit: cover;
-}
 .cover-visual { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0a1220; }
-.cover-visual > img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
 .cover-fallback {
   position: absolute;
   inset: 0;
@@ -882,7 +931,6 @@ const feedStyles = `
   .brand-orbit { max-width: 250px; }
   .media-section { grid-template-columns: 1fr; }
   .featured-grid { grid-template-columns: 1fr; }
-  .featured-card--primary { min-height: 430px; }
   .featured-stack { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .product-grid { grid-template-columns: 1fr; }
   .lab-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -907,11 +955,14 @@ const feedStyles = `
   .hero-actions { display: grid; grid-template-columns: 1fr; }
   .section-head { display: block; }
   .section-head p { margin-top: .7rem; }
-  .featured-card--primary { min-height: 400px; }
   .featured-stack { grid-template-columns: 1fr; }
-  .featured-card { min-height: 280px; }
   .featured-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .product-card { min-height: 280px; padding: 1.35rem; }
+  .product-card { min-height: 390px; padding: 1.35rem; }
+  .product-card__name { min-height: auto; font-size: 1.7rem; }
+  .product-card__description { min-height: auto; }
+  .product-card__footer { align-items: stretch; flex-direction: column; gap: .75rem; }
+  .product-card__link { justify-content: center; width: 100%; }
+  .product-card__date { order: -1; }
   .lab-grid { grid-template-columns: 1fr; }
   .lab-section > .lab-grid { grid-template-columns: 1fr; }
   .feed-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1051,19 +1102,7 @@ const CoverVisual = ({ cover, title, label = '黑粉科技 · 实测记录' }) =
         <span>{label}</span>
         <strong>{truncateText(title, 40)}</strong>
       </div>
-      {src && (
-        <Image
-          src={src}
-          alt=""
-          width={1000}
-          height={563}
-          loading="lazy"
-          unoptimized
-          onError={(event) => {
-            event.currentTarget.style.display = 'none';
-          }}
-        />
-      )}
+      {src && <ContainedCover src={src} alt={title} />}
     </div>
   );
 };
@@ -1349,16 +1388,18 @@ const ProductSection = ({ posts = [] }) => (
         return (
           <article className="product-card" key={product.slug}>
             <div className="product-card__badge">{product.badge}</div>
-            <h3>{product.name}</h3>
-            <h4>{product.label}</h4>
-            <p>{product.description}</p>
+            <h3 className="product-card__name">{product.name}</h3>
+            <h4 className="product-card__label">{product.label}</h4>
+            <p className="product-card__description">{product.description}</p>
             <div className="product-card__facts" aria-label={`${product.name} 产品特性`}>
               {product.facts.map((fact) => <span key={fact}>{fact}</span>)}
             </div>
-            <a className="product-card__link" href={`/${product.slug}/`}>
-              {product.action} →
-            </a>
-            {article?.date && <div className="product-card__date">最近更新：{formatDate(article.date)}</div>}
+            <div className="product-card__footer">
+              <a className="product-card__link" href={`/${product.slug}/`}>
+                {product.action} →
+              </a>
+              {article?.date && <div className="product-card__date">更新于 {formatDate(article.date)}</div>}
+            </div>
           </article>
         );
       })}

@@ -726,6 +726,86 @@ img:hover {
   border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+/* 封面：柔化背景负责铺满，前景负责完整显示，任何比例都不裁内容。 */
+.contained-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #08131f;
+}
+
+.contained-cover__backdrop {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  display: block;
+  width: 116%;
+  height: 116%;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: cover;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0.36;
+  filter: blur(20px) saturate(0.78) brightness(0.62);
+  transform: scale(1.04);
+  transition: none;
+}
+
+.contained-cover__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+
+.article-cover {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+  border-radius: 40px 40px 0 0;
+  background: #08131f;
+}
+
+.contained-cover__natural {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: contain;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+
+.contained-cover__backdrop:hover {
+  border-color: transparent;
+  box-shadow: none;
+  transform: scale(1.04);
+}
+
+.contained-cover__image:hover,
+.contained-cover__natural:hover {
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
 /* 浮动动画 */
 .floating {
   animation: gentleFloat 6s ease-in-out infinite;
@@ -780,5 +860,8 @@ img:hover {
   }
   img {
     border-radius: 18px;
+  }
+  .article-cover {
+    border-radius: 22px 22px 0 0;
   }
 }

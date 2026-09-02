@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Component } from 'react';
 import fs from 'fs';
@@ -14,6 +13,7 @@ import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
 import OfficialNotionContent from '../components/OfficialNotionContent';
 import MarkdownContent from '../components/MarkdownContent';
+import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
@@ -471,32 +471,10 @@ export default function PostPage({
       />
 
       <main className="page">
-        {/* 封面图（使用文章中的第一张图片） */}
+        {/* 按图片自然比例完整展示封面，不再强制裁成 16:9。 */}
         {meta.image && (
-          <div
-            style={{
-              width: '100%',
-              borderRadius: '40px 40px 0 0',
-              overflow: 'hidden',
-              lineHeight: 0,
-              border: '1px solid var(--border-color)',
-              borderBottom: 'none',
-            }}
-          >
-            <Image
-              src={meta.image}
-              alt={meta.title}
-              width={1600}
-              height={900}
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                aspectRatio: '16 / 9',
-              }}
-              priority
-              unoptimized
-            />
+          <div className="article-cover">
+            <ContainedCover src={meta.image} alt={meta.title} priority natural />
           </div>
         )}
 
