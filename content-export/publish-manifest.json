@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "da8a09b98b2dd0b7633199c870bb513eec0d988315a451886f9a1e9de1417388",
+  "content_sha256": "31a950d4517765209f0dbe1bb8df0ad7281bc12ad1efa3cbfc426fdda749adc6",
   "published_post_count": 36,
   "posts": [
     {
@@ -128,7 +128,7 @@
       "slug": "deepseek-v4-vision-mac64",
       "legacy_paths": [],
       "notion_id": "",
-      "sha256": "9c63d3991035456d22af76a34e2014d2b5278bbac83333fa49bc483fd377ed00"
+      "sha256": "d401658411dac1d2ae66f11b350c99ed3a508d3a1b88bb9f7402b2517146d567"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
@@ -233,7 +233,7 @@
       "slug": "qwen38-flash-next-atomic-m64-localbrain",
       "legacy_paths": [],
       "notion_id": "",
-      "sha256": "fa1396fd61c89031121e4dcb4e251da81cadc35b2c8f099b131506740777ef8c"
+      "sha256": "ed09f32ff284aef1c68c1c709ee703b182fc187ef12bd0c6e21b8cb94f27758c"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",

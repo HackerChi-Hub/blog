@@ -10,7 +10,7 @@ categories:
 tags:
   - AI
   - 热点速递
-cover: https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/cover-0829cd3f52.jpg
+cover: /obsidian-assets/deepseek-v4-vision-mac64/cover-0829cd3f52.jpg
 legacy_paths: []
 notion_id: ""
 ---
@@ -25,7 +25,7 @@ DeepSeek-V4-Flash-Vision-Exp 的权重开放后，最容易被标题带偏的词
 
 官方给出的三个案例不是拍照问答，而是做旅游PPT、重做网站、生成3D前端。**模型先读懂现有画面，再继续写代码、调工具、修改结果。**
 
-![模型先读懂现有画面：官方模型页标注305B参数、MIT许可与图文到文本](https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/image-official-hf-cfc639c8d3.png)
+![模型先读懂现有画面：官方模型页标注305B参数、MIT许可与图文到文本](/obsidian-assets/deepseek-v4-vision-mac64/image-official-hf-cfc639c8d3.jpg)
 
 这才是它真正想补的那块拼图。文本模型能写计划，却看不见浏览器最后渲染成什么样；能生成代码，却不知道按钮有没有溢出、图表有没有画错。视觉进入Agent循环以后，模型才有机会完成“观察—判断—行动—再观察”。**会看图只是能力表面，看见界面后继续把事做完，才是潜力。**
 
@@ -39,7 +39,7 @@ DeepSeek-V4-Flash-Vision-Exp 的权重开放后，最容易被标题带偏的词
 
 Toolathlon 从70.3升到75.9，与 Opus 的76.2几乎贴住。**纯文本任务没有突然换代，多模态参与越深，视觉版越能显出价值。**
 
-![纯文本任务没有突然换代：官方成绩原表显示视觉参与越深，提升越明显](https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/image-official-api-4bfb0e67e8.png)
+![纯文本任务没有突然换代：官方成绩原表显示视觉参与越深，提升越明显](/obsidian-assets/deepseek-v4-vision-mac64/image-official-api-4bfb0e67e8.jpg)
 
 | Agent任务 | Vision Exp | 文本Flash | Opus 4.8 | 怎么看 |
 | --- | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Toolathlon 从70.3升到75.9，与 Opus 的76.2几乎贴住。**纯文本任务�
 
 ApexBench 和 Agents' Last Exam 里，文本 Flash 还会直接忽略多模态内容。它证明“有眼睛比闭眼做题强”，却不能单独证明视觉版已经在所有真实工作流里胜出。
 
-![真实工作流能否胜出，还要看视觉进入V4 MoE后的完整Agent流程；配置数据重绘](https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/image-architecture-9634b49c50.png)
+![真实工作流能否胜出，还要看视觉进入V4 MoE后的完整Agent流程；配置数据重绘](/obsidian-assets/deepseek-v4-vision-mac64/image-architecture-9634b49c50.png)
 
 配置文件把方向写得更直白：总计约305B参数，43层文本主干，256个路由专家，每个token激活6个，另有1个共享专家；视觉编码器是32层、1024维、16个头，单图最多压成384个视觉tokens。**1,048,576的最大位置长度，给长流程和大量工具记录留出了空间。**
 
@@ -81,7 +81,7 @@ ApexBench 和 Agents' Last Exam 里，文本 Flash 还会直接忽略多模态�
 
 官方参考部署是一台4×GB300节点，配Tensor Parallel 4、FP8 KV cache和DSpark。**官方首先保证的是服务器路线，不是Apple Silicon。**
 
-![服务器路线之外，最新最小视觉组合约67.8GiB，已经超过整机64GB](https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/image-local-wall-634a98974c.png)
+![服务器路线之外，最新最小视觉组合约67.8GiB，已经超过整机64GB](/obsidian-assets/deepseek-v4-vision-mac64/image-local-wall-634a98974c.png)
 
 再看社区量化。截至今天，带完整视觉塔的最小档是IQ1_M：权重66.9GiB，视觉塔约890MiB，合起来约67.8GiB。它已经超过64GB物理内存；而Mac的统一内存还要同时给macOS、常驻软件、KV cache和计算缓冲区。**把文件名里的“1”看成一张64GB通行证，是最危险的误判。**
 
@@ -124,17 +124,19 @@ MLX目前也没有捷径。截至截稿，mlx-community能找到多个V4 Flash�
 > DeepSeek-V4-Flash-Vision-Exp 的真正潜力，是让Agent看懂网页、软件界面和图表后继续调用工具。305B参数、256专家和1M上下文为这条路线提供了容量，但也把本地门槛抬高：官方原始权重约167.82GB，最新最小视觉GGUF约67.8GiB，已经超过64GB整机内存。今天最合理的组合，是大模型视觉走在线API，隐私与高频任务留给能稳定常驻的本地小模型。
 
 > [!tip]
-> **关于我**
+> **我目前的4款自制软件**
 > 
-> 黑粉科技 · 只做三件事：本地部署、免费白嫖、自制软件。
-> 官网 https://hyphentech.top
-> 
-> **我自己做的东西**
-> 
-> · **ScreenLex 光影词库**——看美剧顺手把生词背了，Mac/Windows 双平台，免费
->   https://github.com/HackerChi-Hub/screenlex-download/releases
-> · **方寸智匣 LocalBrain**——本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+> · **黑粉剪辑 HyphenCut**（正式迭代）——Rust 重写的本地专业视频剪辑：达芬奇键位、AI 助理改真实工程，免费
+>   https://github.com/HackerChi-Hub/HyphenCut-Releases/releases
+> · **黑粉盒子 HyphenBox**（初步构建 · 预览版）——免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+>   https://github.com/HackerChi-Hub/hyphenbox-release/releases
+> · **方寸智匣 LocalBrain**（正式迭代）——本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >   https://github.com/HackerChi-Hub/localbrain-releases/releases
+> · **ScreenLex 光影词库**（正式迭代）——看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>   https://github.com/HackerChi-Hub/screenlex-download/releases
+> 
+> **黑粉科技** · 本地部署 / 免费白嫖 / 自制软件
+> https://hyphentech.top
 
 > [!tip]
 > **黑粉科技** · 本地AI / 白嫖指南 / 我做的工具 / 新品速递

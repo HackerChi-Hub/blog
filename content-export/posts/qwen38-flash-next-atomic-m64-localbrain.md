@@ -29,7 +29,7 @@ notion_id: ""
 
 这篇文章讲清三件事：这个模型强在哪里；85GB 文件为什么能塞进 64GB Mac；以及为什么我更建议用 LocalBrain 管理这种越来越复杂的本地模型。
 
-![Qwen3.8 Flash Next 在 Mac 上本地运行的概念封面](../preview-assets/qwen38-flash-next-atomic-m64-localbrain/cover-2.35x1.jpg)
+![Qwen3.8 Flash Next 在 Mac 上本地运行的概念封面](/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/cover-2.35x1.jpg)
 
 ## 它不是普通的“125B 大模型”
 
@@ -46,7 +46,7 @@ notion_id: ""
 
 官方公布的原始模型成绩很亮眼：GPQA Diamond 91.7、LiveCodeBench v6 91.9、SWE-bench Pro 62.5、SWE-bench Multilingual 81.0、Toolathlon Verified 73.5；视觉侧的 RealWorldQA 是 88.5，MathVision 在官方两种评测设置下是 90.6 / 95.7。
 
-![Qwen3.8 Flash Next 官方评测数据图：涵盖科学推理、编程、代码智能体、工具调用、指令遵循、移动端操作和视觉理解](../preview-assets/qwen38-flash-next-atomic-m64-localbrain/qwen38-official-benchmarks.png)
+![Qwen3.8 Flash Next 官方评测数据图：涵盖科学推理、编程、代码智能体、工具调用、指令遵循、移动端操作和视觉理解](/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/qwen38-official-benchmarks.png)
 
 但这些数字必须加一句粗体说明：**它们是 Qwen 公布的原始模型参考成绩，不是我这份 3.84bpw 量化在 Mac 上重新跑出的分数。**量化会带来损失，运行框架、提示模板、上下文和采样参数也会改变结果。把厂商跑分直接写成本机成绩，是最容易制造误导的一步。
 
@@ -71,7 +71,7 @@ Atomic 的做法不是传统意义上的“把算不动的层扔到硬盘”。�
 
 这就是 M64 后缀真正有价值的地方。
 
-![Atomic M64 内存与 SSD 分流示意图：84.9GB 模型中约 45.8GB 进入统一内存，约 39.1GB n-gram 查找表留在 SSD](../preview-assets/qwen38-flash-next-atomic-m64-localbrain/m64-memory-flow.png)
+![Atomic M64 内存与 SSD 分流示意图：84.9GB 模型中约 45.8GB 进入统一内存，约 39.1GB n-gram 查找表留在 SSD](/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/m64-memory-flow.png)
 
 | Atomic 量化 | 常驻内存 | 留在 SSD | 总体积 | Mean KLD | 同 Top-1 | PPL 比值 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -114,11 +114,11 @@ LocalBrain 的价值不只是提供一个聊天窗口。它更像是 Mac 上的*
 
 历史上，本地模型管理器大多围绕“一个模型文件、一个后端、一个聊天窗口”设计。多模态模型、分片 GGUF、思考模式和工具调用叠到一起之后，继续让用户手工维护每条启动命令，只会把部署成本从硬件转移到排错时间。LocalBrain 之所以要把模型、运行时和本地工具放在一起，动机就在这里：它争的是本地能力的统一入口，而不只是又做一个聊天客户端。
 
-![LocalBrain 的模型发现与下载界面](../preview-assets/qwen38-flash-next-atomic-m64-localbrain/localbrain-model-discovery.png)
+![LocalBrain 的模型发现与下载界面](/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/localbrain-model-discovery.png)
 
 这次 Qwen3.8 Flash Next 的实测，把这种管理层的价值放大了。对于特殊分片模型，软件需要知道“文件总大小”和“真正会常驻内存的大小”不是同一个数字；对于思考模型，软件还要知道开关背后应该联动一组采样参数；对于多模态模型，它还要把主模型和 `mmproj` 视为一个完整交付物。
 
-![LocalBrain 的本地对话界面](../preview-assets/qwen38-flash-next-atomic-m64-localbrain/localbrain-chat-interface.png)
+![LocalBrain 的本地对话界面](/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/localbrain-chat-interface.png)
 
 LocalBrain 目前仍在快速迭代。我这次没有盲信自动值，而是为这个特殊 M64 量化固定了 32K 上下文、单并发、512 batch、mmap、lazy load 和 `fit off`。这套实测结果会继续反哺它的自动参数逻辑。我的目标不是让用户背下这些参数，而是让以后加入的语言模型尽可能做到：识别结构、估算常驻内存、给出安全上下文，然后直接运行。
 
