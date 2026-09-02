@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DeepSeek 视觉模型 Mac 内存计算器｜黑粉科技</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07121d;--card:#0d2233;--line:#23465f;--cyan:#55d9ff;--amber:#ffc35b;--text:#edf7ff;--muted:#9db5c5}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% 0,#12334b 0,var(--bg) 46%);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+    main{width:min(920px,92vw);margin:42px auto 72px}.tag{color:var(--cyan);letter-spacing:.18em;font-weight:800}h1{font-size:clamp(30px,6vw,58px);line-height:1.08;margin:.25em 0}.lead{color:var(--muted);max-width:760px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:30px 0}.field{background:var(--card);border:1px solid var(--line);padding:18px;border-radius:18px}.field label{display:block;color:var(--muted);margin-bottom:8px}.field input{width:100%;border:1px solid #35627e;background:#06111b;color:#fff;border-radius:12px;padding:12px 14px;font-size:24px;font-weight:800}
+    .result{border:1px solid var(--line);background:linear-gradient(135deg,#0c2739,#111d29);padding:26px;border-radius:22px}.number{font-size:clamp(42px,8vw,76px);font-weight:950;color:var(--amber);line-height:1}.verdict{font-size:26px;font-weight:900;margin:.5em 0}.bar{height:22px;border-radius:999px;background:#07121d;overflow:hidden;border:1px solid #28495f}.bar span{display:block;height:100%;background:linear-gradient(90deg,#3476ff,#55d9ff,#ffc35b);width:0;transition:.2s}
+    .note{color:var(--muted);font-size:14px;margin-top:18px}.sources{margin-top:30px;padding:22px;border-left:4px solid var(--cyan);background:#0a1b29}.sources a{color:var(--cyan)}
+    @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="tag">黑粉科技 · 离线单文件工具</div>
+  <h1>Mac 内存够不够？<br>先把账算明白</h1>
+  <p class="lead">这不是跑分工具，只计算“能否全量常驻”的第一道物理门槛。默认值对应 DeepSeek-V4-Flash-Vision-Exp 当前最小视觉 GGUF。</p>
+  <section class="grid">
+    <div class="field"><label>整机统一内存 / GiB</label><input id="ram" type="number" min="8" step="1" value="64"></div>
+    <div class="field"><label>系统与常驻软件预留 / GiB</label><input id="system" type="number" min="2" step="1" value="8"></div>
+    <div class="field"><label>模型权重 / GiB</label><input id="weights" type="number" min="1" step="0.1" value="66.9"></div>
+    <div class="field"><label>视觉塔 / GiB</label><input id="vision" type="number" min="0" step="0.01" value="0.87"></div>
+    <div class="field"><label>KV 与计算缓存估算 / GiB</label><input id="cache" type="number" min="1" step="1" value="4"></div>
+    <div class="field"><label>安全余量 / GiB</label><input id="margin" type="number" min="0" step="1" value="2"></div>
+  </section>
+  <section class="result">
+    <div>预计总需求</div><div class="number"><span id="need">81.8</span> GiB</div>
+    <div class="verdict" id="verdict">64GB：不适合全量常驻</div>
+    <div class="bar"><span id="fill"></span></div>
+    <p id="detail"></p>
+  </section>
+  <p class="note">口径：GiB 按 1024³ bytes。mmap、CPU MoE、磁盘换页可能让“超过内存”的模型启动，但不等于速度、稳定性和视觉路径可用于生产。完整 1M 上下文的缓存远高于默认 4GiB。</p>
+  <section class="sources"><strong>数据来源</strong><br>DeepSeek 官方模型仓与 config.json；prometheusAIR 视觉 GGUF 说明。当前默认量化为 IQ1_M 66.9GiB，视觉塔约 890MiB。工具不联网，保存后可直接双击使用。</section>
+</main>
+<script>
+  const ids=['ram','system','weights','vision','cache','margin'];
+  function calc(){
+    const v=Object.fromEntries(ids.map(id=>[id,Number(document.getElementById(id).value)||0]));
+    const need=v.system+v.weights+v.vision+v.cache+v.margin, gap=v.ram-need;
+    document.getElementById('need').textContent=need.toFixed(1);
+    document.getElementById('fill').style.width=Math.min(100,need/Math.max(1,v.ram)*100)+'%';
+    const ok=gap>=0, tight=gap>=0&&gap<8;
+    document.getElementById('verdict').textContent=ok?(tight?'能装下，但余量很紧':'容量上可行，仍需检查运行时'):`还差 ${Math.abs(gap).toFixed(1)} GiB`;
+    document.getElementById('detail').textContent=ok?`剩余约 ${gap.toFixed(1)} GiB；下一步再核对框架兼容、量化质量与真实速度。`:`权重、视觉塔和运行开销无法同时全量常驻；mmap 只会把问题转成磁盘等待。`;
+  }
+  ids.forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+</script>
+</body>
+</html>

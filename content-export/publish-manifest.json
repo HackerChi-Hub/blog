@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "57e4e90b9ff007de487c8be63603fce88a865af064ce71c664f7745d01048ce2",
-  "published_post_count": 34,
+  "content_sha256": "6249cc436ca884d9e350f61873e7fdb14a75aec8b065044f1dbcda1c893bf0bc",
+  "published_post_count": 35,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -122,6 +122,13 @@
       "legacy_paths": [],
       "notion_id": "34f99968-1bdb-81cc-ae43-e16710c09cce",
       "sha256": "7ecc9558cd4003424f60d11ba2de12958d5dd1390e3bc6bd6e883013b44fe377"
+    },
+    {
+      "file": "posts/deepseek-v4-vision-mac64.md",
+      "slug": "deepseek-v4-vision-mac64",
+      "legacy_paths": [],
+      "notion_id": "",
+      "sha256": "9c63d3991035456d22af76a34e2014d2b5278bbac83333fa49bc483fd377ed00"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
