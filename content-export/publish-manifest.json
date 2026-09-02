@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "31a950d4517765209f0dbe1bb8df0ad7281bc12ad1efa3cbfc426fdda749adc6",
-  "published_post_count": 36,
+  "content_sha256": "ac2509ab91c8d156b7823ff60decbeed347c348099f531a40c2204a31aa0f284",
+  "published_post_count": 37,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -129,6 +129,13 @@
       "legacy_paths": [],
       "notion_id": "",
       "sha256": "d401658411dac1d2ae66f11b350c99ed3a508d3a1b88bb9f7402b2517146d567"
+    },
+    {
+      "file": "posts/fable-5-1-mythos-update.md",
+      "slug": "fable-5-1-mythos-update",
+      "legacy_paths": [],
+      "notion_id": "",
+      "sha256": "d895f67b7d0d2fe30a48dd36c16f7ace6b30cde60a67611965b4122a6478797c"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
