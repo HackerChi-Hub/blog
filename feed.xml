@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Sep 2026 05:07:45 GMT</lastBuildDate>
-    <pubDate>Wed, 02 Sep 2026 05:07:45 GMT</pubDate>
+    <lastBuildDate>Wed, 02 Sep 2026 05:09:33 GMT</lastBuildDate>
+    <pubDate>Wed, 02 Sep 2026 05:09:33 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -15,6 +15,16 @@
       <link>https://hyphentech.top/deepseek-v4-vision-mac64/</link>
       <guid isPermaLink="true">https://hyphentech.top/deepseek-v4-vision-mac64/</guid>
       <description>DeepSeek把视觉变成Agent的感知入口，并开放305B权重。最新最小视觉GGUF仍约67.8GiB：64GB Mac今天不适合稳定部署。本文按官方资料与文件实算，不做本机运行冒充。</description>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>Fable 5.1没降价，为何还能省45%？</title>
+      <link>https://hyphentech.top/fable-5-1-mythos-update/</link>
+      <guid isPermaLink="true">https://hyphentech.top/fable-5-1-mythos-update/</guid>
+      <description>Fable 5.1 与 Mythos 5.1 是同一个底层模型，却被拆成大众版和可信访问版。基础单价没降，缓存读取却便宜75%；真正改变的是长时程Agent的任务经济性、安全边界与接入方式。</description>
       <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
@@ -213,17 +223,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>五维实测全记录！QoderWork综合能力评测：91分是什么水平？</title>
-      <link>https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</link>
-      <guid isPermaLink="true">https://hyphentech.top/37a999681bdb81d6bd5def54e062aac4/</guid>
-      <description>编程·推理·中文创作·长文理解·多语言，19道题、62个测试用例，每题展示原题+详细结果。综合评分91/100，推理99最强，创作88最弱但仍优秀。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>实测</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
