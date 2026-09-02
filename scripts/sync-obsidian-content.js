@@ -95,7 +95,11 @@ function validateContent() {
 function publishedPosts() {
   const postsDir = path.join(sourceRoot, 'posts');
   return walkFiles(postsDir)
-    .filter((filePath) => /\.md(?:own)?$/i.test(filePath))
+    .filter(
+      (filePath) =>
+        /\.md(?:own)?$/i.test(filePath) &&
+        !/\.(?:bak|backup)\.md(?:own)?$/i.test(filePath)
+    )
     .map((filePath) => {
       const raw = fs.readFileSync(filePath, 'utf8');
       const parsed = matter(raw);

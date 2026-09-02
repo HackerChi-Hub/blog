@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '17 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -30,6 +32,7 @@ jobs:
         env:
           BLOG_CONTENT_MODE: markdown-only
           BLOG_CONTENT_DIR: ./content-export
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run build
           touch out/.nojekyll

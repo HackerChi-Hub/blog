@@ -13,6 +13,7 @@
     "content:sync": "node scripts/sync-obsidian-content.js",
     "content:import": "node scripts/import-article-content.js",
     "test:content": "node scripts/test-content-pipeline.js",
+    "test:products": "node scripts/test-product-catalog.js",
     "start": "python3 -m http.server 4173 --directory out",
     "backup": "node scripts/backup.js",
     "deploy": "scripts/blog-publish",

@@ -89,6 +89,7 @@ function main() {
     write(path.join(content, 'config', 'submenus.yml'), `enabled: true\nitems:\n  - id: menu-1\n    title: B站\n    url: https://space.bilibili.com/1\n`);
     write(path.join(content, 'posts', 'live-post.md'), publishedPost());
     write(path.join(content, 'posts', 'draft-post.md'), `---\ntitle: 草稿\nslug: draft-post\nstatus: draft\nlegacy_paths: []\n---\n\n草稿正文。\n`);
+    write(path.join(content, 'posts', 'live-post.before-edit.bak.md'), publishedPost());
     write(path.join(assets, 'live-post', 'cover.png'), 'cover');
     write(path.join(assets, 'live-post', 'body.png'), 'body');
     write(path.join(assets, 'live-post', 'unused.png'), 'unused');

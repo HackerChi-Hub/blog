@@ -8,6 +8,7 @@ const YAML = require('yaml');
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
 const SAFE_ROUTE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const BACKUP_MARKDOWN_RE = /\.(?:bak|backup)\.md(?:own)?$/i;
 const TEMPORARY_ASSET_RE =
   /(?:file:\/\/|\/Volumes\/|file\.notion\.so|notion-static\.com|amazonaws\.com|expirationTimestamp=|X-Amz-(?:Signature|Credential|Expires)=)/i;
 const LOCAL_PREVIEW_ASSET_RE = /^(?:\.\.\/)?preview-assets\//i;
@@ -27,7 +28,7 @@ function walkMarkdownFiles(directory) {
   if (!fs.existsSync(directory)) return [];
   const files = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (entry.name.startsWith('.')) continue;
+    if (entry.name.startsWith('.') || BACKUP_MARKDOWN_RE.test(entry.name)) continue;
     const absolutePath = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...walkMarkdownFiles(absolutePath));
     if (entry.isFile() && /\.md(?:own)?$/i.test(entry.name)) files.push(absolutePath);

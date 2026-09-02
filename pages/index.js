@@ -5,6 +5,7 @@ import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
 import ContainedCover from '../components/ContainedCover';
+const { buildProductCards, buildFallbackProductCards } = require('../lib/product-catalog.cjs');
 
 const PAGE_SIZE = 21;
 const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
@@ -56,48 +57,9 @@ const CONTENT_PILLARS = [
     index: '03',
     title: '自制软件',
     subtitle: '从问题到产品，公开开发过程',
-    description: 'LocalBrain、ScreenLex、黑粉盒子 HyphenBox 与其他自制工具的发布、失败记录和版本迭代。',
+    description: '方寸智匣 LocalBrain、光影词库 ScreenLex、黑粉盒子 HyphenBox 与其他自制工具的发布、失败记录和版本迭代。',
     keywords: ['LocalBrain', 'ScreenLex', 'HyphenBox', '黑粉盒子', '自制', '工具', '开发'],
     featureKeywords: ['ScreenLex', 'LocalBrain', '自制', '我做的', '开发纪实', '版本发布'],
-  },
-];
-
-const PRODUCT_DEFINITIONS = [
-  {
-    slug: 'localbrain-local-ai-box',
-    name: 'LocalBrain',
-    label: '本地 AI 工具箱',
-    description: '把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。',
-    badge: '我做的 · 本地部署',
-    facts: ['本地运行', 'macOS', '持续更新'],
-    action: '查看产品与下载',
-  },
-  {
-    slug: 'hyphenbox-free-api-radar',
-    name: '黑粉盒子 HyphenBox',
-    label: '免费 API 雷达',
-    description: '收录 98 家免费大模型 API，实测可用性；Key 只存本机，auto 按额度自动挑模型。',
-    badge: '我做的 · 预览版',
-    facts: ['初步构建', 'macOS', '免费下载'],
-    action: '查看产品与下载',
-  },
-  {
-    slug: 'hyphencut-local-video-editor',
-    name: '黑粉剪辑 HyphenCut',
-    label: '本地专业剪辑',
-    description: '用 Rust 重写的专业视频剪辑：达芬奇键位、207 条命令、AI 助理改真实工程，45 MB 本地运行。',
-    badge: '我做的 · 预览版',
-    facts: ['初步构建', 'macOS', '免费下载'],
-    action: '查看产品与下载',
-  },
-  {
-    slug: 'screenlex-watch-and-learn',
-    name: 'ScreenLex',
-    label: '光影词库',
-    description: '把本地电影与剧集字幕变成可复习的英语词库，全程离线。',
-    badge: '我做的 · 本地工具',
-    facts: ['本地运行', '离线使用', '持续更新'],
-    action: '查看产品与下载',
   },
 ];
 
@@ -737,14 +699,41 @@ const feedStyles = `
   font-size: 1rem;
   font-weight: 700;
 }
+.product-card__release {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  min-height: 1.7rem;
+  margin: 0 0 .8rem;
+  color: rgba(226,245,247,.82);
+  font-size: .75rem;
+}
+.product-card__release span {
+  padding: .2rem .54rem;
+  border-radius: 999px;
+  border: 1px solid rgba(105,240,174,.22);
+  background: rgba(105,240,174,.07);
+  color: #9af5c5;
+  font-weight: 750;
+  letter-spacing: .035em;
+}
+.product-card__release a { color: rgba(196,220,236,.72); font-size: .72rem; }
+.product-card__release a:hover { color: var(--home-yellow); }
 .product-card__description {
   position: relative;
   z-index: 1;
+  display: -webkit-box;
   min-height: 4.8em;
   max-width: 560px;
   margin: 0 0 1rem;
+  overflow: hidden;
   color: rgba(220,233,246,.76);
   line-height: 1.6;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .product-card__facts {
   position: relative;
@@ -1373,7 +1362,7 @@ const FeaturedSection = ({ items = [] }) => {
   );
 };
 
-const ProductSection = ({ posts = [] }) => (
+const ProductSection = ({ products = [] }) => (
   <section id="products">
     <div className="section-head">
       <div>
@@ -1383,13 +1372,17 @@ const ProductSection = ({ posts = [] }) => (
       <p>遇到问题，先找工具；找不到，就自己写一个。多少有点不服气。</p>
     </div>
     <div className="product-grid">
-      {PRODUCT_DEFINITIONS.map((product) => {
-        const article = posts.find((post) => getPostSlug(post) === product.slug);
-        return (
+      {products.map((product) => (
           <article className="product-card" key={product.slug}>
             <div className="product-card__badge">{product.badge}</div>
             <h3 className="product-card__name">{product.name}</h3>
             <h4 className="product-card__label">{product.label}</h4>
+            {product.version && (
+              <div className="product-card__release">
+                <span>最新版本 {product.version}</span>
+                <a href={product.releaseUrl} target="_blank" rel="noreferrer">更新说明 ↗</a>
+              </div>
+            )}
             <p className="product-card__description">{product.description}</p>
             <div className="product-card__facts" aria-label={`${product.name} 产品特性`}>
               {product.facts.map((fact) => <span key={fact}>{fact}</span>)}
@@ -1398,11 +1391,10 @@ const ProductSection = ({ posts = [] }) => (
               <a className="product-card__link" href={`/${product.slug}/`}>
                 {product.action} →
               </a>
-              {article?.date && <div className="product-card__date">更新于 {formatDate(article.date)}</div>}
+              {product.updated && <div className="product-card__date">更新于 {formatDate(product.updated)}</div>}
             </div>
           </article>
-        );
-      })}
+      ))}
     </div>
   </section>
 );
@@ -1472,12 +1464,14 @@ export async function getStaticProps() {
       CATEGORY_FIELD,
       FEATURED_CATEGORIES
     );
+    const products = await buildProductCards(allPosts);
 
     return {
       props: {
         posts: postsWithCovers,
         notices,
         subMenus,
+        products,
         categoryBuckets,
         currentPage: 1,
         totalPages: Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE)),
@@ -1492,6 +1486,7 @@ export async function getStaticProps() {
         posts: [],
         notices: [],
         subMenus: [],
+        products: buildFallbackProductCards([]),
         categoryBuckets: FEATURED_CATEGORIES.map((name) => ({
           name,
           posts: [],
@@ -1510,6 +1505,7 @@ export default function Home({
   posts,
   notices,
   subMenus,
+  products,
   currentPage,
   totalPages,
   errorMessage,
@@ -1542,7 +1538,7 @@ export default function Home({
             <BrandHero />
             <MediaSection notices={notices} subMenus={subMenus} />
             <FeaturedSection items={featuredItems} />
-            <ProductSection posts={posts} />
+            <ProductSection products={products} />
 
             {errorMessage && (
               <div className="empty-state" style={{ fontWeight: 600, color: '#ff8a80' }}>
