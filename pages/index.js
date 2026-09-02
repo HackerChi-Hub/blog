@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getPosts, getNotices, getSubMenus, getPostCovers } from '../lib/content';
-import { NOTION_PROPERTY_NAME } from '../lib/config';
 import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
@@ -8,7 +7,7 @@ import ContainedCover from '../components/ContainedCover';
 const { buildProductCards, buildFallbackProductCards } = require('../lib/product-catalog.cjs');
 
 const PAGE_SIZE = 21;
-const CATEGORY_FIELD = NOTION_PROPERTY_NAME.category || 'category';
+const CATEGORY_FIELD = 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
 const CHANNEL_MANIFESTO = '能本地跑，就不租云；能免费用，就不续费；实在没有，我自己做。';
 const WECHAT_QR_IMAGE = '/png/wechat-official-account-qr.jpg';
@@ -968,7 +967,7 @@ const feedStyles = `
 const truncateText = (text, maxLength = 80) =>
   text && text.length > maxLength ? `${text.slice(0, maxLength)}…` : text || '';
 
-const extractNotionPropertyPayload = (property) => {
+const extractPropertyPayload = (property) => {
   if (!property || typeof property !== 'object') return property;
   if (property.type && property[property.type] !== undefined) {
     return property[property.type];
@@ -1011,7 +1010,7 @@ const normalizeCategoryValue = (value) => {
 
   if (typeof value === 'object') {
     if (value.type || value.multi_select || value.select || value.results || value.value) {
-      return normalizeCategoryValue(extractNotionPropertyPayload(value));
+  return normalizeCategoryValue(extractPropertyPayload(value));
     }
     if (value.name) return [value.name.trim()];
     if (value.plain_text) return [value.plain_text.trim()];
@@ -1037,7 +1036,7 @@ const getPostCategories = (post, propertyName) => {
   ];
 
   for (const candidate of candidates) {
-    const payload = extractNotionPropertyPayload(candidate);
+    const payload = extractPropertyPayload(candidate);
     const normalized = normalizeCategoryValue(payload);
     if (normalized.length) return normalized;
   }
@@ -1495,7 +1494,7 @@ export async function getStaticProps() {
         totalPages: 1,
         errorMessage:
           error?.message ||
-          '获取数据失败，请检查 Obsidian 内容库或 Notion 回退源配置。',
+        '获取数据失败，请检查 Obsidian 内容库及发布快照。',
       },
     };
   }
@@ -1557,7 +1556,7 @@ export default function Home({
               {posts.length > 0 && <div className="content-search"><Search posts={posts} /></div>}
               {showEmpty ? (
                 <div className="empty-state">
-                  暂无文章，请确认内容库存在已发布文章，或 Notion 回退源配置正常。
+              暂无文章，请确认 Obsidian 内容库存在已发布文章。
                 </div>
               ) : (
                 <div className="feed-grid">

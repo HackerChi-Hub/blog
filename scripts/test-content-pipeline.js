@@ -62,7 +62,6 @@ tags:
 cover: ../preview-assets/live-post/cover.png
 legacy_paths:
   - old-live-post
-notion_id: 11111111-1111-1111-1111-111111111111
 ---
 
 ${body || '正文。\n\n![配图](../preview-assets/live-post/body.png)'}
@@ -129,13 +128,6 @@ function main() {
     assert.strictEqual(treeHash(exportDir), exportHash, '失败同步不应修改文章快照');
     assert.strictEqual(treeHash(publicAssets), assetHash, '失败同步不应修改公开素材');
     write(path.join(assets, 'live-post', 'body.png'), 'body');
-
-    write(
-      path.join(content, 'posts', 'bad-duplicate.md'),
-      `---\ntitle: 重复\nslug: bad-duplicate\nstatus: draft\nlegacy_paths: []\nnotion_id: 11111111-1111-1111-1111-111111111111\n---\n\n正文。\n`
-    );
-    assert.match(run(validator, ['--content-dir', content], 1), /notion_id 重复/);
-    fs.unlinkSync(path.join(content, 'posts', 'bad-duplicate.md'));
 
     write(
       path.join(content, 'posts', 'live-post.md'),

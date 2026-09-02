@@ -68,7 +68,7 @@ echo "🔎 1/5 校验内容并生成公开快照"
 npm run content:sync
 
 echo "🧪 2/5 按线上模式构建并验收"
-BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export npm run build
+BLOG_CONTENT_DIR=./content-export npm run build
 
 unexpected=""
 while IFS= read -r line; do

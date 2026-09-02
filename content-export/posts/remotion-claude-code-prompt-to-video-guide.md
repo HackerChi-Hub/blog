@@ -17,7 +17,6 @@ tags:
   - 编程
 cover: https://hyphentech.top/obsidian-assets/remotion-claude-code-prompt-to-video-guide/image-01-02636e804c.png
 legacy_paths: []
-notion_id: 32d99968-1bdb-8162-8076-c9c2c0a83f80
 ---
 
 ---

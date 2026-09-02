@@ -16,7 +16,6 @@ tags:
   - 科技前沿
 cover: https://hyphentech.top/obsidian-assets/google-io-2026-gemini-agentic-era/image-01-2b1b7d88a1.jpg
 legacy_paths: []
-notion_id: 37a99968-1bdb-810f-a52e-fc141286a162
 ---
 
 > [!note]

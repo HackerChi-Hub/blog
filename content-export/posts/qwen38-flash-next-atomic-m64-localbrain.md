@@ -14,7 +14,6 @@ tags:
   - Qwen
 cover: https://hyphentech.top/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/cover-2.35x1.jpg
 legacy_paths: []
-notion_id: ""
 ---
 
 # 85GB 模型塞进 64GB Mac：我用 LocalBrain 跑通 Qwen3.8 Flash Next

@@ -1,268 +1,14 @@
-import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Component } from 'react';
-import fs from 'fs';
-import path from 'path';
-import https from 'https';
-import http from 'http';
 import { getAllSlugs, getPostBySlug, getPosts } from '../lib/content';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
-import OfficialNotionContent from '../components/OfficialNotionContent';
 import MarkdownContent from '../components/MarkdownContent';
 import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
-import 'react-notion-x/src/styles.css';
-
-// 构建时下载 Notion 文件附件到 public/downloads/
-async function downloadNotionFiles(recordMap, slug) {
-  if (!recordMap?.block) return recordMap;
-
-  const downloadDir = path.join(process.cwd(), 'public', 'downloads');
-  if (!fs.existsSync(downloadDir)) {
-    fs.mkdirSync(downloadDir, { recursive: true });
-  }
-
-  const getPlainProperty = (property) => {
-    if (!Array.isArray(property)) return '';
-    return property
-      .map((part) => part?.[0] || '')
-      .join('')
-      .trim();
-  };
-
-  const decodeFileName = (name) => {
-    try {
-      return decodeURIComponent(name);
-    } catch {
-      return name;
-    }
-  };
-
-  const fileNameFromAttachment = (source) => {
-    if (!source || typeof source !== 'string') return '';
-    const match = source.match(/^attachment:[^:]+:(.+)$/);
-    return match ? decodeFileName(match[1]) : '';
-  };
-
-  const fileNameFromUrl = (url) => {
-    try {
-      const urlPath = new URL(url).pathname;
-      const parts = urlPath.split('/').filter(Boolean);
-      return decodeFileName(parts[parts.length - 1] || '');
-    } catch {
-      return '';
-    }
-  };
-
-  const makeSafeDownloadName = (fileName, blockId) => {
-    const fallback = `notion-file-${blockId}`;
-    const rawName = decodeFileName(fileName || fallback);
-    return `${slug}-${rawName}`
-      .replace(/\s+/g, '-')
-      .replace(/[^a-zA-Z0-9._\-\u4e00-\u9fa5]/g, '_');
-  };
-
-  const getSignedUrl = (blockId, source) => {
-    const signed = recordMap.signed_urls || {};
-    const direct = signed[blockId] || signed[source];
-    if (direct && /^https?:\/\//i.test(direct)) return direct;
-
-    // notion-client sometimes stores the signed URL under a derived key.
-    // Match by decoded attachment filename as a last resort.
-    const fileName = fileNameFromAttachment(source);
-    if (fileName) {
-      const encoded = encodeURIComponent(fileName);
-      for (const value of Object.values(signed)) {
-        if (
-          typeof value === 'string' &&
-          /^https?:\/\//i.test(value) &&
-          (value.includes(fileName) || value.includes(encoded))
-        ) {
-          return value;
-        }
-      }
-    }
-    return '';
-  };
-
-  const downloadFile = async (url, localPath, redirects = 0) => {
-    const client = url.startsWith('http://') ? http : https;
-    await new Promise((resolve, reject) => {
-      const file = fs.createWriteStream(localPath);
-      const req = client.get(url, (res) => {
-        const location = res.headers.location;
-        if (res.statusCode >= 300 && res.statusCode < 400 && location && redirects < 5) {
-          file.close(() => fs.rmSync(localPath, { force: true }));
-          const nextUrl = new URL(location, url).toString();
-          downloadFile(nextUrl, localPath, redirects + 1).then(resolve).catch(reject);
-          return;
-        }
-
-        if (res.statusCode !== 200) {
-          file.close(() => fs.rmSync(localPath, { force: true }));
-          reject(new Error(`HTTP ${res.statusCode}`));
-          return;
-        }
-
-        res.pipe(file);
-        file.on('finish', () => {
-          file.close(resolve);
-        });
-      });
-      req.on('error', (err) => {
-        file.close(() => fs.rmSync(localPath, { force: true }));
-        reject(err);
-      });
-    });
-  };
-
-  const replaceDeep = (value, replacements) => {
-    if (!value || typeof value !== 'object') return;
-    if (Array.isArray(value)) {
-      for (let i = 0; i < value.length; i += 1) {
-        if (typeof value[i] === 'string' && replacements.has(value[i])) {
-          value[i] = replacements.get(value[i]);
-        } else {
-          replaceDeep(value[i], replacements);
-        }
-      }
-      return;
-    }
-    for (const key of Object.keys(value)) {
-      if (typeof value[key] === 'string' && replacements.has(value[key])) {
-        value[key] = replacements.get(value[key]);
-      } else {
-        replaceDeep(value[key], replacements);
-      }
-    }
-  };
-
-  for (const [blockId, blockData] of Object.entries(recordMap.block)) {
-    const block = blockData?.value?.value || blockData?.value;
-    // 正文里的图片块（image）和文件块（file/pdf/video）都可能携带会过期的签名 URL，统一本地化
-    if (!block || !['file', 'image', 'pdf', 'video'].includes(block.type)) continue;
-
-    const source = getPlainProperty(block.properties?.source) || block.format?.display_source || '';
-    const displaySource = block.format?.display_source || '';
-    const signedUrl = getSignedUrl(blockId, source);
-    const fileUrl =
-      signedUrl ||
-      (/^https?:\/\//i.test(source) ? source : '') ||
-      (/^https?:\/\//i.test(displaySource) ? displaySource : '');
-
-    if (!fileUrl) {
-      console.warn(
-        `[downloadNotionFiles] No signed URL for Notion attachment block ${blockId}: ${source || '(empty source)'}`
-      );
-      continue;
-    }
-
-    const fileName =
-      fileNameFromAttachment(source) ||
-      fileNameFromUrl(displaySource) ||
-      fileNameFromUrl(fileUrl) ||
-      `notion-file-${blockId}`;
-    const safeName = makeSafeDownloadName(fileName, blockId);
-    const localPath = path.join(downloadDir, safeName);
-    const publicUrl = `/downloads/${safeName}`;
-
-    // 下载文件（如果尚未存在）
-    if (!fs.existsSync(localPath)) {
-      try {
-        await downloadFile(fileUrl, localPath);
-        console.log(`[downloadNotionFiles] Downloaded: ${fileName} -> ${publicUrl}`);
-      } catch (err) {
-        console.warn(`[downloadNotionFiles] Failed to download ${fileName}:`, err.message);
-        continue;
-      }
-    }
-
-    // 替换 recordMap 中的 URL / attachment 引用为本地稳定路径
-    const replacements = new Map(
-      [source, displaySource, signedUrl, fileUrl].filter(Boolean).map((oldUrl) => [oldUrl, publicUrl])
-    );
-    replaceDeep(block, replacements);
-    if (recordMap.signed_urls) {
-      recordMap.signed_urls[blockId] = publicUrl;
-      if (source) recordMap.signed_urls[source] = publicUrl;
-    }
-  }
-
-  return recordMap;
-}
-
-const loadPrismLanguages = async () => {
-  if (typeof window === 'undefined') return;
-  await Promise.all([
-    import('prismjs/components/prism-javascript'),
-    import('prismjs/components/prism-typescript'),
-    import('prismjs/components/prism-jsx'),
-    import('prismjs/components/prism-tsx'),
-    import('prismjs/components/prism-bash'),
-    import('prismjs/components/prism-json'),
-    import('prismjs/components/prism-markdown'),
-    import('prismjs/components/prism-css'),
-    import('prismjs/components/prism-scss'),
-    import('prismjs/components/prism-python'),
-    import('prismjs/components/prism-diff'),
-    import('prismjs/components/prism-yaml'),
-  ]);
-};
-
-const Code = dynamic(
-  async () => {
-    const m = await import('react-notion-x/third-party/code');
-    // Load Prism languages only in browser (SSR renders without syntax highlighting)
-    await loadPrismLanguages();
-    return m.Code;
-  },
-  { ssr: true }
-);
-
-const Collection = dynamic(
-  () =>
-    import('react-notion-x/third-party/collection').then(
-      (m) => m.Collection
-    ),
-  { ssr: true }
-);
-
-const NotionRenderer = dynamic(
-  () =>
-    import('react-notion-x').then(
-      (m) => m.NotionRenderer
-    ),
-  { ssr: true }
-);
-
-class NotionErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-  componentDidCatch(error, info) {
-    console.error('[NotionRenderer] Render error:', error, info);
-  }
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: '40px 20px', textAlign: 'center', color: '#888' }}>
-          <p>Content rendering failed. Please try refreshing the page.</p>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
 
 export async function getStaticPaths() {
   if (process.env.HOMEPAGE_ONLY === '1') {
@@ -288,45 +34,6 @@ export async function getStaticPaths() {
   }
 }
 
-// Notion 的非公开页面端点偶发 403 时，从当前线上静态页的
-// __NEXT_DATA__ 恢复上一份已验证内容。这只会复用确实存在的文章；
-// 新文章或线上快照不完整时仍然抛错，避免静默丢页。
-async function getLivePageSnapshot(slug) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
-
-  try {
-    const response = await fetch(`https://hyphentech.top/${encodeURIComponent(slug)}/`, {
-      headers: { 'user-agent': 'hyphentech-static-build/1.0' },
-      signal: controller.signal,
-    });
-    if (!response.ok) return null;
-
-    const html = await response.text();
-    const match = html.match(
-      /<script[^>]+id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i
-    );
-    if (!match?.[1]) return null;
-
-    const data = JSON.parse(match[1]);
-    const pageProps = data?.props?.pageProps;
-    if (!pageProps?.meta || (!pageProps?.recordMap?.block && !pageProps?.officialBlocks?.length)) {
-      return null;
-    }
-
-    console.warn(`[getStaticProps] using verified live snapshot for slug: ${slug}`);
-    return pageProps;
-  } catch (snapshotError) {
-    console.warn(
-      `[getStaticProps] live snapshot unavailable for slug: ${slug}`,
-      snapshotError?.message || snapshotError
-    );
-    return null;
-  } finally {
-    clearTimeout(timeout);
-  }
-}
-
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
@@ -343,30 +50,18 @@ export async function getStaticProps({ params }) {
       return { notFound: true };
     }
 
-    // 新主通道是官方 API blocks，资产已在 getPostBySlug 中本地化。
-    // recordMap 仅供旧线上快照兼容，不再用于新构建采集。
-    const recordMap = post.recordMap
-      ? await downloadNotionFiles(post.recordMap, slug)
-      : null;
-
     // 获取相关文章
     const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
 
     return {
       props: {
         meta: post.meta,
-        recordMap,
-        officialBlocks: post.officialBlocks || null,
         markdownHtml: post.markdownHtml || null,
         relatedPosts,
       },
     };
   } catch (error) {
     console.error(`[getStaticProps] FAILED for slug: ${slug}`, error?.message || error);
-    const liveSnapshot = await getLivePageSnapshot(slug);
-    if (liveSnapshot) {
-      return { props: liveSnapshot };
-    }
     // 内容源临时失败时必须让整个构建失败。若返回 notFound，静态导出会
     // 成功部署一个缺少此文章的站点，将原本正常的线上页面覆盖成 404。
     throw error;
@@ -388,15 +83,13 @@ const formatDate = (dateString) => {
 
 export default function PostPage({
   meta,
-  recordMap,
-  officialBlocks = null,
   markdownHtml = null,
   relatedPosts = [],
 }) {
   const router = useRouter();
   const slug = router.query.slug;
   
-  if (!recordMap && !officialBlocks?.length && !markdownHtml) {
+  if (!markdownHtml) {
     return (
       <>
         <SEO
@@ -453,7 +146,7 @@ export default function PostPage({
   const publishedTime = meta.date ? new Date(meta.date).toISOString() : null;
   
   // 计算阅读时间
-  const readingTime = estimateReadingTime({ meta, recordMap, officialBlocks, markdownHtml });
+  const readingTime = estimateReadingTime({ meta, markdownHtml });
   const readingTimeText = formatReadingTime(readingTime);
 
   return (
@@ -638,40 +331,8 @@ export default function PostPage({
           </div>
         </section>
 
-        {/* 旧 recordMap 快照仍用 CSS 隐藏封面；官方 blocks 由组件按 ID 跳过。 */}
-        {recordMap && meta.coverBlockId && (
-          <style>{`
-            .notion-block-${meta.coverBlockId} { display: none !important; }
-          `}</style>
-        )}
-
-        <section className="notion">
-          {markdownHtml ? (
-            <MarkdownContent html={markdownHtml} />
-          ) : officialBlocks?.length ? (
-            <OfficialNotionContent
-              blocks={officialBlocks}
-              hiddenBlockId={meta.coverBlockId}
-            />
-          ) : (
-            <NotionErrorBoundary>
-              <NotionRenderer
-                className="notion-only-body"
-                recordMap={recordMap}
-                fullPage={false}
-                disableHeader
-                darkMode
-                mapImageUrl={(url) => {
-                  // 旧线上快照兼容路径。新文章资产已由官方 API 通道本地化。
-                  if (!url) return url;
-                  if (url.startsWith('/downloads/') || url.startsWith('data:') || /^https?:\/\//.test(url)) return url;
-                  if (url.startsWith('/')) return `https://www.notion.so${url}`;
-                  return url;
-                }}
-                components={{ Code, Collection }}
-              />
-            </NotionErrorBoundary>
-          )}
+        <section className="article-content">
+          <MarkdownContent html={markdownHtml} />
 
           {/* 分享按钮 - 融入文章区域末尾 */}
           <div

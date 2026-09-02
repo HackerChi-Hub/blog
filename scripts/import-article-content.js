@@ -244,7 +244,6 @@ function main() {
     tags: args.tags.length ? args.tags : existing.tags || ['AI'],
     cover,
     legacy_paths: Array.isArray(existing.legacy_paths) ? existing.legacy_paths : [],
-    notion_id: String(existing.notion_id || ''),
   };
   const body = renderContent(article.content, specs, assetUrls);
   const raw = `---\n${YAML.stringify(frontmatter, { lineWidth: 0 })}---\n\n${body}`;

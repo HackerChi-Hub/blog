@@ -76,7 +76,7 @@ export async function getStaticProps({ params }) {
         currentPage,
         totalPages,
         errorMessage:
-          posts.length === 0 ? '该分页暂无内容，请检查 Notion 数据。' : '',
+          posts.length === 0 ? '该分页暂无内容，请检查 Obsidian 内容库。' : '',
       },
     };
   } catch (error) {
@@ -88,7 +88,7 @@ export async function getStaticProps({ params }) {
         totalPages: 1,
         errorMessage:
           error?.message ||
-          '获取分页文章失败，请检查 Notion 环境变量、数据库授权或字段配置。',
+          '获取分页文章失败，请检查 Obsidian 内容库和发布快照。',
       },
     };
   }
@@ -153,7 +153,7 @@ export default function PostListPage({
 
       {showEmpty ? (
         <div className="empty-state">
-          该分页暂无文章，请检查 Notion 数据库的 Type / Status 设置。
+          该分页暂无文章，请检查 Obsidian 文章的 status 设置。
         </div>
       ) : (
         <section className="posts-grid" style={{ width: '100%' }}>

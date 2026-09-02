@@ -14,7 +14,6 @@ tags:
   - Apple Silicon
 cover: https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png
 legacy_paths: []
-notion_id: 36799968-1bdb-810f-a48b-f9fec6969d15
 ---
 
 先说结论：本地 AI 已经能打了。

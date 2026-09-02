@@ -15,7 +15,6 @@ tags:
   - 本地部署
 cover: https://hyphentech.top/obsidian-assets/fastmetal-qad-apple-silicon-official-guide/cover-a6c0670199.jpg
 legacy_paths: []
-notion_id: 3c299968-1bdb-81d4-84bf-d362d629a582
 ---
 
 > [!note]

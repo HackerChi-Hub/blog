@@ -30,7 +30,6 @@ jobs:
 
       - name: Build (static export)
         env:
-          BLOG_CONTENT_MODE: markdown-only
           BLOG_CONTENT_DIR: ./content-export
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

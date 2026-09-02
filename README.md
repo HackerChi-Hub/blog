@@ -1,6 +1,6 @@
 # 黑粉科技 Blog
 
-基于 **Next.js 15 + Obsidian Markdown** 的纯静态博客。Obsidian 内容库是编辑真源；GitHub Pages 只接收经过校验的发布快照，不需要 Notion Token，也不会在构建时访问 Notion。
+基于 **Next.js 15 + Obsidian Markdown** 的纯静态博客。私有 Obsidian 内容库是唯一编辑真源；GitHub Pages 只接收经过校验的发布快照。
 
 ## 当前内容架构
 
@@ -16,16 +16,15 @@ Blog 仓库
   content-export/            只包含 status: published 的发布快照
   public/obsidian-assets/    公共素材部署镜像
          │
-         │ GitHub Actions（markdown-only）
+         │ GitHub Actions
          ▼
 hyphentech.top
 ```
 
-- 稿件删除以当前内容源为准，不从旧快照或 Notion 反向恢复。
+- 稿件删除以当前 Obsidian 内容库为准，不从旧快照反向恢复。
 - 私有内容库单独使用私有 Git 仓库；公开 Blog 仓库只保存 `published` 快照。
 - `slug` 与 `legacy_paths` 共同保护历史网址；迁移前的 UUID 网址仍可访问。
 - 图片先落到文章自己的稳定素材目录；同步器只公开实际被已发布文章引用的文件，并自动清理公开镜像中的旧文件。
-- Notion 读取代码暂时保留为只读回滚通道，但正式部署固定为 `markdown-only`。
 
 ## 文章格式
 
@@ -67,9 +66,9 @@ npm run content:sync
 npm run test:content
 
 # 按正式部署模式构建
-BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export npm run build
+BLOG_CONTENT_DIR=./content-export npm run build
 
-# 检查导出文章、历史网址、sitemap 与临时 Notion 链接
+# 检查导出文章、历史网址、sitemap 与临时签名链接
 node scripts/verify-export.js
 ```
 
@@ -85,23 +84,13 @@ npm run content:import -- /绝对路径/article_content.json \
 
 如果同名文章已经存在，导入器默认拒绝覆盖；确认要用新内容更新时才加 `--force`。
 
-首次从 Notion 迁移或需要人工只读复核时才使用：
-
-```bash
-npm run content:inventory
-npm run content:migrate
-```
-
-迁移器只读取当前仍存在且状态为 `Published` 的 Notion 文章；它不会创建、恢复、修改或删除 Notion 页面。
-
 ## 目录说明
 
 ```text
 components/MarkdownContent.js      Markdown 正文组件
-lib/content.js                     Obsidian 主源 / Notion 只读兜底合并层
+lib/content.js                     Obsidian 内容访问层
 lib/markdown.js                    frontmatter、双链、callout 与路由解析
 scripts/validate-content.js        内容和历史网址校验
-scripts/export-notion-to-obsidian.js  一次性只读迁移器
 scripts/sync-obsidian-content.js   发布快照和素材同步器
 scripts/import-article-content.js  通用 CONTENT JSON → Obsidian 草稿导入器
 scripts/test-content-pipeline.js   内容发布故障与回归测试
@@ -130,7 +119,7 @@ blog-publish "更新 <slug>"
 
 1. 确认 Blog 代码库干净、两个仓库都在 `main` 且没有远程分叉；
 2. 校验私有 Obsidian 内容并生成确定性公开快照；
-3. 按 `markdown-only` 的线上配置完整构建和验收；
+3. 按 Obsidian 发布快照完整构建和验收；
 4. 先提交、推送私有原件（包括手工删除），再只提交 `content-export/` 与 `public/obsidian-assets/`；
 5. 等待 GitHub Actions，并回读线上构建编号、sitemap、全部页面和全部公开素材。
 
@@ -138,17 +127,13 @@ blog-publish "更新 <slug>"
 
 推送 `main` 后，`.github/workflows/deploy.yml` 会：
 
-1. 用 `BLOG_CONTENT_MODE=markdown-only` 和 `./content-export` 构建；
+1. 用 `BLOG_CONTENT_DIR=./content-export` 构建；
 2. 生成静态 `out/`；
 3. 部署到 GitHub Pages；
 4. 由一键发布器回读 sitemap、文章网址和素材。
 
-因此线上部署与 Notion 可用性完全解耦。
-
-## 回滚
-
-紧急情况下可在本地设置 `BLOG_CONTENT_MODE=dual` 或 `notion-only` 使用旧读取层。不要把它重新设为正式 CI 默认值；回滚完成后仍应把确认过的 Markdown 快照作为部署真源。
+因此线上部署只依赖仓库中的 Obsidian 发布快照。
 
 ## 开源提示
 
-本仓库是公开站点代码与发布快照。草稿、Obsidian 私有配置、Notion Token 和其他凭据不得提交到这里。私有内容仓库也不得改成 public。
+本仓库是公开站点代码与发布快照。草稿、Obsidian 私有配置和其他凭据不得提交到这里。私有内容仓库也不得改成 public。

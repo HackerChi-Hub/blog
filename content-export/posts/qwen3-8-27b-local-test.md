@@ -15,7 +15,6 @@ tags:
   - 开源
 cover: https://hyphentech.top/obsidian-assets/qwen3-8-27b-local-test/cover-be360df2e5.png
 legacy_paths: []
-notion_id: 3c099968-1bdb-8156-9cc4-c4cf24b180a9
 ---
 
 > [!note]

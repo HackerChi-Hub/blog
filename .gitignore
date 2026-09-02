@@ -6,7 +6,7 @@ node_modules/
 .next/
 out/
 
-# 构建时从 Notion 自动下载的附件（每次构建重新生成，无需入库）
+# 构建生成的临时附件
 public/downloads/
 
 # 备份

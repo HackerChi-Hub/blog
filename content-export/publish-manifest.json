@@ -1,267 +1,230 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "ac2509ab91c8d156b7823ff60decbeed347c348099f531a40c2204a31aa0f284",
+  "content_sha256": "e913664c25ac8c9d9068fd741833ab86faa207ca530fe356ba6f5c2c0266a27a",
   "published_post_count": 37,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
       "slug": "33a999681bdb81499014eaf312d39728",
       "legacy_paths": [],
-      "notion_id": "33a99968-1bdb-8149-9014-eaf312d39728",
-      "sha256": "163864f6e07026354ffc5a79a84a2951dcdbb29685a662aad84750073cc39855"
+      "sha256": "0a6cee0d1ba2054705d58f4bfae3777845a271a598ba9a4a6dcb41151b3c330e"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c.md",
       "slug": "361999681bdb815b94fad9dbf028ab2c",
       "legacy_paths": [],
-      "notion_id": "36199968-1bdb-815b-94fa-d9dbf028ab2c",
-      "sha256": "581e9f8c47c94c4cbd84c2da1c43728c881c95e8f870d3f737b18ac22dd49714"
+      "sha256": "6d94d5985cb31ecab157ffe69b93f28c3c349da4aee63da24ff9ec1630ed144d"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6.md",
       "slug": "372999681bdb815f8c9bdd238edc09c6",
       "legacy_paths": [],
-      "notion_id": "37299968-1bdb-815f-8c9b-dd238edc09c6",
-      "sha256": "a4ae286e56eef213a9fb2ff37b620eb06080ef883abc76ba0f1eef5e0058dce2"
+      "sha256": "bdd2ebe07c88962727275cae34aac2e4a082e58ef05ef44951d6913a3c283d58"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4.md",
       "slug": "37a999681bdb81d6bd5def54e062aac4",
       "legacy_paths": [],
-      "notion_id": "37a99968-1bdb-81d6-bd5d-ef54e062aac4",
-      "sha256": "4202b93c7b7576f95e8f8a53c539465d948d8a3b16907c1fc3c45862f4b9ce4e"
+      "sha256": "2cab9dd1ae2277d178f8bb2101a26c3315f0364e9ee05b0cafc64446f3362844"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7.md",
       "slug": "3af999681bdb8146be26ec77fb75f5b7",
       "legacy_paths": [],
-      "notion_id": "3af99968-1bdb-8146-be26-ec77fb75f5b7",
-      "sha256": "ee65836debd78c5d1aac730c05edcc4821b1f39a902328c232d06bb7267abb2f"
+      "sha256": "533db224448d2226972123d54b9dfd442eb98db8d12f1a312940fa8adae25e0b"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a.md",
       "slug": "3be999681bdb81269ddaf65518a0735a",
       "legacy_paths": [],
-      "notion_id": "3be99968-1bdb-8126-9dda-f65518a0735a",
-      "sha256": "bd8d7d4057eba975cd038153bfeb5a9cbe19967ce9d592173a63d4b58d362d51"
+      "sha256": "b67629a1c8195e726aeff8fa682b89700218ffaa365ee2aea8094332357ea7d3"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a.md",
       "slug": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "legacy_paths": [],
-      "notion_id": "3be99968-1bdb-81e1-ad77-fc17c2b9dd6a",
-      "sha256": "ff7f6ee153bb16286ae38356098d0188318e0e4d4fe5379212584f2f570dfb0b"
+      "sha256": "97bec9fc1e835a30c97bd633036753024e0d545184ae7a7dc202efbcb3531e6e"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500.md",
       "slug": "3c4999681bdb81b5ac69ceb1153e2500",
       "legacy_paths": [],
-      "notion_id": "3c499968-1bdb-81b5-ac69-ceb1153e2500",
-      "sha256": "25ed1840e6106f5d981976ed70932da407457802698091eedc954cf579d34d1d"
+      "sha256": "ca6738846988e5309aafab8a5c92940f238f67ba95ae9aa18774f84137b11df9"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738.md",
       "slug": "3c6999681bdb815f8094e4ca7339f738",
       "legacy_paths": [],
-      "notion_id": "3c699968-1bdb-815f-8094-e4ca7339f738",
-      "sha256": "d735091f02bf19665444036b31ff9dad0b3d8674b16598cfb3778703f33a12e2"
+      "sha256": "62780d9bd5d0b4bb2b9fd168c2f87a05053dbd800220cddccb75e6b3757fb1f7"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0.md",
       "slug": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "legacy_paths": [],
-      "notion_id": "3c899968-1bdb-81c8-b8c8-ef9d3473d6f0",
-      "sha256": "aff85e7836ab1d1f1beb24ae446e438f2d51ead2a3006241d088aefbb3e94946"
+      "sha256": "0d8441a864c868c46d949fb7d554b74983bb8c922ca92097d6ec678c2ffeb307"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a.md",
       "slug": "3c9999681bdb814ba691f8cc28ec684a",
       "legacy_paths": [],
-      "notion_id": "3c999968-1bdb-814b-a691-f8cc28ec684a",
-      "sha256": "b66a64e0faf61ca56f2a1f88a39d7ff649ad8853c4b6ed58405090dfedbfc61c"
+      "sha256": "1d5a4e64ab288d922d43d0b10337f7150ea05a8bd068584edb916e0d7f561d8e"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026.md",
       "slug": "ai-agent-ufo-game-prompt-template-2026",
       "legacy_paths": [],
-      "notion_id": "37399968-1bdb-81c2-ba65-f872aeb6a641",
-      "sha256": "5672eedac85b0908043c3817b9c9d69c0d94edb921cfeec7c6130f0c8de43f90"
+      "sha256": "be11a55fa6cf931a9b68ed4e127bcc8125d426d84d5731a327b7aebe0a123718"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost.md",
       "slug": "ai-animation-pipeline-cartoon-real-cost",
       "legacy_paths": [],
-      "notion_id": "3c399968-1bdb-8136-9b01-c8f2705f2fc2",
-      "sha256": "1874777f26505115262ac6d4875b59ee597848973cb70f8733ea18dbdf95503b"
+      "sha256": "5b80479d9400dcfccbca49a337f33324d2b0173847b883eacefcd1fb28d21ba5"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51.md",
       "slug": "ai-gaokao-2026-glm51",
       "legacy_paths": [],
-      "notion_id": "37a99968-1bdb-811a-a6ad-db173a22d78d",
-      "sha256": "8bddc897d199a78d53226314b266da7fe33aacc7657ace5734b6f1ff477f9c17"
+      "sha256": "37d8e0516241b91597cedd5476cc0bde88b44a8fea0fb99c0edab892ecf85ad5"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow.md",
       "slug": "ai-logo-brand-assets-workflow",
       "legacy_paths": [],
-      "notion_id": "32f99968-1bdb-8135-854b-d18879f4a9db",
-      "sha256": "91a4bd3d1677af8fd27f31dbf3e5290c952ace4b4dc3a4f6ead861b4c3c88a55"
+      "sha256": "796a6d409e1783b29b139cbd0ddbb4b74d03ec139dd1a395e302ed07014b944f"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
       "slug": "ai-prompt-templates-12-scenes",
       "legacy_paths": [],
-      "notion_id": "34f99968-1bdb-81ed-ac9f-f5714fcce6f2",
-      "sha256": "98c7533bc7e8b678c98d6e94b87375c5f48472fafad7ba5d9e8ddc8629a1fe9c"
+      "sha256": "d15c9d6b0a348eea2410880a5e5fee8bea5420bf5e766d3a7cca910637387d9f"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
       "slug": "broadband-troubleshooting-guide",
       "legacy_paths": [],
-      "notion_id": "34f99968-1bdb-81cc-ae43-e16710c09cce",
-      "sha256": "7ecc9558cd4003424f60d11ba2de12958d5dd1390e3bc6bd6e883013b44fe377"
+      "sha256": "62fb729b314349348099b0c2c1a638c89c5e29006733606f051ee50f801b12ce"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
       "slug": "deepseek-v4-vision-mac64",
       "legacy_paths": [],
-      "notion_id": "",
-      "sha256": "d401658411dac1d2ae66f11b350c99ed3a508d3a1b88bb9f7402b2517146d567"
+      "sha256": "06f9ae3c614d42f2ee659621f3a4d2ae5c8f142ed5fb413708f03ee773793226"
     },
     {
       "file": "posts/fable-5-1-mythos-update.md",
       "slug": "fable-5-1-mythos-update",
       "legacy_paths": [],
-      "notion_id": "",
-      "sha256": "d895f67b7d0d2fe30a48dd36c16f7ace6b30cde60a67611965b4122a6478797c"
+      "sha256": "40256bb47e2d9570bc7d21c21bd12312361709c76f0b6d230f45889d5b853ad8"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
       "slug": "fastmetal-qad-apple-silicon-official-guide",
       "legacy_paths": [],
-      "notion_id": "3c299968-1bdb-81d4-84bf-d362d629a582",
-      "sha256": "1b328ef6e5110dc04d5f4150ac28d8044b832ef8f58128d9cacde842df33cc7e"
+      "sha256": "cd4aa25f681e7e28e683d9d9928ee57031fd8b92f02a810d4bb8afa2af9f8815"
     },
     {
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "legacy_paths": [],
-      "notion_id": "34f99968-1bdb-81ce-b32a-edad72d9249c",
-      "sha256": "c102de467956fff95a5a428b1db0e146cce2eec47ebabe6a58d45d7d7f909867"
+      "sha256": "f4a9a52ae867e2088186b606219bd74c9206c356286626a89286611623335ed2"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
       "slug": "free-api-radar-2026-08-27",
       "legacy_paths": [],
-      "notion_id": "3c999968-1bdb-814a-937a-ecb41556c989",
-      "sha256": "777c911ad75282d4bf250bacede8fed611fd214ad762f5fb6350d37c1b327a01"
+      "sha256": "e0bb56651ddac4c84503bafd9922bd30bf913191ad5876facc76b41186041444"
     },
     {
       "file": "posts/free-api-radar.md",
       "slug": "free-api-radar",
       "legacy_paths": [],
-      "notion_id": "3c599968-1bdb-818d-b0ba-f5709e68041f",
-      "sha256": "8c793b7b542fe46ed3820a277f85343ce7d41176c63fed5cc9c6277a03b06a75"
+      "sha256": "0736d5810fcc124b5745443b532a4eb0300f73d042d2fcaf29ebb0dc6d7049a7"
     },
     {
       "file": "posts/free-design-resources.md",
       "slug": "free-design-resources",
       "legacy_paths": [],
-      "notion_id": "34f99968-1bdb-815f-8840-ef07f453311a",
-      "sha256": "30400e8c6c21390316b12652b02d1744c1f6ee1487400fbe59fc51d39161d224"
+      "sha256": "e774ed493f312ef0c88dd90dc1c47905ee31120488cc636c2950b48df142e0b4"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
       "slug": "google-io-2026-gemini-agentic-era",
       "legacy_paths": [],
-      "notion_id": "37a99968-1bdb-810f-a52e-fc141286a162",
-      "sha256": "744c81428d31a200105f6664d8d2f61e1fee81002f9dfb94fde048cca5a3c75b"
+      "sha256": "02be79ca3a6eccc10f09bf59a9a2fd832a15d6bd00aae706da3394fe9c8893fb"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
       "slug": "huawei-tau-law-2026",
       "legacy_paths": [],
-      "notion_id": "36d99968-1bdb-81cf-bdcc-df4c7e9990c3",
-      "sha256": "44dec26a510e4a2de82926a89dfaaa3df3ae646e37693aae60d251ed52ab1e2f"
+      "sha256": "ff467db4ff3046f667da7365fa5bf809f89ebc820631fee5b19d2b57e0ef61fb"
     },
     {
       "file": "posts/hyphenbox-free-api-radar.md",
       "slug": "hyphenbox-free-api-radar",
       "legacy_paths": [],
-      "notion_id": "3ca99968-1bdb-8117-8baa-f8f820a88719",
-      "sha256": "fc75b3c339e8482e0d50fd776ad81d040a9177b93823861bc02fb24702f4047d"
+      "sha256": "d3406ef05c7a6e9087ae9dc1a1351eb14212ea6746a50a00b152aaa4e152ef44"
     },
     {
       "file": "posts/hyphencut-local-video-editor.md",
       "slug": "hyphencut-local-video-editor",
       "legacy_paths": [],
-      "notion_id": "3cc99968-1bdb-81bf-9e38-d4ecc53d476a",
-      "sha256": "c9c6fc80ce0413f07986ec8f82e4276b20c92c680e66a6c6fa287eb1f7bdd826"
+      "sha256": "dce0acd844deabc8360c84ca1c3a00a8102da8ffa8d6287cb6f53b84d08c7c49"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
-      "notion_id": "3bf99968-1bdb-8136-ac56-c46ab93ce37a",
-      "sha256": "6db81b33f730a8ee214c9b66edca6fad120cffb8f0317e2b46bf02b1470fdea9"
+      "sha256": "0ebca8256ff6d2e26be912a66d0b65d54c56be1825b8b961c5adb96fb9ff4f60"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
       "slug": "mlx-local-ai-test-m5pro",
       "legacy_paths": [],
-      "notion_id": "36799968-1bdb-810f-a48b-f9fec6969d15",
-      "sha256": "16a8e08619b875614950d4072b9c8c2e60bd1ee30e4d4fc47a00b96b81ac1c10"
+      "sha256": "a0a6246d3797d7258cb00f2a6ceffebfa348968f45587897bdf68140deabaa27"
     },
     {
       "file": "posts/movie-model-benchmark.md",
       "slug": "movie-model-benchmark",
       "legacy_paths": [],
-      "notion_id": "37199968-1bdb-81a7-9a57-e38371d4c887",
-      "sha256": "68c64c35e9a7f4a1582fec08c9a5b0e3627fd3b6965b042e6dce9d1cfc8735b7"
+      "sha256": "534cbb6eb70b4c6a29f8293cac02c5bfe00ab473f9767192b5cc496a0d3b3b9b"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
       "slug": "ox-alpha-stealth-model",
       "legacy_paths": [],
-      "notion_id": "3c699968-1bdb-8136-9f5f-ce5034a3852a",
-      "sha256": "7a36e6ba4282a1a2177c0c2176f2630abff3089c9d0186443771d2f8d960a32a"
+      "sha256": "9a350079ba85683684ec384072fbdf4f4a744621f4a7e1e070a45920e7a2fa59"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
       "slug": "qwen3-8-27b-local-test",
       "legacy_paths": [],
-      "notion_id": "3c099968-1bdb-8156-9cc4-c4cf24b180a9",
-      "sha256": "dfcc4a75e1d9948d43aaf62f31d02be7babd0e3ec99e91f9ac83d204c6ed461d"
+      "sha256": "bcac282f652bfa778f9db08264fdb9ef0554d423e7aa89634482d05d71aba038"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
       "slug": "qwen38-flash-next-atomic-m64-localbrain",
       "legacy_paths": [],
-      "notion_id": "",
-      "sha256": "ed09f32ff284aef1c68c1c709ee703b182fc187ef12bd0c6e21b8cb94f27758c"
+      "sha256": "fbcce294615c24e01af95256e0076f63d8b8c616cae429f6f121a2e224541f54"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
       "slug": "remotion-claude-code-prompt-to-video-guide",
       "legacy_paths": [],
-      "notion_id": "32d99968-1bdb-8162-8076-c9c2c0a83f80",
-      "sha256": "7d650976c93990069fd561d9669157cff5a9aea7c009c676e4ba303d9d7ce961"
+      "sha256": "3ee52db5dfaf48ad95588fbbf61452d3226ed7bc87d86d4995aad7534b48d743"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
       "slug": "screenlex-watch-and-learn",
       "legacy_paths": [],
-      "notion_id": "3bf99968-1bdb-81af-92dc-d7093d9c7c4c",
-      "sha256": "57180fdbddfc2028ee12481001371fdab2e3a7cf53417cbcc56e1e36dbc2aeb2"
+      "sha256": "574139ecf0c9c628bc08183851dfcbba3bd76c369a01512d76c364eda5f2188e"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
       "slug": "wifi-finder-vibe-coding",
       "legacy_paths": [],
-      "notion_id": "33499968-1bdb-8199-973d-e64706a6ed14",
-      "sha256": "de8c252a6a61e087e49268f828bbf236d8c2b04a3fcd6d39027211fae24b6324"
+      "sha256": "1b5fc0cd1febb1d8eca4201927c71d71c08953a0dadf9c4f45b68ab4e9e34f7a"
     }
   ],
   "config": [

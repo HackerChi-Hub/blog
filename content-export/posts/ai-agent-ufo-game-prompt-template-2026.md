@@ -14,7 +14,6 @@ tags:
   - AI编程
 cover: https://hyphentech.top/obsidian-assets/ai-agent-ufo-game-prompt-template-2026/image-01-36329611f7.png
 legacy_paths: []
-notion_id: 37399968-1bdb-81c2-ba65-f872aeb6a641
 ---
 
 > [!note]

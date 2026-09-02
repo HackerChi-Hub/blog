@@ -12,7 +12,6 @@ tags:
   - 热点速递
 cover: /obsidian-assets/fable-5-1-mythos-update/cover-135e02a88b.jpg
 legacy_paths: []
-notion_id: ""
 ---
 
 > [!abstract]

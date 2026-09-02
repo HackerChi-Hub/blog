@@ -10,7 +10,7 @@ const SAFE_ROUTE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const BACKUP_MARKDOWN_RE = /\.(?:bak|backup)\.md(?:own)?$/i;
 const TEMPORARY_ASSET_RE =
-  /(?:file:\/\/|\/Volumes\/|file\.notion\.so|notion-static\.com|amazonaws\.com|expirationTimestamp=|X-Amz-(?:Signature|Credential|Expires)=)/i;
+  /(?:file:\/\/|\/Volumes\/|amazonaws\.com|expirationTimestamp=|X-Amz-(?:Signature|Credential|Expires)=)/i;
 const LOCAL_PREVIEW_ASSET_RE = /^(?:\.\.\/)?preview-assets\//i;
 
 function parseArgs(argv) {
@@ -176,7 +176,6 @@ function main() {
   const failures = [];
   const warnings = [];
   const routes = new Map();
-  const notionIds = new Map();
   const postRecords = [];
   let publishedCount = 0;
   let draftCount = 0;
@@ -200,7 +199,6 @@ function main() {
     const slug = normalizeRoute(data.slug);
     const legacyPaths = asStringArray(data.legacy_paths).map(normalizeRoute).filter(Boolean);
     const ownedRoutes = [slug, ...legacyPaths].filter(Boolean);
-    const notionId = asString(data.notion_id).toLowerCase();
     const body = parsed.content.trim();
 
     const coverValue = asString(data.cover || data.image);
@@ -224,12 +222,6 @@ function main() {
     }
     if (data.tags !== undefined && !Array.isArray(data.tags)) {
       failures.push(`${relativePath} 的 tags 必须是 YAML 数组`);
-    }
-
-    if (notionId) {
-      const previous = notionIds.get(notionId);
-      if (previous) failures.push(`notion_id 重复：${notionId} 同时属于 ${previous} 和 ${relativePath}`);
-      else notionIds.set(notionId, relativePath);
     }
 
     if (status === 'published') {

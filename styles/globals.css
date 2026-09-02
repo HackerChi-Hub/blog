@@ -638,78 +638,14 @@ img:hover {
   transform: translateX(4px);
 }
 
-/* Notion 内容区 */
-.notion {
+/* 文章正文容器 */
+.article-content {
   background: var(--panel-primary);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   padding: clamp(1.6rem, 3vw, 3.2rem);
   box-shadow: var(--shadow-soft);
   color: #ffffff;
-}
-
-.notion .notion-collection-page-properties,
-.notion .notion-page-properties {
-  display: none !important;
-}
-
-.notion h1,
-.notion h2,
-.notion h3 {
-  letter-spacing: -0.01em;
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  text-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-}
-
-.notion,
-.notion p,
-.notion li,
-.notion .notion-text,
-.notion .notion-toggle,
-.notion .notion-callout-text,
-.notion .notion-quote,
-.notion .notion-quote p {
-  color: #ffffff;
-}
-
-.notion p {
-  line-height: 1.85;
-  font-size: 1rem;
-}
-
-.notion .notion-code {
-  border-radius: var(--radius-md);
-  background: var(--code-panel);
-  color: var(--code-text);
-  font-family: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas,
-    'Liberation Mono', monospace;
-  padding: 1.2rem 1.35rem;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), var(--shadow-card);
-  border: 1px solid var(--code-border);
-  position: relative;
-}
-
-.notion .notion-code::after {
-  content: attr(data-language);
-  position: absolute;
-  top: 0.45rem;
-  right: 0.75rem;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.64);
-  background: rgba(105, 240, 174, 0.12);
-  border: 1px solid rgba(105, 240, 174, 0.32);
-  padding: 0.08rem 0.55rem;
-  border-radius: 999px;
-}
-
-.notion .notion-quote {
-  border-left: 4px solid rgba(0, 229, 255, 0.8);
-  padding-left: 1.1rem;
-  font-style: italic;
 }
 
 /* 文章详情页元信息 */
@@ -823,24 +759,6 @@ img:hover {
   }
 }
 
-/* 图片裁剪（Notion） */
-.notion figure,
-.notion .notion-asset-wrapper,
-.notion .notion-asset-wrapper > div,
-.notion img {
-  border-radius: clamp(18px, 2vw, var(--radius-lg)) !important;
-  overflow: hidden;
-}
-
-.notion img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border: none !important;
-  clip-path: inset(0 round clamp(18px, 2vw, var(--radius-lg)));
-}
-
 /* 响应式 */
 @media (max-width: 768px) {
   .page {
@@ -851,7 +769,7 @@ img:hover {
   }
   .site-hero,
   .post-card,
-  .notion,
+  .article-content,
   pre {
     border-radius: 22px;
   }

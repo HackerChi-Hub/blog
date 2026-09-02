@@ -17,36 +17,16 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
 
-  // 降低静态导出的峰值内存；启用历史 Notion 回滚层时也可避免 API 并发过高。
+  // 降低静态导出的峰值内存。
   experimental: {
     cpus: 1,
   },
-
-  transpilePackages: ['react-notion-x'],
 
   // 图片优化配置
   images: {
     // 静态导出模式下，需要禁用图片优化或使用 unoptimized
     unoptimized: true,
-    // 允许的外部图片域名
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.notion.so',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.notion-static.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.s3.amazonaws.com',
-      },
-    ],
+    remotePatterns: [],
   },
 };
 

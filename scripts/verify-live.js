@@ -146,12 +146,9 @@ async function main() {
 
   const assetFiles = walkFiles(publicAssetRoot);
   if (assetFiles.length === 0) throw new Error('public/obsidian-assets 为空，拒绝把无图站点视为成功');
-  const manifestFiles = assetFiles.filter((filePath) => path.basename(filePath) === 'source-manifest.json');
-  const actualAssetCount = assetFiles.length - manifestFiles.length;
   await verifyAssetsInBatches(assetFiles.map(assetUrlForFile));
   console.log(
-    `✅ 素材验收：${actualAssetCount} 个实际被文章引用的素材，` +
-      `连同 ${manifestFiles.length} 份来源清单在内共 ${assetFiles.length} 个公开文件全部可读`
+    `✅ 素材验收：${assetFiles.length} 个实际被文章引用的公开文件全部可读`
   );
 }
 

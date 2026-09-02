@@ -3,9 +3,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import '../styles/globals.css';
-import 'react-notion-x/src/styles.css';
-import 'prismjs/themes/prism-tomorrow.css';
-import '../styles/notion-overrides.css';
 import '../styles/radar.css';
 import '../styles/markdown.css';
 

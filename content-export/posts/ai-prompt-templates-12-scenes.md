@@ -11,7 +11,6 @@ tags:
   - 人工智能
 cover: https://hyphentech.top/obsidian-assets/ai-prompt-templates-12-scenes/image-01-382be160d7.jpg
 legacy_paths: []
-notion_id: 34f99968-1bdb-81ed-ac9f-f5714fcce6f2
 ---
 
 ## AI 提示词模板库

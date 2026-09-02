@@ -15,7 +15,6 @@ tags:
   - 教育
 cover: https://hyphentech.top/obsidian-assets/ai-gaokao-2026-glm51/image-01-ff50b8fc82.jpg
 legacy_paths: []
-notion_id: 37a99968-1bdb-811a-a6ad-db173a22d78d
 ---
 
 > [!note]

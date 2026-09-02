@@ -12,7 +12,6 @@ tags:
   - 开发
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
-notion_id: 3bf99968-1bdb-8136-ac56-c46ab93ce37a
 ---
 
 ## 把 Mac 变成 私有 AI 盒子

@@ -84,7 +84,7 @@ for (const rawUrl of urls) {
     continue;
   }
   const html = fs.readFileSync(htmlPath, 'utf8');
-  if (/Content rendering failed|无法加载 Notion 内容|Response code 403/.test(html)) {
+    if (/Content rendering failed|无法加载文章内容|Response code 403/.test(html)) {
     failures.push(`错误占位内容 ${url.pathname}`);
   }
 }
@@ -113,8 +113,8 @@ try {
     if (!html.includes('markdown-content')) {
       obsidianFailures.push(`文章没有使用 Markdown 渲染器：${slug}`);
     }
-    if (/(?:file\.notion\.so|expirationTimestamp=|X-Amz-Signature=)/i.test(html)) {
-      obsidianFailures.push(`文章仍含临时 Notion 素材地址：${slug}`);
+    if (/(?:expirationTimestamp=|X-Amz-Signature=)/i.test(html)) {
+      obsidianFailures.push(`文章仍含临时签名素材地址：${slug}`);
     }
     if (!sitemap.includes(`/${slug}/`)) {
       obsidianFailures.push(`sitemap 缺少文章：${slug}`);

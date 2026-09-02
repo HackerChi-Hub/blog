@@ -12,7 +12,6 @@ tags:
   - 开发
 cover: https://hyphentech.top/obsidian-assets/screenlex-watch-and-learn/image-01-66cd719d7b.png
 legacy_paths: []
-notion_id: 3bf99968-1bdb-81af-92dc-d7093d9c7c4c
 ---
 
 ## ScreenLex 光影词库

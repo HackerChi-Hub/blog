@@ -15,7 +15,6 @@ tags:
   - 成本
 cover: https://hyphentech.top/obsidian-assets/ai-animation-pipeline-cartoon-real-cost/cover-24a22b18ce.jpg
 legacy_paths: []
-notion_id: 3c399968-1bdb-8136-9b01-c8f2705f2fc2
 ---
 
 先给结论：一个人现在确实能做完一集卡通，但它绝不是“写一句提示词，等十五秒，片子就出来了”。

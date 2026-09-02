@@ -12,7 +12,6 @@ tags:
   - 自制软件
 cover: https://hyphentech.top/obsidian-assets/hyphencut-local-video-editor/cover-f6ad190f1c.jpg
 legacy_paths: []
-notion_id: 3cc99968-1bdb-81bf-9e38-d4ecc53d476a
 ---
 
 > [!note]

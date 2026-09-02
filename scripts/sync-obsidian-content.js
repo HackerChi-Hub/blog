@@ -143,7 +143,6 @@ function prepareSnapshot(posts, temporaryRoot) {
       legacy_paths: Array.isArray(post.data.legacy_paths)
         ? post.data.legacy_paths.map((value) => String(value))
         : [],
-      notion_id: String(post.data.notion_id || ''),
       sha256: hashBuffer(Buffer.from(exportedRaw)),
     });
   }
@@ -225,7 +224,6 @@ function preparePublicAssets(posts, temporaryRoot) {
   ensureDirectory(assetRoot);
   const references = collectAssetReferences(posts);
   const copied = new Set();
-  const manifestDirectories = new Set();
 
   for (const [relativePath, owners] of references.entries()) {
     const sourcePath = path.resolve(sourceAssetRoot, relativePath);
@@ -234,16 +232,6 @@ function preparePublicAssets(posts, temporaryRoot) {
       throw new Error(`公开素材缺失：${owners.join(', ')} -> ${relativePath}`);
     }
     copyFile(sourcePath, path.join(assetRoot, ...relativePath.split('/')));
-    copied.add(relativePath);
-    const firstSegment = relativePath.split('/')[0];
-    if (firstSegment) manifestDirectories.add(firstSegment);
-  }
-
-  for (const directory of manifestDirectories) {
-    const manifestSource = path.join(sourceAssetRoot, directory, 'source-manifest.json');
-    if (!fs.existsSync(manifestSource)) continue;
-    const relativePath = `${directory}/source-manifest.json`;
-    copyFile(manifestSource, path.join(assetRoot, directory, 'source-manifest.json'));
     copied.add(relativePath);
   }
 

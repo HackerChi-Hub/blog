@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=../blog-content next dev",
-    "build": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./content-export next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./content-export",
-    "build:markdown-test": "BLOG_CONTENT_MODE=markdown-only BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./tests/fixtures/blog-content",
+    "dev": "BLOG_CONTENT_DIR=../blog-content next dev",
+    "build": "BLOG_CONTENT_DIR=./content-export next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./content-export",
+    "build:obsidian-test": "BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./tests/fixtures/blog-content",
     "content:check": "node scripts/validate-content.js",
     "content:check-fixture": "node scripts/validate-content.js --content-dir ./tests/fixtures/blog-content",
-    "content:inventory": "node scripts/export-notion-to-obsidian.js --inventory-only",
-    "content:migrate": "node scripts/export-notion-to-obsidian.js",
     "content:sync": "node scripts/sync-obsidian-content.js",
     "content:import": "node scripts/import-article-content.js",
     "test:content": "node scripts/test-content-pipeline.js",
@@ -20,16 +18,11 @@
     "publish": "scripts/blog-publish"
   },
   "dependencies": {
-    "@notionhq/client": "^5.26.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^15.0.1",
     "next": "^15.5.24",
-    "notion-client": "^8.0.6",
-    "notion-utils": "^8.0.6",
-    "prismjs": "^1.29.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-notion-x": "^8.0.6",
     "yaml": "^2.9.0"
   },
   "overrides": {
