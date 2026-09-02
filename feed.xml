@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Sep 2026 01:48:26 GMT</lastBuildDate>
-    <pubDate>Wed, 02 Sep 2026 01:48:26 GMT</pubDate>
+    <lastBuildDate>Wed, 02 Sep 2026 01:49:34 GMT</lastBuildDate>
+    <pubDate>Wed, 02 Sep 2026 01:49:34 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -19,6 +19,18 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>85GB 模型塞进 64GB Mac：我用 LocalBrain 跑通 Qwen3.8 Flash Next</title>
+      <link>https://hyphentech.top/qwen38-flash-next-atomic-m64-localbrain/</link>
+      <guid isPermaLink="true">https://hyphentech.top/qwen38-flash-next-atomic-m64-localbrain/</guid>
+      <description>Qwen3.8 Flash Next 的 125B 主模型每个 token 只激活约 6B 参数。借助 Atomic M64 特制分片与 LocalBrain，我在 64GB M5 Pro Mac 上完成了文本、工具调用、视觉和持续生成实测。</description>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>LocalBrain</category>
+    <category>Qwen</category>
     </item>
     <item>
       <title>我用 Rust 重写了一个专业视频剪辑｜黑粉剪辑</title>
@@ -212,20 +224,6 @@
     <category>AI</category>
     <category>实测</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>Google I/O 2026 深度解读：Gemini 进入 Agentic 时代</title>
-      <link>https://hyphentech.top/google-io-2026-gemini-agentic-era/</link>
-      <guid isPermaLink="true">https://hyphentech.top/google-io-2026-gemini-agentic-era/</guid>
-      <description>从「回答问题」到「替你做事」，Google 用1800亿美元押注全栈Agent生态。托管式智能体、主动工作流、Gemini Spark 24/7后台Agent——深度解读I/O 2026全部重磅发布。</description>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>Gemini</category>
-    <category>Google</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>Agent</category>
-    <category>科技前沿</category>
     </item>
   </channel>
 </rss>
