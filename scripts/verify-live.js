@@ -77,18 +77,34 @@ function assetUrlForFile(filePath) {
 }
 
 async function verifyAssetUrl(url) {
-  const response = await fetchWithTimeout(url, 15000, { method: 'HEAD' });
-  if (!response.ok) throw new Error(`${response.status} ${url}`);
-  const length = Number(response.headers.get('content-length') || 0);
-  if (length <= 0) {
-    const fallback = await fetchWithTimeout(url, 15000, {
-      headers: { range: 'bytes=0-0' },
-    });
-    if (!fallback.ok || (await fallback.arrayBuffer()).byteLength === 0) {
-      throw new Error(`空素材：${url}`);
+  const cacheBustedUrl = expectedRunId
+    ? `${url}${url.includes('?') ? '&' : '?'}deploy=${encodeURIComponent(expectedRunId)}`
+    : url;
+  const deadline = Date.now() + 90000;
+  let lastError = '';
+
+  while (Date.now() < deadline) {
+    try {
+      const response = await fetchWithTimeout(cacheBustedUrl, 15000, { method: 'HEAD' });
+      if (!response.ok) {
+        lastError = `HTTP ${response.status}`;
+      } else {
+        const length = Number(response.headers.get('content-length') || 0);
+        if (length > 0) return url;
+
+        const fallback = await fetchWithTimeout(cacheBustedUrl, 15000, {
+          headers: { range: 'bytes=0-0' },
+        });
+        if (fallback.ok && (await fallback.arrayBuffer()).byteLength > 0) return url;
+        lastError = fallback.ok ? '响应为空' : `Range HTTP ${fallback.status}`;
+      }
+    } catch (error) {
+      lastError = error.message;
     }
+    await sleep(5000);
   }
-  return url;
+
+  throw new Error(`${lastError || '不可读'} ${url}`);
 }
 
 async function verifyAssetsInBatches(urls, size = 12) {

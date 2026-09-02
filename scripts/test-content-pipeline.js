@@ -59,13 +59,13 @@ categories:
   - 技术分享
 tags:
   - AI
-cover: /obsidian-assets/live-post/cover.png
+cover: ../preview-assets/live-post/cover.png
 legacy_paths:
   - old-live-post
 notion_id: 11111111-1111-1111-1111-111111111111
 ---
 
-${body || '正文。\n\n![配图](https://hyphentech.top/obsidian-assets/live-post/body.png)'}
+${body || '正文。\n\n![配图](../preview-assets/live-post/body.png)'}
 `;
 }
 
@@ -93,12 +93,18 @@ function main() {
     write(path.join(assets, 'live-post', 'body.png'), 'body');
     write(path.join(assets, 'live-post', 'unused.png'), 'unused');
     write(path.join(assets, 'notices', 'banner.png'), 'notice');
+    write(path.join(content, 'preview-assets', 'live-post', 'cover.png'), 'cover');
+    write(path.join(content, 'preview-assets', 'live-post', 'body.png'), 'body');
     write(path.join(publicAssets, 'stale', 'old.png'), 'stale');
 
     run(validator, ['--content-dir', content]);
     const firstOutput = run(synchronizer, syncArgs);
     assert.match(firstOutput, /1 篇文章/);
     assert(fs.existsSync(path.join(exportDir, 'posts', 'live-post.md')));
+    const exported = fs.readFileSync(path.join(exportDir, 'posts', 'live-post.md'), 'utf8');
+    assert(!exported.includes('preview-assets/'));
+    assert.match(exported, /\/obsidian-assets\/live-post\/cover\.png/);
+    assert.match(exported, /\/obsidian-assets\/live-post\/body\.png/);
     assert(!fs.existsSync(path.join(exportDir, 'posts', 'draft-post.md')));
     assert(fs.existsSync(path.join(publicAssets, 'live-post', 'cover.png')));
     assert(fs.existsSync(path.join(publicAssets, 'live-post', 'body.png')));
@@ -146,7 +152,7 @@ function main() {
 
     const importImage = path.join(holder, 'incoming.png');
     const importCover = path.join(holder, 'cover.jpg');
-    write(importImage, 'incoming');
+    fs.writeFileSync(importImage, Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
     write(importCover, 'cover-jpg');
     const articleJson = path.join(holder, 'article_content.json');
     write(
@@ -175,8 +181,10 @@ function main() {
     ]);
     const imported = fs.readFileSync(path.join(content, 'posts', 'imported-post.md'), 'utf8');
     assert.match(imported, /status: draft/);
-    assert.match(imported, /obsidian-assets\/imported-post\/image-hero-/);
+    assert.match(imported, /\.\.\/preview-assets\/imported-post\/image-hero-[a-f0-9]+\.jpg/);
     assert.match(imported, /## 第一节/);
+    const previewFiles = walkFiles(path.join(content, 'preview-assets', 'imported-post'));
+    assert.strictEqual(previewFiles.length, 2);
 
     console.log('✅ 内容管道回归测试通过：校验、草稿隔离、素材裁剪、幂等、失败回滚、删除与导入');
   } finally {

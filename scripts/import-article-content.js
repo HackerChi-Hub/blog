@@ -63,12 +63,31 @@ function cleanName(value) {
   return cleaned || 'image';
 }
 
-function copyAsset(sourcePath, slug, key, assetRoot) {
+function detectedExtension(filePath) {
+  const header = fs.readFileSync(filePath).subarray(0, 12);
+  if (header.length >= 8 && header.subarray(0, 8).equals(
+    Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])
+  )) return '.png';
+  if (header.length >= 3 && header[0] === 0xff && header[1] === 0xd8 && header[2] === 0xff) {
+    return '.jpg';
+  }
+  if (header.length >= 6 && ['GIF87a', 'GIF89a'].includes(header.subarray(0, 6).toString('ascii'))) {
+    return '.gif';
+  }
+  if (
+    header.length >= 12
+    && header.subarray(0, 4).toString('ascii') === 'RIFF'
+    && header.subarray(8, 12).toString('ascii') === 'WEBP'
+  ) return '.webp';
+  return path.extname(filePath).toLowerCase() || '.bin';
+}
+
+function copyAsset(sourcePath, slug, key, assetRoot, previewRoot) {
   const source = path.resolve(sourcePath);
   if (!fs.existsSync(source) || !fs.statSync(source).isFile()) {
     throw new Error(`素材不存在：${source}`);
   }
-  const extension = path.extname(source).toLowerCase() || '.bin';
+  const extension = detectedExtension(source);
   const hash = hashFile(source).slice(0, 10);
   const fileName = `${cleanName(key)}-${hash}${extension}`;
   const articleAssetRoot = path.join(assetRoot, slug);
@@ -76,7 +95,18 @@ function copyAsset(sourcePath, slug, key, assetRoot) {
   ensureInside(assetRoot, target, '文章素材目标');
   fs.mkdirSync(articleAssetRoot, { recursive: true });
   if (!fs.existsSync(target) || hashFile(target) !== hashFile(source)) fs.copyFileSync(source, target);
-  return `https://hyphentech.top/obsidian-assets/${encodeURIComponent(slug)}/${encodeURIComponent(fileName)}`;
+
+  const articlePreviewRoot = path.join(previewRoot, slug);
+  const previewTarget = path.join(articlePreviewRoot, fileName);
+  ensureInside(previewRoot, previewTarget, 'Obsidian 预览素材目标');
+  fs.mkdirSync(articlePreviewRoot, { recursive: true });
+  if (!fs.existsSync(previewTarget) || hashFile(previewTarget) !== hashFile(source)) {
+    fs.copyFileSync(source, previewTarget);
+  }
+  return {
+    publicUrl: `https://hyphentech.top/obsidian-assets/${encodeURIComponent(slug)}/${encodeURIComponent(fileName)}`,
+    previewUrl: `../preview-assets/${encodeURIComponent(slug)}/${encodeURIComponent(fileName)}`,
+  };
 }
 
 function escapeTableCell(value) {
@@ -171,6 +201,7 @@ function main() {
   const input = path.resolve(args.input);
   const contentDir = path.resolve(args.contentDir);
   const assetRoot = path.resolve(args.assetRoot);
+  const previewRoot = path.join(contentDir, 'preview-assets');
   const article = JSON.parse(fs.readFileSync(input, 'utf8'));
   const slug = String(args.slug || article.slug || '').trim().toLowerCase();
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`slug 无效：${slug || '空'}`);
@@ -190,13 +221,13 @@ function main() {
   for (const [key, spec] of Object.entries(specs)) {
     const source = String(spec?.src || spec?.path || '').trim();
     if (source && !/^https?:\/\//i.test(source)) {
-      assetUrls[key] = copyAsset(source, slug, `image-${key}`, assetRoot);
+      assetUrls[key] = copyAsset(source, slug, `image-${key}`, assetRoot, previewRoot).previewUrl;
     }
   }
   const coverSource = String(article.cover_wide || article.cover || '').trim();
   let cover = String(existing.cover || '');
   if (coverSource && !/^https?:\/\//i.test(coverSource)) {
-    cover = copyAsset(coverSource, slug, 'cover', assetRoot);
+    cover = copyAsset(coverSource, slug, 'cover', assetRoot, previewRoot).previewUrl;
   } else if (/^https?:\/\//i.test(coverSource)) cover = coverSource;
 
   const today = shanghaiDate();
@@ -223,6 +254,7 @@ function main() {
   fs.renameSync(temporary, postPath);
   console.log(`✅ 已写入 Obsidian Blog ${args.status}：${postPath}`);
   console.log(`   素材目录：${path.join(assetRoot, slug)}（${Object.keys(assetUrls).length + (cover ? 1 : 0)} 个引用）`);
+  console.log(`   Obsidian 本地预览：${path.join(previewRoot, slug)}`);
 }
 
 try {

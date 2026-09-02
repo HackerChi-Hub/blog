@@ -109,6 +109,13 @@ function copyFile(sourcePath, targetPath) {
   fs.copyFileSync(sourcePath, targetPath);
 }
 
+function rewritePreviewReferences(raw) {
+  return String(raw).replace(
+    /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g,
+    (_match, relativePath) => `/obsidian-assets/${relativePath}`
+  );
+}
+
 function prepareSnapshot(posts, temporaryRoot) {
   const snapshotRoot = path.join(temporaryRoot, 'content-export');
   ensureDirectory(path.join(snapshotRoot, 'posts'));
@@ -122,7 +129,10 @@ function prepareSnapshot(posts, temporaryRoot) {
       '文章源文件'
     );
     const normalizedRelative = relativePath.split(path.sep).join('/');
-    copyFile(post.filePath, path.join(snapshotRoot, 'posts', relativePath));
+    const exportedRaw = rewritePreviewReferences(post.raw);
+    const exportedPath = path.join(snapshotRoot, 'posts', relativePath);
+    ensureDirectory(path.dirname(exportedPath));
+    fs.writeFileSync(exportedPath, exportedRaw, 'utf8');
     manifestPosts.push({
       file: `posts/${normalizedRelative}`,
       slug: String(post.data.slug || ''),
@@ -130,7 +140,7 @@ function prepareSnapshot(posts, temporaryRoot) {
         ? post.data.legacy_paths.map((value) => String(value))
         : [],
       notion_id: String(post.data.notion_id || ''),
-      sha256: hashBuffer(Buffer.from(post.raw)),
+      sha256: hashBuffer(Buffer.from(exportedRaw)),
     });
   }
 
@@ -185,7 +195,10 @@ function decodeAssetReference(rawReference) {
 }
 
 function collectAssetReferences(posts) {
-  const sources = posts.map((post) => ({ name: path.basename(post.filePath), raw: post.raw }));
+  const sources = posts.map((post) => ({
+    name: path.basename(post.filePath),
+    raw: rewritePreviewReferences(post.raw),
+  }));
   for (const fileName of ['notices.yml', 'submenus.yml']) {
     const filePath = path.join(sourceRoot, 'config', fileName);
     sources.push({ name: `config/${fileName}`, raw: fs.readFileSync(filePath, 'utf8') });

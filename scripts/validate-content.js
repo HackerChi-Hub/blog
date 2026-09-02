@@ -10,6 +10,7 @@ const SAFE_ROUTE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const TEMPORARY_ASSET_RE =
   /(?:file:\/\/|\/Volumes\/|file\.notion\.so|notion-static\.com|amazonaws\.com|expirationTimestamp=|X-Amz-(?:Signature|Credential|Expires)=)/i;
+const LOCAL_PREVIEW_ASSET_RE = /^(?:\.\.\/)?preview-assets\//i;
 
 function parseArgs(argv) {
   const args = { contentDir: process.env.BLOG_CONTENT_DIR || '' };
@@ -64,7 +65,38 @@ function validDate(value) {
 
 function isStablePublishedAsset(value) {
   if (!value || TEMPORARY_ASSET_RE.test(value)) return false;
-  return /^(?:https:\/\/hyphentech\.top)?\/obsidian-assets\//i.test(value);
+  return /^(?:https:\/\/hyphentech\.top)?\/obsidian-assets\//i.test(value)
+    || LOCAL_PREVIEW_ASSET_RE.test(value);
+}
+
+function validatePreviewAsset(contentDir, value, label, failures) {
+  const raw = asString(value).replace(/[?#].*$/, '');
+  if (!LOCAL_PREVIEW_ASSET_RE.test(raw)) return;
+  let decoded;
+  try {
+    decoded = decodeURIComponent(raw);
+  } catch (error) {
+    failures.push(`${label} 的本地预览路径编码无效：${raw}`);
+    return;
+  }
+  if (decoded.includes('\\') || decoded.includes('\0')) {
+    failures.push(`${label} 的本地预览路径无效：${raw}`);
+    return;
+  }
+  const relative = decoded.replace(/^\.\.\//, '').replace(/^preview-assets\//, '');
+  const normalized = path.posix.normalize(relative);
+  if (!normalized || normalized === '.' || normalized === '..' || normalized.startsWith('../')) {
+    failures.push(`${label} 的本地预览路径越界：${raw}`);
+    return;
+  }
+  const previewRoot = path.resolve(contentDir, 'preview-assets');
+  const target = path.resolve(previewRoot, ...normalized.split('/'));
+  const targetRelative = path.relative(previewRoot, target);
+  if (!targetRelative || targetRelative.startsWith('..') || path.isAbsolute(targetRelative)) {
+    failures.push(`${label} 的本地预览路径越界：${raw}`);
+  } else if (!fs.existsSync(target) || !fs.statSync(target).isFile()) {
+    failures.push(`${label} 的本地预览素材不存在：${raw}`);
+  }
 }
 
 function validateRoute(route, label, failures) {
@@ -170,6 +202,13 @@ function main() {
     const notionId = asString(data.notion_id).toLowerCase();
     const body = parsed.content.trim();
 
+    const coverValue = asString(data.cover || data.image);
+    validatePreviewAsset(contentDir, coverValue, `${relativePath} 的 cover`, failures);
+    const previewPattern = /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g;
+    for (const match of body.matchAll(previewPattern)) {
+      validatePreviewAsset(contentDir, match[0], `${relativePath} 的正文图片`, failures);
+    }
+
     if (!VALID_STATUSES.has(status)) failures.push(`${relativePath} 的 status 无效：${status}`);
     validateRoute(slug, `${relativePath} 的 slug`, failures);
     legacyPaths.forEach((route) => validateRoute(route, `${relativePath} 的 legacy_paths`, failures));
@@ -206,9 +245,9 @@ function main() {
         failures.push(`${relativePath} 的 updated 早于 date`);
       }
       if (asStringArray(data.categories).length === 0) failures.push(`${relativePath} 至少需要一个 category`);
-      const cover = asString(data.cover || data.image);
+      const cover = coverValue;
       if (!isStablePublishedAsset(cover)) {
-        failures.push(`${relativePath} 的 cover 必须是 /obsidian-assets/ 稳定地址：${cover || '空'}`);
+        failures.push(`${relativePath} 的 cover 必须是本地 preview-assets 或 /obsidian-assets/ 稳定地址：${cover || '空'}`);
       }
       const unsafeBody = body.match(TEMPORARY_ASSET_RE);
       if (unsafeBody) failures.push(`${relativePath} 正文含本机路径或临时素材地址：${unsafeBody[0]}`);
