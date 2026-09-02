@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "6249cc436ca884d9e350f61873e7fdb14a75aec8b065044f1dbcda1c893bf0bc",
-  "published_post_count": 35,
+  "content_sha256": "da8a09b98b2dd0b7633199c870bb513eec0d988315a451886f9a1e9de1417388",
+  "published_post_count": 36,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -227,6 +227,13 @@
       "legacy_paths": [],
       "notion_id": "3c099968-1bdb-8156-9cc4-c4cf24b180a9",
       "sha256": "dfcc4a75e1d9948d43aaf62f31d02be7babd0e3ec99e91f9ac83d204c6ed461d"
+    },
+    {
+      "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
+      "slug": "qwen38-flash-next-atomic-m64-localbrain",
+      "legacy_paths": [],
+      "notion_id": "",
+      "sha256": "fa1396fd61c89031121e4dcb4e251da81cadc35b2c8f099b131506740777ef8c"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
