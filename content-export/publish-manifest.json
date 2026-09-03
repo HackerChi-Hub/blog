@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "e913664c25ac8c9d9068fd741833ab86faa207ca530fe356ba6f5c2c0266a27a",
-  "published_post_count": 37,
+  "content_sha256": "5076e4b87576b2ddd093a6367501c91ad0904a80e24c2b88a0032ef6e2ce96d5",
+  "published_post_count": 38,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -147,6 +147,12 @@
       "slug": "free-design-resources",
       "legacy_paths": [],
       "sha256": "e774ed493f312ef0c88dd90dc1c47905ee31120488cc636c2950b48df142e0b4"
+    },
+    {
+      "file": "posts/gemini-3-8-flash-cyber.md",
+      "slug": "gemini-3-8-flash-cyber",
+      "legacy_paths": [],
+      "sha256": "ef87948a82d3a10d941d57f8c631b4986482cff5a7b06e75deced07eab4f9509"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
