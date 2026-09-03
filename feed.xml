@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Sep 2026 23:21:02 GMT</lastBuildDate>
-    <pubDate>Wed, 02 Sep 2026 23:21:02 GMT</pubDate>
+    <lastBuildDate>Thu, 03 Sep 2026 00:17:45 GMT</lastBuildDate>
+    <pubDate>Thu, 03 Sep 2026 00:17:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>谷歌憋了个网络安全大模型，却只给一小撮人用</title>
+      <link>https://hyphentech.top/gemini-3-8-flash-cyber/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-3-8-flash-cyber/</guid>
+      <description>9 月 2 日谷歌一口气发了 3.8 Flash 和 3.8 Flash Cyber。同一个核心，两副面孔：一个便宜好用人人能上，一个专治漏洞却只给可信防御方。有意思的不是谁更强，是这条分界线画在哪。</description>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>模型发布</category>
+    </item>
     <item>
       <title>DeepSeek视觉开源，64GB Mac能跑吗？</title>
       <link>https://hyphentech.top/deepseek-v4-vision-mac64/</link>
@@ -210,16 +220,6 @@
       <guid isPermaLink="true">https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</guid>
       <description>Muse Glimmer 30B 与 Qwen3.8 27B 同机实测：生成速度快三成的那个，交出答案慢了三倍多。差距藏在一个没人报的指标里。</description>
       <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>只用2GB内存，Mac真能跑26B模型？</title>
-      <link>https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3af999681bdb8146be26ec77fb75f5b7/</guid>
-      <description>TurboFieldfare 把大模型塞进 M 系 Mac，但真正被改写的不是参数纪录，而是本地推理的成本边界。</description>
-      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
