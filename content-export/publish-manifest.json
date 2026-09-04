@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "5076e4b87576b2ddd093a6367501c91ad0904a80e24c2b88a0032ef6e2ce96d5",
-  "published_post_count": 38,
+  "content_sha256": "31ca15be8bafad89c5dadd542986de2fca77acbe3d0434fa692af3752e00b4b5",
+  "published_post_count": 40,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -173,6 +173,12 @@
       "sha256": "d3406ef05c7a6e9087ae9dc1a1351eb14212ea6746a50a00b152aaa4e152ef44"
     },
     {
+      "file": "posts/hyphenbox-windows-linux-tri-platform.md",
+      "slug": "hyphenbox-windows-linux-tri-platform",
+      "legacy_paths": [],
+      "sha256": "b3175ff289b65cfa49b7ed061d1d5f03bc39bd4b791fd40bb4b05f07ddf348be"
+    },
+    {
       "file": "posts/hyphencut-local-video-editor.md",
       "slug": "hyphencut-local-video-editor",
       "legacy_paths": [],
@@ -183,6 +189,12 @@
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
       "sha256": "0ebca8256ff6d2e26be912a66d0b65d54c56be1825b8b961c5adb96fb9ff4f60"
+    },
+    {
+      "file": "posts/localbrain-windows-nvidia-first-release.md",
+      "slug": "localbrain-windows-nvidia-first-release",
+      "legacy_paths": [],
+      "sha256": "9682ec7db5a8ac972a6eff8ba9400e4d3237609d55aab2af9896f535f551acfc"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
