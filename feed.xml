@@ -5,11 +5,34 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 03 Sep 2026 23:23:38 GMT</lastBuildDate>
-    <pubDate>Thu, 03 Sep 2026 23:23:38 GMT</pubDate>
+    <lastBuildDate>Fri, 04 Sep 2026 01:06:46 GMT</lastBuildDate>
+    <pubDate>Fri, 04 Sep 2026 01:06:46 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>8 GB 显存也能跑本地 AI：Windows 与 Mac 怎么选？</title>
+      <link>https://hyphentech.top/localbrain-windows-nvidia-first-release/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-windows-nvidia-first-release/</guid>
+      <description>不讨论“软件有没有 Windows 版”这种表面问题，而是回答两件实际的事：8 GB NVIDIA 显卡能把哪些本地模型和工具跑起来，Mac 的统一内存与完整多媒体链又强在哪里。</description>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    </item>
+    <item>
+      <title>免费 API 不用挨个试：Windows 与 Mac 自动换模型</title>
+      <link>https://hyphentech.top/hyphenbox-windows-linux-tri-platform/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenbox-windows-linux-tri-platform/</guid>
+      <description>把分散的免费 API 变成一个本地入口：先看官方证据，再用自己的 Key 真测路由，最后让 Cursor、Cline 和 OpenCode 自动换到还能用的模型。Windows 与 Mac 已可用，平台差异也写清楚。</description>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>免费白嫖</category>
+    <category>自制软件</category>
+    </item>
     <item>
       <title>谷歌憋了个网络安全大模型，却只给一小撮人用</title>
       <link>https://hyphentech.top/gemini-3-8-flash-cyber/</link>
@@ -203,26 +226,6 @@
     <category>资源分享</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>DeepSeek 的新外壳，真值得装吗？</title>
-      <link>https://hyphentech.top/3be999681bdb81269ddaf65518a0735a/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3be999681bdb81269ddaf65518a0735a/</guid>
-      <description>三天拿下 119517 个 star，却连终端界面都没有；真正有价值的，是它允许你把 DeepSeek 换掉。</description>
-      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Muse 对 Qwen3.8：更快的反而更慢？</title>
-      <link>https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3be999681bdb81e1ad77fc17c2b9dd6a/</guid>
-      <description>Muse Glimmer 30B 与 Qwen3.8 27B 同机实测：生成速度快三成的那个，交出答案慢了三倍多。差距藏在一个没人报的指标里。</description>
-      <pubDate>Sun, 16 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
