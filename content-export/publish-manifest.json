@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "31ca15be8bafad89c5dadd542986de2fca77acbe3d0434fa692af3752e00b4b5",
-  "published_post_count": 40,
+  "content_sha256": "9e48dd75113549756bf77814e3a91c8236d5d34009ef92360fedcbb9a78c271c",
+  "published_post_count": 42,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -161,6 +161,12 @@
       "sha256": "02be79ca3a6eccc10f09bf59a9a2fd832a15d6bd00aae706da3394fe9c8893fb"
     },
     {
+      "file": "posts/gpt-6-astra-computer-use.md",
+      "slug": "gpt-6-astra-computer-use",
+      "legacy_paths": [],
+      "sha256": "429541997487629a189d2e4447b060c7c429fe018b800bbcbea5978cbc44c65e"
+    },
+    {
       "file": "posts/huawei-tau-law-2026.md",
       "slug": "huawei-tau-law-2026",
       "legacy_paths": [],
@@ -195,6 +201,12 @@
       "slug": "localbrain-windows-nvidia-first-release",
       "legacy_paths": [],
       "sha256": "9682ec7db5a8ac972a6eff8ba9400e4d3237609d55aab2af9896f535f551acfc"
+    },
+    {
+      "file": "posts/mac-local-inference-engines.md",
+      "slug": "mac-local-inference-engines",
+      "legacy_paths": [],
+      "sha256": "25ebae68f6749b7a1f6d847b6901cabd26682f3c57de756d566000d1b1aa78e1"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
