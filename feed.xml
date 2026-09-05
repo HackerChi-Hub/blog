@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:39:35 GMT</lastBuildDate>
-    <pubDate>Sat, 05 Sep 2026 10:39:35 GMT</pubDate>
+    <lastBuildDate>Sat, 05 Sep 2026 13:29:28 GMT</lastBuildDate>
+    <pubDate>Sat, 05 Sep 2026 13:29:28 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>都说比 Ollama 快，可没人真跟 Ollama 比过</title>
+      <link>https://hyphentech.top/mac-local-inference-engines/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mac-local-inference-engines/</guid>
+      <description>Ollama 半年前就把 Mac 推理换成了 MLX 内核，现在冒出一堆自称更快的挑战者。我没跑实测，只把四家自己公布的跑分摆到一张桌子上——结果是：谁也没跟谁跑同一套题。</description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    </item>
+    <item>
+      <title>GPT-6来了，它真开始替你干活了？</title>
+      <link>https://hyphentech.top/gpt-6-astra-computer-use/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gpt-6-astra-computer-use/</guid>
+      <description>GPT-6 Astra 的真正变化，不是聊天分数再涨一点，而是电脑操作、长任务和高风险能力同时进入产品。本文按 OpenAI 官方资料拆解可用范围、API 成本、安全边界和普通人的选型方法。</description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>8 GB 显存也能跑本地 AI：Windows 与 Mac 怎么选？</title>
       <link>https://hyphentech.top/localbrain-windows-nvidia-first-release/</link>
@@ -203,29 +223,6 @@
     <category>Apple Silicon</category>
     <category>开源</category>
     <category>本地部署</category>
-    </item>
-    <item>
-      <title>Qwen3.8-27B 本地实测：6 道题全交了，翻车翻在两行 CSS 上</title>
-      <link>https://hyphentech.top/qwen3-8-27b-local-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/qwen3-8-27b-local-test/</guid>
-      <description>8 月 14 日开源的 27B 多模态模型，17GB 塞进一台 M5 Pro。6 道题全部产出可运行文件，中位 13.4 token/秒。顺带说清楚去审查版在哪拿、要多少内存。</description>
-      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>本地部署</category>
-    <category>Apple Silicon</category>
-    <category>开源</category>
-    </item>
-    <item>
-      <title>ScreenLex：把本地电影字幕变成英语词库</title>
-      <link>https://hyphentech.top/screenlex-watch-and-learn/</link>
-      <guid isPermaLink="true">https://hyphentech.top/screenlex-watch-and-learn/</guid>
-      <description>本地影视英语学习工具：扫描本机 SRT/ASS 字幕，离线整理成按考试分级的高级英语词库，配套逐句学习播放器与主动回忆复习。支持 macOS（Apple Silicon）与 Windows（x64 arm）。</description>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>工具</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
