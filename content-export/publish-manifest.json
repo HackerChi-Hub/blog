@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "9e48dd75113549756bf77814e3a91c8236d5d34009ef92360fedcbb9a78c271c",
-  "published_post_count": 42,
+  "content_sha256": "52e04afa72343573aa5c0354621f73bf0ce59b73e8fc4ad5daf4a80910b79e06",
+  "published_post_count": 43,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -165,6 +165,12 @@
       "slug": "gpt-6-astra-computer-use",
       "legacy_paths": [],
       "sha256": "429541997487629a189d2e4447b060c7c429fe018b800bbcbea5978cbc44c65e"
+    },
+    {
+      "file": "posts/gpt6-six-tasks-rain-mystery.md",
+      "slug": "gpt6-six-tasks-rain-mystery",
+      "legacy_paths": [],
+      "sha256": "1aca5a2c9ac449d22e5e4c3f201ef13e0ec85ddfb43b20e4b9310de06af64288"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
