@@ -5,11 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 06 Sep 2026 04:44:02 GMT</lastBuildDate>
-    <pubDate>Sun, 06 Sep 2026 04:44:02 GMT</pubDate>
+    <lastBuildDate>Sun, 06 Sep 2026 10:45:40 GMT</lastBuildDate>
+    <pubDate>Sun, 06 Sep 2026 10:45:40 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>GPT-6跑分很猛，六道题后我想说点实话（附免费小游戏）</title>
+      <link>https://hyphentech.top/gpt6-six-tasks-rain-mystery/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gpt6-six-tasks-rain-mystery/</guid>
+      <description>六题制作复盘与公开评测对照，附免费雨夜推理小游戏、完整线索和答案。</description>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>都说比 Ollama 快，可没人真跟 Ollama 比过</title>
       <link>https://hyphentech.top/mac-local-inference-engines/</link>
@@ -210,19 +219,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>Mac本地生视频：FastMetal-QAD官方介绍</title>
-      <link>https://hyphentech.top/fastmetal-qad-apple-silicon-official-guide/</link>
-      <guid isPermaLink="true">https://hyphentech.top/fastmetal-qad-apple-silicon-official-guide/</guid>
-      <description>FastVideo 团队为 Apple Silicon 推出 1.3B、5B、14B 三档开源视频模型。本文按官方资料整理内存门槛、速度口径、生成模式和安装入口，不包含本机实测。</description>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>视频生成</category>
-    <category>Apple Silicon</category>
-    <category>开源</category>
-    <category>本地部署</category>
     </item>
   </channel>
 </rss>
