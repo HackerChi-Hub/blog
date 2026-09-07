@@ -188,4 +188,4 @@ Figma 是行业标配，免费版 3 个项目够个人用。在意隐私和数�
 
 70+ 个免费资源站，从找图片到做设计全流程覆盖。**建议收藏，下次做 PPT、写文章、做视频时直接翻出来用。**
 
-> 黑粉科技 · 让普通人也能驾驭 AI · [hyphentech.top](http://hyphentech.top/)
+> 黑粉科技 · 让AI成为你的超能力 · [hyphentech.top](http://hyphentech.top/)

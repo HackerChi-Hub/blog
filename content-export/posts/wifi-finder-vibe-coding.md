@@ -1223,4 +1223,4 @@ AI 给出第一版后，我开始 "Vibe" 起来——不看代码，只看效果
 
 ---
 
-*本文首发于 *[*黑粉科技 hyphentech.top*](https://hyphentech.top/)*。让普通人也能驾驭 AI。*
+*本文首发于 *[*黑粉科技 hyphentech.top*](https://hyphentech.top/)*。让AI成为你的超能力。*

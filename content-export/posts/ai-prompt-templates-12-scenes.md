@@ -519,4 +519,4 @@ legacy_paths: []
 
 12 个场景，25+ 个提示词模板，覆盖日常 **80% 的 AI 使用需求**。**建议收藏，用的时候直接翻到对应场景复制粘贴。**
 
-> 黑粉科技 · 让普通人也能驾驭 AI · [hyphentech.top](http://hyphentech.top/)
+> 黑粉科技 · 让AI成为你的超能力 · [hyphentech.top](http://hyphentech.top/)

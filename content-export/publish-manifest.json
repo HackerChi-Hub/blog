@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "52e04afa72343573aa5c0354621f73bf0ce59b73e8fc4ad5daf4a80910b79e06",
-  "published_post_count": 43,
+  "content_sha256": "3862e6b52ebcee09dd21ee4655a2426707f77f6cebe484760616b95659182dad",
+  "published_post_count": 44,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -92,13 +92,13 @@
       "file": "posts/ai-logo-brand-assets-workflow.md",
       "slug": "ai-logo-brand-assets-workflow",
       "legacy_paths": [],
-      "sha256": "796a6d409e1783b29b139cbd0ddbb4b74d03ec139dd1a395e302ed07014b944f"
+      "sha256": "d250ffacb585b5bcd0061ab81ac5ab3ede415d8e6b12d58076865a797fb2f445"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
       "slug": "ai-prompt-templates-12-scenes",
       "legacy_paths": [],
-      "sha256": "d15c9d6b0a348eea2410880a5e5fee8bea5420bf5e766d3a7cca910637387d9f"
+      "sha256": "1ad65b08695b9861b02247d30701a27e4affda3c8abecdd732420ae8f83125f5"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
@@ -128,7 +128,7 @@
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "legacy_paths": [],
-      "sha256": "f4a9a52ae867e2088186b606219bd74c9206c356286626a89286611623335ed2"
+      "sha256": "5e71b21b4bcbd95f67b7c9d441de750ba348091b9b4d4698bbf72a082e4032d9"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
@@ -146,7 +146,7 @@
       "file": "posts/free-design-resources.md",
       "slug": "free-design-resources",
       "legacy_paths": [],
-      "sha256": "e774ed493f312ef0c88dd90dc1c47905ee31120488cc636c2950b48df142e0b4"
+      "sha256": "55f9f1c7cead71108e5c8182016e8c80c5e66b568206d4e36b72f11d24b39373"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber.md",
@@ -227,6 +227,12 @@
       "sha256": "534cbb6eb70b4c6a29f8293cac02c5bfe00ab473f9767192b5cc496a0d3b3b9b"
     },
     {
+      "file": "posts/omarchy-linux-ai-getting-started.md",
+      "slug": "omarchy-linux-ai-getting-started",
+      "legacy_paths": [],
+      "sha256": "5426bb58b92ebdfa6ed9be74988f2dc3dedfc4839e3cdd1ad6948760dc1839c1"
+    },
+    {
       "file": "posts/ox-alpha-stealth-model.md",
       "slug": "ox-alpha-stealth-model",
       "legacy_paths": [],
@@ -248,7 +254,7 @@
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
       "slug": "remotion-claude-code-prompt-to-video-guide",
       "legacy_paths": [],
-      "sha256": "3ee52db5dfaf48ad95588fbbf61452d3226ed7bc87d86d4995aad7534b48d743"
+      "sha256": "ca7651b70956e6f68f1d13a4a233f8eab849bb723df547e9e6ecd22bcfee8af0"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
@@ -260,13 +266,13 @@
       "file": "posts/wifi-finder-vibe-coding.md",
       "slug": "wifi-finder-vibe-coding",
       "legacy_paths": [],
-      "sha256": "1b5fc0cd1febb1d8eca4201927c71d71c08953a0dadf9c4f45b68ab4e9e34f7a"
+      "sha256": "299a6120058b1269d5cf21ddc1f1c10b3899c9facfeaff5eef16a4a51098fa98"
     }
   ],
   "config": [
     {
       "file": "config/notices.yml",
-      "sha256": "3cc14343d04950a418133e108622491f8de3bbf6d77bd676024e78b86b6c8895"
+      "sha256": "0f040341943df273508dbe53155483d1ba1977d8899707fe79c7eb267ed0ed00"
     },
     {
       "file": "config/submenus.yml",

@@ -19,7 +19,7 @@ legacy_paths: []
 
 ---
 
-> 【让普通人也能驾驭 AI】欢迎访问我们的网站              
+> 【让AI成为你的超能力】欢迎访问我们的网站
 > **网站**：[**https://hyphentech.top**](https://hyphentech.top/)
 
 ---
@@ -165,7 +165,7 @@ magick -size 2560x1440 xc:"#1A2332" \
   -font "Inter" -pointsize 30 -fill "#F4F4F3" -kerning 6 \
   -annotate +180+30 "HYPHENTECH" \
   -font "Noto-Sans-CJK-SC" -pointsize 22 -fill "#9CA3AF" \
-  -annotate +180+75 "让普通人也能驾驭 AI" \
+  -annotate +180+75 "让AI成为你的超能力" \
   banner-youtube-2560x1440.png
 ```
 
@@ -209,7 +209,7 @@ SOURCE="$1"
 BG_COLOR="${2:-#1A2332}"
 BRAND_CN="黑粉科技"
 BRAND_EN="HYPHENTECH"
-SLOGAN="让普通人也能驾驭 AI"
+SLOGAN="让AI成为你的超能力"
 
 # ... 裁切 → 去背 → 生成头像 → 生成 banner
 # 完整脚本见文末
@@ -259,4 +259,4 @@ sudo apt install fonts-noto-cjk
 
 ---
 
-> 黑粉科技 | [hyphentech.top](http://hyphentech.top/) | 让普通人也能驾驭 AI
+> 黑粉科技 | [hyphentech.top](http://hyphentech.top/) | 让AI成为你的超能力

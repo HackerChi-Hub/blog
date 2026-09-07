@@ -23,7 +23,7 @@ legacy_paths: []
 
 ![文章配图 1](https://hyphentech.top/obsidian-assets/remotion-claude-code-prompt-to-video-guide/image-01-02636e804c.png)
 
-> **黑粉科技** — 让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。
+> **黑粉科技** — 让AI成为你的超能力。
 
 > 
 
@@ -594,7 +594,7 @@ Remotion + Claude Code + Agent Skills这套组合拳的核心价值是：
 
 > 
 
-> 让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。
+> 让AI成为你的超能力。
 
 > 
 

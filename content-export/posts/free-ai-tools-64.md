@@ -181,4 +181,4 @@ Suno 对中文支持极好，每天免费用 10 首，做 BGM 或娱乐完全够
 
 64 款工具，8 大场景，全部有免费方案。**先选一个最适合你需求的用起来，比收藏 100 个工具更有用。**
 
-> 黑粉科技 · 让普通人也能驾驭 AI · [hyphentech.top](http://hyphentech.top/)
+> 黑粉科技 · 让AI成为你的超能力 · [hyphentech.top](http://hyphentech.top/)
