@@ -38,6 +38,7 @@ date: 2026-08-30
 updated: 2026-08-30
 status: draft
 summary: 一句话摘要
+brand_slogan: 让AI成为你的超能力
 categories:
   - 技术分享
 tags:
@@ -50,6 +51,8 @@ legacy_paths: []
 ```
 
 只有 `status: published` 的文章会进入公开仓库和线上站点；`draft` 不会被复制进 `content-export/`。
+
+文章页会统一展示「让AI成为你的超能力」品牌签名；从 `article_content.json` 导入时，导入器会把宣传语写入 frontmatter 并在正文末尾补齐签名，公众号则由统一包装器渲染。
 
 ## 常用命令
 

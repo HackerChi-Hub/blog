@@ -8,7 +8,38 @@ const YAML = require('yaml');
 
 const DEFAULT_CONTENT_DIR = path.resolve(__dirname, '..', '..', 'blog-content');
 const DEFAULT_ASSET_ROOT = '/Volumes/BigDisk/通用素材/图片素材/blog-content';
+const DEFAULT_BRAND_SLOGAN = '让AI成为你的超能力';
+const DEFAULT_BRAND_SITE = 'https://hyphentech.top';
+const DEFAULT_IDENTITY_PATH = path.resolve(
+  __dirname,
+  '..',
+  '..',
+  'ContentDistributor',
+  'scripts',
+  'hfkj_identity.json',
+);
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
+
+function loadBrandContract() {
+  const identityPath = process.env.HFKJ_IDENTITY_PATH || DEFAULT_IDENTITY_PATH;
+  try {
+    const identity = JSON.parse(fs.readFileSync(identityPath, 'utf8'));
+    const channel = identity.channel || {};
+    return {
+      slogan: String(channel.slogan || DEFAULT_BRAND_SLOGAN).trim() || DEFAULT_BRAND_SLOGAN,
+      site: String(channel.site || DEFAULT_BRAND_SITE).trim() || DEFAULT_BRAND_SITE,
+    };
+  } catch (_error) {
+    return { slogan: DEFAULT_BRAND_SLOGAN, site: DEFAULT_BRAND_SITE };
+  }
+}
+
+function appendBrandSignature(body, brand) {
+  const source = String(body || '').trim();
+  const hasSignature = source.includes('> [!quote] 黑粉科技') && source.includes(brand.slogan);
+  if (hasSignature) return `${source}\n`;
+  return `${source}\n\n---\n\n> [!quote] 黑粉科技\n> ${brand.slogan}\n> 本地部署 / 免费白嫖 / 自制软件\n> ${brand.site}\n`;
+}
 
 function parseArgs(argv) {
   if (!argv.length || argv[0].startsWith('--')) {
@@ -203,6 +234,11 @@ function main() {
   const assetRoot = path.resolve(args.assetRoot);
   const previewRoot = path.join(contentDir, 'preview-assets');
   const article = JSON.parse(fs.readFileSync(input, 'utf8'));
+  const brand = loadBrandContract();
+  const sourceSlogan = String(article.brand_slogan || '').trim();
+  if (sourceSlogan && sourceSlogan !== brand.slogan) {
+    console.warn(`⚠️ article_content.json 含旧宣传语，将统一替换为：${brand.slogan}`);
+  }
   const slug = String(args.slug || article.slug || '').trim().toLowerCase();
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`slug 无效：${slug || '空'}`);
   if (!VALID_STATUSES.has(args.status)) throw new Error(`status 无效：${args.status}`);
@@ -243,9 +279,10 @@ function main() {
     categories: args.categories.length ? args.categories : existing.categories || ['学习思考'],
     tags: args.tags.length ? args.tags : existing.tags || ['AI'],
     cover,
+    brand_slogan: brand.slogan,
     legacy_paths: Array.isArray(existing.legacy_paths) ? existing.legacy_paths : [],
   };
-  const body = renderContent(article.content, specs, assetUrls);
+  const body = appendBrandSignature(renderContent(article.content, specs, assetUrls), brand);
   const raw = `---\n${YAML.stringify(frontmatter, { lineWidth: 0 })}---\n\n${body}`;
   fs.mkdirSync(path.dirname(postPath), { recursive: true });
   const temporary = `${postPath}.tmp-${process.pid}`;

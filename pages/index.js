@@ -4,12 +4,13 @@ import { formatDate, normalizeSummary } from '../lib/utils';
 import SEO from '../components/SEO';
 import Search from '../components/Search';
 import ContainedCover from '../components/ContainedCover';
+import { SITE_CONFIG } from '../lib/seo';
 const { buildProductCards, buildFallbackProductCards } = require('../lib/product-catalog.cjs');
 
 const PAGE_SIZE = 21;
 const CATEGORY_FIELD = 'category';
 const FEATURED_CATEGORIES = ['技术分享', '学习思考', '资源分享'];
-const CHANNEL_MANIFESTO = '能本地跑，就不租云；能免费用，就不续费；实在没有，我自己做。';
+const BRAND_SLOGAN = SITE_CONFIG.slogan;
 const WECHAT_QR_IMAGE = '/png/wechat-official-account-qr.jpg';
 
 const heroPalette = {
@@ -390,6 +391,14 @@ const feedStyles = `
   font-size: .8rem;
   letter-spacing: .16em;
   text-transform: uppercase;
+}
+.brand-hero__slogan {
+  display: inline-block;
+  margin-top: .65rem;
+  color: var(--home-yellow);
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: .12em;
 }
 .brand-hero h1 {
   max-width: 820px;
@@ -1248,6 +1257,7 @@ const BrandHero = () => (
     <header className="brand-hero" id="top">
       <div className="brand-hero__content">
         <div className="brand-hero__eyebrow">有台 M5 Pro 的实干派</div>
+        <div className="brand-hero__slogan">{BRAND_SLOGAN}</div>
         <h1>
           不花钱，把 AI<br /><em>跑起来</em>
         </h1>
@@ -1279,8 +1289,7 @@ const BrandHero = () => (
 );
 
 const MediaSection = ({ notices = [], subMenus = [] }) => {
-  const notice = notices[0] || {};
-  const slogan = (notice.summary || notice.title || CHANNEL_MANIFESTO).trim();
+  const slogan = BRAND_SLOGAN;
   const channels = MEDIA_CHANNELS.map((channel) => {
     const matched = subMenus.find((link) => channel.pattern.test(link?.title || ''));
     return { ...channel, url: matched?.url || channel.fallbackUrl };
@@ -1348,7 +1357,7 @@ const FeaturedSection = ({ items = [] }) => {
           <div className="section-eyebrow">三条主线</div>
           <h2>从这开始</h2>
         </div>
-        <p>本地跑、免费用、自己造；各挑一篇，不让你在文章堆里迷路。</p>
+        <p>让AI成为你的超能力。</p>
       </div>
       <div className="featured-grid">
         <FeaturedCard post={items[0]?.post} pillar={items[0]?.pillar} primary />
@@ -1519,7 +1528,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="黑粉科技：本地部署、免费白嫖与自制软件的真实实测和开发记录。"
+          description={SITE_CONFIG.description}
           url="/"
           type="website"
         />
@@ -1591,7 +1600,7 @@ export default function Home({
       <>
         <SEO
           title=""
-          description="黑粉科技：本地部署、免费白嫖与自制软件。"
+          description={SITE_CONFIG.description}
           url="/"
           type="website"
         />

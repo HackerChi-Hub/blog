@@ -154,6 +154,7 @@ function main() {
         title: '导入测试',
         digest: '导入摘要',
         date: '2026-08-31',
+        brand_slogan: '旧版宣传语',
         cover_wide: importCover,
         specs: { hero: { kind: 'local', src: importImage } },
         content: [
@@ -174,6 +175,10 @@ function main() {
     ]);
     const imported = fs.readFileSync(path.join(content, 'posts', 'imported-post.md'), 'utf8');
     assert.match(imported, /status: draft/);
+    assert.match(imported, /brand_slogan: 让AI成为你的超能力/);
+    const importedBody = imported.replace(/^---[\s\S]*?---\s*/, '');
+    assert.strictEqual((importedBody.match(/让AI成为你的超能力/g) || []).length, 1);
+    assert(!imported.includes('旧版宣传语'));
     assert.match(imported, /\.\.\/preview-assets\/imported-post\/image-hero-[a-f0-9]+\.jpg/);
     assert.match(imported, /## 第一节/);
     const previewFiles = walkFiles(path.join(content, 'preview-assets', 'imported-post'));

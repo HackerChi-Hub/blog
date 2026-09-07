@@ -148,6 +148,7 @@ export default function PostPage({
   // 计算阅读时间
   const readingTime = estimateReadingTime({ meta, markdownHtml });
   const readingTimeText = formatReadingTime(readingTime);
+  const hasBrandSlogan = markdownHtml.includes(SITE_CONFIG.slogan);
 
   return (
     <>
@@ -333,6 +334,30 @@ export default function PostPage({
 
         <section className="article-content">
           <MarkdownContent html={markdownHtml} />
+
+          {!hasBrandSlogan && (
+            <aside
+              aria-label="黑粉科技宣传语"
+              style={{
+                marginTop: '40px',
+                padding: '22px 24px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 211, 77, 0.28)',
+                background: 'linear-gradient(135deg, rgba(255, 211, 77, 0.08), rgba(0, 229, 255, 0.06))',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ color: 'var(--home-yellow)', fontSize: '0.78rem', letterSpacing: '0.18em' }}>
+                黑粉科技
+              </div>
+              <div style={{ marginTop: '8px', color: '#f8fbff', fontSize: '1.25rem', fontWeight: 700 }}>
+                {SITE_CONFIG.slogan}
+              </div>
+              <div style={{ marginTop: '8px', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
+                本地部署 / 免费白嫖 / 自制软件
+              </div>
+            </aside>
+          )}
 
           {/* 分享按钮 - 融入文章区域末尾 */}
           <div
