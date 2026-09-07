@@ -1,8 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="/Volumes/BigDisk/Scripts/10-内容制作/blog"
-SOURCE_REPO="/Volumes/BigDisk/Scripts/10-内容制作/blog-content"
+# 仓库位置从脚本自身推导，不写死某台机器的绝对路径。
+# scripts/blog-publish 永远在仓库的 scripts/ 下，所以父目录就是仓库根；
+# 内容库按约定是它的同级 blog-content。主力机上算出来的结果与原来完全一致。
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+REPO="$(cd -- "$SCRIPT_DIR/.." && pwd)"
+SOURCE_REPO="${BLOG_CONTENT_REPO:-$REPO/../blog-content}"
+[ -d "$SOURCE_REPO" ] && SOURCE_REPO="$(cd -- "$SOURCE_REPO" && pwd)"
+
+# Windows：npm 默认用 cmd.exe 跑脚本，而 package.json 里的 build 是
+# `BLOG_CONTENT_DIR=./content-export next build` 这种 POSIX 前缀写法，
+# cmd.exe 会把整串当成命令名，报「不是内部或外部命令」而不是报环境变量问题。
+# 这里把 npm 的脚本壳指到当前 bash，两个平台跑的就是同一份 package.json。
+if [ -n "${SYSTEMROOT:-}" ] || [ -n "${SystemRoot:-}" ]; then
+  if command -v cygpath >/dev/null 2>&1; then
+    npm_config_script_shell="$(cygpath -w "${BASH:-/usr/bin/bash}")"
+    export npm_config_script_shell
+  fi
+fi
 WORKFLOW="deploy.yml"
 MESSAGE="${*:-content: publish Obsidian changes}"
 

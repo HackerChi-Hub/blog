@@ -70,7 +70,18 @@ function isStablePublishedAsset(value) {
     || LOCAL_PREVIEW_ASSET_RE.test(value);
 }
 
-function validatePreviewAsset(contentDir, value, label, failures) {
+/** 校验本地预览素材引用。
+ *
+ * 路径本身的问题（编码非法、含反斜杠、越界）永远是错误，与状态无关。
+ * 但「文件不存在」要看这篇会不会上线：`missing` 由调用方决定投到
+ * failures 还是 warnings。
+ *
+ * 原因是预览镜像 preview-assets/ 是本机生成物且不进 Git，而文章 Markdown
+ * 进 Git。于是一篇在 A 机写的草稿同步到 B 机后，B 机不可能有它的预览图，
+ * 整个内容库在 B 机就永远校验不过——连带把发布链堵死。这不是内容质量问题，
+ * 是多机协作的结构问题。已发布文章仍然严格报错：草稿改成 published 的那一刻，
+ * 这条检查照旧拦得住。 */
+function validatePreviewAsset(contentDir, value, label, failures, missing = failures) {
   const raw = asString(value).replace(/[?#].*$/, '');
   if (!LOCAL_PREVIEW_ASSET_RE.test(raw)) return;
   let decoded;
@@ -96,7 +107,7 @@ function validatePreviewAsset(contentDir, value, label, failures) {
   if (!targetRelative || targetRelative.startsWith('..') || path.isAbsolute(targetRelative)) {
     failures.push(`${label} 的本地预览路径越界：${raw}`);
   } else if (!fs.existsSync(target) || !fs.statSync(target).isFile()) {
-    failures.push(`${label} 的本地预览素材不存在：${raw}`);
+    missing.push(`${label} 的本地预览素材不存在：${raw}`);
   }
 }
 
@@ -202,10 +213,12 @@ function main() {
     const body = parsed.content.trim();
 
     const coverValue = asString(data.cover || data.image);
-    validatePreviewAsset(contentDir, coverValue, `${relativePath} 的 cover`, failures);
+    // 草稿不进公开快照，素材可能只在撰写它的那台机器上；已发布文章一律严格。
+    const previewMissing = status === 'published' ? failures : warnings;
+    validatePreviewAsset(contentDir, coverValue, `${relativePath} 的 cover`, failures, previewMissing);
     const previewPattern = /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g;
     for (const match of body.matchAll(previewPattern)) {
-      validatePreviewAsset(contentDir, match[0], `${relativePath} 的正文图片`, failures);
+      validatePreviewAsset(contentDir, match[0], `${relativePath} 的正文图片`, failures, previewMissing);
     }
 
     if (!VALID_STATUSES.has(status)) failures.push(`${relativePath} 的 status 无效：${status}`);

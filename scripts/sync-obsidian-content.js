@@ -37,9 +37,21 @@ function parseArgs(argv) {
 const args = parseArgs(process.argv.slice(2));
 const projectRoot = path.resolve(args.projectRoot);
 const sourceRoot = path.resolve(args.contentDir || path.join(projectRoot, '..', 'blog-content'));
-const sourceAssetRoot = path.resolve(
-  args.assetRoot || '/Volumes/BigDisk/通用素材/图片素材/blog-content'
-);
+const DEFAULT_ASSET_ROOT = '/Volumes/BigDisk/通用素材/图片素材/blog-content';
+// 素材源允许给多个目录，用本平台的 PATH 分隔符隔开，按顺序找，先命中的算数。
+//
+// 为什么需要：素材真源目录不是 Git 仓库，不参与 sync-all，所以只存在于主力机。
+// 换一台机器同步就会在第一张图上抛「公开素材缺失」，整条发布链走不到构建。
+// 而仓库自身的 public/obsidian-assets（已发布素材，随仓库分发）加上
+// blog-content/preview-assets（新写文章的本地预览镜像）合起来，正好覆盖
+// 「已上线的 + 正要上线的」两类素材。
+//
+// 多根只放宽「去哪找」，不放宽「必须找到」：任何一个引用在所有根里都不存在，
+// 仍然照旧抛错。缺图不会被静默跳过发上线。
+const sourceAssetRoots = (args.assetRoot || DEFAULT_ASSET_ROOT)
+  .split(path.delimiter)
+  .filter(Boolean)
+  .map((entry) => path.resolve(entry));
 const exportRoot = path.resolve(args.exportDir || path.join(projectRoot, 'content-export'));
 const publicAssetRoot = path.resolve(
   args.publicAssetDir || path.join(projectRoot, 'public', 'obsidian-assets')
@@ -219,6 +231,17 @@ function collectAssetReferences(posts) {
   return references;
 }
 
+/** 在各素材根里按顺序找这个引用；都没有就返回空串交给调用方报错。
+ *  越界引用（../ 之类）在任意一个根上都直接抛错，不会退化成「换下一个根再试」。 */
+function resolveAssetSource(relativePath) {
+  for (const root of sourceAssetRoots) {
+    const sourcePath = path.resolve(root, relativePath);
+    ensureInside(root, sourcePath, '素材源文件');
+    if (fs.existsSync(sourcePath) && fs.statSync(sourcePath).isFile()) return sourcePath;
+  }
+  return '';
+}
+
 function preparePublicAssets(posts, temporaryRoot) {
   const assetRoot = path.join(temporaryRoot, 'obsidian-assets');
   ensureDirectory(assetRoot);
@@ -226,9 +249,8 @@ function preparePublicAssets(posts, temporaryRoot) {
   const copied = new Set();
 
   for (const [relativePath, owners] of references.entries()) {
-    const sourcePath = path.resolve(sourceAssetRoot, relativePath);
-    ensureInside(sourceAssetRoot, sourcePath, '素材源文件');
-    if (!fs.existsSync(sourcePath) || !fs.statSync(sourcePath).isFile()) {
+    const sourcePath = resolveAssetSource(relativePath);
+    if (!sourcePath) {
       throw new Error(`公开素材缺失：${owners.join(', ')} -> ${relativePath}`);
     }
     copyFile(sourcePath, path.join(assetRoot, ...relativePath.split('/')));
