@@ -48,6 +48,11 @@ const DEFAULT_ASSET_ROOT = '/Volumes/BigDisk/通用素材/图片素材/blog-cont
 //
 // 多根只放宽「去哪找」，不放宽「必须找到」：任何一个引用在所有根里都不存在，
 // 仍然照旧抛错。缺图不会被静默跳过发上线。
+//
+// 顺序很重要，靠前的根赢。已发布镜像要排在预览镜像前面：两边同名文件的字节
+// 可能不一样，而本机预览往往是旧的（在这台机器上生成后，另一台机器又重出了
+// 一版并发布）。预览排前面就会拿本机旧图覆盖线上新图——改动只表现为
+// public/obsidian-assets 下一个 Bin 文件被修改，不看字节数根本发现不了。
 const sourceAssetRoots = (args.assetRoot || DEFAULT_ASSET_ROOT)
   .split(path.delimiter)
   .filter(Boolean)
