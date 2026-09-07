@@ -3,13 +3,23 @@
   <channel>
     <title>黑粉科技 · 官网</title>
     <link>https://hyphentech.top</link>
-    <description>让普通人也能驾驭 AI。掌握 AI 的人，将成为各个领域的王者。</description>
+    <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 07 Sep 2026 12:39:24 GMT</lastBuildDate>
-    <pubDate>Mon, 07 Sep 2026 12:39:24 GMT</pubDate>
+    <lastBuildDate>Mon, 07 Sep 2026 14:29:24 GMT</lastBuildDate>
+    <pubDate>Mon, 07 Sep 2026 14:29:24 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Omarchy：免费 Linux 玩转 AI</title>
+      <link>https://hyphentech.top/omarchy-linux-ai-getting-started/</link>
+      <guid isPermaLink="true">https://hyphentech.top/omarchy-linux-ai-getting-started/</guid>
+      <description>从安装、快捷键到编程助手与本地模型，讲清 Omarchy 的特色和上手边界。</description>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>Linux</category>
+    </item>
     <item>
       <title>GPT-6跑分很猛，六道题后我想说点实话（附免费小游戏）</title>
       <link>https://hyphentech.top/gpt6-six-tasks-rain-mystery/</link>
@@ -209,16 +219,6 @@
     <category>视频生成</category>
     <category>工作流</category>
     <category>成本</category>
-    </item>
-    <item>
-      <title>DeepSeek开源外壳，真能一键白嫖吗？</title>
-      <link>https://hyphentech.top/3c4999681bdb81b5ac69ceb1153e2500/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3c4999681bdb81b5ac69ceb1153e2500/</guid>
-      <description>六个本地工具、一个本地模型，两次点击接入；真正麻烦的不是安装，而是那些填错后仍像正常工作的默认值。</description>
-      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
