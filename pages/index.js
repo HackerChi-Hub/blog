@@ -384,7 +384,6 @@ const feedStyles = `
 }
 .brand-hero__content,
 .brand-hero__visual { position: relative; z-index: 1; }
-.brand-hero__eyebrow,
 .section-eyebrow {
   color: var(--home-cyan);
   font-family: 'JetBrains Mono', 'SFMono-Regular', monospace;
@@ -392,13 +391,11 @@ const feedStyles = `
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.brand-hero__slogan {
-  display: inline-block;
-  margin-top: .65rem;
-  color: var(--home-yellow);
-  font-size: clamp(1rem, 1.7vw, 1.28rem);
+.brand-hero__eyebrow {
+  color: var(--home-cyan);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 700;
-  letter-spacing: .12em;
+  letter-spacing: .04em;
 }
 .brand-hero h1 {
   max-width: 820px;
@@ -1256,14 +1253,12 @@ const SiteNavigation = () => (
 const BrandHero = () => (
     <header className="brand-hero" id="top">
       <div className="brand-hero__content">
-        <div className="brand-hero__eyebrow">有台 M5 Pro 的实干派</div>
-        <div className="brand-hero__slogan">{BRAND_SLOGAN}</div>
+        <div className="brand-hero__eyebrow">{BRAND_SLOGAN}</div>
         <h1>
           不花钱，把 AI<br /><em>跑起来</em>
         </h1>
         <p className="brand-hero__lead">
-          我是黑粉科技，一个有台 M5 Pro 的实干派。我把 AI 跑在自己的机器上，
-          把踩过的坑、测过的数据和亲手做的工具，全部交给你。
+          踩过的坑、测过的数据、亲手做的工具，全部交给你。
         </p>
         <div className="hero-actions">
           <a className="hero-button" href="#latest">先看三条主线</a>
@@ -1289,7 +1284,8 @@ const BrandHero = () => (
 );
 
 const MediaSection = ({ notices = [], subMenus = [] }) => {
-  const slogan = BRAND_SLOGAN;
+  const notice = notices[0] || {};
+  const slogan = (notice.summary || notice.title || BRAND_SLOGAN).trim();
   const channels = MEDIA_CHANNELS.map((channel) => {
     const matched = subMenus.find((link) => channel.pattern.test(link?.title || ''));
     return { ...channel, url: matched?.url || channel.fallbackUrl };
@@ -1357,7 +1353,7 @@ const FeaturedSection = ({ items = [] }) => {
           <div className="section-eyebrow">三条主线</div>
           <h2>从这开始</h2>
         </div>
-        <p>让AI成为你的超能力。</p>
+        <p>本地跑、免费用、自己造；各挑一篇，不让你在文章堆里迷路。</p>
       </div>
       <div className="featured-grid">
         <FeaturedCard post={items[0]?.post} pillar={items[0]?.pillar} primary />
