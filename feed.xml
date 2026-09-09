@@ -5,11 +5,51 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 08 Sep 2026 23:25:25 GMT</lastBuildDate>
-    <pubDate>Tue, 08 Sep 2026 23:25:25 GMT</pubDate>
+    <lastBuildDate>Wed, 09 Sep 2026 02:30:54 GMT</lastBuildDate>
+    <pubDate>Wed, 09 Sep 2026 02:30:54 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>1.4GB小模型，真能当本地智能体吗？</title>
+      <link>https://hyphentech.top/minicpm5-2b-localbrain/</link>
+      <guid isPermaLink="true">https://hyphentech.top/minicpm5-2b-localbrain/</guid>
+      <description>MiniCPM5-2B 把 13 万上下文、Agent 训练和官方 GGUF/MLX 一起塞进 2.52B 参数；真正的看点不是越级跑分，而是它有没有资格成为本地软件里的常驻执行器。</description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>生图2.5：四个Logo能一次成吗？</title>
+      <link>https://hyphentech.top/chatgpt-images-2-5-cover-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/chatgpt-images-2-5-cover-test/</guid>
+      <description>我拿四个真实产品图标做了三轮测试：一次融合、单点改图、透明贴纸。它进步最大的不是画得更艳，而是终于更像一个能反复沟通的视觉导演。</description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>只开localhost，本地AI就安全吗？</title>
+      <link>https://hyphentech.top/localhost-local-ai-security/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localhost-local-ai-security/</guid>
+      <description>只监听 127.0.0.1，不代表浏览器里的网页碰不到它。三个近期官方安全公告，加一组完全隔离的 CORS 实测，拆开本地 AI 最容易被误解的安全边界。</description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>Nex-N2.5免费，64GB Mac能跑吗？</title>
+      <link>https://hyphentech.top/nex-n2-5-free-mac-localbrain/</link>
+      <guid isPermaLink="true">https://hyphentech.top/nex-n2-5-free-mac-localbrain/</guid>
+      <description>35B多模态智能体开源，在线端点当前免费；Mac容量够不等于运行时已经打通。</description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Omarchy：免费 Linux 玩转 AI</title>
       <link>https://hyphentech.top/omarchy-linux-ai-getting-started/</link>
@@ -174,51 +214,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>神秘模型爆了！牛来？</title>
-      <link>https://hyphentech.top/ox-alpha-stealth-model/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ox-alpha-stealth-model/</guid>
-      <description>8 月 20 日深夜，OpenRouter 多了一行 stealth/ox-alpha。没有公司、没有仓库、没有名字，两天冲上调用量第一。104 万上下文、能看视频、完全免费——代价写在页面顶上。</description>
-      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>AI大模型</category>
-    <category>免费额度</category>
-    <category>OpenRouter</category>
-    <category>工具</category>
-    </item>
-    <item>
-      <title>DeepSeek Harness 架构分析与 LocalBrain 的对接，及其局域网的访问</title>
-      <link>https://hyphentech.top/3c6999681bdb815f8094e4ca7339f738/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3c6999681bdb815f8094e4ca7339f738/</guid>
-      <description>harness 不是外壳是挽具；连 agent 循环都是插件，所以模型能换成本机的——附两份配置文件的实际写法与四处不写就翻车的字段。</description>
-      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    </item>
-    <item>
-      <title>完全免费，彻底白嫖，全网最全免费AI API大合集</title>
-      <link>https://hyphentech.top/free-api-radar/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-radar/</guid>
-      <description>能直接调用的免费接口、特色与限制</description>
-      <pubDate>Sun, 23 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>免费白嫖</category>
-    </item>
-    <item>
-      <title>AI 动画流水线：一个人做一集卡通的完整流程与真实成本</title>
-      <link>https://hyphentech.top/ai-animation-pipeline-cartoon-real-cost/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-animation-pipeline-cartoon-real-cost/</guid>
-      <description>从角色资产、分镜绑定拆到生成、配音与剪辑，重算 4 分钟卡通的现金和时间成本；同时给出本地开源、免费云额度和混合路线的工具、用法、效果与边界。</description>
-      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>AI视频</category>
-    <category>视频生成</category>
-    <category>工作流</category>
-    <category>成本</category>
     </item>
   </channel>
 </rss>
