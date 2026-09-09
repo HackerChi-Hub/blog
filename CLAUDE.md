@@ -12,7 +12,7 @@ Obsidian Markdown 驱动的静态博客，部署在 GitHub Pages。私有内容�
 - 内容校验：`npm run content:check`
 - 同步发布快照：`npm run content:sync`
 - 正式构建：`BLOG_CONTENT_DIR=./content-export npm run build`
-- 一键发布：`blog-publish`
+- 一键发布：`blog-push`
 - 备份：`npm run backup`
 
 ## 注意事项

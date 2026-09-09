@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # 仓库位置从脚本自身推导，不写死某台机器的绝对路径。
-# scripts/blog-publish 永远在仓库的 scripts/ 下，所以父目录就是仓库根；
+# scripts/blog-push 永远在仓库的 scripts/ 下，所以父目录就是仓库根；
 # 内容库按约定是它的同级 blog-content。主力机上算出来的结果与原来完全一致。
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd -- "$SCRIPT_DIR/.." && pwd)"
@@ -23,8 +23,8 @@ WORKFLOW="deploy.yml"
 MESSAGE="${*:-content: publish Obsidian changes}"
 
 if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
-  echo "用法：blog-publish [提交说明]"
-  echo "示例：blog-publish \"更新 qwen-local-test\""
+  echo "用法：blog-push [提交说明]"
+  echo "示例：blog-push \"更新 qwen-local-test\""
   exit 0
 fi
 

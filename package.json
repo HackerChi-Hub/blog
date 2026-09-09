@@ -14,8 +14,8 @@
     "test:products": "node scripts/test-product-catalog.js",
     "start": "python3 -m http.server 4173 --directory out",
     "backup": "node scripts/backup.js",
-    "deploy": "scripts/blog-publish",
-    "publish": "scripts/blog-publish"
+    "deploy": "bash scripts/blog-push",
+    "publish": "bash scripts/blog-push"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

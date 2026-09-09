@@ -107,16 +107,16 @@ public/obsidian-assets/            公开素材镜像
 日常发布只使用一个全局命令，在任意目录都能运行：
 
 ```bash
-blog-publish
+blog-push
 ```
 
 需要自定义 Git 提交说明时：
 
 ```bash
-blog-publish "更新 <slug>"
+blog-push "更新 <slug>"
 ```
 
-不传说明时会自动使用默认发布说明。旧 `npm run blog-push` 已退出正式流程。
+不传说明时会自动使用默认发布说明。`blog-push` 是唯一正式发布命令。
 
 发布器会依次：
 
