@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "3862e6b52ebcee09dd21ee4655a2426707f77f6cebe484760616b95659182dad",
-  "published_post_count": 44,
+  "content_sha256": "4e21708898159fa2489b840976a32a3656c1724998c1a02ef07c930552655e24",
+  "published_post_count": 48,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -107,6 +107,12 @@
       "sha256": "62fb729b314349348099b0c2c1a638c89c5e29006733606f051ee50f801b12ce"
     },
     {
+      "file": "posts/chatgpt-images-2-5-cover-test.md",
+      "slug": "chatgpt-images-2-5-cover-test",
+      "legacy_paths": [],
+      "sha256": "5c108291f348ebcac3b6a9323f9c7afbad51a95f134fb73a1685197fa04d928d"
+    },
+    {
       "file": "posts/deepseek-v4-vision-mac64.md",
       "slug": "deepseek-v4-vision-mac64",
       "legacy_paths": [],
@@ -209,10 +215,22 @@
       "sha256": "9682ec7db5a8ac972a6eff8ba9400e4d3237609d55aab2af9896f535f551acfc"
     },
     {
+      "file": "posts/localhost-local-ai-security.md",
+      "slug": "localhost-local-ai-security",
+      "legacy_paths": [],
+      "sha256": "0385800a562f3fa2f2717f14149045be632ccc3ff8423bb4f03d49675b72335c"
+    },
+    {
       "file": "posts/mac-local-inference-engines.md",
       "slug": "mac-local-inference-engines",
       "legacy_paths": [],
       "sha256": "25ebae68f6749b7a1f6d847b6901cabd26682f3c57de756d566000d1b1aa78e1"
+    },
+    {
+      "file": "posts/minicpm5-2b-localbrain.md",
+      "slug": "minicpm5-2b-localbrain",
+      "legacy_paths": [],
+      "sha256": "e70a5f2f412df8fd3bb72b7b66dee1fd802a85618d59b2f5364b75f97bd2889d"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
@@ -225,6 +243,12 @@
       "slug": "movie-model-benchmark",
       "legacy_paths": [],
       "sha256": "534cbb6eb70b4c6a29f8293cac02c5bfe00ab473f9767192b5cc496a0d3b3b9b"
+    },
+    {
+      "file": "posts/nex-n2-5-free-mac-localbrain.md",
+      "slug": "nex-n2-5-free-mac-localbrain",
+      "legacy_paths": [],
+      "sha256": "d0382c23dcee2c043371159e6194984cb5b089dcdad454a9868394a060d1f785"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started.md",
