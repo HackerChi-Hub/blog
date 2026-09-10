@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Sep 2026 04:47:23 GMT</lastBuildDate>
-    <pubDate>Thu, 10 Sep 2026 04:47:23 GMT</pubDate>
+    <lastBuildDate>Thu, 10 Sep 2026 05:02:01 GMT</lastBuildDate>
+    <pubDate>Thu, 10 Sep 2026 05:02:01 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>llama.cpp 0.4：64GB硬墙松了吗？</title>
+      <link>https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</link>
+      <guid isPermaLink="true">https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</guid>
+      <description>llama.cpp 0.4 用懒加载、流式量化和 Apple RDMA 改写了大模型的内存边界。但 LocalBrain 的 64GB Mac 记录证明：文件大于内存可以启动，不等于长上下文也能满速跑。</description>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>1.4GB小模型，真能当本地智能体吗？</title>
       <link>https://hyphentech.top/minicpm5-2b-localbrain/</link>
@@ -201,16 +211,6 @@
       <guid isPermaLink="true">https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</guid>
       <description>AgentPad13 把一台卖断货的 Codex Micro 拆成了可复用的方法：成品可以买空，公开设计却不会缺货。</description>
       <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Qwen4预演开源：最小量化仍装不下</title>
-      <link>https://hyphentech.top/3c8999681bdb81c8b8c8ef9d3473d6f0/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3c8999681bdb81c8b8c8ef9d3473d6f0/</guid>
-      <description>Qwen4 架构预演开放权重：每个 token 激活 6B，但当前最小 GGUF 仍有 72.55GB。本文只按官方仓库、配置与文件清单分析，没有本机实测。</description>
-      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
