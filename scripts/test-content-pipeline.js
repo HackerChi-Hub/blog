@@ -145,16 +145,51 @@ function main() {
 
     const importImage = path.join(holder, 'incoming.png');
     const importCover = path.join(holder, 'cover.jpg');
+    const wrongCover = path.join(holder, 'wrong-cover.jpg');
     fs.writeFileSync(importImage, Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
     write(importCover, 'cover-jpg');
+    write(wrongCover, 'wrong-cover-jpg');
+    const coverManifest = path.join(holder, 'article-cover-manifest.json');
+    const manifest = {
+      schema: 'hfkj-centered-article-cover-v1',
+      pipeline: 'centered-face-anchor-v2',
+      article_id: 'article-imported-post',
+      batch_id: 'test-batch',
+      status: 'pending-user-review',
+      publication_approved: false,
+      review: { approved_by: '', note: '' },
+      checks: {
+        same_article: true,
+        same_batch: true,
+        same_identity: true,
+        same_subject: true,
+        same_route: true,
+        native_square: true,
+        native_blog_wide: true,
+        wechat_center_crop_safe: true,
+        source_geometry_passed: true,
+        source_files_hash_matched: true,
+      },
+      covers: {
+        blog_wide: {
+          path: importCover,
+          sha256: crypto.createHash('sha256').update(fs.readFileSync(importCover)).digest('hex'),
+          width: 2350,
+          height: 1000,
+        },
+      },
+    };
+    write(coverManifest, JSON.stringify(manifest, null, 2));
     const articleJson = path.join(holder, 'article_content.json');
-    write(
-      articleJson,
-      JSON.stringify({
+    const article = {
         title: '导入测试',
         digest: '导入摘要',
         date: '2026-08-31',
         brand_slogan: '旧版宣传语',
+        cover_pipeline: 'centered-face-anchor-v2',
+        cover_article_id: 'article-imported-post',
+        cover_batch_id: 'test-batch',
+        cover_manifest: coverManifest,
         cover_wide: importCover,
         specs: { hero: { kind: 'local', src: importImage } },
         content: [
@@ -162,8 +197,32 @@ function main() {
           { type: 'p', text: '正文。' },
           { type: 'img', key: 'hero', caption: '证据图' },
         ],
-      }, null, 2)
-    );
+      };
+    write(articleJson, JSON.stringify(article, null, 2));
+    assert.match(run(importer, [
+      articleJson,
+      '--content-dir', content,
+      '--asset-root', assets,
+      '--slug', 'imported-post',
+      '--status', 'draft',
+    ], 1), /尚未获得用户批准/);
+
+    manifest.status = 'approved';
+    manifest.publication_approved = true;
+    manifest.review = { approved_by: 'user', note: '用户已确认双比例预览' };
+    write(coverManifest, JSON.stringify(manifest, null, 2));
+    article.cover_wide = wrongCover;
+    write(articleJson, JSON.stringify(article, null, 2));
+    assert.match(run(importer, [
+      articleJson,
+      '--content-dir', content,
+      '--asset-root', assets,
+      '--slug', 'imported-post',
+      '--status', 'draft',
+    ], 1), /cover_wide 与同批次 manifest 不一致/);
+
+    article.cover_wide = importCover;
+    write(articleJson, JSON.stringify(article, null, 2));
     run(importer, [
       articleJson,
       '--content-dir', content,

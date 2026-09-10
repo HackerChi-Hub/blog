@@ -19,6 +19,8 @@ const DEFAULT_IDENTITY_PATH = path.resolve(
   'hfkj_identity.json',
 );
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
+const ARTICLE_COVER_SCHEMA = 'hfkj-centered-article-cover-v1';
+const ARTICLE_COVER_PIPELINE = 'centered-face-anchor-v2';
 
 function loadBrandContract() {
   const identityPath = process.env.HFKJ_IDENTITY_PATH || DEFAULT_IDENTITY_PATH;
@@ -84,6 +86,63 @@ function ensureInside(root, target, label) {
 
 function hashFile(filePath) {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
+function resolveFrom(baseDir, value) {
+  const raw = String(value || '').trim();
+  if (!raw) throw new Error('封面合同路径为空');
+  return path.isAbsolute(raw) ? path.resolve(raw) : path.resolve(baseDir, raw);
+}
+
+function validateArticleCoverManifest(article, articleJsonPath) {
+  if (article.cover_pipeline !== ARTICLE_COVER_PIPELINE) {
+    throw new Error(`Blog 只接受最新 ${ARTICLE_COVER_PIPELINE} 封面流程`);
+  }
+  const articleDir = path.dirname(articleJsonPath);
+  const manifestPath = resolveFrom(articleDir, article.cover_manifest);
+  if (!fs.existsSync(manifestPath) || !fs.statSync(manifestPath).isFile()) {
+    throw new Error(`文章封面 manifest 不存在：${manifestPath}`);
+  }
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  if (manifest.schema !== ARTICLE_COVER_SCHEMA || manifest.pipeline !== ARTICLE_COVER_PIPELINE) {
+    throw new Error('文章封面 manifest 版本不受支持');
+  }
+  if (String(article.cover_article_id || '') !== String(manifest.article_id || '')) {
+    throw new Error('article_content.json 绑定的文章身份与封面 manifest 不一致');
+  }
+  if (String(article.cover_batch_id || '') !== String(manifest.batch_id || '')) {
+    throw new Error('article_content.json 绑定的封面批次与 manifest 不一致');
+  }
+  if (manifest.status !== 'approved' || manifest.publication_approved !== true) {
+    throw new Error('这批双比例封面尚未获得用户批准');
+  }
+  const review = manifest.review || {};
+  if (review.approved_by !== 'user' || !String(review.note || '').trim()) {
+    throw new Error('封面的用户批准记录不完整');
+  }
+  const checks = manifest.checks || {};
+  if (!Object.keys(checks).length || Object.values(checks).some((value) => value !== true)) {
+    throw new Error('文章封面合同的机器检查不完整');
+  }
+  const entry = manifest.covers?.blog_wide;
+  if (!entry) throw new Error('manifest 缺少 blog_wide 正本');
+  const coverPath = resolveFrom(path.dirname(manifestPath), entry.path);
+  if (!fs.existsSync(coverPath) || !fs.statSync(coverPath).isFile()) {
+    throw new Error(`Blog 横封面不存在：${coverPath}`);
+  }
+  if (hashFile(coverPath) !== String(entry.sha256 || '')) {
+    throw new Error('Blog 横封面哈希已变化，必须重新验收');
+  }
+  const width = Number(entry.width || 0);
+  const height = Number(entry.height || 0);
+  if (width < 1400 || height <= 0 || Math.abs(width / height - 2.35) > 0.015) {
+    throw new Error(`Blog 正本必须是至少 1400px 宽的原生 2.35:1，当前记录 ${width}×${height}`);
+  }
+  const articleCover = resolveFrom(articleDir, article.cover_wide);
+  if (articleCover !== coverPath) {
+    throw new Error('cover_wide 与同批次 manifest 不一致');
+  }
+  return { manifestPath, coverPath, batchId: String(manifest.batch_id || '') };
 }
 
 function cleanName(value) {
@@ -245,6 +304,7 @@ function main() {
   if (!article.title || !article.digest || !Array.isArray(article.content)) {
     throw new Error('article_content.json 必须包含 title、digest、content[]');
   }
+  const coverContract = validateArticleCoverManifest(article, input);
 
   const postPath = path.join(contentDir, 'posts', `${slug}.md`);
   ensureInside(contentDir, postPath, '文章目标');
@@ -260,11 +320,13 @@ function main() {
       assetUrls[key] = copyAsset(source, slug, `image-${key}`, assetRoot, previewRoot).previewUrl;
     }
   }
-  const coverSource = String(article.cover_wide || article.cover || '').trim();
-  let cover = String(existing.cover || '');
-  if (coverSource && !/^https?:\/\//i.test(coverSource)) {
-    cover = copyAsset(coverSource, slug, 'cover', assetRoot, previewRoot).previewUrl;
-  } else if (/^https?:\/\//i.test(coverSource)) cover = coverSource;
+  const cover = copyAsset(
+    coverContract.coverPath,
+    slug,
+    'cover',
+    assetRoot,
+    previewRoot,
+  ).previewUrl;
 
   const today = shanghaiDate();
   const date = String(article.date || existing.date || today).slice(0, 10);
@@ -289,6 +351,7 @@ function main() {
   fs.writeFileSync(temporary, raw, 'utf8');
   fs.renameSync(temporary, postPath);
   console.log(`✅ 已写入 Obsidian Blog ${args.status}：${postPath}`);
+  console.log(`   最新封面合同：batch=${coverContract.batchId} | 2.35:1`);
   console.log(`   素材目录：${path.join(assetRoot, slug)}（${Object.keys(assetUrls).length + (cover ? 1 : 0)} 个引用）`);
   console.log(`   Obsidian 本地预览：${path.join(previewRoot, slug)}`);
 }
