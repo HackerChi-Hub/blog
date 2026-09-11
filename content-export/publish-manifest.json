@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "479af110f3125fe9ac9b8e7c72b2ab90a399b730dd4438edd423305db89975ec",
-  "published_post_count": 49,
+  "content_sha256": "6ecbdad0c96eac2960f6e47e3848c26c456210210b62cd9b2ac60ccc9e2a5b82",
+  "published_post_count": 50,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -209,6 +209,12 @@
       "sha256": "7ff993e278afb7a3229ec450c5c4bfb4439155c64cfc6eb863cb7d50028e528a"
     },
     {
+      "file": "posts/localbrain-flash-next-five-tasks.md",
+      "slug": "localbrain-flash-next-five-tasks",
+      "legacy_paths": [],
+      "sha256": "91bbe84e9cb46a4593dd35f05b866e8bc631689ba0f32e0d20d8834146f0ea88"
+    },
+    {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
@@ -242,7 +248,7 @@
       "file": "posts/mlx-local-ai-test-m5pro.md",
       "slug": "mlx-local-ai-test-m5pro",
       "legacy_paths": [],
-      "sha256": "a0a6246d3797d7258cb00f2a6ceffebfa348968f45587897bdf68140deabaa27"
+      "sha256": "b3af48ba469ea415033f9072a742d25d0d339e0e958a0650c94bbfb2f73cb7e0"
     },
     {
       "file": "posts/movie-model-benchmark.md",

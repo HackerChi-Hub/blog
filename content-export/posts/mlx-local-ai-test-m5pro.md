@@ -11,7 +11,6 @@ tags:
   - AI
   - MLX
   - 实测
-  - Apple Silicon
 cover: https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png
 legacy_paths: []
 ---
