@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Sep 2026 23:12:49 GMT</lastBuildDate>
-    <pubDate>Thu, 10 Sep 2026 23:12:49 GMT</pubDate>
+    <lastBuildDate>Fri, 11 Sep 2026 02:26:18 GMT</lastBuildDate>
+    <pubDate>Fri, 11 Sep 2026 02:26:18 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>我让本地模型连跑两天写 5 个网页游戏：1 题交付、3 题能跑、1 题放弃</title>
+      <link>https://hyphentech.top/localbrain-flash-next-five-tasks/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-flash-next-five-tasks/</guid>
+      <description>64GB Mac 上的 Qwen3.8-Flash-Next 连跑五道离线网页难题：1 题交付、3 题可运行、1 题放弃。每次超时、崩溃和长上下文失速，最终都变成了 LocalBrain 的通用修复。</description>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>llama.cpp 0.4：64GB硬墙松了吗？</title>
       <link>https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</link>
@@ -204,16 +214,6 @@
     <category>资源分享</category>
     <category>AI</category>
     <category>免费白嫖</category>
-    </item>
-    <item>
-      <title>四十美元复刻售罄硬件，真正值钱的是图纸？</title>
-      <link>https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</link>
-      <guid isPermaLink="true">https://hyphentech.top/3c9999681bdb814ba691f8cc28ec684a/</guid>
-      <description>AgentPad13 把一台卖断货的 Codex Micro 拆成了可复用的方法：成品可以买空，公开设计却不会缺货。</description>
-      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
