@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Sep 2026 11:26:27 GMT</lastBuildDate>
-    <pubDate>Fri, 11 Sep 2026 11:26:27 GMT</pubDate>
+    <lastBuildDate>Fri, 11 Sep 2026 13:08:17 GMT</lastBuildDate>
+    <pubDate>Fri, 11 Sep 2026 13:08:17 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>本地 H3 多参考图实测：4 张图全用上了，3 秒视频跑 10 分钟</title>
+      <link>https://hyphentech.top/localbrain-h3-multi-reference/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-h3-multi-reference/</guid>
+      <description>LocalBrain 1.2.65 能在本机跑 MiniMax H3 的多参考图版（REF2VA），一次最多 9 张图。我在 64 GB 的 M5 Pro 上用 0、1、2、4 张参考图各生成一条 960×544 的 3 秒视频，把耗时、内存、被照搬的细节和 Turbo 不能开的原因原样摆出来。</description>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>AI视频</category>
+    </item>
     <item>
       <title>我让本地模型连跑两天写 5 个网页游戏：1 题交付、3 题能跑、1 题放弃</title>
       <link>https://hyphentech.top/localbrain-flash-next-five-tasks/</link>
@@ -204,16 +217,6 @@
     <category>AI</category>
     <category>免费白嫖</category>
     <category>自制软件</category>
-    </item>
-    <item>
-      <title>免费/限免大模型 API 汇总：GLM-5.3-Flash、Qwen3.8、Coding GLM</title>
-      <link>https://hyphentech.top/free-api-radar-2026-08-27/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-radar-2026-08-27/</guid>
-      <description>GLM-5.3-Flash、Qwen3.8 与 Coding GLM 免费接口复核：能不能用、怎么接、额度与隐私风险一次看清。</description>
-      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>免费白嫖</category>
     </item>
   </channel>
 </rss>
