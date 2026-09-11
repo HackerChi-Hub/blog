@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "6ecbdad0c96eac2960f6e47e3848c26c456210210b62cd9b2ac60ccc9e2a5b82",
+  "content_sha256": "86a37448cc3b7c6293f3539231c5c7f4dd1fec013dd933ed9e3a7d9dfed01e2e",
   "published_post_count": 50,
   "posts": [
     {
@@ -212,7 +212,7 @@
       "file": "posts/localbrain-flash-next-five-tasks.md",
       "slug": "localbrain-flash-next-five-tasks",
       "legacy_paths": [],
-      "sha256": "91bbe84e9cb46a4593dd35f05b866e8bc631689ba0f32e0d20d8834146f0ea88"
+      "sha256": "e4f112976a97e69b78ef909978fdf33e31a080fe9a4c80f27e367e64a40b4e1f"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
