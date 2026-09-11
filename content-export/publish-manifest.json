@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "1bfa0434391c2b80424a96b169935366f8ce8cfd6f5720fbff4f0d35307ca733",
+  "content_sha256": "52122980d0ad2eb4408a4614d1a113f96583b43ef6979c8711c387c74862348c",
   "published_post_count": 51,
   "posts": [
     {
@@ -218,7 +218,7 @@
       "file": "posts/localbrain-h3-multi-reference.md",
       "slug": "localbrain-h3-multi-reference",
       "legacy_paths": [],
-      "sha256": "1877e331fa3bcc3c7c26a5a1dc104f6f101bddabb3699bd1b1e0becbe7071de6"
+      "sha256": "e876d3daa56b1f2f4990ecc442e7af9de1eb7355ff3c8bdf15690bf6dc47b4c2"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
