@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Sep 2026 04:53:09 GMT</lastBuildDate>
-    <pubDate>Sun, 13 Sep 2026 04:53:09 GMT</pubDate>
+    <lastBuildDate>Sun, 13 Sep 2026 09:41:03 GMT</lastBuildDate>
+    <pubDate>Sun, 13 Sep 2026 09:41:03 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>8GB 能跑哪些本地模型？我实测了 11 个，8K 上下文下 6 个装得下</title>
+      <link>https://hyphentech.top/localbrain-small-models-lowmem/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-small-models-lowmem/</guid>
+      <description>把今年发布的 11 个低内存本地模型下到本机，用 LocalBrain 内置的 llama.cpp 统一量内存、速度和工具调用：8K 上下文下 6 个压在 8GB 设备的默认上限内，Qwen3.5-9B 比去年的 Qwen3-8B 少占 3 GB，1-bit 的 27B 能跑但质量只有厂商数字。这批模型也加进了 LocalBrain 的发现页。</description>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>本地模型</category>
+    </item>
     <item>
       <title>本地 H3 多参考图实测：4 张图全用上了，3 秒视频跑 10 分钟</title>
       <link>https://hyphentech.top/localbrain-h3-multi-reference/</link>
@@ -206,17 +219,6 @@
     <category>资源分享</category>
     <category>工具</category>
     <category>开发</category>
-    </item>
-    <item>
-      <title>完全免费：白嫖 103 家大模型 API｜黑粉盒子</title>
-      <link>https://hyphentech.top/hyphenbox-free-api-radar/</link>
-      <guid isPermaLink="true">https://hyphentech.top/hyphenbox-free-api-radar/</guid>
-      <description>免费大模型 API 不缺，缺的是有人替你持续验证。收录 103 家，实测 68 家能用。预览版。</description>
-      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>免费白嫖</category>
-    <category>自制软件</category>
     </item>
   </channel>
 </rss>
