@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "b8c5662c391f9d3b163d1496d8c1dae69efded0f493214402c2bd89906d24d1e",
+  "content_sha256": "7d851f1a2c3bb6405ce383feafb0d1d68d814bd5f64cb5031a0a05e58563c3fb",
   "published_post_count": 52,
   "posts": [
     {
@@ -230,7 +230,7 @@
       "file": "posts/localbrain-small-models-lowmem.md",
       "slug": "localbrain-small-models-lowmem",
       "legacy_paths": [],
-      "sha256": "a41d4d4130986300937d1a13500db6c886fb18b64316546eb81009584bcf5c00"
+      "sha256": "fbb4b1d4ac54d1c3587d561105397f9bd772e9aad438c0888a40e67f277d0daa"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",

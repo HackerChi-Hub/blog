@@ -150,6 +150,178 @@ Bonsai 27B 是 PrismML 把 Qwen3.6-27B 压到 1-bit 的版本，文件 3.80 GB�
 > [!summary] 8GB 能跑，但先挑对模型和上下文
 > 今年的小模型让 8GB 设备有了好几个能调通工具的选择：8K 上下文下 6 个装得下，MiniCPM5-2B 只要 1.98 GB。决定内存的不只是参数量，还有注意力结构，同样 32K 缓存能差 21 倍。1-bit 的 27B 装得下、调得通，但质量只有厂商数字；看图这件事，9B 小模型在我这 6 道题上已经不输我在用的 30B。
 
+## ▍附：这次用的测试题
+
+想自己复核，或者照着录一遍，下面是原题。提示词都放在代码块里，可以整段复制；看图题按「事实点」给分，答对一点得 1 分。
+
+### 工具与对话：4 道
+
+测评时模型只拿到 4 个工具，而且都有围栏：`list_dir` 只能看 /tmp 和本次的临时沙箱，`run_bash` 只放行 uname、pwd、date、echo、whoami、sw_vers，`write_file` 和 `read_file` 不管给什么路径都落到沙箱里。越界的请求会收到 DENIED，这也照样记进结果。
+
+**A · 三轮对话**（不给工具，依次发三句）
+
+```
+用一句话介绍你自己。
+```
+
+```
+把你刚才那句话翻译成英文。
+```
+
+```
+再把它压缩到十个字以内。
+```
+
+**B · 列目录**
+
+```
+用 list_dir 工具列出 /tmp 目录，告诉我一共有几项。
+```
+
+**C · 执行命令**
+
+```
+用 run_bash 工具执行 `uname -a`，用一句话告诉我这台机器的系统和架构。
+```
+
+**D · 写文件再读回**
+
+```
+用 write_file 写一个 hello.txt，内容是 bench-ok；再用 read_file 把它读回来，确认内容一致。
+```
+
+判定：A 三轮都要有回答；B、C 要真的发起工具调用；D 不看模型怎么说，直接去沙箱里检查 hello.txt，内容必须是 bench-ok。11 个模型里只有 Granite 4.2 3B 在 D 上失手，关闭思考时 9 次只写对 1 次文件名。
+
+> [!caution] 在 LocalBrain 里演示要改的地方
+> LocalBrain 没有执行命令的工具，C 只能用测评脚本跑。它的 list_dir 只能看白名单目录（默认下载、文稿、桌面，设置里可改），B 要把 /tmp 换成其中一个目录；write_file 写进 LocalBrain 的专属输出文件夹。这几处改写我还没在应用里逐个跑过。
+
+### 看图：6 道，共 71 分
+
+测评时图片先缩到最长边 1280、JPEG 质量 85，temperature 0，每题只跑一次。下面的图就是模型实际收到的那张。
+
+**1 · 软件界面（6 分）**
+
+![LocalBrain 视频生成的高级选项界面（看图第 1 题）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-1-ui-8b4a432532.jpg)
+
+```
+这是一个软件界面截图。请逐条回答：1）参考图当前选了几张、上限几张？2）预估生成时间区间是多少？3）预计峰值内存和本机可用内存各是多少？4）采样步数是多少？5）Turbo 加速为什么不可用？6）清晰度选的是哪一项？
+```
+
+> [!info]- 标准答案（6 分）
+> 1. 参考图 4/9：已选 4 张，上限 9 张
+> 2. 约 3 分 29 秒 ~ 15 分 41 秒
+> 3. 预计峰值内存 38.2 GB，本机可用 51.2 GB
+> 4. 采样步数 30
+> 5. Turbo LoRA 只适用于 FL2VA 检查点（在 REF2VA 上实测出块状伪影）
+> 6. 标准 960×544
+
+**2 · 英文表格（14 分）**
+
+![vMLX 官网对比表（看图第 2 题，图源：vMLX 官网）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-2-table-aaf6324dd0.jpg)
+
+```
+把截图里 HEAD-TO-HEAD 表格转成 Markdown 表格，列为：上下文、指标、vMLX、LM Studio MLX；缺失值写“—”。最后说明测试用的机器和模型。
+```
+
+> [!info]- 标准答案（14 分）
+> 表格（上下文 / 指标 / vMLX / LM Studio MLX）：
+>
+> | 上下文 | 指标 | vMLX | LM Studio MLX |
+> |---|---|---|---|
+> | ~2.5K | Cold TTFT | 0.50s | — |
+> | ~2.5K | Warm TTFT (cached) | 0.05s | — |
+> | ~2.5K | Cache Speedup | 9.7× | — |
+> | ~10K | Cold TTFT | 0.12s | 6.12s |
+> | ~10K | Warm TTFT (cached) | 0.08s | 0.29s |
+> | ~10K | Cache Speedup | 1.6× | 21× |
+> | ~50K | Cold TTFT | 0.30s | — |
+> | ~50K | Warm TTFT (cached) | 0.22s | — |
+> | ~50K | Cache Speedup | 1.4× | — |
+>
+> 计分：12 个数值格（vMLX 9 个 + LM Studio 3 个）各 1 分；机器 Apple M3 Ultra（256 GB）1 分；模型 Llama 3.2 3B Instruct 4-bit 1 分。
+
+**3 · 柱状图和图注（10 分）**
+
+![Ollama 官方性能图表（看图第 3 题，图源：Ollama）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-3-chart-d2de34c870.jpg)
+
+```
+读出两张柱状图里每根柱子的标签和数值。图下说明文字里的测试日期、模型、两种量化格式分别是什么？用 int4 量化时 prefill 和 decode 的数字是多少？
+```
+
+> [!info]- 标准答案（10 分）
+> 1. Prefill：Ollama 0.19 = 1810，Ollama 0.18 = 1154（tokens/s）
+> 2. Decode：Ollama 0.19 = 112，Ollama 0.18 = 58
+> 3. 测试日期 March 29, 2026
+> 4. 模型 Qwen3.5-35B-A3B
+> 5. 量化格式 NVFP4（新）与 Q4_K_M（旧，Ollama 0.18）
+> 6. int4：prefill 1851 token/s，decode 134 token/s
+>
+> 计分：4 根柱子各 1 分；日期、模型、NVFP4、Q4_K_M、1851、134 各 1 分。
+
+**4 · 架构图（12 分）**
+
+![MiniMax 官方 H3-Base 架构图（看图第 4 题，图源：MiniMax-H3 GitHub）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-4-arch-b9854950c5.jpg)
+
+```
+这是一张模型架构图。请回答：1）分几个阶段，每个阶段的英文名称；2）文本编码器基于哪个模型、取第几层特征；3）音频编码器的采样率和 token 频率；4）主干网络的名称、参数量、DiT 块重复次数；5）最终输出是什么。
+```
+
+> [!info]- 标准答案（12 分）
+> 1. 4 个阶段：01 Condition Encoding、02 Packed In-Context Sequence、03 Unified Generation、04 Decode（各 1 分）
+> 2. 文本编码器 H3 Encoder 基于 Qwen3-VL-32B（1 分），取 layer-50 features（1 分）
+> 3. Audio VAE Encoder：32 kHz（1 分）→ 40 Hz tokens（1 分）
+> 4. H3 Omni Transformer（1 分），33B dense（1 分），Shared DiT backbone × 50（1 分）
+> 5. 输出 Synchronized video + stereo audio（1 分）
+
+**5 · 中文实验对比图（18 分）**
+
+![H3 多参考图四组对照（看图第 5 题）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-5-grid-361f18ab74.jpg)
+
+```
+这是一张实验对比图。请回答：1）一共有几行实验；2）每行左侧写的参考图数量、参考图内容、耗时和内存占用；3）右侧每行展示几帧；4）最后一行画面里人物抱着什么；5）标题里写的分辨率、步数和种子。
+```
+
+> [!info]- 标准答案（18 分）
+> 1. 4 行实验（1 分）
+> 2. 每行左侧（数量+内容、耗时、内存各 1 分，共 12 分）：
+>    - 纯文字（不给参考图）· 446.6 秒 · 占用 29.1 GB
+>    - 1 张参考图（人物）· 491.1 秒 · 占用 34.0 GB
+>    - 2 张参考图（人物+场景）· 501.9 秒 · 占用 34.8 GB
+>    - 4 张参考图（人物+吉祥物+场景+开发板）· 601.8 秒 · 占用 38.4 GB
+> 3. 每行 3 帧（1 分）
+> 4. 最后一行人物抱着黄色毛绒牛头（吉祥物）（1 分）
+> 5. 960×544（1 分）、30 步（1 分）、种子 42（1 分）
+
+**6 · 英文文档页（11 分）**
+
+![OpenRouter 官方文档页面实拍 · 2026-08-23（看图第 6 题）](/obsidian-assets/localbrain-small-models-lowmem/image-vlm-6-web-1016241e34.jpg)
+
+```
+这是 OpenRouter 文档页面截图。请回答：1）免费模型变体的 ID 以什么结尾；2）免费额度表格的完整内容（每行的累计购买额度、每分钟请求数、每天请求数）；3）处理 402 错误的三条办法（简述）；4）查询 key 剩余额度调用的是哪个接口。
+```
+
+> [!info]- 标准答案（11 分）
+> 1. ID 以 `:free` 结尾（1 分）
+> 2. 表格（6 分）：Less than 10 → 20 次/分钟、50 次/天；At least 10 → 20 次/分钟、1000 次/天
+> 3. 402 三条（3 分）：Add credits（充值让余额大于零）；Check per-key limits（key 的 limit_remaining 用完就提高该 key 额度或等 limit_reset 重置）；Monitor proactively（调用 GET /api/v1/key 跟踪 limit_remaining 与用量）
+> 4. 接口 GET /api/v1/key（1 分）
+
+> [!note]- 本次得分
+> | 模型 | 1 · 软件界面 | 2 · 英文表格 | 3 · 柱状图和图注 | 4 · 架构图 | 5 · 中文实验对比图 | 6 · 英文文档页 | 合计 |
+> |---|---|---|---|---|---|---|---|
+> | Qwen3.5-9B（MLX 4bit） | 6 | 14 | 10 | 12 | 18 | 11 | 71 |
+> | Qwen3-VL-30B-A3B（8bit） | 6 | 14 | 7 | 12 | 18 | 11 | 68 |
+
+### 看图冒烟：1 道
+
+用第 3 题那张柱状图，只问四个数，验证模型的视觉投影文件装进 LocalBrain 以后能不能用：
+
+```
+读出两张柱状图里每根柱子的标签和数值，只列出来，不要解释。
+```
+
+判定：回答里要有 1810、1154、112、58 四个数。Qwen3.5 4B / 9B、Gemma 4 12B / E4B 直接读对；两个 Bonsai 要先想大约 1100 个 token，回答上限 1024 时答案被截断，2048 就读对了。
+
 > [!tip]
 > 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
 > 9 月 9 日《1.4GB小模型，真能当本地智能体吗？》：https://hyphentech.top/minicpm5-2b-localbrain/
