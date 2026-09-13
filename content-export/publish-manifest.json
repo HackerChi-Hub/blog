@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "52122980d0ad2eb4408a4614d1a113f96583b43ef6979c8711c387c74862348c",
-  "published_post_count": 51,
+  "content_sha256": "b8c5662c391f9d3b163d1496d8c1dae69efded0f493214402c2bd89906d24d1e",
+  "published_post_count": 52,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -225,6 +225,12 @@
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
       "sha256": "0ebca8256ff6d2e26be912a66d0b65d54c56be1825b8b961c5adb96fb9ff4f60"
+    },
+    {
+      "file": "posts/localbrain-small-models-lowmem.md",
+      "slug": "localbrain-small-models-lowmem",
+      "legacy_paths": [],
+      "sha256": "a41d4d4130986300937d1a13500db6c886fb18b64316546eb81009584bcf5c00"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",
