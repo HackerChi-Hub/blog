@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 15 Sep 2026 04:58:15 GMT</lastBuildDate>
-    <pubDate>Tue, 15 Sep 2026 04:58:15 GMT</pubDate>
+    <lastBuildDate>Tue, 15 Sep 2026 06:48:41 GMT</lastBuildDate>
+    <pubDate>Tue, 15 Sep 2026 06:48:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>本地 27B 模型能操作 Blender 吗？我把 B 站这套方法搬进 LocalBrain 跑了五轮</title>
+      <link>https://hyphentech.top/local-model-blender-mcp-localbrain/</link>
+      <guid isPermaLink="true">https://hyphentech.top/local-model-blender-mcp-localbrain/</guid>
+      <description>用本地 Qwen3.8-27B 通过 blender-mcp 建模的方法，再在 LocalBrain 里实测五轮：模型能一步步动手，但慢；交付的黑图只差一个勾选，看不见时它当成完成，能看最终渲染图以后才用对了修法。</description>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>Blender</category>
+    <category>MCP</category>
+    </item>
     <item>
       <title>8GB 能跑哪些本地模型？我实测了 11 个，8K 上下文下 6 个装得下</title>
       <link>https://hyphentech.top/localbrain-small-models-lowmem/</link>
@@ -209,16 +223,6 @@
     <category>资源分享</category>
     <category>AI</category>
     <category>自制软件</category>
-    </item>
-    <item>
-      <title>LocalBrain：把 Mac 变成私有 AI 盒子</title>
-      <link>https://hyphentech.top/localbrain-local-ai-box/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-local-ai-box/</guid>
-      <description>我把 Mac 上分散的本地模型、转写、生图、视频、文档和 MCP，收进一个能下载、启停、对话和交付文件的本地工作台。</description>
-      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>工具</category>
-    <category>开发</category>
     </item>
   </channel>
 </rss>
