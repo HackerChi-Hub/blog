@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "7d851f1a2c3bb6405ce383feafb0d1d68d814bd5f64cb5031a0a05e58563c3fb",
-  "published_post_count": 52,
+  "content_sha256": "a9145b008caf9bf02cbf0e3d99a6cb18dffa5cc3e2e784cbd8d3bdc971608ca7",
+  "published_post_count": 53,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -207,6 +207,12 @@
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "legacy_paths": [],
       "sha256": "7ff993e278afb7a3229ec450c5c4bfb4439155c64cfc6eb863cb7d50028e528a"
+    },
+    {
+      "file": "posts/local-model-blender-mcp-localbrain.md",
+      "slug": "local-model-blender-mcp-localbrain",
+      "legacy_paths": [],
+      "sha256": "10f56b5260efe84f118c91ccf2dd5e64f0ccbfcdf0a6662dc5bfaa4fddacb221"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks.md",
