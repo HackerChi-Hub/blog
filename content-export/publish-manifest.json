@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a9145b008caf9bf02cbf0e3d99a6cb18dffa5cc3e2e784cbd8d3bdc971608ca7",
-  "published_post_count": 53,
+  "content_sha256": "3b81346d551e9800c635aed9216c282beec1d49452764f30943a2674257b5d59",
+  "published_post_count": 54,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -201,6 +201,12 @@
       "slug": "hyphencut-local-video-editor",
       "legacy_paths": [],
       "sha256": "dce0acd844deabc8360c84ca1c3a00a8102da8ffa8d6287cb6f53b84d08c7c49"
+    },
+    {
+      "file": "posts/hyphenscreen-local-screen-recorder.md",
+      "slug": "hyphenscreen-local-screen-recorder",
+      "legacy_paths": [],
+      "sha256": "8156f60a0ea28d6b5b63c7a3b3b1fab80ff73ed75d9b5556f659889e1e17971d"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
