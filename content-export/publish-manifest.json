@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "3b81346d551e9800c635aed9216c282beec1d49452764f30943a2674257b5d59",
+  "content_sha256": "4142714e091d2652e171804055f546eedd868dfdcb70dd69cebea2c9d711e813",
   "published_post_count": 54,
   "posts": [
     {
@@ -206,7 +206,7 @@
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "legacy_paths": [],
-      "sha256": "8156f60a0ea28d6b5b63c7a3b3b1fab80ff73ed75d9b5556f659889e1e17971d"
+      "sha256": "c6baa093a7da12705beaa72dd7bdca0a835f373acc7f95593562abfab367f42a"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",

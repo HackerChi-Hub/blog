@@ -1,5 +1,5 @@
 ---
-title: 打码的单元测试全绿，成片里邮箱还是露了出来
+title: 完全免费！黑粉录屏！可能是你遇到的最好的录屏软件
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
