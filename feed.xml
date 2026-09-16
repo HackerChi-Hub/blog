@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 16 Sep 2026 02:14:58 GMT</lastBuildDate>
-    <pubDate>Wed, 16 Sep 2026 02:14:58 GMT</pubDate>
+    <lastBuildDate>Wed, 16 Sep 2026 02:27:11 GMT</lastBuildDate>
+    <pubDate>Wed, 16 Sep 2026 02:27:11 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -33,6 +33,19 @@
     <category>LocalBrain</category>
     <category>Blender</category>
     <category>MCP</category>
+    </item>
+    <item>
+      <title>吃灰的旧笔记本，能跑出一门生意</title>
+      <link>https://hyphentech.top/local-ai-old-laptop-business/</link>
+      <guid isPermaLink="true">https://hyphentech.top/local-ai-old-laptop-business/</guid>
+      <description>本地 AI 不是开发者的玩具。模型、仓库、软件、工作流四件套讲透，外加三个能抄的点子</description>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>大模型</category>
+    <category>开源</category>
+    <category>工作流</category>
     </item>
     <item>
       <title>8GB 能跑哪些本地模型？我实测了 11 个，8K 上下文下 6 个装得下</title>
@@ -211,18 +224,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>85GB 模型塞进 64GB Mac：我用 LocalBrain 跑通 Qwen3.8 Flash Next</title>
-      <link>https://hyphentech.top/qwen38-flash-next-atomic-m64-localbrain/</link>
-      <guid isPermaLink="true">https://hyphentech.top/qwen38-flash-next-atomic-m64-localbrain/</guid>
-      <description>Qwen3.8 Flash Next 的 125B 主模型每个 token 只激活约 6B 参数。借助 Atomic M64 特制分片与 LocalBrain，我在 64GB M5 Pro Mac 上完成了文本、工具调用、视觉和持续生成实测。</description>
-      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>LocalBrain</category>
-    <category>Qwen</category>
     </item>
   </channel>
 </rss>
