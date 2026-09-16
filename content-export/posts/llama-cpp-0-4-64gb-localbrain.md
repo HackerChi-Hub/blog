@@ -3,7 +3,7 @@ title: llama.cpp 0.4：64GB硬墙松了吗？
 slug: llama-cpp-0-4-64gb-localbrain
 status: published
 date: 2026-09-10
-updated: 2026-09-10
+updated: 2026-09-16
 summary: llama.cpp 0.4 用懒加载、流式量化和 Apple RDMA 改写了大模型的内存边界。但 LocalBrain 的 64GB Mac 记录证明：文件大于内存可以启动，不等于长上下文也能满速跑。
 categories:
   - 学习思考
@@ -119,43 +119,69 @@ LocalBrain 当前固定的 llama.cpp 是 `b10705`，已经包含 Qwen4exp 和懒
 - **想玩两台 Mac：** 只有 Thunderbolt 5、macOS 26.2+ 和恢复模式开启 RDMA 后，才进入官方支持路径；先对照单机基线，别只看“相对 TCP 提升”。
 - **LocalBrain 用户：** 当前公开最新版仍是 v1.2.58，新版正在收口验证；以 GitHub Releases 的真实上架为准。
 
-> 我对 llama.cpp 0.4 的最终判决是：**它把 64GB Mac 的“不可能”拓宽成了“有条件可能”，却没有把设备变成无限内存。** 从今天开始，判断一个大模型能不能本地跑，不能只看下载文件，还得看它怎么动。
+## 我的判断
 
-> [!tip]
-> **主要查证来源**
-> · llama.cpp v0.4.0 官方发布页
->   https://github.com/ggml-org/llama.cpp/releases/tag/v0.4.0
-> · 懒加载与按需张量 PR #27794
->   https://github.com/ggml-org/llama.cpp/pull/27794
-> · Apple RDMA RPC 上游测试 PR #26421
->   https://github.com/ggml-org/llama.cpp/pull/26421
-> · Apple 官方 TN3205
->   https://developer.apple.com/documentation/technotes/tn3205-low-latency-communication-with-rdma-over-thunderbolt
-> · LocalBrain 公开发行页
->   https://github.com/HackerChi-Hub/localbrain-releases/releases
+> [!quote] 我的判断
+> llama.cpp 0.4 把 64GB Mac 的“不可能”拓宽成了“有条件可能”，却没有把设备变成无限内存。从今天开始，判断一个大模型能不能本地跑，不能只看下载文件，还得看它怎么动。
 
-## 🧩 我还做了 4 款免费工具
+我会继续追踪 llama.cpp 0.4 的 Qwen4exp 优化；等 LocalBrain 新版真正上架后，再给出可下载、可复现的完整结果。
 
-我是黑粉科技。我会继续追踪 llama.cpp 0.4 的 Qwen4exp 优化，也会在 LocalBrain 新版真正上架后，再给出可下载、可复现的完整结果。**让 AI 成为你的超能力。**
+## 主要查证来源
 
-> [!tip]
-> **我目前的4款自制软件**
-> · **黑粉剪辑 HyphenCut**（正式迭代）——Rust 重写的本地专业视频剪辑：达芬奇键位、AI 助理改真实工程，免费
->   https://github.com/HackerChi-Hub/HyphenCut-Releases/releases
-> · **黑粉盒子 HyphenBox**（初步构建 · 预览版）——免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
->   https://github.com/HackerChi-Hub/hyphenbox-release/releases
-> · **方寸智匣 LocalBrain**（正式迭代）——本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
->   https://github.com/HackerChi-Hub/localbrain-releases/releases
-> · **ScreenLex 光影词库**（正式迭代）——看美剧顺手把生词背了，Mac/Windows 双平台，免费
->   https://github.com/HackerChi-Hub/screenlex-download/releases
-> 
-> **黑粉科技** · 本地部署 / 免费白嫖 / 自制软件
-> 宣传语：让AI成为你的超能力
-> https://hyphentech.top
+- [llama.cpp v0.4.0 官方发布页](https://github.com/ggml-org/llama.cpp/releases/tag/v0.4.0)
+- [懒加载与按需张量 PR #27794](https://github.com/ggml-org/llama.cpp/pull/27794)
+- [Apple RDMA RPC 上游测试 PR #26421](https://github.com/ggml-org/llama.cpp/pull/26421)
+- [Apple 官方 TN3205](https://developer.apple.com/documentation/technotes/tn3205-low-latency-communication-with-rdma-over-thunderbolt)
+- [LocalBrain 公开发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
+
+---
+
+## 🧰 我做的工具
+
+这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+
+> [!info] 黑粉剪辑 HyphenCut
+> **状态：** 初步构建 · 预览版
+>
+> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
+
+> [!info] 黑粉盒子 HyphenBox
+> **状态：** 初步构建 · 预览版
+>
+> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+>
+> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+
+> [!info] 方寸智匣 LocalBrain
+> **状态：** 正式迭代
+>
+> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+>
+> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影词库
+> **状态：** 正式迭代
+>
+> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉录屏 HyphenScreen
+> **状态：** 初步构建 · 预览版
+>
+> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
-> 让AI成为你的超能力
-> 本地部署 / 免费白嫖 / 自制软件
+> **让AI成为你的超能力**
+> 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
+
+<!-- HFKJ_FIXED_FOOTER_END -->

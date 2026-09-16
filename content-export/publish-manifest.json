@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "e376729cfe67db0c8b74e7c33d9a00a487307cb572d4140f1d9a2fd28d5343e7",
+  "content_sha256": "837461d416b617d7047ed3db93a4bebeb35c3c2a277b6219b226ff05b50daf30",
   "published_post_count": 55,
   "posts": [
     {
@@ -212,7 +212,7 @@
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "legacy_paths": [],
-      "sha256": "7ff993e278afb7a3229ec450c5c4bfb4439155c64cfc6eb863cb7d50028e528a"
+      "sha256": "6783c59bde3c30f54066a945ac4f3f512fe4c8bdd9f462afc27f14b45564be6f"
     },
     {
       "file": "posts/local-ai-old-laptop-business.md",

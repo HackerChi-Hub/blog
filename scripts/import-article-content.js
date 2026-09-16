@@ -21,26 +21,74 @@ const DEFAULT_IDENTITY_PATH = path.resolve(
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
 const ARTICLE_COVER_SCHEMA = 'hfkj-centered-article-cover-v1';
 const ARTICLE_COVER_PIPELINE = 'centered-face-anchor-v2';
+const FIXED_FOOTER_START = '<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->';
+const FIXED_FOOTER_END = '<!-- HFKJ_FIXED_FOOTER_END -->';
 
 function loadBrandContract() {
   const identityPath = process.env.HFKJ_IDENTITY_PATH || DEFAULT_IDENTITY_PATH;
   try {
     const identity = JSON.parse(fs.readFileSync(identityPath, 'utf8'));
     const channel = identity.channel || {};
+    const footer = identity.article_footer || {};
+    const byId = new Map((identity.products || []).map((product) => [String(product.id || ''), product]));
+    const order = identity.cta_rules?.fixed_product_order || [...byId.keys()];
+    const products = order
+      .map((id) => byId.get(String(id)))
+      .filter((product) => product && product.public !== false)
+      .map((product) => ({
+        name: String(product.name || '').trim(),
+        status: String(product.status_label || '').trim(),
+        tagline: String(product.tagline || '').trim(),
+        url: String(product.url || '').trim(),
+      }));
     return {
       slogan: String(channel.slogan || DEFAULT_BRAND_SLOGAN).trim() || DEFAULT_BRAND_SLOGAN,
       site: String(channel.site || DEFAULT_BRAND_SITE).trim() || DEFAULT_BRAND_SITE,
+      focus: String(footer.brand_focus || '本地部署 · 免费白嫖 · 自制软件').trim(),
+      productsTitle: String(footer.products_title || '我做的工具').trim(),
+      productsIntro: String(footer.products_intro || '这些工具都由我持续维护。').trim(),
+      products,
     };
   } catch (_error) {
-    return { slogan: DEFAULT_BRAND_SLOGAN, site: DEFAULT_BRAND_SITE };
+    return {
+      slogan: DEFAULT_BRAND_SLOGAN,
+      site: DEFAULT_BRAND_SITE,
+      focus: '本地部署 · 免费白嫖 · 自制软件',
+      productsTitle: '我做的工具',
+      productsIntro: '这些工具都由我持续维护。',
+      products: [],
+    };
   }
 }
 
 function appendBrandSignature(body, brand) {
   const source = String(body || '').trim();
   const hasSignature = source.includes('> [!quote] 黑粉科技') && source.includes(brand.slogan);
-  if (hasSignature) return `${source}\n`;
-  return `${source}\n\n---\n\n> [!quote] 黑粉科技\n> ${brand.slogan}\n> 本地部署 / 免费白嫖 / 自制软件\n> ${brand.site}\n`;
+  if (hasSignature) {
+    return `${source}${source.includes(FIXED_FOOTER_START) && !source.includes(FIXED_FOOTER_END) ? `\n\n${FIXED_FOOTER_END}` : ''}\n`;
+  }
+  return `${source}\n\n---\n\n> [!quote] 黑粉科技\n> **${brand.slogan}**\n> ${brand.focus}\n> ${brand.site}\n\n${FIXED_FOOTER_END}\n`;
+}
+
+function withFixedProductFooter(content, brand) {
+  if (!brand.products.length) throw new Error('统一身份名录中没有可公开展示的自制软件');
+  const names = brand.products.map((product) => product.name).filter(Boolean);
+  const blocks = (content || []).filter((block) => {
+    if (String(block?.type || '') === 'product_footer') return false;
+    if (String(block?.type || '') !== 'tip') return true;
+    const text = String(block.text || '');
+    const productHits = names.filter((name) => text.includes(name)).length;
+    return !/我目前的\s*\d+\s*款自制软件/.test(text)
+      && !text.includes('我自己做的东西')
+      && productHits < 2;
+  });
+  blocks.push({
+    type: 'product_footer',
+    title: brand.productsTitle,
+    intro: brand.productsIntro,
+    products: brand.products,
+  });
+  return blocks;
 }
 
 function parseArgs(argv) {
@@ -267,6 +315,20 @@ function renderContent(content, specs, assetUrls) {
       const quote = String(block.text || '').split(/\r?\n/).map((line) => `> ${line}`).join('\n');
       output.push(`${quote}${block.attribution ? `\n>\n> ${block.attribution}` : ''}`);
     } else if (type === 'tau_symbol') output.push('τ — 时间，将是最终的裁判。');
+    else if (type === 'verdict') output.push(callout('quote', block.text, block.title || '我的判断'));
+    else if (type === 'sources') {
+      const items = (block.items || [])
+        .filter((item) => item && item.url)
+        .map((item) => `- [${item.label || item.title || item.url}](${item.url})`)
+        .join('\n');
+      if (items) output.push(`## ${block.title || '主要查证来源'}\n\n${items}`);
+    } else if (type === 'product_footer') {
+      const products = (block.products || []).map((product) => {
+        const status = product.status ? `**状态：** ${product.status}\n>\n` : '';
+        return `> [!info] ${product.name}\n> ${status}> ${product.tagline}\n>\n> [下载与更新](${product.url})`;
+      }).join('\n\n');
+      output.push(`${FIXED_FOOTER_START}\n\n---\n\n## 🧰 ${block.title || '我做的工具'}\n\n${block.intro || ''}\n\n${products}`);
+    }
     else if (type === 'summary') output.push(callout('summary', block.text, block.title || '总结'));
     else if (type === 'code') {
       output.push(`\`\`\`${block.lang || ''}\n${block.text || ''}\n\`\`\`${block.caption ? `\n\n${block.caption}` : ''}`);
@@ -344,7 +406,8 @@ function main() {
     brand_slogan: brand.slogan,
     legacy_paths: Array.isArray(existing.legacy_paths) ? existing.legacy_paths : [],
   };
-  const body = appendBrandSignature(renderContent(article.content, specs, assetUrls), brand);
+  const contentWithFooter = withFixedProductFooter(article.content, brand);
+  const body = appendBrandSignature(renderContent(contentWithFooter, specs, assetUrls), brand);
   const raw = `---\n${YAML.stringify(frontmatter, { lineWidth: 0 })}---\n\n${body}`;
   fs.mkdirSync(path.dirname(postPath), { recursive: true });
   const temporary = `${postPath}.tmp-${process.pid}`;

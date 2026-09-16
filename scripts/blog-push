@@ -80,6 +80,7 @@ sync_remote_main "$REPO" "Blog 代码库"
 sync_remote_main "$SOURCE_REPO" "Obsidian 内容库"
 
 cd "$REPO"
+node scripts/sync-article-footer-template.js --content-dir "$SOURCE_REPO"
 echo "🔎 1/5 校验内容并生成公开快照"
 npm run content:sync
 
