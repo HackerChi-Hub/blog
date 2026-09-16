@@ -142,7 +142,6 @@ legacy_paths: []
 > [!note]
 > 一句话总结：韬定律 = 在摩尔定律撞墙后，从时间维度重新定义芯片性能增长。今年秋天的麒麟2026，将是第一个可测的答案。τ，时间，将是最终的裁判。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -191,5 +190,3 @@ legacy_paths: []
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

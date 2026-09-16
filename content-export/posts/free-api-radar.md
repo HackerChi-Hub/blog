@@ -687,7 +687,6 @@ curl -s https://text.pollinations.ai/openai \
 > [!note]
 > 免费名单没有保质期，只有最后验证日期。本表复测于 2026-08-23；调用前请自己发一次真实请求确认当前状态。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -736,5 +735,3 @@ curl -s https://text.pollinations.ai/openai \
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

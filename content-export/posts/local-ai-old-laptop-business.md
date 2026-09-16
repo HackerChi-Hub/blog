@@ -222,7 +222,6 @@ Greg 管这个叫 **schmuck insurance（傻事保险）**，还顺口报了个�
 
 原视频：Greg Isenberg《I'm Obsessed With Local AI. Here's Why》，38 分 46 秒，2026 年 9 月 8 日发布，本期由 Google 赞助。模型参数、内存占用、上下文窗口来自 Google AI for Developers 官方模型卡；Hugging Face 收购数据来自 Bloomberg、CNBC 2026 年 9 月 3 日报道。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -271,5 +270,3 @@ Greg 管这个叫 **schmuck insurance（傻事保险）**，还顺口报了个�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

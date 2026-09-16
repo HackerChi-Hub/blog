@@ -341,7 +341,6 @@ Ling-3.0-tiny 是这两天新加进目录的 MoE 小模型，7.9B 总量只激�
 > · 冒烟 / 弹跳小球 / 贪吃蛇 / 打砖块四道基础题原文与五道题同在 LocalBrain 仓库 docs/TASK_PROMPTS.md
 > · 每一题的报告 JSON、逐轮轨迹、检查点与行为脚本输出都保存在台架输出目录，本文数字全部来自这些文件
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -390,5 +389,3 @@ Ling-3.0-tiny 是这两天新加进目录的 MoE 小模型，7.9B 总量只激�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

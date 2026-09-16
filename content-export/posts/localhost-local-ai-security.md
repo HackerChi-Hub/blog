@@ -96,7 +96,6 @@ CVE-2026-73558 是跨用户数据泄漏，中危、CVSS 5.3。公告元数据写
 > vLLM SSRF / CVE-2026-73560：https://github.com/vllm-project/vllm/security/advisories/GHSA-4hhp-h66f-j5j7
 > vLLM 数据泄漏 / CVE-2026-73558：https://github.com/vllm-project/vllm/security/advisories/GHSA-7m6h-x95x-82q5
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -145,5 +144,3 @@ CVE-2026-73558 是跨用户数据泄漏，中危、CVSS 5.3。公告元数据写
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

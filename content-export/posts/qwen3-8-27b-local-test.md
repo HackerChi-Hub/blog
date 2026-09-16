@@ -217,7 +217,6 @@ llama.cpp 的日志把账记得很清楚。这台机器上 Qwen3.8 累计跑了 
 
 - LocalBrain（方寸智匣）下载：https://github.com/HackerChi-Hub/localbrain-releases/releases/latest
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -266,5 +265,3 @@ llama.cpp 的日志把账记得很清楚。这台机器上 Qwen3.8 累计跑了 
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

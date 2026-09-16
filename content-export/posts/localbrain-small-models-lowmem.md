@@ -330,7 +330,6 @@ Bonsai 27B 是 PrismML 把 Qwen3.6-27B 压到 1-bit 的版本，文件 3.80 GB�
 > Qwen3.5-9B 模型卡：https://huggingface.co/Qwen/Qwen3.5-9B
 > Bonsai 27B 发布说明：https://prismml.com/news/bonsai-27b
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -379,5 +378,3 @@ Bonsai 27B 是 PrismML 把 Qwen3.6-27B 压到 1-bit 的版本，文件 3.80 GB�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

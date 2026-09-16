@@ -134,7 +134,6 @@ LocalBrain 当前固定的 llama.cpp 是 `b10705`，已经包含 Qwen4exp 和懒
 - [Apple 官方 TN3205](https://developer.apple.com/documentation/technotes/tn3205-low-latency-communication-with-rdma-over-thunderbolt)
 - [LocalBrain 公开发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -183,5 +182,3 @@ LocalBrain 当前固定的 llama.cpp 是 `b10705`，已经包含 Qwen4exp 和懒
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

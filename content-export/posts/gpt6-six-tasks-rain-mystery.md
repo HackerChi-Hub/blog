@@ -759,7 +759,6 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 - **当前状态**：持续迭代
 - [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -808,5 +807,3 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

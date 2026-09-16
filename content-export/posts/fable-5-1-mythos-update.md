@@ -140,7 +140,6 @@ Anthropic 自己的模型页反而很克制：多数工作负载先从 Opus 5 �
 > **黑粉科技** · 本地AI / 白嫖指南 / 我做的工具 / 新品速递
 > 本篇依据 Anthropic 官方发布页与 Claude Platform 文档撰写；所有跑分和科研案例均按官方口径标注，未进行本机模型实测。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -189,5 +188,3 @@ Anthropic 自己的模型页反而很克制：多数工作负载先从 Opus 5 �
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

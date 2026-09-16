@@ -140,7 +140,6 @@ Ollama 公布的提升幅度确实好看。按它官方给出的图表，同一�
 - vMLX 官网与对比数据：https://vmlx.net/
 - Apple MLX 框架：https://github.com/ml-explore/mlx
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -189,5 +188,3 @@ Ollama 公布的提升幅度确实好看。按它官方给出的图表，同一�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

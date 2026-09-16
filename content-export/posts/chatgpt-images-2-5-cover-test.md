@@ -106,7 +106,6 @@ API 侧现在分成 Flare 与 Sunburst。Flare 是默认选择，目标是大多
 > 
 > 本文三轮测试图、透明通道统计与改图差异均为黑粉科技本次实测；生成时间是端到端工具链耗时，不代表官方模型基准。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -155,5 +154,3 @@ API 侧现在分成 Flare 与 Sunburst。Flare 是默认选择，目标是大多
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

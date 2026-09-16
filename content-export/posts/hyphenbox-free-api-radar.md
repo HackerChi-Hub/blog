@@ -179,7 +179,6 @@ SHA-256：02b5c9e606f7f1a8dd05c4ce0a52c23fd5d1cc12056f0e6d5f6d0cbcd5581bd8
 > 
 > 黑粉盒子不是一张看起来很满的免费清单，而是一套能持续复测、留得住证据的本地 API 雷达。103 家收录、68 家实测可用、51 家国内直连——这些数字明天可能就变了，所以它每天自己重跑一遍。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -228,5 +227,3 @@ SHA-256：02b5c9e606f7f1a8dd05c4ce0a52c23fd5d1cc12056f0e6d5f6d0cbcd5581bd8
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

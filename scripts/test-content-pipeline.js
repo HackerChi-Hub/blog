@@ -64,7 +64,7 @@ legacy_paths:
   - old-live-post
 ---
 
-${body || '正文。\n\n![配图](../preview-assets/live-post/body.png)'}
+${body || '正文。\n\n![配图](../preview-assets/live-post/body.png)\n\n<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->\n\n## 🧰 我做的工具\n\n工具内容。\n\n<!-- HFKJ_FIXED_FOOTER_END -->'}
 `;
 }
 
@@ -105,6 +105,13 @@ function main() {
     assert(!exported.includes('preview-assets/'));
     assert.match(exported, /\/obsidian-assets\/live-post\/cover\.png/);
     assert.match(exported, /\/obsidian-assets\/live-post\/body\.png/);
+    assert.match(exported, /## 🧰 我做的工具/);
+    assert(!exported.includes('HFKJ_FIXED_FOOTER_START'));
+    assert(!exported.includes('HFKJ_FIXED_FOOTER_END'));
+    assert(!exported.endsWith('\n\n'));
+    const privateSource = fs.readFileSync(path.join(content, 'posts', 'live-post.md'), 'utf8');
+    assert(privateSource.includes('HFKJ_FIXED_FOOTER_START'));
+    assert(privateSource.includes('HFKJ_FIXED_FOOTER_END'));
     assert(!fs.existsSync(path.join(exportDir, 'posts', 'draft-post.md')));
     assert(fs.existsSync(path.join(publicAssets, 'live-post', 'cover.png')));
     assert(fs.existsSync(path.join(publicAssets, 'live-post', 'body.png')));

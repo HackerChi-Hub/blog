@@ -261,7 +261,6 @@ Google手握三大不可替代的分发渠道——**Search（25亿MAU）+ Andro
 
 本文数据来源：Google I/O 2026 官方主题演讲、TechCrunch、CNET、EnterpriseDNA、网易科技实测、搜狐专访Oriol Vinyals，2026年5月19-20日发布。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -310,5 +309,3 @@ Google手握三大不可替代的分发渠道——**Search（25亿MAU）+ Andro
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

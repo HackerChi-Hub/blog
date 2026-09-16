@@ -101,7 +101,6 @@ MiniCPM5-2B 是一个 42 层的稠密模型，hidden size 2048，16 个查询头
 > 
 > 本文 KV 缓存数字为依据模型配置所做的理论估算，不是本机峰值实测。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -150,5 +149,3 @@ MiniCPM5-2B 是一个 42 层的稠密模型，hidden size 2048，16 个查询头
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

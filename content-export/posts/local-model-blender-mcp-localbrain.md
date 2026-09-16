@@ -134,7 +134,6 @@ LocalBrain 原来的对话只认 7 组内置工具（文档、联网、配音、
 > Blender 官网：https://www.blender.org/
 > LocalBrain 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -183,5 +182,3 @@ LocalBrain 原来的对话只认 7 组内置工具（文档、联网、配音、
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

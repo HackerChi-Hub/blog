@@ -126,7 +126,6 @@ MLX目前也没有捷径。截至截稿，mlx-community能找到多个V4 Flash�
 > **黑粉科技** · 本地AI / 白嫖指南 / 我做的工具 / 新品速递
 > 本篇依据 DeepSeek 官方公告、模型卡、config.json、权重文件清单与当前社区视觉量化说明撰写；只读取了本机64GB硬件信息，没有下载权重，也没有运行该模型。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -175,5 +174,3 @@ MLX目前也没有捷径。截至截稿，mlx-community能找到多个V4 Flash�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

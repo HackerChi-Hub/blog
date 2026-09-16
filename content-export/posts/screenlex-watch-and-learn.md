@@ -90,7 +90,6 @@ sudo xattr -rd com.apple.quarantine /Applications/ScreenLex.app
 
 ScreenLex 为闭源发布软件。本公开仓库仅用于发布安装包与说明，不包含源代码。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -139,5 +138,3 @@ ScreenLex 为闭源发布软件。本公开仓库仅用于发布安装包与说�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

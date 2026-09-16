@@ -180,7 +180,6 @@ Windows 侧的凭据存储我这次实地验过：保存两把 Key 之后，凭�
 - LocalBrain：https://github.com/HackerChi-Hub/localbrain-releases/releases
 - ScreenLex 光影词库：https://github.com/HackerChi-Hub/screenlex-download/releases
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -229,5 +228,3 @@ Windows 侧的凭据存储我这次实地验过：保存两把 Key 之后，凭�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

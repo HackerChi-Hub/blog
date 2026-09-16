@@ -120,7 +120,6 @@ legacy_paths: []
 - 谷歌官方公告《Introducing Gemini 3.8 Flash and 3.8 Flash Cyber》：https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/
 - Gemini API 开发者文档：https://ai.google.dev/gemini-api/docs
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -169,5 +168,3 @@ legacy_paths: []
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

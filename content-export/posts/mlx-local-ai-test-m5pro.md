@@ -360,7 +360,6 @@ legacy_paths: []
 
 —— 黑粉科技 · 让AI成为你的超能力 ——hyphentech.top
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -409,5 +408,3 @@ legacy_paths: []
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

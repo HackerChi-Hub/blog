@@ -1,338 +1,338 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "11f5d38726712de147ec2086b9cb038380fd7f5734b8c71fcd0e4c2c2e5e4697",
+  "content_sha256": "81791109752ccb1277ddd6ef83548150a9410bc9e02078d57f13f6944bb8583e",
   "published_post_count": 55,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
       "slug": "33a999681bdb81499014eaf312d39728",
       "legacy_paths": [],
-      "sha256": "a6d6f082fb9f41a09fbd2243e4126a8dc5c0808c7e3ebfa38899942494255211"
+      "sha256": "f58132419ba23b001cd093466aac0bade9fe651d9a586543bb2ab3efb76c7cc8"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c.md",
       "slug": "361999681bdb815b94fad9dbf028ab2c",
       "legacy_paths": [],
-      "sha256": "532433e3a9d37ca7360b2579f3f653192506d433c17a84a4397344fb201504c7"
+      "sha256": "e06ba2964b6da6ec034d2f3000088f52f4220db81d074ecdbc1eca6f7e0a44d5"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6.md",
       "slug": "372999681bdb815f8c9bdd238edc09c6",
       "legacy_paths": [],
-      "sha256": "de0ad491caaec5f2f7b9956f326b71eca5d83db97752b971733808a5fb98aa91"
+      "sha256": "5747895f26445961418bfe98d06baf97a7a0c1b86d6899860a5a5301ff0beed0"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4.md",
       "slug": "37a999681bdb81d6bd5def54e062aac4",
       "legacy_paths": [],
-      "sha256": "0b7532822308d711a631612a92e69b800254d035c7a10c4af9c811917409a470"
+      "sha256": "7cb54a2c17950e14637af2d8929373d9a2037cbc2ef19ac297d14daa87560a10"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7.md",
       "slug": "3af999681bdb8146be26ec77fb75f5b7",
       "legacy_paths": [],
-      "sha256": "30f50545bbcc7bad7206b2514085099668148209580f72de69ffbcfed23c8d18"
+      "sha256": "61787639f134e853ffa0f4fd5c1153fbef7a113461d1ad9e7ee49fe530279ef1"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a.md",
       "slug": "3be999681bdb81269ddaf65518a0735a",
       "legacy_paths": [],
-      "sha256": "9f59b8eaba4f7f59c6f219c3d37f1cfcc62f2f51ce166374f4f5bcd7ef0e598e"
+      "sha256": "4cfc07ef98e3bea6989c5dc5b5eda522642484d7fbba8eb1cd884a60133ba3aa"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a.md",
       "slug": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "legacy_paths": [],
-      "sha256": "e9b932e4ed11c85dffcb4ab775cc3a6bf830c5644af2f204014186daf01577b2"
+      "sha256": "6d0d2c5682411cfedc54d3d7654c53b0af2a9fb1ee26934e6472f7ddaddd2bcc"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500.md",
       "slug": "3c4999681bdb81b5ac69ceb1153e2500",
       "legacy_paths": [],
-      "sha256": "f3701175e0acef654d7440bcbdac234ae2ce94e23686674a17bddf98a807737b"
+      "sha256": "9526477db67abf69c71eb931de1ff156d79f29e523d0c274410265ebe9ce0b4d"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738.md",
       "slug": "3c6999681bdb815f8094e4ca7339f738",
       "legacy_paths": [],
-      "sha256": "491e77dd4a29729a78a53f1732e7a771d783cc73657d81d26a12251c39179bf3"
+      "sha256": "3025ccb24bc98d2e0bb924eb3e5b99f142be01f9be4f89aedea96c36d3511b0f"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0.md",
       "slug": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "legacy_paths": [],
-      "sha256": "effaf9a50ce6ca10ff4a9e1b73a5999b136fed72d6bfb9bcc3db7b744c9e658b"
+      "sha256": "1ef1fd65098c4d026cfcb4e96f1e01cc940a44c78af06291ea4674ff474d84dd"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a.md",
       "slug": "3c9999681bdb814ba691f8cc28ec684a",
       "legacy_paths": [],
-      "sha256": "9e1c2299f9d32483ed4a7fb21526294532d6be813a2ab57ea7457e02b2fe4471"
+      "sha256": "d35b49d8aefdba5d6d281c393a31fc2afa2d64615caffa89ffdf2abfc63f3d30"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026.md",
       "slug": "ai-agent-ufo-game-prompt-template-2026",
       "legacy_paths": [],
-      "sha256": "e8f5e79515c65cf9588deed7e94d4ba4a639b9374a0c4b6410bdaa2229848156"
+      "sha256": "9adaca7b78397bc3d50a781dd232413728434653dbb70e22a6698f31c6e64aa6"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost.md",
       "slug": "ai-animation-pipeline-cartoon-real-cost",
       "legacy_paths": [],
-      "sha256": "6b45804b278f0ac5fbc437a81f6918f91718482a1e3ad1d88dad814927a024f4"
+      "sha256": "ff48698fbbab27a7131c1b3eb38dfc5f20afa01e0e926fda0dff0d56a06e9466"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51.md",
       "slug": "ai-gaokao-2026-glm51",
       "legacy_paths": [],
-      "sha256": "803f3c935a712dd0605d40fc17f4be32bfe0af827e681cf396cb2aab8a981782"
+      "sha256": "259b6291e7eab9d02af4c279644d38998fd1ae9e28f39dee547a2bb7ea75f30e"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow.md",
       "slug": "ai-logo-brand-assets-workflow",
       "legacy_paths": [],
-      "sha256": "187f371a689aea597a5625239b06e30be0673dd20082e8175d371aa0aaeca360"
+      "sha256": "feb0d288f6559b80c5e621901238a56feada6c6925bd3942ea8348a07dca0823"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
       "slug": "ai-prompt-templates-12-scenes",
       "legacy_paths": [],
-      "sha256": "b509b7da0fb698d6bc71d0dbd49661a4fe8b553658ee7dd773d14a2cf6f3977a"
+      "sha256": "ad28ab300a90a87cf3e4814b548cd32d69b418fc608ecc521753dac0ecbed401"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
       "slug": "broadband-troubleshooting-guide",
       "legacy_paths": [],
-      "sha256": "f93c4d0502cf35b78ca51a2110c0e3d7db2af1880d0d5bbb9c185e9c0c8f7814"
+      "sha256": "61e17c93df55d87d88a6052b0a8c4b37064550a90a129e79e27419bfd257bbed"
     },
     {
       "file": "posts/chatgpt-images-2-5-cover-test.md",
       "slug": "chatgpt-images-2-5-cover-test",
       "legacy_paths": [],
-      "sha256": "0a88d20cbc7f761fc7ab2397b75770c996687b6b287001389df7c21f094b07ed"
+      "sha256": "d0bbde02e3e997f880a6d2b69444d3a2306669c23727b36eb933e85c695eee8c"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
       "slug": "deepseek-v4-vision-mac64",
       "legacy_paths": [],
-      "sha256": "e2110d7b84bcc5e3fe5e7a5999d645ad2cc0b248017abc48ea4b7a6e65f9d9be"
+      "sha256": "16e31eefd38e2fb088d5df6cd918d18f9ca8df2e65d194b68660624f57ad35db"
     },
     {
       "file": "posts/fable-5-1-mythos-update.md",
       "slug": "fable-5-1-mythos-update",
       "legacy_paths": [],
-      "sha256": "19e961b10a0c3ba94c98d0a2769aee5a54f3d092be133ddcac381c205a94c641"
+      "sha256": "0b0c8b882246319bbfac72d6ce8c05ad140df10c44442037302515494a4321dd"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
       "slug": "fastmetal-qad-apple-silicon-official-guide",
       "legacy_paths": [],
-      "sha256": "da69c28f96c0816e2e9d9c1f1a4f36a70a6a668fc6e5630b22b826f6eec56319"
+      "sha256": "6c0d4b1dbd0cceb28ca032d19f5138f97509489610eadeacdaf91ffe8880ba94"
     },
     {
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "legacy_paths": [],
-      "sha256": "070db61ed091c2986e089c000cb7bed02cb4aa710eb9e9a539efbb3b5250fc8c"
+      "sha256": "87da09fc5ad7765da16377cccdedca2ce0e19c8c10cc01de94a4723cbb203b62"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
       "slug": "free-api-radar-2026-08-27",
       "legacy_paths": [],
-      "sha256": "bbd5419e8444ebdae0b8cb3e8d4de152d2b78ea82f919be91c44c571680a7c21"
+      "sha256": "40dac6f6db624318e20be3dd744a41c0a6e619d8bdc4f66dbb83f9c6286a42ae"
     },
     {
       "file": "posts/free-api-radar.md",
       "slug": "free-api-radar",
       "legacy_paths": [],
-      "sha256": "cc181c710148e7306869533a3a42d036abcaee96da94c30b5652e7dada7d287b"
+      "sha256": "fe2514de1c8a7172ba05a3536e81f2f257af0e0adcdece9c92b58dde9f39bad4"
     },
     {
       "file": "posts/free-design-resources.md",
       "slug": "free-design-resources",
       "legacy_paths": [],
-      "sha256": "1286e3c5ad160f9194ca533ccb12ae07d9ad5d04ce587917d1dd705b888cf316"
+      "sha256": "0230c40ade0ee5a3d9b57bbb39a214ae8c717c0f4dfc879d0f5fe15d086506c1"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber.md",
       "slug": "gemini-3-8-flash-cyber",
       "legacy_paths": [],
-      "sha256": "636a3cbd149de118f46f8695547f75b8a114bd25318987227aa7ff25ee9ababf"
+      "sha256": "2b8d52fbab56c56e23c44cd09b69a5af4ca197f2f78955e5aaefd2ab7a457c3e"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
       "slug": "google-io-2026-gemini-agentic-era",
       "legacy_paths": [],
-      "sha256": "694c8b53c23e18b87b544063f9c3ae49d534b3caade59318e4a071bdc9d273bd"
+      "sha256": "0acc23945bd444cb8de515d7e397ec76a59f1eaf8f9ae3b1029f8d8a0f6e8cbe"
     },
     {
       "file": "posts/gpt-6-astra-computer-use.md",
       "slug": "gpt-6-astra-computer-use",
       "legacy_paths": [],
-      "sha256": "3c900b4243f9d164098bba36b08d503d4c91975647c9a74d418a1b0cef605eb4"
+      "sha256": "f324de439d996e708e21da6a4f69e428bcb2af3a16b278721266330c0a3510f0"
     },
     {
       "file": "posts/gpt6-six-tasks-rain-mystery.md",
       "slug": "gpt6-six-tasks-rain-mystery",
       "legacy_paths": [],
-      "sha256": "ba346b5eb4e0f13638ef05a0913c6e4a360ef298515bcf7c3b3dd2b1d5652f4b"
+      "sha256": "5e83fed54104459eb25425d3fb05b0383ae6aa1a204d464446f1c1c54916a28f"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
       "slug": "huawei-tau-law-2026",
       "legacy_paths": [],
-      "sha256": "b7e7a15bd9674088f50e6251e2f4ddd17f4b458b3c4a6a1bea7b8973103306fa"
+      "sha256": "7613c86a221e641ebb9c3ac1ef94ec3416487e5c1e28c33ac073d2c629d29f5c"
     },
     {
       "file": "posts/hyphenbox-free-api-radar.md",
       "slug": "hyphenbox-free-api-radar",
       "legacy_paths": [],
-      "sha256": "e7563317dff62a81d0551c6979b25fc6ecafa2713b2e17bff6e4103af26a6687"
+      "sha256": "34a0634cbad6e2d33f8b8e21d0fe22f9a6fdaa3e22de9602d826be519ac6ad16"
     },
     {
       "file": "posts/hyphenbox-windows-linux-tri-platform.md",
       "slug": "hyphenbox-windows-linux-tri-platform",
       "legacy_paths": [],
-      "sha256": "94ef087c31cc63f3d2335c07b3726e7279ec4f370c1c97b4ee83d3ec81ebdc47"
+      "sha256": "dd8d32863187e2ee1c424f16515c0b7408c454876566ecf77aaba83b00eef315"
     },
     {
       "file": "posts/hyphencut-local-video-editor.md",
       "slug": "hyphencut-local-video-editor",
       "legacy_paths": [],
-      "sha256": "9186a3e00d653b693a1cd002cc737c13839c5f19005cef1bc3f715efb320d413"
+      "sha256": "1e3c83d2f5601a7b27085626cd25d228279835ef5b413af88538ce796d15aa10"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "legacy_paths": [],
-      "sha256": "f880c609046332549d9b9740a553938b7139793d4b192d58c2daea1cd291440b"
+      "sha256": "fa6c6984bb25a2d99ea8f3b5a7a72dda3f2f7c6c1de9108ccd110ce4a30d2a04"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "legacy_paths": [],
-      "sha256": "6783c59bde3c30f54066a945ac4f3f512fe4c8bdd9f462afc27f14b45564be6f"
+      "sha256": "335edcb520be7daf2e8897514c5ad0bde7ef9995ee831fae01a2ebafe14c3360"
     },
     {
       "file": "posts/local-ai-old-laptop-business.md",
       "slug": "local-ai-old-laptop-business",
       "legacy_paths": [],
-      "sha256": "fa18210a6bb9e61629d0d5071bb302e6061bfe915f55d1ed3c39403ae7850527"
+      "sha256": "798287d81127992e9cc655511159b5d3e53a8a12c2503e59a57535f853d2de62"
     },
     {
       "file": "posts/local-model-blender-mcp-localbrain.md",
       "slug": "local-model-blender-mcp-localbrain",
       "legacy_paths": [],
-      "sha256": "898e3209213189dc2ef59ad08bf78552c0189db618c744f757b2c7e4de28b081"
+      "sha256": "0a0f7d95bd3b55e13fcf9ba594c12f4bbcc32050989db52996cccc9e828742ec"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks.md",
       "slug": "localbrain-flash-next-five-tasks",
       "legacy_paths": [],
-      "sha256": "33cfd977301c32e0c50219db106a8209b9e20eca1efc6eaaf86b11ef10af51c6"
+      "sha256": "51de6844a703468d217b8e19637a1513413f5bb60c1d6c014e2b2a63adad8cf5"
     },
     {
       "file": "posts/localbrain-h3-multi-reference.md",
       "slug": "localbrain-h3-multi-reference",
       "legacy_paths": [],
-      "sha256": "3c239366d97d15a87beca2d2517ee76b17654dff052332ece5a50235158d5804"
+      "sha256": "965962c2c2d643379778bd452d59c03ccc9474a6527bf1d0a1b7d02ee1ca9a18"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
-      "sha256": "f5f0fa2fc86fde567664573c302d7ed6f8d7c44ed2fb8d5a5e0b61837ae811d8"
+      "sha256": "118358c47e9bbccdc5eb7f64f3df0252cface8413a3d54fb8da0223dd30fb5ad"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
       "slug": "localbrain-small-models-lowmem",
       "legacy_paths": [],
-      "sha256": "0796b99798cd892ca2e5a1e752a3a47087d7162c06595704d9f0e5c012fc6708"
+      "sha256": "7e4bebf917d16b937d53bac82f4df61d945ef88bf18fc5878ee8a6fcd6256c45"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",
       "slug": "localbrain-windows-nvidia-first-release",
       "legacy_paths": [],
-      "sha256": "01a76f72aec64e7d97c8528626488e3609162a231556c77616b71393133fb2c7"
+      "sha256": "02ded210c750cdad0c1f32703c2249ab307c2195e28fb7c19d74c838a71fd540"
     },
     {
       "file": "posts/localhost-local-ai-security.md",
       "slug": "localhost-local-ai-security",
       "legacy_paths": [],
-      "sha256": "21bd079675bfd0fac06166db2a81415e898b483fc678d8b298e8fd1376df1ee2"
+      "sha256": "f4a00c03d1da5c362765baf1a53d0aac7eaf387665659febbd188b4cffac81f9"
     },
     {
       "file": "posts/mac-local-inference-engines.md",
       "slug": "mac-local-inference-engines",
       "legacy_paths": [],
-      "sha256": "553f896d32d5a1be32de665693c0996f726b3b7f5746fe56f4143048ca7d99d8"
+      "sha256": "120761b1cc21ba63b1ed833a70aa963f3395ff0131f9f2f03c80ad2df4210fb6"
     },
     {
       "file": "posts/minicpm5-2b-localbrain.md",
       "slug": "minicpm5-2b-localbrain",
       "legacy_paths": [],
-      "sha256": "ebd0a4a676d7f1dfd5aa41eb15f30a06fb6b043b0e80e6563f964892a1c4ca09"
+      "sha256": "eadd5d118cc1d5d1283eb94318db232465bcabd0c2a8c004d8c2decb5dd6b745"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
       "slug": "mlx-local-ai-test-m5pro",
       "legacy_paths": [],
-      "sha256": "93b5e25394ac5d6e865d6999e51318dc24580bf3e667bc18d771635b5af5d4b1"
+      "sha256": "3037cde72b138487168b9c8dd82b7a41807faa72f0cb480fff0ba6466d4b2a1f"
     },
     {
       "file": "posts/movie-model-benchmark.md",
       "slug": "movie-model-benchmark",
       "legacy_paths": [],
-      "sha256": "f338da31bd767b9e7ded0d95e4b5e4e2bd8491e75d16be3737a751da3a3d8f6f"
+      "sha256": "68d916dafea2482be7611be8311f99e443dbab2c040628de099b72ca231c12df"
     },
     {
       "file": "posts/nex-n2-5-free-mac-localbrain.md",
       "slug": "nex-n2-5-free-mac-localbrain",
       "legacy_paths": [],
-      "sha256": "99344ec13c52d4af71448cccdbaab7d5c11b1e6e0e7a97618915acc3c4d6e038"
+      "sha256": "1b1f1bfb779979e29f6bf9e77445b40fe48c4fb65f53eb80eb74f97d3259cd3b"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started.md",
       "slug": "omarchy-linux-ai-getting-started",
       "legacy_paths": [],
-      "sha256": "08b72091e645096c479ffd230edbf1b611046d4443384a50c94a8928f19fd8fa"
+      "sha256": "c60aa5bd71d44e8912817e495bb3c978f2314cf7fac27c708a04b7ba71d4a055"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
       "slug": "ox-alpha-stealth-model",
       "legacy_paths": [],
-      "sha256": "2acbc95a7bde1d49778de9324a0c3462912c91a999f8de39c1bdf7baebe74c9d"
+      "sha256": "8d8bbefd9f2741f9fe6aa230ba8e201f25f9fb056a3106c6a1b52d6c2f99a238"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
       "slug": "qwen3-8-27b-local-test",
       "legacy_paths": [],
-      "sha256": "13acf5e7da178ad0b9b6b586f32f69ea390507b1833e4424f947afab845384df"
+      "sha256": "8fdafcb0e08dfa28dc762d27ee4104310f5a6a4a47159cda2bab60db08639ec1"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
       "slug": "qwen38-flash-next-atomic-m64-localbrain",
       "legacy_paths": [],
-      "sha256": "9bcd5b3be1c666e219b94601e37147babd875adaa8754ee08e47754c1a537837"
+      "sha256": "1442d537ede31946c7bd069de8f8459ba1440b1fcd888350508ba231751f79a0"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
       "slug": "remotion-claude-code-prompt-to-video-guide",
       "legacy_paths": [],
-      "sha256": "ddba2ee4fe2ce2186191f9739cff8fb6bd3974b1ae49114514691ef39800e1b7"
+      "sha256": "2bb2c7e5d8f2e155c4ec4ec5e9a6ab91d2a8d8fdf8eaa980dcab52fcf9258bc5"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
       "slug": "screenlex-watch-and-learn",
       "legacy_paths": [],
-      "sha256": "ef4825777a92c12c988528ee74c2674d16aa3293eabf84b891438d7615766c53"
+      "sha256": "905e5897b30cadb4a6db00bccfa2883d465e4e93951b7fa1e09e02b1adaf3c08"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
       "slug": "wifi-finder-vibe-coding",
       "legacy_paths": [],
-      "sha256": "1f9425a123ac6b52a086c3bc6e9223483fcb4a7f65bb723f0273d26af4810f80"
+      "sha256": "3ff857bc11d897dfa18b65b9a845851c016f66de4bce57ccd494266876fe32db"
     }
   ],
   "config": [

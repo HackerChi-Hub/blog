@@ -600,7 +600,6 @@ Remotion + Claude Code + Agent Skills这套组合拳的核心价值是：
 
 > 官网：[hyphentech.top](http://hyphentech.top/)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -649,5 +648,3 @@ Remotion + Claude Code + Agent Skills这套组合拳的核心价值是：
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

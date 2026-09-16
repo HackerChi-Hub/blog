@@ -190,7 +190,6 @@ Figma 是行业标配，免费版 3 个项目够个人用。在意隐私和数�
 
 > 黑粉科技 · 让AI成为你的超能力 · [hyphentech.top](http://hyphentech.top/)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -239,5 +238,3 @@ Figma 是行业标配，免费版 3 个项目够个人用。在意隐私和数�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

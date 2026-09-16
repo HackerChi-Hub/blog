@@ -100,7 +100,6 @@ legacy_paths: []
 
 下载地址：github.com/HackerChi-Hub/HyphenCut-Releases/releases。用得上的话去 B 站关注黑粉科技，后面每期视频都会用它剪。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -149,5 +148,3 @@ legacy_paths: []
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

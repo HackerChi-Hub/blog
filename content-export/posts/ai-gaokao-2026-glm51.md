@@ -246,7 +246,6 @@ Li Hua
 
 高考题目为2026年真题原文引用，版权归命题单位所有
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -295,5 +294,3 @@ Li Hua
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

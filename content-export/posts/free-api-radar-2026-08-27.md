@@ -279,7 +279,6 @@ legacy_paths: []
 > 
 > 这波免费模型可以薅，但应当按测试资源而不是生产基础设施来用。当前最值得先试的是 B.AI 的 0 Credits GLM/Qwen 与 AIHubMix 的 Coding GLM 免费模型；TokenRouter 已有 Qwen3.8 Max 免费模型页；TokenHarbor 适合找 Qwen3.8 27B 免费 allowance；Empero 先等维护恢复；HiLinkup 的 GLM-5.3-Flash 限免仍需官方活动页或登录控制台确认。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -328,5 +327,3 @@ legacy_paths: []
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

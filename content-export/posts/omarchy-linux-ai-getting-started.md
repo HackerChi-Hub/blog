@@ -217,7 +217,6 @@ omarchy-snapshot create
 - [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)：本地 AI 工具箱，集中管理转写、配音、生图、视频和 MCP。
 - [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)：把本地电影字幕整理成可复习的英语词库，离线使用。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -266,5 +265,3 @@ omarchy-snapshot create
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

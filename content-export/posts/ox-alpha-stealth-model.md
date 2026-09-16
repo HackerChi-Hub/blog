@@ -182,7 +182,6 @@ OpenRouter 会公开每个模型的应用榜。Ox Alpha 上面排第一的是 **
 
 - 零度解说的实测视频（2026-08-22）：https://www.youtube.com/watch?v=yhhyFO6hSTs
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -231,5 +230,3 @@ OpenRouter 会公开每个模型的应用榜。Ox Alpha 上面排第一的是 **
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

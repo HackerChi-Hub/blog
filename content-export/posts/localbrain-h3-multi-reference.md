@@ -183,7 +183,6 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 > 模型卡：https://huggingface.co/ddalcu/MiniMax-H3-REF2VA-MLX-Serve-8bit
 > 官方仓库：https://github.com/MiniMax-AI/MiniMax-H3
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -232,5 +231,3 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

@@ -173,7 +173,6 @@ Windows / 路由器拨号时可能会弹出错误代码：
 
 > 黑粉科技 · [hyphentech.top](http://hyphentech.top/)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -222,5 +221,3 @@ Windows / 路由器拨号时可能会弹出错误代码：
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

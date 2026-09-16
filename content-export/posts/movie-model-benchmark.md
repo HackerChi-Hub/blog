@@ -202,7 +202,6 @@ Excel 只有 **6 个公式**，没有图表；Word 没有真实标题层级，�
 > 
 > 这次测试里，Claude 最像可靠分析师，Codex 最像数据工程师，GLM 最像会做演示的同事，DeepSeek 像完成度不错但需要审稿的实习生，MiniMax 则更适合写文字，不适合直接交付复杂办公三件套。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -251,5 +250,3 @@ Excel 只有 **6 个公式**，没有图表；Word 没有真实标题层级，�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

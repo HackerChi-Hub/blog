@@ -122,7 +122,6 @@ GPT-6 Astra 是 OpenAI 第一个在网络安全能力上达到“Critical”级�
 > **黑粉科技** · 本地AI / 免费白嫖 / 自制软件 / 新模型速递
 > 本文依据 OpenAI 官方发布页、API 文档、帮助中心和系统卡整理；未进行 GPT-6 本机或账号实测，跑分、价格与可用范围均按 2026 年 9 月 5 日官方口径标注。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -171,5 +170,3 @@ GPT-6 Astra 是 OpenAI 第一个在网络安全能力上达到“Critical”级�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

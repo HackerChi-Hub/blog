@@ -130,8 +130,18 @@ function copyFile(sourcePath, targetPath) {
   fs.copyFileSync(sourcePath, targetPath);
 }
 
+const INTERNAL_PUBLISHING_MARKER_LINE =
+  /^[ \t]*<!-- HFKJ_FIXED_FOOTER_(?:START：由脚本生成，请勿手改|END) -->[ \t]*(?:\r?\n|$)/gm;
+
+function stripInternalPublishingMarkers(raw) {
+  const source = String(raw);
+  const stripped = source.replace(INTERNAL_PUBLISHING_MARKER_LINE, '');
+  if (stripped === source) return source;
+  return stripped.replace(/(?:\r?\n){2,}$/u, '\n');
+}
+
 function rewritePreviewReferences(raw) {
-  return String(raw).replace(
+  return stripInternalPublishingMarkers(raw).replace(
     /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g,
     (_match, relativePath) => `/obsidian-assets/${relativePath}`
   );

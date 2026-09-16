@@ -102,7 +102,6 @@ Nex-N2.5 最值得看的，不是 1.6T 这个大数字，而是它把视觉从�
 > https://huggingface.co/abenzerps/Nex-N2.5-mini-MLX-4bit
 > https://huggingface.co/abenzerps/Nex-N2.5-mini-GGUF
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -151,5 +150,3 @@ Nex-N2.5 最值得看的，不是 1.6T 这个大数字，而是它把视觉从�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

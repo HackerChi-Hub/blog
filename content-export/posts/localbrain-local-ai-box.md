@@ -147,7 +147,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 
 > 如果你的本地模型和工具已经多到开始反过来管理你，LocalBrain 能省下的就不只是几条命令，而是每次重启、换模型、换任务时重复折腾的时间。如果你只需要偶尔聊几句，保持现在的简单工具就好。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -196,5 +195,3 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

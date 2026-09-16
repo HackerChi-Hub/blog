@@ -138,7 +138,6 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 - LocalBrain：https://github.com/HackerChi-Hub/localbrain-releases/releases
 - ScreenLex 光影词库：https://github.com/HackerChi-Hub/screenlex-download/releases
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -187,5 +186,3 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

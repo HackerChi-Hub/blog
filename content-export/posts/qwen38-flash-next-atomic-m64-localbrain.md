@@ -142,7 +142,6 @@ Qwen3.8 Flash Next 最吸引我的地方，不是“125B 打败了谁”，而�
 - [LocalBrain 产品介绍](https://hyphentech.top/localbrain-local-ai-box/)
 - [LocalBrain 最新安装包](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -191,5 +190,3 @@ Qwen3.8 Flash Next 最吸引我的地方，不是“125B 打败了谁”，而�
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->

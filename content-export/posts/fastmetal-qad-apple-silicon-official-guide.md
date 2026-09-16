@@ -136,7 +136,6 @@ Apple Silicon 安装指南：https://haoailab.com/FastVideo/getting_started/inst
 > 
 > 只想低门槛体验，先看 1.3B；需要 720p 与内存平衡，看 5B；追求 14B，按 36GB 以上准备。所有速度都要连同分辨率、帧数、缓存状态和加速开关一起读。
 
-<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
 
 ---
 
@@ -185,5 +184,3 @@ Apple Silicon 安装指南：https://haoailab.com/FastVideo/getting_started/inst
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
-
-<!-- HFKJ_FIXED_FOOTER_END -->
