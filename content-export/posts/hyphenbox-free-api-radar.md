@@ -178,3 +178,55 @@ SHA-256：02b5c9e606f7f1a8dd05c4ce0a52c23fd5d1cc12056f0e6d5f6d0cbcd5581bd8
 > 免费会变，记录不能丢
 > 
 > 黑粉盒子不是一张看起来很满的免费清单，而是一套能持续复测、留得住证据的本地 API 雷达。103 家收录、68 家实测可用、51 家国内直连——这些数字明天可能就变了，所以它每天自己重跑一遍。
+
+<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
+
+---
+
+## 🧰 我做的工具
+
+这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+
+> [!info] 黑粉剪辑 HyphenCut
+> **状态：** 初步构建 · 预览版
+>
+> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
+
+> [!info] 黑粉盒子 HyphenBox
+> **状态：** 初步构建 · 预览版
+>
+> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+>
+> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+
+> [!info] 方寸智匣 LocalBrain
+> **状态：** 正式迭代
+>
+> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+>
+> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影词库
+> **状态：** 正式迭代
+>
+> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉录屏 HyphenScreen
+> **状态：** 初步构建 · 预览版
+>
+> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+
+---
+
+> [!quote] 黑粉科技
+> **让AI成为你的超能力**
+> 本地部署 · 免费白嫖 · 自制软件
+> https://hyphentech.top
+
+<!-- HFKJ_FIXED_FOOTER_END -->

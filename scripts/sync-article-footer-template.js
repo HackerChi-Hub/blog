@@ -85,7 +85,51 @@ function replaceGeneratedFooter(source, replacement) {
   return source.replace(pattern, replacement);
 }
 
-function syncMarkedPosts(contentDir, replacement) {
+function stripLegacyFooter(source, productNames) {
+  let next = String(source || '');
+
+  // 旧管道曾把“关于我 + 产品列表”装进代码块；只删除命中固定签名的那个代码块。
+  next = next.replace(/```[^\n]*\n[\s\S]*?```/g, (block) => {
+    const hits = productNames.filter((name) => block.includes(name)).length;
+    return block.includes('我自己做的东西') || (/\$\s*关于我/.test(block) && hits >= 1) ? '' : block;
+  });
+
+  // 删除旧 callout 形态的产品清单或纯频道签名；文章专属的实测声明不会命中。
+  const lines = next.split(/\r?\n/);
+  const kept = [];
+  for (let index = 0; index < lines.length;) {
+    const line = lines[index];
+    if (/^>\s*\[!/.test(line)) {
+      const block = [];
+      while (index < lines.length && /^>/.test(lines[index])) {
+        block.push(lines[index]);
+        index += 1;
+      }
+      const text = block.join('\n');
+      const hits = productNames.filter((name) => text.includes(name)).length;
+      const legacyProducts = /我目前的\s*\d+\s*款自制软件/.test(text) || hits >= 2;
+      const legacySignature = (
+        text.includes('所有方案都先在自己的 M5 Pro 上跑通才写')
+        || (/\[!quote\]\s*黑粉科技/.test(text) && text.includes('hyphentech.top'))
+      );
+      if (!legacyProducts && !legacySignature) kept.push(...block);
+      continue;
+    }
+    if (/^##\s+.*我还做了\s*\d+\s*款/.test(line)) {
+      index += 1;
+      while (index < lines.length && !/^##\s|^>\s*\[!|^---\s*$/.test(lines[index])) index += 1;
+      continue;
+    }
+    kept.push(line);
+    index += 1;
+  }
+  next = kept.join('\n');
+  next = next.replace(/(?:\n[ \t]*){3,}/g, '\n\n').trimEnd();
+  next = next.replace(/(?:\n---\s*)+$/, '').trimEnd();
+  return next;
+}
+
+function syncPublishedPosts(contentDir, replacement, productNames) {
   const postsDir = path.resolve(contentDir, 'posts');
   if (!fs.existsSync(postsDir)) return 0;
   let changed = 0;
@@ -94,7 +138,10 @@ function syncMarkedPosts(contentDir, replacement) {
     const postPath = path.join(postsDir, name);
     if (!fs.statSync(postPath).isFile()) continue;
     const source = fs.readFileSync(postPath, 'utf8');
-    const next = replaceGeneratedFooter(source, replacement);
+    if (!/^status:\s*published\s*$/m.test(source)) continue;
+    const next = source.includes(START) && source.includes(END)
+      ? replaceGeneratedFooter(source, replacement)
+      : `${stripLegacyFooter(source, productNames)}\n\n${replacement}\n`;
     if (next !== source) {
       fs.writeFileSync(postPath, next, 'utf8');
       changed += 1;
@@ -121,8 +168,9 @@ function main() {
   } else {
     console.log('✅ Obsidian 文章尾部模板已是最新');
   }
-  const changedPosts = syncMarkedPosts(args.contentDir, replacement);
-  console.log(`✅ 已刷新 ${changedPosts} 篇带固定尾部标记的 Obsidian 文章`);
+  const productNames = publicProducts(identity).map((product) => String(product.name || '')).filter(Boolean);
+  const changedPosts = syncPublishedPosts(args.contentDir, replacement, productNames);
+  console.log(`✅ 已刷新 ${changedPosts} 篇已发布 Obsidian 文章的固定尾部`);
 }
 
 try {

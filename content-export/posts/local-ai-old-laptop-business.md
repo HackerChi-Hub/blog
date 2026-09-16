@@ -222,9 +222,54 @@ Greg 管这个叫 **schmuck insurance（傻事保险）**，还顺口报了个�
 
 原视频：Greg Isenberg《I'm Obsessed With Local AI. Here's Why》，38 分 46 秒，2026 年 9 月 8 日发布，本期由 Google 赞助。模型参数、内存占用、上下文窗口来自 Google AI for Developers 官方模型卡；Hugging Face 收购数据来自 Bloomberg、CNBC 2026 年 9 月 3 日报道。
 
+<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->
+
+---
+
+## 🧰 我做的工具
+
+这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+
+> [!info] 黑粉剪辑 HyphenCut
+> **状态：** 初步构建 · 预览版
+>
+> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
+
+> [!info] 黑粉盒子 HyphenBox
+> **状态：** 初步构建 · 预览版
+>
+> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+>
+> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+
+> [!info] 方寸智匣 LocalBrain
+> **状态：** 正式迭代
+>
+> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+>
+> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影词库
+> **状态：** 正式迭代
+>
+> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉录屏 HyphenScreen
+> **状态：** 初步构建 · 预览版
+>
+> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+>
+> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+
 ---
 
 > [!quote] 黑粉科技
-> 让AI成为你的超能力
-> 本地部署 / 免费白嫖 / 自制软件
+> **让AI成为你的超能力**
+> 本地部署 · 免费白嫖 · 自制软件
 > https://hyphentech.top
+
+<!-- HFKJ_FIXED_FOOTER_END -->
