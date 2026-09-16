@@ -5,13 +5,13 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 16 Sep 2026 02:05:26 GMT</lastBuildDate>
-    <pubDate>Wed, 16 Sep 2026 02:05:26 GMT</pubDate>
+    <lastBuildDate>Wed, 16 Sep 2026 02:14:58 GMT</lastBuildDate>
+    <pubDate>Wed, 16 Sep 2026 02:14:58 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>打码的单元测试全绿，成片里邮箱还是露了出来</title>
+      <title>完全免费！黑粉录屏！可能是你遇到的最好的录屏软件</title>
       <link>https://hyphentech.top/hyphenscreen-local-screen-recorder/</link>
       <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-local-screen-recorder/</guid>
       <description>录屏最怕的不是没录好，是录到了不该录的。我给自己写的录屏软件加了一道体检：导出之后回读成片本身，逐帧看敏感信息有没有漏出去。</description>
