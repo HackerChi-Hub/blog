@@ -19,8 +19,8 @@ const DEFAULT_IDENTITY_PATH = path.resolve(
   'hfkj_identity.json',
 );
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
-const ARTICLE_COVER_SCHEMA = 'hfkj-centered-article-cover-v1';
-const ARTICLE_COVER_PIPELINE = 'centered-face-anchor-v2';
+const ARTICLE_COVER_SCHEMA = 'hfkj-direct-fusion-article-cover-v1';
+const ARTICLE_COVER_PIPELINE = 'direct-person-fusion-v1';
 const FIXED_FOOTER_START = '<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->';
 const FIXED_FOOTER_END = '<!-- HFKJ_FIXED_FOOTER_END -->';
 
@@ -180,6 +180,21 @@ function validateArticleCoverManifest(article, articleJsonPath) {
   }
   if (hashFile(coverPath) !== String(entry.sha256 || '')) {
     throw new Error('Blog 横封面哈希已变化，必须重新验收');
+  }
+  const sourcePath = resolveFrom(path.dirname(manifestPath), entry.source_contract);
+  if (hashFile(sourcePath) !== entry.source_contract_sha256) throw new Error('直接融合来源合同哈希变化');
+  const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+  if (source.schema !== 'hfkj-direct-fusion-cover-v1' || source.generation?.method !== 'direct-person-fusion') {
+    throw new Error('旧合成不得冒充直接融合原件');
+  }
+  if (source.publication?.article_id !== manifest.article_id || source.publication?.batch_id !== manifest.batch_id) {
+    throw new Error('直接融合来源文章或批次不匹配');
+  }
+  if (!source.sources?.length || hashFile(source.input) !== source.input_sha256 || hashFile(source.final) !== source.final_sha256) {
+    throw new Error('直接融合原件或输入回执不一致');
+  }
+  for (const item of source.sources) {
+    if (hashFile(item.path) !== item.sha256) throw new Error('直接融合参考或原件已变化');
   }
   const width = Number(entry.width || 0);
   const height = Number(entry.height || 0);

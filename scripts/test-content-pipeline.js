@@ -157,9 +157,20 @@ function main() {
     write(importCover, 'cover-jpg');
     write(wrongCover, 'wrong-cover-jpg');
     const coverManifest = path.join(holder, 'article-cover-manifest.json');
+    const fusionInput = path.join(holder, 'fusion-input.json');
+    write(fusionInput, '{}');
+    const fixtureSha = p => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+    const fusionPath = path.join(holder, 'fusion-contract.json');
+    write(fusionPath, JSON.stringify({
+      schema: 'hfkj-direct-fusion-cover-v1', generation: { method: 'direct-person-fusion' },
+      publication: { article_id: 'article-imported-post', batch_id: 'test-batch' },
+      input: fusionInput, input_sha256: fixtureSha(fusionInput),
+      final: importCover, final_sha256: fixtureSha(importCover),
+      sources: [{ path: importCover, sha256: fixtureSha(importCover) }],
+    }));
     const manifest = {
-      schema: 'hfkj-centered-article-cover-v1',
-      pipeline: 'centered-face-anchor-v2',
+      schema: 'hfkj-direct-fusion-article-cover-v1',
+      pipeline: 'direct-person-fusion-v1',
       article_id: 'article-imported-post',
       batch_id: 'test-batch',
       status: 'pending-user-review',
@@ -180,6 +191,8 @@ function main() {
       covers: {
         blog_wide: {
           path: importCover,
+          source_contract: fusionPath,
+          source_contract_sha256: fixtureSha(fusionPath),
           sha256: crypto.createHash('sha256').update(fs.readFileSync(importCover)).digest('hex'),
           width: 2350,
           height: 1000,
@@ -193,7 +206,7 @@ function main() {
         digest: '导入摘要',
         date: '2026-08-31',
         brand_slogan: '旧版宣传语',
-        cover_pipeline: 'centered-face-anchor-v2',
+        cover_pipeline: 'direct-person-fusion-v1',
         cover_article_id: 'article-imported-post',
         cover_batch_id: 'test-batch',
         cover_manifest: coverManifest,
