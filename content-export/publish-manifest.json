@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "81791109752ccb1277ddd6ef83548150a9410bc9e02078d57f13f6944bb8583e",
-  "published_post_count": 55,
+  "content_sha256": "545f987e9428fcadd717d97e000885fa2d8cff61933705184b03693a2050e7ea",
+  "published_post_count": 56,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -99,6 +99,12 @@
       "slug": "ai-prompt-templates-12-scenes",
       "legacy_paths": [],
       "sha256": "ad28ab300a90a87cf3e4814b548cd32d69b418fc608ecc521753dac0ecbed401"
+    },
+    {
+      "file": "posts/bonsai2-mac-deploy.md",
+      "slug": "bonsai2-mac-deploy",
+      "legacy_paths": [],
+      "sha256": "171004a3d7200dd1135f7aa9176d5d1f08576262ac20cf21d75f9856e12f97c8"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
