@@ -12,7 +12,7 @@ tags:
   - 本地部署
   - 开源
   - 大模型
-cover: /obsidian-assets/bonsai2-mac-deploy/bonsai2-whitepaper-cover.png
+cover: /obsidian-assets/bonsai2-mac-deploy/cover-direct-fusion-02-20260919.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---

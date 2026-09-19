@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "545f987e9428fcadd717d97e000885fa2d8cff61933705184b03693a2050e7ea",
+  "content_sha256": "9e4fa76266137f63b803faefe908f540395495b02dec93e9267006bf3083756e",
   "published_post_count": 56,
   "posts": [
     {
@@ -104,7 +104,7 @@
       "file": "posts/bonsai2-mac-deploy.md",
       "slug": "bonsai2-mac-deploy",
       "legacy_paths": [],
-      "sha256": "171004a3d7200dd1135f7aa9176d5d1f08576262ac20cf21d75f9856e12f97c8"
+      "sha256": "07e421224320b460d6d55dc06f3ab5d80eec0a249bc4ef6926abaf62c3ccfbf7"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
