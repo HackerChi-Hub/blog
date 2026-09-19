@@ -5,11 +5,23 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 19 Sep 2026 11:04:22 GMT</lastBuildDate>
-    <pubDate>Sat, 19 Sep 2026 11:04:22 GMT</pubDate>
+    <lastBuildDate>Sat, 19 Sep 2026 11:46:16 GMT</lastBuildDate>
+    <pubDate>Sat, 19 Sep 2026 11:46:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Ternary Bonsai 2 27B 上 Mac：6GB 跑 27B Reasoning，路径、命令与坑</title>
+      <link>https://hyphentech.top/bonsai2-mac-deploy/</link>
+      <guid isPermaLink="true">https://hyphentech.top/bonsai2-mac-deploy/</guid>
+      <description>PrismML 把 27B reasoning 压到 5.93 GB、M5 Pro 跑出 27.7 tok/s，还留 98.2% 的 Qwen3.8 原始能力。两条部署路径的命令、踩坑和接下来在 LocalBrain 里实测的计划，一次写清楚。</description>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>开源</category>
+    <category>大模型</category>
+    </item>
     <item>
       <title>完全免费！黑粉录屏！可能是你遇到的最好的录屏软件</title>
       <link>https://hyphentech.top/hyphenscreen-local-screen-recorder/</link>
@@ -210,16 +222,6 @@
       <link>https://hyphentech.top/deepseek-v4-vision-mac64/</link>
       <guid isPermaLink="true">https://hyphentech.top/deepseek-v4-vision-mac64/</guid>
       <description>DeepSeek把视觉变成Agent的感知入口，并开放305B权重。最新最小视觉GGUF仍约67.8GiB：64GB Mac今天不适合稳定部署。本文按官方资料与文件实算，不做本机运行冒充。</description>
-      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Fable 5.1没降价，为何还能省45%？</title>
-      <link>https://hyphentech.top/fable-5-1-mythos-update/</link>
-      <guid isPermaLink="true">https://hyphentech.top/fable-5-1-mythos-update/</guid>
-      <description>Fable 5.1 与 Mythos 5.1 是同一个底层模型，却被拆成大众版和可信访问版。基础单价没降，缓存读取却便宜75%；真正改变的是长时程Agent的任务经济性、安全边界与接入方式。</description>
       <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
