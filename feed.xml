@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 20 Sep 2026 04:57:43 GMT</lastBuildDate>
-    <pubDate>Sun, 20 Sep 2026 04:57:43 GMT</pubDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:35:27 GMT</lastBuildDate>
+    <pubDate>Sun, 20 Sep 2026 08:35:27 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>这个模型一个字都不写，只回答「选哪个」</title>
+      <link>https://hyphentech.top/jev-system-one-model/</link>
+      <guid isPermaLink="true">https://hyphentech.top/jev-system-one-model/</guid>
+      <description>Jev 不生成文本，只对状态做带概率的判断。官方倍数很唬人，但把水分写在了自己的脚注里；Vercel 上免费白嫖到 9 月 25 日。</description>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>模型发布</category>
+    </item>
     <item>
       <title>Ternary Bonsai 2 27B 上 Mac：6GB 跑 27B Reasoning，路径、命令与坑</title>
       <link>https://hyphentech.top/bonsai2-mac-deploy/</link>
@@ -216,16 +226,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>模型发布</category>
-    </item>
-    <item>
-      <title>DeepSeek视觉开源，64GB Mac能跑吗？</title>
-      <link>https://hyphentech.top/deepseek-v4-vision-mac64/</link>
-      <guid isPermaLink="true">https://hyphentech.top/deepseek-v4-vision-mac64/</guid>
-      <description>DeepSeek把视觉变成Agent的感知入口，并开放305B权重。最新最小视觉GGUF仍约67.8GiB：64GB Mac今天不适合稳定部署。本文按官方资料与文件实算，不做本机运行冒充。</description>
-      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
