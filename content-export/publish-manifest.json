@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "9e4fa76266137f63b803faefe908f540395495b02dec93e9267006bf3083756e",
-  "published_post_count": 56,
+  "content_sha256": "099fbdec1a9ce390387f0b8c3da313364955384460c509365bc5b6edce0594e5",
+  "published_post_count": 57,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -104,7 +104,7 @@
       "file": "posts/bonsai2-mac-deploy.md",
       "slug": "bonsai2-mac-deploy",
       "legacy_paths": [],
-      "sha256": "07e421224320b460d6d55dc06f3ab5d80eec0a249bc4ef6926abaf62c3ccfbf7"
+      "sha256": "e2984c00aac91f5dffce94e630ef5bc7cbceb8c3d3b3100e7897785eefe8fb9e"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
@@ -213,6 +213,12 @@
       "slug": "hyphenscreen-local-screen-recorder",
       "legacy_paths": [],
       "sha256": "fa6c6984bb25a2d99ea8f3b5a7a72dda3f2f7c6c1de9108ccd110ce4a30d2a04"
+    },
+    {
+      "file": "posts/jev-system-one-model.md",
+      "slug": "jev-system-one-model",
+      "legacy_paths": [],
+      "sha256": "18d1581c690532d0072f8bd1dd60c9f5ee1fe2fc8dded1471ae478245eedc191"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
