@@ -59,17 +59,32 @@ wrangler secret put ADMIN_TOKEN        # openssl rand -hex 32 生成，管理 CL
 wrangler deploy
 ```
 
-### 6. 配置博客前端
+### 6. 打开前端开关
 
-在 `blog/.env.local` 里加上（这个文件已被 gitignore）：
+留言区**默认是关的**，必须显式打开。没打开时整段 UI 不渲染——Worker 还没部署就
+显示留言区，读者会看到一个他做什么都没用的「留言没加载出来」。
+
+线上构建读不到 `.env.local`（那个文件不入库），所以要在 GitHub 仓库设置里加两个
+**Variables**（不是 Secrets，这两个值本来就要发给浏览器）：
+
+`Settings → Secrets and variables → Actions → Variables → New repository variable`
 
 ```
+COMMENTS_ENABLED    = true
+TURNSTILE_SITE_KEY  = <第 3 步的 Site Key>
+```
+
+本地调试则写进 `blog/.env.local`（已被 gitignore）：
+
+```
+NEXT_PUBLIC_COMMENTS_ENABLED=true
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=<第 3 步的 Site Key>
 ```
 
 `NEXT_PUBLIC_COMMENTS_API` 不用设，默认就是同域的 `/api/comments`。
 
-然后正常 `blog-push` 发布一次即可。
+设好之后 `blog-push` 发布一次，留言区就出现了。想临时关掉，把 `COMMENTS_ENABLED`
+改成 `false` 再发布一次即可，不用回滚代码。
 
 ## 验证部署
 

@@ -32,6 +32,14 @@ jobs:
         env:
           BLOG_CONTENT_DIR: ./content-export
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 留言区开关。.env.local 不入库，所以线上构建只能从仓库 Variables 取。
+          # 两个都是公开值（Site Key 本就要发给浏览器），用 vars 而不是 secrets。
+          # 在 Settings → Secrets and variables → Actions → Variables 里设置：
+          #   COMMENTS_ENABLED=true
+          #   TURNSTILE_SITE_KEY=<Turnstile 的 Site Key>
+          # 没设时留言区整段不渲染，等 Worker 部署好再打开。
+          NEXT_PUBLIC_COMMENTS_ENABLED: ${{ vars.COMMENTS_ENABLED }}
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.TURNSTILE_SITE_KEY }}
         run: |
           npm run build
           touch out/.nojekyll

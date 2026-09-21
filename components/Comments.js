@@ -7,6 +7,12 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+// 默认关闭，必须显式开启。
+//
+// 这个开关不是可有可无的配置项：Worker 还没部署时，留言区会在每篇文章底部显示
+// 「留言没加载出来」——一个读者做什么都没用的错误。默认关比默认开安全，代价只是
+// 部署完成后要记得打开一次。构建时内联，所以关闭时整段 UI 根本不会渲染。
+const COMMENTS_ENABLED = process.env.NEXT_PUBLIC_COMMENTS_ENABLED === 'true';
 const API_BASE = process.env.NEXT_PUBLIC_COMMENTS_API || '/api/comments';
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 const TURNSTILE_SCRIPT = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
@@ -125,7 +131,7 @@ function CommentItem({ comment, onReply, replyingTo }) {
   );
 }
 
-export default function Comments({ slug }) {
+function CommentsPanel({ slug }) {
   const [comments, setComments] = useState([]);
   const [loadState, setLoadState] = useState('loading'); // loading | ready | failed
   const [nickname, setNickname] = useState('');
@@ -289,4 +295,14 @@ export default function Comments({ slug }) {
       )}
     </section>
   );
+}
+
+/**
+ * 对外入口。开关判断放在这一层而不是 CommentsPanel 内部：React 的 hooks 必须
+ * 无条件调用，在组件体里提前 return 会违反 hooks 规则；包一层则是整个子组件
+ * 不被渲染，它的 hooks 自然一次都不会执行。
+ */
+export default function Comments({ slug }) {
+  if (!COMMENTS_ENABLED) return null;
+  return <CommentsPanel slug={slug} />;
 }
