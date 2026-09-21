@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "34dfd65ad8038734fe5d9d3ca0beeb6eac23443bbbad6e2597e787df9122b125",
-  "published_post_count": 58,
+  "content_sha256": "a5e698fa583fee04650b0b1626d430a9123a33391d6cb24fc4b762e5963008ef",
+  "published_post_count": 59,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -317,6 +317,12 @@
       "sha256": "8d8bbefd9f2741f9fe6aa230ba8e201f25f9fb056a3106c6a1b52d6c2f99a238"
     },
     {
+      "file": "posts/qwen-image-21-local.md",
+      "slug": "qwen-image-21-local",
+      "legacy_paths": [],
+      "sha256": "0828af84540c78aa0e0773ba50c680d3571b7dd3b16f5435310c656af12228bf"
+    },
+    {
       "file": "posts/qwen3-8-27b-local-test.md",
       "slug": "qwen3-8-27b-local-test",
       "legacy_paths": [],
@@ -344,7 +350,7 @@
       "file": "posts/splash-mac-local-inference.md",
       "slug": "splash-mac-local-inference",
       "legacy_paths": [],
-      "sha256": "5ef7eef0654c3878d13e54a232d72dd4bf02c76b91463d8971dc58e1b957b6a1"
+      "sha256": "d76cb79d971078250202dae144d930293a9747df149386fc4ea44a6cbe01c066"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
