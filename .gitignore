@@ -28,3 +28,7 @@ Thumbs.db
 .env.local
 *.plaintext
 .rtk/
+
+# Wrangler 本地状态与 --local 模式的 SQLite 数据
+.wrangler/
+workers/*/.wrangler/

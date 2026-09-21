@@ -5,6 +5,7 @@ import Script from 'next/script';
 import '../styles/globals.css';
 import '../styles/radar.css';
 import '../styles/markdown.css';
+import '../styles/comments.css';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLLG23LT3H';
 

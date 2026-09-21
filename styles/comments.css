@@ -1,0 +1,233 @@
+/* 文章底部留言区。
+   全部颜色走 globals.css 的令牌，不写死色值——换主题时这里自动跟着走。 */
+
+.comments-section {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.comments-heading {
+  margin: 0 0 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ---------- 表单 ---------- */
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.comment-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.comment-input,
+.comment-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--panel-soft);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.comment-textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.6;
+}
+
+.comment-input:focus,
+.comment-textarea:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+}
+
+.comment-form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.comment-turnstile {
+  min-height: 0;
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.comment-counter {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.comment-submit {
+  padding: 9px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: rgba(105, 240, 174, 0.12);
+  color: var(--accent-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.comment-submit:hover:not(:disabled) {
+  background: rgba(105, 240, 174, 0.2);
+}
+
+.comment-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.comment-message {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+.comment-message-error {
+  color: var(--accent-orange);
+}
+
+.comment-message-ok {
+  color: var(--accent-green);
+}
+
+.comment-replying-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--panel-highlight);
+  color: var(--text-secondary);
+  font-size: 0.83rem;
+}
+
+.comment-replying-hint button {
+  border: none;
+  background: none;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  font-size: 0.83rem;
+  padding: 0;
+}
+
+/* ---------- 列表 ---------- */
+
+.comment-list,
+.comment-replies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-item + .comment-item {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.comment-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.comment-nickname {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+}
+
+.comment-time {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.comment-content {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  /* 留言是用户输入，可能整段没有空格或是一长串链接，必须允许断行，
+     否则会把卡片撑破、在手机上横向溢出。 */
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.comment-reply-button {
+  margin-top: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.comment-reply-button:hover {
+  color: var(--accent-cyan);
+}
+
+.comment-replies {
+  margin-top: 14px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.comment-replies .comment-item + .comment-item {
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.comment-placeholder {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.comment-retry {
+  border: none;
+  background: none;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .comments-section {
+    padding: 18px;
+  }
+
+  .comment-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+}

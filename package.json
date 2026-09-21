@@ -11,6 +11,8 @@
     "content:sync": "node scripts/sync-obsidian-content.js",
     "content:import": "node scripts/import-article-content.js",
     "content:fill-preview": "node scripts/fill-preview-assets.js",
+    "comments:test": "node workers/comments/test.mjs",
+    "comments:admin": "node scripts/comments-admin.js",
     "test:content": "node scripts/test-content-pipeline.js",
     "test:products": "node scripts/test-product-catalog.js",
     "start": "python3 -m http.server 4173 --directory out",

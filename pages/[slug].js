@@ -4,6 +4,7 @@ import { getAllSlugs, getPostBySlug, getPosts } from '../lib/content';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
+import Comments from '../components/Comments';
 import MarkdownContent from '../components/MarkdownContent';
 import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
@@ -380,6 +381,9 @@ export default function PostPage({
           <div style={{ marginTop: '32px' }}>
             <RelatedPosts posts={relatedPosts} />
           </div>
+
+          {/* 留言区 - 数据在客户端拉，不参与静态构建 */}
+          <Comments slug={meta.slug || slug} />
         </section>
 
         {/* 返回首页按钮 */}

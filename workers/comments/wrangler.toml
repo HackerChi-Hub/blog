@@ -1,0 +1,21 @@
+name = "hyphentech-comments"
+main = "src/index.js"
+compatibility_date = "2026-09-21"
+
+# 路由挂在主站同域路径下。主站本身是 GitHub Pages 经 Cloudflare 代理，
+# 这条 route 只截走 /api/comments*，其余路径照常回源，正文链路一点不受影响。
+[[routes]]
+pattern = "hyphentech.top/api/comments*"
+zone_name = "hyphentech.top"
+
+# database_id 由 `wrangler d1 create hyphentech-comments` 生成后填进来。
+# 它不是密钥（没有它也调不动别人的库），可以入库。
+[[d1_databases]]
+binding = "DB"
+database_name = "hyphentech-comments"
+database_id = "PLACEHOLDER_RUN_WRANGLER_D1_CREATE"
+
+# 以下三个是 secret，绝不写在这里，用 `wrangler secret put <名字>` 单独设：
+#   TURNSTILE_SECRET  Turnstile 的 Secret Key（Dashboard 里和 Site Key 成对生成）
+#   IP_SALT           给 IP 哈希加的盐，随便一串长随机值，设定后不要再改
+#   ADMIN_TOKEN       管理接口的口令，用 openssl rand -hex 32 生成

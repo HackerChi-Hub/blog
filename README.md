@@ -103,6 +103,22 @@ npm run content:fill-preview
 
 只补缺失的文件。两边同名但字节不同时一律不覆盖，只列出来等人工判断——别处机器上没有素材真源，覆盖掉就是不可恢复的丢失。两个仓不同级时用 `--target` 指定 `preview-assets` 的位置。
 
+## 留言功能
+
+文章底部的留言区由一个 Cloudflare Worker + D1 提供，挂在主站同域路由
+`hyphentech.top/api/comments*` 上。站点本身仍是静态导出：留言在客户端拉取，
+增减留言不需要重新构建，发布链一行都不用改。
+
+匿名留言（填昵称即可）+ Cloudflare Turnstile 防机器人，发出即显示、事后可隐藏。
+
+```bash
+npm run comments:test                    # 本地冒烟测试，不需要 wrangler，不碰线上数据
+npm run comments:admin -- list           # 看最近留言（需 COMMENTS_ADMIN_TOKEN）
+npm run comments:admin -- hide 42        # 隐藏一条
+```
+
+部署步骤、密钥配置和验证方法见 [`workers/comments/README.md`](workers/comments/README.md)。
+
 ## 目录说明
 
 ```text
@@ -113,6 +129,9 @@ scripts/validate-content.js        内容和历史网址校验
 scripts/sync-obsidian-content.js   发布快照和素材同步器
 scripts/import-article-content.js  通用 CONTENT JSON → Obsidian 草稿导入器
 scripts/fill-preview-assets.js     已发布素材 → 本地预览镜像填充（第二台机器用）
+scripts/comments-admin.js          留言巡查与隐藏 CLI
+components/Comments.js             文章底部留言区（客户端拉取）
+workers/comments/                  留言 API：Cloudflare Worker + D1
 scripts/test-content-pipeline.js   内容发布故障与回归测试
 scripts/verify-export.js           构建产物验收
 content-export/                    GitHub Actions 使用的已发布快照
