@@ -22,6 +22,13 @@ function makeDB() {
   const db = new DatabaseSync(':memory:');
   db.exec(readFileSync(join(here, 'schema.sql'), 'utf8'));
   return {
+    /**
+     * 测试专用：把已有留言的时间整体往前推，模拟「过了一会儿」。
+     * 限流是按时间窗口算的，不能靠真的 sleep 十秒去等——那会让测试慢到没人跑。
+     */
+    __rewindSeconds(seconds) {
+      db.exec(`UPDATE comments SET created_at = created_at - ${Number(seconds) * 1000}`);
+    },
     prepare(sql) {
       const statement = db.prepare(sql);
       let bound = [];
@@ -179,6 +186,65 @@ if (strategyReady) {
 
   const rootId = (await (await call('/api/comments?slug=free-api-radar')).json()).comments[0].id;
 
+  console.log('\n限流：');
+
+  {
+    // 紧接着再发一条，应该撞上 10 秒间隔。
+    const response = await post({ slug: 'free-api-radar', nickname: '小明', content: '连发第二条' });
+    const data = await response.json();
+    check('连发被拦下并返回 429', response.status === 429, `实际 ${response.status}`);
+    check('拒绝理由说明了等多久', /十秒|10 ?秒/.test(data.error || ''), data.error);
+  }
+
+  {
+    const listed = await (await call('/api/comments?slug=free-api-radar')).json();
+    check('被限流的那条没有写进库', listed.comments.length === 1);
+  }
+
+  env.DB.__rewindSeconds(30);
+
+  {
+    const response = await post({ slug: 'free-api-radar', nickname: '小明', content: '过一会儿再发' });
+    check('过了间隔就能正常发', response.status === 201, `实际 ${response.status}`);
+  }
+
+  {
+    // 窗口内条数兜底：持续发直到被拦，再看拦下来的时机对不对。
+    // 不写死「灌 60 次」——前面的用例已经留下了几条，写死次数会让这个用例
+    // 跟着前面的改动一起坏掉，而且坏的时候看起来像是限流出了问题。
+    // 每发一条就把时间往前推，避开 10 秒间隔那道闸，单独验这一道。
+    const admin = async () => (await (await call('/api/comments/admin/recent?limit=300', {
+      headers: { authorization: `Bearer ${env.ADMIN_TOKEN}` },
+    })).json()).count;
+
+    const before = await admin();
+    let sent = 0;
+    let blocked = null;
+
+    for (let i = 0; i < 120; i += 1) {
+      env.DB.__rewindSeconds(15);
+      const response = await post({ slug: 'free-api-radar', nickname: '刷屏', content: `第 ${i} 条` });
+      if (response.status === 429) {
+        blocked = await response.json();
+        break;
+      }
+      if (response.status !== 201) {
+        check('灌数据阶段只该出现 201 或 429', false, `第 ${i} 条返回 ${response.status}`);
+        break;
+      }
+      sent += 1;
+    }
+
+    check('持续发最终会撞上条数兜底', blocked !== null);
+    check('兜底正好卡在第 60 条', before + sent === 60, `实际窗口内 ${before + sent} 条`);
+    check('兜底理由提到的是网络而不是指责本人', /网络/.test(blocked?.error || ''), blocked?.error);
+  }
+
+  // 后面的用例不该再被限流影响。
+  env.DB.__rewindSeconds(7200);
+
+  console.log('\n回复与隔离：');
+
   {
     const response = await post({
       slug: 'free-api-radar', nickname: '楼主', content: '回你一句', parentId: rootId,
@@ -203,7 +269,9 @@ if (strategyReady) {
     const listed = await (await call('/api/comments?slug=free-api-radar')).json();
     check('隐藏后公开列表不再返回它', !listed.comments.some((item) => item.id === rootId));
 
-    const admin = await (await call('/api/comments/admin/recent', {
+    // limit 要够大：前面的限流用例灌了几十条，默认 50 条会把这条最早的挤出去，
+    // 看起来就像「隐藏真的删掉了记录」——一个由取数范围造成的假故障。
+    const admin = await (await call('/api/comments/admin/recent?limit=300', {
       headers: { authorization: `Bearer ${env.ADMIN_TOKEN}` },
     })).json();
     check('但管理列表仍能看到（隐藏不是删除）', admin.comments.some((item) => item.id === rootId));

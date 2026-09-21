@@ -67,15 +67,24 @@ async function hashIp(ip, salt) {
  *
  * 返回 null 放行，或返回一个字符串作为拒绝理由（会原样回给读者，写得客气些）。
  *
- * TODO(用户填写)：定你的阈值。参考取舍——
- *   · 连发间隔：挡住脚本连刷，但别让人改错别字重发时被拦（建议 ≥ 10 秒）
- *   · 窗口内条数：一篇文章下同一出口 IP 正常能有多少人说话？
- *   · 也可以完全放行，只靠 Turnstile 挡机器人（真人手动刷屏毕竟罕见）
+ * 现行阈值：连发间隔 10 秒（用户定），外加一小时 60 条的兜底。
+ *
+ * 10 秒把自动化刷屏的速率压到 360 条/小时以下，同时不妨碍真人发现错别字后
+ * 立刻重发。第二道 60 条/小时管的是「慢速但持续」的刷屏——单看间隔它完全合规。
+ * 之所以敢设第二道，是因为同一个出口 IP 一小时内出现 60 条留言，在个人博客的
+ * 量级上已经不像是多个真实读者了；真撞上说明这篇文章爆了，那时手工放宽就是。
+ *
+ * 两条文案都写明了「这个网络」而不是「你」：共享出口 IP 下被拦的往往是无辜的人，
+ * 让他知道不是自己做错了什么，也知道等一下还能发。
  */
 function rateLimitReason({ recentCount, secondsSinceLast }) {
-  void recentCount;
-  void secondsSinceLast;
-  throw new Error('rateLimitReason 尚未实现：请先在 workers/comments/src/index.js 里定阈值');
+  if (secondsSinceLast < 10) {
+    return '发得有点快，等十秒再试一次';
+  }
+  if (recentCount >= 60) {
+    return '这个网络下最近留言比较多，过会儿再来吧';
+  }
+  return null;
 }
 
 async function verifyTurnstile(token, secret, ip) {
