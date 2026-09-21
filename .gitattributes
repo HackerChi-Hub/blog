@@ -1,0 +1,23 @@
+# 源码、配置和文档一律以 LF 入库。
+#
+# 为什么显式写死：Git for Windows 默认 core.autocrlf=true，在第二台机器上检出会把
+# 文本文件转成 CRLF。只要保存时没转回来，提交上来就是「整个文件每一行都变了」的
+# 全文件 diff，review 和冲突定位全部失效，而代码其实一个字没动。加这条时全库入库
+# 形态已是 LF，所以不产生一次性规范化改动。
+* text=auto eol=lf
+
+# public/obsidian-assets 等素材原样存取，不做任何换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg text eol=lf
+*.ico binary
+*.mp4 binary
+*.mov binary
+*.pdf binary
+*.zip binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
