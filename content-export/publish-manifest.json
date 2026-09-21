@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a5e698fa583fee04650b0b1626d430a9123a33391d6cb24fc4b762e5963008ef",
+  "content_sha256": "ed81514e841334224a45dbb5431f0ff5738c0f6c1a776fb6e96a852b8e329979",
   "published_post_count": 59,
   "posts": [
     {
@@ -350,7 +350,7 @@
       "file": "posts/splash-mac-local-inference.md",
       "slug": "splash-mac-local-inference",
       "legacy_paths": [],
-      "sha256": "d76cb79d971078250202dae144d930293a9747df149386fc4ea44a6cbe01c066"
+      "sha256": "11932b767fd8c3255eaa768f71bbb9c09e5217a72e087d0d1d132a843f0eae90"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",

@@ -11,7 +11,7 @@ tags:
   - AI
   - 本地部署
   - 模型发布
-cover: /obsidian-assets/splash-mac-local-inference/cover-direct-fusion-20260921.jpg
+cover: /obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
