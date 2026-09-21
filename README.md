@@ -122,11 +122,14 @@ blog-comments hide 42          # 隐藏一条（不是删除，可 show 恢复�
 blog-comments watch            # 盯新留言，有就 macOS 通知
 ```
 
-换机器时装这个入口（`~/.local/bin` 不在任何仓里）：
+全局入口的包装脚本在 `sync-toolkit/bin/blog-comments`（已入库，随 `sync-all` 同步），
+`~/.local/bin/blog-comments` 是指向它的软链。换机器时只需重建软链：
 
 ```bash
-printf '#!/usr/bin/env bash\nset -euo pipefail\nexec node "%s/scripts/comments-admin.js" "$@"\n' "$(pwd)" > ~/.local/bin/blog-comments && chmod +x ~/.local/bin/blog-comments
+ln -sf /Volumes/BigDisk/Scripts/90-基础设施/sync-toolkit/bin/blog-comments ~/.local/bin/blog-comments
 ```
+
+Blog 仓不在默认位置时用 `BLOG_DIR=<blog 仓路径> blog-comments`。
 
 本地冒烟测试（不需要 wrangler，不碰线上数据）：
 
