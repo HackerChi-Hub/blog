@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "099fbdec1a9ce390387f0b8c3da313364955384460c509365bc5b6edce0594e5",
-  "published_post_count": 57,
+  "content_sha256": "34dfd65ad8038734fe5d9d3ca0beeb6eac23443bbbad6e2597e787df9122b125",
+  "published_post_count": 58,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -339,6 +339,12 @@
       "slug": "screenlex-watch-and-learn",
       "legacy_paths": [],
       "sha256": "905e5897b30cadb4a6db00bccfa2883d465e4e93951b7fa1e09e02b1adaf3c08"
+    },
+    {
+      "file": "posts/splash-mac-local-inference.md",
+      "slug": "splash-mac-local-inference",
+      "legacy_paths": [],
+      "sha256": "5ef7eef0654c3878d13e54a232d72dd4bf02c76b91463d8971dc58e1b957b6a1"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
