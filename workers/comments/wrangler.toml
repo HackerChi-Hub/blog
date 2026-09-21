@@ -2,6 +2,12 @@ name = "hyphentech-comments"
 main = "src/index.js"
 compatibility_date = "2026-09-21"
 
+# 必须写死：这个 Cloudflare 账号持有 hyphentech.top 这个 zone，路由才挂得上。
+# 不写的话 wrangler 会沿用上一次登录缓存的账号，换账号后报的错是
+# 「Could not find zone for hyphentech.top」——看起来像域名的问题，实际是账号选错了。
+# account_id 不是密钥：没有 OAuth token 或 API token，拿着它什么也做不了。
+account_id = "ddba8d6d25a6a0af2be1af25471879d5"
+
 # 路由挂在主站同域路径下。主站本身是 GitHub Pages 经 Cloudflare 代理，
 # 这条 route 只截走 /api/comments*，其余路径照常回源，正文链路一点不受影响。
 [[routes]]
@@ -13,7 +19,7 @@ zone_name = "hyphentech.top"
 [[d1_databases]]
 binding = "DB"
 database_name = "hyphentech-comments"
-database_id = "PLACEHOLDER_RUN_WRANGLER_D1_CREATE"
+database_id = "d3dd85dd-91aa-42e8-887f-4885173e2660"
 
 # 以下三个是 secret，绝不写在这里，用 `wrangler secret put <名字>` 单独设：
 #   TURNSTILE_SECRET  Turnstile 的 Secret Key（Dashboard 里和 Site Key 成对生成）
