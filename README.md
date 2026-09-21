@@ -87,6 +87,22 @@ npm run content:import -- /绝对路径/article_content.json \
 
 如果同名文章已经存在，导入器默认拒绝覆盖；确认要用新内容更新时才加 `--force`。
 
+## 在第二台机器上看到正文配图
+
+`blog-content/preview-assets/` 是导入器的生成物，被 Git 忽略，只存在于跑过导入器的机器上；素材真源也不是 Git 仓库。所以换一台机器 clone `blog-content` 之后，正文里的 `../preview-assets/...` 在 Obsidian 里全是断链——文字同步了，图没有。
+
+但这批字节随本仓分发过：`public/obsidian-assets/` 里就是同步器挑出来的、正文实际引用到的那些素材，两棵树的 `<slug>/<文件名>` 结构一致。把它填充进本地预览镜像即可：
+
+```bash
+# 先看会动什么，不写盘
+npm run content:fill-preview -- --dry-run
+
+# 实际填充（默认按 blog 与 blog-content 同级查找）
+npm run content:fill-preview
+```
+
+只补缺失的文件。两边同名但字节不同时一律不覆盖，只列出来等人工判断——别处机器上没有素材真源，覆盖掉就是不可恢复的丢失。两个仓不同级时用 `--target` 指定 `preview-assets` 的位置。
+
 ## 目录说明
 
 ```text
@@ -96,6 +112,7 @@ lib/markdown.js                    frontmatter、双链、callout 与路由解�
 scripts/validate-content.js        内容和历史网址校验
 scripts/sync-obsidian-content.js   发布快照和素材同步器
 scripts/import-article-content.js  通用 CONTENT JSON → Obsidian 草稿导入器
+scripts/fill-preview-assets.js     已发布素材 → 本地预览镜像填充（第二台机器用）
 scripts/test-content-pipeline.js   内容发布故障与回归测试
 scripts/verify-export.js           构建产物验收
 content-export/                    GitHub Actions 使用的已发布快照
