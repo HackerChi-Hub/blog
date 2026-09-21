@@ -11,9 +11,43 @@
   账户总计 5 GB、每次调用最多 50 次查询。博客量级大约用掉 1%。
 - **不存原始 IP**：只存加盐 SHA-256 前缀，够用来限流和认惯犯，但无法反查到人。
 
+## 当前部署状态（2026-09-21 已上线）
+
+| 项 | 值 |
+|---|---|
+| Cloudflare 账号 | **Judefax@163.com**（`ddba8d6d25a6a0af2be1af25471879d5`） |
+| D1 数据库 | `hyphentech-comments`（`d3dd85dd-91aa-42e8-887f-4885173e2660`） |
+| 路由 | `hyphentech.top/api/comments*` |
+| Turnstile Site Key | `0x4AAAAAAE-oKw_xuJfqlFBQ`（公开值） |
+| GitHub Variables | `COMMENTS_ENABLED=true`、`TURNSTILE_SITE_KEY` |
+
+### ⚠️ 账号这一项最容易踩坑
+
+`hyphentech.top` 这个 zone 在 **Judefax@163.com** 账号下，**不是** `hackerchi19@gmail.com`。
+wrangler 默认会沿用上次登录缓存的账号，部署时报的错是：
+
+```
+Could not find zone for `hyphentech.top`. Make sure the domain is set up to be proxied by Cloudflare.
+```
+
+这句话把人往"域名/代理配置"的方向带，实际原因是账号选错了。`wrangler.toml` 里已经写死
+`account_id`，所以只要登录的是正确账号就不会再犯。换机器部署时记得 `wrangler login`
+之前先在浏览器把 Cloudflare 切到 Judefax 那个账号，否则 OAuth 会沿用浏览器当前登录态。
+
+判据：`wrangler whoami` 慢且容易卡，直接查 API 更快——能看到 `hyphentech.top` 和
+`hackerchi.top` 两个 zone 就是对的账号。
+
+### 实测结论
+
+- **Turnstile 在中国大陆可用**：2026-09-21 在国内网络实测，验证框正常渲染、留言正常提交。
+  （注意 Claude 内置浏览器的沙箱会拦掉 Turnstile 的 iframe，在那里测永远是空白——
+  Cloudflare 官方 demo 页在同一环境下同样渲染不出来，别据此判断配置有问题。）
+- 已验证：列表 200、无 token 的 POST 403、留言写入、`hide` 后公开列表消失而管理列表仍在、
+  `show` 后恢复、原始 IP 未落库、公开接口不返回 `ip_hash`/`ua`/`status`。
+
 ## 首次部署
 
-前四步需要你本人操作（要登录 Cloudflare 账号）。
+下面是从零部署的完整步骤（换机器或重建时用）。前四步需要本人操作（要登录 Cloudflare 账号）。
 
 ### 1. 装 wrangler 并登录
 
