@@ -155,15 +155,27 @@ curl -s -X POST https://hyphentech.top/api/comments \
 
 ## 日常管理
 
-```bash
-export COMMENTS_ADMIN_TOKEN=<第 4 步的 ADMIN_TOKEN>
+全局命令 `blog-comments`，任意目录可用，口令自动从 `blog/.env.local` 的
+`COMMENTS_ADMIN_TOKEN` 读取，不需要先 `export`：
 
-node scripts/comments-admin.js list        # 看最近留言（含已隐藏）
-node scripts/comments-admin.js hide 42     # 隐藏 #42
-node scripts/comments-admin.js show 42     # 恢复显示
+```bash
+blog-comments                  # 总览 + 最近 10 条
+blog-comments list 50          # 最近 50 条（最多 200）
+blog-comments list --slug free-api-radar   # 只看某篇
+blog-comments stats            # 只看统计
+blog-comments stats --json     # 机器可读
+blog-comments hide 42          # 隐藏 #42
+blog-comments show 42          # 恢复显示
+blog-comments watch 60         # 每 60 秒查一次新留言，有就 macOS 通知
 ```
 
 隐藏不是删除，记录仍在库里，用于判断某个 `ip_hash` 是不是惯犯。
+
+统计由 `GET /admin/stats` 在服务端用 SQL 算，不是把全部留言拉回本地再数——
+留言涨到几千条后，客户端统计要么得分页拉一堆数据，要么悄悄只统计了前 200 条，
+而后者看起来一直在正常工作。
+
+`watch` 的第一轮只记录基线，不会把已有留言当成新的报一遍。
 
 ## 本地开发
 

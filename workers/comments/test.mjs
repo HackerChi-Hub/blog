@@ -276,6 +276,33 @@ if (strategyReady) {
     })).json();
     check('但管理列表仍能看到（隐藏不是删除）', admin.comments.some((item) => item.id === rootId));
   }
+
+  console.log('\n统计：');
+
+  {
+    const response = await call('/api/comments/admin/stats', {
+      headers: { authorization: `Bearer ${env.ADMIN_TOKEN}` },
+    });
+    const s = await response.json();
+
+    // 用另一条独立路径（管理列表）算出真值来对账，而不是拿 stats 自己的数去验自己。
+    const all = (await (await call('/api/comments/admin/recent?limit=300', {
+      headers: { authorization: `Bearer ${env.ADMIN_TOKEN}` },
+    })).json()).comments;
+    const expectedHidden = all.filter((c) => c.status === 'hidden').length;
+
+    check('stats 返回 200', response.status === 200);
+    check('总数与管理列表一致', s.total === all.length, `stats=${s.total} 列表=${all.length}`);
+    check('显示中 + 已隐藏 = 总数', s.visible + s.hidden === s.total);
+    check('隐藏数与逐条统计一致', s.hidden === expectedHidden, `stats=${s.hidden} 实数=${expectedHidden}`);
+    check('按文章分组只计可见的', s.by_post.reduce((n, p) => n + p.count, 0) === s.visible);
+    check('来源数按 ip_hash 去重（测试里只有一个来源）', s.visitors === 1, `visitors=${s.visitors}`);
+  }
+
+  {
+    const response = await call('/api/comments/admin/stats');
+    check('stats 无 token 返回 401', response.status === 401);
+  }
 }
 
 // ---------- 结果 ----------

@@ -111,10 +111,27 @@ npm run content:fill-preview
 
 匿名留言（填昵称即可）+ Cloudflare Turnstile 防机器人，发出即显示、事后可隐藏。
 
+日常管理用全局命令 `blog-comments`（任意目录可用，口令自动从 `.env.local` 读）：
+
 ```bash
-npm run comments:test                    # 本地冒烟测试，不需要 wrangler，不碰线上数据
-npm run comments:admin -- list           # 看最近留言（需 COMMENTS_ADMIN_TOKEN）
-npm run comments:admin -- hide 42        # 隐藏一条
+blog-comments                  # 总览 + 最近 10 条
+blog-comments list 50          # 最近 50 条
+blog-comments list --slug free-api-radar
+blog-comments stats            # 只看统计
+blog-comments hide 42          # 隐藏一条（不是删除，可 show 恢复）
+blog-comments watch            # 盯新留言，有就 macOS 通知
+```
+
+换机器时装这个入口（`~/.local/bin` 不在任何仓里）：
+
+```bash
+printf '#!/usr/bin/env bash\nset -euo pipefail\nexec node "%s/scripts/comments-admin.js" "$@"\n' "$(pwd)" > ~/.local/bin/blog-comments && chmod +x ~/.local/bin/blog-comments
+```
+
+本地冒烟测试（不需要 wrangler，不碰线上数据）：
+
+```bash
+npm run comments:test
 ```
 
 部署步骤、密钥配置和验证方法见 [`workers/comments/README.md`](workers/comments/README.md)。

@@ -190,6 +190,55 @@ async function handleAdminRecent(request, env) {
   return json({ count: results.length, comments: results });
 }
 
+/**
+ * 汇总统计。放在服务端用 SQL 算，而不是把全部留言拉回本地再数：
+ * 留言涨到几千条以后，客户端统计要么分页拉一堆数据，要么悄悄只统计了前 200 条
+ * ——后者尤其坏，因为它看起来一直在正常工作。
+ */
+async function handleAdminStats(env) {
+  const totals = await env.DB.prepare(
+    `SELECT
+       COUNT(*)                                             AS total,
+       SUM(CASE WHEN status = 'visible' THEN 1 ELSE 0 END)  AS visible,
+       SUM(CASE WHEN status = 'hidden'  THEN 1 ELSE 0 END)  AS hidden,
+       COUNT(DISTINCT slug)                                 AS slugs,
+       COUNT(DISTINCT ip_hash)                              AS visitors,
+       MAX(created_at)                                      AS last_at
+     FROM comments`
+  ).first();
+
+  const now = Date.now();
+  const recent = await env.DB.prepare(
+    `SELECT
+       SUM(CASE WHEN created_at > ?1 THEN 1 ELSE 0 END) AS day,
+       SUM(CASE WHEN created_at > ?2 THEN 1 ELSE 0 END) AS week
+     FROM comments`
+  ).bind(now - 86400000, now - 604800000).first();
+
+  const { results: byPost } = await env.DB.prepare(
+    `SELECT slug,
+            COUNT(*) AS count,
+            MAX(created_at) AS last_at
+       FROM comments
+      WHERE status = 'visible'
+      GROUP BY slug
+      ORDER BY count DESC, last_at DESC
+      LIMIT 20`
+  ).all();
+
+  return json({
+    total: totals?.total ?? 0,
+    visible: totals?.visible ?? 0,
+    hidden: totals?.hidden ?? 0,
+    slugs: totals?.slugs ?? 0,
+    visitors: totals?.visitors ?? 0,
+    last_at: totals?.last_at ?? null,
+    last_24h: recent?.day ?? 0,
+    last_7d: recent?.week ?? 0,
+    by_post: byPost,
+  });
+}
+
 async function handleAdminHide(request, env) {
   let payload;
   try {
@@ -218,6 +267,9 @@ export default {
       if (!isAdmin(request, env)) return json({ error: '未授权' }, 401);
       if (method === 'GET' && pathname === '/api/comments/admin/recent') {
         return handleAdminRecent(request, env);
+      }
+      if (method === 'GET' && pathname === '/api/comments/admin/stats') {
+        return handleAdminStats(env);
       }
       if (method === 'POST' && pathname === '/api/comments/admin/hide') {
         return handleAdminHide(request, env);
