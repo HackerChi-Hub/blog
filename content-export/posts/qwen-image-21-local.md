@@ -3,7 +3,7 @@ title: 我把 Qwen-Image-2.1 装进了自己写的软件，卡了三次才出第
 slug: qwen-image-21-local
 status: published
 date: 2026-09-21
-updated: 2026-09-21
+updated: 2026-09-22
 summary: 31 GiB 权重下完之后，M5 Pro 上 1024×1024、20 步要 69 秒。中文书法能写对四个字，是它最值得装的理由。但从权重到第一张图之间隔着三个坑，其中两个连报错都不给你看。
 categories:
   - 学习思考
@@ -11,7 +11,7 @@ tags:
   - AI
   - 本地部署
   - 模型发布
-cover: /obsidian-assets/qwen-image-21-local/cover.png
+cover: /obsidian-assets/qwen-image-21-local/cover-2026-09-22-blackfan.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
