@@ -19,6 +19,6 @@
 <path d="M1389.6,290 L1389.6,330" stroke="#B3261E" stroke-width="2"/>
 <text x="1389.6" y="360" font-size="23" fill="#B3261E" text-anchor="middle" font-family="Songti SC, STSong, serif">这 10.85 GB 按设计不分配</text>
 <text x="1389.6" y="390" font-size="19" fill="#6B6357" text-anchor="middle" font-family="Songti SC, STSong, serif">留给计算缓冲、常驻量估算误差和运行期波动</text>
-<text x="90" y="450" font-size="22" fill="#141820" font-family="Songti SC, STSong, serif">10.85 GB ÷ 每词元约 139 KB = <tspan font-size="26">81,920</tspan> 词元窗口</text>
-<text x="90" y="486" font-size="20" fill="#6B6357" font-family="Songti SC, STSong, serif">1.2.100 起这个比例可调（30%–85%）：调到 65% 约得 106,496 词元；分配失败会自动回退到失败值的三分之二</text>
+<text x="90" y="450" font-size="22" fill="#141820" font-family="Songti SC, STSong, serif">10.85 GB ÷ 每词元约 139 KB ≈ <tspan font-size="26">80,896</tspan> 词元窗口（llama.cpp 路径推算）</text>
+<text x="90" y="486" font-size="20" fill="#6B6357" font-family="Songti SC, STSong, serif">1.2.100 起比例可调（30%–85%）：调到 65% 约得 106,496 词元。Splash 自己规划窗口，不走这条算式</text>
 </svg>
