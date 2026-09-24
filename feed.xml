@@ -5,23 +5,11 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 23 Sep 2026 21:32:41 GMT</lastBuildDate>
-    <pubDate>Wed, 23 Sep 2026 21:32:41 GMT</pubDate>
+    <lastBuildDate>Thu, 24 Sep 2026 00:41:01 GMT</lastBuildDate>
+    <pubDate>Thu, 24 Sep 2026 00:41:01 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
-    <item>
-      <title>本地模型跑不完长任务，十有八九不是模型的问题</title>
-      <link>https://hyphentech.top/localbrain-longtask-splash/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-longtask-splash/</guid>
-      <description>四道构建题 × 三种配置 12 组全部交付，但同配置重复跑本身就差 15 倍——本地长任务能不能跑完，多数时候不取决于模型，取决于外面那圈循环。</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>本地部署</category>
-    <category>LocalBrain</category>
-    <category>Splash</category>
-    <category>实测</category>
-    </item>
     <item>
       <title>我把 Qwen-Image-2.1 装进了自己写的软件，卡了三次才出第一张图</title>
       <link>https://hyphentech.top/qwen-image-21-local/</link>
@@ -227,6 +215,18 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>8 GB 显存也能跑本地 AI：Windows 与 Mac 怎么选？</title>
+      <link>https://hyphentech.top/localbrain-windows-nvidia-first-release/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-windows-nvidia-first-release/</guid>
+      <description>不讨论“软件有没有 Windows 版”这种表面问题，而是回答两件实际的事：8 GB NVIDIA 显卡能把哪些本地模型和工具跑起来，Mac 的统一内存与完整多媒体链又强在哪里。</description>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
     </item>
   </channel>
 </rss>
