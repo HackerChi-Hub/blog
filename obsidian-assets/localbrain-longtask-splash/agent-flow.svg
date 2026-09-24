@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1760 1082" width="1760" height="1082" font-family="Songti SC, STSong, serif">
+<rect width="1760" height="1082" fill="#F6F3EC"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#B9AF9C"/></marker></defs>
+<rect x="60" y="176" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.5"/>
+<rect x="60" y="176" width="6" height="70" rx="3" fill="#B3261E"/>
+<text x="80" y="206" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">用户取消 / 窗口装不下 / 轮数到顶</text>
+<text x="80" y="230" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">安全闸，先于一切</text>
+<path d="M310.0,248 L310.0,266" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="270" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.5"/>
+<rect x="60" y="270" width="6" height="70" rx="3" fill="#B3261E"/>
+<text x="80" y="300" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">任务时间预算用尽 → 收场</text>
+<text x="80" y="324" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">对话没有总预算，这条不触发</text>
+<path d="M310.0,342 L310.0,360" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="364" width="500" height="94" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="60" y="364" width="6" height="94" rx="3" fill="#7A3E9D"/>
+<text x="80" y="394" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">收尾判定：gateStop · 收尾模式</text>
+<text x="80" y="418" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">轮数接近上限 · 时间买不起收尾</text>
+<text x="80" y="442" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">四个触发条件，仅此四个</text>
+<path d="M310.0,460 L310.0,478" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="482" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="60" y="482" width="6" height="70" rx="3" fill="#7A3E9D"/>
+<text x="80" y="512" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">阶段计划连续受阻 3 轮 → 交还用户</text>
+<text x="80" y="536" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">BLOCKED_STOP_ROUNDS</text>
+<path d="M310.0,554 L310.0,572" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="576" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="60" y="576" width="6" height="70" rx="3" fill="#7A3E9D"/>
+<text x="80" y="606" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">本轮额度 = min(窗口额度, 时间额度)</text>
+<text x="80" y="630" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">两条都可能是那个小值</text>
+<path d="M310.0,648 L310.0,666" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="670" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.5"/>
+<rect x="60" y="670" width="6" height="70" rx="3" fill="#B3261E"/>
+<text x="80" y="700" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">墙钟兜底 hardStopMs，上限 3600 秒</text>
+<text x="80" y="724" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">MAX_ROUND_SECONDS</text>
+<path d="M310.0,742 L310.0,760" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="764" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#1747E8" stroke-width="1.5"/>
+<rect x="60" y="764" width="6" height="70" rx="3" fill="#1747E8"/>
+<text x="80" y="794" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">toolChoice：required 这一轮关掉思考</text>
+<text x="80" y="818" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">补闭合 / 上轮要求 / 无产物且≥2 轮</text>
+<path d="M310.0,836 L310.0,854" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="60" y="858" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="60" y="858" width="6" height="70" rx="3" fill="#7A3E9D"/>
+<text x="80" y="888" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">思考降档：时间紧或上轮思考太久</text>
+<text x="80" y="912" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">只降不升，不设预算</text>
+<rect x="630" y="176" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B9AF9C" stroke-width="1.5" stroke-dasharray="5 4"/>
+<rect x="630" y="176" width="6" height="70" rx="3" fill="#B9AF9C"/>
+<text x="650" y="206" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">文字守卫已退役（1.2.92）</text>
+<text x="650" y="230" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">与请求前的「该动手时不许只写字」同意图，只留一处</text>
+<path d="M880.0,248 L880.0,266" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="630" y="270" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#1747E8" stroke-width="1.5"/>
+<rect x="630" y="270" width="6" height="70" rx="3" fill="#1747E8"/>
+<text x="650" y="300" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">思考熔断：只思考 + 越本轮额度安全线</text>
+<text x="650" y="324" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">abortedBy = thinking-fuse（收尾轮豁免）</text>
+<path d="M880.0,342 L880.0,360" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="630" y="364" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.5"/>
+<rect x="630" y="364" width="6" height="70" rx="3" fill="#B3261E"/>
+<text x="650" y="394" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">墙钟兜底：到 hardStopMs（含零数据）</text>
+<text x="650" y="418" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">abortedBy = hard-stop</text>
+<path d="M880.0,436 L880.0,454" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="630" y="458" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#1B6B3A" stroke-width="1.5"/>
+<rect x="630" y="458" width="6" height="70" rx="3" fill="#1B6B3A"/>
+<text x="650" y="488" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">流静默：首字节之后 120 秒无新数据</text>
+<text x="650" y="512" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">abortedBy = stall · 2026-09-23 新增</text>
+<path d="M880.0,530 L880.0,548" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="630" y="552" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#1B6B3A" stroke-width="1.5"/>
+<rect x="630" y="552" width="6" height="70" rx="3" fill="#1B6B3A"/>
+<text x="650" y="582" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">✔ 四种成因显式带回，不再伪装成 length</text>
+<text x="650" y="606" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">此前抹平成因，逼下游各判一次</text>
+<rect x="1200" y="176" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#1B6B3A" stroke-width="1.5"/>
+<rect x="1200" y="176" width="6" height="70" rx="3" fill="#1B6B3A"/>
+<text x="1220" y="206" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">读 abortedBy 判定「谁掐的」</text>
+<text x="1220" y="230" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">拿不到才退回旁证反推</text>
+<path d="M1450.0,248 L1450.0,266" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="1200" y="270" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#C77A0A" stroke-width="1.5"/>
+<rect x="1200" y="270" width="6" height="70" rx="3" fill="#C77A0A"/>
+<text x="1220" y="300" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">用量来源：server / stream-deltas 才算实测</text>
+<text x="1220" y="324" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">文本估算不得冒充</text>
+<path d="M1450.0,342 L1450.0,360" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="1200" y="364" width="500" height="94" rx="8" fill="#FFFFFF" stroke="#C77A0A" stroke-width="1.5"/>
+<rect x="1200" y="364" width="6" height="94" rx="3" fill="#C77A0A"/>
+<text x="1220" y="394" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">客户端掐断 + 零正文 + 零工具 + 有思考</text>
+<text x="1220" y="418" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">→ 自救：草稿入历史，下轮强制动手</text>
+<text x="1220" y="442" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">最多 2 次</text>
+<path d="M1450.0,460 L1450.0,478" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="1200" y="482" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="1200" y="482" width="6" height="70" rx="3" fill="#7A3E9D"/>
+<text x="1220" y="512" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">工具参数非法 → 回喂让它重发</text>
+<text x="1220" y="536" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">不杀循环</text>
+<path d="M1450.0,554 L1450.0,572" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="1200" y="576" width="500" height="94" rx="8" fill="#FFFFFF" stroke="#7A3E9D" stroke-width="1.5"/>
+<rect x="1200" y="576" width="6" height="94" rx="3" fill="#7A3E9D"/>
+<text x="1220" y="606" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">同调用重复 3/5 · 同错误重复 3/5</text>
+<text x="1220" y="630" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">读取空转 · 未推进 · 失误累计 3/5</text>
+<text x="1220" y="654" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">五道空转闸</text>
+<path d="M1450.0,672 L1450.0,690" stroke="#B9AF9C" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<rect x="1200" y="694" width="500" height="70" rx="8" fill="#FFFFFF" stroke="#B3261E" stroke-width="1.5"/>
+<rect x="1200" y="694" width="6" height="70" rx="3" fill="#B3261E"/>
+<text x="1220" y="724" font-size="17" fill="#141820" text-anchor="start" font-weight="normal">验收：产物自检 + 阶段计划 + 完成判定</text>
+<text x="1220" y="748" font-size="14" fill="#6B6357" text-anchor="start" font-weight="normal">副作用前参数校验（安全闸）</text>
+<text x="48" y="60" font-size="34" fill="#141820" text-anchor="start" font-weight="bold">长任务处理流程（一轮的完整生命周期）</text>
+<text x="48" y="92" font-size="18" fill="#6B6357" text-anchor="start" font-weight="normal">LocalBrain 1.2.91 · 逐项核对自 agentLoop.ts / chatHttp.ts / sseStream.ts 实际代码路径</text>
+<rect x="48" y="112" width="22" height="14" rx="3" fill="#B3261E"/>
+<text x="78" y="124" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">安全闸：不可关</text>
+<rect x="224" y="112" width="22" height="14" rx="3" fill="#1747E8"/>
+<text x="254" y="124" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">可关的开关（共 2 个）</text>
+<rect x="480" y="112" width="22" height="14" rx="3" fill="#7A3E9D"/>
+<text x="510" y="124" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">固定阈值</text>
+<rect x="608" y="112" width="22" height="14" rx="3" fill="#C77A0A"/>
+<text x="638" y="124" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">用量与自救</text>
+<rect x="752" y="112" width="22" height="14" rx="3" fill="#1B6B3A"/>
+<text x="782" y="124" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">2026-09-23 新增</text>
+<text x="60" y="158" font-size="22" fill="#141820" text-anchor="start" font-weight="bold">① 发请求之前</text>
+<text x="630" y="158" font-size="22" fill="#141820" text-anchor="start" font-weight="bold">② 请求进行中（流上）</text>
+<path d="M572,150 L618,150" stroke="#6B6357" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+<text x="1200" y="158" font-size="22" fill="#141820" text-anchor="start" font-weight="bold">③ 响应回来之后</text>
+<path d="M1142,150 L1188,150" stroke="#6B6357" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+<rect x="48" y="970" width="1664" height="82" rx="8" fill="#EAF5EE" stroke="#1B6B3A" stroke-width="1.5"/>
+<rect x="48" y="970" width="6" height="82" rx="3" fill="#1B6B3A"/>
+<text x="70" y="1004" font-size="20" fill="#141820" text-anchor="start" font-weight="bold">关键改动：掐断成因从「反推」变成「显式带回」</text>
+<text x="70" y="1032" font-size="16" fill="#141820" text-anchor="start" font-weight="normal">四种成因处置相反 —— 撞额度该提高上限；墙钟到点提高上限毫无作用；流静默两者都不是；守卫掐断该下轮动手。抹平它们不是少判一次，是逼每个消费者从更弱的旁证各判一次。</text>
+</svg>
