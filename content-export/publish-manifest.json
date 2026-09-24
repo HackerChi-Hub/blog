@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "82bc932343d4603d68762833c45540b95c10b94fe0343f1f39d6843d8829d638",
+  "content_sha256": "88661f8b81afa7eb8f905d9bfe318a1c6679fc45fe441bfddd9dfa3530607460",
   "published_post_count": 60,
   "posts": [
     {
@@ -260,7 +260,7 @@
       "file": "posts/localbrain-longtask-splash.md",
       "slug": "localbrain-longtask-splash",
       "legacy_paths": [],
-      "sha256": "a5d34717ad1c7f014380cd5f78f27885aad6b0d6374b553dbfed51d41cac1c71"
+      "sha256": "ba396a98e8b299815d4bf3db8e151de8c53b7789a0c188c70b0a8c96ea19be8f"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
