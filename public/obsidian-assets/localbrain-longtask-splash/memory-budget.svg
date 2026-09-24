@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560">
+<rect width="1600" height="560" fill="#F6F3EC"/>
+<text x="90" y="78" font-size="34" fill="#141820" font-family="Songti SC, STSong, serif" font-weight="normal">64 GB 里，真正能变成上下文的只有 10.85 GB</text>
+<text x="90" y="122" font-size="20" fill="#6B6357" font-family="Songti SC, STSong, serif">本机实测 · 模型 Qwen3.8-27B · KV 量化 q8_0 · 默认比例 0.50</text>
+<rect x="90.0" y="190" width="738.8" height="86" fill="#141820"/>
+<text x="459.4" y="234" font-size="21" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">模型常驻</text>
+<text x="459.4" y="260" font-size="19" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">33.3 GB</text>
+<rect x="828.8" y="190" width="133.1" height="86" fill="#6B6357"/>
+<text x="895.4" y="234" font-size="21" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">系统预留</text>
+<text x="895.4" y="260" font-size="19" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">6.0 GB</text>
+<rect x="962.0" y="190" width="66.6" height="86" fill="#B9AF9C"/>
+<text x="995.2" y="176" font-size="18" fill="#141820" text-anchor="middle" font-family="Songti SC, STSong, serif">应用预留 3.0</text>
+<rect x="1028.5" y="190" width="240.7" height="86" fill="#C77A0A"/>
+<text x="1148.9" y="234" font-size="21" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">KV 缓存</text>
+<text x="1148.9" y="260" font-size="19" fill="#FFFFFF" text-anchor="middle" font-family="Songti SC, STSong, serif">10.85 GB</text>
+<rect x="1269.3" y="190" width="240.7" height="86" fill="#FFFFFF" stroke="#B9AF9C" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="1389.6" y="234" font-size="21" fill="#141820" text-anchor="middle" font-family="Songti SC, STSong, serif">闲置</text>
+<text x="1389.6" y="260" font-size="19" fill="#141820" text-anchor="middle" font-family="Songti SC, STSong, serif">10.85 GB</text>
+<path d="M1389.6,290 L1389.6,330" stroke="#B3261E" stroke-width="2"/>
+<text x="1389.6" y="360" font-size="23" fill="#B3261E" text-anchor="middle" font-family="Songti SC, STSong, serif">这 10.85 GB 按设计不分配</text>
+<text x="1389.6" y="390" font-size="19" fill="#6B6357" text-anchor="middle" font-family="Songti SC, STSong, serif">留给计算缓冲、常驻量估算误差和运行期波动</text>
+<text x="90" y="450" font-size="22" fill="#141820" font-family="Songti SC, STSong, serif">10.85 GB ÷ 每词元约 139 KB = <tspan font-size="26">81,920</tspan> 词元窗口</text>
+<text x="90" y="486" font-size="20" fill="#6B6357" font-family="Songti SC, STSong, serif">1.2.100 起这个比例可调（30%–85%）：调到 65% 约得 106,496 词元；分配失败会自动回退到失败值的三分之二</text>
+</svg>

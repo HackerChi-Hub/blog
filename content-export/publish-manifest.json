@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "5db00cb627bda1457398e7d2bce7b9200409b2b6fc029d891dfd597607cb74c9",
-  "published_post_count": 59,
+  "content_sha256": "d30faf5765255e8c34a3dd0890fa1f346be31596e0c6f7d26d87c38d6cd022de",
+  "published_post_count": 60,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -255,6 +255,12 @@
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
       "sha256": "118358c47e9bbccdc5eb7f64f3df0252cface8413a3d54fb8da0223dd30fb5ad"
+    },
+    {
+      "file": "posts/localbrain-longtask-splash.md",
+      "slug": "localbrain-longtask-splash",
+      "legacy_paths": [],
+      "sha256": "2900baba4979c470a18ce4db330ec931b281df2037cb5945733a8a6a37e03f5e"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
