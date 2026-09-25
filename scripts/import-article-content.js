@@ -354,13 +354,23 @@ function renderContent(content, specs, assetUrls) {
   return `${output.filter((item) => String(item || '').trim()).join('\n\n')}\n`;
 }
 
-function shanghaiDate() {
+function shanghaiDate(value = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Shanghai',
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-  }).format(new Date());
+  }).format(value);
+}
+
+// gray-matter 按 YAML 规范把无引号的 `2026-09-23` 解析成 Date 对象，
+// 而 String(Date) 是 "Wed Sep 23 2026 08:00:00 GMT+0800"，切前 10 位得到 "Wed Sep 23"，
+// 写回 frontmatter 会让内容库校验直接拒绝发布。这里按上海时区取日期分量还原，
+// 不用 toISOString()（UTC 折算会把当天 08:00 之前的日期退回前一天）。
+function toISODate(value, fallback) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) return shanghaiDate(value);
+  const text = String(value ?? '').slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(text) ? text : fallback;
 }
 
 function main() {
@@ -406,7 +416,10 @@ function main() {
   ).previewUrl;
 
   const today = shanghaiDate();
-  const date = String(article.date || existing.date || today).slice(0, 10);
+  const date = toISODate(article.date, toISODate(existing.date, today));
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    throw new Error(`拒绝写入非法 date：${JSON.stringify(date)}（来源 article=${JSON.stringify(article.date)} existing=${JSON.stringify(existing.date)}）`);
+  }
   const frontmatter = {
     ...existing,
     title: String(article.title).trim(),
