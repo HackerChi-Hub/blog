@@ -144,9 +144,33 @@ done
 [ -n "$run_id" ] || fail "120 秒内没有发现对应的 GitHub Actions 运行"
 echo "🔗 https://github.com/HackerChi-Hub/blog/actions/runs/$run_id"
 if ! gh run watch "$run_id" --exit-status; then
-  echo "❌ Blog 构建或部署失败，下面是失败步骤日志："
-  gh run view "$run_id" --log-failed | tail -n 160 || true
-  exit 1
+  # gh run watch 的非零退出有两个来源：run 真的失败了，或者 gh 自己没取到状态
+  #（网络抖动、API 5xx、限流、token 过期）。直接判「构建失败」会把后者误报成前者，
+  # 而这种假阴性最危险——它看起来像在尽责，读的人会以为要重发。
+  # 所以不信退出码，向权威来源二次求值：问这个 run 的 status/conclusion 到底是什么。
+  echo "   ⚠️ gh run watch 非正常退出，改为直接查询该 run 的结论"
+  watch_status=""
+  watch_conclusion=""
+  watch_deadline=$((SECONDS + 300))
+  while [ "$SECONDS" -lt "$watch_deadline" ]; do
+    watch_info=$(gh run view "$run_id" --json status,conclusion \
+      --jq '.status + "|" + (.conclusion // "")' 2>/dev/null || true)
+    watch_status="${watch_info%%|*}"
+    watch_conclusion="${watch_info#*|}"
+    [ "$watch_status" = "completed" ] && break
+    sleep 5
+  done
+
+  if [ "$watch_status" != "completed" ]; then
+    fail "5 分钟内无法确认 run $run_id 的结论（最后状态：${watch_status:-取不到}）。构建可能仍在进行或已经成功，请打开上面的链接确认，不要据此重发"
+  fi
+  if [ "$watch_conclusion" = "success" ]; then
+    echo "   ✅ 该 run 的结论是 success——刚才只是取状态失败，继续线上验收"
+  else
+    echo "❌ Blog 构建或部署失败（conclusion=${watch_conclusion:-未知}），下面是失败步骤日志："
+    gh run view "$run_id" --log-failed | tail -n 160 || true
+    exit 1
+  fi
 fi
 
 node scripts/verify-live.js "$run_id"

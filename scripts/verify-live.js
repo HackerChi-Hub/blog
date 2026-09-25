@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const expectedRunId = process.argv[2] || '';
-const baseUrl = 'https://hyphentech.top';
+const baseUrl = (process.env.BLOG_VERIFY_BASE_URL || 'https://hyphentech.top').replace(/\/+$/, '');
 const publicAssetRoot = path.resolve(__dirname, '..', 'public', 'obsidian-assets');
 const contentManifestPath = path.resolve(__dirname, '..', 'content-export', 'publish-manifest.json');
 
@@ -28,6 +28,27 @@ async function fetchWithTimeout(url, timeoutMs = 15000, options = {}) {
   }
 }
 
+// 取值失败有两种：连不上（瞬时抖动，值得重试）和内容不对（真问题）。
+// 裸 fetch 把两者压成同一个异常，一次抖动就报「线上验收失败」——而部署其实早已成功。
+// 本文件里 verifyAssetUrl / waitForBuildId 一直是按 deadline 重试的，页面这条路漏了，这里补齐。
+// 说明：deadline 到了才放弃，所以至少会尝试一次；最终抛出的是最后一次的真实原因。
+async function withRetry(attempt, { deadlineMs = 60000, gapMs = 5000, label = '' } = {}) {
+  const deadline = Date.now() + deadlineMs;
+  let lastError = '';
+  let tries = 0;
+  for (;;) {
+    tries += 1;
+    try {
+      return await attempt();
+    } catch (error) {
+      lastError = error.message;
+    }
+    if (Date.now() >= deadline) break;
+    await sleep(gapMs);
+  }
+  throw new Error(`${lastError || '不可读'}${label ? ` ${label}` : ''}（重试 ${tries} 次仍失败）`);
+}
+
 async function waitForBuildId() {
   const deadline = Date.now() + 180000;
   let last = '';
@@ -47,9 +68,14 @@ async function waitForBuildId() {
 }
 
 async function verifyUrl(url) {
-  const response = await fetchWithTimeout(url);
-  if (!response.ok) throw new Error(`${response.status} ${url}`);
-  return url;
+  return withRetry(
+    async () => {
+      const response = await fetchWithTimeout(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return url;
+    },
+    { label: url }
+  );
 }
 
 async function verifyInBatches(urls, size = 6) {
@@ -117,9 +143,14 @@ async function main() {
   const buildId = await waitForBuildId();
   console.log(`✅ 线上构建版本：${buildId}`);
 
-  const sitemapResponse = await fetchWithTimeout(`${baseUrl}/sitemap.xml`);
-  if (!sitemapResponse.ok) throw new Error(`sitemap HTTP ${sitemapResponse.status}`);
-  const sitemap = await sitemapResponse.text();
+  const sitemap = await withRetry(
+    async () => {
+      const response = await fetchWithTimeout(`${baseUrl}/sitemap.xml`);
+      if (!response.ok) throw new Error(`sitemap HTTP ${response.status}`);
+      return response.text();
+    },
+    { label: `${baseUrl}/sitemap.xml` }
+  );
   const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const articleUrls = urls.filter((url) => url.startsWith(`${baseUrl}/`) && url !== `${baseUrl}/`);
   if (articleUrls.length === 0) throw new Error('sitemap 没有文章或分页 URL，拒绝把空站视为成功');
