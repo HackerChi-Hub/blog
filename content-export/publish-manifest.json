@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "59d7f917c15e85c1911479a2c8f041d527320f3156fd10f8798ce35b398f0b11",
-  "published_post_count": 60,
+  "content_sha256": "2a633939adeb27fbd08295de8b71f58c0adc35ce7d7dd549023eb7bc0b9bfac7",
+  "published_post_count": 61,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -137,6 +137,12 @@
       "sha256": "6c0d4b1dbd0cceb28ca032d19f5138f97509489610eadeacdaf91ffe8880ba94"
     },
     {
+      "file": "posts/free-ai-api-radar-2026-09-23.md",
+      "slug": "free-ai-api-radar-2026-09-23",
+      "legacy_paths": [],
+      "sha256": "bc806076733a3ff6048c22716beff68260d6af8dc8e574f624a16e0cccaaab91"
+    },
+    {
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "legacy_paths": [],
@@ -260,7 +266,7 @@
       "file": "posts/localbrain-longtask-splash.md",
       "slug": "localbrain-longtask-splash",
       "legacy_paths": [],
-      "sha256": "9fead1a64a7255f3715bc2a836e2d600e85bd884cfc58beb85df5b26148b3ec7"
+      "sha256": "5dd0f65ebb483e181271540e181a0fa8da11728d05de96a933917b61ca56afa5"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
@@ -326,7 +332,7 @@
       "file": "posts/qwen-image-21-local.md",
       "slug": "qwen-image-21-local",
       "legacy_paths": [],
-      "sha256": "b7be1b842ee6fd8a3d38458b2a9ff355b566ff3ad209c3d84c47d103ca1d138d"
+      "sha256": "0d9d771bf44f22a4ae9cb094c9ead8ad20af0cab8824d5c5cd50bc6f8e1e6051"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
