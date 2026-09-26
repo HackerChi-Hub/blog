@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2a633939adeb27fbd08295de8b71f58c0adc35ce7d7dd549023eb7bc0b9bfac7",
+  "content_sha256": "514c3247af4ad75d211c5a19775d30bb3e3946fe9d4dfcf46c5860934fcf1b06",
   "published_post_count": 61,
   "posts": [
     {
@@ -332,7 +332,7 @@
       "file": "posts/qwen-image-21-local.md",
       "slug": "qwen-image-21-local",
       "legacy_paths": [],
-      "sha256": "0d9d771bf44f22a4ae9cb094c9ead8ad20af0cab8824d5c5cd50bc6f8e1e6051"
+      "sha256": "4992d0284f2038632beada546099503e51f4fd5ad60c3b2ed96f9f1d17387aca"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
