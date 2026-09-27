@@ -18,12 +18,6 @@ async function main() {
       html_url: 'https://example.test/hyphenbox/v0.4.57',
       body: '# 黑粉盒子 HyphenBox\n\n**初步构建 · 预览版。** 免费大模型 API 雷达 + 本地统一路由，Key 只存系统安全存储。\n\n## 下载哪一个\n\n- macOS 安装包',
     },
-    'HyphenCut-Releases': {
-      tag_name: 'v1.8.7',
-      published_at: '2026-08-31T01:12:47Z',
-      html_url: 'https://example.test/hyphencut/v1.8.7',
-      body: '# 黑粉剪辑 HyphenCut 1.8.7\n\n**本版修复删剪失败，预览与桌面从此共用同一台引擎。**\n\n## 下载\n\n- 安装说明',
-    },
     // 黑粉录屏只发过预览版：/releases/latest 会把它当不存在（404）。
     // 这里故意只给 prerelease，外加一条草稿，确保目录取的是「已发布的第一条」而不是草稿。
     'HyphenScreen-Releases': [
@@ -73,7 +67,6 @@ async function main() {
   assert.deepStrictEqual(cards.map((card) => card.name), [
     '方寸智匣 LocalBrain',
     '黑粉盒子 HyphenBox',
-    '黑粉剪辑 HyphenCut',
     '光影词库 ScreenLex',
     '黑粉录屏 HyphenScreen',
   ]);
@@ -82,16 +75,15 @@ async function main() {
   assert.match(cards[0].description, /隐藏暂存事务/);
   assert.match(cards[1].description, /免费大模型 API 雷达/);
   assert.doesNotMatch(cards[1].description, /macOS 安装包/);
-  assert.match(cards[2].description, /共用同一台引擎/);
-  assert.match(cards[3].description, /按钮文字被挤成竖排/);
-  assert.match(cards[3].description, /LocalBrain/);
-  assert.strictEqual(cards[3].updated, '2026-08-16');
+  assert.match(cards[2].description, /按钮文字被挤成竖排/);
+  assert.match(cards[2].description, /LocalBrain/);
+  assert.strictEqual(cards[2].updated, '2026-08-16');
   // 预览版产品必须照样拿到版本与日期：用 /releases/latest 的写法会在这里退回文章兜底
-  assert.strictEqual(cards[4].version, '0.4.16');
-  assert.strictEqual(cards[4].updated, '2026-09-16');
-  assert.strictEqual(cards[4].source, 'release');
-  assert.match(cards[4].description, /Windows 和 Linux 安装包/);
-  assert.doesNotMatch(cards[4].description, /草稿/);
+  assert.strictEqual(cards[3].version, '0.4.16');
+  assert.strictEqual(cards[3].updated, '2026-09-16');
+  assert.strictEqual(cards[3].source, 'release');
+  assert.match(cards[3].description, /Windows 和 Linux 安装包/);
+  assert.doesNotMatch(cards[3].description, /草稿/);
 
   const fallbackCards = await buildProductCards(posts, {
     fetchImpl: async () => ({ ok: false, status: 503, json: async () => ({}) }),

@@ -1169,7 +1169,6 @@ const getPostPillarLabels = (post) => {
   const haystack = `${post?.title || ''} ${normalizeSummary(post?.summary)} ${tags.join(' ')}`.toLowerCase();
   if (haystack.includes('localbrain')) return ['本地部署', '自制软件'];
   if (haystack.includes('screenlex')) return ['自制软件'];
-  if (haystack.includes('hyphencut') || haystack.includes('黑粉剪辑')) return ['自制软件'];
   const matches = CONTENT_PILLARS.filter((pillar) =>
     pillar.keywords.some((keyword) => haystack.includes(keyword.toLowerCase()))
   ).map((pillar) => pillar.title);
