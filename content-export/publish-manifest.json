@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "4d7f2755fd61f8f6e4c8ac1fbc40e241e594ae36126f24fada7038b63bf20523",
-  "published_post_count": 60,
+  "content_sha256": "28a48067aae8b6d115e3e37436050a41c21e631dda886f4acc7143399b0fbec0",
+  "published_post_count": 59,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -111,12 +111,6 @@
       "slug": "broadband-troubleshooting-guide",
       "legacy_paths": [],
       "sha256": "cddedaf1a1f0898c09fede925c2110e8c8bc2e1a1919801a0f84c08fba554a00"
-    },
-    {
-      "file": "posts/chatgpt-images-2-5-cover-test.md",
-      "slug": "chatgpt-images-2-5-cover-test",
-      "legacy_paths": [],
-      "sha256": "4eb9435cdfe4b2c677bfb9bd99ee564f2afd3068bf6ae48fee6a90d8eecd88a7"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
