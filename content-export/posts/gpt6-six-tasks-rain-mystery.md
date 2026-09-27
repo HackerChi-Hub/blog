@@ -731,13 +731,6 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 
 ## 我正在做的四个小工具
 
-### 黑粉剪辑 HyphenCut
-
-对话式视频剪辑器，自带MCP，可以由智能体操作剪辑流程。
-
-- **当前状态**：正式迭代
-- [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
-
 ### 黑粉盒子 HyphenBox
 
 免费大模型接口雷达，加上本地统一路由。
@@ -765,13 +758,6 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉剪辑 HyphenCut
-> **状态：** 初步构建 · 预览版
->
-> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
->
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 初步构建 · 预览版

@@ -186,13 +186,6 @@ SHA-256：02b5c9e606f7f1a8dd05c4ce0a52c23fd5d1cc12056f0e6d5f6d0cbcd5581bd8
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉剪辑 HyphenCut
-> **状态：** 初步构建 · 预览版
->
-> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
->
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 初步构建 · 预览版
 >

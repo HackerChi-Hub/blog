@@ -128,12 +128,10 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 
 | 产品 | 一句话 | 状态 |
 | --- | --- | --- |
-| **黑粉剪辑 HyphenCut** | 对话式视频剪辑器，自带 MCP 可被 agent 驱动 | 正式迭代 |
 | **黑粉盒子 HyphenBox** | 免费大模型 API 雷达 + 本地统一路由 | 初步构建 · 预览版 |
 | **LocalBrain** | 把电脑变成私有 AI 盒子：转写／配音／生图／视频／MCP 一站管理 | 正式迭代 |
 | **ScreenLex 光影词库** | 本地电影字幕变可复习英语词库，全程离线 | 正式迭代 |
 
-- 黑粉剪辑 HyphenCut：https://github.com/HackerChi-Hub/HyphenCut-Releases/releases
 - 黑粉盒子 HyphenBox：https://github.com/HackerChi-Hub/hyphenbox-release/releases
 - LocalBrain：https://github.com/HackerChi-Hub/localbrain-releases/releases
 - ScreenLex 光影词库：https://github.com/HackerChi-Hub/screenlex-download/releases
@@ -144,13 +142,6 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉剪辑 HyphenCut
-> **状态：** 初步构建 · 预览版
->
-> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
->
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 初步构建 · 预览版

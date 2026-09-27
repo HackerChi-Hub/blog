@@ -120,13 +120,6 @@ Jev 是 TypeSafe AI 9 月 15 日发布的模型，当天在 Hacker News 上开�
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉剪辑 HyphenCut
-> **状态：** 初步构建 · 预览版
->
-> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
->
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 初步构建 · 预览版
 >

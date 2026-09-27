@@ -212,7 +212,6 @@ omarchy-snapshot create
 
 下面是黑粉科技维护的工具入口；它们不是 Omarchy 的预装软件，系统兼容性请以各自发行页为准。
 
-- [黑粉剪辑 HyphenCut](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)：对话式视频剪辑器，自带 MCP，可由 Agent 驱动。
 - [黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)：免费模型 API 雷达与本地统一路由。**初步构建 · 预览版**。
 - [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)：本地 AI 工具箱，集中管理转写、配音、生图、视频和 MCP。
 - [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)：把本地电影字幕整理成可复习的英语词库，离线使用。
@@ -223,13 +222,6 @@ omarchy-snapshot create
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉剪辑 HyphenCut
-> **状态：** 初步构建 · 预览版
->
-> Rust 写的本地专业视频剪辑：达芬奇键位、AI 助理直接改真实工程，免费
->
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenCut-Releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 初步构建 · 预览版
