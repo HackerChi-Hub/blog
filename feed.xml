@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 27 Sep 2026 04:43:30 GMT</lastBuildDate>
-    <pubDate>Sun, 27 Sep 2026 04:43:30 GMT</pubDate>
+    <lastBuildDate>Sun, 27 Sep 2026 04:51:55 GMT</lastBuildDate>
+    <pubDate>Sun, 27 Sep 2026 04:51:55 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -170,16 +170,6 @@
     <category>热点速递</category>
     </item>
     <item>
-      <title>生图2.5：四个Logo能一次成吗？</title>
-      <link>https://hyphentech.top/chatgpt-images-2-5-cover-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/chatgpt-images-2-5-cover-test/</guid>
-      <description>我拿四个真实产品图标做了三轮测试：一次融合、单点改图、透明贴纸。它进步最大的不是画得更艳，而是终于更像一个能反复沟通的视觉导演。</description>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
       <title>只开localhost，本地AI就安全吗？</title>
       <link>https://hyphentech.top/localhost-local-ai-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localhost-local-ai-security/</guid>
@@ -227,6 +217,16 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>本地部署</category>
+    </item>
+    <item>
+      <title>GPT-6来了，它真开始替你干活了？</title>
+      <link>https://hyphentech.top/gpt-6-astra-computer-use/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gpt-6-astra-computer-use/</guid>
+      <description>GPT-6 Astra 的真正变化，不是聊天分数再涨一点，而是电脑操作、长任务和高风险能力同时进入产品。本文按 OpenAI 官方资料拆解可用范围、API 成本、安全边界和普通人的选型方法。</description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
     </item>
   </channel>
 </rss>
