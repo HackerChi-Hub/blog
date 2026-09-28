@@ -142,7 +142,7 @@ Jev 是 TypeSafe AI 9 月 15 日发布的模型，当天在 Hacker News 上开�
 > [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
-> **状态：** 初步构建 · 预览版
+> **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >

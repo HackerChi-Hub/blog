@@ -151,7 +151,7 @@ GPT-6 Astra 是 OpenAI 第一个在网络安全能力上达到“Critical”级�
 > [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
-> **状态：** 初步构建 · 预览版
+> **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >

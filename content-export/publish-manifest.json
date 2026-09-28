@@ -1,382 +1,396 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "5b3df96c721fbec735b0f365e12e85c46e13692d7a9027a435a2d39a0e6b9d1d",
-  "published_post_count": 62,
+  "content_sha256": "22abba3cf0902607ebab0d2722b0a16044541ee416c43816bd451e64500c8ec1",
+  "published_post_count": 64,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
       "slug": "33a999681bdb81499014eaf312d39728",
       "legacy_paths": [],
-      "sha256": "aba941fa1bbf38d60b228c841adba6183ceafe9cf5fa01efebf839b96ed16f93"
+      "sha256": "eafefa3780970d66f5caa9ae0bea01ef7e9521a6692bb421d43dd15a4122498d"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c.md",
       "slug": "361999681bdb815b94fad9dbf028ab2c",
       "legacy_paths": [],
-      "sha256": "0f14b751d270366fe564772382d748cd22c5f870307cef773b589ebf6d4a8eb4"
+      "sha256": "03ee52904850715d8b597005042abca4f50f2f51ef22a2751f8cc575aee7017d"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6.md",
       "slug": "372999681bdb815f8c9bdd238edc09c6",
       "legacy_paths": [],
-      "sha256": "e8dc067dd5312d4f1d5e5a4a48dc55b65039f8eeca700b066e59979e39f8a2f1"
+      "sha256": "d55df50451a3c20d4b70bb0a6db616ca154c85338c4a1b9560abf9dd5b0b4674"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4.md",
       "slug": "37a999681bdb81d6bd5def54e062aac4",
       "legacy_paths": [],
-      "sha256": "d4259e814f7af1236efaa55103c019dfb45b3fc0600c4348f213e17c33936391"
+      "sha256": "50e02fa4d5378e8884a27d8c83206bd7e24ae78adf88279481eedc130c8764ed"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7.md",
       "slug": "3af999681bdb8146be26ec77fb75f5b7",
       "legacy_paths": [],
-      "sha256": "93b8d5d72f7f9f73514f4a83161d7579a9d24c559d74cf7ac2131ba32010aeb5"
+      "sha256": "8e2b3e13383497eb31af9e10f87cff4bf1bc10a3c99eedb1904ba9adc1965975"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a.md",
       "slug": "3be999681bdb81269ddaf65518a0735a",
       "legacy_paths": [],
-      "sha256": "6fc4f3490b65fff1654b61bb8f89a1b458e2b216a057a1fc09261b6744c6e2b7"
+      "sha256": "d2d0ea2c55d391aa6740d750580fbec2e04bc95c7a8d389c6735ca9e92861793"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a.md",
       "slug": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "legacy_paths": [],
-      "sha256": "92e80074856cc42b9debfb46f63c9a7efe72ebeb33bc473826242742be215519"
+      "sha256": "01a3dfca70c61d6fa826f12df3a8b4c519da9978d8edb278b58d77b262ed1592"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500.md",
       "slug": "3c4999681bdb81b5ac69ceb1153e2500",
       "legacy_paths": [],
-      "sha256": "2f4d675d76aa5aaba1fb4cc4abeab5890385da5358dedb9464d6d39d746dadbe"
+      "sha256": "3eb7644a9458e90bcfa64a6d33ad776b805f245107d3c57158b49cc6b0c780e2"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738.md",
       "slug": "3c6999681bdb815f8094e4ca7339f738",
       "legacy_paths": [],
-      "sha256": "3dbd1732f1563e5f6a6718300f1944afe88bdff9f381b7f61b25d7c828a44ff1"
+      "sha256": "1753073ba3936ec4f115d318e71888faeff583d6603dc75c4337c508af7b653c"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0.md",
       "slug": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "legacy_paths": [],
-      "sha256": "2a25d951dcd65d492bcc2d1f2bb9c3d957bc3c16b9a85b8e3c6fff2f9998dea6"
+      "sha256": "65bd65916f0f66bb458ea27ccbcd829fed0ca8a6293daf4e1edb39f4acbe3329"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a.md",
       "slug": "3c9999681bdb814ba691f8cc28ec684a",
       "legacy_paths": [],
-      "sha256": "1a39da531c021b9e992656572818520c95dba69f298d9ae84aa1cec795cce695"
+      "sha256": "a9419b5792d0bdc9e40fa7801d8903ec488afcb7dd1f876cb9505264a4e3249a"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026.md",
       "slug": "ai-agent-ufo-game-prompt-template-2026",
       "legacy_paths": [],
-      "sha256": "51471f31ac8df45d50ca96b631d189feeed16dfed72fb92ce927166334f85365"
+      "sha256": "99120bcdfaca159d82b9eb95fe8f15c9c964490b1bc0c95df83cae1457a2fbfb"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost.md",
       "slug": "ai-animation-pipeline-cartoon-real-cost",
       "legacy_paths": [],
-      "sha256": "a05c7a375b8bfed3b0c90f93bd98939947665ff23c7e153cda7b5df5921c163c"
+      "sha256": "50763589194ee71d54ff1225a61fdb21a5bbc768b24d501e9eca12bafcd2df48"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51.md",
       "slug": "ai-gaokao-2026-glm51",
       "legacy_paths": [],
-      "sha256": "99dd1ad7d634ed4e29ae2fe3447728524d14a819ccb6d3b97adcff6d13db223e"
+      "sha256": "2128f9ad09f1800525824dfc74cfebe8205291579a76f2ad1c73617bdb6a92c9"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow.md",
       "slug": "ai-logo-brand-assets-workflow",
       "legacy_paths": [],
-      "sha256": "e384b8c1fb93c5b73991d2eea9f4d109d820e34e6dcf7a612e653b2caf5291dc"
+      "sha256": "d864436c810ed831ac56f7546df0d1e6e35547e5c7a4dc4632e5af017e3b10f7"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
       "slug": "ai-prompt-templates-12-scenes",
       "legacy_paths": [],
-      "sha256": "197d5cd79eab7d92553e7179eb00ea545b09910de2f5d99da25aa34653283be7"
+      "sha256": "ddda81f22ed7e0938b56f5fa35e629a5f101e6410804fc959ea09fdb1e416f84"
     },
     {
       "file": "posts/bonsai2-mac-deploy.md",
       "slug": "bonsai2-mac-deploy",
       "legacy_paths": [],
-      "sha256": "ffc77adcb0b783ba0f516a27f741d7f8236d6a2782011076fc9a25031f34f6f8"
+      "sha256": "687d690ea831ffb290954ed465fa1b5c8a1239c40f40e5a4724cccab245f8408"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
       "slug": "broadband-troubleshooting-guide",
       "legacy_paths": [],
-      "sha256": "cddedaf1a1f0898c09fede925c2110e8c8bc2e1a1919801a0f84c08fba554a00"
+      "sha256": "49bbd04ac416f0e4e5cac20d8fd55a9c30c6f71008bf54775c9b7901ae2a92d1"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
       "slug": "deepseek-v4-vision-mac64",
       "legacy_paths": [],
-      "sha256": "ef917b23282fd7b2dc7c2b34c9473284a5c71a6a03f9c1b8ec30025e0a2916d4"
+      "sha256": "7f1f7cc43c0c27be03f7ca041007fb2bd97b6f475e767139007c36eee315ddfe"
     },
     {
       "file": "posts/fable-5-1-mythos-update.md",
       "slug": "fable-5-1-mythos-update",
       "legacy_paths": [],
-      "sha256": "1186ae5fc645c1f173830c39d728fb7c7d679fb654d9c74c49b31c34bc664972"
+      "sha256": "69deb5cd28a438c8fd80f2f763216ce89401186ad415491b8281b208d2f2ea88"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
       "slug": "fastmetal-qad-apple-silicon-official-guide",
       "legacy_paths": [],
-      "sha256": "4185577e583d8e8eb8d8f47f39c2fd43ce9fea523f74cd89c1a516134fac4ee1"
+      "sha256": "83d2e812f6cb6611a96aed4735a2f95a66b2e68fbfb9e01a1f3236a87da54f46"
     },
     {
       "file": "posts/free-ai-api-radar-2026-09-23.md",
       "slug": "free-ai-api-radar-2026-09-23",
       "legacy_paths": [],
-      "sha256": "a394ec0549963ea1f2dbfe252fb7364f824c1f91872908090116b1443a54cca8"
+      "sha256": "19563b6372bab698082192b71219bc6fe530b128cdb0c276886a00e4d63dc910"
     },
     {
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "legacy_paths": [],
-      "sha256": "7e1307146c3f30c765ba53cfabcd5652472aa508efe7ef3b31bab03b5e8b0fc2"
+      "sha256": "451f4675568d3909bff84f40ab42dbcd1feabfc1f1e0a4b99e7deceb60bad224"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
       "slug": "free-api-radar-2026-08-27",
       "legacy_paths": [],
-      "sha256": "008fc24002c43628de0c50360ae07520d4735ddb537614ecd297914b97d1fee0"
+      "sha256": "3defdc7c32511a7d321ebeede0d53141d8a57943186507a3055a51a9b6e63daf"
     },
     {
       "file": "posts/free-api-radar.md",
       "slug": "free-api-radar",
       "legacy_paths": [],
-      "sha256": "0fe9059664893c5c62e08321bda90a89ecbf2b52df1fee5bfca0e888feb7d22c"
+      "sha256": "7b1b57bb111e178def89481b408a61e265740d25e3dacd7239f8d5d5f181c2af"
     },
     {
       "file": "posts/free-design-resources.md",
       "slug": "free-design-resources",
       "legacy_paths": [],
-      "sha256": "49f836068219e9c510f6fa274346d275efc70bf2b6a382d728bfd8e7ddd65e68"
+      "sha256": "06060493188e674bed0ba3fc9cb767d3ac15e29b3589657c386f91bc6bf0678c"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber.md",
       "slug": "gemini-3-8-flash-cyber",
       "legacy_paths": [],
-      "sha256": "f53855a7c6e697af97f0c79e2aa37c4b1a98b1f87ca466be8617951e870e32c4"
+      "sha256": "eeb7506315976ceadab8d685ced432d7ac42e03bcf6b21e525da8c718d23f043"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
       "slug": "google-io-2026-gemini-agentic-era",
       "legacy_paths": [],
-      "sha256": "d263ee923173eb17e3240f4269cdcceed6633a3d38070d4a36df6e8c2a491764"
+      "sha256": "7ef63a364c6785472a6d986222a62a1c7d41efeea57af7023ed4b634f57eef5f"
     },
     {
       "file": "posts/gpt-6-astra-computer-use.md",
       "slug": "gpt-6-astra-computer-use",
       "legacy_paths": [],
-      "sha256": "db4e7a31cdbbec33279ccb336a11035e9adf520b016c0dab063b3cc8367c7182"
+      "sha256": "1cfa7b27e7f96c1c42d11fc7a427be432b9ee55bfd89508b3c427adb0e3eba3d"
     },
     {
       "file": "posts/gpt6-six-tasks-rain-mystery.md",
       "slug": "gpt6-six-tasks-rain-mystery",
       "legacy_paths": [],
-      "sha256": "b1392575a8c4148a4d4205c721e651cbb20c8312b6e5fb1a27660ddc971af144"
+      "sha256": "0ddd29002666a58413c32b57909b60c2908d7da5027b7e9168259f63e1cc8ded"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
       "slug": "huawei-tau-law-2026",
       "legacy_paths": [],
-      "sha256": "b5b28c90a7db919f066a506565184ab3b7ba8581550e381a8b258d86f0617cae"
+      "sha256": "1903331a4662babfa93e5ec799c989f5838bc7165294b7d591450f693a8aee23"
     },
     {
       "file": "posts/hyphenbox-free-api-radar.md",
       "slug": "hyphenbox-free-api-radar",
       "legacy_paths": [],
-      "sha256": "7b285a93fd96f011e9d2f4838413026491ce574db77ea89800d7a6c194c45d22"
+      "sha256": "6b108991feb5a9e01641b687617da93918a557d7a0a533c8320c01693bbcfac8"
     },
     {
       "file": "posts/hyphenbox-windows-linux-tri-platform.md",
       "slug": "hyphenbox-windows-linux-tri-platform",
       "legacy_paths": [],
-      "sha256": "b3de5303274b178d68c5cded58975e155801f1323f27cf547c6c510189b68803"
+      "sha256": "fe57768f3c9709c117ba939e005c2156ffece10ad859b8d8ad34981fe2f8174f"
+    },
+    {
+      "file": "posts/hyphenscreen-local-screen-recorder-en.md",
+      "slug": "hyphenscreen-local-screen-recorder-en",
+      "legacy_paths": [],
+      "translation_of": "hyphenscreen-local-screen-recorder",
+      "sha256": "eeffc094e84c32f48323447cac1023f2c4aab96a9b46b81519f73c81c7429465"
+    },
+    {
+      "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
+      "slug": "hyphenscreen-local-screen-recorder-zh-tw",
+      "legacy_paths": [],
+      "translation_of": "hyphenscreen-local-screen-recorder",
+      "sha256": "295726735d6e22b057e2936d9133490179a58f5c701fa8904a85c3327b5126ee"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "legacy_paths": [],
-      "sha256": "6f4243cb49d20248a6fa5aed07a69add52473b36f39e1d6c72b0f61ff3bcac31"
+      "sha256": "e616609a611ff4b637e88dfb99f3e27fb35e751de4d45a7a7e51c59f57e50513"
     },
     {
       "file": "posts/jev-system-one-model.md",
       "slug": "jev-system-one-model",
       "legacy_paths": [],
-      "sha256": "e91d7c741231fafd34bc0acb89ff8b791b4ef94beddcd452b2f4fe9d3ebcbeab"
+      "sha256": "50d699da4f52a77e1543bbce4d2b4fdb6c630e810556716568b04b901aa76782"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "legacy_paths": [],
-      "sha256": "978b7575113fd9f463c05e6b6bb1a62de45d638017927b9f4bf2f88c25aecebf"
+      "sha256": "68eda5d780e2da5d6ed0f9199c0d2322f465498caa3020b544e80e327c5d4860"
     },
     {
       "file": "posts/local-ai-old-laptop-business.md",
       "slug": "local-ai-old-laptop-business",
       "legacy_paths": [],
-      "sha256": "0f04c87c842ca1b3bdbdb8d09764eac97e5c0f81eaa927e415c29961a5216d15"
+      "sha256": "a62353fd5d5efd59e138d7e90e88ad86b9a5b6bae8092eabb20b125375728d4b"
     },
     {
       "file": "posts/local-model-blender-mcp-localbrain.md",
       "slug": "local-model-blender-mcp-localbrain",
       "legacy_paths": [],
-      "sha256": "d502894d3e13b98e5f1ffadf88ab2595da66e8ad43c3e1432da51d570cdb9d23"
+      "sha256": "d55def6e9482bb6b76a14b714daa77872ae3136676346113b7ec2d31cfa1051e"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks.md",
       "slug": "localbrain-flash-next-five-tasks",
       "legacy_paths": [],
-      "sha256": "b2e5feea91760cf791bc486d0573fe69915607cd9c478ae18c7b10b7e13bb0f8"
+      "sha256": "f4094d0fc97a0e531640777afe4effd6cf638e775aac4c2c36ac06eb27d959a1"
     },
     {
       "file": "posts/localbrain-h3-multi-reference.md",
       "slug": "localbrain-h3-multi-reference",
       "legacy_paths": [],
-      "sha256": "ca1ac3185194f19626477bb5114a30e8be78efe8aac6778ee47f849baf2fd089"
+      "sha256": "7ae2676c300ab8da4e91bc1d1fd69f819e1d4ee15103b0f0a9c5d4f28bb2e513"
     },
     {
       "file": "posts/localbrain-local-ai-box-en.md",
       "slug": "localbrain-local-ai-box-en",
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
-      "sha256": "22fb8ea092043f5e1ed7951eb41aea7927362b9f7452b3ede5d24d3ef39c0f61"
+      "sha256": "1b8492a91df19cb39151477a1cd1cd432f0a27693cb58427310c1de65b58b217"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
       "slug": "localbrain-local-ai-box-zh-tw",
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
-      "sha256": "c46b8996f2dd78ffbcbe47d15ab2bfed91b74986ee07a6f8d39700340c5a975b"
+      "sha256": "b9c377e5adb2d0aa5629b8acd0e5d65d003a2914acc511302a279a6a3577ba6a"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
-      "sha256": "00243d293828b7bce92a8b9e12e3e7b6b8389a3d70b2dc02226b69e82b46a002"
+      "sha256": "da174d7545cc58ceee7aba7611d1e3fd9b31fbff5da951ada0110bb6e9f345c6"
     },
     {
       "file": "posts/localbrain-longtask-splash.md",
       "slug": "localbrain-longtask-splash",
       "legacy_paths": [],
-      "sha256": "1e00ba8e7422d1e09c857e152cca2e40f20f1f4690c22c9e69a2f8834c8f4f21"
+      "sha256": "593b17d67203ef860f7c34a141f844871df0f3e0b82f2b27762c7fafaa3b4919"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
       "slug": "localbrain-small-models-lowmem",
       "legacy_paths": [],
-      "sha256": "cbd0c282cf4b4e4c9d8f3c12eb04fdccc8ebf44a1c73d14a2597923427aca478"
+      "sha256": "37444bad5131fc7300973ad8aea861328a9c802cfe07a016a4429f28025ea48c"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",
       "slug": "localbrain-windows-nvidia-first-release",
       "legacy_paths": [],
-      "sha256": "9b9c8ccd154e48ebb251edfd8fcdbd1f900268d91db223caa4a089aa69d27bd3"
+      "sha256": "f0d7c052b5ae939b7fc96510757f67abd23d21b81f4b42968e0cc8f5501b4ec2"
     },
     {
       "file": "posts/localhost-local-ai-security.md",
       "slug": "localhost-local-ai-security",
       "legacy_paths": [],
-      "sha256": "5472334235d03ebdd2e75548faa8a81dfc7f847afb7093f0471338780fcbf0a3"
+      "sha256": "59383f640d72b0906e566eca6b7cdc9bb761395519136501d146b70da4ea90f7"
     },
     {
       "file": "posts/mac-local-inference-engines.md",
       "slug": "mac-local-inference-engines",
       "legacy_paths": [],
-      "sha256": "c3cde9dda02168dc60765af94be52da59e68873d1b0fd2fe8d8eee1b0f78501b"
+      "sha256": "9231303223110e0b4de4d2f2875e8aeba0c9ff1340d3af5e44d702fc9b915679"
     },
     {
       "file": "posts/mac-windows-linux-ai-platforms.md",
       "slug": "mac-windows-linux-ai-platforms",
       "legacy_paths": [],
-      "sha256": "f5695bda5d49055f6d8a50c2c4d62bd506d3e8cb19937e3c2a785c9292b296f2"
+      "sha256": "19e28b324c90fcd944ba305fd38a73f790c9862fff22a75517211a46371f8aec"
     },
     {
       "file": "posts/minicpm5-2b-localbrain.md",
       "slug": "minicpm5-2b-localbrain",
       "legacy_paths": [],
-      "sha256": "da2cf4bad6e76bd16e8e0d2d6d73ced45ae1e0afc525f41b7f4f3bb1badcc519"
+      "sha256": "406c8a2d516993d2183919c06c0e9dc92a5c3738e7783bcc590e57423642c115"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
       "slug": "mlx-local-ai-test-m5pro",
       "legacy_paths": [],
-      "sha256": "1e79be3151233d3a6e7a6f4f86d353e78b5d2c38055d6be37a57461695fa2aa9"
+      "sha256": "aa6582b39f5e118918132481da6258ed71918059374df8025793e405067a99b6"
     },
     {
       "file": "posts/movie-model-benchmark.md",
       "slug": "movie-model-benchmark",
       "legacy_paths": [],
-      "sha256": "7bd87786c2ef3c3b6e5eb92a78bdfe538b94281d37b82e7601fa3d002231297e"
+      "sha256": "037f64f29aa3cafc1737aedf7d528f5d3687b3c53e03452524b297cc14748119"
     },
     {
       "file": "posts/nex-n2-5-free-mac-localbrain.md",
       "slug": "nex-n2-5-free-mac-localbrain",
       "legacy_paths": [],
-      "sha256": "91b1686301402129074cbb2569eb3a2e2db784ef282ec07432a22a695ee9ed9e"
+      "sha256": "d4161e093805618f356f1855a72bbab43ca40ae96103b47d0a57c3ecac0a0e8e"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started.md",
       "slug": "omarchy-linux-ai-getting-started",
       "legacy_paths": [],
-      "sha256": "b2e935a20814af6c916ef8ea00ac9dee392ea92e28d251cf8f2f226e62bcdd56"
+      "sha256": "fd526ade25f94d51c78e82c74d998339e7c984b9b880ba6fedb21a8b60299e4f"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
       "slug": "ox-alpha-stealth-model",
       "legacy_paths": [],
-      "sha256": "e1dbffa0164c7d60bf4b78d21cd5f41e701edad32a8ea7c0fc163cf14d2a2220"
+      "sha256": "451ad32ae0cad4ba5265fd9492580b4cb4c452b88eba92bfa1c66fca93308098"
     },
     {
       "file": "posts/qwen-image-21-local.md",
       "slug": "qwen-image-21-local",
       "legacy_paths": [],
-      "sha256": "df0276913dc7b3c225e2ca3f73423126bcfdefce35ae63e242b7214c21a8a302"
+      "sha256": "92372070f6de400a0d5bc16d31a6f52aaa5d178a6acc9b4e15d9d62190d234bf"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
       "slug": "qwen3-8-27b-local-test",
       "legacy_paths": [],
-      "sha256": "04351c04efd3ca08eb306bde5f089ca333020fa14ef0025c89ebacb911f3eb83"
+      "sha256": "dc7822e663b68e43f93e17d5d7a1a809e34a46bd020f839bd0b6bbbce831fc61"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
       "slug": "qwen38-flash-next-atomic-m64-localbrain",
       "legacy_paths": [],
-      "sha256": "55486bfe0be21cb1f369d2daefbca1002e0a59af67eda270a392de1238543246"
+      "sha256": "cf45c12fb4ebebf4a2673d27521c79c6336b0736e1c17f399b92411ae621414a"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
       "slug": "remotion-claude-code-prompt-to-video-guide",
       "legacy_paths": [],
-      "sha256": "0b007348a774c4241a7fb513449334c05f8020da9c5c70f39729d21b774d7970"
+      "sha256": "3aad67c3ec84000e9b62037bbc4c046cd7238a88fbeec1adb226d52af2ae62f8"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
       "slug": "screenlex-watch-and-learn",
       "legacy_paths": [],
-      "sha256": "23d3ba7d9f858267414c11637c193409ec4416d1338023bc435c05ad4f3a0654"
+      "sha256": "4c365e51f838ed1d39f3ded551e48610801b540ba333da262bb7c99622c2e9be"
     },
     {
       "file": "posts/splash-mac-local-inference.md",
       "slug": "splash-mac-local-inference",
       "legacy_paths": [],
-      "sha256": "1972dc8248f4d491eb35d19686f6b90b316840a78fd041a1005cb865fb642c95"
+      "sha256": "3d5a809bbee00105da39d91b32522db3a7ee1a2769487333314252a00080a6e2"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
       "slug": "wifi-finder-vibe-coding",
       "legacy_paths": [],
-      "sha256": "48f2dda9cc5a3769a8223d8d5f8989d33ec98ef9a0d1c8c35ec5a0e943a723bd"
+      "sha256": "9f97337d3d35cc9afc88c5ea2b6ebc799946eb0fe4d798aef3e58b0cccc95011"
     }
   ],
   "config": [

@@ -208,7 +208,7 @@ SHA-256：02b5c9e606f7f1a8dd05c4ce0a52c23fd5d1cc12056f0e6d5f6d0cbcd5581bd8
 > [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
-> **状态：** 初步构建 · 预览版
+> **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
