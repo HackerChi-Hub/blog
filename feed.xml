@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 27 Sep 2026 21:23:48 GMT</lastBuildDate>
-    <pubDate>Sun, 27 Sep 2026 21:23:48 GMT</pubDate>
+    <lastBuildDate>Mon, 28 Sep 2026 03:13:00 GMT</lastBuildDate>
+    <pubDate>Mon, 28 Sep 2026 03:13:00 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Mac、Windows、Linux，谁才是 AI 时代的主力机？</title>
+      <link>https://hyphentech.top/mac-windows-linux-ai-platforms/</link>
+      <guid isPermaLink="true">https://hyphentech.top/mac-windows-linux-ai-platforms/</guid>
+      <description>同样是 AI 电脑，Mac 买共享内存和低维护，Windows 买兼容与显卡选择，Linux 买生产栈；加入 9 月 28 日官方现货价后，答案更具体。</description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>2026 年 9 月 23 日，免费 AI API 还有几个真能用？</title>
       <link>https://hyphentech.top/free-ai-api-radar-2026-09-23/</link>
@@ -217,16 +227,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>本地部署</category>
-    </item>
-    <item>
-      <title>GPT-6来了，它真开始替你干活了？</title>
-      <link>https://hyphentech.top/gpt-6-astra-computer-use/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gpt-6-astra-computer-use/</guid>
-      <description>GPT-6 Astra 的真正变化，不是聊天分数再涨一点，而是电脑操作、长任务和高风险能力同时进入产品。本文按 OpenAI 官方资料拆解可用范围、API 成本、安全边界和普通人的选型方法。</description>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
