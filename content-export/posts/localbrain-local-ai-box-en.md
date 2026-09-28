@@ -6,12 +6,12 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-09-28
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. A full tour of version 1.4.3 with screenshots.
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. A full tour of version 1.4.4 with screenshots.
 categories:
-  - 资源分享
+  - Resources
 tags:
-  - 工具
-  - 开发
+  - Tools
+  - Development
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.4.3 · 2026-09-28 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.4.4 · 2026-09-28 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.3, a month after the 1.2.22 I last wrote about, and it adds three things: a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages. Below is a walk through each page; every screenshot is the real 1.4.3 interface.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.4, a month after the 1.2.22 I last wrote about, and it adds three things: a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages. Below is a walk through each page; every screenshot is the real 1.4.4 interface.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -36,7 +36,7 @@ So the goal has not changed: **not a smarter brain, but a calmer master switch f
 
 The home screen answers three questions first: what this machine is, what is using memory right now, and what else you can start. Below is my M5 Pro (64 GB unified memory) running the Splash build of Qwen3.6-35B-A3B.
 
-![# Home: chip, unified memory and free disk; the memory bar is split into "System" and "AI models"; running services show their expected memory use.](/obsidian-assets/localbrain-local-ai-box/v143-en-home.png)
+![# Home: chip, unified memory and free disk; the memory bar is split into "System" and "AI models"; running services show their expected memory use.](/obsidian-assets/localbrain-local-ai-box/v144-en-home.png)
 
 - **A memory bar in two parts**: how much the system uses, how much the AI models use and what is left, stated outright. The "estimated usage" on a model card comes from the model's size; Splash is estimated at 1.1× its size.
 - **Arbitration before starting**: the memory arbiter adds up the backends already running and the model about to start. If resources run short it refuses clearly, instead of letting the system swap itself to a standstill and failing afterwards.
@@ -51,13 +51,14 @@ The home screen answers three questions first: what this machine is, what is usi
 
 Large models weigh tens of gigabytes, and finding out after the download that one will not run is the most expensive way to experiment. Each Discover card moves that question up front.
 
-![# Discover: ability tags, the publisher's benchmark numbers, quantizations and the minimum / recommended memory worked out for this machine, all before the download button.](/obsidian-assets/localbrain-local-ai-box/v143-en-discover.png)
+![# Discover: ability tags, the publisher's benchmark numbers, quantizations and the minimum / recommended memory worked out for this machine, all before the download button.](/obsidian-assets/localbrain-local-ai-box/v144-en-discover.png)
 
 - **More than 40 curated entries**: language, vision, speech, image, video and music models, newest first. Each card lists ability tags, the publisher's benchmark numbers and where they come from (in the screenshot, MMLU-CoT 0.283→0.548 for the distilled Qwen3.8 2B), and the size of each quantization.
 - **Memory worked out for this machine**: the "minimum / recommended unified memory" is not copied from the model card; it is calculated from this machine's memory and the model's structure.
 - **Licenses before the download button**: restrictions stricter than usual, such as no commercial use, are flagged up front with a link to the original text, not discovered after the download.
 - **Download source speed test**: one click measures ModelScope, HF-Mirror and Hugging Face and picks the fastest at that moment; downloads are checked against SHA-256 at the end, so a file that merely has the right size but is damaged is never counted as a success.
 - **Existing models stay where they are**: point at a model folder you already have and it is mounted, with the engine, category and context ability detected, without copying weights or touching the folder.
+- **Identity check before registering (new in 1.4.4)**: when you pick a folder with “Import existing” on a card, LocalBrain first detects which model is actually inside. A certain mismatch is refused outright, such as registering a video model package as an image-editing model; if only the name or category looks different, it shows what it found and asks you to confirm, so renamed folders still import. My own machine had exactly such a record: the entry for the image-editing model Mage-Flow pointed at a MiniMax H3 video package folder that no longer existed. Records like that, whose folder is gone, used to be skipped silently; Home now lists them under “Broken model registrations” and removes them in one click, deleting only the record, never the model files.
 
 > [!note]
 > **Detected does not mean it will start.** Format, architecture, vision projector files and the current runtime all affect compatibility; the app tries to give the concrete reason instead of dressing up "found it" as "it will definitely run".
@@ -68,9 +69,9 @@ Large models weigh tens of gigabytes, and finding out after the download that on
 
 The built-in chat has streaming, attachments, stop, saved conversations and local tools. What I care about more: when you ask it to fix a web page or build a spreadsheet, does it actually deliver, and does the process hold up to inspection?
 
-![# Chat (demo data): the self-check fails → one line gets a null check → the next self-check passes; the summary shows 8 rounds, 9 tool calls, 2 failures and four time segments.](/obsidian-assets/localbrain-local-ai-box/v143-en-chat.png)
+![# Chat (demo data): the self-check fails → one line gets a null check → the next self-check passes; the summary shows 8 rounds, 9 tool calls, 2 failures and four time segments.](/obsidian-assets/localbrain-local-ai-box/v144-en-chat.png)
 
-The conversation above is a demo, but every element on screen is the real 1.4.3 interface:
+The conversation above is a demo, but every element on screen is the real 1.4.4 interface:
 
 - **Every step is shown**: reading files, listing folders, web search, writing files, targeted edits and page self-checks each show their target and time; complex tasks start with a plan, and the plan card says it is "the model's own record, not independent verification".
 - **Failures stay visible**: repeated calls to the same tool are grouped as "Page self-check ×2", with "1 failed" right beside it. In the screenshot the model's first self-check returned a page error; it changed a single line to add a null check, and only the next self-check passed.
@@ -86,7 +87,7 @@ Document tasks can also deliver DOCX, PPTX, XLSX or PDF directly. If no real fil
 
 After a month of use my own machine had piled up plenty of things nobody could see: check screenshots, task checkpoints, logs, and images and voice-overs that early versions wrote into temporary folders. 1.4.0 puts all of it in Settings.
 
-![# Settings · Storage & cleanup: both the output folder and the cache folder can move; usage and file counts per category, tick to clean.](/obsidian-assets/localbrain-local-ai-box/v143-en-storage.png)
+![# Settings · Storage & cleanup: both the output folder and the cache folder can move; usage and file counts per category, tick to clean.](/obsidian-assets/localbrain-local-ai-box/v144-en-storage.png)
 
 - **Both folders can move**: the output folder holds generated documents, images, speech, video, music and web downloads; the cache folder holds logs, task checkpoints, check screenshots and temporary files. Either can live on an external drive.
 - **Moving takes the files along**: on the same drive they are moved directly; across drives they are copied and verified first, then the old copies go to the Trash.
@@ -99,7 +100,7 @@ The numbers in the screenshot are measured on my machine: System output 13.3 MB 
 
 ### ▍Integrations: hand local abilities to other agents
 
-![# Integrations: local MCP tools written into each client's configuration with one click, and local models served through an OpenAI-compatible endpoint.](/obsidian-assets/localbrain-local-ai-box/v143-en-integrations.png)
+![# Integrations: local MCP tools written into each client's configuration with one click, and local models served through an OpenAI-compatible endpoint.](/obsidian-assets/localbrain-local-ai-box/v144-en-integrations.png)
 
 - **Local MCP tools**: document processing, speech transcription, speech synthesis, images, video and web research, written into the configuration of Claude Code, OpenCode, Codex or DeepSeek Harness with one click. Only the `localbrain-*` entries are added or updated; your model settings and other MCP servers stay as they are, and one click restores the configuration from before.
 - **Local models as the brain**: OpenCode, ScreenLex and DeepSeek Harness can use local models directly through the OpenAI-compatible endpoint `127.0.0.1:11434/v1`, no API key needed.
@@ -113,7 +114,7 @@ The steadier setup for Codex and Claude Code is to keep their cloud reasoning mo
 
 Simplified Chinese, Traditional Chinese and English have been there since 1.2.70. But while making these screenshots, I had the screenshot harness list every piece of Chinese that actually appeared on the English interface, and it turned up dozens of gaps: 26 catalog entries with no translation, plus confirmation dialogs and numbers glued to their units. The automated checks had all been green, because each of them only recognised one way of writing things.
 
-1.4.3 fills those gaps and adds all three kinds of leaks to the tests. Switching language translates the interface only, never your conversations, model answers, code or file paths.
+1.4.3 fills those gaps and adds all three kinds of leaks to the tests.1.4.4 then reviewed about 1,400 English strings one by one, removing machine-translation phrasing and inconsistent terms; labels the program assembles, such as reasoning levels, the compatibility table and attachment processing status, no longer leak Simplified Chinese into the English and Traditional Chinese interfaces. Switching language translates the interface only, never your conversations, model answers, code or file paths.
 
 ---
 
@@ -142,12 +143,12 @@ File tools can only read the folders you allow by default. Running project comma
 
 - Start a model on Home and try the built-in chat; when you need an external agent, write its configuration under Integrations.
 
-#### LocalBrain 1.4.3
+#### LocalBrain 1.4.4
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows remains at 1.3.8 · Installer LocalBrain\_1.4.3\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows remains at 1.3.8 · Installer LocalBrain\_1.4.4\_aarch64.dmg
 
 ```shell
 Latest installer
@@ -156,7 +157,7 @@ Product page
 https://hyphentech.top/localbrain
 ```
 
-The SHA-256 of the current installer is **6b1fdd11c28b0e128daa6f81bcb97de95498c6a1ec3131dbba8311feaabf2dd3**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **fc426f29797c97c756c54adf829e70aec1c8aedc39e1963f73836bad87b6dc9d**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
@@ -176,41 +177,41 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 ---
 
-## 🧰 我做的工具
+## 🧰 Tools I build
 
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] 黑粉盒子 HyphenBox
-> **状态：** 初步构建 · 预览版
+> [!info] HyphenBox
+> **Status:** Early build · Preview
 >
-> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+> A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
-> [!info] 方寸智匣 LocalBrain
-> **状态：** 正式迭代
+> [!info] LocalBrain
+> **Status:** Official releases
 >
-> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+> A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
+> [!info] ScreenLex
+> **Status:** Official releases
 >
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+> Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
+> [!info] HyphenScreen
+> **Status:** Official releases
 >
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
-> [!quote] 黑粉科技
-> **让AI成为你的超能力**
-> 本地部署 · 免费白嫖 · 自制软件
+> [!quote] HyphenTech
+> **Make AI your superpower**
+> Local deployment · Free resources · Self-made software
 > https://hyphentech.top

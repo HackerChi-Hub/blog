@@ -8,10 +8,10 @@ date: 2026-09-28
 updated: 2026-09-28
 summary: The worst thing a screen recording can do is show what it should not. HyphenScreen 1.0.1, the first official release, finds sensitive text on your own computer, keeps the mosaic on it through zooms and scrolling, and reads the finished video back before you publish. A full tour with screenshots.
 categories:
-  - 资源分享
+  - Resources
 tags:
   - AI
-  - 自制软件
+  - Self-made software
 cover: https://hyphentech.top/obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
@@ -204,41 +204,41 @@ The clumsy way has its merits: it trusts none of the intermediate steps I wrote,
 
 ---
 
-## 🧰 我做的工具
+## 🧰 Tools I build
 
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] 黑粉盒子 HyphenBox
-> **状态：** 初步构建 · 预览版
+> [!info] HyphenBox
+> **Status:** Early build · Preview
 >
-> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+> A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
-> [!info] 方寸智匣 LocalBrain
-> **状态：** 正式迭代
+> [!info] LocalBrain
+> **Status:** Official releases
 >
-> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+> A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
+> [!info] ScreenLex
+> **Status:** Official releases
 >
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+> Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
+> [!info] HyphenScreen
+> **Status:** Official releases
 >
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
-> [!quote] 黑粉科技
-> **让AI成为你的超能力**
-> 本地部署 · 免费白嫖 · 自制软件
+> [!quote] HyphenTech
+> **Make AI your superpower**
+> Local deployment · Free resources · Self-made software
 > https://hyphentech.top

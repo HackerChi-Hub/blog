@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "22abba3cf0902607ebab0d2722b0a16044541ee416c43816bd451e64500c8ec1",
+  "content_sha256": "b18bb23086191ead6edf6f19c6f58173295b40ea5eec5c60524666d42c75648d",
   "published_post_count": 64,
   "posts": [
     {
@@ -207,14 +207,16 @@
       "slug": "hyphenscreen-local-screen-recorder-en",
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
-      "sha256": "eeffc094e84c32f48323447cac1023f2c4aab96a9b46b81519f73c81c7429465"
+      "lang": "en",
+      "sha256": "f6700d5b311413c9a88ffde67ec22f0f92ae18b2fb7b868a8c3b3f15a5416ac1"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
       "slug": "hyphenscreen-local-screen-recorder-zh-tw",
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
-      "sha256": "295726735d6e22b057e2936d9133490179a58f5c701fa8904a85c3327b5126ee"
+      "lang": "zh-TW",
+      "sha256": "bd2505f90e4e13ea87992f0e79a234c0bf883b2826ef496a88a74241f50c1355"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
@@ -263,20 +265,22 @@
       "slug": "localbrain-local-ai-box-en",
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
-      "sha256": "1b8492a91df19cb39151477a1cd1cd432f0a27693cb58427310c1de65b58b217"
+      "lang": "en",
+      "sha256": "6400a0bdd9e57754a13b75ab4229989642e465515efb5d405136892610624327"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
       "slug": "localbrain-local-ai-box-zh-tw",
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
-      "sha256": "b9c377e5adb2d0aa5629b8acd0e5d65d003a2914acc511302a279a6a3577ba6a"
+      "lang": "zh-TW",
+      "sha256": "3b8e4d72631e255c41ceb5730bdfca52329812818d3f2ee79b52c6e45f5b05bb"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "legacy_paths": [],
-      "sha256": "da174d7545cc58ceee7aba7611d1e3fd9b31fbff5da951ada0110bb6e9f345c6"
+      "sha256": "847925083dff1b192e1f8797b4e92105c3af11640bcaf293a85a9144d6ecf968"
     },
     {
       "file": "posts/localbrain-longtask-splash.md",

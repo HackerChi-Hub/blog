@@ -8,10 +8,10 @@ date: 2026-09-28
 updated: 2026-09-28
 summary: 錄屏最怕的不是沒錄好，是錄到了不該錄的。黑粉錄屏 1.0.1 正式版：本機辨識敏感資訊、打碼跟著放大和捲動走，匯出後回讀成片做體檢；錄製和快取放哪自己決定。附 1.0.1 實機截圖的完整功能介紹。
 categories:
-  - 资源分享
+  - 資源分享
 tags:
   - AI
-  - 自制软件
+  - 自製軟體
 cover: https://hyphentech.top/obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
@@ -206,39 +206,39 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 
 ## 🧰 我做的工具
 
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
 > [!info] 黑粉盒子 HyphenBox
-> **状态：** 初步构建 · 预览版
+> **狀態：** 初步構建 · 預覽版
 >
-> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+> 免費大模型 API 雷達：持續複測可用性，本機統一介面，Key 只存本機
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
-> **状态：** 正式迭代
+> **狀態：** 正式迭代
 >
-> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+> 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
 >
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
 >
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
-> **让AI成为你的超能力**
-> 本地部署 · 免费白嫖 · 自制软件
+> **讓AI成為你的超能力**
+> 本機部署 · 免費白嫖 · 自製軟體
 > https://hyphentech.top

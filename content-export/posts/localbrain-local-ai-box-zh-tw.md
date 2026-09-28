@@ -6,12 +6,12 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-09-28
-summary: 我把 Mac 上分散的本機模型、轉寫、生圖、影片、文件和 MCP，收進一個能下載、啟停、對話、交付檔案，還能自己清理快取的本機工作台。1.4.3 版功能與截圖全介紹。
+summary: 我把 Mac 上分散的本機模型、轉寫、生圖、影片、文件和 MCP，收進一個能下載、啟停、對話、交付檔案，還能自己清理快取的本機工作台。1.4.4 版功能與截圖全介紹。
 categories:
-  - 资源分享
+  - 資源分享
 tags:
   - 工具
-  - 开发
+  - 開發
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
@@ -21,13 +21,13 @@ legacy_paths: []
 > 不是再造一個聊天網頁，而是把本機模型、多媒體、文件和 Agent 工具收進同一個 Mac 工作台。
 
 > [!note]
-> 黑粉科技 HyphenTech · LocalBrain 1.4.3 · 2026-09-28 · 本頁另有简体中文與 English 版本（標題下方切換）
+> 黑粉科技 HyphenTech · LocalBrain 1.4.4 · 2026-09-28 · 本頁另有简体中文與 English 版本（標題下方切換）
 
 ---
 
 我做 LocalBrain，不是因為本機模型已經能打贏雲端。同一個複雜任務，頂級雲端模型通常還是更聰明、更穩。真正讓我頭大的，是模型在一個目錄，MLX 在一個終端機，GGUF 又要另一套服務；轉寫、配音、生圖、影片和文件還各有自己的執行方式。
 
-所以目標一直沒變：**不造一個更聰明的大腦，而是造一個更省心的本機 AI 總開關。** 這一版是 1.4.3，距離上次寫介紹的 1.2.22 過了一個月，多了三樣東西：任務過程全透明、產生的檔案和快取可以指定位置並徹底清理、完整的三種介面語言。下面按頁面走一遍，圖都是 1.4.3 的真實介面。
+所以目標一直沒變：**不造一個更聰明的大腦，而是造一個更省心的本機 AI 總開關。** 這一版是 1.4.4，距離上次寫介紹的 1.2.22 過了一個月，多了三樣東西：任務過程全透明、產生的檔案和快取可以指定位置並徹底清理、完整的三種介面語言。下面按頁面走一遍，圖都是 1.4.4 的真實介面。
 
 > [!note]
 > LocalBrain 的定位不是取代 Codex、Claude Code 或 OpenCode，而是給它們和內建對話提供一組可控、按需啟動、盡量留在本機的模型與工具。
@@ -36,7 +36,7 @@ legacy_paths: []
 
 打開軟體，首頁先回答三個問題：這台機器是什麼配置，現在誰在佔記憶體，還能再開什麼。下圖是我的 M5 Pro（64 GB 統一記憶體），正在跑 Qwen3.6-35B-A3B 的 Splash 版本。
 
-![# 首頁：晶片、統一記憶體、可用磁碟，記憶體條拆成「系統」和「AI 模型」兩段；執行中的服務標明預計佔用。](/obsidian-assets/localbrain-local-ai-box/v143-zh-TW-home.png)
+![# 首頁：晶片、統一記憶體、可用磁碟，記憶體條拆成「系統」和「AI 模型」兩段；執行中的服務標明預計佔用。](/obsidian-assets/localbrain-local-ai-box/v144-zh-TW-home.png)
 
 - **記憶體條拆兩段**：系統佔多少、AI 模型佔多少、還剩多少，直接寫出來。模型卡片上的「預估佔用」來自模型體積，Splash 按體積的 1.1 倍估算。
 - **啟動前先仲裁**：記憶體仲裁會把已執行的後端和待啟動的模型放在一起算，資源不夠就明確拒絕，而不是先把系統撐爆再報錯。
@@ -51,13 +51,14 @@ legacy_paths: []
 
 大模型動輒幾十 GB，下完才發現跑不動是最貴的試錯。探索頁的每張卡片把這件事提前了。
 
-![# 探索頁：能力標籤、官方基準原始數字、量化檔位與依本機算出的最低 / 建議記憶體，都在下載按鈕之前。](/obsidian-assets/localbrain-local-ai-box/v143-zh-TW-discover.png)
+![# 探索頁：能力標籤、官方基準原始數字、量化檔位與依本機算出的最低 / 建議記憶體，都在下載按鈕之前。](/obsidian-assets/localbrain-local-ai-box/v144-zh-TW-discover.png)
 
 - **精選目錄 40 多條**：語言、視覺、語音、影像、影片和音樂模型，依加入時間排列。卡片寫明能力標籤、官方基準的原始數字和出處（比如上圖 Qwen3.8 2B 蒸餾版的 MMLU-CoT 0.283→0.548），以及每個量化檔位的體積。
 - **記憶體依本機算**：「最低 / 建議統一記憶體」不是抄模型卡，是結合本機記憶體和模型結構算出來的。
 - **授權放在下載按鈕之前**：禁止商用這類比通常更嚴的限制會提前標出，並附原文連結，不留到下完才發現。
 - **下載來源測速**：ModelScope、HF-Mirror 和 Hugging Face 官方之間一鍵測速，選當次最快的；下載結束再做 SHA-256 校驗，「體積看著對」但內容損壞的檔案不會被當成成功。
 - **已有模型不用搬家**：選中已經下載好的目錄即可掛載，自動識別引擎、類別與上下文能力，不複製權重、不改動來源目錄。
+- **登記前先核對身分（1.4.4 新增）**：用卡片上的「使用現有」選資料夾時，會先辨識資料夾裡到底是什麼模型。確定對不上的直接拒絕，比如把影片模型包登記成圖像編輯模型；只是名稱或類別看起來不一致，就把辨識結果列出來請你確認，改過名的資料夾照樣能匯入。我自己的機器上就查出過一條：圖像編輯模型 Mage-Flow 的登記，指向的是一個 MiniMax H3 影片包的目錄，而那個目錄早就不在了。這種指向已不存在目錄的舊登記，以前會被悄悄略過，現在首頁的「失效的模型登記」會列出來，一鍵移除，只刪登記、不碰模型檔案。
 
 > [!note]
 > **識別到不等於一定能啟動。** 格式、模型架構、視覺投影檔案和目前執行環境都會影響相容性；軟體會盡量給出具體原因，不把「掃到了」包裝成「肯定能跑」。
@@ -68,9 +69,9 @@ legacy_paths: []
 
 內建對話支援串流輸出、附件、停止、會話保存和本機工具。但我更在意的是：你讓它改一個網頁、做一份表格，它能不能真的交付，而且過程經得起檢查。
 
-![# 對話頁（示範資料）：自檢報錯 → 只改一行判空 → 再自檢通過；完成摘要給出 8 輪、9 次工具、2 次失敗和四段耗時。](/obsidian-assets/localbrain-local-ai-box/v143-zh-TW-chat.png)
+![# 對話頁（示範資料）：自檢報錯 → 只改一行判空 → 再自檢通過；完成摘要給出 8 輪、9 次工具、2 次失敗和四段耗時。](/obsidian-assets/localbrain-local-ai-box/v144-zh-TW-chat.png)
 
-上圖是一段示範對話，但每一種顯示都是 1.4.3 的真實介面：
+上圖是一段示範對話，但每一種顯示都是 1.4.4 的真實介面：
 
 - **每一步都擺出來**：讀檔案、列目錄、聯網檢索、寫檔案、逐處編輯、網頁自檢，各自顯示目標和耗時；複雜任務會先列計畫，計畫卡片註明「模型自記，非獨立驗收」。
 - **失敗不藏**：同一工具的重複呼叫合併成「頁面自檢 ×2」，但「1 次失敗」照樣寫在旁邊。圖裡模型第一次自檢拿到頁面報錯，只改了一行判空，再自檢才通過。
@@ -86,7 +87,7 @@ legacy_paths: []
 
 用了一個多月，我自己的機器上積了一堆看不見的東西：檢查截圖、任務檢查點、日誌、早期版本寫進暫存目錄的圖片和配音。1.4.0 把它們全部擺到了設定裡。
 
-![# 設定 · 儲存與清理：產物目錄和快取目錄都能換位置；依類別顯示檔案數與佔用，勾選即可清理。](/obsidian-assets/localbrain-local-ai-box/v143-zh-TW-storage.png)
+![# 設定 · 儲存與清理：產物目錄和快取目錄都能換位置；依類別顯示檔案數與佔用，勾選即可清理。](/obsidian-assets/localbrain-local-ai-box/v144-zh-TW-storage.png)
 
 - **兩個目錄都能換位置**：「產物目錄」放產生的文件、圖片、配音、影片、音樂和網路素材；「快取目錄」放日誌、任務檢查點、檢查截圖和暫存檔案。都可以改到外接硬碟。
 - **換位置自動搬家**：同一顆硬碟直接移動；跨硬碟先複製、核對無誤，再把舊的移到垃圾桶。
@@ -99,7 +100,7 @@ legacy_paths: []
 
 ### ▍接入：把本機能力交給別的 Agent
 
-![# 整合頁：本機 MCP 工具一鍵寫入各客戶端設定，本機模型透過 OpenAI 相容介面對外提供。](/obsidian-assets/localbrain-local-ai-box/v143-zh-TW-integrations.png)
+![# 整合頁：本機 MCP 工具一鍵寫入各客戶端設定，本機模型透過 OpenAI 相容介面對外提供。](/obsidian-assets/localbrain-local-ai-box/v144-zh-TW-integrations.png)
 
 - **本機 MCP 工具**：文件處理、語音轉寫、語音合成、影像、影片和聯網研究，一鍵寫入 Claude Code、OpenCode、Codex、DeepSeek Harness 的設定。只增改 `localbrain-*` 這幾項，不動你的模型設定和其他 MCP；需要時一鍵恢復到寫入前的原樣。
 - **本機模型當腦**：OpenCode、ScreenLex、DeepSeek Harness 可以透過 `127.0.0.1:11434/v1` 這個 OpenAI 相容介面直接用本機模型，不需要 API key。
@@ -113,7 +114,7 @@ Codex 和 Claude Code 更穩的用法，是保留它們的雲端推理模型，�
 
 1.2.70 起就有簡體中文、繁體中文和英文三種介面。但做這組截圖時，我讓截圖台把英文介面上實際出現的中文逐條列出來，結果查出幾十處漏網：模型目錄裡 26 條沒有譯文，確認框、數字和單位的拼接也有問題。這些之前的自動檢查全是綠的，因為它們只認一種寫法。
 
-1.4.3 把這些補齊了，並把三類漏譯方式加進了測試。切換語言只翻譯介面，不改對話、模型回答、程式碼和檔案路徑。
+1.4.3 把這些補齊了，並把三類漏譯方式加進了測試。1.4.4 又把約 1400 條英文逐條審校了一遍，改掉機翻腔和前後不統一的用詞；思考檔位、相容性表、附件處理狀態這類由程式拼出來的標籤，在英文和繁體介面裡也不再漏出簡體。切換語言只翻譯介面，不改對話、模型回答、程式碼和檔案路徑。
 
 ---
 
@@ -142,12 +143,12 @@ Codex 和 Claude Code 更穩的用法，是保留它們的雲端推理模型，�
 
 - 回首頁啟動模型，用內建對話測一次；需要外部 Agent 時再去「整合」寫入設定。
 
-#### LocalBrain 1.4.3
+#### LocalBrain 1.4.4
 
 方寸智匣：把 Mac 上的本機模型、多媒體、文件和 MCP 工具收進同一個工作台。
 
 > [!note]
-> 平台 macOS 13.0+ / Apple Silicon · Windows 仍為 1.3.8 · 安裝包 LocalBrain\_1.4.3\_aarch64.dmg
+> 平台 macOS 13.0+ / Apple Silicon · Windows 仍為 1.3.8 · 安裝包 LocalBrain\_1.4.4\_aarch64.dmg
 
 ```shell
 最新安裝包
@@ -156,7 +157,7 @@ https://github.com/HackerChi-Hub/localbrain-releases/releases/latest
 https://hyphentech.top/localbrain
 ```
 
-目前安裝包的 SHA-256 是 **6b1fdd11c28b0e128daa6f81bcb97de95498c6a1ec3131dbba8311feaabf2dd3**。它使用開發簽章，尚未完成 Apple 公證；第一次打開被 Gatekeeper 攔下時，先確認下載來源和雜湊，再用下面的命令移除隔離屬性。
+目前安裝包的 SHA-256 是 **fc426f29797c97c756c54adf829e70aec1c8aedc39e1963f73836bad87b6dc9d**。它使用開發簽章，尚未完成 Apple 公證；第一次打開被 Gatekeeper 攔下時，先確認下載來源和雜湊，再用下面的命令移除隔離屬性。
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
@@ -178,39 +179,39 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 ## 🧰 我做的工具
 
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
 > [!info] 黑粉盒子 HyphenBox
-> **状态：** 初步构建 · 预览版
+> **狀態：** 初步構建 · 預覽版
 >
-> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+> 免費大模型 API 雷達：持續複測可用性，本機統一介面，Key 只存本機
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
-> **状态：** 正式迭代
+> **狀態：** 正式迭代
 >
-> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+> 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
 >
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
 >
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
-> **让AI成为你的超能力**
-> 本地部署 · 免费白嫖 · 自制软件
+> **讓AI成為你的超能力**
+> 本機部署 · 免費白嫖 · 自製軟體
 > https://hyphentech.top
