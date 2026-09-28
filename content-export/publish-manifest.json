@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "28a48067aae8b6d115e3e37436050a41c21e631dda886f4acc7143399b0fbec0",
-  "published_post_count": 59,
+  "content_sha256": "b10473b102bfee65565d4f925a101b8ee9eb962e0c18679fa85ee3f43bc7ef42",
+  "published_post_count": 60,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -279,6 +279,12 @@
       "slug": "mac-local-inference-engines",
       "legacy_paths": [],
       "sha256": "c3cde9dda02168dc60765af94be52da59e68873d1b0fd2fe8d8eee1b0f78501b"
+    },
+    {
+      "file": "posts/mac-windows-linux-ai-platforms.md",
+      "slug": "mac-windows-linux-ai-platforms",
+      "legacy_paths": [],
+      "sha256": "f5695bda5d49055f6d8a50c2c4d62bd506d3e8cb19937e3c2a785c9292b296f2"
     },
     {
       "file": "posts/minicpm5-2b-localbrain.md",
