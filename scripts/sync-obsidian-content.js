@@ -170,6 +170,8 @@ function prepareSnapshot(posts, temporaryRoot) {
       legacy_paths: Array.isArray(post.data.legacy_paths)
         ? post.data.legacy_paths.map((value) => String(value))
         : [],
+      // 只在译文上出现：verify-export 用它核对「译文不进首页、与原文互相链接」。
+      ...(post.data.translation_of ? { translation_of: String(post.data.translation_of) } : {}),
       sha256: hashBuffer(Buffer.from(exportedRaw)),
     });
   }

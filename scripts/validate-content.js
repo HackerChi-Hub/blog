@@ -6,6 +6,8 @@ const matter = require('gray-matter');
 const YAML = require('yaml');
 
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
+// 与 lib/markdown.js 的 POST_LANGS 一致：这里先拦，免得错误要到构建时才暴露。
+const VALID_LANGS = new Set(['zh-CN', 'zh-TW', 'en']);
 const SAFE_ROUTE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const BACKUP_MARKDOWN_RE = /\.(?:bak|backup)\.md(?:own)?$/i;
@@ -268,7 +270,10 @@ function main() {
       if (previous) failures.push(`路由冲突：${route} 同时属于 ${previous} 和 ${relativePath}`);
       else routes.set(route, relativePath);
     }
-    postRecords.push({ relativePath, slug, legacyPaths, body });
+    const lang = asString(data.lang) || 'zh-CN';
+    if (!VALID_LANGS.has(lang)) failures.push(`${relativePath} 的 lang 无效：${lang}（只认 ${[...VALID_LANGS].join(' / ')}）`);
+    const translationOf = normalizeRoute(data.translation_of);
+    postRecords.push({ relativePath, slug, legacyPaths, body, status, lang, translationOf });
   }
 
   const knownRoutes = new Set(routes.keys());
@@ -280,6 +285,22 @@ function main() {
         failures.push(`${post.relativePath} 的双链目标不存在：${target}`);
       }
     }
+  }
+
+  // 译文：必须挂在一篇已发布的原文下，原文本身不能是译文，同一原文下每种语言只有一篇。
+  const publishedBySlug = new Map(postRecords.filter((post) => post.status === 'published').map((post) => [post.slug, post]));
+  const translationLangs = new Set();
+  for (const post of postRecords) {
+    if (!post.translationOf || post.status !== 'published') continue;
+    const original = publishedBySlug.get(post.translationOf);
+    if (!original) {
+      failures.push(`${post.relativePath} 的 translation_of 不是一篇已发布的文章：${post.translationOf}`);
+    } else if (original.translationOf) {
+      failures.push(`${post.relativePath} 指向的 ${original.slug} 本身也是译文；译文只能挂在原文下`);
+    } else if (post.lang === original.lang || translationLangs.has(`${original.slug}|${post.lang}`)) {
+      failures.push(`${post.relativePath}：${original.slug} 已有 ${post.lang} 版本`);
+    }
+    translationLangs.add(`${post.translationOf}|${post.lang}`);
   }
 
   validateConfig(contentDir, 'notices.yml', failures, warnings);

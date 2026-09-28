@@ -54,6 +54,7 @@ function loadExpectedPosts(contentDir) {
       file: path.relative(contentDir, filePath),
       slug: String(data.slug || ''),
       legacy_paths: normalizeList(data.legacy_paths).map((item) => item.trim()).filter(Boolean),
+      ...(data.translation_of ? { translation_of: String(data.translation_of) } : {}),
     }));
 }
 
@@ -125,6 +126,28 @@ try {
       if (!legacyPath || !fs.existsSync(legacyHtmlPath)) {
         obsidianFailures.push(`缺少历史网址页面：${legacyPath || post.file}`);
       }
+    }
+  }
+
+  // 译文：页面要有、站点地图要有（上面已查），但不进首页列表；与原文互相链接（语言切换）。
+  const homeHtmlPath = path.join(outDir, 'index.html');
+  const homeHtml = fs.existsSync(homeHtmlPath) ? fs.readFileSync(homeHtmlPath, 'utf8') : '';
+  const trim = (value) => String(value || '').replace(/^\/+|\/+$/g, '');
+  for (const post of posts.filter((item) => item.translation_of)) {
+    const slug = trim(post.slug);
+    const original = trim(post.translation_of);
+    if (homeHtml.includes(`href="/${slug}/"`)) {
+      obsidianFailures.push(`译文不应出现在首页列表：${slug}`);
+    }
+    const translationPath = path.join(outDir, slug, 'index.html');
+    const originalPath = path.join(outDir, original, 'index.html');
+    if (fs.existsSync(translationPath) && !fs.readFileSync(translationPath, 'utf8').includes(`href="/${original}/"`)) {
+      obsidianFailures.push(`译文页缺少回到原文的语言切换：${slug} → ${original}`);
+    }
+    if (!fs.existsSync(originalPath)) {
+      obsidianFailures.push(`译文指向的原文页不存在：${slug} → ${original}`);
+    } else if (!fs.readFileSync(originalPath, 'utf8').includes(`href="/${slug}/"`)) {
+      obsidianFailures.push(`原文页缺少指向译文的语言切换：${original} → ${slug}`);
     }
   }
 

@@ -1,7 +1,7 @@
 // pages/sitemap.xml.js
 // 静态生成 sitemap.xml
 
-import { getPosts } from '../lib/content';
+import { getAllPublishedPosts } from '../lib/content';
 import { generateSitemap } from '../lib/sitemap';
 
 export default function Sitemap({ xml }) {
@@ -18,7 +18,8 @@ export default function Sitemap({ xml }) {
 
 export async function getStaticProps() {
   try {
-    const posts = await getPosts();
+    // 译文不进列表，但要进站点地图（verify-export 逐篇核对）。
+    const posts = await getAllPublishedPosts();
     const sitemap = generateSitemap(posts);
 
     return {

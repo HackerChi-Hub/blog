@@ -1,6 +1,7 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { getAllSlugs, getPostBySlug, getPosts } from '../lib/content';
+import { getAllSlugs, getPostBySlug, getPosts, getTranslationGroup } from '../lib/content';
 import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
@@ -41,9 +42,10 @@ export async function getStaticProps({ params }) {
   console.log('[getStaticProps] slug:', slug);
 
   try {
-    const [post, allPosts] = await Promise.all([
+    const [post, allPosts, translations] = await Promise.all([
       getPostBySlug(slug),
       getPosts(),
+      getTranslationGroup(slug),
     ]);
 
     if (!post) {
@@ -59,6 +61,7 @@ export async function getStaticProps({ params }) {
         meta: post.meta,
         markdownHtml: post.markdownHtml || null,
         relatedPosts,
+        translations,
       },
     };
   } catch (error) {
@@ -82,10 +85,46 @@ const formatDate = (dateString) => {
   }
 };
 
+const LANG_LABELS = { 'zh-CN': '简体中文', 'zh-TW': '繁體中文', en: 'English' };
+
+/** 同一篇文章的其它语言版本。只有一种语言时不渲染。 */
+function LanguageSwitch({ translations, current }) {
+  if (!Array.isArray(translations) || translations.length < 2) return null;
+  return (
+    <nav
+      aria-label="Language"
+      className="post-language-switch"
+      style={{ marginTop: '1rem', display: 'flex', gap: '10px', flexWrap: 'wrap', fontSize: '0.95rem' }}
+    >
+      {translations.map((item) =>
+        item.slug === current ? (
+          <span
+            key={item.slug}
+            aria-current="page"
+            style={{ padding: '4px 12px', borderRadius: '999px', background: 'rgba(105, 240, 174, 0.16)', color: 'var(--accent-green)' }}
+          >
+            {LANG_LABELS[item.lang] || item.lang}
+          </span>
+        ) : (
+          <Link
+            key={item.slug}
+            href={`/${item.slug}/`}
+            hrefLang={item.lang}
+            style={{ padding: '4px 12px', borderRadius: '999px', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
+          >
+            {LANG_LABELS[item.lang] || item.lang}
+          </Link>
+        )
+      )}
+    </nav>
+  );
+}
+
 export default function PostPage({
   meta,
   markdownHtml = null,
   relatedPosts = [],
+  translations = [],
 }) {
   const router = useRouter();
   const slug = router.query.slug;
@@ -164,6 +203,13 @@ export default function PostPage({
         tags={tagNames}
         author={SITE_CONFIG.author}
       />
+      {translations.length > 1 && (
+        <Head>
+          {translations.map((item) => (
+            <link key={item.slug} rel="alternate" hrefLang={item.lang} href={`${SITE_CONFIG.url}/${item.slug}/`} />
+          ))}
+        </Head>
+      )}
 
       <main className="page">
         {/* 按图片自然比例完整展示封面，不再强制裁成 16:9。 */}
@@ -210,6 +256,8 @@ export default function PostPage({
             >
               {meta.title}
             </h1>
+
+            <LanguageSwitch translations={translations} current={meta.slug || slug} />
 
             <div
               style={{
