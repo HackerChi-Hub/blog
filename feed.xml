@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 28 Sep 2026 05:53:45 GMT</lastBuildDate>
-    <pubDate>Mon, 28 Sep 2026 05:53:45 GMT</pubDate>
+    <lastBuildDate>Mon, 28 Sep 2026 05:54:16 GMT</lastBuildDate>
+    <pubDate>Mon, 28 Sep 2026 05:54:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -90,7 +90,7 @@
       <title>完全免费！黑粉录屏！可能是你遇到的最好的录屏软件</title>
       <link>https://hyphentech.top/hyphenscreen-local-screen-recorder/</link>
       <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-local-screen-recorder/</guid>
-      <description>录屏最怕的不是没录好，是录到了不该录的。我给自己写的录屏软件加了一道体检：导出之后回读成片本身，逐帧看敏感信息有没有漏出去。</description>
+      <description>录屏最怕的不是没录好，是录到了不该录的。黑粉录屏 1.0.1 正式版：本机识别敏感信息、打码跟着放大和滚动走，导出后回读成片做体检；录制和缓存放哪自己定。附 1.0.1 实机截图的完整功能介绍。</description>
       <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     <category>AI</category>
