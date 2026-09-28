@@ -11,6 +11,7 @@ import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
+import { formatDateFor, LANG_NAMES, makeT } from '../lib/blog-i18n.cjs';
 
 export async function getStaticPaths() {
   if (process.env.HOMEPAGE_ONLY === '1') {
@@ -53,8 +54,13 @@ export async function getStaticProps({ params }) {
       return { notFound: true };
     }
 
-    // 获取相关文章
-    const relatedPosts = getRelatedPosts(post.meta, allPosts, 3);
+    // 获取相关文章。译文和原文是同一篇：按原文算，并且不把原文推荐回来（切换条已经链过去了）。
+    const basis = post.meta.translationOf
+      ? allPosts.find((item) => item.slug === post.meta.translationOf) || post.meta
+      : post.meta;
+    const relatedPosts = getRelatedPosts(basis, allPosts, 3).filter(
+      (item) => item.slug !== post.meta.translationOf
+    );
 
     return {
       props: {
@@ -72,21 +78,6 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  try {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date(dateString));
-  } catch {
-    return dateString;
-  }
-};
-
-const LANG_LABELS = { 'zh-CN': '简体中文', 'zh-TW': '繁體中文', en: 'English' };
-
 /** 同一篇文章的其它语言版本。只有一种语言时不渲染。 */
 function LanguageSwitch({ translations, current }) {
   if (!Array.isArray(translations) || translations.length < 2) return null;
@@ -103,7 +94,7 @@ function LanguageSwitch({ translations, current }) {
             aria-current="page"
             style={{ padding: '4px 12px', borderRadius: '999px', background: 'rgba(105, 240, 174, 0.16)', color: 'var(--accent-green)' }}
           >
-            {LANG_LABELS[item.lang] || item.lang}
+            {LANG_NAMES[item.lang] || item.lang}
           </span>
         ) : (
           <Link
@@ -112,7 +103,7 @@ function LanguageSwitch({ translations, current }) {
             hrefLang={item.lang}
             style={{ padding: '4px 12px', borderRadius: '999px', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
           >
-            {LANG_LABELS[item.lang] || item.lang}
+            {LANG_NAMES[item.lang] || item.lang}
           </Link>
         )
       )}
@@ -128,7 +119,9 @@ export default function PostPage({
 }) {
   const router = useRouter();
   const slug = router.query.slug;
-  
+  // 界面文字跟文章语言走（frontmatter 的 lang）；正文本来就是那种语言。
+  const t = makeT(meta?.lang);
+
   if (!markdownHtml) {
     return (
       <>
@@ -187,8 +180,8 @@ export default function PostPage({
   
   // 计算阅读时间
   const readingTime = estimateReadingTime({ meta, markdownHtml });
-  const readingTimeText = formatReadingTime(readingTime);
-  const hasBrandSlogan = markdownHtml.includes(SITE_CONFIG.slogan);
+  const readingTimeText = formatReadingTime(readingTime, t.lang);
+  const hasBrandSlogan = markdownHtml.includes(t(SITE_CONFIG.slogan));
 
   return (
     <>
@@ -201,7 +194,8 @@ export default function PostPage({
         publishedTime={publishedTime}
         modifiedTime={publishedTime}
         tags={tagNames}
-        author={SITE_CONFIG.author}
+        author={t(SITE_CONFIG.author)}
+        lang={t.lang}
       />
       {translations.length > 1 && (
         <Head>
@@ -272,7 +266,7 @@ export default function PostPage({
             >
               {meta.date && (
                 <span style={{ letterSpacing: '0.18em' }}>
-                  {formatDate(meta.date)}
+                  {formatDateFor(meta.date, t.lang)}
                 </span>
               )}
               <span
@@ -322,7 +316,7 @@ export default function PostPage({
                         color: 'var(--text-secondary)',
                       }}
                     >
-                      分类：
+                      {t('分类：')}
                     </span>
                     {categories.map((cat) => (
                       <span
@@ -357,7 +351,7 @@ export default function PostPage({
                         color: 'var(--text-secondary)',
                       }}
                     >
-                      标签：
+                      {t('标签：')}
                     </span>
                     {tags.map((tag) => (
                       <span
@@ -386,7 +380,7 @@ export default function PostPage({
 
           {!hasBrandSlogan && (
             <aside
-              aria-label="黑粉科技宣传语"
+              aria-label={t('黑粉科技宣传语')}
               style={{
                 marginTop: '40px',
                 padding: '22px 24px',
@@ -397,13 +391,13 @@ export default function PostPage({
               }}
             >
               <div style={{ color: 'var(--home-yellow)', fontSize: '0.78rem', letterSpacing: '0.18em' }}>
-                黑粉科技
+                {t('黑粉科技')}
               </div>
               <div style={{ marginTop: '8px', color: '#f8fbff', fontSize: '1.25rem', fontWeight: 700 }}>
-                {SITE_CONFIG.slogan}
+                {t(SITE_CONFIG.slogan)}
               </div>
               <div style={{ marginTop: '8px', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
-                本地部署 / 免费白嫖 / 自制软件
+                {t('本地部署 / 免费白嫖 / 自制软件')}
               </div>
             </aside>
           )}
@@ -422,16 +416,17 @@ export default function PostPage({
               title={meta.title}
               url={articleUrl}
               description={description}
+              lang={t.lang}
             />
           </div>
 
           {/* 相关文章 - 融入文章区域末尾 */}
           <div style={{ marginTop: '32px' }}>
-            <RelatedPosts posts={relatedPosts} />
+            <RelatedPosts posts={relatedPosts} lang={t.lang} />
           </div>
 
           {/* 留言区 - 数据在客户端拉，不参与静态构建 */}
-          <Comments slug={meta.slug || slug} />
+          <Comments slug={meta.slug || slug} lang={t.lang} />
         </section>
 
         {/* 返回首页按钮 */}
@@ -475,7 +470,7 @@ export default function PostPage({
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
-            返回首页
+            {t('返回首页')}
           </Link>
         </div>
       </main>

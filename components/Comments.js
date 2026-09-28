@@ -6,6 +6,7 @@
 // 需要重新构建，发布链一行都不用改。
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { makeT } from '../lib/blog-i18n.cjs';
 
 // 默认关闭，必须显式开启。
 //
@@ -21,11 +22,11 @@ const MAX_NICKNAME = 24;
 const MAX_CONTENT = 1000;
 const NICKNAME_STORAGE_KEY = 'hyphentech:comment-nickname';
 
-function formatTime(milliseconds) {
+function formatTime(milliseconds, t) {
   const diff = Date.now() - milliseconds;
-  if (diff < 60_000) return '刚刚';
-  if (diff < 3_600_000) return `${Math.floor(diff / 60_000)} 分钟前`;
-  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)} 小时前`;
+  if (diff < 60_000) return t('刚刚');
+  if (diff < 3_600_000) return t('{n} 分钟前', { n: Math.floor(diff / 60_000) });
+  if (diff < 86_400_000) return t('{n} 小时前', { n: Math.floor(diff / 3_600_000) });
   const date = new Date(milliseconds);
   const pad = (n) => String(n).padStart(2, '0');
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
@@ -101,13 +102,13 @@ function useTurnstile(containerRef, enabled) {
   return { ready, getToken, reset };
 }
 
-function CommentItem({ comment, onReply, replyingTo }) {
+function CommentItem({ comment, onReply, replyingTo, t }) {
   return (
     <li className="comment-item">
       <div className="comment-head">
         <span className="comment-nickname">{comment.nickname}</span>
         <time className="comment-time" dateTime={new Date(comment.created_at).toISOString()}>
-          {formatTime(comment.created_at)}
+          {formatTime(comment.created_at, t)}
         </time>
       </div>
       <p className="comment-content">{comment.content}</p>
@@ -117,13 +118,13 @@ function CommentItem({ comment, onReply, replyingTo }) {
           className="comment-reply-button"
           onClick={() => onReply(replyingTo === comment.id ? null : comment.id)}
         >
-          {replyingTo === comment.id ? '取消回复' : '回复'}
+          {replyingTo === comment.id ? t('取消回复') : t('回复')}
         </button>
       )}
       {comment.replies?.length > 0 && (
         <ul className="comment-replies">
           {comment.replies.map((reply) => (
-            <CommentItem key={reply.id} comment={reply} />
+            <CommentItem key={reply.id} comment={reply} t={t} />
           ))}
         </ul>
       )}
@@ -131,7 +132,8 @@ function CommentItem({ comment, onReply, replyingTo }) {
   );
 }
 
-function CommentsPanel({ slug }) {
+function CommentsPanel({ slug, lang }) {
+  const t = makeT(lang);
   const [comments, setComments] = useState([]);
   const [loadState, setLoadState] = useState('loading'); // loading | ready | failed
   const [nickname, setNickname] = useState('');
@@ -180,7 +182,7 @@ function CommentsPanel({ slug }) {
 
     const token = turnstile.getToken();
     if (TURNSTILE_SITE_KEY && !token) {
-      setMessage({ kind: 'error', text: '人机校验还没完成，稍等一下再发' });
+      setMessage({ kind: 'error', text: t('人机校验还没完成，稍等一下再发') });
       return;
     }
 
@@ -199,7 +201,10 @@ function CommentsPanel({ slug }) {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) {
-        setMessage({ kind: 'error', text: data.error || '发送失败，稍后再试' });
+        // 服务端错误是简体：认得的翻译，认不得的在非简体页换成通用提示，不把简体原句甩给读者。
+        const serverError = data.error && t.has(data.error) ? t(data.error) : null;
+        const fallback = t.lang === 'zh-CN' ? data.error : null;
+        setMessage({ kind: 'error', text: serverError || fallback || t('发送失败，稍后再试') });
         return;
       }
       try {
@@ -209,10 +214,10 @@ function CommentsPanel({ slug }) {
       }
       setContent('');
       setReplyTo(null);
-      setMessage({ kind: 'ok', text: '发出去了' });
+      setMessage({ kind: 'ok', text: t('发出去了') });
       await load();
     } catch {
-      setMessage({ kind: 'error', text: '网络没连上，检查一下再试' });
+      setMessage({ kind: 'error', text: t('网络没连上，检查一下再试') });
     } finally {
       turnstile.reset();
       setSubmitting(false);
@@ -224,28 +229,28 @@ function CommentsPanel({ slug }) {
   return (
     <section className="comments-section" aria-labelledby="comments-heading">
       <h2 id="comments-heading" className="comments-heading">
-        留言{loadState === 'ready' && total > 0 ? ` · ${total}` : ''}
+        {t('留言')}{loadState === 'ready' && total > 0 ? ` · ${total}` : ''}
       </h2>
 
       <form className="comment-form" onSubmit={handleSubmit}>
         {replyTo && (
           <div className="comment-replying-hint">
-            正在回复 #{replyTo}
-            <button type="button" onClick={() => setReplyTo(null)}>取消</button>
+            {t('正在回复 #{id}', { id: replyTo })}
+            <button type="button" onClick={() => setReplyTo(null)}>{t('取消')}</button>
           </div>
         )}
-        <label className="comment-label" htmlFor="comment-nickname">昵称</label>
+        <label className="comment-label" htmlFor="comment-nickname">{t('昵称')}</label>
         <input
           id="comment-nickname"
           className="comment-input"
           value={nickname}
           onChange={(event) => setNickname(event.target.value)}
           maxLength={MAX_NICKNAME}
-          placeholder="怎么称呼你"
+          placeholder={t('怎么称呼你')}
           autoComplete="nickname"
           required
         />
-        <label className="comment-label" htmlFor="comment-content">留言</label>
+        <label className="comment-label" htmlFor="comment-content">{t('留言::label')}</label>
         <textarea
           id="comment-content"
           className="comment-textarea"
@@ -253,7 +258,7 @@ function CommentsPanel({ slug }) {
           onChange={(event) => setContent(event.target.value)}
           maxLength={MAX_CONTENT}
           rows={4}
-          placeholder="说点什么"
+          placeholder={t('说点什么')}
           required
         />
         <div className="comment-form-footer">
@@ -261,7 +266,7 @@ function CommentsPanel({ slug }) {
           <div className="comment-actions">
             <span className="comment-counter">{content.length}/{MAX_CONTENT}</span>
             <button type="submit" className="comment-submit" disabled={submitting}>
-              {submitting ? '发送中…' : '发表'}
+              {submitting ? t('发送中…') : t('发表')}
             </button>
           </div>
         </div>
@@ -272,14 +277,14 @@ function CommentsPanel({ slug }) {
         )}
       </form>
 
-      {loadState === 'loading' && <p className="comment-placeholder">正在加载留言…</p>}
+      {loadState === 'loading' && <p className="comment-placeholder">{t('正在加载留言…')}</p>}
       {loadState === 'failed' && (
         <p className="comment-placeholder">
-          留言没加载出来。<button type="button" className="comment-retry" onClick={load}>重试</button>
+          {t('留言没加载出来。')}<button type="button" className="comment-retry" onClick={load}>{t('重试')}</button>
         </p>
       )}
       {loadState === 'ready' && total === 0 && (
-        <p className="comment-placeholder">还没有人留言，来坐第一个。</p>
+        <p className="comment-placeholder">{t('还没有人留言，来坐第一个。')}</p>
       )}
       {loadState === 'ready' && total > 0 && (
         <ul className="comment-list">
@@ -289,6 +294,7 @@ function CommentsPanel({ slug }) {
               comment={comment}
               onReply={setReplyTo}
               replyingTo={replyTo}
+              t={t}
             />
           ))}
         </ul>
@@ -302,7 +308,7 @@ function CommentsPanel({ slug }) {
  * 无条件调用，在组件体里提前 return 会违反 hooks 规则；包一层则是整个子组件
  * 不被渲染，它的 hooks 自然一次都不会执行。
  */
-export default function Comments({ slug }) {
+export default function Comments({ slug, lang }) {
   if (!COMMENTS_ENABLED) return null;
-  return <CommentsPanel slug={slug} />;
+  return <CommentsPanel slug={slug} lang={lang} />;
 }

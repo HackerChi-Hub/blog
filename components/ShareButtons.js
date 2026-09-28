@@ -3,16 +3,18 @@
 
 import { useEffect, useState } from 'react';
 import { SITE_CONFIG } from '../lib/seo';
+import { makeT } from '../lib/blog-i18n.cjs';
 
 /**
- * 分享按钮组件
+ * 分享按钮组件。lang：文章语言，按钮文字和提示跟着走。
  */
-export default function ShareButtons({ title, url, description }) {
+export default function ShareButtons({ title, url, description, lang }) {
+  const t = makeT(lang);
   const [copied, setCopied] = useState(false);
   const [showWeChatQR, setShowWeChatQR] = useState(false);
   const [canNativeShare, setCanNativeShare] = useState(false);
   const fullUrl = url.startsWith('http') ? url : `${SITE_CONFIG.url}${url}`;
-  const shareText = `${title} - ${SITE_CONFIG.name}`;
+  const shareText = `${title} - ${t(SITE_CONFIG.name)}`;
   const shareDescription = description || SITE_CONFIG.description;
 
   // 首次客户端渲染保持与服务端一致，挂载后再检测原生分享能力，避免水合不匹配。
@@ -51,7 +53,7 @@ export default function ShareButtons({ title, url, description }) {
     
     if (isWeChat) {
       // 在微信中，提示用户使用右上角菜单分享
-      alert('请点击右上角菜单，选择"发送给朋友"或"分享到朋友圈"');
+      alert(t('请点击右上角菜单，选择"发送给朋友"或"分享到朋友圈"'));
     } else {
       // 不在微信中，显示二维码或复制链接提示
       setShowWeChatQR(true);
@@ -197,7 +199,7 @@ export default function ShareButtons({ title, url, description }) {
           alignSelf: 'center',
         }}
       >
-        分享到：
+        {t('分享到：')}
       </span>
 
       {/* 原生分享（移动端） */}
@@ -219,7 +221,7 @@ export default function ShareButtons({ title, url, description }) {
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
           </svg>
-          分享
+          {t('分享')}
         </button>
       )}
 
@@ -289,7 +291,7 @@ export default function ShareButtons({ title, url, description }) {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.598-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.179c0-.651.52-1.18 1.162-1.18zm6.43 1.18c0-.651.52-1.18 1.162-1.18.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.179zm-1.162 4.177c-2.554 0-4.661 1.523-5.09 3.53-.013.062-.02.125-.02.188 0 .326.261.59.585.59a.583.583 0 0 0 .504-.287c.89-1.214 2.307-1.98 3.92-2.026 1.92-.068 3.715.64 4.998 1.83a.59.59 0 0 0 .833-.017.607.607 0 0 0 .018-.857c-1.47-1.54-3.548-2.371-5.728-2.371zm-2.344 2.73c.356 0 .644.293.644.655a.648.648 0 0 1-.644.654.648.648 0 0 1-.644-.654c0-.362.288-.655.644-.655zm4.713 0c.356 0 .644.293.644.655a.648.648 0 0 1-.644.654.648.648 0 0 1-.644-.654c0-.362.288-.655.644-.655z"/>
         </svg>
-        微信
+        {t('微信')}
       </button>
 
       {/* 微博 */}
@@ -306,7 +308,7 @@ export default function ShareButtons({ title, url, description }) {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M9.839 18.761c-1.16 0-2.244-.3-3.192-.825a.69.69 0 0 1-.357-.622c0-.234.12-.43.31-.525 1.917-1.018 3.24-2.86 3.24-4.95 0-3.182-2.584-5.764-5.764-5.764S0 9.438 0 12.62c0 3.183 2.584 5.765 5.764 5.765.29 0 .576-.02.857-.058a.7.7 0 0 1 .636.207.688.688 0 0 1 .14.76c-.3.6-.7 1.15-1.19 1.62a9.27 9.27 0 0 0 2.632 1.8c.99.5 2.1.76 3.22.76 4.22 0 7.64-3.42 7.64-7.64 0-4.22-3.42-7.64-7.64-7.64-4.22 0-7.64 3.42-7.64 7.64 0 .88.15 1.73.43 2.52.1.3.05.63-.13.88-.18.25-.48.4-.8.4-.1 0-.2-.02-.3-.05a11.1 11.1 0 0 1-1.5-5.75c0-5.04 4.1-9.14 9.14-9.14s9.14 4.1 9.14 9.14-4.1 9.14-9.14 9.14z"/>
         </svg>
-        微博
+        {t('微博')}
       </button>
 
       {/* QQ */}
@@ -340,7 +342,7 @@ export default function ShareButtons({ title, url, description }) {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
         </svg>
-        QQ空间
+        {t('QQ空间')}
       </button>
 
       {/* 复制链接 */}
@@ -364,7 +366,7 @@ export default function ShareButtons({ title, url, description }) {
             </>
           )}
         </svg>
-        {copied ? '已复制' : '复制链接'}
+        {copied ? t('已复制') : t('复制链接')}
       </button>
 
       {/* 微信二维码弹窗 */}
@@ -402,7 +404,7 @@ export default function ShareButtons({ title, url, description }) {
                 fontSize: '1.1rem',
               }}
             >
-              微信分享
+              {t('微信分享')}
             </h3>
             <div
               style={{
@@ -412,7 +414,7 @@ export default function ShareButtons({ title, url, description }) {
             >
               <img
                 src={getQRCodeUrl()}
-                alt="二维码"
+                alt={t('二维码')}
                 style={{
                   width: '200px',
                   height: '200px',
@@ -427,7 +429,7 @@ export default function ShareButtons({ title, url, description }) {
                 fontSize: '0.9rem',
               }}
             >
-              使用微信扫描二维码打开文章
+              {t('使用微信扫描二维码打开文章')}
             </p>
             <p
               style={{
@@ -436,7 +438,7 @@ export default function ShareButtons({ title, url, description }) {
                 fontSize: '0.85rem',
               }}
             >
-              链接已复制到剪贴板
+              {t('链接已复制到剪贴板')}
             </p>
             <button
               onClick={() => setShowWeChatQR(false)}
@@ -450,7 +452,7 @@ export default function ShareButtons({ title, url, description }) {
                 fontSize: '0.9rem',
               }}
             >
-              关闭
+              {t('关闭')}
             </button>
           </div>
         </div>

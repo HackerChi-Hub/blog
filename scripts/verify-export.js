@@ -55,7 +55,23 @@ function loadExpectedPosts(contentDir) {
       slug: String(data.slug || ''),
       legacy_paths: normalizeList(data.legacy_paths).map((item) => item.trim()).filter(Boolean),
       ...(data.translation_of ? { translation_of: String(data.translation_of) } : {}),
+      ...(data.lang ? { lang: String(data.lang) } : {}),
     }));
+}
+
+// 译文页的界面文字（分类、标签、分享、相关文章、阅读时长、提示框标题、文末签名）要跟文章语言走。
+// 探针只挑只会出现在界面位置、不会出现在正常译文正文里的简体短语；相关文章区和脚本数据
+// （里面本来就是中文原文的标题、摘要）先剥掉再查。
+const CHROME_PROBES = {
+  en: ['分类：', '标签：', '返回首页', '分享到：', '复制链接', '相关文章', '状态：', '下载与更新', '分钟', '信息：', '提示：', '正在加载留言'],
+  'zh-TW': ['分类：', '标签：', '返回首页', '复制链接', '相关文章', '状态：', '下载与更新', '分钟', '信息：', '正在加载留言'],
+};
+
+function chromeText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<section[^>]*class="related-posts"[\s\S]*?<\/section>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
 }
 
 const args = parseArgs(process.argv.slice(2));
@@ -148,6 +164,22 @@ try {
       obsidianFailures.push(`译文指向的原文页不存在：${slug} → ${original}`);
     } else if (!fs.readFileSync(originalPath, 'utf8').includes(`href="/${slug}/"`)) {
       obsidianFailures.push(`原文页缺少指向译文的语言切换：${original} → ${slug}`);
+    }
+  }
+
+  for (const post of posts) {
+    const slug = trim(post.slug);
+    const lang = post.lang || 'zh-CN';
+    const htmlPath = path.join(outDir, slug, 'index.html');
+    if (!slug || !fs.existsSync(htmlPath)) continue;
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (!new RegExp(`<html[^>]*\\blang="${lang}"`).test(html)) {
+      obsidianFailures.push(`页面语言不是 ${lang}：${slug}（<html lang> 缺失或不符）`);
+    }
+    const chrome = chromeText(html);
+    const leftovers = (CHROME_PROBES[lang] || []).filter((probe) => chrome.includes(probe));
+    if (leftovers.length) {
+      obsidianFailures.push(`${lang} 页面的界面文字残留简体：${slug} → ${leftovers.join('、')}`);
     }
   }
 

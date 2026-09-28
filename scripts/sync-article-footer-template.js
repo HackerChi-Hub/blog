@@ -39,7 +39,27 @@ function publicProducts(identity) {
     .filter((product) => product && product.public !== false);
 }
 
-function renderFooter(identity) {
+const FOOTER_LANGS = ['zh-CN', 'zh-TW', 'en'];
+
+/**
+ * 签名文案的翻译函数。简体原样返回；译文按简体原句查 identity.i18n[lang]，
+ * 查不到直接抛错——译文页宁可发布失败，也不印一段过期译文或混进简体。
+ */
+function footerTranslator(identity, lang) {
+  if (!FOOTER_LANGS.includes(lang)) throw new Error(`文章 lang「${lang}」没有对应的签名语言，只认：${FOOTER_LANGS.join(' / ')}`);
+  if (lang === 'zh-CN') return (text) => text;
+  const table = identity.i18n?.[lang] || {};
+  return (text) => {
+    if (!text) return text;
+    if (!Object.prototype.hasOwnProperty.call(table, text)) {
+      throw new Error(`hfkj_identity.json 的 i18n.${lang} 缺少这句的译文：「${text}」`);
+    }
+    return table[text];
+  };
+}
+
+function renderFooter(identity, lang = 'zh-CN') {
+  const tr = footerTranslator(identity, lang);
   const channel = identity.channel || {};
   const footer = identity.article_footer || {};
   const products = publicProducts(identity);
@@ -49,34 +69,41 @@ function renderFooter(identity) {
     '',
     '---',
     '',
-    `## 🧰 ${footer.products_title || '我做的工具'}`,
+    `## 🧰 ${tr(footer.products_title || '我做的工具')}`,
     '',
-    footer.products_intro || '这些工具都由我持续维护。',
+    tr(footer.products_intro || '这些工具都由我持续维护。'),
     '',
   ];
   for (const product of products) {
     if (!product.name || !product.url) throw new Error(`公开产品缺少名称或下载入口：${product.id || '未知'}`);
     lines.push(
-      `> [!info] ${product.name}`,
-      `> **状态：** ${product.status_label || '持续迭代'}`,
+      `> [!info] ${tr(product.name)}`,
+      `> **${tr('状态：')}** ${tr(product.status_label || '持续迭代')}`,
       '>',
-      `> ${product.tagline || ''}`,
+      `> ${tr(product.tagline || '')}`,
       '>',
-      `> [下载与更新](${product.url})`,
+      `> [${tr('下载与更新')}](${product.url})`,
       '',
     );
   }
   lines.push(
     '---',
     '',
-    `> [!quote] ${channel.name || '黑粉科技'}`,
-    `> **${channel.slogan || '让AI成为你的超能力'}**`,
-    `> ${footer.brand_focus || '本地部署 · 免费白嫖 · 自制软件'}`,
+    `> [!quote] ${tr(channel.name || '黑粉科技')}`,
+    `> **${tr(channel.slogan || '让AI成为你的超能力')}**`,
+    `> ${tr(footer.brand_focus || '本地部署 · 免费白嫖 · 自制软件')}`,
     `> ${channel.site || 'https://hyphentech.top'}`,
     '',
     END,
   );
   return lines.join('\n');
+}
+
+/** frontmatter 里的 lang；没写就是简体原文。 */
+function postLang(source) {
+  const frontmatter = String(source).match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const match = frontmatter && frontmatter[1].match(/^lang:\s*['"]?([A-Za-z-]+)['"]?\s*$/m);
+  return match ? match[1] : 'zh-CN';
 }
 
 function replaceGeneratedFooter(source, replacement) {
@@ -129,7 +156,7 @@ function stripLegacyFooter(source, productNames) {
   return next;
 }
 
-function syncPublishedPosts(contentDir, replacement, productNames) {
+function syncPublishedPosts(contentDir, renderFor, productNames) {
   const postsDir = path.resolve(contentDir, 'posts');
   if (!fs.existsSync(postsDir)) return 0;
   let changed = 0;
@@ -139,6 +166,12 @@ function syncPublishedPosts(contentDir, replacement, productNames) {
     if (!fs.statSync(postPath).isFile()) continue;
     const source = fs.readFileSync(postPath, 'utf8');
     if (!/^status:\s*published\s*$/m.test(source)) continue;
+    let replacement;
+    try {
+      replacement = renderFor(postLang(source));
+    } catch (error) {
+      throw new Error(`${name}：${error.message}`);
+    }
     const next = source.includes(START) && source.includes(END)
       ? replaceGeneratedFooter(source, replacement)
       : `${stripLegacyFooter(source, productNames)}\n\n${replacement}\n`;
@@ -169,13 +202,23 @@ function main() {
     console.log('✅ Obsidian 文章尾部模板已是最新');
   }
   const productNames = publicProducts(identity).map((product) => String(product.name || '')).filter(Boolean);
-  const changedPosts = syncPublishedPosts(args.contentDir, replacement, productNames);
+  // 每篇按自己的 lang 渲染：译文页的签名是那种语言，不再被这里刷回简体。
+  const rendered = new Map();
+  const renderFor = (lang) => {
+    if (!rendered.has(lang)) rendered.set(lang, renderFooter(identity, lang));
+    return rendered.get(lang);
+  };
+  const changedPosts = syncPublishedPosts(args.contentDir, renderFor, productNames);
   console.log(`✅ 已刷新 ${changedPosts} 篇已发布 Obsidian 文章的固定尾部`);
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`❌ 同步文章尾部模板失败：${error.message}`);
-  process.exit(1);
+if (require.main === module) {
+  try {
+    main();
+  } catch (error) {
+    console.error(`❌ 同步文章尾部模板失败：${error.message}`);
+    process.exit(1);
+  }
 }
+
+module.exports = { renderFooter, postLang, START, END };

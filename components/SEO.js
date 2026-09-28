@@ -16,6 +16,7 @@ export default function SEO({
   modifiedTime,
   tags = [],
   author,
+  lang,
   noindex = false,
   nofollow = false,
 }) {
@@ -29,6 +30,7 @@ export default function SEO({
     modifiedTime,
     tags,
     author,
+    lang,
   });
 
   const structuredData = generateStructuredData({
@@ -40,6 +42,7 @@ export default function SEO({
     publishedTime,
     modifiedTime,
     author,
+    lang,
   });
 
   const robotsContent = [];

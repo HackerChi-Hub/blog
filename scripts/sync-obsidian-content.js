@@ -172,6 +172,8 @@ function prepareSnapshot(posts, temporaryRoot) {
         : [],
       // 只在译文上出现：verify-export 用它核对「译文不进首页、与原文互相链接」。
       ...(post.data.translation_of ? { translation_of: String(post.data.translation_of) } : {}),
+      // 只在写了 lang 的文章上出现：verify-export 用它核对 <html lang> 和译文页的界面文字。
+      ...(post.data.lang ? { lang: String(post.data.lang) } : {}),
       sha256: hashBuffer(Buffer.from(exportedRaw)),
     });
   }

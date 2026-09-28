@@ -54,6 +54,22 @@ legacy_paths: []
 
 文章页会统一展示「让AI成为你的超能力」品牌签名；从 `article_content.json` 导入时，导入器会把宣传语写入 frontmatter 并在正文末尾补齐签名，公众号则由统一包装器渲染。
 
+## 多语言文章
+
+译文是一篇独立的 Markdown，frontmatter 多两项：
+
+```yaml
+lang: en                                  # zh-CN（默认，可不写）/ zh-TW / en
+translation_of: localbrain-local-ai-box   # 原文的 slug
+```
+
+- 译文不进首页、分页、RSS 和相关文章列表，只从原文标题下方的语言切换进入；页面和站点地图照常生成，并互相声明 `hreflang`。
+- **界面文字跟文章语言走**：分类、标签、日期、阅读时长、提示框标题、分享、留言、品牌卡、`<html lang>`、`og:locale` 都按 `lang` 显示。词典在 `lib/blog-i18n.cjs`，键是简体原文；新增界面文字要在 zh-TW / en 里补译文，`npm run test:i18n` 会逐条核对。
+- 译文的「相关文章」按原文计算，并且不会把原文推荐回来；推荐里和当前页语言不同的文章会标出语言。
+- **文末签名也按 `lang` 生成**：`scripts/sync-article-footer-template.js` 从 `ContentDistributor/scripts/hfkj_identity.json` 的 `i18n.<lang>` 按简体原句查译文。简体文案（包括产品状态）改了而译文没跟上时，同步直接报错、`blog-push` 停下，不会印出过期译文或混进简体。
+- 译文的分类和标签只用于显示，写成那种语言即可。
+- `verify-export` 逐页核对 `<html lang>`，并检查译文页界面里有没有残留的简体短语。
+
 ## 常用命令
 
 ```bash
@@ -65,13 +81,13 @@ npm run content:check
 # 生成只含已发布文章的公开快照，并同步稳定素材
 npm run content:sync
 
-# 回归测试：草稿隔离、删除、素材裁剪、幂等与失败回滚
+# 回归测试：草稿隔离、删除、素材裁剪、幂等与失败回滚，以及多语言界面与签名
 npm run test:content
 
 # 按正式部署模式构建
 BLOG_CONTENT_DIR=./content-export npm run build
 
-# 检查导出文章、历史网址、sitemap 与临时签名链接
+# 检查导出文章、历史网址、sitemap、临时签名链接、页面语言与译文页界面文字
 node scripts/verify-export.js
 ```
 
@@ -145,6 +161,8 @@ npm run comments:test
 components/MarkdownContent.js      Markdown 正文组件
 lib/content.js                     Obsidian 内容访问层
 lib/markdown.js                    frontmatter、双链、callout 与路由解析
+lib/blog-i18n.cjs                  文章页界面文字的 zh-TW / en 词典（键是简体原文）
+pages/_document.js                 按文章语言写 <html lang>
 scripts/validate-content.js        内容和历史网址校验
 scripts/sync-obsidian-content.js   发布快照和素材同步器
 scripts/import-article-content.js  通用 CONTENT JSON → Obsidian 草稿导入器
@@ -153,6 +171,8 @@ scripts/comments-admin.js          留言巡查与隐藏 CLI
 components/Comments.js             文章底部留言区（客户端拉取）
 workers/comments/                  留言 API：Cloudflare Worker + D1
 scripts/test-content-pipeline.js   内容发布故障与回归测试
+scripts/test-blog-i18n.js          界面词典覆盖、签名三语渲染与缺译文报错
+scripts/sync-article-footer-template.js  文末固定签名（按文章 lang 生成）
 scripts/verify-export.js           构建产物验收
 content-export/                    GitHub Actions 使用的已发布快照
 public/obsidian-assets/            公开素材镜像

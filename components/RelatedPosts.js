@@ -3,14 +3,18 @@
 
 import Link from 'next/link';
 import { formatDate } from '../lib/utils';
+import { LANG_NAMES, makeT } from '../lib/blog-i18n.cjs';
 
-export default function RelatedPosts({ posts }) {
+/** lang：当前文章页的语言。推荐里语言不同的文章（英文页推荐的中文原文）标出语言，读者点之前就知道。 */
+export default function RelatedPosts({ posts, lang }) {
   if (!posts || posts.length === 0) {
     return null;
   }
+  const t = makeT(lang);
 
   return (
     <section
+      className="related-posts"
       style={{
         marginTop: '32px',
         padding: '24px',
@@ -27,7 +31,7 @@ export default function RelatedPosts({ posts }) {
           color: 'var(--text-primary)',
         }}
       >
-        相关文章
+        {t('相关文章')}
       </h2>
       <div
         style={{
@@ -83,7 +87,8 @@ export default function RelatedPosts({ posts }) {
                     marginTop: '8px',
                   }}
                 >
-                  {formatDate(post.date)}
+                  {formatDate(post.date, t.lang)}
+                  {post.lang && post.lang !== t.lang && LANG_NAMES[post.lang] ? ` · ${LANG_NAMES[post.lang]}` : ''}
                 </div>
               )}
             </Link>

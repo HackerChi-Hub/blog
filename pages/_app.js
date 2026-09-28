@@ -6,11 +6,18 @@ import '../styles/globals.css';
 import '../styles/radar.css';
 import '../styles/markdown.css';
 import '../styles/comments.css';
+import { normalizeUiLang } from '../lib/blog-i18n.cjs';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLLG23LT3H';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const lang = normalizeUiLang(pageProps?.meta?.lang);
+
+  // _document 只在构建时写 <html lang>；站内跳转（比如点语言切换）要在这里跟上。
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   useEffect(() => {
     if (!GA_MEASUREMENT_ID) return;
