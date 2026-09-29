@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-09-29
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. A full tour of version 1.4.6 with screenshots.
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. 1.4.7 adds eight document formats and network access; a full tour with screenshots.
 categories:
   - Resources
 tags:
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.4.6 · 2026-09-29 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.4.7 · 2026-09-29 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.6, a month after the 1.2.22 I last wrote about, and it adds three things: a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages. Below is a walk through each page; every screenshot is the real 1.4.6 interface.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.7. Below is a walk through each page; every screenshot is the real 1.4.6 interface (1.4.7 adds two more things on top — see “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -122,7 +122,7 @@ Simplified Chinese, Traditional Chinese and English have been there since 1.2.70
 
 Local inference, transcription and media generation can stay on the Mac, and conversations are saved only on this computer. But "local AI" does not mean "never online": downloading a model contacts the model source, web search sends queries to a search engine, and if Codex or Claude Code use cloud models, their reasoning is not local either.
 
-File tools can only read the folders you allow by default. Running project commands is off by default; when turned on, every run asks for confirmation first and says plainly that the working-directory limit is not a system sandbox. **Private is not a label; it means you can see where data goes, which folders are allowed and how long each backend lives.**
+File tools can only read the folders you allow by default. Running project commands is off by default; when turned on, every run asks for confirmation first and says plainly that the working-directory limit is not a system sandbox. The new “Network access” in 1.4.7 is off by default too; once on, the model can send HTTP requests or use SSH to reach the devices in your `~/.ssh/config`, and changes still ask for confirmation each time. **Private is not a label; it means you can see where data goes, which folders are allowed and how long each backend lives.**
 
 | If this is you | My suggestion |
 | --- | --- |
@@ -143,12 +143,20 @@ File tools can only read the folders you allow by default. Running project comma
 
 - Start a model on Home and try the built-in chat; when you need an external agent, write its configuration under Integrations.
 
-#### LocalBrain 1.4.6
+### ▸ New in 1.4.7: eight document formats, and “Network access”
+
+**Documents are no longer just DOCX and PDF.** When you ask the model to “write a document,” it can now produce Markdown, HTML, TXT, RTF, ODT and EPUB directly. More importantly, every format goes through a cleaning pass first: the `{"type":"markdown", ...}` wrappers, escaped newlines and zero-width characters the model writes are unwrapped, restored and stripped, then turned into real headings, (nestable, checkbox-capable) lists, tables and code blocks — not a slab of raw JSON dropped into a Word file. This fixes a real failure: a request to “build a browser 3D flight game” had one line, “create the phase-0 document,” that sent the whole task to the document tool, and hundreds of lines of source ended up stuffed into eight uncleaned DOCX files. Coding and engineering work now goes to the general agent that can actually write project files, unless you name a file format like DOCX, PDF or EPUB.
+
+**Stuck on something? It can look it up online, or configure another machine over SSH.** The new “Network access” switch is off by default; once on, the model can send HTTP requests to call APIs or read endpoints, run commands and copy files over SSH on the devices in your `~/.ssh/config`, check connectivity and TLS certificates, and view this machine's network status. SSH logs in with keys only — LocalBrain never touches or stores a password. Permissions are per conversation: read-only operations run directly, while changes (restarting a service, editing config, uploading a file, POST/PUT and the like) ask you each time, and you can grant full trust within one conversation so it stops interrupting. It is separate from “Web search” — that one looks things up, this one operates other machines; port scanning and packet capture, the kind of probing done against other people's networks, are not included.
+
+---
+
+#### LocalBrain 1.4.7
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.6\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.7\_aarch64.dmg
 
 ```shell
 Latest installer
@@ -157,7 +165,7 @@ Product page
 https://hyphentech.top/localbrain
 ```
 
-The SHA-256 of the current installer is **985b861294172fe5de9518dc9b04c2bf0daeb86ceb083ff938eeacde79e3f360**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **64b894181a97f808573c65ab3b75d0180204d35d4216033e6aaca403cea83d08**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
