@@ -103,6 +103,34 @@ npm run content:import -- /绝对路径/article_content.json \
 
 如果同名文章已经存在，导入器默认拒绝覆盖；确认要用新内容更新时才加 `--force`。
 
+## 文章底部赞助卡片
+
+组件 `components/SponsorCard.js` + `styles/sponsor.css`，二维码在
+`public/images/site/sponsor-wechat.png`。排在「分享」之后、「相关文章」之前——
+后者是引导离开的入口，过了它注意力就转移了。
+
+静态区块，不做浮层弹窗、不给关闭按钮、不记录谁看了谁扫了。
+
+**移动端单独给了一条路径**：手机读者看到的码就在自己屏幕上，没法用同一部手机扫，
+所以提示是「长按保存图片，用微信扫一扫从相册选取」。两句提示都在 DOM 里，由 CSS
+媒体查询切换——静态导出下按设备改 DOM 会造成首屏与水合后不一致。
+
+### 换码或改文案时
+
+- 文案走 i18n：改 `SponsorCard.js` 里的 `t('…')` 后，必须在 `lib/blog-i18n.cjs`
+  的 `zh-TW` 与 `en` 两段同步增删，否则 `npm run test:content` 里的多语言闸会拦。
+  新增组件还要登记进 `scripts/test-blog-i18n.js` 的 `SOURCES` 白名单，不然扫描器
+  看不到 `t()` 调用，会把新词条判成死词条。
+- **换二维码后必须验它还能扫**，不能只看图片显示出来了。压缩、缩放、CDN 重编码
+  都可能在不报错的情况下毁掉码。用系统 Vision 解码并比对内容哈希：
+
+```bash
+swiftc -O scripts/qrcheck.swift -o /tmp/qrcheck && /tmp/qrcheck public/images/site/sponsor-wechat.png
+```
+
+验的对象要包括**读者屏幕上那块像素**（按实际显示尺寸截元素来解码），以及**从线上
+下载回来的那一份**，不是只验本地源文件。
+
 ## 在第二台机器上看到正文配图
 
 `blog-content/preview-assets/` 是导入器的生成物，被 Git 忽略，只存在于跑过导入器的机器上；素材真源也不是 Git 仓库。所以换一台机器 clone `blog-content` 之后，正文里的 `../preview-assets/...` 在 Obsidian 里全是断链——文字同步了，图没有。
