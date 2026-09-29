@@ -26,6 +26,7 @@ const SOURCES = [
   'components/ShareButtons.js',
   'components/RelatedPosts.js',
   'components/Comments.js',
+  'components/SponsorCard.js',
   'components/SEO.js',
   'lib/markdown.js',
   'lib/reading-time.js',

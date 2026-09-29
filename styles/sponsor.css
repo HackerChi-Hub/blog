@@ -1,0 +1,85 @@
+/* 文章底部赞助卡片。
+   刻意做得比分享区更轻：不用强调色描边、不用高对比背景。
+   它在页面上应该是「看得见但不喊」的存在。 */
+
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sponsor-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sponsor-heading {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sponsor-text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.sponsor-hint {
+  margin: 12px 0 0;
+  font-size: 0.82rem;
+  color: var(--accent-green);
+}
+
+/* 二维码必须保持白底和足够的静区，否则扫码识别率会掉。
+   这里不加圆角裁切、不加滤镜、不做混合模式——深色主题下让它保持原样。 */
+.sponsor-qr {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  background: #fff;
+  /* 原图四边留白偏窄，补一点内衬当静区 */
+  padding: 6px;
+  box-sizing: content-box;
+}
+
+/* 桌面显示「微信扫码」，手机显示「长按保存」——
+   两句都在 DOM 里，由媒体查询切换，避免静态导出的首屏与水合后不一致。 */
+.sponsor-hint-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .sponsor-card {
+    /* 用 column 而不是 column-reverse：让「为什么」排在码前面。
+       先甩一个二维码再解释，读者第一眼看到的是一个不知道干嘛用的码。
+       桌面端是文左码右，视线同样先经过文案，两端顺序一致。 */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .sponsor-qr {
+    /* 手机上要留出足够大的可长按区域，太小会按不准 */
+    width: 160px;
+    height: 160px;
+    align-self: center;
+  }
+
+  .sponsor-hint-desktop {
+    display: none;
+  }
+
+  .sponsor-hint-mobile {
+    display: inline;
+  }
+}

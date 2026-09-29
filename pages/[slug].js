@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
 import Comments from '../components/Comments';
+import SponsorCard from '../components/SponsorCard';
 import MarkdownContent from '../components/MarkdownContent';
 import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
@@ -419,6 +420,9 @@ export default function PostPage({
               lang={t.lang}
             />
           </div>
+
+          {/* 赞助 - 紧跟正文读完的时刻，排在「相关文章」这个离开入口之前 */}
+          <SponsorCard lang={t.lang} />
 
           {/* 相关文章 - 融入文章区域末尾 */}
           <div style={{ marginTop: '32px' }}>
