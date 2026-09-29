@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-09-28
-summary: The worst thing a screen recording can do is show what it should not. HyphenScreen 1.0.1, the first official release, finds sensitive text on your own computer, keeps the mosaic on it through zooms and scrolling, and reads the finished video back before you publish. A full tour with screenshots.
+updated: 2026-09-29
+summary: The worst thing a screen recording can do is show what it should not. HyphenScreen 1.0.2 finds sensitive text on your own computer, keeps the mosaic on it through zooms and scrolling, and reads the finished video back before you publish. A full tour with screenshots.
 categories:
   - Resources
 tags:
@@ -19,35 +19,35 @@ legacy_paths: []
 
 > [!abstract]
 > Recording is easy; the work starts after
-> HyphenScreen 1.0.1 · official release · free download
-> HyphenTech · first published 2026-09-16 · updated 2026-09-28 · also in 简体中文 and 繁體中文 (switch below the title)
+> HyphenScreen 1.0.2 · official release · free download
+> HyphenTech · first published 2026-09-16 · updated 2026-09-29 · also in 简体中文 and 繁體中文 (switch below the title)
 
 Let me start with something that made my stomach drop. I built automatic redaction into my own screen recorder: it finds e-mail addresses, keys and the like in the picture and covers them with a mosaic. When it was done, **every unit test passed**. The boxes were in the right place, and on a still frame they fitted perfectly.
 
 Then I exported a video and watched it from start to finish. **During the few seconds the picture zoomed in, the mosaic fell behind, and an e-mail address and a key starting with `sk-` were plainly readable.** It happened once more inside a vertical reframe. The tests checked whether the box coordinates were right; what I actually needed was that nobody could read anything sensitive in the finished video. Those are two different things, with zooms, tilts, crops and encoding in between.
 
-Since that day the app has something most screen recorders do not: **after export, it reads the finished video itself back**, frame by frame with text recognition, to confirm that what should be covered is covered. This post is about what the app has become — and 1.0.1 is its first official release.
+Since that day the app has something most screen recorders do not: **after export, it reads the finished video itself back**, frame by frame with text recognition, to confirm that what should be covered is covered. This post is about what the app has become — 1.0.1 was its first official release, and it is now at 1.0.2.
 
 ![HyphenScreen 1.0.1: the preview is zoomed in on a code block, the key and contact details are redacted automatically, captions below and a watermark in the corner; the timeline gives captions, annotations, zoom, video, voiceover and music each their own track](/obsidian-assets/hyphenscreen-local-screen-recorder/v101-en-editor.jpg)
 
 A word on **where the money in screen recording comes from**, because it decides where the effort goes. The usual moves: the free version adds a watermark or a time limit and **turns export into a paywall**; or the tool becomes a cloud service where you upload your screen and pay for storage and exports. Screen recordings are about the most private material there is — your e-mail, your paths, tokens, the chat window you forgot to close. **The party that gains is the one holding your footage for storage and transcoding; the cost lands on whoever uploaded it.** Desktop software has played this script many times: the one-off licence stops getting updates and features move into a subscription.
 
-Why do I make HyphenScreen? Honestly: **I publish videos every week, screen recordings are my main footage, and I do not want my screen on anyone's server.** There is no subscription, no cloud and no storage to sell, so there is no way for it to make money off you; the upkeep is mine. Judge it accordingly: it will not get worse to earn from you, but it could stall if I run out of time.
+Why do I make HyphenScreen? Honestly: **I publish videos every week, screen recordings are my main footage, and I do not want my screen on anyone's server.** There is no subscription, no cloud and no storage to sell, so there is no way for it to make money off you; the upkeep is mine. Since 1.0.2 there is a sponsor code for anyone who wants to chip in; sponsoring or not changes nothing in the app. Judge it accordingly: it will not get worse to earn from you, but it could stall if I run out of time.
 
 | | Facts |
 | --- | --- |
-| Current version | 1.0.1, official release (2026-09-28) |
+| Current version | 1.0.2, official release (2026-09-29) |
 | Built with | Electron interface + a native Rust compositor; recognition, transcription and voice isolation all run on your computer |
-| Installer | Mac 265.6 MB (Apple silicon), signed with my own HyphenTech certificate, not Apple-notarized |
-| Other platforms | Windows 10/11 x64 and Linux x64 currently get 0.4.36, without the features added since; unsigned |
+| Installer | Mac 265.7 MB (Apple silicon), signed with my own HyphenTech certificate, not Apple-notarized |
+| Other platforms | Windows 10/11 x64 and Linux x64 currently get 1.0.1 (without 1.0.2's sponsor code); unsigned |
 | Download | Free and public, with SHA-256 checksums; the source is private |
 
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> 1.0.1 is an official release, but it is **still not notarized by Apple or code-signed on Windows**, so your system will stop it once; allow it as the download page describes. Windows and Linux stay on 0.4.36 for now; the new features in this post are the Mac version's.
+> 1.0.2 is an official release, but it is **still not notarized by Apple or code-signed on Windows**, so your system will stop it once; allow it as the download page describes. Windows and Linux are on 1.0.1, without 1.0.2's sponsor code; a few features are macOS-only, see the limits at the end.
 
-## 🧩 The full tour (1.0.1 screenshots)
+## 🧩 The full tour (screenshots from the app)
 
 These are real screenshots, taken on a demo project made for the purpose: a recording of a scrolling web page, synthetic narration and background music. Every e-mail, phone number and key in it is fake — **the pictures that introduce a screen recorder should not leak anything either**. The two camera shots show my own camera. The recording, camera, multitrack, transition and AI chat shots show the Chinese interface; the rest show the English one.
 
@@ -178,27 +178,38 @@ The last time "AI editing" excited me was the one-click finished-video wave: stu
 - The cache folder can move too: the old caches are simply deleted and rebuilt in the new place as needed. Each kind of cache shows its size and can be cleared on its own or all at once. **Recordings and projects are never cleaned up.**
 - An old annoyance fixed on the way: after quitting, voice isolation sometimes kept running in the background, holding a whole CPU core until a half-hour timeout, and fought the next launch for resources. Now background work ends when you quit.
 
+### ☕ 1.0.2: a sponsor code, and where it shows up
+
+![The Support the Author dialog: the author's WeChat Pay code and a short note](/obsidian-assets/hyphenscreen-local-screen-recorder/v102-en-sponsor-menu.jpg)
+
+The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the app menu's **Support the Author**, which opens the author's WeChat Pay code. In a Chinese interface the same code also sits in the export-done panel, right below "Saved to" — the moment you have just got your video, not the moment you are about to start work.
+
+- In an English interface it never appears on its own; the menu item is the only way to it.
+- In a Chinese interface it waits until the app has been installed for three days (counted from when its data folder was created, so updates do not reset it), then shows after a finished export at most once per calendar day.
+- **It never appears while a recording is running**: anything that pops up then would end up in your video. After each export the app first asks whether a recording is running and, if it cannot tell, assumes one is.
+- It has no buttons and blocks nothing; sponsoring or not changes no feature. The code is an image inside the app: showing it needs no network, and nothing about it is counted.
+
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Windows and Linux are on 0.4.36**: features added after it (storage & cleanup, the sharper camera cut-out edge, smoother preview seams and more) wait for a new build on the Windows machine. Voice isolation, sensitive-text detection for automatic redaction and "click a window to take its bounds" rely on native components built for macOS only.
+- **Windows and Linux are on 1.0.1**: 1.0.2's sponsor code waits for a new build on the Windows machine. Voice isolation, sensitive-text detection for automatic redaction and "click a window to take its bounds" rely on native components built for macOS only.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
 
 If you make tutorials, reviews or software demos, the real cost of screen recording was never the ten minutes of recording. It is what comes after: cutting pauses, redacting, reframing for vertical, checking nothing went wrong. **Everything in this app is designed around "after recording"**, including that slightly clumsy-sounding check — watching the finished video again after export.
 
-The clumsy way has its merits: it trusts none of the intermediate steps I wrote, only the final file. After "all tests green but the e-mail showed", I think that distrust is worth it. Taking the screenshots for this post, my own app taught me the lesson again: **the screenshots revealed three problems** — splitting a clip dropped the music after the cut, redaction boxes on a scrolling page were far too big, and silence got transcribed as the marker "[BLANK_AUDIO]" — none caught by tests, all obvious the moment you look at the picture. They were fixed before 1.0.1 went out.
+The clumsy way has its merits: it trusts none of the intermediate steps I wrote, only the final file. After "all tests green but the e-mail showed", I think that distrust is worth it. Taking the screenshots for this post, my own app taught me the lesson again: **the screenshots revealed three problems** — splitting a clip dropped the music after the cut, redaction boxes on a scrolling page were far too big, and silence got transcribed as the marker "[BLANK_AUDIO]" — none caught by tests, all obvious the moment you look at the picture. They were fixed before 1.0.1 went out. Adding the sponsor code in 1.0.2 taught me the same lesson again: all 14 of my real-app checks passed, yet the screenshot showed the strip stuck at the bottom edge of the export dialog — half a line visible, the buttons below the edge, the code opening out of sight. The checks asked whether it was there; the person using it needs to see it.
 
 > [!summary] In one sentence
-> HyphenScreen 1.0.1 is the first official release of the screen recorder and editor I use myself: it recognises sensitive text on your own computer and keeps the mosaic on it through zooms, crops and scrolling; after export it checks the finished video itself (loudness, black frames, frozen pictures, overflowing captions, plus a frame-by-frame text read-back); AI works on your timeline with your own Codex subscription or a local model; and you decide where recordings and caches live. It is a free download, but not yet signed or notarized, so your system will stop it once.
+> HyphenScreen is the screen recorder and editor I use myself — official since 1.0.1, now at 1.0.2: it recognises sensitive text on your own computer and keeps the mosaic on it through zooms, crops and scrolling; after export it checks the finished video itself (loudness, black frames, frozen pictures, overflowing captions, plus a frame-by-frame text read-back); AI works on your timeline with your own Codex subscription or a local model; and you decide where recordings and caches live. It is a free download, but not yet signed or notarized, so your system will stop it once.
 
 ---
 
 ## 📚 Notes
 
-- Download (Mac 1.0.1; Windows / Linux 0.4.36): https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases
-- The numbers come from the project's release notes and measured receipts; the screenshots were taken on 1.0.1 with purpose-made demo media.
+- Download (Mac 1.0.2; Windows / Linux 1.0.1): https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases
+- The numbers come from the project's release notes and measured receipts; the screenshots were taken with purpose-made demo media — the sponsor one on 1.0.2, the rest on 1.0.1.
 - HyphenTech: https://hyphentech.top
 
 
