@@ -25,10 +25,12 @@ export default function SponsorCard({ lang }) {
   return (
     <section className="sponsor-card" aria-labelledby="sponsor-heading">
       <div className="sponsor-body">
-        <h2 id="sponsor-heading" className="sponsor-heading">{t('如果这篇帮到你')}</h2>
-        <p className="sponsor-text">
-          {t('这个站没有广告，也不打算加。文章里的实测大多要真金白银买额度，或者占着机器跑上几个小时。觉得值就扫一下，不扫也照常更新。')}
-        </p>
+        {/* 上下联各占一行。拆成两个元素而不是一句带逗号的文本：
+            对仗要靠两行对齐才看得出来，挤成一行遇到窄屏还会从中间折断。 */}
+        <h2 id="sponsor-heading" className="sponsor-heading">
+          <span className="sponsor-verse">{t('熬夜烧钱三千字')}</span>
+          <span className="sponsor-verse">{t('扫码随心一杯茶')}</span>
+        </h2>
         <p className="sponsor-hint">
           <span className="sponsor-hint-desktop">{t('微信扫码')}</span>
           <span className="sponsor-hint-mobile">{t('长按保存图片，用微信「扫一扫」从相册选取')}</span>

@@ -5,7 +5,10 @@
 .sponsor-card {
   display: flex;
   align-items: center;
-  gap: 24px;
+  /* 聚成一组居中，而不是把两端拉满。七言只有两行短句，让它 flex:1 撑满整行的话，
+     诗句会孤零零钉在最左、右边留一大片空——看着像布局坏了，不像刻意留白。 */
+  justify-content: center;
+  gap: 56px;
   margin-top: 32px;
   padding: 24px;
   border-radius: 16px;
@@ -14,22 +17,33 @@
 }
 
 .sponsor-body {
-  flex: 1 1 auto;
+  /* 不抢剩余空间：宽度由内容决定，配合父级的 justify-content: center 聚成一组 */
+  flex: 0 1 auto;
   min-width: 0;
 }
 
 .sponsor-heading {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
+  /* 对联不是正文，字距放开一点，读起来才有停顿 */
+  letter-spacing: 0.06em;
+  line-height: 1.9;
 }
 
-.sponsor-text {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
+/* 上下联各占一行。用 block 而不是在文本里塞 <br>：
+   换行是排版决定，不该写死进内容，译文的断句方式可能完全不同。 */
+.sponsor-verse {
+  display: block;
+  white-space: nowrap;
+}
+
+/* 英文译句比中文长得多，窄屏下 nowrap 会把卡片撑破 */
+:lang(en) .sponsor-verse,
+[lang='en'] .sponsor-verse {
+  white-space: normal;
+  letter-spacing: 0;
 }
 
 .sponsor-hint {
