@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 29 Sep 2026 22:42:13 GMT</lastBuildDate>
-    <pubDate>Tue, 29 Sep 2026 22:42:13 GMT</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2026 23:19:10 GMT</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2026 23:19:10 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>LTX-2.5，本地免费跑，效果比肩大片</title>
+      <link>https://hyphentech.top/localbrain-ltx25-video/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-ltx25-video/</guid>
+      <description>LocalBrain 1.4.8 接进第二个本地视频引擎 LTX-2.5：写一句带引号的台词，画面里的人会说出来。64GB 的 M5 Pro 上 4 秒 1024×576 约 2 分钟、峰值 25GB，运行时默认参数本来要 54GB；43.4GB 权重国内经 ModelScope 直连，发现页一键下载。</description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>AI视频</category>
+    </item>
     <item>
       <title>Mac、Windows、Linux，谁才是 AI 时代的主力机？</title>
       <link>https://hyphentech.top/mac-windows-linux-ai-platforms/</link>
@@ -217,16 +230,6 @@
       <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
-    </item>
-    <item>
-      <title>都说比 Ollama 快，可没人真跟 Ollama 比过</title>
-      <link>https://hyphentech.top/mac-local-inference-engines/</link>
-      <guid isPermaLink="true">https://hyphentech.top/mac-local-inference-engines/</guid>
-      <description>Ollama 半年前就把 Mac 推理换成了 MLX 内核，现在冒出一堆自称更快的挑战者。我没跑实测，只把四家自己公布的跑分摆到一张桌子上——结果是：谁也没跟谁跑同一套题。</description>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
     </item>
   </channel>
 </rss>
