@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-09-29
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. 1.4.7 adds eight document formats and network access; a full tour with screenshots.
+updated: 2026-09-30
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. 1.4.8 adds a second local video engine, LTX-2.5, with a direct download from mainland China on Discover; a full tour with screenshots.
 categories:
   - Resources
 tags:
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.4.7 · 2026-09-29 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.4.8 · 2026-09-30 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.7. Below is a walk through each page; every screenshot is the real 1.4.6 interface (1.4.7 adds two more things on top — see “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.8. Below is a walk through each page; every screenshot is the real 1.4.6 interface (1.4.7 and 1.4.8 add a few things on top — see “New in 1.4.8” and “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -143,6 +143,16 @@ File tools can only read the folders you allow by default. Running project comma
 
 - Start a model on Home and try the built-in chat; when you need an external agent, write its configuration under Integrations.
 
+### ▸ New in 1.4.8: a second local video engine, LTX-2.5
+
+**Write a line in quotes and the person in the video says it.** LTX-2.5 sits next to MiniMax H3 as a second video engine: text, first-frame and first-and-last-frame videos, all with synchronized stereo sound. It shares the video workbench with H3 — the same 1–30 second range, up to 10 seconds per pass, and longer clips chained automatically (each part starts on the previous part's last frame, and the picture stays continuous across the join); prompt templates, segment stitching and MCP `generate_video` all work as before, and the templates carry their own LTX test results. On the reference Mac (M5 Pro, 64 GB) a 1024×576 clip takes about 2 minutes for 4 seconds, 6 minutes for 10 seconds and 12 minutes for 20 seconds; peak memory is about 25 GB for text-only clips and about 37 GB for a 10-second part that starts on an image, and when that does not fit, the model is streamed block by block. Reference images still need MiniMax H3 REF2VA.
+
+![# The video panel with LTX-2.5 selected: 20 seconds becomes two chained parts; the hint states the 10-second pass and that a quoted line repeats in every part, and the estimate adds up per part.](/obsidian-assets/localbrain-local-ai-box/v148-en-video-ltx25.png)
+
+**One-click download on Discover, direct from mainland China.** 43.4 GB, byte for byte what mlx-community publishes; pick the ModelScope source for a direct download — the two Hugging Face repos use Xet storage, which hf-mirror only redirects and does not cache. The ltx-2-mlx video runtime installs itself on first start, about 404 MB. Models downloaded from ModelScope are now checked against SHA-256 file by file; before, only the size was compared.
+
+**The runtime's 54 GB peak, down to 25 GB.** For the same 4-second clip, the runtime's defaults peaked at 54 GB: its Gemma encoder raises the cache limit to 90% of memory, and decoding never tiles. LocalBrain caps the cache at 2 GiB and decodes 5 latent frames per tile; the peak drops to 25 GB at the same speed.
+
 ### ▸ New in 1.4.7: eight document formats, and “Network access”
 
 **Documents are no longer just DOCX and PDF.** When you ask the model to “write a document,” it can now produce Markdown, HTML, TXT, RTF, ODT and EPUB directly. More importantly, every format goes through a cleaning pass first: the `{"type":"markdown", ...}` wrappers, escaped newlines and zero-width characters the model writes are unwrapped, restored and stripped, then turned into real headings, (nestable, checkbox-capable) lists, tables and code blocks — not a slab of raw JSON dropped into a Word file. This fixes a real failure: a request to “build a browser 3D flight game” had one line, “create the phase-0 document,” that sent the whole task to the document tool, and hundreds of lines of source ended up stuffed into eight uncleaned DOCX files. Coding and engineering work now goes to the general agent that can actually write project files, unless you name a file format like DOCX, PDF or EPUB.
@@ -151,12 +161,12 @@ File tools can only read the folders you allow by default. Running project comma
 
 ---
 
-#### LocalBrain 1.4.7
+#### LocalBrain 1.4.8
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.7\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.8\_aarch64.dmg
 
 ```shell
 Latest installer
@@ -165,7 +175,7 @@ Product page
 https://hyphentech.top/localbrain
 ```
 
-The SHA-256 of the current installer is **64b894181a97f808573c65ab3b75d0180204d35d4216033e6aaca403cea83d08**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **1416f07243136206755892071810ab6cac661245b73182714fde7a1dc74bc143**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
