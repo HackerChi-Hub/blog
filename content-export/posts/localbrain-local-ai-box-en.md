@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-09-29
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. A full tour of version 1.4.5 with screenshots.
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. A full tour of version 1.4.6 with screenshots.
 categories:
   - Resources
 tags:
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.4.5 · 2026-09-29 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.4.6 · 2026-09-29 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.5, a month after the 1.2.22 I last wrote about, and it adds three things: a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages. Below is a walk through each page; every screenshot is the real 1.4.5 interface.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.6, a month after the 1.2.22 I last wrote about, and it adds three things: a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages. Below is a walk through each page; every screenshot is the real 1.4.6 interface.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -36,7 +36,7 @@ So the goal has not changed: **not a smarter brain, but a calmer master switch f
 
 The home screen answers three questions first: what this machine is, what is using memory right now, and what else you can start. Below is my M5 Pro (64 GB unified memory) running the Splash build of Qwen3.6-35B-A3B.
 
-![# Home: chip, unified memory and free disk; the memory bar is split into "System" and "AI models"; running services show their expected memory use.](/obsidian-assets/localbrain-local-ai-box/v145-en-home.png)
+![# Home: chip, unified memory and free disk; the memory bar is split into "System" and "AI models"; running services show their expected memory use.](/obsidian-assets/localbrain-local-ai-box/v146-en-home.png)
 
 - **A memory bar in two parts**: how much the system uses, how much the AI models use and what is left, stated outright. The "estimated usage" on a model card comes from the model's size; Splash is estimated at 1.1× its size.
 - **Arbitration before starting**: the memory arbiter adds up the backends already running and the model about to start. If resources run short it refuses clearly, instead of letting the system swap itself to a standstill and failing afterwards.
@@ -51,7 +51,7 @@ The home screen answers three questions first: what this machine is, what is usi
 
 Large models weigh tens of gigabytes, and finding out after the download that one will not run is the most expensive way to experiment. Each Discover card moves that question up front.
 
-![# Discover: ability tags, the publisher's benchmark numbers, quantizations and the minimum / recommended memory worked out for this machine, all before the download button.](/obsidian-assets/localbrain-local-ai-box/v145-en-discover.png)
+![# Discover: ability tags, the publisher's benchmark numbers, quantizations and the minimum / recommended memory worked out for this machine, all before the download button.](/obsidian-assets/localbrain-local-ai-box/v146-en-discover.png)
 
 - **More than 40 curated entries**: language, vision, speech, image, video and music models, newest first. Each card lists ability tags, the publisher's benchmark numbers and where they come from (in the screenshot, MMLU-CoT 0.283→0.548 for the distilled Qwen3.8 2B), and the size of each quantization.
 - **Memory worked out for this machine**: the "minimum / recommended unified memory" is not copied from the model card; it is calculated from this machine's memory and the model's structure.
@@ -69,9 +69,9 @@ Large models weigh tens of gigabytes, and finding out after the download that on
 
 The built-in chat has streaming, attachments, stop, saved conversations and local tools. What I care about more: when you ask it to fix a web page or build a spreadsheet, does it actually deliver, and does the process hold up to inspection?
 
-![# Chat (demo data): the self-check fails → one line gets a null check → the next self-check passes; the summary shows 8 rounds, 9 tool calls, 2 failures and four time segments.](/obsidian-assets/localbrain-local-ai-box/v145-en-chat.png)
+![# Chat (demo data): the self-check fails → one line gets a null check → the next self-check passes; the summary shows 8 rounds, 9 tool calls, 2 failures and four time segments.](/obsidian-assets/localbrain-local-ai-box/v146-en-chat.png)
 
-The conversation above is a demo, but every element on screen is the real 1.4.5 interface:
+The conversation above is a demo, but every element on screen is the real 1.4.6 interface:
 
 - **Every step is shown**: reading files, listing folders, web search, writing files, targeted edits and page self-checks each show their target and time; complex tasks start with a plan, and the plan card says it is "the model's own record, not independent verification".
 - **Failures stay visible**: repeated calls to the same tool are grouped as "Page self-check ×2", with "1 failed" right beside it. In the screenshot the model's first self-check returned a page error; it changed a single line to add a null check, and only the next self-check passed.
@@ -87,7 +87,7 @@ Document tasks can also deliver DOCX, PPTX, XLSX or PDF directly. If no real fil
 
 After a month of use my own machine had piled up plenty of things nobody could see: check screenshots, task checkpoints, logs, and images and voice-overs that early versions wrote into temporary folders. 1.4.0 puts all of it in Settings.
 
-![# Settings · Storage & cleanup: both the output folder and the cache folder can move; usage and file counts per category, tick to clean.](/obsidian-assets/localbrain-local-ai-box/v145-en-storage.png)
+![# Settings · Storage & cleanup: both the output folder and the cache folder can move; usage and file counts per category, tick to clean.](/obsidian-assets/localbrain-local-ai-box/v146-en-storage.png)
 
 - **Both folders can move**: the output folder holds generated documents, images, speech, video, music and web downloads; the cache folder holds logs, task checkpoints, check screenshots and temporary files. Either can live on an external drive.
 - **Moving takes the files along**: on the same drive they are moved directly; across drives they are copied and verified first, then the old copies go to the Trash.
@@ -100,7 +100,7 @@ The numbers in the screenshot are measured on my machine: System output 13.3 MB 
 
 ### ▍Integrations: hand local abilities to other agents
 
-![# Integrations: local MCP tools written into each client's configuration with one click, and local models served through an OpenAI-compatible endpoint.](/obsidian-assets/localbrain-local-ai-box/v145-en-integrations.png)
+![# Integrations: local MCP tools written into each client's configuration with one click, and local models served through an OpenAI-compatible endpoint.](/obsidian-assets/localbrain-local-ai-box/v146-en-integrations.png)
 
 - **Local MCP tools**: document processing, speech transcription, speech synthesis, images, video and web research, written into the configuration of Claude Code, OpenCode, Codex or DeepSeek Harness with one click. Only the `localbrain-*` entries are added or updated; your model settings and other MCP servers stay as they are, and one click restores the configuration from before.
 - **Local models as the brain**: OpenCode, ScreenLex and DeepSeek Harness can use local models directly through the OpenAI-compatible endpoint `127.0.0.1:11434/v1`, no API key needed.
@@ -143,12 +143,12 @@ File tools can only read the folders you allow by default. Running project comma
 
 - Start a model on Home and try the built-in chat; when you need an external agent, write its configuration under Integrations.
 
-#### LocalBrain 1.4.5
+#### LocalBrain 1.4.6
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.5\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.6\_aarch64.dmg
 
 ```shell
 Latest installer
@@ -157,7 +157,7 @@ Product page
 https://hyphentech.top/localbrain
 ```
 
-The SHA-256 of the current installer is **9e126b4e3e061471e0e10aa1a56b68bd0381350f19b48ec3678178de45927883**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **985b861294172fe5de9518dc9b04c2bf0daeb86ceb083ff938eeacde79e3f360**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
