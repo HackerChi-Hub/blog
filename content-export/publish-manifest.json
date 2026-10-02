@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a04b07795ce5b44f203befa0170e9b8fd0f63466ad22fb006ecb42222f1e0c60",
+  "content_sha256": "257f26fa0f56f639b112910623aea392cd3b59b8f0aeae90d6239d7e2bab5d4a",
   "published_post_count": 65,
   "posts": [
     {
@@ -304,7 +304,7 @@
       "file": "posts/localbrain-windows-nvidia-first-release.md",
       "slug": "localbrain-windows-nvidia-first-release",
       "legacy_paths": [],
-      "sha256": "1b60b82924b542e8d5dec429a3cabadf1ee7ddc19fe64a490a57fd971785eadd"
+      "sha256": "2767cb24574884af000fe2784560c0d098198d77873ff67c9a5528102aa52002"
     },
     {
       "file": "posts/localhost-local-ai-security.md",
@@ -352,7 +352,7 @@
       "file": "posts/omarchy-linux-ai-getting-started.md",
       "slug": "omarchy-linux-ai-getting-started",
       "legacy_paths": [],
-      "sha256": "712417354444d9dd3a13a52d929e7a25b7ea7c8c17d3066ec2450ed1c336e456"
+      "sha256": "a9ee788f46e95476370a3563016481c51435e78eb51b8dfb1739e68e7529b090"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
