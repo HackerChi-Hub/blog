@@ -13,10 +13,10 @@ async function main() {
       body: '修复长文件工具调用边界失败；新增隐藏暂存事务，未提交时自动回滚。',
     },
     'hyphenbox-release': {
-      tag_name: 'v0.4.57',
-      published_at: '2026-09-01T02:28:59Z',
-      html_url: 'https://example.test/hyphenbox/v0.4.57',
-      body: '# 黑粉盒子 HyphenBox\n\n**初步构建 · 预览版。** 免费大模型 API 雷达 + 本地统一路由，Key 只存系统安全存储。\n\n## 下载哪一个\n\n- macOS 安装包',
+      tag_name: 'v1.0.0',
+      published_at: '2026-09-29T21:28:11Z',
+      html_url: 'https://example.test/hyphenbox/v1.0.0',
+      body: '# 黑粉盒子 HyphenBox\n\n正式推出，开始正式迭代。免费大模型 API 雷达 + 本地统一路由，Key 只存系统安全存储。\n\n## 下载哪一个\n\n- macOS 安装包',
     },
     // 黑粉录屏只发过预览版：/releases/latest 会把它当不存在（404）。
     // 这里故意只给 prerelease，外加一条草稿，确保目录取的是「已发布的第一条」而不是草稿。
@@ -75,6 +75,9 @@ async function main() {
   assert.match(cards[0].description, /隐藏暂存事务/);
   assert.match(cards[1].description, /免费大模型 API 雷达/);
   assert.doesNotMatch(cards[1].description, /macOS 安装包/);
+  assert.strictEqual(cards[1].version, '1.0.0');
+  assert.strictEqual(cards[1].badge, '我做的 · 正式迭代');
+  assert.deepStrictEqual(cards[1].facts, ['正式推出', 'macOS / Windows / Linux', '免费下载']);
   assert.match(cards[2].description, /按钮文字被挤成竖排/);
   assert.match(cards[2].description, /LocalBrain/);
   assert.strictEqual(cards[2].updated, '2026-08-16');
@@ -92,6 +95,8 @@ async function main() {
   assert.strictEqual(fallbackCards[0].description, '文章摘要兜底。');
   assert.strictEqual(fallbackCards[0].source, 'article');
   assert.strictEqual(fallbackCards[1].source, 'fallback');
+  assert.strictEqual(fallbackCards[1].badge, '我做的 · 正式迭代');
+  assert.doesNotMatch(fallbackCards[1].badge, /预览版/);
 
   assert.strictEqual(
     extractReleaseSummary('ScreenLex 1.0.1\n\n- 修复按钮。\n- 新增复习模式。'),
