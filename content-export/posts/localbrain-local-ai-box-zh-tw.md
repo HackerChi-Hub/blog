@@ -202,7 +202,7 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
 > [!info] 黑粉盒子 HyphenBox
-> **狀態：** 初步構建 · 預覽版
+> **狀態：** 正式迭代
 >
 > 免費大模型 API 雷達：持續複測可用性，本機統一介面，Key 只存本機
 >

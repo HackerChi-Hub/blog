@@ -220,7 +220,7 @@ The clumsy way has its merits: it trusts none of the intermediate steps I wrote,
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
 > [!info] HyphenBox
-> **Status:** Early build · Preview
+> **Status:** Official releases
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
