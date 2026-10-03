@@ -1,14 +1,14 @@
 ---
-title: "LocalBrain Network Security Test: Locked in an isolated sandbox, it doesn't run by default, only released after authorization"
+title: "LocalBrain security check test: The local model calls tools itself, and 170 discoveries do not equal 170 exploitable vulnerabilities"
 slug: localbrain-network-security-en
 status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 2f40e3bc38b7bcc9
+source_sha256: 0d93fbdf47b7e756
 date: 2026-10-03
 updated: 2026-10-03
-summary: "LocalBrain provides workplace security review and authorized network checks. Real Juice Shop target devices passed two normal rounds and failed two rounds of shutdown, fixing the issue of mistaking proxy handshakes for online targets; Six isolation validations passed, adding automatic service selection and configuration examples, and explaining the differences between connectivity checks, vulnerability detection, and cross-platform acceptance."
+summary: "Two local models tested: autonomous query capability, scanning isolated ranges, and reading evidence. Failure records are kept, explaining the difference between matching 170 components and real exploitable vulnerabilities."
 categories:
   - Tech
 tags:
@@ -25,136 +25,137 @@ legacy_paths: []
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/localbrain-network-security/) is authoritative.
 
+# LocalBrain security check test: The local model calls tools itself, and 170 discoveries do not equal 170 exploitable vulnerabilities
+
 > [!abstract]
-> LocalBrain provides workspace security review and authorized network checks. Network checks only perform port connections and HTTP response headers; they must first pass local isolation verification before the user clarifies the authorization target. This article supplements a real startup fault investigation, repair, and test data, and also explains which results still cannot be considered official installation package acceptance.
-> 2026-10-03·HyphenTech
+> This update corrects a key note from an old article: 1.6.3 Candidate has registered security checks as tools that local models can call. Models are responsible for selecting checks, reading evidence, and providing recommendations; Programs are responsible for authorization and isolation. True execution records of both models are saved, but component vulnerability matching does not guarantee successful exploitation.
 
-# LocalBrain Network Security Test: Locked in an isolated sandbox, it doesn't run by default, only released after authorization
+What I wanted wasn't an extra scan button, but to say a word to the local model, let it complete the inspection within its authorized scope, and then return the evidence and repair suggestions. The old version did this by adjusting the button to the backend, which couldn't be considered autonomous execution. This round finally connected the conversation, tools, isolation range, and report reading.
 
-In the past couple of days, I added a feature to LocalBrain that even I hesitated to do: proactive network testing on authorized targets. To put the conclusion first—it defaults to **not running**, and I spend much more effort on "making it run" than on "making it run."
+Tested on my M5 Pro and 64GB memory Mac. The native interface task completed in 97 seconds; The same conversation took 13 seconds to retrieve the report again, without redoing the scan. Another model completed two consecutive checks in the shared proxy kernel without restarting. Below, the success, failure, and uncompleted acceptance parts are discussed separately.
 
-Why would a local AI toolbox touch something as dangerous as network testing? Because I have my own needs: I have several machines and services on hand, wanting to casually check whether a port is open and whether a service's response head is correct. But once these capabilities are integrated into a tool that can be driven by conversation, the first reaction should be caution—what if the model initiates it itself? What if it points to an address it shouldn't? What if it follows the network and finds something else on my local machine? This article will explain how I block each of these three "what ifs" one by one.
+## First, clarify: the model is not a scanner; the model is responsible for using scanning tools
 
-## Let's first talk about what it can and cannot do
+The local model can decide whether to check the environment first, then which authorized target to check, and finally which evidence to read. Whether ports are successfully connected and which components in the image match are still executed by real tools. The role of the model is to organize tasks and interpret results; it cannot replace scanning with a single answer or expand the scope of authorization itself.
 
-**Authorized Network Check** can only perform two types of low-impact checks: connection check (whether a port on a certain IP is available) and HTTP response header check (take back the response header and check). These are the two. Not a full-function scanner, does not scan port segments, and does not send attack payloads. Response header inspection currently uses plaintext HTTP, so it cannot be considered as an HTTPS certificate or TLS configuration audit that already supports it.
+The latest version provides five security tools: querying the real environment and existing authorizations; checking authorized hosts; auditing specified container images; checking built-in isolated ranges; and reading reports belonging to the current conversation in pagination. Confirm flags and report ownership by the program; the model cannot bypass users by writing "approved" in parameters.
 
-The targets that can be tested are also tightly blocked: **must be a single and definite IP**—does not accept domain names, network segments, wildcards, and even bypasses IPv4 mapping addresses are rejected; Up to 8 ports at once; Valid for 1 to 60 minutes; Up to 8 authorizations can be attached simultaneously; And all are stored only in memory, **once you exit the application, it's gone**. To test local or intranet, you have to check a separate authorization; without it, you can't even point to 127.0.0.1.
+This is no longer the old version of "the model cannot call up the security command." The old mechanism blocked unauthorized execution and the actual needed conversational use. Now the authorization boundary is maintained, assigning tasks within the scope to the model instead of requiring users to operate buttons one by one.
 
-These restrictions are not suggestions but hard thresholds in the code; if you fill in a wrong one, it will be rejected immediately.
+## The easiest way to get started: start with the built-in shooting range
 
-## The first "what if": Will the model start on its own?
+First, enter the network security entry in Settings and click "One-Click Prepare to Check Environment". If the local machine already has related dependencies, the program should prepare a dedicated isolation environment, fill in the image, and verify the boundary; If system dependencies need to be installed, confirmation must still be made. The time required for the first download is affected by network and cache; the speed under local cache conditions should not be considered the installation speed of a new machine.
 
-No. This one is the foundation.
+Once the environment is ready, enter in the dialogue:
 
-Authorizing all network check operations—creating authorization, running validation, running tests—are all buttons you click in the settings interface, none registered as tools that the model can call. The model saying "Let me test it for you" in a dialogue cannot be used to perform network checks. The simplified process still requires manually selecting the target authorization, then clicking "Authorize and run check"; Auto-filling does not automatically grant permissions.
+"Please check the built-in Juice Shop range, read the original evidence of three serious issues, provide repair recommendations, and explain the areas not yet covered."
 
-Shifting 'can measure' from 'whether the tool is willing' to 'whether the person grants authorization' is the first line I use when using any dangerous ability.
+The model first queries the actual capability, then requests to check the specified range. The native confirmation box displays the target and action for this purpose; Only executes after confirmation. The demonstration task uses a temporary isolated environment and cleans up after completion, so users do not need to create their own container addresses.
 
-## The second 'what if': Will it point somewhere it shouldn't or touch something else on the device?
+![True native confirmation box: Targets are limited to built-in Juice Shop ranges; if confirmed not to be model parameters, it will not be executed if rejected.](https://hyphentech.top/obsidian-assets/localbrain-network-security/02-scoped-confirmation.png)
 
-This was the most painstaking part; I tried two different approaches to get it right.
+When checking your own host, first select the address, port, and inspection scope on the interface, confirm you have test authorization, and then let the model use the existing license. The existing service option only covers services found in the dedicated environment, not automatically scanning all LAN devices. When inspecting containers, you must also confirm the specific objective; selecting one container should not be interpreted as authorizing all containers.
 
-The test had to run in an isolated environment. I chose Colima and Docker—to build the smallest dedicated Linux virtual machine (2 cores, 2GB, `--mount none`, not any local directory from me). LocalBrain only used this dedicated instance and didn't touch other dockers on your machine.
+## How to use the three settings pages: The first time, only select the built-in shooting range
 
-At first, I thought it was pretty natural: make the test container online, then use firewall rules to 'only allow the authorized IP and port, lose everything else.' But in Docker 29, it messed up—it completely rewrote the internal iptables chain, and the allowed rule I added had a hit count of 0, and I couldn't even connect to the authorized port. Competing with Docker for the firewall chain was neither reliable nor would fail with version changes.
+The settings page has two uses: manual check entry and environment and authorization management before local model execution. The button runs the check directly, which does not imply model participation; If the model wants to arrange tasks independently, it returns to the dialogue after environment preparation and authorization are completed to make requests.
 
-Later, I changed my fundamental approach: ** not "allow most, prohibit some," but "by default, nothing can be reached, only a crack open." ** Each test task starts a Docker `--internal` network — this kind of container in the network, I tested it, and it doesn't even have a default route, and it can't connect to both cross-network and public networks (NC detection always times out). The zero exit isn't blocked by rules; it's Docker's constructed guarantee.
+![Built-in Range Demonstration: Select Juice Shop for the first time, confirm demonstration only at isolated ranges, then click "One-click Prepare and Generate Demonstration Report."](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-demo-20261003.png)
 
-So how can it still detect the authorization target? The only gap is that each task is equipped with a small proxy that only forwards to the authorization target. The test container only connects to this proxy, and **it never knows what the real target's IP is** — it only writes to the proxy, and the proxy only forwards to the authorization address. The proxy and test run in two different containers: the test container can run probes but can't go anywhere; the proxy has an exit but only dials to that one address. Both containers lose all permissions, have read-only file systems, run non-rooted, have limited memory and process counts, and do not attach to any local directories.
+- If you just want to see the effect: go to "Built-in Range Demonstration", scroll down to select Juice Shop, check the local isolation demonstration confirmation, and click "One-click Prepare and Generate Demonstration Report". This path does not require entering an address or port; After completion, check the report.
+- To have the local model complete the check: first prepare the environment, return to the conversation, and enter the demonstration request mentioned above. The model will check capabilities and request confirmation, then scan and read the evidence. Do not treat manual button reports as model execution records.
+- "Environment and Verification Details" and "Local Field Reverse Validation" are inspection and safety check items. Normal use does not require repeated checks; the preparation process is responsible for corresponding inspections, and only opens up for inspection if failures occur.
 
-This design limits probe traffic to the proxy path per task, but it cannot guarantee absolute security: containers, virtual machines, and proxies themselves remain security dependencies that need maintenance, and the six range checks cannot replace a complete security audit. Connection checks are performed by restricted proxies on the final authorized addresses, while web checks are accessed by isolated probes via proxies. Neither type of check can be considered successful simply because the proxy has accepted the connection.
+![Authorization host check: first select the inspection plan and target, verify the actual address and port, then confirm authorization; No need to default on custom ports and advanced options.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-host-20261003.png)
 
+Check your own service: select "Authorize host check" and choose the solution first; If the service is in the dropdown list, select it directly. Only for targets not listed should you manually enter your host address, then click "Parse and display actual target" to verify the address and port. When checking local or intranet, check the appropriate permission, confirm test authorization, and finally click "Authorize and automatically prepare for inspection."
 
+For example, for your own SSH service, you can select only connection check and port 22; For your own plaintext web service, you can choose connection and response headers, using the actual publishing port of the service. Here, you can't just fill in any sample address for testing; You can only specify the target you own or have explicitly authorized. Entering an HTTPS URL does not mean you already support TLS or full HTTPS auditing.
 
-![One per task -- internal network, exit is zero; The only exit is the agent that only dials the authorized target's agent. This diagram illustrates the structural isolation of "by default, nothing can reach you, only a crack is opened"](https://hyphentech.top/obsidian-assets/localbrain-network-security/image-isolation-diagram-a8859985bc.png)
+"Select Local Services" only reads containers running on the dedicated isolated virtual machine with published ports. An empty list does not mean the computer has no services, nor does it mean the user is asked to "refresh" to scan the entire LAN. If the host authorization exits the application or expires, reading old reports will not restore it.
 
-## The third 'what if': How do I know this isolation is truly valid, not what I thought it was?
+![Container Image Audit: Select the specified container, confirm audit authority, and click Scan. Vulnerability database updates are maintenance operations and do not require manual execution each time.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-container-20261003.png)
 
-This is what I care about most. The biggest fear of security features is 'looks closed, but actually there are gaps.' So I didn't let it run by default, but added a **local range reverse verification**: click it, and the program creates a one-time test range and verifies six things with real test loops—
+Inspect containers: Select "Container Image Audit," select the actual container from the dropdown menu, verify the name and image, check the check permission, then click "Scan for Specified Container Images." This checks known components in the image snapshot, not the attack performed on the running webpage. The first time may require downloading the scanner and database; "Advanced Maintenance: Update the Vulnerability Repository" should not be an additional step for each scan.
 
-1. Can the authorized target be properly detected by the agent? (It must be possible)
-2. Should we block unauthorized ports on the same target? (Yes, we should block them)
-3. Bypass the proxy and connect directly to the target. Is there a way? (No, not)
-4. Can it connect to the public network? (No, it doesn't)
-5. Click Stop. Can you clean up the containers and network of the task? (It must be cleanly dismantled)
-6. If the target port within the authorization range is actually unreachable, can a failure be clearly reported? (Must fail)
+The DVWA in the image above is the container selected by the user on the current interface, not from a DVWA test already completed in this article. The model execution data in this article comes from Juice Shop, so the selection screen of another target drone should not be taken as its scan result.
 
-Only after all six tasks are passed will the program write the verification record and execute will be released. The latest version completes the local run in about 6.62 seconds. The old version cannot directly open the five records for execution in the new version and must be re-validated. If the isolation environment is offline, the image is missing, or verification is incomplete, the execution will revert to disabled: **If something goes wrong, close first, do not release first. **
+"Save" does not mean starting a scan: the actual task is triggered by the corresponding preparation or scan button, and the host authorization still has a separate validity period. This kind of button division of labor is not intuitive enough and is an area where the interface should be simplified later.
 
-After verifying, I casually stopped the isolated virtual machine, and the panel immediately displayed "Offline Isolation Environment · Execution disabled." This is exactly the effect I want: once the isolation is removed, the capability automatically locks out.
+Daily entry should only retain "Select target→ check scope and confirm →Start →View Report"; senior maintenance should be closed by default, and environment status displayed with a brief prompt. This article explains how to use the existing interface; it is recommended not to write this simplified interface as a completed interface upgrade.
 
-## Interface: Name by specific function, users choose solutions, no longer recording stage numbers
+## Two models: three full checks and one repeated reading
 
-After finishing the features, I went to the interface with the "Instantly Tell What the Name Says": In the system access settings, leave only one "Network Security" section, with two tabs named by function—
+I split the test into two layers. Swift-1.5-Qwen3.8-27B-Splash uses the product-sharing proxy kernel and production security adapter; the test bridge only allows built-in demonstrations and rejects external hosts and user containers. This proves that the actual toolchain works, but does not replace desktop acceptance boxes.
 
-- **Workspace Security Review**: Read the code, dependencies, and configurations of the authorized workspace. Executing local testing and dependency audit commands still requires further confirmation; Dependency audits may access software repositories, so it cannot be simply described as completely offline. Working directory restrictions are not system sandboxes.
-- **Authorized Network Check**: For clearly authorized IPs and ports, perform connection and response head checks in a dedicated isolated environment.
+Qwen3.6-35B-A3B-Splash completes tool discovery, user confirmation, scanning, and report reading in the native interface after installation. 97 seconds includes waiting for manual confirmation, so model speed cannot be directly compared to bench tests without manual waiting.
 
-The name simply states the function, no longer called "which stage." When dependencies are installed, the program can automatically prepare isolation environments, fill up images, and perform local reverse validation. If Colima or Docker is missing but Homebrew is already on the machine, it provides "one-click installation and preparation to check environment"; Machines without Homebrew still have an initial preparation threshold. It will not silently install system software nor turn the preparation environment into an automatic authorization target. The screenshots of the old interface below only show the original entry point and do not pretend to be acceptance screenshots of the new interface.
-
-
-
-![Original settings interface: Two tabs in the Network Security section. This patch further simplifies the names and daily processes; the native interface acceptance is not yet complete](https://hyphentech.top/obsidian-assets/localbrain-network-security/image-netsec-ui-3c7c09917e.jpg)
-
-## One real failure: the terminal can start, but the application cannot find Lima
-
-This time, the model didn't answer wrong, but the application startup environment had a problem. The interface reported: `limactl` not in `PATH`. The program had already found the absolute path to Collima, but Colima would then call Lima; Applications launched from the desktop did not inherit the full search path from the terminal, so the second dependency couldn't be found.
-
-I restarted the dedicated instance using a streamlined environment with only the system directory and repeated the same error. Then I added the actual local tool directory to the subprocess environment and isolated the virtual machine for successful startup, taking about 8 seconds. This time was measured under the condition that the local machine already had dependencies and image caches, not the time taken for the first installation on a new machine.
-
-Fix: No writing to the user's shell configuration, nor requiring the software to be reinstalled. Instead, it handled the process mechanically: retaining the original search path and supplementing the existing common tool directories to ensure Colima and its subprocesses run in a consistent environment. At the same time, three other reliability issues were addressed:
-
-- Start logs for continuous reading, limiting only the retention length without stopping reading. Avoid processes and applications waiting for each other after the pipeline is filled with logs.
-- Time-consuming commands are executed in the background thread, so the interface does not have to wait for the isolated environment to start before responding.
-- Refresh the state after an error no longer clears errors; Dedicated instance startup explicitly prohibits automatically switching the user's default Docker context.
-
-These fixes do not branch based on model names, nor do they mask runtime faults by modifying model prompts.
-
-## The real target drone stopped, so why does it still show success?
-
-Running a one-time small range is not enough. On October 3, 2026, I conducted a full verification using the official Juice Shop 20.2.0. It is a real web application for secure training, this time running only on a dedicated local virtual machine, without testing public websites or exploiting vulnerabilities.
-
-The most important thing to keep is not the success screen, but the failure: **In the old version, even after the target drone stopped, connection checks still returned successfully. ** The reason is that the test connects to a proxy listener; the proxy accepting the connection does not necessarily mean the final target is truly online. Webpage commands have another issue: after receiving an interception command, the output may leave the successful status of the interception command, hiding the actual access failure. The isolation boundary was not breached, but the result was wrong; "No overstepping" and "accurate measurement" are two different test papers.
-
-This fix did not add prompts to a particular model, nor did it write a special branch for Juice Shop. Link check was changed to verify the final authorization target, and web check retained the actual command failure state. Evidence can be limited in length; failure status cannot be cut together. Each item is individually recorded for check type, port, status, duration, and original evidence, and only then summarized whether it passed.
-
-I first confirmed the webpage returned 200 within the real app, then verified the entire backend command chain through verification, authorization, execution confirmation, check, and undo for comparison. Under normal conditions, two consecutive rounds, then two more rounds after stopping, with no single attractive result.
-
-| Target aircraft status | Web check | Connection check | Summary |
+| Test path | Mission | Time-consuming | Proxy turns/security tool calls |
 | --- | --- | --- | --- |
-| Normal, Round 1 | Pass, 201 milliseconds, return 200 | Passed by, 205 milliseconds | Pass |
-| Normal, Round 2 | Pass, 202 milliseconds, return 200 | Passed by, 202 milliseconds | Pass |
-| Stop, round 1 | Failure, 206 milliseconds | Failure, 205 milliseconds | It was not approved |
-| Stop, round 2 | Failure, 202 milliseconds | Failure, 205 milliseconds | It was not approved |
+| Swift 1.5, shared kernel | First full inspection | 100.528 seconds | 4 rounds / 3 rounds |
+| Swift 1.5, not yet restarted | The second full check | 75.773 seconds | 4 rounds / 3 rounds |
+| Qwen 3.6, native interface | Complete inspection, including manual confirmation | 97 seconds | 4 rounds / 3 rounds |
+| Qwen3.6, same dialogue | Read the report again, do not rescan | 13 seconds | 2 rounds / 1 time |
 
-The milliseconds here include command scheduling, not network latency rankings. The full set of real-world applications takes about 18.93 seconds to return and includes startup, validation, quadruple check, shutdown, and cleanup. All six isolation validations passed; Another full authorization link plus downtime negative test took about 22.09 seconds. Unconfirmed execution, exceeding authorization type, and revoked requests were also verified separately.
+The full checks followed the "query capability→ demonstration → reading evidence." The two Swift tasks matched the native scan components: 9 severe, 54 high, 83 medium, 24 low, totaling 170 items. The native report number was 6d5b6ea5-c873-4a01-a795-f287ae85a93f, which corresponds to backend records rather than just success prompts in chats.
 
-This proves that the local machine's checkbox distinguishes between normal and stopped targets, but does not prove that the software can find all vulnerabilities. The target container does not have a user directory; after testing, all target machines, proxies, probes, and temporary networks are cleaned up; Real application testing goes through the backend command entry and does not fake the installation interface's item-by-item acceptance checks.
+![Actual installation task: 97 seconds, 4 rounds, 3 tool calls, report contains 170 component matches. This number cannot be directly interpreted as 170 exploitable vulnerabilities.](https://hyphentech.top/obsidian-assets/localbrain-network-security/03-native-completed-report.png)
 
-## Simplified operation: three steps are enough, with details left to the advanced options
+![Second read of the report from the same dialogue: 13 seconds, 2 rounds, 1 tool call, no repeated scans.](https://hyphentech.top/obsidian-assets/localbrain-network-security/04-repeat-read-report.png)
 
-The fixed version summarizes daily operations into three steps:
+The purpose of these samples is to confirm the link and continuous usage, not to rank the models in the performance rankings. Currently, only the two models mentioned above are being tested; The shared mechanism does not write special branches based on model names, but this does not mean all models have stably passed.
 
-1. **Prepare Environment**: Click "One-Click Prepare and Check Environment". Automatically start the dedicated instance, complete the image, then run local validation. If the image is online but missing, it will also be filled, so you don't need to skip the preparation directly.
-2. **Select Solution and Service**: For plaintext web pages, select connection and response header; for SSH, select connection only. Start your own test service first, then refresh the service list and select from the dropdown menu; The program will automatically fill in the address, port, and internal network options. The actual service port takes precedence over the default value of the solution.
-3. **Confirm authorization and run**: Check the scope of this time, check the authorization declaration, and click the button. Other authorized targets, check types, and validity periods are placed in the advanced options; Automatic filling does not replace authorization confirmation.
+## What do the 170 findings really indicate?
 
-Environment status and verification details are folded by default; expand when troubleshooting is needed. Service dropdown only reads containers running on dedicated virtual machines with published ports; **does not scan the subnet, nor does it represent the entire Mac service list**. If the list is empty, first confirm that the service has started and published ports; do not use historical test addresses to fill in. Port input with illegal content will be directly rejected; incorrect entries will not be quietly deleted and executed for the user.
+Here, it checks components in the container image and their matched database with known vulnerabilities. It can identify which versions in the image are worth reviewing, but cannot directly prove that business applications have accessible paths. Newly added files at runtime, host kernels, and business permission logic are not all covered by this image audit.
 
-A brief example is also added next to the configuration: your plaintext web page can use port 8080, but SSH only supports port 22 connections; The advanced input 192.168.1.50 is just an example, not a deployed target device. 15 minutes means the authorization is reserved for 15 minutes, not a task that needs 15 minutes. Web checker currently does not support HTTPS, so you cannot interpret port 443 as connectable to certificates, encryption suites, or website security as qualified.
+Therefore, "170 matches" should not be written as "170 vulnerabilities successfully broken." Similarly, zero matches do not guarantee the target's safety. Scanning databases, component recognition, and actual application usage all affect results; after fixing, a re-scan is needed to verify whether the business is functioning properly.
 
-**Version Notes: This target determination and automated fix is included in version 1.5.9. Real target device testing has been completed; Installation package and interface acceptance status are subject to the release page description. Previous version 1.5.8 did not include this target online false alarm fix and should not be judged as service online based on its success prompt. **
+The model's initial response also revealed an interpretation error: the report did not list the fixed version, and it described the null value as "no official fix." The correct meaning could only be "This database record is not listed." After reading the original report, it was corrected, and the shared evidence guidance for the program also added this rule: unknown does not mean denial, and suggestion does not mean actual testing.
 
-## Honestly state the border
+Therefore, I value whether we can return to the original evidence, rather than how well the model presents the report. The specific upgrade version and fix plan must be verified in conjunction with the project; The fix version provided by the database does not automatically equal the version that is currently the most suitable for the project.
 
-- This isolation and reverse authentication system **currently only passes tests on my Mac**. Windows and Linux installation packages have the same feature, but isolation has not been tested on either end—fortunately, it is also fail-closed, and both ends must run reverse authentication locally before they can be released.
-- Only two types of low-impact inspections—connection checks and response heads—are not scanners.
-- The Linux version itself still supports preview.
-- The isolated environment requires Docker/Colima, which is not included by default; One-click dependency installation is available when the device already has Homebrew. The initial installation path for a brand-new machine has not yet been fully tested.
-- The test result is 'tool discovery'; not having your manual review doesn't mean it's a 'verified conclusion'—I wrote this directly under the runtime output.
+## The native interface failed the first time, and the problem wasn't with the model
 
-The biggest takeaway from this feature is: giving a tool that can be driven by dialogue with danger capabilities—the real workload isn't about 'implementing the function,' but about 'locking it in a box where even if you want to do evil, there's no way out, and prove that the box is real.' It can run, but it only takes a small part of my effort; Making it run by default and proving it can't run is the real deal.
+The initial native test failed to scan successfully. Capability queries were normal, but when performing confirmation, the backend received an object, not a boolean value, so it refused to approve the parameter. The model tried three times in a row and still failed; You can't count this check as complete just because it finally finishes.
+
+This fix is set at the general acknowledgment boundary: wait for the native asynchronous acknowledgment box to return, treat strict Boolean truth values as approvals, and reject unknown returns by default. Security checks, project commands, and network changes share this mechanism, not just fixing a prompt for a particular model.
+
+Only after the fix did the above 97-second native success record appear. The first failed checkpoint, the repair task log, the second read record, and four window screenshots were all preserved. Successful desktop testing does not equal desktop interface success; this failure precisely explains why both sides must be tested separately.
+
+## Besides quarantine, it is also necessary to confirm that the results are free of false positives
+
+An earlier host connectivity test also caught a false positive: the target machine had stopped, the agent could still accept the connection, and the old logic considered the target to be online. Later, it was changed to verifying the final authorized target and retaining the actual failure state of the web access command. Evidence can be shortened, but failure status cannot be cut together.
+
+Using Juice Shop 20.2.0 to compare normal and downtime: normal two consecutive rounds, both web pages and connections passed; After shutdown, two consecutive rounds failed. Single test takes about 201 to 206 milliseconds, including command scheduling, not network latency rankings. The entire real application returns about 18.93 seconds.
+
+Local isolated reverse authentication includes authorized target reach, unauthorized port denial, direct access target denial, public network access denial, post-stop cleanup, and clear failure when the target is actually unreachable. The previous six validations all passed locally, taking about 6.62 seconds; It verifies set boundaries, not complete security audits.
+
+Host detection uses an independent internal network and restricted agent for task detection, without adding user directories. The program imposes hard constraints on target authorization, execution acknowledgments, and stop signals. Containers, virtual machines, and proxies themselves still require maintenance and cannot guarantee absolute security. The native end-to-end test of the newly added model path stop scan has not been separately re-validated.
+
+## What can and cannot be done now
+
+- Workspace security review: Check the code, dependencies, and configurations of authorized projects; Perform local testing or dependency audits and confirm separately. Working directory restrictions are not operating system sandboxes; dependency audits may also access software repositories.
+- Authorized host check: TCP connection discovery, plaintext HTTP root path first response, as well as reviewed Git configuration and PHP information leak rules. Not a complete website vulnerability scan.
+- Container and built-in range inspection: Mirror component vulnerability database matching. The model can select tools and read reports, but cannot issue authorizations, call arbitrary attack scripts, or expand targets independently.
+- HTTPS full audit, full virtual hosting support, and remote container connections have not yet been delivered. Report reads do not restore expired host authorizations.
+- Only test your own device or obtain explicit authorization goals. Risk warnings cannot replace authorization, nor can you treat checkboxes in software as legal exemptions.
+
+## Download and Acceptance: The candidate version is not an official automatic update
+
+Model autonomous security checks are provided in the 1.6.3-rc.1 candidate version. The Mac installation package has been built, installed, and tested for core native tasks; Windows and Linux candidate packages have been built and signed for validation, but have not yet been accepted natively on both platforms. Linux is still considered as preview support.
+
+Ultimately, the Mac package supplemented the rules for interpreting evidence. The installation binary matched the build product, with strict signature and update package verification passed, but no Apple notarization. The final post-restart report persistence acceptance encountered lock screen and was not yet completed; Do not write the released installation package as this acceptance pass.
+
+[1.6.3-rc.1 Candidate Download](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.3-rc.1). The official latest version is still 1.5.9, and the auto-update list does not include the candidate version. To experience the model toolpath in this article, you need to manually select the candidate version, rather than assuming the automatic update already includes it.
+
+## I hope it will have fewer forms for users and more evidence to speak
+
+This time, the real connection was: you explain the task, confirm the program scope, the local model calls the real tool, and then returns the report that can be checked back. It's not about giving the model unlimited permissions, nor about using fixed button results to fake autonomous execution.
+
+For the first time, it's recommended to use the built-in range first, confirm that query, authorization, execution, and report reading are all thorough, then check your own project and services. The most valuable thing is not how many discoveries there are, but whether each discovery can be returned as evidence, which areas are not covered, and whether repairs can be verified.
+
+[Complete test methods and acceptance boundaries](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_MODEL_AGENT.md). Original test records are archived locally, and public documents distinguish between desktop, native interface, build, and unaccepted items.
 
 
 ---
