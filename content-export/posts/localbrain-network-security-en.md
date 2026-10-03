@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: e3320e4e60fba646
+source_sha256: 7ec7aede9eb5cd8e
 date: 2026-10-03
 updated: 2026-10-03
 summary: "Latest security inspection tutorial: Three targets, two execution methods, authorization filling and prompts, retaining real screenshots and two sets of test data, clearly defining 170 component matching and unaccepted boundaries."
@@ -209,6 +209,8 @@ Isolated reverse validation checks boundaries such as authorized target reach, u
 The latest streamlined interface is on the [1.6.4-rc.1 all-platform candidate release page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.4-rc.1). The device is already installed with 1.6.4, Mac installation products match build products, installation package verification and update signature verification passed; No Apple notarization. Official automatic update still retains 1.5.9, and the candidate version will not be automatically pushed to everyone as the official stable version.
 
 The Windows and Linux source build has been uploaded and verified, but both platforms have not yet been accepted for real-world use. Linux is considered to be supported in preview and cannot run MLX / Splash. The latest native Mac interface process was not retested due to system window capture issues; This article does not use simulation images to replace it.
+
+This candidate release retained 14 download files. In source code acceptance, 1,423 frontend tests passed and 2 were skipped; Rust tests passed 295 and 18 were ignored; 29 test files from the Python environment passed, including 212 unit tests and additional scripts. Skipping and ignoring items do not count as passing, and the number of tests cannot replace native acceptance tests. This set of data indicates which layer of release check was achieved and does not mean the software is free of defects.
 
 ![Acceptance layering: old model testing, new backend testing, new simulation interaction, and unfinished verification items.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-evidence-levels.png)
 
