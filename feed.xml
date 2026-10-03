@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 06:32:25 GMT</lastBuildDate>
-    <pubDate>Sat, 03 Oct 2026 06:32:25 GMT</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 07:27:19 GMT</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2026 07:27:19 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -26,7 +26,7 @@
       <title>LocalBrain 网络安全测试：关进隔离沙箱，默认跑不起来，授权了才放行</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
-      <description>LocalBrain 新增授权目标的主动网络测试：只做连接和响应头两类低影响检查，关进按构造零出口的隔离沙箱；执行默认禁用，本地靶场反向验证五项全过才放行，隔离一离线就自动落锁。全程点鼠标，不用碰终端。</description>
+      <description>LocalBrain 提供工作区安全审查与授权网络检查。本文记录隔离环境启动故障的真实复现、修复和本地靶场实测：五项边界验证通过，完整授权执行链路通过；操作收为准备环境、选择方案、确认授权三步，并交代当前版本与跨平台边界。</description>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
