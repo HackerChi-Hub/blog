@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 02 Oct 2026 22:17:21 GMT</lastBuildDate>
-    <pubDate>Fri, 02 Oct 2026 22:17:21 GMT</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 04:55:39 GMT</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2026 04:55:39 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>LocalBrain 网络安全测试：关进隔离沙箱，默认跑不起来，授权了才放行</title>
+      <link>https://hyphentech.top/localbrain-network-security/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
+      <description>LocalBrain 新增授权目标的主动网络测试：只做连接和响应头两类低影响检查，关进按构造零出口的隔离沙箱；执行默认禁用，本地靶场反向验证五项全过才放行，隔离一离线就自动落锁。全程点鼠标，不用碰终端。</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>网络安全</category>
+    </item>
     <item>
       <title>LTX-2.5，本地免费跑，效果比肩大片</title>
       <link>https://hyphentech.top/localbrain-ltx25-video/</link>
@@ -221,15 +234,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>Linux</category>
-    </item>
-    <item>
-      <title>GPT-6跑分很猛，六道题后我想说点实话（附免费小游戏）</title>
-      <link>https://hyphentech.top/gpt6-six-tasks-rain-mystery/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gpt6-six-tasks-rain-mystery/</guid>
-      <description>六题制作复盘与公开评测对照，附免费雨夜推理小游戏、完整线索和答案。</description>
-      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
     </item>
   </channel>
 </rss>
