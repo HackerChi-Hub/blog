@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 14:07:59 GMT</lastBuildDate>
-    <pubDate>Sat, 03 Oct 2026 14:07:59 GMT</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 14:45:54 GMT</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2026 14:45:54 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -23,10 +23,10 @@
     <category>动画</category>
     </item>
     <item>
-      <title>LocalBrain 安全检查实测：本地模型自己调用工具，170条发现不等于170个可利用漏洞</title>
+      <title>LocalBrain 安全检查教程：选目标、确认范围，让本地模型检查并读懂报告</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
-      <description>两种本地模型实测：自主查询能力、扫描隔离靶场、读取证据。保留失败记录，说明170条组件匹配与真实可利用漏洞的区别。</description>
+      <description>从内置靶场开始，详解新版三种检查入口、模型与直接执行的区别、授权填写、提示词和报告读取。保留真实实测与失败记录，不把组件匹配说成漏洞利用成功。</description>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
