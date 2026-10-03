@@ -80,6 +80,22 @@ sync_remote_main "$REPO" "Blog 代码库"
 sync_remote_main "$SOURCE_REPO" "Obsidian 内容库"
 
 cd "$REPO"
+
+# 机器翻译：新文章与改动过的文章出英文版（只动脚本自己生成的，人工译文永不覆盖）。
+# 放在签名刷新之前，让新译文也被签名模板统一处理一遍。
+#
+# 失败不阻塞中文发布：中文是主体，不能因为翻译服务一时不通就发不出文章。
+# 失败的那篇不会写出文件，所以下次 blog-push 会自动重试——不是吞掉，是延后。
+# 用 `if !` 包住：本脚本开着 set -e，裸调用失败会直接中止整个发布。
+echo "🌐 机器翻译新文章与改动过的文章（英文）"
+if [ -n "${AZURE_TRANSLATOR_KEY:-}" ] && [ -n "${AZURE_TRANSLATOR_REGION:-}" ]; then
+  if ! BLOG_CONTENT_DIR="$SOURCE_REPO" node scripts/translate-posts.js --all; then
+    echo "⚠️  部分文章翻译失败（见上方），中文照常发布；下次 blog-push 会自动重试"
+  fi
+else
+  echo "⚠️  未设置 AZURE_TRANSLATOR_KEY / AZURE_TRANSLATOR_REGION（应在 ~/.zshenv），本次跳过翻译"
+fi
+
 node scripts/sync-article-footer-template.js --content-dir "$SOURCE_REPO"
 echo "🔎 1/5 校验内容并生成公开快照"
 npm run content:sync
