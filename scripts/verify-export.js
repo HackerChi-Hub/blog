@@ -214,6 +214,10 @@ try {
         obsidianFailures.push(`页面缺少中英 hreflang 互指：/${route}${route ? '/' : ''}`);
       }
       if (!html.includes('hyphentech:lang')) obsidianFailures.push(`页面缺少语言偏好脚本：/${route}${route ? '/' : ''}`);
+      // 线上开着 Cloudflare Rocket Loader，不带这个属性的脚本会被推迟到页面加载完才跑
+      else if (!/<script data-cfasync="false">[^<]*hyphentech:lang/.test(html)) {
+        obsidianFailures.push(`语言偏好脚本缺 data-cfasync="false"，会被 Rocket Loader 推迟：/${route}${route ? '/' : ''}`);
+      }
       if (!html.includes('class="lang-toggle"')) obsidianFailures.push(`页面缺少语言开关：/${route}${route ? '/' : ''}`);
     }
   }

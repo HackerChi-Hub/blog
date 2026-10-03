@@ -178,6 +178,10 @@ node scripts/test-translate-posts.js             # 回归测试（不调 API）
 - 同一张对照表（`alternatesFor`）也生成 `<link rel="alternate" hreflang>`（含
   `x-default` 指向中文），都由 `pages/_document.js` 统一输出，文章页不再自己写。
 
+**线上开着 Cloudflare Rocket Loader**：它会把所有脚本改成页面加载完才执行，跳转脚本必须带
+`data-cfasync="false"` 才能在首屏前跑（导出验收会查）。本地静态服务没有 Rocket Loader，
+本地测通过不代表线上跳得了——发布后要在线上用英文浏览器再验一次。
+
 **开关用普通 `<a>` 整页跳转，不用 `next/link`**：客户端路由不会重跑 `<head>` 里的脚本。
 点击时先存下选择；文章页语言切换条的点击同样会存。
 

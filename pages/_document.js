@@ -25,7 +25,10 @@ export default function Document({ __NEXT_DATA__ }) {
       <Head>
         {alternates && (
           <script
-            // 放在 <head> 最前面、同步执行：读者在看到错误语言的页面之前就已经被带走
+            // 放在 <head> 最前面、同步执行：读者在看到错误语言的页面之前就已经被带走。
+            // data-cfasync="false"：站点开着 Cloudflare Rocket Loader，它会把所有脚本改成
+            // 页面加载完才跑——英文读者先看到中文页再跳，甚至来不及跳。这个属性让它放过这一段。
+            data-cfasync="false"
             dangerouslySetInnerHTML={{ __html: preferenceScript(alternates) }}
           />
         )}
