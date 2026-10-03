@@ -71,7 +71,14 @@ function chromeText(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<section[^>]*class="related-posts"[\s\S]*?<\/section>/gi, ' ')
-    .replace(/<!--[\s\S]*?-->/g, ' ');
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    // 正文代码不是界面文字。机翻按设计不翻代码：文章里给读者复制去喂 AI 的中文提示词、
+    // 真实的命令输出，翻了反而失真。不剔掉的话，代码块里的「分钟」「信息：」「状态：」
+    // 会被当成界面没本地化——61 篇机翻首次发布时 5 篇就这样被误拦。
+    // 先剔 <pre> 再剔行内 <code>（代码块是 <pre><code>）。界面本身不用这两个标签，
+    // 所以真正的界面漏翻照样抓得到。
+    .replace(/<pre\b[\s\S]*?<\/pre>/gi, ' ')
+    .replace(/<code\b[\s\S]*?<\/code>/gi, ' ');
 }
 
 const args = parseArgs(process.argv.slice(2));
