@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "88a5ff9768bf96ffa2a715fe502d29caa986ebb0c139f6ccf6c0d98a54cd5b11",
-  "published_post_count": 66,
+  "content_sha256": "2321f678ad5b136fad5ac759a738cffb7208b4fb359c977c9a01050412651e84",
+  "published_post_count": 67,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -201,6 +201,12 @@
       "slug": "hyphenbox-windows-linux-tri-platform",
       "legacy_paths": [],
       "sha256": "6209157e7da63651f882d01837d5e9e5764be6cc1834190e0c263b4621211b36"
+    },
+    {
+      "file": "posts/hyphenscreen-ai-editing-animation.md",
+      "slug": "hyphenscreen-ai-editing-animation",
+      "legacy_paths": [],
+      "sha256": "f466f8bfeac7cbac63668ee33472ce488e60b856f841b7bac11f95a5aeb60bb9"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-en.md",
