@@ -26,6 +26,9 @@ const SOURCES = [
   'components/ShareButtons.js',
   'components/RelatedPosts.js',
   'components/Comments.js',
+  'components/HomePage.js',
+  'components/Search.js',
+  'components/PostListPage.js',
   'components/SponsorCard.js',
   'components/SEO.js',
   'lib/markdown.js',
@@ -35,12 +38,27 @@ const SOURCES = [
 ];
 
 // 通过变量传进 t() 的键，扫描器看不到字面量，在这里显式登记。
+const HOME = require('../lib/home-content.cjs');
+// 动态键只登记含汉字的：「macOS / Windows」「WiFi Finder」这类本来就是英文，t() 原样返回，
+// 硬塞进词典只会多一堆「X → X」的噪音条目
+const hasHan = (text) => /[\u4e00-\u9fff]/.test(String(text));
+const { PRODUCT_DEFINITIONS } = require('../lib/product-catalog.cjs');
+const { SITE_CONFIG } = require('../lib/seo.js');
+
 const INDIRECT_KEYS = [
   ...Object.values(CALLOUT_LABELS),
   ...COMMENT_SERVER_ERRORS,
   '黑粉科技 · 官网', // SITE_CONFIG.name
   '让AI成为你的超能力', // SITE_CONFIG.slogan
   '黑粉科技', // SITE_CONFIG.author
+  SITE_CONFIG.description,
+  // 首页经 t(变量) 显示的常量：从同一个模块读，不手抄——手抄的登记表会在改文案时悄悄过期
+  ...HOME.CONTENT_PILLARS.map((p) => p.title),
+  '真实实测', // getPostPillarLabels 的兜底标签
+  ...HOME.MEDIA_CHANNELS.flatMap((c) => [c.name, c.title, c.description, c.action]).filter(hasHan),
+  ...[...HOME.AI_LAB_TOOLS, ...HOME.SIDE_TOOLS].flatMap((tool) => [tool.title, tool.desc]).filter(hasHan),
+  ...PRODUCT_DEFINITIONS.flatMap((p) => [p.name, p.label, p.badge, ...p.facts]).filter(hasHan),
+  '查看产品与下载', // 产品卡按钮（product-catalog 里写死）
 ];
 
 const CJK = /[\u3400-\u9fff\uf900-\ufaff]/;
@@ -76,8 +94,13 @@ for (const [lang, table] of Object.entries(TRANSLATIONS)) {
     if (!used.has(key)) failures.push(`${lang} 死词条（代码里已经没有这句）：「${key}」`);
   }
 }
+// 英文译文里唯一允许的中文：读者必须原样输入才能用的专有名。微信公众号/视频号就叫「黑粉科技」，
+// 英文读者在微信里搜 HyphenTech 是搜不到的——这里写英文反而是错误的指引。
+// 只豁免带英文引号的这个字面量本身；没加引号的（像偷懒没翻的「黑粉科技的软件」）照样拦。
+const EN_CJK_LITERALS = ['"黑粉科技"'];
 for (const [key, value] of Object.entries(TRANSLATIONS.en)) {
-  if (CJK.test(value)) failures.push(`en 译文里有汉字：「${key}」→「${value}」`);
+  const rest = EN_CJK_LITERALS.reduce((text, literal) => text.split(literal).join(''), value);
+  if (CJK.test(rest)) failures.push(`en 译文里有汉字：「${key}」→「${value}」`);
 }
 
 // makeT：简体原样返回并去掉「::场景」后缀；带 # 的原文不被截断。

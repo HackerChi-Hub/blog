@@ -160,6 +160,48 @@ node scripts/test-translate-posts.js             # 回归测试（不调 API）
 "in the Eastern Hemisphere"）。重要文章值得人工改标题——改完把
 `translation_source` 那行删掉，它就变成人工译文，以后不会被覆盖。
 
+## 全站英文版与自动识别语言
+
+首页右上角、分页列表标题栏有「中文 / EN」开关，文章页顶部有原来的语言切换条。
+英文首页是 `/en/`，英文分页是 `/en/page/N/`，文章英文版是 `<slug>-en/`。
+
+**第一次进站自动按浏览器语言跳转**，之后以读者的选择为准：
+
+- 规则在 `lib/site-lang.cjs` 的 `redirectByPreference`：读者点过开关（`localStorage`
+  的 `hyphentech:lang`）就按点的来；没点过时，`navigator.languages` 里**只要出现任何
+  中文**就留在中文，一个中文都没有才去英文。英文为主、也读中文的人留在原文更合适。
+- 爬虫和无头浏览器一律不跳（Googlebot、Bingbot、Baiduspider、HeadlessChrome…），
+  否则搜索引擎会把中文页当成英文页的重定向，收录不到。
+- 只在语言**家族**不同时才跳：zh-TW 页面上的中文读者不会被跳到简体。
+- 这段代码是 `<head>` 里的内联脚本，内容就是这个函数的 `toString()`——单测
+  `scripts/test-site-lang.js` 跑的和浏览器执行的是同一份代码。
+- 同一张对照表（`alternatesFor`）也生成 `<link rel="alternate" hreflang>`（含
+  `x-default` 指向中文），都由 `pages/_document.js` 统一输出，文章页不再自己写。
+
+**开关用普通 `<a>` 整页跳转，不用 `next/link`**：客户端路由不会重跑 `<head>` 里的脚本。
+点击时先存下选择；文章页语言切换条的点击同样会存。
+
+### 页面结构（为什么首页和分页搬出了 `pages/`）
+
+`pages/index.js` 与 `pages/en/index.js`、`pages/page/[page].js` 与
+`pages/en/page/[page].js` 都是薄入口，组件在 `components/HomePage.js`、
+`components/PostListPage.js`，构建期数据在 `lib/home-data.js`、`lib/list-data.js`。
+Next 只会从**入口文件自己的** `getStaticProps` 里剔除读文件代码；一个页面去 import
+另一个页面，被 import 的那个页面的数据层会原样打进浏览器包。
+
+英文列表把每篇换成它的英文版（`getEnglishMap`），没有英文版的保持中文。中文首页的
+props 与改造前逐字段一致——改动后用基线快照比对过，可见差异只有开关本身。
+
+### 首页文案
+
+首页、搜索框、分页列表的界面文字都走 `t()`，词典在 `lib/blog-i18n.cjs`。首页常量
+（频道、主线、工具）放在 `lib/home-content.cjs`，多语言闸直接 require 它登记动态键，
+不手抄。英文是手写的，繁体用 Azure zh-Hant 机转后**要把半角 `; ` 和句号后的空格修回
+全角**（Azure 会改标点）。
+
+`npm run build` 的导出验收会查：英文首页/分页 `<html lang="en">`、界面无简体残留、
+中英 hreflang 互指、语言偏好脚本和开关都在。
+
 ## 文章底部赞助卡片
 
 组件 `components/SponsorCard.js` + `styles/sponsor.css`，二维码在

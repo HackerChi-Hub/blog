@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { formatDate, normalizeSummary } from '../lib/utils';
+import { makeT } from '../lib/blog-i18n.cjs';
 
 /**
  * 搜索文章
@@ -68,7 +69,9 @@ function searchPosts(query, posts) {
   return results;
 }
 
-export default function Search({ posts = [] }) {
+// lang 跟随所在页面；英文首页传进来的 posts 已经是英文版（标题、链接都指向 -en 文章）
+export default function Search({ posts = [], lang = 'zh-CN' }) {
+  const t = makeT(lang);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -150,7 +153,7 @@ export default function Search({ posts = [] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsOpen(true)}
-          placeholder="搜索文章... (Ctrl+K)"
+          placeholder={t('搜索文章... (Ctrl+K)')}
           style={{
             width: '100%',
             padding: '14px 44px 14px 18px',
@@ -219,7 +222,7 @@ export default function Search({ posts = [] }) {
                 color: 'var(--text-muted)',
               }}
             >
-              搜索中...
+              {t('搜索中...')}
             </div>
           ) : query.trim().length === 0 ? (
             <div
@@ -229,7 +232,7 @@ export default function Search({ posts = [] }) {
                 color: 'var(--text-muted)',
               }}
             >
-              输入关键词搜索文章
+              {t('输入关键词搜索文章')}
             </div>
           ) : results.length === 0 ? (
             <div
@@ -239,7 +242,7 @@ export default function Search({ posts = [] }) {
                 color: 'var(--text-muted)',
               }}
             >
-              未找到相关文章
+              {t('未找到相关文章')}
             </div>
           ) : (
             <>
@@ -251,7 +254,7 @@ export default function Search({ posts = [] }) {
                   color: 'var(--text-muted)',
                 }}
               >
-                找到 {results.length} 篇文章
+                {t('找到 {n} 篇文章', { n: results.length })}
               </div>
               {results.map((post) => {
                 const slug = post.slug || post.rawId || post.id;
@@ -314,7 +317,7 @@ export default function Search({ posts = [] }) {
                           color: 'var(--text-muted)',
                         }}
                       >
-                        {formatDate(post.date)}
+                        {formatDate(post.date, lang)}
                       </div>
                     )}
                   </Link>

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getAllSlugs, getPostBySlug, getPosts, getTranslationGroup } from '../lib/content';
@@ -10,6 +9,8 @@ import SponsorCard from '../components/SponsorCard';
 import MarkdownContent from '../components/MarkdownContent';
 import ContainedCover from '../components/ContainedCover';
 import { getRelatedPosts } from '../lib/related-posts';
+import { getEnglishMap } from '../lib/home-data';
+import { homeHref, rememberLang } from '../lib/site-lang.cjs';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
 import { formatDateFor, LANG_NAMES, makeT } from '../lib/blog-i18n.cjs';
@@ -59,9 +60,18 @@ export async function getStaticProps({ params }) {
     const basis = post.meta.translationOf
       ? allPosts.find((item) => item.slug === post.meta.translationOf) || post.meta
       : post.meta;
-    const relatedPosts = getRelatedPosts(basis, allPosts, 3).filter(
+    const related = getRelatedPosts(basis, allPosts, 3).filter(
       (item) => item.slug !== post.meta.translationOf
     );
+    // 英文文章页推荐英文版：全站基本都有英文版了，链回中文原文会让英文读者一点就掉进中文页。
+    // lang 一并改成 en——推荐卡片按 post.lang 和页面语言不同来标「简体中文」，
+    // 只换标题不换 lang，就会出现英文标题挂着「简体中文」标签。
+    // 中文与繁体页不走这里，props 与改造前一致。
+    let relatedPosts = related;
+    if (post.meta.lang === 'en') {
+      const en = await getEnglishMap();
+      relatedPosts = related.map((item) => (en[item.slug] ? { ...item, ...en[item.slug], lang: 'en' } : item));
+    }
 
     return {
       props: {
@@ -102,6 +112,8 @@ function LanguageSwitch({ translations, current }) {
             key={item.slug}
             href={`/${item.slug}/`}
             hrefLang={item.lang}
+            // 点了就记住这个选择：之后再进站按它来，不再看浏览器语言
+            onClick={() => rememberLang(item.lang)}
             style={{ padding: '4px 12px', borderRadius: '999px', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
           >
             {LANG_NAMES[item.lang] || item.lang}
@@ -198,13 +210,7 @@ export default function PostPage({
         author={t(SITE_CONFIG.author)}
         lang={t.lang}
       />
-      {translations.length > 1 && (
-        <Head>
-          {translations.map((item) => (
-            <link key={item.slug} rel="alternate" hrefLang={item.lang} href={`${SITE_CONFIG.url}/${item.slug}/`} />
-          ))}
-        </Head>
-      )}
+      {/* hreflang 互指由 pages/_document.js 统一输出（和自动跳转脚本同一份对照表，外加 x-default） */}
 
       <main className="page">
         {/* 按图片自然比例完整展示封面，不再强制裁成 16:9。 */}
@@ -442,7 +448,7 @@ export default function PostPage({
           }}
         >
           <Link
-            href="/"
+            href={homeHref(t.lang)}
             style={{
               display: 'inline-flex',
               alignItems: 'center',

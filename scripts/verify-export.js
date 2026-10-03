@@ -190,6 +190,34 @@ try {
     }
   }
 
+  // 英文首页与英文分页：语言、界面文字、hreflang 互指、语言开关都要在。
+  // 中文首页同样要带 hreflang 和自动跳转脚本——访客第一眼落在中文首页，跳不跳全看它。
+  const LIST_PROBES = ['阅读全文', '先看三条主线', '找到全部频道', '频道都在这', '搜索文章', '返回首页', '下一页', '全部文章'];
+  const pairs = [['', 'en'], ['page/2', 'en/page/2']];
+  for (const [zhRoute, enRoute] of pairs) {
+    const zhPath = path.join(outDir, zhRoute, 'index.html');
+    const enPath = path.join(outDir, enRoute, 'index.html');
+    if (!fs.existsSync(zhPath)) continue; // 只有一页文章时没有 page/2
+    if (!fs.existsSync(enPath)) {
+      obsidianFailures.push(`缺少英文页：/${enRoute}/`);
+      continue;
+    }
+    const zhPage = fs.readFileSync(zhPath, 'utf8');
+    const enPage = fs.readFileSync(enPath, 'utf8');
+    if (!/<html[^>]*\blang="en"/.test(enPage)) obsidianFailures.push(`英文页 <html lang> 不是 en：/${enRoute}/`);
+    const leftovers = LIST_PROBES.filter((probe) => chromeText(enPage).includes(probe));
+    if (leftovers.length) obsidianFailures.push(`英文页界面文字残留简体：/${enRoute}/ → ${leftovers.join('、')}`);
+    for (const [route, html] of [[zhRoute, zhPage], [enRoute, enPage]]) {
+      const zhHref = `/${zhRoute ? `${zhRoute}/` : ''}`;
+      if (!new RegExp(`hrefLang="zh-CN" href="[^"]*${zhHref}"`, 'i').test(html)
+        || !new RegExp(`hrefLang="en" href="[^"]*/${enRoute}/"`, 'i').test(html)) {
+        obsidianFailures.push(`页面缺少中英 hreflang 互指：/${route}${route ? '/' : ''}`);
+      }
+      if (!html.includes('hyphentech:lang')) obsidianFailures.push(`页面缺少语言偏好脚本：/${route}${route ? '/' : ''}`);
+      if (!html.includes('class="lang-toggle"')) obsidianFailures.push(`页面缺少语言开关：/${route}${route ? '/' : ''}`);
+    }
+  }
+
   if (obsidianFailures.length) {
     console.error('❌ Obsidian 导出验收失败：');
     obsidianFailures.forEach((failure) => console.error(`  - ${failure}`));
