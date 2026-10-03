@@ -5,11 +5,23 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 04:55:39 GMT</lastBuildDate>
-    <pubDate>Sat, 03 Oct 2026 04:55:39 GMT</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 05:02:37 GMT</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2026 05:02:37 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>黑粉录屏：东半球最好的录屏软件，录屏剪辑一体化，自动化 AI 剪辑</title>
+      <link>https://hyphentech.top/hyphenscreen-ai-editing-animation/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-ai-editing-animation/</guid>
+      <description>录完直接剪，一句话交给 AI：28 分钟原始录屏剪掉 8 分钟，导出前的体检查出没打码的密钥；368 个原生动画，17 个平台的关注卡在动画里切。没做到的也写在里面。</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>自制软件</category>
+    <category>黑粉录屏</category>
+    <category>AI 剪辑</category>
+    <category>动画</category>
+    </item>
     <item>
       <title>LocalBrain 网络安全测试：关进隔离沙箱，默认跑不起来，授权了才放行</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
@@ -224,16 +236,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>Omarchy：免费 Linux 玩转 AI</title>
-      <link>https://hyphentech.top/omarchy-linux-ai-getting-started/</link>
-      <guid isPermaLink="true">https://hyphentech.top/omarchy-linux-ai-getting-started/</guid>
-      <description>从安装、快捷键到编程助手与本地模型，讲清 Omarchy 的特色和上手边界。</description>
-      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>Linux</category>
     </item>
   </channel>
 </rss>
