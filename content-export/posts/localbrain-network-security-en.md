@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 12172a278cbbb401
+source_sha256: e3320e4e60fba646
 date: 2026-10-03
 updated: 2026-10-03
 summary: "Latest security inspection tutorial: Three targets, two execution methods, authorization filling and prompts, retaining real screenshots and two sets of test data, clearly defining 170 component matching and unaccepted boundaries."
@@ -45,12 +45,13 @@ This is not about letting the model arbitrarily execute attack commands. What yo
 
 Currently, available content is divided into four categories:
 
-| Entrance | What tasks are suitable for? | True capability boundaries |
-| --- | --- | --- |
-| Safety inspections of work areas | Check your project code, dependencies, and configurations | Local commands, builds, and tests require separate execution confirmations; Working directory restrictions are not equivalent to operating system sandboxes |
-| Built-in practice range | The first time I learned to check and read the report | Temporary isolation of the range mirror component vulnerability matching does not demonstrate business exploitation |
-| My host or service | Check yourself or clearly identify authorized services | TCP connection, plaintext HTTP root path first response, and two verified leak check rules |
-| My container | Check for known component issues in the project image | Snapshot auditing does not mean applying a complete security assessment during operation |
+**Workspace Security Review:** Check your project's code, dependencies, and configurations. Local commands, builds, and tests require separate confirmation; working directory restrictions are not the same as operating system sandboxes.
+
+**Built-in Practice Range:** First learning to check and read reports, inspecting the mirror components of temporary isolation ranges, without demonstrating business exploitation.
+
+**My Host or Service:** Check yourself or clearly authorized services, supporting TCP connections, plaintext HTTP root path first response, and two verified leak rules.
+
+**My Containers:** Check known component issues in project images. Image snapshot auditing does not equal a complete security assessment of the running application.
 
 Local models can call five security tools: querying environments and authorizations, checking authorized hosts, auditing specified containers, checking built-in ranges, and paging to read reports. It must first know its true capabilities before deciding on the next step, not guessing "I should have this tool."
 
@@ -135,10 +136,12 @@ The 1.6.4 retest uses the current source code compiled production safety adapter
 
 ![1.6.4 Production backend continuous check data: 15.307 seconds and 16.313 seconds, cached but not including model and manual confirmation.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-backend-repeat.png)
 
-| Check | Scan | Read the evidence | Report number |
-| --- | --- | --- | --- |
-| The first time | 15.307 seconds | 29 milliseconds | e18e6e8b-e06a-4c5b-9793-708dddf7f8f5 |
-| The second time, it was not restarted | 16.313 seconds | 33 milliseconds | 7f6b4b9e-4f89-43f8-b327-a75e9a970ae3 |
+| Check | Scan | Read the evidence |
+| --- | --- | --- |
+| The first time | 15.307 seconds | 29 milliseconds |
+| The second time, it was not restarted | 16.313 seconds | 33 milliseconds |
+
+The two independent report numbers are `e18e6e8b-e06a-4c5b-9793-708dddf7f8f5` and `7f6b4b9e-4f89-43f8-b327-a75e9a970ae3`, used to trace the execution in the archive, and are not parameters that readers need to fill in.
 
 This validates the continuous scanning and report reading of the production backend, not the full process of the new native model interface. The first download of the isolation environment, scanner, and vulnerability database cannot be directly copied from the fifteen-second expected in the table.
 
@@ -162,12 +165,12 @@ Select "My Host or Service" and select the inspection plan first. If there is an
 
 ![Screenshot of the old version real host configuration: shows the solution, target analysis, and authorized content. It is not the scan result of any address in the image.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-host-20261003.png)
 
-| Mission | Optional preset | Default range | It must be verified |
-| --- | --- | --- | --- |
-| Your own plaintext webpage | Web services | 80. Connection and response head | Actual service ports and protocols |
-| Our own development services | Development services | 8080, connection and response head | Actual release port |
-| Own SSH | SSH service | 22. Connect only | Address and real SSH port |
-| Web leak check | Web leak check | 80 with the reviewed read-only rule | Agreements, scope of authorization, and risks |
+| Preset and default range | It must be verified |
+| --- | --- |
+| Web Services: 80, Connection and Response Header | Actual service ports and protocols |
+| Development services: 8080, connection and response head | Actual release port |
+| SSH service: 22, connection only | Address and real SSH port |
+| Web Leak: 80 and Reviewed Read-Only Rules | Agreements, scope of authorization, and risks |
 
 For example, your own development service is actually `192.168.1.20:8080`: select the development service, enter `192.168.1.20`, parse and verify the address, port 8080, connection and response header, authorization validity period is 15 minutes; check the appropriate license when checking the intranet. This address is just an example and not the test target of this article. Please replace it with your own real and authorized address.
 
