@@ -5,10 +5,10 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 5b573a1e6d0670c0
+source_sha256: 4265c9092fe79739
 date: 2026-10-03
 updated: 2026-10-03
-summary: "LocalBrain adds proactive network testing for authorized targets: only performs low-impact checks for connection and response heads, locking isolated sandboxes constructed with zero exits; Default disable, local test site reverse verification passes all five items before release, isolation automatically locks once offline. Clicking the mouse throughout the process means no need to touch the terminal."
+summary: "LocalBrain provides workspace security review and authorized network checks. This article records the real reproduction, repair, and local test site of startup failures in isolated environments: five boundary validations passed, complete authorization execution link passed; Operation includes three steps: environment preparation, solution selection, authorization confirmation, and explanation of current version and cross-platform boundaries."
 categories:
   - Tech
 tags:
@@ -26,7 +26,7 @@ legacy_paths: []
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/localbrain-network-security/) is authoritative.
 
 > [!abstract]
-> LocalBrain adds proactive network testing for authorized targets: only performs low-impact checks for connection and response heads, locking isolated sandboxes constructed with zero exits; Default disable, local test site reverse verification passes all five items before release, isolation automatically locks once offline. Clicking the mouse throughout the process means no need to touch the terminal.
+> LocalBrain provides workspace security review and authorized network checks. Network checks only perform port connections and HTTP response headers; they must first pass local isolation verification before the user clarifies the authorization target. This article supplements a real startup fault investigation, repair, and test data, and also explains which results still cannot be considered official installation package acceptance.
 > 2026-10-03·HyphenTech
 
 # LocalBrain Network Security Test: Locked in an isolated sandbox, it doesn't run by default, only released after authorization
@@ -37,7 +37,7 @@ Why would a local AI toolbox touch something as dangerous as network testing? Be
 
 ## Let's first talk about what it can and cannot do
 
-The second stage (I divide network security into two stages, which I'll explain later) can only be done with two types of low-impact checks: **connection check** (whether a port on a certain IP is connected) and **HTTP response head check** (take back the response header and check). That's it. It's not a full-function scanner, no port range scanning, no attack payload, and no destructive actions.
+**Authorized Network Check** can only perform two types of low-impact checks: connection check (whether a port on a certain IP is available) and HTTP response header check (take back the response header and check). These are the two. Not a full-function scanner, does not scan port segments, and does not send attack payloads. Response header inspection currently uses plaintext HTTP, so it cannot be considered as an HTTPS certificate or TLS configuration audit that already supports it.
 
 The targets that can be tested are also tightly blocked: **must be a single and definite IP**—does not accept domain names, network segments, wildcards, and even bypasses IPv4 mapping addresses are rejected; Up to 8 ports at once; Valid for 1 to 60 minutes; Up to 8 authorizations can be attached simultaneously; And all are stored only in memory, **once you exit the application, it's gone**. To test local or intranet, you have to check a separate authorization; without it, you can't even point to 127.0.0.1.
 
@@ -47,7 +47,7 @@ These restrictions are not suggestions but hard thresholds in the code; if you f
 
 No. This one is the foundation.
 
-All the operations in the second phase—creating authorization, running validation, running tests—are all buttons you click yourself in the settings interface, not a single tool registered as a tool the model can call. No matter how much the model says "Let me test it for you" in the dialogue, it can't call these commands because those commands aren't in its toolkit. Authorization requires you to check "I confirm I have test authorization for this target," and you must confirm again each time you run.
+Authorizing all network check operations—creating authorization, running validation, running tests—are all buttons you click in the settings interface, none registered as tools that the model can call. The model saying "Let me test it for you" in a dialogue cannot be used to perform network checks. The simplified process still requires manually selecting the target authorization, then clicking "Authorize and run check"; Auto-filling does not automatically grant permissions.
 
 Shifting 'can measure' from 'whether the tool is willing' to 'whether the person grants authorization' is the first line I use when using any dangerous ability.
 
@@ -63,7 +63,7 @@ Later, I changed my fundamental approach: ** not "allow most, prohibit some," bu
 
 So how can it still detect the authorization target? The only gap is that each task is equipped with a small proxy that only forwards to the authorization target. The test container only connects to this proxy, and **it never knows what the real target's IP is** — it only writes to the proxy, and the proxy only forwards to the authorization address. The proxy and test run in two different containers: the test container can run probes but can't go anywhere; the proxy has an exit but only dials to that one address. Both containers lose all permissions, have read-only file systems, run non-rooted, have limited memory and process counts, and do not attach to any local directories.
 
-In short: even if the test logic wants to do something else, it has no way to do it in that web.
+This design limits probe traffic to the proxy path per task, but it cannot guarantee absolute security: containers, virtual machines, and proxies themselves remain security dependencies that need maintenance, and the five range checks cannot replace a complete security audit.
 
 
 
@@ -83,18 +83,60 @@ Only when all five things pass will the program write a validation record and ex
 
 After verifying, I casually stopped the isolated virtual machine, and the panel immediately displayed "Offline Isolation Environment · Execution disabled." This is exactly the effect I want: once the isolation is removed, the capability automatically locks out.
 
-## Interface: One 'Network Security' section, two tabs, and you can click the mouse throughout
+## Interface: Name by specific function, users choose solutions, no longer recording stage numbers
 
 After finishing the features, I went to the interface with the "Instantly Tell What the Name Says": In the system access settings, leave only one "Network Security" section, with two tabs named by function—
 
-- **Workspace Security Review**: Read-only view the code, dependencies, and configurations of the workspace you authorize, without touching the network. This has been around for a long time.
-- **Active Network Testing**: This is the method mentioned above.
+- **Workspace Security Review**: Read the code, dependencies, and configurations of the authorized workspace. Executing local testing and dependency audit commands still requires further confirmation; Dependency audits may access software repositories, so it cannot be simply described as completely offline. Working directory restrictions are not system sandboxes.
+- **Authorized Network Check**: For clearly authorized IPs and ports, perform connection and response head checks in a dedicated isolated environment.
 
-The name is a function directly, no longer called "which stage." More importantly, you don't need to touch the terminal at all: in active network testing, there's a "one-click start" button. Click it to automatically start the isolation environment, pull up the image, and run the local test site for reverse verification; You can also click separately "Start isolation environment / stop isolation environment." If verification fails, it obediently shows "Execute disabled," no longer giving you a command to go to the terminal to type.
+The name simply states the function, no longer called "which stage." When Colima, Docker, and Lima dependencies are installed, the program can automatically prepare isolation environments, fill up images, and perform local reverse validation. Machines without dependencies still need to complete an installation first; applications currently do not silently install system software for you. The screenshot of the old interface below shows the original entry point, not the acceptance screenshot of the current patch interface.
 
 
 
-![Settings → System Access → Network Security: One section with two tabs (Workspace Security Review / Active Network Testing). One-click enable button automatically initiates isolation and reverse authentication, so no need to touch the terminal.](https://hyphentech.top/obsidian-assets/localbrain-network-security/image-netsec-ui-3c7c09917e.jpg)
+![Original settings interface: Two tabs in the Network Security section. This patch further simplifies the names and daily processes; the native interface acceptance is not yet complete](https://hyphentech.top/obsidian-assets/localbrain-network-security/image-netsec-ui-3c7c09917e.jpg)
+
+## One real failure: the terminal can start, but the application cannot find Lima
+
+This time, the model didn't answer wrong, but the application startup environment had a problem. The interface reported: `limactl` not in `PATH`. The program had already found the absolute path to Collima, but Colima would then call Lima; Applications launched from the desktop did not inherit the full search path from the terminal, so the second dependency couldn't be found.
+
+I restarted the dedicated instance using a streamlined environment with only the system directory and repeated the same error. Then I added the actual local tool directory to the subprocess environment and isolated the virtual machine for successful startup, taking about 8 seconds. This time was measured under the condition that the local machine already had dependencies and image caches, not the time taken for the first installation on a new machine.
+
+Fix: No writing to the user's shell configuration, nor requiring the software to be reinstalled. Instead, it handled the process mechanically: retaining the original search path and supplementing the existing common tool directories to ensure Colima and its subprocesses run in a consistent environment. At the same time, three other reliability issues were addressed:
+
+- Start logs for continuous reading, limiting only the retention length without stopping reading. Avoid processes and applications waiting for each other after the pipeline is filled with logs.
+- Time-consuming commands are executed in the background thread, so the interface does not have to wait for the isolated environment to start before responding.
+- Refresh the state after an error no longer clears errors; Dedicated instance startup explicitly prohibits automatically switching the user's default Docker context.
+
+These fixes do not branch based on model names, nor do they mask runtime faults by modifying model prompts.
+
+## Local range testing: If authorized targets can be detected, it must also prove that no other targets can be detected
+
+On October 3, 2026, I retested on an Apple Silicon Mac using real Colima and Docker actuators. The test was a one-time local test range created by the test program, without using public websites for testing.
+
+| Verification projects | Expectations | This result |
+| --- | --- | --- |
+| Authorized targets are accessed through proxies | reachable | Pass |
+| Same as the target unauthorized port | Rejected | Pass |
+| Bypass the agent and connect directly to the target | and cannot be reached | Pass |
+| Detection containers connect to the public network | and cannot be reached | Pass |
+| After stopping, remove the task container and network | Complete the cleanup | Pass |
+
+The five reverse validations combined took about **4.43 seconds**. Another full link test took **7.61 seconds**, covering the validation record, creating authorization, rejecting unacknowledged execution, returning successful connection check after confirmation, revoking authorization, and cleaning the range. After testing, the original validation state was restored, leaving a permanently open execution switch without testing.
+
+Here, "pass" only means that the local device link and the five boundaries mentioned above are valid. It does not mean penetration testing has been conducted, nor does it mean Windows, Linux, or every virtualization environment has passed.
+
+## Simplified operation: three steps are enough, with details left to the advanced options
+
+The fixed version summarizes daily operations into three steps:
+
+1. **Prepare Environment**: Click "One-Click Prepare and Check Environment". Automatically start the dedicated instance, complete the image, then run local validation. If the image is online but missing, it will also be filled, so you don't need to skip the preparation directly.
+2. **Choose a solution**: Web service should pre-fill port 80, development service should pre-fill port 8080, both should select connection and response headers; SSH service should pre-fill port 22, only checking connections. You can also customize it. The solution will not help you fill in the target IP, nor will it expand the authorization scope.
+3. **Confirm authorization and run**: Enter the IP you have authorized to check, verify the port, check the authorization declaration, and click the button. Check type, validity period, and internal network authorization are in the advanced options and can still be manually adjusted.
+
+Environment status and five authentication details are folded by default and can be expanded when troubleshooting is needed. If illegal content is mixed into port input, it will be directly rejected, rather than quietly deleting the error and executing it for the user.
+
+**Version Notes: The above process and runtime fixes have been verified in development code and local real executors. The existing 1.5.7 download package does not automatically include this modification; It can only be written as distribution capability after the official installation package update and native interface acceptance are completed. **
 
 ## Honestly state the border
 
