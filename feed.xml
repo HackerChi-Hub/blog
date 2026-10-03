@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 11:43:26 GMT</lastBuildDate>
-    <pubDate>Sat, 03 Oct 2026 11:43:26 GMT</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2026 14:07:59 GMT</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2026 14:07:59 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -23,10 +23,10 @@
     <category>动画</category>
     </item>
     <item>
-      <title>LocalBrain 网络安全测试：关进隔离沙箱，默认跑不起来，授权了才放行</title>
+      <title>LocalBrain 安全检查实测：本地模型自己调用工具，170条发现不等于170个可利用漏洞</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
-      <description>LocalBrain 提供工作区安全审查与授权网络检查。真实 Juice Shop 靶机正常两轮通过、停机两轮失败，修复把代理握手误当目标在线的问题；六项隔离验证通过，加入自动服务选择与配置范例，并说明连通检查、漏洞检测和跨平台验收的区别。</description>
+      <description>两种本地模型实测：自主查询能力、扫描隔离靶场、读取证据。保留失败记录，说明170条组件匹配与真实可利用漏洞的区别。</description>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
