@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 04 Oct 2026 01:20:54 GMT</lastBuildDate>
-    <pubDate>Sun, 04 Oct 2026 01:20:54 GMT</pubDate>
+    <lastBuildDate>Sun, 04 Oct 2026 01:23:39 GMT</lastBuildDate>
+    <pubDate>Sun, 04 Oct 2026 01:23:39 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣能进行漏洞发掘了？</title>
+      <link>https://hyphentech.top/localbrain-network-security/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
+      <description>安全检查实操教程：真实安装窗口、三种目标、范围确认与提示词，保留35B和27B连续实测、170条组件匹配与模型解释错误，明确各平台验证边界。</description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>网络安全</category>
+    </item>
     <item>
       <title>黑粉录屏：东半球最好的录屏软件，录屏剪辑一体化，自动化 AI 剪辑</title>
       <link>https://hyphentech.top/hyphenscreen-ai-editing-animation/</link>
@@ -21,19 +34,6 @@
     <category>黑粉录屏</category>
     <category>AI 剪辑</category>
     <category>动画</category>
-    </item>
-    <item>
-      <title>LocalBrain 安全检查实测教程：让本地模型选工具、查证据，少填表也能看懂报告</title>
-      <link>https://hyphentech.top/localbrain-network-security/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
-      <description>安全检查实操教程：真实安装窗口、三种目标、范围确认与提示词，保留35B和27B连续实测、170条组件匹配与模型解释错误，明确各平台验证边界。</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>网络安全</category>
     </item>
     <item>
       <title>LTX-2.5，本地免费跑，效果比肩大片</title>
