@@ -1,11 +1,11 @@
 ---
-title: "Can LocalBrain now discover vulnerabilities?"
+title: "Can LocalBrain Penetrate and Take Orders Now?"
 slug: localbrain-network-security-en
 status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: bdd4359310a7e05e
+source_sha256: a164251f27fab245
 date: 2026-10-03
 updated: 2026-10-04
 summary: "From security checks to authorized penetration: 1.6.7 adds service identification, SQL injection detection, and self-written PoC execution, locking export technology to authorization targets; Retaining continuous 35B and 27B tests, 170 component matching and verification boundaries across platforms."
@@ -25,7 +25,7 @@ legacy_paths: []
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/localbrain-network-security/) is authoritative.
 
-# Can LocalBrain now discover vulnerabilities?
+# Can LocalBrain Penetrate and Take Orders Now?
 
 My starting point for this feature was simple: since the local model can already write code and read files, could it check its own projects and services, instead of copying the scanner's output to it every time?
 
@@ -246,7 +246,7 @@ Isolated reverse validation checks boundaries such as authorized target reach, u
 
 ## 11. 1.6.7 New: From "Check" to "Authorized Penetration," the model can now write its own PoC
 
-Back to the initial question—can it perform vulnerability discovery? By version 1.6.6, the answer was "It can perform connection and response header and component matching checks within the authorization scope." 1.6.7 Taking it a step further: on top of the same isolation set, three types of **explicit checkboxes** with high impact scopes were added, allowing this Mac to take orders for authorized penetration testing.
+Back to the question in the title—can it take orders for penetration testing? Up to version 1.6.6, the answer was still just "it can perform connection and response header matching checks within the authorization scope." 1.6.7 Went a step further: on top of the same isolation set, three new categories of **explicitly checkboxed high-impact scopes by target** were added, allowing this Mac to take orders for authorized penetration testing.
 
 - **Service and Version Identification**: Run nmap -sV in the sandbox to identify which service and version are on the authorized port.
 - **SQL Injection Probing**: SQL Map runs in the sandbox but only enables detection techniques. Switches for os-shell, file read/write, and rights grabbing are written out in the code and excluded, making it impossible for the model to access.
