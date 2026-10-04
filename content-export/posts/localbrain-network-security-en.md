@@ -5,10 +5,10 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 7ec7aede9eb5cd8e
+source_sha256: 05d34d9dc5f78652
 date: 2026-10-03
-updated: 2026-10-03
-summary: "Latest security inspection tutorial: Three targets, two execution methods, authorization filling and prompts, retaining real screenshots and two sets of test data, clearly defining 170 component matching and unaccepted boundaries."
+updated: 2026-10-04
+summary: "Security Inspection Practical Tutorial: Real installation window, three types of targets, scope confirmation and prompts, retaining continuous 35B and 27B tests, 170 component matching and model interpretation errors, clarifying verification boundaries across platforms."
 categories:
   - Tech
 tags:
@@ -29,11 +29,11 @@ legacy_paths: []
 
 My starting point for this feature was simple: since the local model can already write code and read files, could it check its own projects and services, instead of copying the scanner's output to it every time?
 
-Now this link has real results. On my M5 Pro Mac with 64GB RAM, the model in the installation took **97 seconds** to complete a built-in range check; The same conversation reread the report took **13 seconds** without rescanning. The new production backend also successfully checked twice in succession, with **15.307 seconds and 16.313 seconds** respectively.
+Now this link has real results. On my M5 Pro and 64GB memory Mac, the 1.6.5 installer tested twice consecutively with 35B and the original 27B Splash. All four times returned **170 component matches**, the actual scanning mirroring phase was **12–13 seconds**, and the temporary range was cleared. The new streamlined entry, range confirmation, and model call all retain real window screenshots.
 
-But these numbers shouldn't be confused with the phrase "the new version is six times faster." 97 seconds include model organization tasks and manual confirmation, 15 seconds only test scanning tools, and they use existing caches. This article separates operations, screenshots, data, and unfinished parts, so you know how to use them and what the results reveal.
+But "scan successful" and "model explanation accurate" are not the same thing. 27B once said that the page-turn parameters he hadn't submitted were tool failure, and both models overexplained the missing fix versions. 1.6.6 Therefore, actual parameters, the number of read evidences, and unknown fields are included in the program receipt. Let's first walk through the interface and see what these numbers actually prove.
 
-> Version Notes: This article was updated on October 4, 2026. The latest streamlined interface belongs to **1.6.4-rc.1 Candidate**; The real native model screenshot comes from 1.6.3. 1.6.4 has been supplemented with the production safety adapter, but the complete native process from the new interface to the official dialogue has not yet been verified. The two new interface images in this article clearly indicate the analog component preview and do not pretend to be scanned screenshots.
+> Version Note: This article was updated on October 4, 2026. The new operation screenshots are from the locally installed **1.6.6**; The four-instance same-condition model comparison comes from **1.6.5**; the historical records 1.6.3 and 1.6.4 are listed below. All software interface images are screenshots of the real window; Mechanism diagrams and data diagrams are marked separately and cannot replace operation acceptance.
 
 ## 1. First, look at the results: What has it already done?
 
@@ -59,13 +59,13 @@ Local models can call five security tools: querying environments and authorizati
 
 The old interface split environment, reverse validation, authorization, and scanning into many buttons. When opening it for the first time, it's easy to not know which to click first. The new version consolidates normal operations into three object entry points: **Built-in practice range, My Host or Service, My Container**; Default collapse for environment diagnosis and maintenance.
 
-![1.6.4 Three Types of Objects and Execution Methods: Simulated backend interaction preview of the official component, and screenshots of non-installed version tests.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-164-component-preview.jpg)
+![1.6.6 Installation Version Real Window: Only displays the operation of the selected object; Select Juice Shop and model execution method, no need to enter IP or container number.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-model-entry.png)
 
 There are two execution options. The default "Let local model check" targets the formal conversation, which is handled by model query capabilities, tool calls, and report organization; "Direct check" does not call the model but only runs a fixed inspection process.
 
 I recommend selecting the built-in range for the first time. If you want to check the entire model chain, use the model method; If you only want to check whether the scanner and environment are normal, use the direct method. If the direct method succeeds and the model method fails, then you can continue checking model calls, confirming, and session handovers, without blaming everything on model parameters from the start.
 
-![Unified Range Confirmation Card: Centralized verification of targets, methods, and inspection scope. Simulated component preview; the confirmed native link still awaits the latest version for re-inspection.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-164-confirmation-preview.jpg)
+![1.6.6 True Scope Confirmation Card: Centralized verification of objectives, execution methods, and inspection scope; Inspection cannot start without selecting authorized checks.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-scope.png)
 
 The normal order is: Select object → check scope → confirm permission to check → automatically prepare and run → view reports. Successful environment preparation does not mean authorizing any host, and the interface scope confirmation does not replace the native execution confirmation required by the tool.
 
@@ -82,7 +82,7 @@ Juice Shop is the built-in practice target. This path doesn't require you to fil
 7. The model method will be handed over to the newly created formal dialogue. When encountering the native tool confirmation box, verify the current action before allowing execution.
 8. After completion, first check the report status and objectives, then look at findings and evidence; Failure, rejection, or no report cannot be explained as "no loopholes."
 
-![Old version real range entry: Used to compare range selection and confirmation content. The new version no longer needs to search for every old button.](https://hyphentech.top/obsidian-assets/localbrain-network-security/ui-demo-20261003.png)
+![1.6.6 Installation and Local Resources: Apple M5 Pro, 64GB unified memory; weights and operating environment remain user-selected.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-installed.png)
 
 If you want to directly request a task in the dialogue, you can copy this inspection command:
 
@@ -97,9 +97,49 @@ If you want to directly request a task in the dialogue, you can copy this inspec
 
 This is a task description, not an authorization password. Actual approval is returned by the trusted interface; writing "approved" in the parameters has no effect.
 
-![1.6.3 Genuine Native Confirmation Box for Installation: Only selected Juice Shop demonstration actions are allowed; refusal will result in no execution.](https://hyphentech.top/obsidian-assets/localbrain-network-security/02-scoped-confirmation.png)
+![1.6.6 Genuine Native Tool Approval Box: Clearly only audits the juice-shop temporary range, does not authorize other network targets, and does not exploit vulnerabilities.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-approval.png)
 
-## 4. Test 1: Model runs completely, reports can be read again
+## 4. Comparison under the same conditions: 35B and the original 27B have the same scan, but the explanation is different
+
+All four times were run in the 1.6.5 install, targeting the same Juice Shop image, with no restart between the two instances. The model uses the same entry point and check requirements; 27B is the original Qwen 3.8-27B-Splash, not Swift 1.5. The total time spent in the table includes model task organization, report reading, and manual approval waiting, so it cannot be considered a pure inference speed ranking.
+
+| Record | Total time consumed | Number of rounds / tool counts | Backend scanning | Actual deduplication and read |
+| --- | --- | --- | --- | --- |
+| 35B for the first time | 69 seconds | 5 / 5 | 13 seconds | 29 / 170 entries |
+| 35B The second time | 164 seconds | 23 / 22 | 13 seconds | 170 / 170 articles |
+| 27B for the first time | 201 seconds | 5 / 7 | 13 seconds | 29 / 170 entries |
+| 27B The second time | 145 seconds | 7 / 7 | 12 seconds | 19 out of 170 articles |
+
+![1.6.5 Original 27B first actual results; Total model time recorded separately from the scanning phase.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-first.png)
+
+Each time, the scanner gave 9 ratings of Serious, 54 High, 83 Medium, and 24 Low. The actual evidence obtained by the model differs: 35B used 19 readings to traverse all records the second time, totaling 23 rounds; 27B repeated the first page of high-risk the second time, but actually found only 19 different records. Parameters saved by the backend show that these requests were not offset, so the model cannot assume pagination is invalid just because it says "I sent 10."
+
+![1.6.5 Original 27B second consecutive real window. Scan successful, but the explanations of "no fix" and "parameter not active" in the report are still incorrect.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-repeat.png)
+
+This comparison does not filter out failures or misinterpretations. It shows that execution links can be used continuously, and also shows that model descriptions cannot replace tool facts. Each model only has two entries, which is insufficient to prove which is generally better; 170 entries are component matches, not the number of independent vulnerabilities, and certainly not the number of successful exploits. [Complete comparison record](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/evidence/2026-10-04-native-acceptance/27B-SPLASH-COMPARISON.md).
+
+The handling of 1.6.6 is handled by a common mechanism: returns the actual pagination parameter and the full request for the next page; repeated readings do not add cumulative evidence; missing fields are marked as unknown; invalid targets are rejected before approval. The model still decides which key evidence to read, does not force iteration by line, and does not automatically change parameters based on a particular model name.
+
+After installing 1.6.6, I used the same original 27B to go through the real entry, native approval, scan, and evidence reading again. The first round lasted 4 minutes and 43 seconds, including about 1 minute and 38 seconds of manual approval waiting; The scan itself was still 13 seconds. Throughout the entire 7 and 8 rounds of tools, the 5 readings actually only read 19 different records, and repeat requests did not increase the number of reads.
+
+![1.6.6 Original 27B First Round Actual Results: Task Completion and Total Time; 19 deduplication read statistics come from the original receipt, not proof by this screenshot alone.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-first-result.png)
+
+This round of the model correctly states "vulnerability database updated, offline scan," and clearly states that all 9 critical items were read, 10 high-risk samples, and medium-low risk not read. The table labeled the missing fix version as "unknown," but the subsequent suggestion still used "unknown fixed" and provided upgrade suggestions for this round without online verification. I keep this inconsistency: the program can provide verifiable facts, but it cannot force the model to be accurate every sentence. The formal package is the delivery of this mechanism, not the security certification suggested by the model.
+
+The second consecutive unrebooted session was completed: 4 rounds, 4 tool runs, 2 report reads, still 19 different pieces of evidence; Log recording actual scans took 12 seconds, 170 matches, and temporary container and network cleanup successfully. The interface took a total of 10 minutes and 57 seconds, with the tool phase containing 8 minutes and 56 seconds including lock screen and approval waiting, which could not be used to judge model slowdown. At the end of the second round, the real interface was accessible by text and persistent log verification; Subsequent screenshot service failed, so no images were recreated in the second round.
+
+| 1.6.6 Original 27B Test | The first time | For the second time in a row |
+| --- | --- | --- |
+| Total task time including manual waiting | 4 minutes 43 seconds | 10 minutes and 57 seconds |
+| Actual backend scanning phase | 13 seconds | 12 seconds |
+| Number of rounds / number of tools, including delivery | 7 / 8 | 4 / 4 |
+| Number of times reports are read / different types of evidence | 5 / 19 | 2 / 19 |
+| Total number of components matched | 170 | 170 |
+| Temporary resource clearance | Success | Success |
+
+The second round's statements about "unknown fix" and "19 reads only" are more accurate, but the two preparations were successfully made as identical database snapshots; Without a database summary, snapshots cannot be proven. The final "file completed" also does not apply to this task without file delivery. These are issues with existing model interpretation and closing wording, not facts verified by scanners. We can confirm that the continuous execution link is normal, but this does not guarantee the accuracy of every report sentence.
+
+## 5. Historical Testing: The model is fully executed, and the report can be read again
 
 The first set of tests used Swift-1.5-Qwen3.8-27B-Splash, running twice consecutively through the product-sharing agent kernel and production security adapter, without any reboots in between. The test bridge only allowed temporary built-in ranges and rejected external hosts and user containers; Therefore, it proved the model toolchain was usable but did not replace desktop acceptance boxes.
 
@@ -130,7 +170,7 @@ Then enter in the same dialogue:
 
 This is more important than a single success: if there is already a report, the preserved evidence should be read, without having to recreate the range each round, update the database, or scan it again. This time, only the above models and paths were validated, so it cannot be claimed that all language models have passed the same tests.
 
-## 5. Test 2: Is there any problem with continuous use of the new backend?
+## 6. Historical backend supplementary testing: Is there any problem with continuous use?
 
 The 1.6.4 retest uses the current source code compiled production safety adapter, completing two consecutive Juice Shop checks without restarting the test process. After scanning, three pieces of raw evidence are read, each with an independent report number and a non-null result.
 
@@ -147,7 +187,7 @@ This validates the continuous scanning and report reading of the production back
 
 There are also failures in testing: the first script mistakenly read the returned `reportId` with another field, and after scanning, the report request was missing the number. Only after correcting the test script fields did the above table be obtained. Failures occur in the test script and cannot be attributed to the model; After fixing, you cannot pretend the first time never failed.
 
-## 6. How should the 170 findings be interpreted?
+## 7. How should the 170 findings be interpreted?
 
 The two new backend results were consistent: Severe 9, High 54, Medium 83, Low 24, totaling 170 entries. These are matching records of identifiable software packages within the image and known vulnerability databases, not the 170 successfully exploited business vulnerabilities.
 
@@ -155,11 +195,11 @@ The two new backend results were consistent: Severe 9, High 54, Medium 83, Low 2
 
 When reviewing reports, check at least five things: which target is the target; Matching components and versions; Where the evidence comes from; Whether the fields are fixed are clear; Check what is not covered.
 
-This time, the identifiable software packages in the image are overridden, but the extra files, host kernel, and application business permission logic are not overridden by the running container. This offline scan did not include network resolution dependencies, nor was the Java index database enabled. No specific type of issue was found; it can only be said that this inspection did not detect any and cannot be considered the overall security target.
+This override covers identifiable packages in the image and does not overwrite additional files, host kernels, or application business permission logic for running containers. Offline scanning does not connect to the network for parsing dependencies, but during the preparation phase, vulnerability databases and Java databases can still be updated online. A successful database download does not prove full coverage of Java components; 1.6.6 Record the status of most recently successful preparation separately; unverified overrides remain unknown. No specific type of issue was detected, so overall target security cannot be inferred.
 
 The model made an initial mistake: the report had an empty fix version, saying "no official fix." In reality, it could only say "the database records do not list the fix version." The original report was later reviewed before correction. Therefore, the model recommended that there must be backpoint evidence; Which version to upgrade should still be verified in conjunction with the project; the recommendation is not a fixed that has already been performed.
 
-## 7. Your own host: The preset will help you fill it out, but the target cannot authorize it for you
+## 8. Your own host: Presets will fill in for you, but the target cannot be authorized for you
 
 Select "My Host or Service" and select the inspection plan first. If there is an optional local service, select from the dropdown box and use the actual address and publishing port of the discovered service; Manually enter its own address only if the target is not listed.
 
@@ -178,7 +218,7 @@ The program can automatically provide default values for the scheme and read por
 
 The local service list only covers published services discovered within the dedicated isolation environment and does not automatically detect the entire local area network. Expires after authorization expires or the application is exited; reading old reports will not restore permissions.
 
-## 8. Your own container: Choose the real target, do not manually fill in the number
+## 9. Your own container: Choose the real target, don't fill in numbers manually
 
 Select "My Container," choose an actual container from the list, then verify the target and image. The model method hands the clear container number to the dialogue; The direct method audits the image snapshot. Neither method equals exploiting vulnerabilities on the running webpage.
 
@@ -188,7 +228,7 @@ When the list is empty, first verify the environment with the built-in range; th
 
 For code projects, the task can be changed to: "Review dependencies and configurations of this authorized workspace, first provide evidence, then propose minimum repair suggestions; Request confirmation before building or testing." This does not require authorizing network hosts, but project scripts may access external directories or software repositories, so commands must still be verified; workspace selectors cannot be treated as complete system isolation.
 
-## 9. What to do if an error is reported: First, identify the failed segment, avoid repeating random points
+## 10. What to do with errors: First, identify the failed segment and avoid repetitive random points
 
 Authentic native tests initially failed: query ability was normal, but execution was mistakenly serialized as objects, backend rejected approval values, scans did not run. Fix placed on shared acknowledgment boundaries: wait for asynchronous native confirmation, only accept strict Boolean truth, unknown values reject by default; Not write a special prompt for a model.
 
@@ -204,15 +244,15 @@ Earlier connectivity tests also found false positives: the target was down, but 
 
 Isolated reverse validation checks boundaries such as authorized target reach, unauthorized port denial, direct access denial, public network access denial, and post-stop cleanup. Through these validations, only the tested boundary works as expected; containers, virtual machines, and proxies cannot be guaranteed to be free of vulnerabilities.
 
-## 10. Which version should I download? Which conclusions have not yet been accepted?
+## 11. Which version should I download? Which conclusions have not yet been accepted?
 
-The latest streamlined interface is on the [1.6.4-rc.1 all-platform candidate release page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.4-rc.1). The device is already installed with 1.6.4, Mac installation products match build products, installation package verification and update signature verification passed; No Apple notarization. Official automatic update still retains 1.5.9, and the candidate version will not be automatically pushed to everyone as the official stable version.
+The official version for this round is [1.6.6 on the all-platform release page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.6). This machine has installed version 1.6.6, the Mac native home screen matches the installation file version, and the installation package hash and update signature verification have passed; No Apple notarization is provided. The update list and download page are synchronized to the same version, and the old release is still retained.
 
-The Windows and Linux source build has been uploaded and verified, but both platforms have not yet been accepted for real-world use. Linux is considered to be supported in preview and cannot run MLX / Splash. The latest native Mac interface process was not retested due to system window capture issues; This article does not use simulation images to replace it.
+Windows and Linux are built from the same source code submission; installation package hashes and update signatures have been verified, but both platforms have not yet been accepted for real-world use. Linux is still considered to be preview-supported, MLX/Splash cannot run, and managed llama.cpp and Prism downloads have not yet been fully integrated. The model runs and native window tests in this article are from Mac and are not extended to guarantee across all platforms.
 
-This candidate release retained 14 download files. In source code acceptance, 1,423 frontend tests passed and 2 were skipped; Rust tests passed 295 and 18 were ignored; 29 test files from the Python environment passed, including 212 unit tests and additional scripts. Skipping and ignoring items do not count as passing, and the number of tests cannot replace native acceptance tests. This set of data indicates which layer of release check was achieved and does not mean the software is free of defects.
+In source code acceptance, 1,423 frontend tests passed, with 2 skipped; Rust tests passed 297 tests and 18 ignored; 29 test files passed in the product Python environment, including 212 unit tests and additional scripts. The first misuse of the Python 3.9 system resulted in a lack of dependencies and test failures; After switching to the actual product environment, all tests passed in retesting. Skipping and ignoring items do not count as passing, and the number of tests cannot replace native acceptance or guarantee that the model interpretation is error-free.
 
-![Acceptance layering: old model testing, new backend testing, new simulation interaction, and unfinished verification items.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-evidence-levels.png)
+![Acceptance layering: Records real Mac model calls, backend evidence, and cross-platform package validation separately, building acceptance without impersonating real devices.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-evidence-levels.png)
 
 For Mac, select the Apple Silicon package and install it into the application; For Windows, select the x64 installer; For Linux, choose either the AppImage or Debian package depending on the system. For initial preparation, additional dependencies may be required; confirm according to the software prompts; For downloads requiring international networks, prepare the connection in advance. Specific dependencies, hashes, and platform boundaries are based on the release page.
 
@@ -224,7 +264,7 @@ I don't want to prove software is amazing with a huge vulnerability number. What
 
 First, use a practice range to streamline this process, then review your own projects and services. Only test your own or clearly authorized targets; Scanning may cause resource usage or service anomalies, and risk warnings do not replace legitimate authorization.
 
-Data sources for this article: [Model Call and Native Testing Records](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_MODEL_AGENT.md), [1.6.4 Installation and Production Adapter Acceptance Records](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.4_VERIFICATION.md). Complete original receipts and window screenshots are kept for local testing and archiving; All schematic diagrams are drawn based on this and are not fake interfaces generated.
+Source of data for this article: [Model calls and native real-world records](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_MODEL_AGENT.md), [1.6.6 Installation and Issuance Acceptance](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.6_VERIFICATION.md), [1.6.4 Historical Backend Acceptance](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.4_VERIFICATION.md) . The complete original receipt and window screenshots are kept for local testing and archiving; All schematic diagrams are drawn based on this and are not fake generated interfaces.
 
 
 ---

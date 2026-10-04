@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f34bd23d1eed3a5e7182f54a825acb72deb04b20b1de65a8073489165d4126a9",
+  "content_sha256": "228526775e14969af778e184ab88e4fbf5295b115c2024d2d9e39cad0c45457d",
   "published_post_count": 128,
   "posts": [
     {
@@ -642,13 +642,13 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "3f3c9748994036148375b12fa55a20ab98afcbabe18bc5dd6fcf45dc08e29e3a"
+      "sha256": "c8880bbbac087fe5f63ca0b93b45050634eca8f8b28f5e488a0c45ec889dab70"
     },
     {
       "file": "posts/localbrain-network-security.md",
       "slug": "localbrain-network-security",
       "legacy_paths": [],
-      "sha256": "d7b1783ceff33246d481d6b589af7241291117093ed3836000ce9e3e7fcaad46"
+      "sha256": "5cfcc993973fd4f03c79775549f314b60f9f6ad6b237546a879146e24f6a30e5"
     },
     {
       "file": "posts/localbrain-small-models-lowmem-en.md",
