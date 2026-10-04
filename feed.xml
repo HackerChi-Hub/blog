@@ -5,13 +5,13 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 04 Oct 2026 06:01:23 GMT</lastBuildDate>
-    <pubDate>Sun, 04 Oct 2026 06:01:23 GMT</pubDate>
+    <lastBuildDate>Sun, 04 Oct 2026 06:41:20 GMT</lastBuildDate>
+    <pubDate>Sun, 04 Oct 2026 06:41:20 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>方寸智匣能进行漏洞发掘了？</title>
+      <title>方寸智匣能渗透接单了？</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
       <description>从安全检查到授权渗透：1.6.7 新增服务识别、SQL注入探测与自写PoC执行，出口技术锁死授权目标；保留35B和27B连续实测、170条组件匹配与各平台验证边界。</description>
