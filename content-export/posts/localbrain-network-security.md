@@ -1,5 +1,5 @@
 ---
-title: LocalBrain 安全检查实测教程：让本地模型选工具、查证据，少填表也能看懂报告
+title: 方寸智匣能进行漏洞发掘了？
 slug: localbrain-network-security
 status: published
 date: 2026-10-03
@@ -18,7 +18,7 @@ cover: /obsidian-assets/localbrain-network-security/cover-026300dac1.jpg
 legacy_paths: []
 ---
 
-# LocalBrain 安全检查实测教程：让本地模型选工具、查证据，少填表也能看懂报告
+# 方寸智匣能进行漏洞发掘了？
 
 我做这项功能，起点很简单：既然本地模型已经能写代码、读文件，能不能让它检查自己的项目和服务，而不是每次把扫描器输出复制给它？
 

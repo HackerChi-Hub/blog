@@ -1,11 +1,11 @@
 ---
-title: "LocalBrain Security Check Tutorial: Let local models choose tools and look up evidence, and understand reports even with fewer forms"
+title: "Can LocalBrain now discover vulnerabilities?"
 slug: localbrain-network-security-en
 status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 2f901835856c7a55
+source_sha256: 6905b5fe0d541252
 date: 2026-10-03
 updated: 2026-10-04
 summary: "Security Inspection Practical Tutorial: Real installation window, three types of targets, scope confirmation and prompts, retaining continuous 35B and 27B tests, 170 component matching and model interpretation errors, clarifying verification boundaries across platforms."
@@ -25,7 +25,7 @@ legacy_paths: []
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/localbrain-network-security/) is authoritative.
 
-# LocalBrain Security Check Tutorial: Let local models choose tools and look up evidence, and understand reports even with fewer forms
+# Can LocalBrain now discover vulnerabilities?
 
 My starting point for this feature was simple: since the local model can already write code and read files, could it check its own projects and services, instead of copying the scanner's output to it every time?
 
