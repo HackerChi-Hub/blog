@@ -5,10 +5,10 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 6905b5fe0d541252
+source_sha256: bdd4359310a7e05e
 date: 2026-10-03
 updated: 2026-10-04
-summary: "Security Inspection Practical Tutorial: Real installation window, three types of targets, scope confirmation and prompts, retaining continuous 35B and 27B tests, 170 component matching and model interpretation errors, clarifying verification boundaries across platforms."
+summary: "From security checks to authorized penetration: 1.6.7 adds service identification, SQL injection detection, and self-written PoC execution, locking export technology to authorization targets; Retaining continuous 35B and 27B tests, 170 component matching and verification boundaries across platforms."
 categories:
   - Tech
 tags:
@@ -17,7 +17,7 @@ tags:
   - Self-made software
   - LocalBrain
   - Security
-cover: https://hyphentech.top/obsidian-assets/localbrain-network-security/cover-026300dac1.jpg
+cover: https://hyphentech.top/obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
@@ -33,7 +33,7 @@ Now this link has real results. On my M5 Pro and 64GB memory Mac, the 1.6.5 inst
 
 But "scan successful" and "model explanation accurate" are not the same thing. 27B once said that the page-turn parameters he hadn't submitted were tool failure, and both models overexplained the missing fix versions. 1.6.6 Therefore, actual parameters, the number of read evidences, and unknown fields are included in the program receipt. Let's first walk through the interface and see what these numbers actually prove.
 
-> Version Note: This article was updated on October 4, 2026. The new operation screenshots are from the locally installed **1.6.6**; The four-instance same-condition model comparison comes from **1.6.5**; the historical records 1.6.3 and 1.6.4 are listed below. All software interface images are screenshots of the real window; Mechanism diagrams and data diagrams are marked separately and cannot replace operation acceptance.
+> Version notes: This article was updated on October 4, 2026. Operation screenshots are from the locally installed **1.6.6**; Four same-condition model comparisons are from **1.6.5**, with historical records 1.6.3 and 1.6.4 listed below. **1.6.7 The newly added "authorized penetration" capability is found in Section 11**, whose conclusion comes from authentic end-to-end verification in the local isolated environment (not interface screenshots), and is marked item by item in the text. All software interface images are screenshots of real windows; Mechanism diagrams and data diagrams are marked separately and cannot replace operational acceptance.
 
 ## 1. First, look at the results: What has it already done?
 
@@ -244,13 +244,36 @@ Earlier connectivity tests also found false positives: the target was down, but 
 
 Isolated reverse validation checks boundaries such as authorized target reach, unauthorized port denial, direct access denial, public network access denial, and post-stop cleanup. Through these validations, only the tested boundary works as expected; containers, virtual machines, and proxies cannot be guaranteed to be free of vulnerabilities.
 
-## 11. Which version should I download? Which conclusions have not yet been accepted?
+## 11. 1.6.7 New: From "Check" to "Authorized Penetration," the model can now write its own PoC
 
-The official version for this round is [1.6.6 on the all-platform release page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.6). This machine has installed version 1.6.6, the Mac native home screen matches the installation file version, and the installation package hash and update signature verification have passed; No Apple notarization is provided. The update list and download page are synchronized to the same version, and the old release is still retained.
+Back to the initial question—can it perform vulnerability discovery? By version 1.6.6, the answer was "It can perform connection and response header and component matching checks within the authorization scope." 1.6.7 Taking it a step further: on top of the same isolation set, three types of **explicit checkboxes** with high impact scopes were added, allowing this Mac to take orders for authorized penetration testing.
+
+- **Service and Version Identification**: Run nmap -sV in the sandbox to identify which service and version are on the authorized port.
+- **SQL Injection Probing**: SQL Map runs in the sandbox but only enables detection techniques. Switches for os-shell, file read/write, and rights grabbing are written out in the code and excluded, making it impossible for the model to access.
+- **Self-Written PoC Execution**: The model (or yourself) writes a Python or sh script and hands it over to the isolated sandbox for execution.
+
+The last point is the key, and also my most cautious point: letting the model write code to hit the target sounds risky. It can be released not because I trust every line the model writes, but because the **exit is locked by the network**. Each task starts an isolated network without default routing, and the script's only output is a proxy that forwards only to the authorized target; The script only receives the proxy address and the mapping of the "local port →destination port," **not even knowing the real target IP**. So even if the script says it needs to connect to the public network or attack other machines, it still can't get there—there's simply no way forward.
+
+I tested this issue with a real script in a local isolated environment, with a full round lasting about 59 seconds:
+
+| Verification items | The result |
+| --- | --- |
+| PoC authorized access to authorized targets via proxies | Return HTTP 200, which is enough |
+| Attempting to connect the same script 1.1.1.1:443 (public website) | Rejected, unable to connect |
+| Damaging scripts with `rm -rf /` and `drop table` | Direct refusal to enforce |
+| Fences back-validated by self-written PoC images | Pass: Unauthorized ports, direct connection to targets, and all public networks are denied |
+
+Destructive categories—denial of service, data deletion and modification, evasion detection—reject by signature; Declaring PoCs that change the target's state must be confirmed again before execution. Each of these three tools requires you to approve them one by one in the native pop-up window; writing "approved" in the parameters is useless. Authorization remains the usual rule: single IP, up to 8 items, up to 60 minutes, expires upon exiting the app, and only you can select Create on the interface—the model cannot issue or extend authorization for itself. After upgrading to 1.6.7, each machine must re-verify the local range reverse verification before this line opens.
+
+So the answer to "can you use the order" is: the scope is locked by technology, and the model is set to the most autonomous level—choose tools, change configurations, write your own PoC, all are fine, but destructive actions add a barrier. Whether you can accept it depends on whether you have the authorization letter, not whether the software can stop crossing the line—crossing the line violates Articles 285 and 286 of the Criminal Code and the Cybersecurity Law. It's a tool for collecting evidence and generating reports, not a way to bypass authorization. This line is currently only tested on Mac; Windows and Linux have built the same functionality, but isolation and reverse authentication haven't run on either side of the real machine, and execution also "doesn't open until reverse authentication is passed."
+
+## 12. Which version should I download? Which conclusions have not yet been accepted?
+
+The official version for this round is [1.6.7 All-Platform Release Page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.7), which is the version where the authorized penetration capability from Section 11 is located. After re-downloading the installation package from the release page for the three platforms, SHA-256 matches the build value step by step, and the update signature is validated; Mac is not yet notarized by Apple. The update list and download page are synchronized to 1.6.7, and the old release has been cleaned up. The operation screenshots in this article still come from the locally installed version 1.6.6; 1.6.7 adds penetration capabilities on it, and the conclusion comes from end-to-end verification in the isolated environment rather than screenshots of the interface.
 
 Windows and Linux are built from the same source code submission; installation package hashes and update signatures have been verified, but both platforms have not yet been accepted for real-world use. Linux is still considered to be preview-supported, MLX/Splash cannot run, and managed llama.cpp and Prism downloads have not yet been fully integrated. The model runs and native window tests in this article are from Mac and are not extended to guarantee across all platforms.
 
-In source code acceptance, 1,423 frontend tests passed, with 2 skipped; Rust tests passed 297 tests and 18 ignored; 29 test files passed in the product Python environment, including 212 unit tests and additional scripts. The first misuse of the Python 3.9 system resulted in a lack of dependencies and test failures; After switching to the actual product environment, all tests passed in retesting. Skipping and ignoring items do not count as passing, and the number of tests cannot replace native acceptance or guarantee that the model interpretation is error-free.
+In source code acceptance, 1,423 frontend tests passed, with 2 skipped; Rust tests passed 305 and 19 ignored tests (1.6.7 added penetration-related unit tests and one real device fence test); The Python environment test files of the product had already been fully re-tested. I also performed mutation validation on two new gates: the "destructive denial" and "PoC cannot obtain the real target IP" judgment were intentionally altered, and the corresponding tests immediately turned red, confirming they were indeed blocking rather than just for show. Skipping and ignoring items did not count as passing, and the number of tests could not replace native acceptance or guarantee that the model interpretation was error-free.
 
 ![Acceptance layering: Records real Mac model calls, backend evidence, and cross-platform package validation separately, building acceptance without impersonating real devices.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-evidence-levels.png)
 
@@ -264,7 +287,7 @@ I don't want to prove software is amazing with a huge vulnerability number. What
 
 First, use a practice range to streamline this process, then review your own projects and services. Only test your own or clearly authorized targets; Scanning may cause resource usage or service anomalies, and risk warnings do not replace legitimate authorization.
 
-Source of data for this article: [Model calls and native real-world records](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_MODEL_AGENT.md), [1.6.6 Installation and Issuance Acceptance](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.6_VERIFICATION.md), [1.6.4 Historical Backend Acceptance](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.4_VERIFICATION.md) . The complete original receipt and window screenshots are kept for local testing and archiving; All schematic diagrams are drawn based on this and are not fake generated interfaces.
+Data sources for this article: [1.6.7 Penetration Capability Implementation and Isolation Testing](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.7_VERIFICATION.md), [Security Function Design and Boundaries](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_TESTING_PLAN.md), [Model Calls and Native Test Records](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/SECURITY_MODEL_AGENT.md), [1.6.4 Historical Backend Acceptance](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/RELEASE_1.6.4_VERIFICATION.md). Complete original receipts and window screenshots are kept for local testing and archiving; All schematic diagrams are drawn based on this and are not generated fake interfaces.
 
 
 ---
