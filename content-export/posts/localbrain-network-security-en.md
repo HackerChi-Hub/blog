@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: 05d34d9dc5f78652
+source_sha256: 2f901835856c7a55
 date: 2026-10-03
 updated: 2026-10-04
 summary: "Security Inspection Practical Tutorial: Real installation window, three types of targets, scope confirmation and prompts, retaining continuous 35B and 27B tests, 170 component matching and model interpretation errors, clarifying verification boundaries across platforms."
@@ -45,13 +45,13 @@ This is not about letting the model arbitrarily execute attack commands. What yo
 
 Currently, available content is divided into four categories:
 
-**Workspace Security Review:** Check your project's code, dependencies, and configurations. Local commands, builds, and tests require separate confirmation; working directory restrictions are not the same as operating system sandboxes.
+**Workspace Security Review**: Check your project's code, dependencies, and configurations. Local commands, builds, and tests require separate execution confirmations; working directory restrictions are not equivalent to operating system sandboxes.
 
-**Built-in Practice Range:** First learning to check and read reports, inspecting the mirror components of temporary isolation ranges, without demonstrating business exploitation.
+**Built-in Practice Range**: First-time learning to check and read reports, inspecting the mirror components of temporary isolation ranges, without demonstrating business exploits.
 
-**My Host or Service:** Check yourself or clearly authorized services, supporting TCP connections, plaintext HTTP root path first response, and two verified leak rules.
+**My Host or Service**: Check for yourself or clearly authorized services, supports TCP connections, plaintext HTTP root path first response, and two verified leak rules.
 
-**My Containers:** Check known component issues in project images. Image snapshot auditing does not equal a complete security assessment of the running application.
+**My Containers**: Check for known component issues in project images. Snapshot image audit does not equal a complete security assessment of a running application.
 
 Local models can call five security tools: querying environments and authorizations, checking authorized hosts, auditing specified containers, checking built-in ranges, and paging to read reports. It must first know its true capabilities before deciding on the next step, not guessing "I should have this tool."
 
@@ -59,13 +59,13 @@ Local models can call five security tools: querying environments and authorizati
 
 The old interface split environment, reverse validation, authorization, and scanning into many buttons. When opening it for the first time, it's easy to not know which to click first. The new version consolidates normal operations into three object entry points: **Built-in practice range, My Host or Service, My Container**; Default collapse for environment diagnosis and maintenance.
 
-![1.6.6 Installation Version Real Window: Only displays the operation of the selected object; Select Juice Shop and model execution method, no need to enter IP or container number.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-model-entry.png)
+![1.6.6 Installation Version Real Window: Only displays the operation of the selected object; Select Juice Shop and model execution method, no need to enter IP or container number.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-model-entry.jpg)
 
 There are two execution options. The default "Let local model check" targets the formal conversation, which is handled by model query capabilities, tool calls, and report organization; "Direct check" does not call the model but only runs a fixed inspection process.
 
 I recommend selecting the built-in range for the first time. If you want to check the entire model chain, use the model method; If you only want to check whether the scanner and environment are normal, use the direct method. If the direct method succeeds and the model method fails, then you can continue checking model calls, confirming, and session handovers, without blaming everything on model parameters from the start.
 
-![1.6.6 True Scope Confirmation Card: Centralized verification of objectives, execution methods, and inspection scope; Inspection cannot start without selecting authorized checks.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-scope.png)
+![1.6.6 True Scope Confirmation Card: Centralized verification of objectives, execution methods, and inspection scope; Inspection cannot start without selecting authorized checks.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-scope.jpg)
 
 The normal order is: Select object → check scope → confirm permission to check → automatically prepare and run → view reports. Successful environment preparation does not mean authorizing any host, and the interface scope confirmation does not replace the native execution confirmation required by the tool.
 
@@ -82,7 +82,7 @@ Juice Shop is the built-in practice target. This path doesn't require you to fil
 7. The model method will be handed over to the newly created formal dialogue. When encountering the native tool confirmation box, verify the current action before allowing execution.
 8. After completion, first check the report status and objectives, then look at findings and evidence; Failure, rejection, or no report cannot be explained as "no loopholes."
 
-![1.6.6 Installation and Local Resources: Apple M5 Pro, 64GB unified memory; weights and operating environment remain user-selected.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-installed.png)
+![1.6.6 Installation and Local Resources: Apple M5 Pro, 64GB unified memory; weights and operating environment remain user-selected.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-installed.jpg)
 
 If you want to directly request a task in the dialogue, you can copy this inspection command:
 
@@ -97,7 +97,7 @@ If you want to directly request a task in the dialogue, you can copy this inspec
 
 This is a task description, not an authorization password. Actual approval is returned by the trusted interface; writing "approved" in the parameters has no effect.
 
-![1.6.6 Genuine Native Tool Approval Box: Clearly only audits the juice-shop temporary range, does not authorize other network targets, and does not exploit vulnerabilities.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-approval.png)
+![1.6.6 Genuine Native Tool Approval Box: Clearly only audits the juice-shop temporary range, does not authorize other network targets, and does not exploit vulnerabilities.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-approval.jpg)
 
 ## 4. Comparison under the same conditions: 35B and the original 27B have the same scan, but the explanation is different
 
@@ -110,11 +110,11 @@ All four times were run in the 1.6.5 install, targeting the same Juice Shop imag
 | 27B for the first time | 201 seconds | 5 / 7 | 13 seconds | 29 / 170 entries |
 | 27B The second time | 145 seconds | 7 / 7 | 12 seconds | 19 out of 170 articles |
 
-![1.6.5 Original 27B first actual results; Total model time recorded separately from the scanning phase.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-first.png)
+![1.6.5 Original 27B first actual results; Total model time recorded separately from the scanning phase.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-first.jpg)
 
 Each time, the scanner gave 9 ratings of Serious, 54 High, 83 Medium, and 24 Low. The actual evidence obtained by the model differs: 35B used 19 readings to traverse all records the second time, totaling 23 rounds; 27B repeated the first page of high-risk the second time, but actually found only 19 different records. Parameters saved by the backend show that these requests were not offset, so the model cannot assume pagination is invalid just because it says "I sent 10."
 
-![1.6.5 Original 27B second consecutive real window. Scan successful, but the explanations of "no fix" and "parameter not active" in the report are still incorrect.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-repeat.png)
+![1.6.5 Original 27B second consecutive real window. Scan successful, but the explanations of "no fix" and "parameter not active" in the report are still incorrect.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-165-27b-repeat.jpg)
 
 This comparison does not filter out failures or misinterpretations. It shows that execution links can be used continuously, and also shows that model descriptions cannot replace tool facts. Each model only has two entries, which is insufficient to prove which is generally better; 170 entries are component matches, not the number of independent vulnerabilities, and certainly not the number of successful exploits. [Complete comparison record](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/evidence/2026-10-04-native-acceptance/27B-SPLASH-COMPARISON.md).
 
@@ -122,7 +122,7 @@ The handling of 1.6.6 is handled by a common mechanism: returns the actual pagin
 
 After installing 1.6.6, I used the same original 27B to go through the real entry, native approval, scan, and evidence reading again. The first round lasted 4 minutes and 43 seconds, including about 1 minute and 38 seconds of manual approval waiting; The scan itself was still 13 seconds. Throughout the entire 7 and 8 rounds of tools, the 5 readings actually only read 19 different records, and repeat requests did not increase the number of reads.
 
-![1.6.6 Original 27B First Round Actual Results: Task Completion and Total Time; 19 deduplication read statistics come from the original receipt, not proof by this screenshot alone.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-first-result.png)
+![1.6.6 Original 27B First Round Actual Results: Task Completion and Total Time; 19 deduplication read statistics come from the original receipt, not proof by this screenshot alone.](https://hyphentech.top/obsidian-assets/localbrain-network-security/native-166-first-result.jpg)
 
 This round of the model correctly states "vulnerability database updated, offline scan," and clearly states that all 9 critical items were read, 10 high-risk samples, and medium-low risk not read. The table labeled the missing fix version as "unknown," but the subsequent suggestion still used "unknown fixed" and provided upgrade suggestions for this round without online verification. I keep this inconsistency: the program can provide verifiable facts, but it cannot force the model to be accurate every sentence. The formal package is the delivery of this mechanism, not the security certification suggested by the model.
 
