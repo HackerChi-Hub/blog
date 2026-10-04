@@ -14,7 +14,7 @@ tags:
   - 自制软件
   - LocalBrain
   - 网络安全
-cover: /obsidian-assets/localbrain-network-security/cover-026300dac1.jpg
+cover: /obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg
 legacy_paths: []
 ---
 
