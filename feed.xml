@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 05 Oct 2026 05:46:37 GMT</lastBuildDate>
-    <pubDate>Mon, 05 Oct 2026 05:46:37 GMT</pubDate>
+    <lastBuildDate>Mon, 05 Oct 2026 12:57:38 GMT</lastBuildDate>
+    <pubDate>Mon, 05 Oct 2026 12:57:38 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>你真的懂AI吗？30期纵览：从一次回答，走到模型、评测与本地部署</title>
+      <link>https://hyphentech.top/understand-ai-01-overview/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-01-overview/</guid>
+      <description>30期不是30堂课。从一个会说话的程序、两次AI寒冬，到你电脑上真正能用的模型：沿着一条故事线，把知识、真实产物与选择连起来。</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
+    <category>AI</category>
+    <category>你真的懂AI吗？</category>
+    </item>
     <item>
       <title>方寸智匣能渗透接单了？</title>
       <link>https://hyphentech.top/localbrain-network-security/</link>
@@ -222,16 +232,6 @@
       <link>https://hyphentech.top/localhost-local-ai-security/</link>
       <guid isPermaLink="true">https://hyphentech.top/localhost-local-ai-security/</guid>
       <description>只监听 127.0.0.1，不代表浏览器里的网页碰不到它。三个近期官方安全公告，加一组完全隔离的 CORS 实测，拆开本地 AI 最容易被误解的安全边界。</description>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>Nex-N2.5免费，64GB Mac能跑吗？</title>
-      <link>https://hyphentech.top/nex-n2-5-free-mac-localbrain/</link>
-      <guid isPermaLink="true">https://hyphentech.top/nex-n2-5-free-mac-localbrain/</guid>
-      <description>35B多模态智能体开源，在线端点当前免费；Mac容量够不等于运行时已经打通。</description>
       <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
