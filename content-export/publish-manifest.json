@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "4467bfe1dda45a27a664a3e19862c7b3ffde42e36305a4ac1458687f78a19ea9",
-  "published_post_count": 128,
+  "content_sha256": "a08ebf699c72447bb2f0d2f04348d016e7022aeba99aefef7871a13bd51ee63b",
+  "published_post_count": 130,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -887,6 +887,20 @@
       "slug": "splash-mac-local-inference",
       "legacy_paths": [],
       "sha256": "1f4e4c06a978a369157f1d7b45cba7fe9e62c9eb6752e0bdf7d0dbcb28397afb"
+    },
+    {
+      "file": "posts/understand-ai-01-overview-en.md",
+      "slug": "understand-ai-01-overview-en",
+      "legacy_paths": [],
+      "translation_of": "understand-ai-01-overview",
+      "lang": "en",
+      "sha256": "6e0ffabe0e1e6379a9d3bdf8a71ff68c4d7dc1a20770808ff705947094882191"
+    },
+    {
+      "file": "posts/understand-ai-01-overview.md",
+      "slug": "understand-ai-01-overview",
+      "legacy_paths": [],
+      "sha256": "43c3fdd468205ecace06a30c87142cbad8ecd94a6b12c188b2789104fbd6abbe"
     },
     {
       "file": "posts/wifi-finder-vibe-coding-en.md",
