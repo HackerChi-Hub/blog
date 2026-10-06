@@ -5,16 +5,36 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 05 Oct 2026 22:02:48 GMT</lastBuildDate>
-    <pubDate>Mon, 05 Oct 2026 22:02:48 GMT</pubDate>
+    <lastBuildDate>Tue, 06 Oct 2026 03:13:12 GMT</lastBuildDate>
+    <pubDate>Tue, 06 Oct 2026 03:13:12 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Strata让12GB显卡跑Qwen3.8？拆开94词元/秒背后的内存账</title>
+      <link>https://hyphentech.top/strata-12gb-local-ai/</link>
+      <guid isPermaLink="true">https://hyphentech.top/strata-12gb-local-ai/</guid>
+      <description>12GB显卡之外，还要多少内存？拆解Strata的官方速度、量化取舍与Mac接入边界。</description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>本地AI</category>
+    <category>Strata</category>
+    </item>
     <item>
       <title>你真的懂AI吗？30期纵览：从一次回答，走到模型、评测与本地部署</title>
       <link>https://hyphentech.top/understand-ai-01-overview/</link>
       <guid isPermaLink="true">https://hyphentech.top/understand-ai-01-overview/</guid>
       <description>30期不是30堂课。从一个会说话的程序、两次AI寒冬，到你电脑上真正能用的模型：沿着一条故事线，把知识、真实产物与选择连起来。</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
+    <category>AI</category>
+    <category>你真的懂AI吗？</category>
+    </item>
+    <item>
+      <title>AI为什么一个词一个词往外蹦？跟着一次回答，走过分词、注意力和采样</title>
+      <link>https://hyphentech.top/understand-ai-10-conversation/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-10-conversation/</guid>
+      <description>零件拆过了，现在把它们装回去。跟着“今天天气真”走进一间只认数字的翻译社，看一句话怎样变成概率，再变成你屏幕上的文字。</description>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <category>AI知识</category>
     <category>AI</category>
@@ -213,26 +233,6 @@
       <guid isPermaLink="true">https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</guid>
       <description>llama.cpp 0.4 用懒加载、流式量化和 Apple RDMA 改写了大模型的内存边界。但 LocalBrain 的 64GB Mac 记录证明：文件大于内存可以启动，不等于长上下文也能满速跑。</description>
       <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>1.4GB小模型，真能当本地智能体吗？</title>
-      <link>https://hyphentech.top/minicpm5-2b-localbrain/</link>
-      <guid isPermaLink="true">https://hyphentech.top/minicpm5-2b-localbrain/</guid>
-      <description>MiniCPM5-2B 把 13 万上下文、Agent 训练和官方 GGUF/MLX 一起塞进 2.52B 参数；真正的看点不是越级跑分，而是它有没有资格成为本地软件里的常驻执行器。</description>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>只开localhost，本地AI就安全吗？</title>
-      <link>https://hyphentech.top/localhost-local-ai-security/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localhost-local-ai-security/</guid>
-      <description>只监听 127.0.0.1，不代表浏览器里的网页碰不到它。三个近期官方安全公告，加一组完全隔离的 CORS 实测，拆开本地 AI 最容易被误解的安全边界。</description>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
