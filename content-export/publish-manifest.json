@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a08ebf699c72447bb2f0d2f04348d016e7022aeba99aefef7871a13bd51ee63b",
-  "published_post_count": 130,
+  "content_sha256": "a8a10f4caeb9881930a16237dad8cb3e48f31e74102b7325000f8cf6e46c289e",
+  "published_post_count": 134,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -889,6 +889,20 @@
       "sha256": "1f4e4c06a978a369157f1d7b45cba7fe9e62c9eb6752e0bdf7d0dbcb28397afb"
     },
     {
+      "file": "posts/strata-12gb-local-ai-en.md",
+      "slug": "strata-12gb-local-ai-en",
+      "legacy_paths": [],
+      "translation_of": "strata-12gb-local-ai",
+      "lang": "en",
+      "sha256": "1f287e18fd459ba1bfd1de77d5d743123a2f3060abbd67266d2c2d7ba68105e6"
+    },
+    {
+      "file": "posts/strata-12gb-local-ai.md",
+      "slug": "strata-12gb-local-ai",
+      "legacy_paths": [],
+      "sha256": "148b5f7ae3c0aa2533f85e3cc6df1a4d8ba0140f90b292f1fb5bd40af0eb0444"
+    },
+    {
       "file": "posts/understand-ai-01-overview-en.md",
       "slug": "understand-ai-01-overview-en",
       "legacy_paths": [],
@@ -901,6 +915,20 @@
       "slug": "understand-ai-01-overview",
       "legacy_paths": [],
       "sha256": "43c3fdd468205ecace06a30c87142cbad8ecd94a6b12c188b2789104fbd6abbe"
+    },
+    {
+      "file": "posts/understand-ai-10-conversation-en.md",
+      "slug": "understand-ai-10-conversation-en",
+      "legacy_paths": [],
+      "translation_of": "understand-ai-10-conversation",
+      "lang": "en",
+      "sha256": "a32d70dd893c5b4ac16f6235321e8609e87070068531069421d94927f981c5a9"
+    },
+    {
+      "file": "posts/understand-ai-10-conversation.md",
+      "slug": "understand-ai-10-conversation",
+      "legacy_paths": [],
+      "sha256": "145923410eb59c627881aead8ef66dcf7227b9f82a4557ff5e2f73109ad94751"
     },
     {
       "file": "posts/wifi-finder-vibe-coding-en.md",
