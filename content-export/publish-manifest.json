@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a8a10f4caeb9881930a16237dad8cb3e48f31e74102b7325000f8cf6e46c289e",
-  "published_post_count": 134,
+  "content_sha256": "579ee0819ffcd35ee697b9bab8a27a3c1c1546d63571e2f752e1cb6ef8941ac2",
+  "published_post_count": 136,
   "posts": [
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -529,6 +529,20 @@
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "legacy_paths": [],
       "sha256": "e3c82a90122650800c7225ca186ac3f3f0d993b1ea08056914f39875fc93c831"
+    },
+    {
+      "file": "posts/local-ai-completely-decomposed-en.md",
+      "slug": "local-ai-completely-decomposed-en",
+      "legacy_paths": [],
+      "translation_of": "local-ai-completely-decomposed",
+      "lang": "en",
+      "sha256": "9e86419179892f4fd70b276eecfa1a935b668acde54b9f66a083527b82a6a7b9"
+    },
+    {
+      "file": "posts/local-ai-completely-decomposed.md",
+      "slug": "local-ai-completely-decomposed",
+      "legacy_paths": [],
+      "sha256": "8928d5484b2c74032953737be4d18e003992c83ed552a5e1134cbe548145b7b2"
     },
     {
       "file": "posts/local-ai-old-laptop-business-en.md",
