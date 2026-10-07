@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: local-ai-completely-decomposed
 translation_source: machine
-source_sha256: 578d77ebcfcf04df
+source_sha256: 219ac80e193d48df
 date: 2026-10-07
 updated: 2026-10-07
 summary: "The era of on-device AI has arrived. Local AI is not a cheap cloud solution; it is a new deployment model where \"data goes out without leaving the door.\" I used 11 LocalBrain models—from 1.5GB LFM2.5 to 80GB Qwen3.8-Flash-Next—breaking down definitions, mental models, hardware boundaries, quantization, families, multimodals, workflows, hybrid architectures, business significance, entry paths, common pitfalls, and all aspects."

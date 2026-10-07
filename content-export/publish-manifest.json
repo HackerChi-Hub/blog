@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "579ee0819ffcd35ee697b9bab8a27a3c1c1546d63571e2f752e1cb6ef8941ac2",
+  "content_sha256": "a6c1effb9a55685a9bc19ed6f37139446f839781a89686a9918f1af01501aee1",
   "published_post_count": 136,
   "posts": [
     {
@@ -536,7 +536,7 @@
       "legacy_paths": [],
       "translation_of": "local-ai-completely-decomposed",
       "lang": "en",
-      "sha256": "9e86419179892f4fd70b276eecfa1a935b668acde54b9f66a083527b82a6a7b9"
+      "sha256": "1344d34521ae2b9a6f3940b375a018466d7771003e0177bbb13804c4764fdbd6"
     },
     {
       "file": "posts/local-ai-completely-decomposed.md",
