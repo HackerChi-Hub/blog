@@ -5,11 +5,25 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2026 22:40:52 GMT</lastBuildDate>
-    <pubDate>Tue, 06 Oct 2026 22:40:52 GMT</pubDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:25:23 GMT</lastBuildDate>
+    <pubDate>Wed, 07 Oct 2026 00:25:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>本地 AI 完全拆解：4 类模型 + 11 个实测，从 1.5GB 到 80GB 全跑一遍</title>
+      <link>https://hyphentech.top/local-ai-completely-decomposed/</link>
+      <guid isPermaLink="true">https://hyphentech.top/local-ai-completely-decomposed/</guid>
+      <description>端侧 AI 元年到了。本地 AI 不是便宜的云端，是"数据出门不出门"的新部署形态。我用方寸智匣 11 个模型——从 1.5GB 的 LFM2.5 到 80GB 的 Qwen3.8-Flash-Next——把定义、心智模型、硬件边界、量化、家族、多模态、工作流、混合架构、商业意义、入门路径、误区、所有面拆一遍。</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>本地AI</category>
+    <category>端侧推理</category>
+    <category>方寸智匣</category>
+    <category>模型评测</category>
+    <category>多模态</category>
+    <category>LocalBrain</category>
+    </item>
     <item>
       <title>Strata让12GB显卡跑Qwen3.8？拆开94词元/秒背后的内存账</title>
       <link>https://hyphentech.top/strata-12gb-local-ai/</link>
@@ -223,16 +237,6 @@
       <guid isPermaLink="true">https://hyphentech.top/localbrain-flash-next-five-tasks/</guid>
       <description>64GB Mac 上的 Qwen3.8-Flash-Next 连跑五道离线网页难题：1 题交付、3 题可运行、1 题放弃。每次超时、崩溃和长上下文失速，最终都变成了 LocalBrain 的通用修复。</description>
       <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>llama.cpp 0.4：64GB硬墙松了吗？</title>
-      <link>https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</link>
-      <guid isPermaLink="true">https://hyphentech.top/llama-cpp-0-4-64gb-localbrain/</guid>
-      <description>llama.cpp 0.4 用懒加载、流式量化和 Apple RDMA 改写了大模型的内存边界。但 LocalBrain 的 64GB Mac 记录证明：文件大于内存可以启动，不等于长上下文也能满速跑。</description>
-      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
