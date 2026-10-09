@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[46],{1074:(_,e,s)=>{"use strict";s.r(e),s.d(e,{__N_SSG:()=>n,default:()=>t});var u=s(8751),n=!0;let t=u.A},9324:(_,e,s)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/models",function(){return s(1074)}])}},_=>{_.O(0,[587,955,13,751,636,593,792],()=>_(_.s=9324)),_N_E=_.O()}]);

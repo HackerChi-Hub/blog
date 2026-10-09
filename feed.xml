@@ -5,11 +5,51 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 09 Oct 2026 10:38:47 GMT</lastBuildDate>
-    <pubDate>Fri, 09 Oct 2026 10:38:47 GMT</pubDate>
+    <lastBuildDate>Fri, 09 Oct 2026 13:56:41 GMT</lastBuildDate>
+    <pubDate>Fri, 09 Oct 2026 13:56:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Cangjie Skill 能把长内容变成可执行技能吗？</title>
+      <link>https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</guid>
+      <description>它把书、长视频和播客拆成可调用技能，但代码免费不等于整套流程零成本。</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>Huashu Design 能把一句话变成可交付设计吗？</title>
+      <link>https://hyphentech.top/2026-10-09-skill-08f7362ddd33/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-08f7362ddd33/</guid>
+      <description>Huashu Design 可交付什么，免费边界和使用门槛一次说清。</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>狗头军师能把恋爱建议变成可执行的下一步吗？</title>
+      <link>https://hyphentech.top/2026-10-08-skill-7ad7eec5fddf/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-08-skill-7ad7eec5fddf/</guid>
+      <description>它把情绪、事实和行动拆开，但开源代码不等于全程免费或已经实测。</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>career-ops 能把求职流程交给 AI 到哪一步？</title>
+      <link>https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</guid>
+      <description>career-ops把职位筛选、简历改写和申请跟踪交给AI，但最终提交仍由求职者决定。</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
     <item>
       <title>本地 AI 完全拆解：4 类模型 + 11 个实测，从 1.5GB 到 80GB 全跑一遍</title>
       <link>https://hyphentech.top/local-ai-completely-decomposed/</link>
@@ -23,6 +63,36 @@
     <category>模型评测</category>
     <category>多模态</category>
     <category>LocalBrain</category>
+    </item>
+    <item>
+      <title>让代码画出能动的艺术风格</title>
+      <link>https://hyphentech.top/2026-10-07-skill-a28a79f12713/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-skill-a28a79f12713/</guid>
+      <description>用代码控制镜头、动作与画风，角色需有授权；运行效果仍待实测。</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>ChatGPT如何做出精彩的视频？</title>
+      <link>https://hyphentech.top/2026-10-07-skill-80ac89e6ef58/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-skill-80ac89e6ef58/</guid>
+      <description>从脚本到成片，岚叔技能串起配音、画面与验收；运行效果仍待实测。</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>资源分享</category>
+    </item>
+    <item>
+      <title>Mistral Large 4 公开预览：1 万亿参数、10 月底开放权重，本地能跑得动吗？</title>
+      <link>https://hyphentech.top/2026-10-07-official-b31ed069464a/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-official-b31ed069464a/</guid>
+      <description>Mistral Large 4 预览已上线，月底计划放权重；本地门槛尚未公布。</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
     </item>
     <item>
       <title>Strata让12GB显卡跑Qwen3.8？拆开94词元/秒背后的内存账</title>
@@ -155,91 +225,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>模型发布</category>
-    </item>
-    <item>
-      <title>Ternary Bonsai 2 27B 上 Mac：6GB 跑 27B Reasoning，路径、命令与坑</title>
-      <link>https://hyphentech.top/bonsai2-mac-deploy/</link>
-      <guid isPermaLink="true">https://hyphentech.top/bonsai2-mac-deploy/</guid>
-      <description>PrismML 把 27B reasoning 压到 5.93 GB、M5 Pro 跑出 27.7 tok/s，还留 98.2% 的 Qwen3.8 原始能力。两条部署路径的命令、踩坑和接下来在 LocalBrain 里实测的计划，一次写清楚。</description>
-      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>开源</category>
-    <category>大模型</category>
-    </item>
-    <item>
-      <title>完全免费！黑粉录屏！可能是你遇到的最好的录屏软件</title>
-      <link>https://hyphentech.top/hyphenscreen-local-screen-recorder/</link>
-      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-local-screen-recorder/</guid>
-      <description>录屏最怕的不是没录好，是录到了不该录的。黑粉录屏 1.0.2 正式版：本机识别敏感信息、打码跟着放大和滚动走，导出后回读成片做体检；录制和缓存放哪自己定。附实机截图的完整功能介绍。</description>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>自制软件</category>
-    </item>
-    <item>
-      <title>本地 27B 模型能操作 Blender 吗？我把 B 站这套方法搬进 LocalBrain 跑了五轮</title>
-      <link>https://hyphentech.top/local-model-blender-mcp-localbrain/</link>
-      <guid isPermaLink="true">https://hyphentech.top/local-model-blender-mcp-localbrain/</guid>
-      <description>用本地 Qwen3.8-27B 通过 blender-mcp 建模的方法，再在 LocalBrain 里实测五轮：模型能一步步动手，但慢；交付的黑图只差一个勾选，看不见时它当成完成，能看最终渲染图以后才用对了修法。</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>Blender</category>
-    <category>MCP</category>
-    </item>
-    <item>
-      <title>吃灰的旧笔记本，能跑出一门生意</title>
-      <link>https://hyphentech.top/local-ai-old-laptop-business/</link>
-      <guid isPermaLink="true">https://hyphentech.top/local-ai-old-laptop-business/</guid>
-      <description>本地 AI 不是开发者的玩具。模型、仓库、软件、工作流四件套讲透，外加三个能抄的点子</description>
-      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>大模型</category>
-    <category>开源</category>
-    <category>工作流</category>
-    </item>
-    <item>
-      <title>8GB 能跑哪些本地模型？我实测了 11 个，8K 上下文下 6 个装得下</title>
-      <link>https://hyphentech.top/localbrain-small-models-lowmem/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-small-models-lowmem/</guid>
-      <description>把今年发布的 11 个低内存本地模型下到本机，用 LocalBrain 内置的 llama.cpp 统一量内存、速度和工具调用：8K 上下文下 6 个压在 8GB 设备的默认上限内，Qwen3.5-9B 比去年的 Qwen3-8B 少占 3 GB，1-bit 的 27B 能跑但质量只有厂商数字。这批模型也加进了 LocalBrain 的发现页。</description>
-      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>本地模型</category>
-    </item>
-    <item>
-      <title>本地 H3 多参考图实测：4 张图全用上了，3 秒视频跑 10 分钟</title>
-      <link>https://hyphentech.top/localbrain-h3-multi-reference/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-h3-multi-reference/</guid>
-      <description>LocalBrain 1.2.65 能在本机跑 MiniMax H3 的多参考图版（REF2VA），一次最多 9 张图。我在 64 GB 的 M5 Pro 上用 0、1、2、4 张参考图各生成一条 960×544 的 3 秒视频，把耗时、内存、被照搬的细节和 Turbo 不能开的原因原样摆出来。</description>
-      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>AI视频</category>
-    </item>
-    <item>
-      <title>我让本地模型连跑两天写 5 个网页游戏：1 题交付、3 题能跑、1 题放弃</title>
-      <link>https://hyphentech.top/localbrain-flash-next-five-tasks/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-flash-next-five-tasks/</guid>
-      <description>64GB Mac 上的 Qwen3.8-Flash-Next 连跑五道离线网页难题：1 题交付、3 题可运行、1 题放弃。每次超时、崩溃和长上下文失速，最终都变成了 LocalBrain 的通用修复。</description>
-      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>

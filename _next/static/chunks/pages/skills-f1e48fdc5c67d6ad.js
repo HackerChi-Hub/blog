@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[950],{336:(_,s,e)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/skills",function(){return e(1822)}])},1822:(_,s,e)=>{"use strict";e.r(s),e.d(s,{__N_SSG:()=>n,default:()=>l});var u=e(8751),n=!0;let l=u.A}},_=>{_.O(0,[587,955,13,751,636,593,792],()=>_(_.s=336)),_N_E=_.O()}]);
