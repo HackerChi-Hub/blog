@@ -701,6 +701,26 @@ function replaceFooter(body) {
 
 // ---------- 主流程 ----------
 
+// 类型与核验状态属于发布元数据，不交给翻译服务，也不伪造封面批准。
+function discoveryMetadata(fmText) {
+  const type = readScalar(fmText, 'article_type') || 'article';
+  const keys = ['article_type', 'cover_status'];
+  if (type === 'skill' || type === 'model') {
+    keys.push(...['name', 'category', 'stage', 'url'].map((suffix) => `${type}_${suffix}`));
+  }
+  return keys.map((key) => [key, readScalar(fmText, key)])
+    .filter(([, value]) => value)
+    .map(([key, value]) => `${key}: ${yamlString(value)}`);
+}
+
+function syncDiscoveryMetadata(source, translatedRaw) {
+  const parsed = parseFrontmatter(translatedRaw);
+  if (readScalar(parsed.fmText, 'translation_source') !== 'machine') return translatedRaw;
+  const cleaned = parsed.fmText.replace(/^(?:article_type|cover_status|(?:skill|model)_(?:name|category|stage|url)):[^\r\n]*(?:\r?\n|$)/gm, '').trimEnd();
+  const next = `${cleaned}\n${discoveryMetadata(source.fmText).join('\n')}`;
+  return translatedRaw.replace(parsed.fmText, next);
+}
+
 function listPosts() {
   return fs.readdirSync(POSTS_DIR)
     .filter((name) => name.endsWith('.md'))
@@ -793,6 +813,7 @@ async function translatePost(post, { dryRun }) {
     'status: published',
     'lang: en',
     `translation_of: ${post.slug}`,
+    ...discoveryMetadata(post.fmText),
     'translation_source: machine',
     `source_sha256: ${sourceHashOf(post)}`,
     `date: ${readScalar(post.fmText, 'date')}`,
@@ -823,6 +844,15 @@ async function main() {
   const dryRun = has('--dry-run');
   const force = has('--force');
   const posts = listPosts();
+  // 元数据变化不需要重译正文；只修复本脚本拥有的机翻副本。
+  if (has('--all') && !dryRun) {
+    for (const translated of posts.filter((post) => post.translationSource === 'machine')) {
+      const source = posts.find((post) => post.slug === translated.translationOf);
+      if (!source) continue;
+      const next = syncDiscoveryMetadata(source, translated.raw);
+      if (next !== translated.raw) fs.writeFileSync(translated.fullPath, next);
+    }
+  }
   const { todo, skipped } = planWork(posts, { force });
 
   let work = todo;
@@ -896,6 +926,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  discoveryMetadata, syncDiscoveryMetadata,
   createProtector, protectInline, restore, structureOf, assertSameStructure, absolutizeAssets,
   readList, yamlList, halfInBrackets,
   replaceTerms, assertTermsPreserved, termsKeptInLine, translateSegmented, pangu, tidy, needsFallback,
