@@ -16,11 +16,12 @@ tags:
   - AI
   - 资源分享
 collection: 资源分享
-cover: ""
+cover: "/obsidian-assets/2026-10-08-skill-7ad7eec5fddf/wordmark-wide-718eb29f275b.jpg"
 legacy_paths: []
 review_status: pending
-cover_status: pending_generation_and_approval
+cover_status: "generated_user_authorized"
 source_event_id: 7ad7eec5fddfda7349988448
+cover_pipeline: "programmatic-wordmark-v1"
 ---
 
 收到一句让人摸不着头脑的消息，真正难的往往不是“怎么回”，而是先弄清对方做了什么、自己想要什么，以及继续投入是否值得。开源 Codex Skill“狗头军师 · Goutoujunshi”瞄准的正是这段过程：先处理情绪，再拆分事实、推测和未知，最后给出可以执行的下一步。

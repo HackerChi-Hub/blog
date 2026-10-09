@@ -14,11 +14,12 @@ categories:
 tags:
   - AI
   - Resource sharing
-cover: 
+cover: "https://hyphentech.top/obsidian-assets/2026-10-08-skill-bd9fe092bca4/wordmark-wide-908f40db1bd0.jpg"
 brand_slogan: 
 legacy_paths: []
+cover_pipeline: "programmatic-wordmark-v1"
 article_type: "skill"
-cover_status: "pending_generation_and_approval"
+cover_status: "generated_user_authorized"
 skill_name: "career-ops"
 skill_category: "求职效率"
 skill_stage: "资料核验"

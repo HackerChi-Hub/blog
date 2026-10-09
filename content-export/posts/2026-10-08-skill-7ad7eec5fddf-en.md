@@ -14,11 +14,12 @@ categories:
 tags:
   - AI
   - Resource sharing
-cover: 
+cover: "https://hyphentech.top/obsidian-assets/2026-10-08-skill-7ad7eec5fddf/wordmark-wide-718eb29f275b.jpg"
 brand_slogan: 
 legacy_paths: []
+cover_pipeline: "programmatic-wordmark-v1"
 article_type: "skill"
-cover_status: "pending_generation_and_approval"
+cover_status: "generated_user_authorized"
 skill_name: "狗头军师 Goutoujunshi"
 skill_category: "关系沟通"
 skill_stage: "资料核验"

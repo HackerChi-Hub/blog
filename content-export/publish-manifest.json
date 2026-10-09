@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "b1b32e69e8b35d226aaa3c7942fe6fac8dce439b48479eee57e5e559ca0344a9",
+  "content_sha256": "abf8eee14db99649cab7e8ca9cf9eebc471599a48dbe2cb6804fa93988c87fde",
   "published_post_count": 150,
   "posts": [
     {
@@ -11,14 +11,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-official-b31ed069464a",
       "lang": "en",
-      "sha256": "55a9ababb5f2decd4c6b37cf57dac6e7be2a1e62a2f08f50a082464145184cc7"
+      "sha256": "1151490937bc207dbd38ee0c7f1d22fc0d61c0a356c8cf1a3d3222f9c2e98adb"
     },
     {
       "file": "posts/2026-10-07-official-b31ed069464a.md",
       "slug": "2026-10-07-official-b31ed069464a",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "bbe47fd572a2e19d2ea219c52df5b89c5a077ad40be98094eba552d3bb05b5ff"
+      "sha256": "adb855772f7fc9753cc5a0801b45f3bd0f976d3f943f567304a7ebb352955049"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58-en.md",
@@ -27,14 +27,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-80ac89e6ef58",
       "lang": "en",
-      "sha256": "b23b9a1fd25492597230806ffe845a865b0c9e8486d1018ab8266e961fa280fb"
+      "sha256": "c7fca786a5283751fa51b7993e962230b44d386b3d117564f7828136c3acb5b5"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58.md",
       "slug": "2026-10-07-skill-80ac89e6ef58",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "dc1b2cd07272d749599494c9a07a4797c49cdf2c591ada3284b2b3f5aafea384"
+      "sha256": "6527d73c83e7ff71068629fff7de3228b1c241e2a73f5ee0ccc3cbca115ab87b"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713-en.md",
@@ -43,14 +43,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-a28a79f12713",
       "lang": "en",
-      "sha256": "bf9812caacd0d55613f280c453867e1322abd6a555bbf1f37a493d255c0d8f31"
+      "sha256": "43bdb2a89a7a5b05202cf3286071568db82a775028c7d93d0862567ba9f9f924"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713.md",
       "slug": "2026-10-07-skill-a28a79f12713",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "6576440036ca78bad188aac4718e0dd0a19978a6c1984dce38e0fe4568e1f79f"
+      "sha256": "156b6861b8b027ca6c6492853109159003dd51641126068ac7b19e8ed581f3e2"
     },
     {
       "file": "posts/2026-10-08-skill-7ad7eec5fddf-en.md",
@@ -59,14 +59,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-7ad7eec5fddf",
       "lang": "en",
-      "sha256": "bbeb9badb79c0f3cd4b94ae1aaeefeeac5083e2f8c49a8116bbad1687ea6b663"
+      "sha256": "0ac9a841fb46cf126e49c15e3d3a32939e414de41300eb91c29733b8d40bf788"
     },
     {
       "file": "posts/2026-10-08-skill-7ad7eec5fddf.md",
       "slug": "2026-10-08-skill-7ad7eec5fddf",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "fdd13972b6dd61a2bc770a57b3b2e09adae85b83b814b71e4e2d38ca663ec23b"
+      "sha256": "3acbaa29b14ac609df3a02067a254720237a8f006352fa2caf82e465d8cfaf53"
     },
     {
       "file": "posts/2026-10-08-skill-bd9fe092bca4-en.md",
@@ -75,14 +75,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-bd9fe092bca4",
       "lang": "en",
-      "sha256": "9387f7f30c9db8c5e90d95edf25fdcbcbeffffa74fba2751503478483267e0da"
+      "sha256": "c53700ec8d73be449975cc22ca563253e9314331049921be72022710fc5bc9e1"
     },
     {
       "file": "posts/2026-10-08-skill-bd9fe092bca4.md",
       "slug": "2026-10-08-skill-bd9fe092bca4",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "773c02f0123c316bd8f78339b44f13259f6604e8048c35f337eca558d055ec43"
+      "sha256": "2885aca85d11f4033a5217c1bdbd700c9dbbfcf315b999c833d2352e32a283f9"
     },
     {
       "file": "posts/2026-10-09-skill-08f7362ddd33-en.md",
@@ -91,14 +91,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-08f7362ddd33",
       "lang": "en",
-      "sha256": "bd77b2b1bd8ace956fa3b86f03ae0f00d2129946afb8a1a18ba05d6b3016c5cc"
+      "sha256": "a1a497cadaba25e8a25e88b8e79818e070dcf38c3a3d820f8859e915e11380f9"
     },
     {
       "file": "posts/2026-10-09-skill-08f7362ddd33.md",
       "slug": "2026-10-09-skill-08f7362ddd33",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "272eab7f0434678b45a9c4205912387b19d477909333af952c4814e098895256"
+      "sha256": "a568586b1fe78b9f02ee4b36f695fba34330e3f2be199a9a1252c687f0dab2ec"
     },
     {
       "file": "posts/2026-10-09-skill-1d146792bdd7-en.md",
@@ -107,14 +107,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-1d146792bdd7",
       "lang": "en",
-      "sha256": "d1d54ee7e7d6b2327cb55827d248f321b79706df5017e81effcf390d72f5d97c"
+      "sha256": "60a9f4b7f50a51d042eae632afc9127691b8d65d2a74b620acde01dd03f7d731"
     },
     {
       "file": "posts/2026-10-09-skill-1d146792bdd7.md",
       "slug": "2026-10-09-skill-1d146792bdd7",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "9d300e21e40e0049f629c8b8a5ea90cfaee62358759e9d958cec75b3019359b3"
+      "sha256": "f03c675d9088b08f2757f71a74d7cb627eecf2edb8ccee762d780709768cef44"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
