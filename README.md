@@ -109,7 +109,9 @@ npm run test:products
 npm run test:live
 ```
 
-线上回读对响应正文也执行超时，避免已收到响应头但正文停滞时永久等待。页面与素材仍按发布清单全量核对；本机发布使用现有环境代理，不改用户的代理配置。
+线上回读对响应正文也执行超时，避免已收到响应头但正文停滞时永久等待。页面与素材仍按发布清单全量核对，并逐批显示进度；不额外强制改变本机代理选择。
+
+构建后处理为完整的 Next.js 交互脚本依赖链添加 `data-cfasync="false"`，保持原有 `defer` / `async` 和脚本顺序，避免 Cloudflare Rocket Loader 让搜索、筛选和分享长时间没有响应。导出验收逐页检查此合同；JSON 数据、语言偏好脚本和其他外部脚本不被改写。
 
 从 ContentDistributor 的 `article_content.json` 建立 Obsidian 草稿：
 

@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { protectNextScripts } = require('../lib/runtime-script-policy.cjs');
 
 const outDir = path.join(process.cwd(), 'out');
 
@@ -72,5 +73,24 @@ processFile('robots.txt/index.html', 'robots.txt');
 
 // 处理 feed.xml (RSS)
 processFile('feed.xml/index.html', 'feed.xml');
+
+// NextScript 不转发任意 data 属性；直接在静态导出产物上保护完整的框架依赖链。
+let protectedPages = 0;
+function protectRuntime(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const file = path.join(directory, entry.name);
+    if (entry.isDirectory()) protectRuntime(file);
+    else if (entry.isFile() && entry.name.endsWith('.html')) {
+      const html = fs.readFileSync(file, 'utf8');
+      const protectedHtml = protectNextScripts(html);
+      if (protectedHtml !== html) {
+        fs.writeFileSync(file, protectedHtml, 'utf8');
+        protectedPages += 1;
+      }
+    }
+  }
+}
+protectRuntime(outDir);
+console.log(`[post-build] 已保护 ${protectedPages} 个页面的交互脚本，避免 CDN 延后搜索与分享`);
 
 console.log('[post-build] 完成！');

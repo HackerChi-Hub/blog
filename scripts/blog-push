@@ -189,5 +189,5 @@ if ! gh run watch "$run_id" --exit-status; then
   fi
 fi
 
-NODE_USE_ENV_PROXY=1 node scripts/verify-live.js "$run_id"
+node scripts/verify-live.js "$run_id"
 echo "✅ Blog 发布完成：私有原件、公开快照、构建、线上版本、sitemap 与素材全部通过验收"

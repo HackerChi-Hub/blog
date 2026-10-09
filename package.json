@@ -13,7 +13,7 @@
     "content:fill-preview": "node scripts/fill-preview-assets.js",
     "comments:test": "node workers/comments/test.mjs",
     "comments:admin": "node scripts/comments-admin.js",
-    "test:content": "node scripts/test-content-pipeline.js && node scripts/test-video-renderer.js && node scripts/test-blog-i18n.js && node scripts/test-site-lang.js && node scripts/test-home-content.js",
+    "test:content": "node scripts/test-content-pipeline.js && node scripts/test-video-renderer.js && node scripts/test-blog-i18n.js && node scripts/test-site-lang.js && node scripts/test-home-content.js && node scripts/test-runtime-script-policy.js",
     "test:i18n": "node scripts/test-blog-i18n.js",
     "test:products": "node scripts/test-product-catalog.js",
     "test:live": "node scripts/test-live-verifier.js",

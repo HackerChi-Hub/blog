@@ -90,6 +90,7 @@ async function verifyUrl(url) {
 async function verifyInBatches(urls, size = 12) {
   for (let index = 0; index < urls.length; index += size) {
     await Promise.all(urls.slice(index, index + size).map(verifyUrl));
+    console.log(`   页面回读 ${Math.min(index + size, urls.length)}/${urls.length}`);
   }
 }
 
@@ -145,6 +146,7 @@ async function verifyAssetUrl(url) {
 async function verifyAssetsInBatches(urls, size = 24) {
   for (let index = 0; index < urls.length; index += size) {
     await Promise.all(urls.slice(index, index + size).map(verifyAssetUrl));
+    console.log(`   素材回读 ${Math.min(index + size, urls.length)}/${urls.length}`);
   }
 }
 
