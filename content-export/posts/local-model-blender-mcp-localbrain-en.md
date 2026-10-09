@@ -21,6 +21,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/local-model-blender-mcp-localbrain/cover-590c1793d9.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

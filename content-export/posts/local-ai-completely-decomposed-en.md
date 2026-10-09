@@ -21,6 +21,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/local-ai-completely-decomposed/cover-3e693ef3f8.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

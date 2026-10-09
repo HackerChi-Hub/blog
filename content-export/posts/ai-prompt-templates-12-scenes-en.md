@@ -16,6 +16,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ai-prompt-templates-12-scenes/image-01-382be160d7.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

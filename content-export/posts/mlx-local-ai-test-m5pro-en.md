@@ -18,6 +18,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

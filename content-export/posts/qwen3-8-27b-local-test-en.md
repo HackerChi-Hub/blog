@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/qwen3-8-27b-local-test/cover-be360df2e5.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

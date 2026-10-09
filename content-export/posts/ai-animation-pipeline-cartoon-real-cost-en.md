@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ai-animation-pipeline-cartoon-real-cost/cover-24a22b18ce.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

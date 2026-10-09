@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/strata-12gb-local-ai/cover-f502b3c798.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

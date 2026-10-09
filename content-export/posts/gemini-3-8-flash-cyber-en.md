@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/gemini-3-8-flash-cyber/cover-1b462d9340.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

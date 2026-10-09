@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/mac-windows-linux-ai-platforms/cover-be7af05769.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

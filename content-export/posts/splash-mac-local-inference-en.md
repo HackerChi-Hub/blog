@@ -18,6 +18,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

@@ -18,6 +18,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/hyphenbox-windows-linux-tri-platform/cover-2.35x1.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

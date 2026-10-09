@@ -19,6 +19,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/bonsai2-mac-deploy/cover-direct-fusion-02-20260919.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

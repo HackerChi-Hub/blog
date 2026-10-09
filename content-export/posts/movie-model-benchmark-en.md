@@ -21,6 +21,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/movie-model-benchmark/cover-75732bed10.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

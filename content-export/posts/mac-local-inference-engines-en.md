@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/mac-local-inference-engines/cover-ca31df9eff.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

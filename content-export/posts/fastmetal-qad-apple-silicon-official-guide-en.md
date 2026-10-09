@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/fastmetal-qad-apple-silicon-official-guide/cover-a6c0670199.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

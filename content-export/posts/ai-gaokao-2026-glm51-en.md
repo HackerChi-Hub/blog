@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ai-gaokao-2026-glm51/image-01-ff50b8fc82.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

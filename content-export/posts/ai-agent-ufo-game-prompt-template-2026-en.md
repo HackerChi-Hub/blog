@@ -19,6 +19,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ai-agent-ufo-game-prompt-template-2026/image-01-36329611f7.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

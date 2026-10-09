@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localhost-local-ai-security/cover-affefce7bf.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

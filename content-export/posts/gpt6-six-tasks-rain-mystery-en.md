@@ -16,6 +16,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/gpt6-six-tasks-rain-mystery/cover-5248b3b14c.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

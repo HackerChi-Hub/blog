@@ -15,6 +15,7 @@ tags: []
 cover: https://hyphentech.top/obsidian-assets/free-design-resources/image-01-b55e78c48c.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

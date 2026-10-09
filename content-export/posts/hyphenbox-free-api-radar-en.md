@@ -18,6 +18,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/hyphenbox-free-api-radar/cover-8db465d484.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

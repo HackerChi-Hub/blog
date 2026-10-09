@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ox-alpha-stealth-model/cover-f9bedfd334.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

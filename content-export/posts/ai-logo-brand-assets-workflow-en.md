@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/ai-logo-brand-assets-workflow/image-01-9a7b151514.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

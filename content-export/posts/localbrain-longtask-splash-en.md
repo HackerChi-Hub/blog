@@ -19,6 +19,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-longtask-splash/cover-0a1e771aa1.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

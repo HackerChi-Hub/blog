@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/local-ai-old-laptop-business/cover-9f0e24e14f.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

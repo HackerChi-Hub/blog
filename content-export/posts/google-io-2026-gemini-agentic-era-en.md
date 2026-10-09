@@ -21,6 +21,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/google-io-2026-gemini-agentic-era/image-01-2b1b7d88a1.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

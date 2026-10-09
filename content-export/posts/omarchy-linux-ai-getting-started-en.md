@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/omarchy-linux-ai-getting-started/cover-f4fa1d8b83.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

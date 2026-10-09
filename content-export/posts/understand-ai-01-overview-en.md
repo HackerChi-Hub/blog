@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/understand-ai-01-overview/cover-823817c2f8.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

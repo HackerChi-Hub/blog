@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

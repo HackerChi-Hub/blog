@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/llama-cpp-0-4-64gb-localbrain/cover-b591828048.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

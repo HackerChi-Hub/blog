@@ -20,6 +20,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-small-models-lowmem/cover-3b8dda75f0.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

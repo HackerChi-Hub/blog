@@ -21,6 +21,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/wifi-finder-vibe-coding/image-01-cf0f87a731.png
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

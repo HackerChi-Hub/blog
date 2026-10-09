@@ -18,6 +18,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/qwen-image-21-local/cover-cb8f38232e.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

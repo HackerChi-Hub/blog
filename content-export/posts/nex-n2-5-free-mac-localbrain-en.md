@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/nex-n2-5-free-mac-localbrain/cover-ee37558b86.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

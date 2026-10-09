@@ -19,6 +19,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-windows-nvidia-first-release/cover-2.35x1.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

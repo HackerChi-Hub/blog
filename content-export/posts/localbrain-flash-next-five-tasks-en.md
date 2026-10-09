@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-flash-next-five-tasks/cover-920b629b16.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

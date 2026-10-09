@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/gpt-6-astra-computer-use/cover-a9be2469b5.jpg
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

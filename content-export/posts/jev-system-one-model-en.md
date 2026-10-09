@@ -17,6 +17,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/jev-system-one-model/cover-22107b0e94.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

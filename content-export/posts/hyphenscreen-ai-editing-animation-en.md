@@ -19,6 +19,7 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/hyphenscreen-ai-editing-animation/cover-66656197e8.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation
