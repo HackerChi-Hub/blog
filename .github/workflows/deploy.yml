@@ -55,3 +55,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
+
+      - name: Verify live pages and assets
+        # 推送和手动发布必须核对真实域名，定时刷新仍沿用现有运行频率与边界。
+        if: github.event_name != 'schedule'
+        timeout-minutes: 10
+        run: node scripts/verify-live.js "${{ github.run_id }}"
