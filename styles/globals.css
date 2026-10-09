@@ -691,7 +691,8 @@ img:hover {
 }
 
 .contained-cover__image {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: block;
   width: 100%;
@@ -699,6 +700,7 @@ img:hover {
   border: 0 !important;
   border-radius: 0 !important;
   object-fit: contain;
+  object-position: center;
   background: transparent;
   box-shadow: none;
   transform: none;

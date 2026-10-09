@@ -56,8 +56,9 @@ const INDIRECT_KEYS = [
   ...HOME.CONTENT_PILLARS.map((p) => p.title),
   '真实实测', // getPostPillarLabels 的兜底标签
   ...HOME.MEDIA_CHANNELS.flatMap((c) => [c.name, c.title, c.description, c.action]).filter(hasHan),
-  ...[...HOME.AI_LAB_TOOLS, ...HOME.SIDE_TOOLS].flatMap((tool) => [tool.title, tool.desc]).filter(hasHan),
-  ...PRODUCT_DEFINITIONS.flatMap((p) => [p.name, p.label, p.badge, ...p.facts]).filter(hasHan),
+  ...[...HOME.AI_LAB_TOOLS, ...HOME.SIDE_TOOLS].flatMap((tool) => [tool.title, tool.desc, tool.detail || '']).filter(hasHan),
+  ...HOME.RESOURCE_RADARS.flatMap((radar) => [radar.title, radar.desc]).filter(hasHan),
+  ...PRODUCT_DEFINITIONS.flatMap((p) => [p.name, p.label, p.badge, p.fallbackDescription, ...p.facts]).filter(hasHan),
   '查看产品与下载', // 产品卡按钮（product-catalog 里写死）
 ];
 

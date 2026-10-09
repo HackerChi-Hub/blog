@@ -14,7 +14,7 @@ async function fetchWithTimeout(url, timeoutMs = 15000, options = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    return await fetch(url, {
+    const response = await fetch(url, {
       ...options,
       redirect: 'follow',
       headers: {
@@ -23,6 +23,15 @@ async function fetchWithTimeout(url, timeoutMs = 15000, options = {}) {
       },
       signal: controller.signal,
     });
+    // 超时覆盖正文读取，不只覆盖响应头。否则代理已返回 200、正文流却不结束时会永久等待。
+    const body = options.method === 'HEAD' ? null : await response.arrayBuffer();
+    return {
+      ok: response.ok,
+      status: response.status,
+      headers: response.headers,
+      text: async () => Buffer.from(body || []).toString('utf8'),
+      arrayBuffer: async () => body,
+    };
   } finally {
     clearTimeout(timer);
   }
@@ -78,7 +87,7 @@ async function verifyUrl(url) {
   );
 }
 
-async function verifyInBatches(urls, size = 6) {
+async function verifyInBatches(urls, size = 12) {
   for (let index = 0; index < urls.length; index += size) {
     await Promise.all(urls.slice(index, index + size).map(verifyUrl));
   }
@@ -133,7 +142,7 @@ async function verifyAssetUrl(url) {
   throw new Error(`${lastError || '不可读'} ${url}`);
 }
 
-async function verifyAssetsInBatches(urls, size = 12) {
+async function verifyAssetsInBatches(urls, size = 24) {
   for (let index = 0; index < urls.length; index += size) {
     await Promise.all(urls.slice(index, index + size).map(verifyAssetUrl));
   }
@@ -183,7 +192,11 @@ async function main() {
   );
 }
 
-main().catch((error) => {
-  console.error(`❌ 线上验收失败：${error.message}`);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(`❌ 线上验收失败：${error.message}`);
+    process.exit(1);
+  });
+}
+
+module.exports = { fetchWithTimeout, withRetry };

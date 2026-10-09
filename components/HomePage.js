@@ -42,6 +42,7 @@ const {
   AI_LAB_TOOLS,
   SIDE_TOOLS,
   MEDIA_CHANNELS,
+  RESOURCE_RADARS,
 } = require('../lib/home-content.cjs');
 
 const heroStyles = {
@@ -1082,41 +1083,47 @@ const SiteNavigation = () => {
         <span>{t('黑粉科技')}</span>
       </a>
       <div className="home-nav__links">
-        <a href="#media">{t('媒体矩阵')}</a>
-        <a href="#latest">{t('频道精选')}</a>
-        <a href="#products">{t('自制工具')}</a>
-        <a href="#lab">{t('AI实验台')}</a>
-        {lang !== 'en' && <a href="/skills/">Skill 推荐</a>}
-        {lang !== 'en' && <a href="/models/">新模型</a>}
+        <a className="home-nav__lab" href="#lab">{t('AI 实验台')}</a>
+        <a href="#products">{t('自制软件')}</a>
+        <a href="#resources">{t('资源雷达')}</a>
+        <a href="#all-content">{t('实测文章')}</a>
+        <a href="#media">{t('我的频道')}</a>
       </div>
+      <details className="home-mobile-menu">
+        <summary>{t('目录')}</summary>
+        <div onClick={(event) => {
+          if (event.target.closest('a')) event.currentTarget.parentElement.open = false;
+        }}>
+          <a href="#lab">{t('AI 实验台')}</a>
+          <a href="#products">{t('自制软件')}</a>
+          <a href="#resources">{t('资源雷达')}</a>
+          <a href="#all-content">{t('实测文章')}</a>
+          <a href="#media">{t('我的频道')}</a>
+        </div>
+      </details>
       <LangToggle lang={lang} alternates={{ 'zh-CN': homeHref('zh-CN'), en: homeHref('en') }} />
     </nav>
   );
 };
 
-const BrandHero = () => {
+const BrandHero = ({ notices = [] }) => {
   const { t, lang } = useHome();
+  const notice = notices[0] || {};
+  const lines = (notice.summary || notice.title || BRAND_SLOGAN).trim().split('\n').map((line) => line.trim()).filter(Boolean);
+  const shown = lines.map((line) => t(line)).filter((line, index) => lang !== 'en' || line !== lines[index] || !/[一-鿿]/.test(line));
+  const slogan = shown.length ? shown : [t(BRAND_SLOGAN)];
   return (
     <header className="brand-hero" id="top">
       <div className="brand-hero__content">
-        <div className="brand-hero__eyebrow">{t(BRAND_SLOGAN)}</div>
-        <h1>
-          {t('不花钱，把 AI')}<br /><em>{t('跑起来')}</em>
-        </h1>
+        <div className="brand-hero__eyebrow">{t('黑粉科技 · 实测记录')}</div>
+        <h1>{slogan[0]}</h1>
+        {slogan.length > 1 && <p className="brand-hero__slogan">{slogan.slice(1).join(' · ')}</p>}
         <p className="brand-hero__lead">
           {t('踩过的坑、测过的数据、亲手做的工具，全部交给你。')}
         </p>
         <div className="hero-actions">
-          <a className="hero-button" href="#latest">{t('先看三条主线')}</a>
-          <a className="hero-button hero-button--ghost" href="#media">{t('找到全部频道')}</a>
-          {lang !== 'en' && <a className="hero-button hero-button--ghost" href="/skills/">Skill 推荐</a>}
-          {lang !== 'en' && <a className="hero-button hero-button--ghost" href="/models/">新模型</a>}
-        </div>
-        <div className="hero-pills" aria-label={t('频道主线')}>
-          <span>{t('本地部署')}</span>
-          <span>{t('免费白嫖')}</span>
-          <span>{t('自制软件')}</span>
-          <span>{t('真实数据与失败记录')}</span>
+          <a className="hero-button" href="#lab">{t('进入实验台')} →</a>
+          <a className="hero-button hero-button--ghost" href="#all-content">{t('看最新实测')} →</a>
         </div>
       </div>
       <div className="brand-hero__visual" aria-hidden="true">
@@ -1132,17 +1139,8 @@ const BrandHero = () => {
   );
 };
 
-const MediaSection = ({ notices = [], subMenus = [] }) => {
-  const { t, lang } = useHome();
-  const notice = notices[0] || {};
-  // 公告来自 notices.yml，是随时会改的内容，不进多语言闸门（否则每改一次公告都会卡住发布）。
-  // 逐行翻译；英文页上词典里没有的行直接丢掉，全丢光就退回英文口号——宁可少一句，
-  // 也不在英文首页上挂一段中文。
-  const lines = (notice.summary || notice.title || BRAND_SLOGAN).trim().split('\n').map((line) => line.trim());
-  const shown = lines
-    .map((line) => t(line))
-    .filter((line, i) => lang !== 'en' || line !== lines[i] || !/[一-鿿]/.test(line));
-  const slogan = (shown.length ? shown : [t(BRAND_SLOGAN)]).join('\n');
+const MediaSection = ({ subMenus = [] }) => {
+  const { t } = useHome();
   // 频道匹配用 subMenus 的中文标题（pattern 是中文），显示时再翻译
   const channels = MEDIA_CHANNELS.map((channel) => {
     const matched = subMenus.find((link) => channel.pattern.test(link?.title || ''));
@@ -1150,31 +1148,8 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
   });
 
   return (
-    <section className="media-section" id="media">
-      <article className="notice-feature" id="media-notice">
-        <div className="notice-feature__copy">
-          <div className="section-eyebrow">{t('频道公告')}</div>
-          <div className="notice-feature__mark">“</div>
-          <blockquote>{slogan}</blockquote>
-        </div>
-        <div className="notice-feature__image">
-          <img
-            src={WECHAT_QR_IMAGE}
-            alt={t('黑粉科技公众号二维码')}
-            width="258"
-            height="258"
-          />
-        </div>
-      </article>
-
-      <div className="media-matrix" id="channels">
-        <div className="media-matrix__head">
-          <div>
-            <div className="section-eyebrow">{t('媒体矩阵')}</div>
-            <h2>{t('频道都在这')}</h2>
-          </div>
-          <p>{t('平台不同，黑粉还是同一个黑粉。')}</p>
-        </div>
+    <section className="channel-strip" id="media" aria-label={t('我的频道')}>
+      <div className="channel-strip__head"><strong>{t('我的频道')}</strong><span>{t('平台不同，黑粉还是同一个黑粉。')}</span></div>
         <div className="media-grid">
           {channels.map((channel) => {
             const external = /^https?:\/\//.test(channel.url);
@@ -1182,6 +1157,7 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
               <a
                 className={`media-card${channel.id === 'bilibili' ? ' media-card--primary' : ''}`}
                 href={channel.url}
+                onClick={channel.url === '#media-notice' ? () => { document.getElementById('media-notice').open = true; } : undefined}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
                 style={{ '--channel-accent': channel.accent }}
@@ -1190,13 +1166,18 @@ const MediaSection = ({ notices = [], subMenus = [] }) => {
                 {channel.id === 'bilibili' && <span className="media-card__flag">{t('主场首发')}</span>}
                 <span className="media-card__name">{t(channel.name)}</span>
                 <strong>{t(channel.title)}</strong>
-                <p>{t(channel.description)}</p>
                 <span className="media-card__action">{t(channel.action)} →</span>
               </a>
             );
           })}
         </div>
-      </div>
+      <details className="channel-qr" id="media-notice">
+        <summary>{t('关注公众号')}</summary>
+        <div className="channel-qr__panel">
+          <img src={WECHAT_QR_IMAGE} alt={t('黑粉科技公众号二维码')} width="258" height="258" />
+          <p>{t('长按保存图片，用微信「扫一扫」从相册选取')}</p>
+        </div>
+      </details>
     </section>
   );
 };
@@ -1206,22 +1187,12 @@ const FeaturedSection = ({ items = [] }) => {
   if (!items.length) return null;
 
   return (
-    <section id="latest">
-      <div className="section-head">
-        <div>
-          <div className="section-eyebrow">{t('三条主线')}</div>
-          <h2>{t('从这开始')}</h2>
-        </div>
-        <p>{t('本地跑、免费用、自己造；各挑一篇，不让你在文章堆里迷路。')}</p>
-      </div>
+    <div id="latest">
+      <div className="article-subhead">{t('三条主线')} · {t('频道精选')}</div>
       <div className="featured-grid">
-        <FeaturedCard post={items[0]?.post} pillar={items[0]?.pillar} primary />
-        <div className="featured-stack">
-          <FeaturedCard post={items[1]?.post} pillar={items[1]?.pillar} />
-          <FeaturedCard post={items[2]?.post} pillar={items[2]?.pillar} />
-        </div>
+        {items.map(({ post, pillar }) => <FeaturedCard key={getPostSlug(post)} post={post} pillar={pillar} />)}
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -1232,17 +1203,18 @@ const ProductSection = ({ products = [] }) => {
       <div className="section-head">
         <div>
           <div className="section-eyebrow">{t('自制软件')}</div>
-          <h2>{t('自制工具')}</h2>
+          <h2>{t('自制软件')}</h2>
         </div>
         <p>{t('遇到问题，先找工具；找不到，就自己写一个。多少有点不服气。')}</p>
       </div>
       <div className="product-grid">
         {products.map((product) => {
-          // 英文页的 slug 与摘要在构建时已换成英文版（buildHomeProps），这里只管翻译标签
+          // 英文页在构建时切换介绍文章的 slug，固定用途和界面标签由词典翻译。
           const name = t(product.name);
           return (
             <article className="product-card" key={product.slug}>
               <div className="product-card__badge">{t(product.badge)}</div>
+              <span className="product-card__monogram" aria-hidden="true">{product.name.split(' ').at(-1).replace(/[^A-Z]/g, '').slice(0, 2)}</span>
               <h3 className="product-card__name">{name}</h3>
               <h4 className="product-card__label">{t(product.label)}</h4>
               {product.version && (
@@ -1251,7 +1223,10 @@ const ProductSection = ({ products = [] }) => {
                   <a href={product.releaseUrl} target="_blank" rel="noreferrer">{t('更新说明 ↗')}</a>
                 </div>
               )}
-              <p className="product-card__description">{product.description}</p>
+              <p className="product-card__description">{t(product.description)}</p>
+              {lang !== 'en' && product.updateSummary && (
+                <div className="product-card__update"><strong>{t('最新变化')}</strong><p>{product.updateSummary}</p></div>
+              )}
               <div className="product-card__facts" aria-label={t('{name} 产品特性', { name })}>
                 {product.facts.map((fact) => <span key={fact}>{t(fact)}</span>)}
               </div>
@@ -1277,11 +1252,15 @@ const LabTool = ({ tool }) => {
   const { t } = useHome();
   return (
     <a className="lab-tool" href={tool.href}>
-      <span className="lab-tool__icon">{tool.icon}</span>
-      <span>
+      <div className="lab-tool__preview" aria-hidden="true">
+        {tool.image ? <ContainedCover src={tool.image} alt="" /> : <div className="lab-tool__diagram"><span>{tool.icon}</span><b>{t(tool.detail)}</b></div>}
+      </div>
+      <div className="lab-tool__copy">
+        <span className="lab-tool__icon">{tool.icon}</span>
         <strong>{t(tool.title)}</strong>
         <small>{t(tool.desc)}</small>
-      </span>
+        <span className="lab-tool__action">{t('打开工作台')} →</span>
+      </div>
     </a>
   );
 };
@@ -1295,29 +1274,60 @@ const LabSection = () => {
           <div className="section-eyebrow">{t('本地 AI · 实测数据')}</div>
           <h2>{t('AI 实验台')}</h2>
         </div>
-        <p>{t('装机、本地模型、Agent 和 48 小时发布雷达；能点、能查、能直接用。')}</p>
+        <p>{t('参数先别吹，上机跑一回。')}</p>
       </div>
       <div className="lab-grid">
         {AI_LAB_TOOLS.map((tool) => <LabTool tool={tool} key={tool.href} />)}
       </div>
-      <div className="lab-side">
+    </section>
+  );
+};
+
+const SideSection = () => {
+  const { t } = useHome();
+  return (
+      <section className="lab-side">
         <div className="lab-side__head">
           <div>
             <div className="section-eyebrow">{t('额外掉落')}</div>
-            <h3>{t('顺手小玩具')}</h3>
+            <h3>{t('更多工具')}</h3>
           </div>
           <p>{t('不抢 AI 主线的镜头，但做都做了，有用就拿走。')}</p>
         </div>
         <div className="lab-grid lab-grid--side">
-          {SIDE_TOOLS.map((tool) => <LabTool tool={tool} key={tool.href} />)}
+          {SIDE_TOOLS.map((tool) => <a className="side-tool" href={tool.href} key={tool.href}><span>{tool.icon}</span><strong>{t(tool.title)}</strong><small>{t(tool.desc)}</small></a>)}
         </div>
+      </section>
+  );
+};
+
+const ResourceSection = ({ posts = [] }) => {
+  const { t, en, lang } = useHome();
+  return (
+    <section id="resources">
+      <div className="section-head"><div><div className="section-eyebrow">{t('发现与核验')}</div><h2>{t('资源雷达')}</h2></div><p>{t('新闻看动态，模型看门槛，技能看用途。推荐不等于实测。')}</p></div>
+      <div className="resource-grid">
+        {RESOURCE_RADARS.map((radar) => {
+          const entries = posts.filter((post) => post.articleType === radar.type);
+          const previewEntries = lang === 'en' ? entries.filter((post) => en?.[post.slug]) : entries;
+          return <article className="resource-card" key={radar.type}>
+            <div className="resource-card__head"><span>{radar.icon}</span>{radar.type !== 'news' && <small>{t('已收录 {n} 篇', { n: entries.length })}</small>}</div>
+            <h3><a href={radar.href}>{t(radar.title)}</a></h3><p>{t(radar.desc)}</p>
+            <ul>{previewEntries.slice(0, 2).map((entry) => { const shown = view(entry, en); return <li key={entry.slug}><a href={`/${shown.slug}/`}>{shown.title}</a></li>; })}</ul>
+            {radar.type === 'news' && <div className="resource-card__news">{t('重点快报 · 分类筛选 · 原始信源')}</div>}
+            <a className="resource-card__action" href={radar.href}>{t('进入雷达')} →</a>
+          </article>;
+        })}
       </div>
+      {lang === 'en' && <p className="resource-language-note">{t('雷达与实验台专页目前以中文提供。')}</p>}
     </section>
   );
 };
 
 export default function Home({
   posts,
+  searchPosts = [],
+  radarPosts = [],
   notices,
   subMenus,
   products,
@@ -1331,11 +1341,13 @@ export default function Home({
   try {
     const showEmpty = posts.length === 0;
     // 精选用原文挑（关键词是中文），显示时才换成英文版
-    const featuredItems = selectPillarFeaturedPosts(posts);
+    const articlePosts = posts.filter((post) => !['skill', 'model'].includes(post.articleType));
+    const featuredItems = selectPillarFeaturedPosts(articlePosts);
     const featuredSlugs = new Set(featuredItems.map(({ post }) => getPostSlug(post)));
-    const remainingPosts = posts.filter((post) => !featuredSlugs.has(getPostSlug(post)));
+    const remainingPosts = articlePosts.filter((post) => !featuredSlugs.has(getPostSlug(post))).slice(0, 6);
     // 搜索只看显示出来的那一版：英文页搜英文标题、结果链到英文文章
-    const searchable = en ? posts.map((post) => view(post, en)) : posts;
+    const searchIndex = searchPosts.length ? searchPosts : posts;
+    const searchable = en ? searchIndex.map((post) => view(post, en)).filter((post) => !/[一-鿿]/.test(post.title)) : searchIndex;
 
     return (
       <HomeContext.Provider value={{ lang, t, en }}>
@@ -1347,7 +1359,7 @@ export default function Home({
           lang={lang}
         />
         <main
-          className="page"
+          className="page home-page"
           style={{
             background: '#05060b',
             minHeight: '100vh',
@@ -1355,12 +1367,13 @@ export default function Home({
           }}
         >
           <style suppressHydrationWarning>{feedStyles}</style>
-          <div className="home-shell">
+          <div className="home-shell home-shell--v2">
             <SiteNavigation />
-            <BrandHero />
-            <MediaSection notices={notices} subMenus={subMenus} />
-            <FeaturedSection items={featuredItems} />
+            <BrandHero notices={notices} />
+            <MediaSection subMenus={subMenus} />
+            <LabSection />
             <ProductSection products={products} />
+            <ResourceSection posts={radarPosts} />
 
             {errorMessage && (
               <div className="empty-state" style={{ fontWeight: 600, color: '#ff8a80' }}>
@@ -1372,11 +1385,12 @@ export default function Home({
               <div className="section-head">
                 <div>
                   <div className="section-eyebrow">{t('文章归档')}</div>
-                  <h2>{t('更多实测')}</h2>
+                  <h2>{t('实测文章')}</h2>
                 </div>
                 <p>{t('想找哪次踩坑，直接搜；我的记性不一定比搜索框好。')}</p>
               </div>
               {posts.length > 0 && <div className="content-search"><Search posts={searchable} lang={lang} /></div>}
+              <FeaturedSection items={featuredItems} />
               {showEmpty ? (
                 <div className="empty-state">
               {t('暂无文章，请确认 Obsidian 内容库存在已发布文章。')}
@@ -1390,20 +1404,10 @@ export default function Home({
               )}
             </section>
 
-            {!showEmpty && totalPages > 1 && (
-              <nav className="pagination">
-                <span className="pagination__info">
-                  {t('第 {current} 页 / 共 {total} 页', { current: currentPage, total: totalPages })}
-                </span>
-                {currentPage < totalPages && (
-                  <Link className="pagination__next" href={listHref(lang, currentPage + 1)}>
-                    {t('下一页 →')}
-                  </Link>
-                )}
-              </nav>
+            {!showEmpty && (
+              <div className="archive-action"><Link className="hero-button hero-button--ghost" href={listHref(lang, 1)}>{t('查看全部文章')} →</Link></div>
             )}
-
-            <LabSection />
+            <SideSection />
           </div>
       </main>
       </HomeContext.Provider>

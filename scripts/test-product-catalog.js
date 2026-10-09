@@ -72,27 +72,29 @@ async function main() {
   ]);
   assert.strictEqual(cards[0].version, '1.2.28');
   assert.strictEqual(cards[0].updated, '2026-09-01');
-  assert.match(cards[0].description, /隐藏暂存事务/);
+  assert.match(cards[0].updateSummary, /隐藏暂存事务/);
+  assert.match(cards[0].description, /私有 AI 盒子/);
   assert.match(cards[1].description, /免费大模型 API 雷达/);
   assert.doesNotMatch(cards[1].description, /macOS 安装包/);
   assert.strictEqual(cards[1].version, '1.0.0');
   assert.strictEqual(cards[1].badge, '我做的 · 正式迭代');
   assert.deepStrictEqual(cards[1].facts, ['正式推出', 'macOS / Windows / Linux', '免费下载']);
-  assert.match(cards[2].description, /按钮文字被挤成竖排/);
-  assert.match(cards[2].description, /LocalBrain/);
+  assert.match(cards[2].updateSummary, /按钮文字被挤成竖排/);
+  assert.match(cards[2].updateSummary, /LocalBrain/);
   assert.strictEqual(cards[2].updated, '2026-08-16');
   // 预览版产品必须照样拿到版本与日期：用 /releases/latest 的写法会在这里退回文章兜底
   assert.strictEqual(cards[3].version, '0.4.16');
   assert.strictEqual(cards[3].updated, '2026-09-16');
   assert.strictEqual(cards[3].source, 'release');
-  assert.match(cards[3].description, /Windows 和 Linux 安装包/);
+  assert.match(cards[3].updateSummary, /Windows 和 Linux 安装包/);
   assert.doesNotMatch(cards[3].description, /草稿/);
 
   const fallbackCards = await buildProductCards(posts, {
     fetchImpl: async () => ({ ok: false, status: 503, json: async () => ({}) }),
     token: '',
   });
-  assert.strictEqual(fallbackCards[0].description, '文章摘要兜底。');
+  assert.strictEqual(fallbackCards[0].updateSummary, '文章摘要兜底。');
+  assert.match(fallbackCards[0].description, /私有 AI 盒子/);
   assert.strictEqual(fallbackCards[0].source, 'article');
   assert.strictEqual(fallbackCards[1].source, 'fallback');
   assert.strictEqual(fallbackCards[1].badge, '我做的 · 正式迭代');

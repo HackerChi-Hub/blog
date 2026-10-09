@@ -8,6 +8,7 @@ import '../styles/markdown.css';
 import '../styles/comments.css';
 import '../styles/sponsor.css';
 import '../styles/lang-toggle.css';
+import '../styles/home-layout.css';
 import { normalizeUiLang } from '../lib/blog-i18n.cjs';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-PLLG23LT3H';
