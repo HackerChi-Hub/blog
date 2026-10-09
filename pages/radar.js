@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import Link from 'next/link';
 import SEO from '../components/SEO';
 import StandaloneShareSection from '../components/StandaloneShareSection';
+import RadarNavigation from '../components/RadarNavigation';
 
 
 const DATA_URLS = [
@@ -287,7 +287,8 @@ export default function RadarPage({ initialData }) {
         (a.title_zh || '').toLowerCase().includes(q) ||
         (a.title || '').toLowerCase().includes(q) ||
         (a.summary_zh || '').toLowerCase().includes(q) ||
-        (a.tags || []).some(t => t.includes(q))
+        (a.source || '').toLowerCase().includes(q) ||
+        (a.tags || []).some(t => String(t).toLowerCase().includes(q))
       );
     });
   }, [domainArticles, category, search]);
@@ -301,20 +302,23 @@ export default function RadarPage({ initialData }) {
       />
 
       {/* ── Header ── */}
+      <RadarNavigation current="/radar/" />
       <header className="radar-header">
         <div className="radar-header-inner">
-          <Link href="/" className="radar-back">← 返回首页</Link>
+          <span className="radar-section-kicker">全球动态 · 持续追踪</span>
           <div className="radar-title-row">
             <div>
-              <h1 className="radar-title">📡 新闻雷达</h1>
+              <h1 className="radar-title">新闻雷达</h1>
               <p className="radar-subtitle">
                 <span className="radar-live-dot" />
                 AI · 安全 · 经济 · 科技 · 每 30 分钟更新
               </p>
+              <p className="radar-intro">大事先看快报，有用再读深度。全球动态在这里，模型与 Skill 的完整核验在旁边。</p>
             </div>
             <div className="radar-header-right">
               <input
-                type="text"
+                type="search"
+                aria-label="搜索新闻"
                 className="radar-search"
                 placeholder="🔍 搜索新闻..."
                 value={search}
@@ -501,7 +505,7 @@ function DigestSection({ digest }) {
       <div className="radar-digest-header">
         <div className="radar-digest-label">
           <span className="radar-section-kicker">今日重点</span>
-          <strong>📋 十条快看</strong>
+          <strong>📋 重点快看</strong>
         </div>
         <div className="radar-digest-tabs">
           {availableDomains.map(({ key, emoji, label }) => {
@@ -581,9 +585,9 @@ function NewsCard({ article }) {
         </span>
       </div>
 
-      <div className="radar-card-title">
+      <h3 className="radar-card-title">
         {article.title_zh || article.title}
-      </div>
+      </h3>
 
       <div className="radar-card-summary">
         {article.summary_zh}

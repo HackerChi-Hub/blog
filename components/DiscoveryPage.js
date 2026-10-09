@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import SEO from './SEO';
 import ContainedCover from './ContainedCover';
 import StandaloneShareSection from './StandaloneShareSection';
+import RadarNavigation from './RadarNavigation';
 import { formatDate } from '../lib/utils';
 
 const PAGE = {
@@ -63,17 +64,7 @@ export default function DiscoveryPage({ articleType, posts = [] }) {
     <>
       <SEO title={config.title} description={description} url={config.url} type="website" />
       <main className="discovery-page">
-        <nav className="discovery-nav" aria-label="发现页导航">
-          <a className="discovery-brand" href="/">
-            <img src="/png/logo-icon-traced.png?v=2" alt="" />
-            <span>黑粉科技</span>
-          </a>
-          <div className="discovery-nav__links">
-            <a href={config.otherUrl}>{config.otherLabel}</a>
-            <a href="/radar/">新闻雷达</a>
-            <a href="/">回到首页</a>
-          </div>
-        </nav>
+        <RadarNavigation current={config.url} />
 
         <header className="discovery-hero">
           <div className="discovery-hero__copy">

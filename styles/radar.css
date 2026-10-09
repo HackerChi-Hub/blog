@@ -1,7 +1,7 @@
 /* ===== NewsRadar Page Styles ===== */
 
 .radar-page {
-  --radar-width: 1280px;
+  --radar-width: 1240px;
   --radar-surface: rgba(8, 16, 29, 0.86);
   --radar-surface-strong: rgba(10, 20, 36, 0.96);
   --radar-border: rgba(145, 190, 230, 0.13);
@@ -20,20 +20,22 @@
 
 /* Header */
 .radar-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: relative;
+  width: min(100% - 28px, var(--radar-width));
+  margin: 0 auto;
+  overflow: hidden;
   backdrop-filter: blur(22px) saturate(1.35);
   -webkit-backdrop-filter: blur(22px) saturate(1.35);
-  background: rgba(3, 7, 14, 0.88);
-  border-bottom: 1px solid rgba(145, 190, 230, 0.1);
+  background: radial-gradient(circle at 88% 18%, rgba(92,225,223,.2), transparent 42%), linear-gradient(135deg,#080e1b,#041b22);
+  border: 1px solid rgba(92,225,223,.18);
+  border-radius: 30px;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
 }
 
 .radar-header-inner {
   max-width: var(--radar-width);
   margin: 0 auto;
-  padding: 14px 24px 16px;
+  padding: clamp(24px, 4vw, 52px);
 }
 
 .radar-title-row {
@@ -44,8 +46,8 @@
 }
 
 .radar-title {
-  margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 12px 0 0;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
   font-weight: 850;
   line-height: 1.08;
   letter-spacing: 0.035em;
@@ -64,6 +66,14 @@
   color: var(--radar-muted);
   font-size: 0.78rem;
   letter-spacing: 0.02em;
+}
+
+.radar-intro {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: #c8d8e8;
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 .radar-live-dot {
@@ -382,8 +392,9 @@
   flex: 1 1 auto;
   color: rgba(242, 247, 255, 0.9);
   font-weight: 620;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
   transition: color 0.16s ease;
 }
 
@@ -508,15 +519,12 @@
 }
 
 .radar-card-title {
-  display: -webkit-box;
-  overflow: hidden;
-  margin-bottom: 7px;
+  margin: 0 0 10px;
   color: rgba(247, 250, 255, 0.96);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 650;
   line-height: 1.45;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
   transition: color 0.18s ease;
 }
 
@@ -528,11 +536,11 @@
   display: -webkit-box;
   overflow: hidden;
   flex: 1;
-  color: rgba(214, 225, 242, 0.63);
-  font-size: 0.76rem;
+  color: rgba(214, 225, 242, 0.8);
+  font-size: 0.85rem;
   line-height: 1.58;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 
 /* Loading and empty states */
@@ -627,7 +635,7 @@
 
 @media (max-width: 720px) {
   .radar-header-inner {
-    padding: 11px 14px 13px;
+    padding: 24px 20px;
   }
 
   .radar-title-row {
@@ -637,7 +645,7 @@
   }
 
   .radar-title {
-    font-size: 1.45rem;
+    font-size: 2.8rem;
   }
 
   .radar-subtitle {
@@ -762,7 +770,7 @@
   }
 
   .radar-card-title {
-    font-size: 0.93rem;
+    font-size: 1.05rem;
   }
 
   .radar-share-wrap > section {
