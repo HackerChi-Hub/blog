@@ -1086,6 +1086,8 @@ const SiteNavigation = () => {
         <a href="#latest">{t('频道精选')}</a>
         <a href="#products">{t('自制工具')}</a>
         <a href="#lab">{t('AI实验台')}</a>
+        {lang !== 'en' && <a href="/skills/">Skill 推荐</a>}
+        {lang !== 'en' && <a href="/models/">新模型</a>}
       </div>
       <LangToggle lang={lang} alternates={{ 'zh-CN': homeHref('zh-CN'), en: homeHref('en') }} />
     </nav>
@@ -1093,7 +1095,7 @@ const SiteNavigation = () => {
 };
 
 const BrandHero = () => {
-  const { t } = useHome();
+  const { t, lang } = useHome();
   return (
     <header className="brand-hero" id="top">
       <div className="brand-hero__content">
@@ -1107,6 +1109,8 @@ const BrandHero = () => {
         <div className="hero-actions">
           <a className="hero-button" href="#latest">{t('先看三条主线')}</a>
           <a className="hero-button hero-button--ghost" href="#media">{t('找到全部频道')}</a>
+          {lang !== 'en' && <a className="hero-button hero-button--ghost" href="/skills/">Skill 推荐</a>}
+          {lang !== 'en' && <a className="hero-button hero-button--ghost" href="/models/">新模型</a>}
         </div>
         <div className="hero-pills" aria-label={t('频道主线')}>
           <span>{t('本地部署')}</span>

@@ -152,6 +152,26 @@ try {
     }
   }
 
+  // 发现页只认 Obsidian frontmatter 的显式 article_type。不用标题、文件名或标签
+  // 猜测，避免普通文章被意外收录，也避免新类型文章发布后没有入口。
+  for (const [articleType, route] of [['skill', 'skills'], ['model', 'models']]) {
+    const pagePath = path.join(outDir, route, 'index.html');
+    if (!fs.existsSync(pagePath)) {
+      obsidianFailures.push(`缺少自动聚合页：/${route}/`);
+      continue;
+    }
+    const pageHtml = fs.readFileSync(pagePath, 'utf8');
+    const expected = posts.filter(
+      (post) => post.article_type === articleType && !post.translation_of
+    );
+    for (const post of expected) {
+      const slug = String(post.slug || '').replace(/^\/+|\/+$/g, '');
+      if (!pageHtml.includes(`href="/${slug}/"`)) {
+        obsidianFailures.push(`/${route}/ 没有收录 ${articleType} 文章：${slug}`);
+      }
+    }
+  }
+
   // 译文：页面要有、站点地图要有（上面已查），但不进首页列表；与原文互相链接（语言切换）。
   const homeHtmlPath = path.join(outDir, 'index.html');
   const homeHtml = fs.existsSync(homeHtmlPath) ? fs.readFileSync(homeHtmlPath, 'utf8') : '';

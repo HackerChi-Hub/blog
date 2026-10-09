@@ -167,6 +167,7 @@ function prepareSnapshot(posts, temporaryRoot) {
     manifestPosts.push({
       file: `posts/${normalizedRelative}`,
       slug: String(post.data.slug || ''),
+      article_type: String(post.data.article_type || 'article').toLowerCase(),
       legacy_paths: Array.isArray(post.data.legacy_paths)
         ? post.data.legacy_paths.map((value) => String(value))
         : [],

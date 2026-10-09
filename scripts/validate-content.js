@@ -6,6 +6,7 @@ const matter = require('gray-matter');
 const YAML = require('yaml');
 
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
+const VALID_ARTICLE_TYPES = new Set(['article', 'skill', 'model']);
 // 与 lib/markdown.js 的 POST_LANGS 一致：这里先拦，免得错误要到构建时才暴露。
 const VALID_LANGS = new Set(['zh-CN', 'zh-TW', 'en']);
 const SAFE_ROUTE_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -213,17 +214,27 @@ function main() {
     const legacyPaths = asStringArray(data.legacy_paths).map(normalizeRoute).filter(Boolean);
     const ownedRoutes = [slug, ...legacyPaths].filter(Boolean);
     const body = parsed.content.trim();
+    const articleType = asString(data.article_type || 'article').toLowerCase();
 
     const coverValue = asString(data.cover || data.image);
+    const discoveryCoverPending = status === 'published'
+      && (articleType === 'skill' || articleType === 'model')
+      && !coverValue
+      && asString(data.cover_status) === 'pending_generation_and_approval';
     // 草稿不进公开快照，素材可能只在撰写它的那台机器上；已发布文章一律严格。
     const previewMissing = status === 'published' ? failures : warnings;
-    validatePreviewAsset(contentDir, coverValue, `${relativePath} 的 cover`, failures, previewMissing);
+    if (!discoveryCoverPending) {
+      validatePreviewAsset(contentDir, coverValue, `${relativePath} 的 cover`, failures, previewMissing);
+    }
     const previewPattern = /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g;
     for (const match of body.matchAll(previewPattern)) {
       validatePreviewAsset(contentDir, match[0], `${relativePath} 的正文图片`, failures, previewMissing);
     }
 
     if (!VALID_STATUSES.has(status)) failures.push(`${relativePath} 的 status 无效：${status}`);
+    if (!VALID_ARTICLE_TYPES.has(articleType)) {
+      failures.push(`${relativePath} 的 article_type 无效：${articleType}（只认 article / skill / model）`);
+    }
     validateRoute(slug, `${relativePath} 的 slug`, failures);
     legacyPaths.forEach((route) => validateRoute(route, `${relativePath} 的 legacy_paths`, failures));
     if (slug && path.basename(filePath).replace(/\.md(?:own)?$/i, '') !== slug) {
@@ -254,13 +265,22 @@ function main() {
       }
       if (asStringArray(data.categories).length === 0) failures.push(`${relativePath} 至少需要一个 category`);
       const cover = coverValue;
-      if (!isStablePublishedAsset(cover)) {
+      if (!discoveryCoverPending && !isStablePublishedAsset(cover)) {
         failures.push(`${relativePath} 的 cover 必须是本地 preview-assets 或 /obsidian-assets/ 稳定地址：${cover || '空'}`);
       }
       const unsafeBody = body.match(TEMPORARY_ASSET_RE);
       if (unsafeBody) failures.push(`${relativePath} 正文含本机路径或临时素材地址：${unsafeBody[0]}`);
       if (/!\[\[[^\]]+\]\]/.test(body)) {
         failures.push(`${relativePath} 含 Obsidian 私有附件嵌入；发布前请改为 /obsidian-assets/ 地址`);
+      }
+      if (articleType === 'skill' || articleType === 'model') {
+        const prefix = articleType;
+        for (const field of [`${prefix}_name`, `${prefix}_category`, `${prefix}_stage`, `${prefix}_url`]) {
+          if (!asString(data[field])) failures.push(`${relativePath} 缺少 ${field}`);
+        }
+        if (asString(data[`${prefix}_url`])) {
+          validateUrl(data[`${prefix}_url`], `${relativePath} 的 ${prefix}_url`, failures);
+        }
       }
     } else if (status === 'draft') draftCount += 1;
     else if (status === 'archived') archivedCount += 1;

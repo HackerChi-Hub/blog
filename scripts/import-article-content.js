@@ -420,11 +420,27 @@ function main() {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     throw new Error(`拒绝写入非法 date：${JSON.stringify(date)}（来源 article=${JSON.stringify(article.date)} existing=${JSON.stringify(existing.date)}）`);
   }
+  const articleType = String(article.article_type || existing.article_type || 'article').trim().toLowerCase();
+  if (!['article', 'skill', 'model'].includes(articleType)) {
+    throw new Error(`article_type 无效：${articleType}（只认 article / skill / model）`);
+  }
+  const discoveryFields = {};
+  if (articleType === 'skill' || articleType === 'model') {
+    const prefix = articleType;
+    for (const suffix of ['name', 'category', 'stage', 'url']) {
+      const key = `${prefix}_${suffix}`;
+      const value = String(article[key] || existing[key] || '').trim();
+      if (!value) throw new Error(`${articleType} 文章缺少 ${key}`);
+      discoveryFields[key] = value;
+    }
+  }
   const frontmatter = {
     ...existing,
     title: String(article.title).trim(),
     slug,
     status: args.status,
+    article_type: articleType,
+    ...discoveryFields,
     date,
     updated: today,
     summary: String(article.digest).trim(),
@@ -435,7 +451,14 @@ function main() {
     legacy_paths: Array.isArray(existing.legacy_paths) ? existing.legacy_paths : [],
   };
   const contentWithFooter = withFixedProductFooter(article.content, brand);
-  const body = appendBrandSignature(renderContent(contentWithFooter, specs, assetUrls), brand);
+  const videoBlocks = (article.videos || []).map((video, index) => {
+    const source = resolveFrom(path.dirname(input), video.src);
+    if (!/\.(mp4|webm)$/i.test(source)) throw new Error('文章视频必须为 MP4 或 WebM');
+    const asset = copyAsset(source, slug, `video-${index + 1}`, assetRoot, previewRoot);
+    const caption = String(video.caption || '完整视频').replace(/[\[\]\r\n]/g, '');
+    return `![${caption}](${asset.previewUrl})\n\n[打开或下载完整视频](${asset.previewUrl})`;
+  });
+  const body = appendBrandSignature([videoBlocks.length ? '## 完整动态样片' : '', ...videoBlocks, renderContent(contentWithFooter, specs, assetUrls)].filter(Boolean).join('\n\n'), brand);
   const raw = `---\n${YAML.stringify(frontmatter, { lineWidth: 0 })}---\n\n${body}`;
   fs.mkdirSync(path.dirname(postPath), { recursive: true });
   const temporary = `${postPath}.tmp-${process.pid}`;

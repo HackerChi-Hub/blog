@@ -1,0 +1,16 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const MarkdownIt = require('markdown-it');
+const source = fs.readFileSync(path.join(__dirname, '../lib/markdown.js'), 'utf8');
+const section = source.slice(source.indexOf('const markdown ='), source.indexOf('const defaultLinkOpen'));
+const markdown = new Function('MarkdownIt', `${section}\nreturn markdown;`)(MarkdownIt);
+const html = markdown.render('![完整样片](../preview-assets/demo/full.mp4)');
+assert.match(html, /<video controls playsinline preload="metadata"/);
+assert.match(html, /src="\.\.\/preview-assets\/demo\/full.mp4"/);
+assert(!html.includes('autoplay'));
+assert.match(markdown.render('![图片](x.png)'), /<img/);
+assert(!markdown.render('![恶意](javascript:alert.mp4)').includes('<video'));
+assert(!markdown.render('<script>alert(1)</script>').includes('<script>'));
+assert.match(markdown.render('![字幕](https://example.com/x.webm?x=%22)'), /<video/);
+console.log('视频播放器、普通图片、脚本与非法地址检查通过');

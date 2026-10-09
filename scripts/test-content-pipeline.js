@@ -86,15 +86,17 @@ function main() {
   try {
     write(path.join(content, 'config', 'notices.yml'), `enabled: true\nitems:\n  - id: notice-1\n    title: 公告\n    date: 2026-08-31\n    image: /obsidian-assets/notices/banner.png\n`);
     write(path.join(content, 'config', 'submenus.yml'), `enabled: true\nitems:\n  - id: menu-1\n    title: B站\n    url: https://space.bilibili.com/1\n`);
-    write(path.join(content, 'posts', 'live-post.md'), publishedPost());
+    write(path.join(content, 'posts', 'live-post.md'), publishedPost() + '\n![完整样片](../preview-assets/live-post/full.mp4)\n');
     write(path.join(content, 'posts', 'draft-post.md'), `---\ntitle: 草稿\nslug: draft-post\nstatus: draft\nlegacy_paths: []\n---\n\n草稿正文。\n`);
     write(path.join(content, 'posts', 'live-post.before-edit.bak.md'), publishedPost());
     write(path.join(assets, 'live-post', 'cover.png'), 'cover');
     write(path.join(assets, 'live-post', 'body.png'), 'body');
+    write(path.join(assets, 'live-post', 'full.mp4'), 'video fixture');
     write(path.join(assets, 'live-post', 'unused.png'), 'unused');
     write(path.join(assets, 'notices', 'banner.png'), 'notice');
     write(path.join(content, 'preview-assets', 'live-post', 'cover.png'), 'cover');
     write(path.join(content, 'preview-assets', 'live-post', 'body.png'), 'body');
+    write(path.join(content, 'preview-assets', 'live-post', 'full.mp4'), 'video fixture');
     write(path.join(publicAssets, 'stale', 'old.png'), 'stale');
 
     run(validator, ['--content-dir', content]);
@@ -105,6 +107,8 @@ function main() {
     assert(!exported.includes('preview-assets/'));
     assert.match(exported, /\/obsidian-assets\/live-post\/cover\.png/);
     assert.match(exported, /\/obsidian-assets\/live-post\/body\.png/);
+    assert.match(exported, /\/obsidian-assets\/live-post\/full\.mp4/);
+    assert(fs.existsSync(path.join(publicAssets, 'live-post', 'full.mp4')));
     assert.match(exported, /## 🧰 我做的工具/);
     assert(!exported.includes('HFKJ_FIXED_FOOTER_START'));
     assert(!exported.includes('HFKJ_FIXED_FOOTER_END'));
@@ -242,6 +246,9 @@ function main() {
     ], 1), /cover_wide 与同批次 manifest 不一致/);
 
     article.cover_wide = importCover;
+    const importVideo = path.join(holder, 'full.mp4');
+    write(importVideo, 'video fixture');
+    article.videos = [{ src: importVideo, caption: '完整动态样片' }];
     write(articleJson, JSON.stringify(article, null, 2));
     run(importer, [
       articleJson,
@@ -253,6 +260,7 @@ function main() {
       '--tag', 'AI',
     ]);
     const imported = fs.readFileSync(path.join(content, 'posts', 'imported-post.md'), 'utf8');
+    assert.match(imported, /完整动态样片.*preview-assets.*\.mp4/);
     assert.match(imported, /status: draft/);
     assert.match(imported, /brand_slogan: 让AI成为你的超能力/);
     const importedBody = imported.replace(/^---[\s\S]*?---\s*/, '');
@@ -261,7 +269,8 @@ function main() {
     assert.match(imported, /\.\.\/preview-assets\/imported-post\/image-hero-[a-f0-9]+\.jpg/);
     assert.match(imported, /## 第一节/);
     const previewFiles = walkFiles(path.join(content, 'preview-assets', 'imported-post'));
-    assert.strictEqual(previewFiles.length, 2);
+    assert.strictEqual(previewFiles.length, 3);
+    assert(previewFiles.some(file => file.endsWith('.mp4')));
 
     console.log('✅ 内容管道回归测试通过：校验、草稿隔离、素材裁剪、幂等、失败回滚、删除与导入');
   } finally {
