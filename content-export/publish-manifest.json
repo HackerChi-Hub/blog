@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "abf8eee14db99649cab7e8ca9cf9eebc471599a48dbe2cb6804fa93988c87fde",
-  "published_post_count": 150,
+  "content_sha256": "383596cd65b9f7940a94bdc9c995a2fea620b085b14ca92101c37d0d90d74f84",
+  "published_post_count": 152,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -115,6 +115,22 @@
       "article_type": "skill",
       "legacy_paths": [],
       "sha256": "f03c675d9088b08f2757f71a74d7cb627eecf2edb8ccee762d780709768cef44"
+    },
+    {
+      "file": "posts/2026-10-10-official-74c72ca9b7d8-en.md",
+      "slug": "2026-10-10-official-74c72ca9b7d8-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-10-official-74c72ca9b7d8",
+      "lang": "en",
+      "sha256": "b05003356c86441cddbe4b0c893c2157f826b0035288f725d6faa71ba985dd02"
+    },
+    {
+      "file": "posts/2026-10-10-official-74c72ca9b7d8.md",
+      "slug": "2026-10-10-official-74c72ca9b7d8",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "66f402571b8c6db3e29ba55412828c1577fed3c9e81210df98ca5019d9874b9a"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
