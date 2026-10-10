@@ -1250,10 +1250,21 @@ const ProductSection = ({ products = [] }) => {
 
 const LabTool = ({ tool }) => {
   const { t } = useHome();
+  const diagram = <div className="lab-tool__diagram"><span>{tool.icon}</span><b>{t(tool.detail)}</b></div>;
   return (
     <a className="lab-tool" href={tool.href}>
       <div className="lab-tool__preview" aria-hidden="true">
-        {tool.image ? <ContainedCover src={tool.image} alt="" /> : <div className="lab-tool__diagram"><span>{tool.icon}</span><b>{t(tool.detail)}</b></div>}
+        {tool.image ? (
+          <ContainedCover
+            src={tool.image}
+            alt=""
+            width={tool.imageWidth}
+            height={tool.imageHeight}
+            natural
+            priority
+            fallback={diagram}
+          />
+        ) : diagram}
       </div>
       <div className="lab-tool__copy">
         <span className="lab-tool__icon">{tool.icon}</span>

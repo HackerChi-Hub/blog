@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const normalizeSource = (source) =>
   typeof source === 'string' ? source : source?.url || source?.src || '';
@@ -18,17 +18,29 @@ export default function ContainedCover({
   priority = false,
   natural = false,
   className = '',
+  fallback = null,
 }) {
   const [failed, setFailed] = useState(false);
+  const naturalImage = useRef(null);
   const source = normalizeSource(src);
-  if (!source || failed) return null;
+
+  useEffect(() => {
+    const image = naturalImage.current;
+    // 原生图片可能在 React 接管前已经失败；仍要显示替代内容，不能留下空白框。
+    if (image?.complete && !image.naturalWidth) setFailed(true);
+  }, [source, natural]);
+
+  if (!source || failed) return fallback;
 
   if (natural) {
     return (
       <img
+        ref={naturalImage}
         className={`contained-cover__natural ${className}`.trim()}
         src={source}
         alt={alt}
+        width={width}
+        height={height}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"

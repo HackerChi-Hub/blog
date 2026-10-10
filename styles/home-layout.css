@@ -34,13 +34,14 @@
 .home-shell--v2 .lab-section { padding:28px; border:1px solid rgba(92,225,223,.45); border-radius:26px; background:radial-gradient(ellipse at 100% 0,rgba(0,173,180,.14),transparent 60%),#091521; box-shadow:0 0 50px rgba(0,173,180,.08); }
 .home-shell--v2 .lab-section h2 { font-size:clamp(2.4rem,4vw,3.4rem); }
 .home-shell--v2 .lab-section > .lab-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-.home-shell--v2 .lab-tool { min-width:0; overflow:hidden; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:0; padding:0; min-height:178px; border-radius:18px; background:#101d2b; }
-.lab-tool__preview { position:relative; min-height:178px; overflow:hidden; background:#081320; }
-.lab-tool__preview > .contained-cover { position:absolute; inset:0; }
-.lab-tool__diagram { display:grid; align-content:center; justify-items:center; height:100%; padding:18px; gap:16px; background:linear-gradient(135deg,#103139,#0b1728); }
+.home-shell--v2 .lab-tool { min-width:0; overflow:hidden; display:flex; flex-direction:column; align-items:stretch; gap:0; padding:0; min-height:0; border-radius:18px; background:#101d2b; }
+/* 上图下文：图片按真实比例决定高度，避免固定框产生黑边，也不裁封面内容。 */
+.lab-tool__preview { position:relative; flex:none; min-width:0; overflow:hidden; background:#101d2b; }
+.lab-tool__preview > .contained-cover__natural { width:100%; height:auto; margin:0; }
+.lab-tool__diagram { display:grid; align-content:center; justify-items:center; width:100%; aspect-ratio:2.35 / 1; padding:18px; gap:16px; background:linear-gradient(135deg,#103139,#0b1728); }
 .lab-tool__diagram span { color:#5ce1df; font-size:3rem; line-height:1; }
 .lab-tool__diagram b { color:#bbd9e2; font:600 .85rem/1.8 monospace; text-align:center; }
-.lab-tool__copy { padding:22px; display:grid; align-content:center; gap:8px; }
+.lab-tool__copy { flex:1; padding:20px 22px; display:grid; align-content:start; gap:8px; }
 .home-shell--v2 .lab-tool__icon { display:none; }
 .home-shell--v2 .lab-tool strong { font-size:1.35rem; line-height:1.4; }
 .home-shell--v2 .lab-tool small { font-size:.88rem; color:#bccbdc; line-height:1.6; }
@@ -94,8 +95,6 @@
   .home-mobile-menu a { color:#eef7ff; padding:12px; font-size:.9rem; }
   .home-shell--v2 .brand-hero { grid-template-columns:1fr 180px; padding:30px; gap:24px; }
   .home-shell--v2 .brand-orbit { max-width:140px; }
-  .home-shell--v2 .lab-tool { grid-template-columns:1fr; }
-  .lab-tool__preview { min-height:0; height:150px; }
   .resource-grid { gap:12px; }
   .resource-card { padding:18px; }
 }
@@ -119,8 +118,6 @@
   .channel-qr__panel { position:static; width:100%; margin-top:10px; box-sizing:border-box; }
   .home-shell--v2 .lab-section { padding:20px 14px; }
   .home-shell--v2 .lab-section > .lab-grid { grid-template-columns:1fr; gap:12px; }
-  .home-shell--v2 .lab-tool { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); min-height:150px; }
-  .lab-tool__preview { height:auto; min-height:150px; }
   .lab-tool__copy { padding:16px; gap:5px; }
   .home-shell--v2 .lab-tool strong { font-size:1.12rem; }
   .home-shell--v2 .lab-tool small { font-size:.8rem; }
