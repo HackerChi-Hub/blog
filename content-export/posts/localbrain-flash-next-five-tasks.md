@@ -128,7 +128,7 @@ LocalBrain 里的代理循环把这件事交给程序：模型调用写文件工
 
 **许可证也值得看一眼。**Qwen Community License 1.0 允许免费使用、修改和分发；但如果你做的是模型即服务（对外提供 API 或托管推理）或 AI 工作助理生意，商用前要另找千问签授权；产品月活超过 1 亿或月收入超过 2,000 万美元，还要在界面上显著标注模型名。个人在本机跑、公司内部自用且不把模型能力开放给第三方，不受第二条限制。
 
-> 本节数据来自 ModelScope 上的官方模型卡（2026-09-11 读取）：https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next/summary
+> 本节数据来自 ModelScope 上的官方模型卡（2026-09-11 读取）：[查看页面：modelscope.cn · summary](<https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next/summary>)
 
 ## 📋 五道题的题面
 
@@ -316,7 +316,7 @@ Ling-3.0-tiny 是这两天新加进目录的 MoE 小模型，7.9B 总量只激�
 
 ## 🛠️ 想自己跑一遍：路径都在这
 
-- **装应用：** LocalBrain 1.2.63 已发布 macOS（Apple Silicon）与 Windows x64 安装包，下载库 https://github.com/HackerChi-Hub/localbrain-releases/releases 。Linux 目前没有可用的推理运行时，这次没有打包。
+- **装应用：** LocalBrain 1.2.63 已发布 macOS（Apple Silicon）与 Windows x64 安装包，下载库 [下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>) 。Linux 目前没有可用的推理运行时，这次没有打包。
 - **下模型：** 在「发现」页搜索 Qwen3.8-Flash-Next，64GB 机器选 IQ4_XS 档；32GB 及以下别碰这个，选 Ling 3.0 Tiny 或 Qwen3.6 的小档位。
 - **出题：** 从下方“5 道题复现包”里任选一道，整段贴进聊天框发送。代理会写文件、跑自检、修改、交付；成品在 `~/Downloads/方寸智匣/系统输出/` 下。
 - **看过程：** 执行记录里每一轮都有输入词元、输出额度、生成耗时和工具回执摘要。速度掉下来的时候，你会亲眼看到那行「本轮输出上限收紧到 3,295 词元」。
@@ -353,32 +353,32 @@ Ling-3.0-tiny 是这两天新加进目录的 MoE 小模型，7.9B 总量只激�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

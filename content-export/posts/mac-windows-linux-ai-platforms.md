@@ -142,17 +142,17 @@ Mac 争的是高价值个人工作台：硬件、系统、创作软件和端侧�
 
 ## 🧠 主要公开来源
 
-- StatCounter：全球桌面操作系统份额：https://gs.statcounter.com/os-market-share/desktop/worldwide/
-- Apple：M6 与 M5 Pro Mac mini 新闻稿：https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/
-- Apple MLX 官方仓库：https://github.com/ml-explore/mlx
-- Microsoft：Copilot+ PC 开发指南：https://learn.microsoft.com/en-us/windows/ai/npu-devices/
-- Microsoft：Windows AI 方案比较：https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison
-- NVIDIA：CUDA on WSL：https://developer.nvidia.com/cuda/wsl
-- NVIDIA：AI 与 HPC 容器：https://developer.nvidia.cn/ai-hpc-containers
-- PyTorch：本地安装与计算平台：https://pytorch.org/get-started/locally/
-- AMD：ROCm 兼容矩阵：https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html
-- AMD：Radeon AI PRO R9700 规格：https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html
-- NVIDIA：GeForce RTX 5090 规格：https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/
+- StatCounter：全球桌面操作系统份额：[查看页面：gs.statcounter.com · worldwide](<https://gs.statcounter.com/os-market-share/desktop/worldwide/>)
+- Apple：M6 与 M5 Pro Mac mini 新闻稿：[查看页面：www.apple.com.cn · apple-unveils-powerful-mac-mini-with-m6-and-m5-pro](<https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/>)
+- Apple MLX 官方仓库：[项目仓库：ml-explore/mlx](<https://github.com/ml-explore/mlx>)
+- Microsoft：Copilot+ PC 开发指南：[查看页面：learn.microsoft.com · npu-devices](<https://learn.microsoft.com/en-us/windows/ai/npu-devices/>)
+- Microsoft：Windows AI 方案比较：[查看页面：learn.microsoft.com · windows-ai-comparison](<https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison>)
+- NVIDIA：CUDA on WSL：[查看页面：developer.nvidia.com · wsl](<https://developer.nvidia.com/cuda/wsl>)
+- NVIDIA：AI 与 HPC 容器：[查看页面：developer.nvidia.cn · ai-hpc-containers](<https://developer.nvidia.cn/ai-hpc-containers>)
+- PyTorch：本地安装与计算平台：[查看页面：pytorch.org · locally](<https://pytorch.org/get-started/locally/>)
+- AMD：ROCm 兼容矩阵：[文档：rocm.docs.amd.com · compatibility-matrix.html](<https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>)
+- AMD：Radeon AI PRO R9700 规格：[查看页面：www.amd.com · amd-radeon-ai-pro-r9700.html](<https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html>)
+- NVIDIA：GeForce RTX 5090 规格：[查看页面：www.nvidia.com · rtx-5090](<https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/>)
 
 
 ---
@@ -166,32 +166,32 @@ Mac 争的是高价值个人工作台：硬件、系统、创作软件和端侧�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

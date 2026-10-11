@@ -108,9 +108,9 @@ legacy_paths: []
 
 ## 📚 来源
 
-- 黑粉录屏下载页（HyphenScreen-Releases，1.0.7，2026-10-03）：https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases
-- 黑粉录屏首发介绍（黑粉科技，2026-09-16）：https://hyphentech.top/hyphenscreen-local-screen-recorder/
-- Simple Icons 16.33.0（平台标志来源，CC0 1.0）：https://simpleicons.org
+- 黑粉录屏下载页（HyphenScreen-Releases，1.0.7，2026-10-03）：[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- 黑粉录屏首发介绍（黑粉科技，2026-09-16）：[查看页面：hyphentech.top · hyphenscreen-local-screen-recorder](<https://hyphentech.top/hyphenscreen-local-screen-recorder/>)
+- Simple Icons 16.33.0（平台标志来源，CC0 1.0）：[查看页面：simpleicons.org](<https://simpleicons.org>)
 - 本期验收记录：2026-09-27 剪辑实测（0.4.47）的两份工程副本与 claude CLI 原始输出、1.0.7 安装版平台卡导出报告、逐帧对比证据：本机留存，未公开
 
 
@@ -125,32 +125,32 @@ legacy_paths: []
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

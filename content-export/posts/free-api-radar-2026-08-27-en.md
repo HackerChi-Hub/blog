@@ -87,11 +87,11 @@ legacy_paths: []
 > [!note]
 > This is a limited-time event, not a permanent zero price. The start time for Chat free is still based on the actual launch of the model.
 
-- Official source: https://docs.b.ai/llmservice/models/glm-5-3-flash/
+- Official source: [Documentation：docs.b.ai · glm-5-3-flash](<https://docs.b.ai/llmservice/models/glm-5-3-flash/>)
 
-- Official source: https://docs.b.ai/llmservice/models/qwen3-8-flash/
+- Official source: [Documentation：docs.b.ai · qwen3-8-flash](<https://docs.b.ai/llmservice/models/qwen3-8-flash/>)
 
-- Official source: https://docs.b.ai/llmservice/promotions-and-pricing-notices/
+- Official source: [Pricing：docs.b.ai · promotions-and-pricing-notices](<https://docs.b.ai/llmservice/promotions-and-pricing-notices/>)
 
 ![# B.AI Official event page: GLM-5.3-Flash and Qwen3.8-Flash current API settle at 0 credits · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-01-6c0ea50936.png)
 
@@ -108,19 +108,19 @@ legacy_paths: []
 | Project | Verify the content |
 | --- | --- |
 | Available models | coding-glm-5.3-free, coding-glm-5.3-flash-free |
-| Access | The base URL is https://aihubmix.com/v1; You need to register and create your own API Key. |
-| Base URL | https://aihubmix.com/v1 |
+| Access | The base URL is [https://aihubmix.com/v1](<https://aihubmix.com/v1>); You need to register and create your own API Key. |
+| Base URL | [https://aihubmix.com/v1](<https://aihubmix.com/v1>) |
 | Verify the conclusion | Both single-model pages list input, output, and cache reads as $0 per million tokens, and provide examples of OpenAI-compatible calls. |
 | Evidence status | The official page confirms this, but the quota conflicts with the caliber |
 
 > [!note]
 > Single model pages say 5 times per minute, 500 times per day, and 1 million tokens per day; The free page updated on 2026-08-27 states 10 shared trials before recharging, and after recharging at least $1, sharing 10 times per minute, 100 times per day, and 1 million tokens per day. The two pages conflict in scope; before accessing, refer to the account console.
 
-- Official source: https://aihubmix.com/model/coding-glm-5.3-free
+- Official source: [View page：aihubmix.com · coding-glm-5.3-free](<https://aihubmix.com/model/coding-glm-5.3-free>)
 
-- Official source: https://aihubmix.com/model/coding-glm-5.3-flash-free
+- Official source: [View page：aihubmix.com · coding-glm-5.3-flash-free](<https://aihubmix.com/model/coding-glm-5.3-flash-free>)
 
-- Official source: https://aihubmix.com/models/free
+- Official source: [View page：aihubmix.com · free](<https://aihubmix.com/models/free>)
 
 ![# AIHubMix Single Model Page: Coding GLM 5.3 Flash Free Model and Zero-Price Information · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-03-c5f85b2feb.png)
 
@@ -137,17 +137,17 @@ legacy_paths: []
 | Project | Verify the content |
 | --- | --- |
 | Available models | qwen/qwen3.8-max-free |
-| Access | Unified model gateways compatible with OpenAI, Claude, and Gemini; Official model page examples use https://api.tokenrouter.com/v1. |
-| Base URL | https://api.tokenrouter.com/v1 |
+| Access | Unified model gateways compatible with OpenAI, Claude, and Gemini; Official model page examples use [https://api.tokenrouter.com/v1](<https://api.tokenrouter.com/v1>). |
+| Base URL | [https://api.tokenrouter.com/v1](<https://api.tokenrouter.com/v1>) |
 | Verify the conclusion | The official model page lists qwen/qwen3.8-max-free, with input and output prices marked at $0 per million tokens, supporting OpenAI-compatible chat/completions. |
 | Evidence status | The official model page is currently confirmed |
 
 > [!note]
 > The official page also reminds that free computing power is limited, and service stability and concurrency are not guaranteed; The public model page also does not provide long-term committed call counts or token quotas, which still require verification via the console.
 
-- Official source: https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/
+- Official source: [View page：www.tokenrouter.com · qwen3.8-max-free](<https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/>)
 
-- Official source: https://www.tokenrouter.com/
+- Official source: [View page：www.tokenrouter.com](<https://www.tokenrouter.com/>)
 
 ![# TokenRouter official model page: Qwen3.8 Max free model input/output price is 0 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-05-deaace89a5.png)
 
@@ -170,7 +170,7 @@ legacy_paths: []
 > [!note]
 > GLM 5.3 Flash appears in the Agent Pass addition model, where the Free file is clearly marked as not included and cannot be written as the Free file.
 
-- Official source: https://tokenharbor.ai/pricing
+- Official source: [Pricing：tokenharbor.ai · pricing](<https://tokenharbor.ai/pricing>)
 
 ![# TokenHarbor Official Pricing Page: Qwen 3.8 27B is in the free tier, GLM 5.3 Flash belongs to Agent Pass · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-06-12098b97f8.png)
 
@@ -187,17 +187,17 @@ legacy_paths: []
 | Project | Verify the content |
 | --- | --- |
 | Available models | The official page shows GLM 5.3 Flash and states that a free endpoint for Qwen3.8-Flash-Next is being prepared |
-| Access | The historical public access is https://free.empero.org/v1; The original page description says OpenAI-compatible, and any key is available. |
-| Base URL | https://free.empero.org/v1 |
+| Access | The historical public access is [https://free.empero.org/v1](<https://free.empero.org/v1>); The original page description says OpenAI-compatible, and any key is available. |
+| Base URL | [https://free.empero.org/v1](<https://free.empero.org/v1>) |
 | Verify the conclusion | On 2026-08-28, the official page showed MAINTENANCE and was switching free endpoints. API requests returned structured maintenance errors. Currently, it can no longer be written as the most convenient available entry point. |
 | Evidence status | The official page is currently under maintenance; Privacy disclosures come from previous official pages |
 
 > [!note]
 > Previously, the official page clearly stated that prompts and completions would be recorded together with hashed IPs to improve open-source models. Even if restored, it would only be suitable for public code, testing, and prompt regression, not for accounts, keys, customer data, or private repositories.
 
-- Official source: https://free.empero.org/
+- Official source: [View page：free.empero.org](<https://free.empero.org/>)
 
-- Official source: https://free.empero.org/v1
+- Official source: [https://free.empero.org/v1](<https://free.empero.org/v1>)
 
 ![# Empero Official Page: Free Endpoint Maintenance Switch · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-08-c74575f8a1.png)
 
@@ -220,11 +220,11 @@ legacy_paths: []
 > [!note]
 > Public documentation does not specify the current free model, so "GLM-5.3 Flash free in Cline" should still be based on the IDE or CLI model selector after login.
 
-- Official source: https://cline.bot/
+- Official source: [View page：cline.bot](<https://cline.bot/>)
 
-- Official source: https://docs.cline.bot/provider-config/openai-compatible
+- Official source: [Documentation：docs.cline.bot · openai-compatible](<https://docs.cline.bot/provider-config/openai-compatible>)
 
-- Official source: https://docs.cline.bot/getting-started/free-models
+- Official source: [Documentation：docs.cline.bot · free-models](<https://docs.cline.bot/getting-started/free-models>)
 
 ![# Cline Official Documentation: Supports custom OpenAI-compatible API endpoint · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-09-6007e52e87.png)
 
@@ -241,19 +241,19 @@ legacy_paths: []
 | Project | Verify the content |
 | --- | --- |
 | Available models | GLM-5.3 is currently available in the public directory, but GLM-5.3-Flash is not listed |
-| Access | System upgrade announcements require the use of the new address https://api.hilinkup.com and the channel/model ID format. |
-| Base URL | https://api.hilinkup.com |
-| Verify the conclusion | Model routing https://hilinkup.com/models/glm-5-3-flash currently only returns the general SPA page; On 2026-08-28, the official public/models directory was read but GLM-5.3-Flash was not found. |
+| Access | System upgrade announcements require the use of the new address [https://api.hilinkup.com](<https://api.hilinkup.com>) and the channel/model ID format. |
+| Base URL | [https://api.hilinkup.com](<https://api.hilinkup.com>) |
+| Verify the conclusion | Model routing [View page：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>) currently only returns the general SPA page; On 2026-08-28, the official public/models directory was read but GLM-5.3-Flash was not found. |
 | Evidence status | The official public catalog has not been confirmed |
 
 > [!note]
 > "Limited-time free from 2026-08-27 to 2026-09-02" lacks an official event page that can be reliably opened and will not be marked as a confirmed offer.
 
-- Official source: https://hilinkup.com/models/glm-5-3-flash
+- Official source: [View page：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>)
 
-- Official source: https://hilinkup.com/api/v1/public/models
+- Official source: [https://hilinkup.com/api/v1/public/models](<https://hilinkup.com/api/v1/public/models>)
 
-- Official source: https://hilinkup.com/api/v1/public/announcements
+- Official source: [https://hilinkup.com/api/v1/public/announcements](<https://hilinkup.com/api/v1/public/announcements>)
 
 ---
 
@@ -300,32 +300,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

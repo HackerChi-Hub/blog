@@ -135,8 +135,8 @@ This part is actually more useful for Mac users like me: there's no need to forc
 
 | Access methods | Client address illustration | Key differences |
 | --- | --- | --- |
-| Served on the same computer | http://127.0.0.1:8080/v1 | The loopback address points to the current computer |
-| Mac accessing PCs in the local area network | http://PC LAN IP: 8080/v1 | You must use the address of the PC running Strata |
+| Served on the same computer | `http://127.0.0.1:8080/v1` | The loopback address points to the current computer |
+| Mac accessing PCs in the local area network | [View page：pc](<http://PC>) LAN IP: 8080/v1 | You must use the address of the PC running Strata |
 | Service monitors all network cards | 0.0.0.0 | This is the listening setting, not the target address the client should provide |
 
 The official list lists OpenAI-style chat interfaces, Anthropic messaging interfaces, and Responses interfaces. For toolboxes like LocalBrain, it's worth studying whether the service can be treated as a compatible backend, rather than whether it can allow Mac to launch Strata directly. **This article has not verified the adaptation of streaming, tool calls, images, or inference fields between LocalBrain and Strata, so it cannot be considered fully integrated. **
@@ -168,32 +168,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

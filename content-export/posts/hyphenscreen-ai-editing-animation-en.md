@@ -116,9 +116,9 @@ The software is free, ad-free, and the installation package is publicly availabl
 
 ## 📚 Source
 
-- HyphenScreen Download Page (HyphenScreen-Releases, 1.0.7, 2026-10-03): https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases
-- HyphenScreen Initial Introduction (HyphenTech, 2026-09-16): https://hyphentech.top/hyphenscreen-local-screen-recorder/
-- Simple Icons 16.33.0 (platform logo source, CC0 1.0): https://simpleicons.org
+- HyphenScreen Download Page (HyphenScreen-Releases, 1.0.7, 2026-10-03): [Downloads & updates: HyphenScreen (releases)](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- HyphenScreen Initial Introduction (HyphenTech, 2026-09-16): [View page：hyphentech.top · hyphenscreen-local-screen-recorder](<https://hyphentech.top/hyphenscreen-local-screen-recorder/>)
+- Simple Icons 16.33.0 (platform logo source, CC0 1.0): [View page：simpleicons.org](<https://simpleicons.org>)
 - Acceptance record for this issue: 2026-09-27 Two copies of the project from the editing test (0.4.47) and the original claude CLI output, the 1.0.7 installation platform card export report, and frame-by-frame comparison evidence: retained locally, not publicly disclosed
 
 
@@ -133,32 +133,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

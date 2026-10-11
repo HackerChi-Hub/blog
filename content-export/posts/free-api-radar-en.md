@@ -63,8 +63,8 @@ legacy_paths: []
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://openrouter.ai/ |
-| base\_url | https://openrouter.ai/api/v1 |
+| Official entrance | [View page：openrouter.ai](<https://openrouter.ai/>) |
+| base\_url | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account and create a Key, and use the free variant without a credit card |
 | Quota | Models with the :free suffix: 20 times/minute + 50 times/day; After cumulative top-ups of 10 credits, daily limit increases to 1000 times (RPM remains at 20) |
@@ -105,8 +105,8 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://cloud.siliconflow.cn/ |
-| base\_url | https://api.siliconflow.cn/v1 |
+| Official entrance | [View page：cloud.siliconflow.cn](<https://cloud.siliconflow.cn/>) |
+| base\_url | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Registration + Real-name authentication (you can use all free models after real-name verification) |
 | Quota | Free model speed limits are fixed: language model RPM 1000–10000, TPM 50000–5000000; vector model RPM 2000–10000, TPM 5000000–1000000; resort RPM 2000, TPM 500000; image generation IPM 2, IPD 400 |
@@ -145,8 +145,8 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://bigmodel.cn/ |
-| base\_url | https://open.bigmodel.cn/api/paas/v4 |
+| Official entrance | [View page：bigmodel.cn](<https://bigmodel.cn/>) |
+| base\_url | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account to obtain an API Key |
 | Quota | Models labeled as "Free Model" are called for free; Specific speed limits should be checked on the console (official documentation does not provide unified numbers) |
@@ -190,10 +190,10 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://www.modelscope.cn/ |
-| base\_url | https://api-inference.modelscope.cn/v1/ |
+| Official entrance | [View page：www.modelscope.cn](<https://www.modelscope.cn/>) |
+| base\_url | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | Interface protocol | OpenAI compatible |
-| Eligibility requirements | After registering an account, obtain an Access Token at https://modelscope.cn/my/myaccesstoken |
+| Eligibility requirements | After registering an account, obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
 | Quota | Provided free of charge to registered users, with specific limits subject to the official "Usage Restrictions Notice." |
 | Reset cycle | Please refer to the official documentation |
 | Domestic availability | Direct connection is suitable |
@@ -226,8 +226,8 @@ client = OpenAI(api_key="<MODELSCOPE_ACCESS_TOKEN>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://console.groq.com/ |
-| base\_url | https://api.groq.com/openai/v1 |
+| Official entrance | [View page：console.groq.com](<https://console.groq.com/>) |
+| base\_url | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account and create a Key |
 | Quota | The free tier provides credit amounts by model: RPM 10–30, RPD 100–14,400, TPM 1.2K–70K, TPD 3.6K–500K |
@@ -264,8 +264,8 @@ client = OpenAI(api_key="<GROQ_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Reset daily |
-| Official entrance | https://dash.cloudflare.com/ |
-| base\_url | https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\} |
+| Official entrance | [View page：dash.cloudflare.com](<https://dash.cloudflare.com/>) |
+| base\_url | `https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\}` |
 | Interface protocol | REST (Within Worker, you can directly env. AI.run) |
 | Eligibility requirements | Cloudflare account; Both Free and Paid Workers plans enjoy this free quota |
 | Quota | 10,000 Neurons free per day |
@@ -301,8 +301,8 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://agnes-ai.com/ |
-| base\_url | https://apihub.agnes-ai.com |
+| Official entrance | [View page：agnes-ai.com](<https://agnes-ai.com/>) |
+| base\_url | [https://apihub.agnes-ai.com](<https://apihub.agnes-ai.com>) |
 | Interface protocol | REST (Image Synchronization / Video Asynchronous Polling) |
 | Eligibility requirements | You can activate it by logging in with your Google account to obtain the API Key |
 | Quota | Free quota is limited according to plan; Video interface is about 2 times per minute |
@@ -339,8 +339,8 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | Project | Content |
 | --- | --- |
 | Free type | Each month is granted a quota |
-| Official entrance | https://huggingface.co/settings/tokens |
-| base\_url | https://router.huggingface.co/v1 |
+| Official entrance | [Key management：huggingface.co · tokens](<https://huggingface.co/settings/tokens>) |
+| base\_url | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | HF account + Access Token |
 | Quota | Free users receive $0.10 per month; PRO users pay $2.00 per month; Team/Enterprise users receive $2.00 per seat |
@@ -375,8 +375,8 @@ client = OpenAI(api_key="<HF_TOKEN>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://build.nvidia.com/ |
-| base\_url | https://integrate.api.nvidia.com/v1 |
+| Official entrance | [View page：build.nvidia.com](<https://build.nvidia.com/>) |
+| base\_url | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | NVIDIA developer account |
 | Quota | The official page labels it as Free Inference / Free Endpoint. The unified credit limit has not been published and must be confirmed on the console |
@@ -411,8 +411,8 @@ client = OpenAI(api_key="<NVIDIA_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://aistudio.google.com/apikey |
-| base\_url | https://generativelanguage.googleapis.com/v1beta/openai/ |
+| Official entrance | [Key management：aistudio.google.com · apikey](<https://aistudio.google.com/apikey>) |
+| base\_url | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
 | Interface protocol | Native REST + OpenAI compatibility layer |
 | Eligibility requirements | The free tier qualification requirement is "valid project or free trial," with no need to link a settlement account |
 | Quota | Limits are calculated as RPM / TPM / RPD, and vary by model; The official requirement is to check the rate limit page in AI Studio, but no unified number is given |
@@ -449,8 +449,8 @@ client = OpenAI(api_key="<GEMINI_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | One-time trial payment |
-| Official entrance | https://bailian.console.aliyun.com/ |
-| base\_url | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| Official entrance | [View page：bailian.console.aliyun.com](<https://bailian.console.aliyun.com/>) |
+| base\_url | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Some benefits for Alibaba Cloud accounts require real-name verification |
 | Quota | New users receive a quota of 100 million+ tokens |
@@ -485,7 +485,7 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://xinghuo.xfyun.cn/sparkapi |
+| Official entrance | [View page：xinghuo.xfyun.cn · sparkapi](<https://xinghuo.xfyun.cn/sparkapi>) |
 | base\_url | wss://spark-api.xf-yun.com/ (WebSocket) |
 | Interface protocol | WebSocket native protocol (not compatible with OpenAI) |
 | Eligibility requirements | After registering, get the AppID, APIKey, and APISecret trio in the console, and claim the free credit on the product page |
@@ -520,8 +520,8 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | One-time trial payment |
-| Official entrance | https://cloud.cerebras.ai/ |
-| base\_url | https://api.cerebras.ai/v1 |
+| Official entrance | [View page：cloud.cerebras.ai](<https://cloud.cerebras.ai/>) |
+| base\_url | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account |
 | Quota | Register to receive $5 in free credit |
@@ -556,8 +556,8 @@ client = OpenAI(api_key="<CEREBRAS_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | https://api.together.xyz/ |
-| base\_url | https://api.together.xyz/v1 |
+| Official entrance | [https://api.together.xyz/](<https://api.together.xyz/>) |
+| base\_url | [https://api.together.xyz/v1](<https://api.together.xyz/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account and create a Key |
 | Quota | Dynamic rate limiting: Each organization's rate and each model's rate automatically adjusts with continuous traffic, with no fixed threshold |
@@ -592,8 +592,8 @@ client = OpenAI(api_key="<TOGETHER_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Open source custody |
-| Official entrance | https://ollama.com/ |
-| base\_url | http://localhost:11434/v1 (Ollama default) |
+| Official entrance | [View page：ollama.com](<https://ollama.com/>) |
+| base\_url | `http://localhost:11434/v1` (Ollama default) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Your own machine; VRAM/memory determines how large the model can run |
 | Quota | No external credit limit restrictions |
@@ -629,8 +629,8 @@ r = client.chat.completions.create(model="qwen3",
 | Project | Content |
 | --- | --- |
 | Free type | Keyless public interface |
-| Official entrance | https://pollinations.ai/ |
-| base\_url | https://text.pollinations.ai |
+| Official entrance | [View page：pollinations.ai](<https://pollinations.ai/>) |
+| base\_url | [View page：text.pollinations.ai](<https://text.pollinations.ai>) |
 | Interface protocol | REST / OpenAI compatible path |
 | Eligibility requirements | The anonymity layer of text interfaces does not require Keys; Generation class interfaces require a built-in Key and Pollen balance |
 | Quota | The anonymous layer does not publish the quota number; In actual tests, it can be called directly, but temporary 402 may occur |
@@ -668,7 +668,7 @@ curl -s https://text.pollinations.ai/openai \
 | Project | Content |
 | --- | --- |
 | Free type | Retired / Invalid |
-| Official entrance | https://docs.github.com/en/github-models |
+| Official entrance | [Documentation：docs.github.com · github-models](<https://docs.github.com/en/github-models>) |
 | base\_url | — |
 | Interface protocol | — |
 | Eligibility requirements | — |
@@ -708,32 +708,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

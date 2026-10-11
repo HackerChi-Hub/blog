@@ -128,7 +128,7 @@ Code signing also doesn't work. If the Windows installation package isn't signed
 - You can install it without an NVIDIA graphics card, but it runs on the CPU version, which is much slower. The program will clearly indicate the installation progress in the installer.
 
 > [!tip]
-> Download page: https://github.com/HackerChi-Hub/localbrain-releases/releases (Windows version under v1.2.50 pre-release)
+> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>) (Windows version under v1.2.50 pre-release)
 
 > [!summary] A Windows laptop with 8 GB of VRAM, combining local text models and local tools is already usable
 > The two 8GB models ran at 73.9 and about 60.8 tokens/s respectively, with Windows from 32K to 55K. After fixing those three tools, the internet, file, and document tools all worked. The multimedia half won't come to Windows in the short term; Linux has no schedule, so automatic updates require waiting for the private key to be transferred. My judgment only covers the 8 GB tier—the window and uninstall path on larger graphics cards are the same deduction, but there's no actual data. If you're using 12, 16, or 24 GB graphics cards, please send me your results.
@@ -141,9 +141,9 @@ Code signing also doesn't work. If the Windows installation package isn't signed
 | **LocalBrain** | Turn your computer into a private AI box: manage transcription/voiceover/raw images/video/MCP all in one place | Officially updated |
 | **ScreenLex ScreenLex** | Local movie subtitles become a review English vocabulary, fully offline | Officially updated |
 
-- HyphenBox: https://github.com/HackerChi-Hub/hyphenbox-release/releases
-- LocalBrain: https://github.com/HackerChi-Hub/localbrain-releases/releases
-- ScreenLex ScreenLex: https://github.com/HackerChi-Hub/screenlex-download/releases
+- HyphenBox: [Downloads & updates: HyphenBox (releases)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
+- LocalBrain: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+- ScreenLex ScreenLex: [Downloads & updates: ScreenLex (releases)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---
@@ -157,32 +157,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

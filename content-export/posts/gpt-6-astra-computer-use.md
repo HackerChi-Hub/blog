@@ -104,16 +104,16 @@ GPT-6 Astra 是 OpenAI 第一个在网络安全能力上达到“Critical”级�
 > [!tip]
 > **一手来源**
 > OpenAI 官方发布页：
-> https://openai.com/index/gpt-6-astra/
+> [查看页面：openai.com · gpt-6-astra](<https://openai.com/index/gpt-6-astra/>)
 > 
 > OpenAI API 模型规格：
-> https://developers.openai.com/api/docs/models/gpt-6-astra
+> [文档：developers.openai.com · gpt-6-astra](<https://developers.openai.com/api/docs/models/gpt-6-astra>)
 > 
 > ChatGPT 套餐与额度说明：
-> https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt
+> [查看页面：help.openai.com · 20001354-gpt-56-and-gpt-6-pro-in-chatgpt](<https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt>)
 > 
 > GPT-6 Astra 系统卡：
-> https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra
+> [查看页面：deploymentsafety.openai.com · safety-overview-gpt-6-astra](<https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra>)
 
 > [!summary] GPT-6 的分水岭，是从回答问题走向操作电脑
 > 它带来 105 万上下文、12.8 万最大输出、电脑操作和更强的多步执行；API 标准价为每百万输入 10 美元、输出 50 美元。与此同时，它首次达到网络安全 Critical 能力级别，权限、监控、确认和回退因此比模型跑分更重要。
@@ -134,32 +134,32 @@ GPT-6 Astra 是 OpenAI 第一个在网络安全能力上达到“Critical”级�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

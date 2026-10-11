@@ -155,9 +155,9 @@ LocalBrain 用的运行时是固定提交的 ltx-2-mlx，它原本按另一种�
 > 4 秒约 2 分钟、10 秒约 6 分钟、20 秒约 12 分钟，峰值内存 25～37 GB；台词写进引号能说出来，片子越长越容易漂。适合手上有 64 GB 以上 Apple Silicon、想让画面里的人按你写的台词开口、又不想把素材传上云的人。要参考图一致性、要 2K 成片，或者内存只有 32 GB 的，先别急着上头。
 
 > [!tip]
-> 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
-> 模型（ModelScope）：https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8
-> 运行时：https://github.com/MrMoferFRAN/ltx-2-mlx
+> 下载页：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> 模型（ModelScope）：[查看页面：modelscope.cn · ltx-2.5-mlx-q8](<https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8>)
+> 运行时：[项目仓库：MrMoferFRAN/ltx-2-mlx](<https://github.com/MrMoferFRAN/ltx-2-mlx>)
 
 
 ---
@@ -171,32 +171,32 @@ LocalBrain 用的运行时是固定提交的 ltx-2-mlx，它原本按另一种�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

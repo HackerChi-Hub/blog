@@ -216,15 +216,15 @@ The getting started is very simple: select the quantization file on the LocalBra
 
 ### 📚 ▍ Official information and reproduction entry
 
-- Qwen3.8-27B Official Model Card: https://huggingface.co/Qwen/Qwen3.8-27B
+- Qwen3.8-27B Official Model Card: [View page：huggingface.co · Qwen3.8-27B](<https://huggingface.co/Qwen/Qwen3.8-27B>)
 
-- Weights used in this test unsloth/Qwen3.8-27B-GGUF:https://huggingface.co/unsloth/Qwen3.8-27B-GGUF
+- Weights used in this test unsloth/Qwen3.8-27B-GGUF:[View page：huggingface.co · Qwen3.8-27B-GGUF](<https://huggingface.co/unsloth/Qwen3.8-27B-GGUF>)
 
-- Uncensored version JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF
+- Uncensored version JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:[View page：huggingface.co · Qwen3.8-27B-Uncensored-GGUF](<https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF>)
 
-- Go Review + Visual Version Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF:https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF
+- Go Review + Visual Version Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF:[View page：huggingface.co · Qwen3.8-27B-ABLITERATED-GGUF](<https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF>)
 
-- LocalBrain (LocalBrain) Download: https://github.com/HackerChi-Hub/localbrain-releases/releases/latest
+- LocalBrain (LocalBrain) Download: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases/latest>)
 
 
 ---
@@ -238,32 +238,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

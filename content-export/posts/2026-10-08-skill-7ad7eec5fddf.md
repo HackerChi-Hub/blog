@@ -47,7 +47,7 @@ cover_pipeline: "programmatic-wordmark-v1"
 
 ## 怎样开始，以及它需要什么
 
-项目面向 Codex Skill 场景。作者给出的开始方式，是让所用的 AI 助手从公开仓库安装为本地 Skill，再提出具体关系问题。仓库入口为 https://github.com/shengjidaguai-china/goutoujunshi 。这是作者声明的安装路径，并不代表所有支持自定义指令的聊天客户端都已兼容。
+项目面向 Codex Skill 场景。作者给出的开始方式，是让所用的 AI 助手从公开仓库安装为本地 Skill，再提出具体关系问题。仓库入口为 [项目仓库：shengjidaguai-china/goutoujunshi](<https://github.com/shengjidaguai-china/goutoujunshi>) 。这是作者声明的安装路径，并不代表所有支持自定义指令的聊天客户端都已兼容。
 
 首次使用时，Skill 会询问本人和目标对象的基本情况、关系经过、目标与当前情绪；不知道的项目可以留空。需要跨任务保存精简档案时，文档要求先取得一次明确同意，并提供查看、暂停、撤销或删除的能力。涉及真实姓名、聊天内容和亲密关系细节时，仍应先做匿名化，只提供会影响判断的必要信息。
 
@@ -96,22 +96,22 @@ ChatLab 是可选依赖，用于分析用户已经取得并准备好的聊天导
 
 正式迭代。免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 
-[下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+[下载与更新：黑粉盒子 HyphenBox（发行页）](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
 
 ### 方寸智匣 LocalBrain
 
 正式迭代。本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 
-[下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 ### ScreenLex 光影词库
 
 正式迭代。看美剧顺手把生词背了，Mac/Windows 双平台，免费
 
-[下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+[下载与更新：光影词库 ScreenLex（发行页）](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 ### 黑粉录屏 HyphenScreen
 
 正式迭代。录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 
-[下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)

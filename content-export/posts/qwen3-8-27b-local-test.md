@@ -207,15 +207,15 @@ llama.cpp 的日志把账记得很清楚。这台机器上 Qwen3.8 累计跑了 
 
 ### ▍📚 官方资料与复现入口
 
-- Qwen3.8-27B 官方模型卡：https://huggingface.co/Qwen/Qwen3.8-27B
+- Qwen3.8-27B 官方模型卡：[查看页面：huggingface.co · Qwen3.8-27B](<https://huggingface.co/Qwen/Qwen3.8-27B>)
 
-- 本次实测所用权重 unsloth/Qwen3.8-27B-GGUF：https://huggingface.co/unsloth/Qwen3.8-27B-GGUF
+- 本次实测所用权重 unsloth/Qwen3.8-27B-GGUF：[查看页面：huggingface.co · Qwen3.8-27B-GGUF](<https://huggingface.co/unsloth/Qwen3.8-27B-GGUF>)
 
-- 去审查版 JonathanColetti/Qwen3.8-27B-Uncensored-GGUF：https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF
+- 去审查版 JonathanColetti/Qwen3.8-27B-Uncensored-GGUF：[查看页面：huggingface.co · Qwen3.8-27B-Uncensored-GGUF](<https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF>)
 
-- 去审查 + 视觉版 Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF：https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF
+- 去审查 + 视觉版 Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF：[查看页面：huggingface.co · Qwen3.8-27B-ABLITERATED-GGUF](<https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF>)
 
-- LocalBrain（方寸智匣）下载：https://github.com/HackerChi-Hub/localbrain-releases/releases/latest
+- LocalBrain（方寸智匣）下载：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases/latest>)
 
 
 ---
@@ -229,32 +229,32 @@ llama.cpp 的日志把账记得很清楚。这台机器上 Qwen3.8 累计跑了 
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

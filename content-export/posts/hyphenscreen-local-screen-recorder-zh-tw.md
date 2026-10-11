@@ -208,9 +208,9 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 
 ## 📚 說明
 
-- 下載（Mac 1.0.2；Windows / Linux 1.0.1）：https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases
+- 下載（Mac 1.0.2；Windows / Linux 1.0.1）：[下載與更新：黑粉录屏 HyphenScreen（發行頁）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
 - 本文數字來自軟體專案的版本說明與實測紀錄；截圖用專門製作的示範素材現拍，贊助碼那張是 1.0.2，其餘是 1.0.1。
-- 黑粉科技官網：https://hyphentech.top
+- 黑粉科技官網：[造訪黑粉科技官網](<https://hyphentech.top>)
 
 
 ---
@@ -224,32 +224,32 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 >
 > 免費大模型 API 雷達：持續複測可用性，本機統一介面，Key 只存本機
 >
-> [下載與更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下載與更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **狀態：** 正式迭代
 >
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
-> [下載與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影詞庫
 > **狀態：** 正式迭代
 >
 > 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
 >
-> [下載與更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉錄屏 HyphenScreen
 > **狀態：** 正式迭代
 >
 > 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
 >
-> [下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **讓AI成為你的超能力**
 > 本機部署 · 免費白嫖 · 自製軟體
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

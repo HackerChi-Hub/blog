@@ -52,7 +52,7 @@ The project also compiles 135 references and maintains topics such as relationsh
 
 ## How to get started, and what does it require?
 
-The project is designed for the Codex Skill scenario. The author suggests starting by having the AI assistant install the native Skill from the public repository, then raise specific relationship questions. The repository entry is https://github.com/shengjidaguai-china/goutoujunshi. This is the installation path declared by the author and does not mean all chat clients that support custom commands are compatible.
+The project is designed for the Codex Skill scenario. The author suggests starting by having the AI assistant install the native Skill from the public repository, then raise specific relationship questions. The repository entry is [Repository：shengjidaguai-china/goutoujunshi](<https://github.com/shengjidaguai-china/goutoujunshi>). This is the installation path declared by the author and does not mean all chat clients that support custom commands are compatible.
 
 When used for the first time, Skill will ask about the basic information of the user and the target person, relationship history, goals, and current emotions; Items unknown can be left blank. When saving streamlined files across tasks, documents require clear consent first and the ability to view, pause, revoke, or delete. When involving real names, chat content, and intimate relationship details, anonymization should still be done first, providing only necessary information that may affect judgment.
 
@@ -102,32 +102,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

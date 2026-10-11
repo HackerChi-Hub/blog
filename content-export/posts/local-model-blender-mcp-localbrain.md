@@ -129,10 +129,10 @@ LocalBrain 原来的对话只认 7 组内置工具（文档、联网、配音、
 真要试，顺序建议是这样。先装 Blender 和 blender-mcp，把遥测的两处开关都关掉，工具只勾需要的几个。需求里写明 Blender 版本，把步骤清单和中间文件留在磁盘上。验收时让模型看最终渲染出来的图片，而不是视口截图，最后自己再打开渲染图看一眼。用反向外壳描边时记得开背面剔除，需要开窗洞时确认布尔真的切到了机身上。
 
 > [!tip]
-> 原视频《不用GPT-6！本地模型操作Blender建模教程》：https://www.bilibili.com/video/BV1MfYu68E73/
-> blender-mcp 项目：https://github.com/ahujasid/blender-mcp
-> Blender 官网：https://www.blender.org/
-> LocalBrain 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
+> 原视频《不用GPT-6！本地模型操作Blender建模教程》：[查看页面：www.bilibili.com · BV1MfYu68E73](<https://www.bilibili.com/video/BV1MfYu68E73/>)
+> blender-mcp 项目：[项目仓库：ahujasid/blender-mcp](<https://github.com/ahujasid/blender-mcp>)
+> Blender 官网：[查看页面：www.blender.org](<https://www.blender.org/>)
+> LocalBrain 下载页：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 
 ---
@@ -146,32 +146,32 @@ LocalBrain 原来的对话只认 7 组内置工具（文档、联网、配音、
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

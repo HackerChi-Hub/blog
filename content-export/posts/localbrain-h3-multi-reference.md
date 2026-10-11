@@ -179,9 +179,9 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 > 4 张参考图全部用上，人物、房间、道具都保得住；3 秒视频要 7.5～10 分钟，可用内存最多降了 38.4 GB，参考图里的细节会被照搬。适合手上有 64 GB 以上 Apple Silicon、需要角色和场景前后一致、又不想把图片传上云的人。要 2K 成片、要批量出片，或者内存不到 48 GB 的，先别急着上头。我的建议是先拿 1 张人物图、3～4 秒试描述，满意了再加场景和道具。
 
 > [!tip]
-> 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
-> 模型卡：https://huggingface.co/ddalcu/MiniMax-H3-REF2VA-MLX-Serve-8bit
-> 官方仓库：https://github.com/MiniMax-AI/MiniMax-H3
+> 下载页：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> 模型卡：[查看页面：huggingface.co · MiniMax-H3-REF2VA-MLX-Serve-8bit](<https://huggingface.co/ddalcu/MiniMax-H3-REF2VA-MLX-Serve-8bit>)
+> 官方仓库：[项目仓库：MiniMax-AI/MiniMax-H3](<https://github.com/MiniMax-AI/MiniMax-H3>)
 
 
 ---
@@ -195,32 +195,32 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

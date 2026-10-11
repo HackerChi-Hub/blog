@@ -119,7 +119,7 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 - 没有 NVIDIA 显卡也能装，会走 CPU 版，慢很多，程序会在安装进度里说清。
 
 > [!tip]
-> 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases（Windows 版在 v1.2.50 预发布下）
+> 下载页：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)（Windows 版在 v1.2.50 预发布下）
 
 > [!summary] 8 GB 显存的 Windows 笔记本，本地文本模型加本地工具这条线已经能用了
 > 两款 8 GB 档模型分别跑到 73.9 和约 60.8 token/s，窗口 32K 到 55K，联网、文件、文档三类工具在修完那三处之后都通了。多媒体那一半短期内不会来 Windows，Linux 没有时间表，自动更新要等私钥挪过来。我的判断只覆盖 8 GB 这一档——更大显卡上的窗口和卸载路径是同一套推导，但没有实机数据，用 12、16、24 GB 显卡的人试完请把结果发给我。
@@ -132,9 +132,9 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 | **LocalBrain** | 把电脑变成私有 AI 盒子：转写／配音／生图／视频／MCP 一站管理 | 正式迭代 |
 | **ScreenLex 光影词库** | 本地电影字幕变可复习英语词库，全程离线 | 正式迭代 |
 
-- 黑粉盒子 HyphenBox：https://github.com/HackerChi-Hub/hyphenbox-release/releases
-- LocalBrain：https://github.com/HackerChi-Hub/localbrain-releases/releases
-- ScreenLex 光影词库：https://github.com/HackerChi-Hub/screenlex-download/releases
+- 黑粉盒子 HyphenBox：[下载与更新：黑粉盒子 HyphenBox（发行页）](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
+- LocalBrain：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+- ScreenLex 光影词库：[下载与更新：光影词库 ScreenLex（发行页）](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---
@@ -148,32 +148,32 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

@@ -113,16 +113,16 @@ Back to the glowing "hand" at the beginning. It certainly represents efficiency,
 > [!tip]
 > **Primary source**
 > OpenAI official release page:
-> https://openai.com/index/gpt-6-astra/
+> [View page：openai.com · gpt-6-astra](<https://openai.com/index/gpt-6-astra/>)
 > 
 > OpenAI API Model Specifications:
-> https://developers.openai.com/api/docs/models/gpt-6-astra
+> [Documentation：developers.openai.com · gpt-6-astra](<https://developers.openai.com/api/docs/models/gpt-6-astra>)
 > 
 > ChatGPT Package and Credit Limit Description:
-> https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt
+> [View page：help.openai.com · 20001354-gpt-56-and-gpt-6-pro-in-chatgpt](<https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt>)
 > 
 > GPT-6 Astra System Card:
-> https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra
+> [View page：deploymentsafety.openai.com · safety-overview-gpt-6-astra](<https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra>)
 
 > [!summary] The turning point for GPT-6 was moving from answering questions to operating computers
 > It delivers 1.05 million contexts, 128,000 maximum outputs, computer operations, and stronger multi-step execution; API standard price is $10 per million inputs and $50 per output. At the same time, it has reached the cybersecurity Critical capability level for the first time, making permissions, monitoring, acknowledgments, and rollbacks more important than model benchmarks.
@@ -143,32 +143,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

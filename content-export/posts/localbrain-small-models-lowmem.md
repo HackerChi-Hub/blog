@@ -323,12 +323,12 @@ Bonsai 27B 是 PrismML 把 Qwen3.6-27B 压到 1-bit 的版本，文件 3.80 GB�
 判定：回答里要有 1810、1154、112、58 四个数。Qwen3.5 4B / 9B、Gemma 4 12B / E4B 直接读对；两个 Bonsai 要先想大约 1100 个 token，回答上限 1024 时答案被截断，2048 就读对了。
 
 > [!tip]
-> 下载页：https://github.com/HackerChi-Hub/localbrain-releases/releases
-> 9 月 9 日《1.4GB小模型，真能当本地智能体吗？》：https://hyphentech.top/minicpm5-2b-localbrain/
-> 独立榜单（开源小模型）：https://artificialanalysis.ai/models/open-source/small
-> MiniCPM5-2B 模型卡：https://huggingface.co/openbmb/MiniCPM5-2B
-> Qwen3.5-9B 模型卡：https://huggingface.co/Qwen/Qwen3.5-9B
-> Bonsai 27B 发布说明：https://prismml.com/news/bonsai-27b
+> 下载页：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> 9 月 9 日《1.4GB小模型，真能当本地智能体吗？》：[查看页面：hyphentech.top · minicpm5-2b-localbrain](<https://hyphentech.top/minicpm5-2b-localbrain/>)
+> 独立榜单（开源小模型）：[查看页面：artificialanalysis.ai · small](<https://artificialanalysis.ai/models/open-source/small>)
+> MiniCPM5-2B 模型卡：[查看页面：huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
+> Qwen3.5-9B 模型卡：[查看页面：huggingface.co · Qwen3.5-9B](<https://huggingface.co/Qwen/Qwen3.5-9B>)
+> Bonsai 27B 发布说明：[查看页面：prismml.com · bonsai-27b](<https://prismml.com/news/bonsai-27b>)
 
 
 ---
@@ -342,32 +342,32 @@ Bonsai 27B 是 PrismML 把 Qwen3.6-27B 压到 1-bit 的版本，文件 3.80 GB�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

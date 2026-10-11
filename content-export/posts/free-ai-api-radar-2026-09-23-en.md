@@ -90,7 +90,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | nvidia/nemotron-3-super-120b-a12b:free |
 | Access | OpenAI compatible; Register an account and create a Key, and use the free variant without a credit card |
-| Base URL | https://openrouter.ai/api/v1 |
+| Base URL | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
 | Free type | Zero-price model / account-level free tier |
 | Jian Quan | Register an account and create a Key, and use the free variant without a credit card |
 | Free quota | Official free model restrictions and upstream restrictions coexist; The current actual limit of this account depends on the console |
@@ -105,8 +105,8 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Different free models are not identical in availability; 429, 503, and account balance constraints must be viewed separately.
 
-- Official source: https://openrouter.ai/docs/api-reference/limits
-- Official source: https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree
+- Official source: [Documentation：openrouter.ai · limits](<https://openrouter.ai/docs/api-reference/limits>)
+- Official source: [View page：openrouter.ai · nemotron-3-super-120b-a12b:free](<https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree>)
 
 - This issue's detection: openrouter/liquid/lfm-2.5-2.6b: free · chat · Effective 0/4 · probe-report.local.json
 - This issue's detection: OpenRouter/nvidia/Nemotron-3-super-120b-a12b:free · chat · Effective 3/4 · probe-report.recheck.json
@@ -123,7 +123,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | PaddlePaddle/PaddleOCR-VL-1.5 (official price page); Qwen/Qwen2.5-7B-Instruct (local target detection) |
 | Access | OpenAI compatible; Registration + real-name authentication (only after real-name verification can you use all free models) |
-| Base URL | https://api.siliconflow.cn/v1 |
+| Base URL | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
 | Free type | Zero-price model/account conditions |
 | Jian Quan | Registration + Real-name authentication (you can use all free models after real-name verification) |
 | Free quota | Account-level limits are subject to verification by the control console |
@@ -138,7 +138,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > The official announcement states that account usage requires real-name verification; Retiring the old PaddleOCR-VL does not mean retiring the PaddleOCR-VL-1.5.
 
-- Official source: https://siliconflow.cn/pricing
+- Official source: [Pricing：siliconflow.cn · pricing](<https://siliconflow.cn/pricing>)
 
 - This issue's detection: siliconflow/Qwen/Qwen2.5-7B-Instruct · chat · Effective 0/4 · probe-report.local.json
 
@@ -152,7 +152,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | The official model overview lists the GLM Flash series; The specific free models are subject to review on the model page |
 | Access | OpenAI compatible; Register an account to obtain an API Key |
-| Base URL | https://open.bigmodel.cn/api/paas/v4 |
+| Base URL | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
 | Free type | Official free model/account tier |
 | Jian Quan | Register an account to obtain an API Key |
 | Free quota | Pending verification on the account equity page |
@@ -167,7 +167,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Old models and quotas must not be directly reused.
 
-- Official source: https://docs.bigmodel.cn/cn/guide/start/model-overview
+- Official source: [Documentation：docs.bigmodel.cn · model-overview](<https://docs.bigmodel.cn/cn/guide/start/model-overview>)
 
 ---
 
@@ -178,10 +178,10 @@ For regular users, I first try using short tasks without privacy, then check sli
 | Project | Verify the content |
 | --- | --- |
 | Available models | The specific model list is subject to verification by the official console |
-| Access | Compatible with OpenAI; After registering an account, you can obtain an Access Token at https://modelscope.cn/my/myaccesstoken |
-| Base URL | https://api-inference.modelscope.cn/v1/ |
+| Access | Compatible with OpenAI; After registering an account, you can obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
+| Base URL | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | Free type | The account layer offers free service |
-| Jian Quan | After registering an account, obtain an Access Token at https://modelscope.cn/my/myaccesstoken |
+| Jian Quan | After registering an account, obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
 | Free quota | awaiting verification |
 | Reset cycle | awaiting verification |
 | Validity period | Subject to account and official event terms |
@@ -194,7 +194,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > You can't treat the August list as the available model for September.
 
-- Official source: https://www.modelscope.cn/docs/model-service/API-Inference/intro
+- Official source: [Documentation：www.modelscope.cn · intro](<https://www.modelscope.cn/docs/model-service/API-Inference/intro>)
 
 ---
 
@@ -206,7 +206,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | qwen/qwen3.8-27b; openai/gpt-oss-20b |
 | Access | OpenAI compatible; Register an account to create a Key |
-| Base URL | https://api.groq.com/openai/v1 |
+| Base URL | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
 | Free type | The cycle has resumed the free mode |
 | Jian Quan | Register an account and create a Key |
 | Free quota | Qwen3.8-27b official limit table lists 30 RPM, 1000 RPD, 8K TPM, 200K TPD; The actual account limit is subject to the console |
@@ -221,9 +221,9 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Different models on the same platform cannot share stability conclusions.
 
-- Official source: https://console.groq.com/docs/rate-limits
-- Official source: https://console.groq.com/docs/your-data
-- Official source: https://console.groq.com/docs/deprecations
+- Official source: [Documentation：console.groq.com · rate-limits](<https://console.groq.com/docs/rate-limits>)
+- Official source: [Documentation：console.groq.com · your-data](<https://console.groq.com/docs/your-data>)
+- Official source: [Documentation：console.groq.com · deprecations](<https://console.groq.com/docs/deprecations>)
 
 - This issue's detection: Groq/OpenAI/GPT-OSS-20B · chat · Effective 2/4 · probe-report.local.json
 - This issue's detection: groq/qwen/qwen 3.8-27b · chat · Effective 4/4 · probe-report.recheck.json
@@ -240,7 +240,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | Official Workers AI model directory; Specific free available models are verified by account |
 | Access | REST (Worker can directly env. AI.run); Cloudflare account; Both Free and Paid Workers plans enjoy this free quota |
-| Base URL | https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model} |
+| Base URL | `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model}` |
 | Free type | The free mode is restored daily |
 | Jian Quan | Cloudflare account; Both Free and Paid Workers plans enjoy this free quota |
 | Free quota | 10,000 Neurons/day |
@@ -255,7 +255,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > If you exceed the limit, the free plan will fail; Neurons cannot be converted into a fixed number of chats.
 
-- Official source: https://developers.cloudflare.com/workers-ai/platform/pricing/
+- Official source: [Pricing：developers.cloudflare.com · pricing](<https://developers.cloudflare.com/workers-ai/platform/pricing/>)
 
 ![Cloudflare Official Pricing Page: Workers AI Daily Free Neurons Allowance · 2026-09-23](https://hyphentech.top/obsidian-assets/free-ai-api-radar-2026-09-23/image-cloudflare-1-686624d9ef.png)
 
@@ -269,7 +269,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | agnes-2.5-flash; agnes-2.0-flash (tested); The official Free API currently mainly showcases 3.0 Flash |
 | Access | OpenAI compatible (text conversation) + REST (image synchronization / video asynchronous polling); Activate by logging in with your Google account to obtain an API Key |
-| Base URL | https://apihub.agnes-ai.com/v1 |
+| Base URL | [https://apihub.agnes-ai.com/v1](<https://apihub.agnes-ai.com/v1>) |
 | Free type | Account layer free tier / dynamic frequency limiting |
 | Jian Quan | You can activate it by logging in with your Google account to obtain the API Key |
 | Free quota | This issue did not verify the free pricing and fixed figures for 2.5 Flash from the official readable page |
@@ -284,7 +284,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > The official Free API promotion cannot automatically apply to 2.5 Flash; You cannot equate three consecutive successes with long-term stability.
 
-- Official source: https://agnes-ai.com/
+- Official source: [View page：agnes-ai.com](<https://agnes-ai.com/>)
 
 - This issue's detection: agnes/agnes-2.0-flash · chat · Effective 1/4 · probe-report.local.json
 - This issue's detection: agnes/agnes-2.5-flash · chat · Effective 3/4 · probe-report.recheck.json
@@ -299,7 +299,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | According to the official Inference Providers route and account visibility model |
 | Access | OpenAI compatible; HF account + Access Token |
-| Base URL | https://router.huggingface.co/v1 |
+| Base URL | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
 | Free type | Monthly quota calculation |
 | Jian Quan | HF account + Access Token |
 | Free quota | Free users have a monthly quota of $0.10 |
@@ -314,7 +314,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > BYOK routing charges differ and cannot be understood as unlimited calls from the platform.
 
-- Official source: https://huggingface.co/docs/inference-providers/pricing
+- Official source: [Pricing：huggingface.co · pricing](<https://huggingface.co/docs/inference-providers/pricing>)
 
 ![Hugging Face Official Pricing Page: Monthly Limit Calculation for Free Accounts · 2026-09-23](https://hyphentech.top/obsidian-assets/free-ai-api-radar-2026-09-23/image-huggingface-1-db3987ce99.png)
 
@@ -328,7 +328,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | build.nvidia.com is subject to the current Free Endpoint tag |
 | Access | OpenAI compatible; NVIDIA developer account |
-| Base URL | https://integrate.api.nvidia.com/v1 |
+| Base URL | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
 | Free type | Official Free Endpoint/Account Layer |
 | Jian Quan | NVIDIA developer account |
 | Free quota | Unified fixed quota not verified |
@@ -343,7 +343,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > A successful NVIDIA model forwarded by OpenRouter does not necessarily mean the NVIDIA direct connection port is tested successfully.
 
-- Official source: https://build.nvidia.com/models
+- Official source: [View page：build.nvidia.com · models](<https://build.nvidia.com/models>)
 
 ---
 
@@ -355,7 +355,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | gemini-3.1-flash-lite (official free tier); gemini-embedding-001 (call valid, current free price pending approval) |
 | Access | Native REST + OpenAI compatible layer; Free tier qualification requires "valid project or free trial," no need to link a settlement account |
-| Base URL | https://generativelanguage.googleapis.com/v1beta/openai/ |
+| Base URL | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
 | Free type | Model-by-model free version |
 | Jian Quan | The free tier qualification requirement is "valid project or free trial," with no need to link a settlement account |
 | Free quota | Limits for model/project RPM, TPM, RPD; This account is based on the AI Studio console |
@@ -370,8 +370,8 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Free tier requests may be used to improve Google products; Sensitive content should not be included. Model, region, and account eligibility affect the free tier.
 
-- Official source: https://ai.google.dev/gemini-api/docs/rate-limits
-- Official source: https://ai.google.dev/gemini-api/docs/pricing
+- Official source: [Documentation：ai.google.dev · rate-limits](<https://ai.google.dev/gemini-api/docs/rate-limits>)
+- Official source: [Pricing：ai.google.dev · pricing](<https://ai.google.dev/gemini-api/docs/pricing>)
 
 - This issue's detection: gemini/gemini-3.1-flash-lite · chat · Effective 4/4 · probe-report.local.json
 - This issue's detection: gemini/gemini-embedding-001 · embedding · Effective 4/4 · probe-report.local.json
@@ -390,7 +390,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | Please refer to the current Model Studio model pricing page |
 | Access | Compatible with OpenAI; Alibaba Cloud accounts, some benefits require real-name verification |
-| Base URL | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| Base URL | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
 | Free type | A one-time credit limit for new users |
 | Jian Quan | Some benefits for Alibaba Cloud accounts require real-name verification |
 | Free quota | The validity period for newly opened free users in Singapore is 90 days according to the official new regulations; The specific amount awarded depends on the account |
@@ -405,7 +405,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > This is not a long-term free period; The terms for historical account holders do not change automatically due to announcements.
 
-- Official source: https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment
+- Official source: [View page：www.alibabacloud.com · new-free-quota-validity-adjustment](<https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment>)
 
 ---
 
@@ -432,7 +432,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Some endpoints are not Chat; The key trio cannot be written to the probe report.
 
-- Official source: https://www.xfyun.cn/doc/spark/Web.html
+- Official source: [View page：www.xfyun.cn · Web.html](<https://www.xfyun.cn/doc/spark/Web.html>)
 
 ---
 
@@ -444,7 +444,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | The account visibility model prevails |
 | Access | OpenAI compatible; Register an account |
-| Base URL | https://api.cerebras.ai/v1 |
+| Base URL | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
 | Free type | New users receive a one-time quota / pending verification |
 | Jian Quan | Register an account |
 | Free quota | This issue's official capture has not verified the fixed number of reusable items |
@@ -459,7 +459,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > If you need to bind a payment method, it cannot be included in the no-threshold free tier.
 
-- Official source: https://inference-docs.cerebras.ai/support/pricing
+- Official source: [Pricing：inference-docs.cerebras.ai · pricing](<https://inference-docs.cerebras.ai/support/pricing>)
 
 ---
 
@@ -471,7 +471,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | Based on the current visible price of the account and the model directory |
 | Access | OpenAI compatible; Register an account to create a Key |
-| Base URL | https://api.together.xyz/v1 |
+| Base URL | [https://api.together.xyz/v1](<https://api.together.xyz/v1>) |
 | Free type | Dynamic traffic limiting/free eligibility pending verification |
 | Jian Quan | Register an account and create a Key |
 | Free quota | Dynamic organization/model speed limits, no fixed fixed free data |
@@ -486,7 +486,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Dynamic speed limits should not be mistakenly written as fixed free quotas.
 
-- Official source: https://docs.together.ai/docs/rate-limits
+- Official source: [Documentation：docs.together.ai · rate-limits](<https://docs.together.ai/docs/rate-limits>)
 
 ---
 
@@ -498,7 +498,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | openai-fast (official model directory list anonymity layer) |
 | Access | REST / OpenAI compatible path; The anonymity layer of text interfaces does not require Keys; Generative interfaces require a key and Pollen balance |
-| Base URL | https://text.pollinations.ai/openai |
+| Base URL | [View page：text.pollinations.ai · openai](<https://text.pollinations.ai/openai>) |
 | Free type | Publicly Revealed Keyless/Anonymous Layer |
 | Jian Quan | The anonymity layer of text interfaces does not require Keys; Generation class interfaces require a built-in Key and Pollen balance |
 | Free quota | The official directory does not specify the stable call limit |
@@ -513,7 +513,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Model discovery does not mean Chat is available; You cannot use the August test to replace this issue.
 
-- Official source: https://text.pollinations.ai/models
+- Official source: [View page：text.pollinations.ai · models](<https://text.pollinations.ai/models>)
 
 ---
 
@@ -540,7 +540,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Old links and old quotas must not continue to be promoted.
 
-- Official source: https://docs.github.com/en/github-models
+- Official source: [Documentation：docs.github.com · github-models](<https://docs.github.com/en/github-models>)
 
 ---
 
@@ -552,7 +552,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | Determined by the local installation model |
 | Access | OpenAI compatibility; Your own machine; VRAM/memory determines how large the model can run |
-| Base URL | http://localhost:11434/v1 (Ollama default) |
+| Base URL | `http://localhost:11434/v1` (Ollama default) |
 | Free type | Open source custody |
 | Jian Quan | Your own machine; VRAM/memory determines how large the model can run |
 | Free quota | No external platform call quota; Hardware and electricity fees are not zero |
@@ -567,7 +567,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Requires self-deployment, maintenance, and bearing hardware and energy costs.
 
-- Official source: https://github.com/ggml-org/llama.cpp
+- Official source: [Repository：ggml-org/llama.cpp](<https://github.com/ggml-org/llama.cpp>)
 
 ---
 
@@ -579,7 +579,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | jev-1.13-free, etc., based on the current Zen model page |
 | Access | Account and Zen API Key |
-| Base URL | https://opencode.ai/zen/v1 |
+| Base URL | [https://opencode.ai/zen/v1](<https://opencode.ai/zen/v1>) |
 | Free type | Specific limited-time zero-price models |
 | Jian Quan | Account and Zen API Key |
 | Free quota | Pending account verification |
@@ -594,7 +594,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: https://opencode.ai/docs/zen
+- Official source: [Documentation：opencode.ai · zen](<https://opencode.ai/docs/zen>)
 
 ---
 
@@ -621,7 +621,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: https://doc.freeinference.org/models
+- Official source: [View page：doc.freeinference.org · models](<https://doc.freeinference.org/models>)
 
 ---
 
@@ -648,7 +648,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: https://llm.ustc.edu.cn/guide/technical-updates/
+- Official source: [Documentation：llm.ustc.edu.cn · technical-updates](<https://llm.ustc.edu.cn/guide/technical-updates/>)
 
 ---
 
@@ -675,7 +675,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: https://www.ant-ling.com/
+- Official source: [View page：www.ant-ling.com](<https://www.ant-ling.com/>)
 
 ---
 
@@ -708,32 +708,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

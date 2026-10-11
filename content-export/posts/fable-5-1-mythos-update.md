@@ -127,11 +127,11 @@ Anthropic 自己的模型页反而很克制：多数工作负载先从 Opus 5 �
 > [!tip]
 > **一手来源**
 > Anthropic 官方发布页：
-> https://www.anthropic.com/claude-fable-and-mythos-5-1
+> [查看页面：www.anthropic.com · claude-fable-and-mythos-5-1](<https://www.anthropic.com/claude-fable-and-mythos-5-1>)
 > Claude Platform 模型规格：
-> https://platform.claude.com/docs/en/models/fable-5-1/overview
+> [文档：platform.claude.com · overview](<https://platform.claude.com/docs/en/models/fable-5-1/overview>)
 > 更新与迁移说明：
-> https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1
+> [文档：platform.claude.com · whats-new-fable-5-1](<https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1>)
 
 > [!summary] 同一模型、两套边界，价格没降但长任务真的可能更省
 > Fable 5.1 与 Mythos 5.1 共享底层模型：前者全面开放，后者只给可信访问项目。1M 上下文、128K 输出与 $10/$50 基础价格没有变化，但缓存读取降到 $0.25/MTok，使典型任务有效成本约降 25%，高度智能体任务最高约降 45%。它最适合长时程代码、研究与复杂知识工作；普通问答不必默认上最贵档，本地 Mac 也没有部署路线。
@@ -152,32 +152,32 @@ Anthropic 自己的模型页反而很克制：多数工作负载先从 Opus 5 �
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

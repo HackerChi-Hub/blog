@@ -736,21 +736,21 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 免费大模型接口雷达，加上本地统一路由。
 
 - **当前状态**：初步构建 · 预览版；面向苹果芯片Mac，自签名，首次需手动放行
-- [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+- [下载与更新：黑粉盒子 HyphenBox（发行页）](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
 
 ### 方寸智匣 LocalBrain
 
 把Mac变成私有人工智能工具箱，整合转写、配音、生图、视频与MCP。
 
 - **当前状态**：持续迭代
-- [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+- [下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 ### ScreenLex 光影词库
 
 把本地电影字幕里的生词变成可复习的英语词库，全程离线。
 
 - **当前状态**：持续迭代
-- [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+- [下载与更新：光影词库 ScreenLex（发行页）](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---
@@ -764,32 +764,32 @@ ARC Prize的独立报告尤其说明问题：同为最高推理强度，标准�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

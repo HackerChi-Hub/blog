@@ -136,11 +136,11 @@ So what truly makes this update worth remembering is not "another strongest mode
 > [!tip]
 > **Primary source**
 > Anthropic official release page:
-> https://www.anthropic.com/claude-fable-and-mythos-5-1
+> [View page：www.anthropic.com · claude-fable-and-mythos-5-1](<https://www.anthropic.com/claude-fable-and-mythos-5-1>)
 > Claude Platform Model Specifications:
-> https://platform.claude.com/docs/en/models/fable-5-1/overview
+> [Documentation：platform.claude.com · overview](<https://platform.claude.com/docs/en/models/fable-5-1/overview>)
 > Update and Migration Notes:
-> https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1
+> [Documentation：platform.claude.com · whats-new-fable-5-1](<https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1>)
 
 > [!summary] Same model, two sets of boundaries, price not dropped, but long-term tasks might actually save money
 > Fable 5.1 shares the underlying model with Mythos 5.1: the former is fully open, while the latter only provides trusted access to projects. The base price for 1M context, 128K output, and $10/$50 remains unchanged, but cache reads are reduced to $0.25/MTok, reducing the effective cost of typical tasks by about 25% and highly agent tasks by up to about 45%. It is best suited for long-term code, research, and complex knowledge work; Ordinary Q&A does not require defaulting to the most expensive tier, and there is no deployment route for local Macs.
@@ -161,32 +161,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

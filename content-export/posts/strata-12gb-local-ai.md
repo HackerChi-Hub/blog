@@ -127,8 +127,8 @@ Coder确实是一个真实的取舍案例：它把每层专家从512个减到256
 
 | 访问方式 | 客户端地址示意 | 关键区别 |
 | --- | --- | --- |
-| 与服务同一台电脑 | http://127.0.0.1:8080/v1 | 回环地址指向当前电脑 |
-| Mac访问局域网中的PC | http://PC的局域网IP:8080/v1 | 必须使用运行Strata那台PC的地址 |
+| 与服务同一台电脑 | `http://127.0.0.1:8080/v1` | 回环地址指向当前电脑 |
+| Mac访问局域网中的PC | [http://PC的局域网IP:8080/v1](<http://PC的局域网IP:8080/v1>) | 必须使用运行Strata那台PC的地址 |
 | 服务监听全部网卡 | 0.0.0.0 | 这是监听设置，不是客户端应填写的目标地址 |
 
 官方列出了OpenAI风格聊天接口、Anthropic消息接口和Responses接口。对于LocalBrain这一类工具箱，值得研究的是“能否把该服务作为兼容后端”，而不是“能否让Mac直接启动Strata”。**本文未验证LocalBrain与Strata的串流、工具调用、图像或推理字段适配，不能称已经打通。**
@@ -160,32 +160,32 @@ Strata在本地推理，并不能替外部智能体保证隐私。网页搜索�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

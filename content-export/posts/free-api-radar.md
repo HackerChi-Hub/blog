@@ -54,8 +54,8 @@ legacy_paths: []
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://openrouter.ai/ |
-| base\_url | https://openrouter.ai/api/v1 |
+| 官方入口 | [查看页面：openrouter.ai](<https://openrouter.ai/>) |
+| base\_url | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册账号并创建 Key，无需信用卡即可用免费变体 |
 | 额度 | 带 :free 后缀的模型：20 次/分钟 + 50 次/天；累计充值满 10 credits 后日限升到 1000 次（RPM 仍为 20） |
@@ -96,8 +96,8 @@ r = client.chat.completions.create(
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://cloud.siliconflow.cn/ |
-| base\_url | https://api.siliconflow.cn/v1 |
+| 官方入口 | [查看页面：cloud.siliconflow.cn](<https://cloud.siliconflow.cn/>) |
+| base\_url | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册 + 实名认证（实名后才能使用全部免费模型） |
 | 额度 | 免费模型限速为固定值：语言模型 RPM 1000–10000、TPM 50000–5000000；向量模型 RPM 2000–10000、TPM 500000–10000000；重排序 RPM 2000、TPM 500000；图像生成 IPM 2、IPD 400 |
@@ -136,8 +136,8 @@ r = client.chat.completions.create(
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://bigmodel.cn/ |
-| base\_url | https://open.bigmodel.cn/api/paas/v4 |
+| 官方入口 | [查看页面：bigmodel.cn](<https://bigmodel.cn/>) |
+| base\_url | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册账号获取 API Key |
 | 额度 | 标注为「免费模型」的型号免费调用；具体限速需在控制台查看（官方文档未给统一数字） |
@@ -181,10 +181,10 @@ r = client.chat.completions.create(
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://www.modelscope.cn/ |
-| base\_url | https://api-inference.modelscope.cn/v1/ |
+| 官方入口 | [查看页面：www.modelscope.cn](<https://www.modelscope.cn/>) |
+| base\_url | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | 接口协议 | OpenAI 兼容 |
-| 领取条件 | 注册账号后在 https://modelscope.cn/my/myaccesstoken 获取 Access Token |
+| 领取条件 | 注册账号后在 [密钥管理：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) 获取 Access Token |
 | 额度 | 面向注册用户免费提供，具体额度以官方「使用限制说明」为准 |
 | 重置周期 | 以官方说明为准 |
 | 国内可用性 | 直连可用 |
@@ -217,8 +217,8 @@ client = OpenAI(api_key="<MODELSCOPE_ACCESS_TOKEN>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://console.groq.com/ |
-| base\_url | https://api.groq.com/openai/v1 |
+| 官方入口 | [查看页面：console.groq.com](<https://console.groq.com/>) |
+| base\_url | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册账号创建 Key |
 | 额度 | 免费层按模型逐个给额度：RPM 10–30、RPD 100–14,400、TPM 1.2K–70K、TPD 3.6K–500K |
@@ -255,8 +255,8 @@ client = OpenAI(api_key="<GROQ_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 每日重置 |
-| 官方入口 | https://dash.cloudflare.com/ |
-| base\_url | https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\} |
+| 官方入口 | [查看页面：dash.cloudflare.com](<https://dash.cloudflare.com/>) |
+| base\_url | `https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\}` |
 | 接口协议 | REST（Worker 内可直接 env.AI.run） |
 | 领取条件 | Cloudflare 账号；Free 与 Paid 两种 Workers 计划都享有该免费额度 |
 | 额度 | 每天 10,000 Neurons 免费 |
@@ -292,8 +292,8 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://agnes-ai.com/ |
-| base\_url | https://apihub.agnes-ai.com |
+| 官方入口 | [查看页面：agnes-ai.com](<https://agnes-ai.com/>) |
+| base\_url | [https://apihub.agnes-ai.com](<https://apihub.agnes-ai.com>) |
 | 接口协议 | REST（图片同步 / 视频异步轮询） |
 | 领取条件 | 谷歌账号登录即可开通，取得 API Key |
 | 额度 | 免费额度按计划限频；视频接口约 2 次/分钟 |
@@ -330,8 +330,8 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 每月赠额 |
-| 官方入口 | https://huggingface.co/settings/tokens |
-| base\_url | https://router.huggingface.co/v1 |
+| 官方入口 | [密钥管理：huggingface.co · tokens](<https://huggingface.co/settings/tokens>) |
+| base\_url | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | HF 账号 + Access Token |
 | 额度 | 免费用户每月 $0.10 额度；PRO 用户每月 $2.00；Team/Enterprise 每席位 $2.00 |
@@ -366,8 +366,8 @@ client = OpenAI(api_key="<HF_TOKEN>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://build.nvidia.com/ |
-| base\_url | https://integrate.api.nvidia.com/v1 |
+| 官方入口 | [查看页面：build.nvidia.com](<https://build.nvidia.com/>) |
+| base\_url | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | NVIDIA 开发者账号 |
 | 额度 | 官方页面标注为 Free inference / Free Endpoint，未公布统一额度数字，需在控制台确认 |
@@ -402,8 +402,8 @@ client = OpenAI(api_key="<NVIDIA_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://aistudio.google.com/apikey |
-| base\_url | https://generativelanguage.googleapis.com/v1beta/openai/ |
+| 官方入口 | [密钥管理：aistudio.google.com · apikey](<https://aistudio.google.com/apikey>) |
+| base\_url | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
 | 接口协议 | 原生 REST + OpenAI 兼容层 |
 | 领取条件 | 免费层资格条件为「有效项目或免费试用」，无需关联结算账号 |
 | 额度 | 限额按 RPM / TPM / RPD 三项计，逐模型不同；官方要求在 AI Studio 的速率限制页查看，未给统一数字 |
@@ -440,8 +440,8 @@ client = OpenAI(api_key="<GEMINI_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 一次性试用金 |
-| 官方入口 | https://bailian.console.aliyun.com/ |
-| base\_url | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| 官方入口 | [查看页面：bailian.console.aliyun.com](<https://bailian.console.aliyun.com/>) |
+| base\_url | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 阿里云账号，部分权益需实名 |
 | 额度 | 新用户赠送 1 亿+ tokens 额度 |
@@ -476,7 +476,7 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://xinghuo.xfyun.cn/sparkapi |
+| 官方入口 | [查看页面：xinghuo.xfyun.cn · sparkapi](<https://xinghuo.xfyun.cn/sparkapi>) |
 | base\_url | wss://spark-api.xf-yun.com/（WebSocket） |
 | 接口协议 | WebSocket 原生协议（非 OpenAI 兼容） |
 | 领取条件 | 注册后在控制台获取 AppID、APIKey、APISecret 三件套，并在产品页领取免费额度 |
@@ -511,8 +511,8 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 一次性试用金 |
-| 官方入口 | https://cloud.cerebras.ai/ |
-| base\_url | https://api.cerebras.ai/v1 |
+| 官方入口 | [查看页面：cloud.cerebras.ai](<https://cloud.cerebras.ai/>) |
+| base\_url | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册账号 |
 | 额度 | 注册后获得 $5 免费额度 |
@@ -547,8 +547,8 @@ client = OpenAI(api_key="<CEREBRAS_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 周期性免费层 |
-| 官方入口 | https://api.together.xyz/ |
-| base\_url | https://api.together.xyz/v1 |
+| 官方入口 | [https://api.together.xyz/](<https://api.together.xyz/>) |
+| base\_url | [https://api.together.xyz/v1](<https://api.together.xyz/v1>) |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 注册账号创建 Key |
 | 额度 | 采用动态限速：每个组织每个模型的速率随持续流量自动调整，没有固定阈值 |
@@ -583,8 +583,8 @@ client = OpenAI(api_key="<TOGETHER_KEY>",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 开源自托管 |
-| 官方入口 | https://ollama.com/ |
-| base\_url | http://localhost:11434/v1（Ollama 默认） |
+| 官方入口 | [查看页面：ollama.com](<https://ollama.com/>) |
+| base\_url | `http://localhost:11434/v1`（Ollama 默认） |
 | 接口协议 | OpenAI 兼容 |
 | 领取条件 | 自己的机器；显存/内存决定能跑多大的模型 |
 | 额度 | 无外部额度限制 |
@@ -620,8 +620,8 @@ r = client.chat.completions.create(model="qwen3",
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 免 Key 公共接口 |
-| 官方入口 | https://pollinations.ai/ |
-| base\_url | https://text.pollinations.ai |
+| 官方入口 | [查看页面：pollinations.ai](<https://pollinations.ai/>) |
+| base\_url | [查看页面：text.pollinations.ai](<https://text.pollinations.ai>) |
 | 接口协议 | REST / OpenAI 兼容路径 |
 | 领取条件 | 文本接口的匿名层无需 Key；生成类接口需自备 Key 与 Pollen 余额 |
 | 额度 | 匿名层未公布额度数字；实测可直接调用，但会出现临时性 402 |
@@ -659,7 +659,7 @@ curl -s https://text.pollinations.ai/openai \
 | 项目 | 内容 |
 | --- | --- |
 | 免费类型 | 已退役 / 已失效 |
-| 官方入口 | https://docs.github.com/en/github-models |
+| 官方入口 | [文档：docs.github.com · github-models](<https://docs.github.com/en/github-models>) |
 | base\_url | — |
 | 接口协议 | — |
 | 领取条件 | — |
@@ -699,32 +699,32 @@ curl -s https://text.pollinations.ai/openai \
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

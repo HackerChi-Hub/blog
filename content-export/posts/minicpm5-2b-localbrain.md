@@ -94,10 +94,10 @@ MiniCPM5-2B 是一个 42 层的稠密模型，hidden size 2048，16 个查询头
 
 > [!tip]
 > **一手来源**
-> MiniCPM 官方仓库：https://github.com/OpenBMB/MiniCPM
-> MiniCPM5-2B：https://huggingface.co/openbmb/MiniCPM5-2B
-> 官方 MLX 4bit：https://huggingface.co/openbmb/MiniCPM5-2B-MLX
-> 官方 GGUF：https://huggingface.co/openbmb/MiniCPM5-2B-GGUF
+> MiniCPM 官方仓库：[项目仓库：OpenBMB/MiniCPM](<https://github.com/OpenBMB/MiniCPM>)
+> MiniCPM5-2B：[查看页面：huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
+> 官方 MLX 4bit：[查看页面：huggingface.co · MiniCPM5-2B-MLX](<https://huggingface.co/openbmb/MiniCPM5-2B-MLX>)
+> 官方 GGUF：[查看页面：huggingface.co · MiniCPM5-2B-GGUF](<https://huggingface.co/openbmb/MiniCPM5-2B-GGUF>)
 > 
 > 本文 KV 缓存数字为依据模型配置所做的理论估算，不是本机峰值实测。
 
@@ -113,32 +113,32 @@ MiniCPM5-2B 是一个 42 层的稠密模型，hidden size 2048，16 个查询头
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

@@ -144,10 +144,10 @@ Finally, leave a habit you can use long-term: **Next time you see 'N times faste
 
 ## 📚 Source
 
-- Ollama official announcement: "Ollama is now powered by MLX on Apple Silicon in preview": https://ollama.com/blog/mlx
-- Rapid-MLX open-source repository: https://github.com/raullenchai/Rapid-MLX
-- vMLX official website and comparison data: https://vmlx.net/
-- Apple MLX framework: https://github.com/ml-explore/mlx
+- Ollama official announcement: "Ollama is now powered by MLX on Apple Silicon in preview": [View page：ollama.com · mlx](<https://ollama.com/blog/mlx>)
+- Rapid-MLX open-source repository: [Repository：raullenchai/Rapid-MLX](<https://github.com/raullenchai/Rapid-MLX>)
+- vMLX official website and comparison data: [View page：vmlx.net](<https://vmlx.net/>)
+- Apple MLX framework: [Repository：ml-explore/mlx](<https://github.com/ml-explore/mlx>)
 
 
 ---
@@ -161,32 +161,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

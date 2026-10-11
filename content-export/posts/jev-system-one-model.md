@@ -107,11 +107,11 @@ Jev 是 TypeSafe AI 9 月 15 日发布的模型，当天在 Hacker News 上开�
 
 本文的框架、演示场景与使用要点来自 01Coder（小木头）的实测视频，特此致谢；文中所有数字、日期与引文均已回到一手页面核对，配图也全部取自一手页面而非视频画面。
 
-- TypeSafe AI 官方发布博客《Introducing System One Models & Jev》（2026-09-15）：https://typesafe.ai/blog/introducing-system-one-models-and-jev
-- Hacker News 原帖（发布当日）：https://news.ycombinator.com/item?id=49717558
-- Vercel AI Gateway 的 Jev 模型页（定价与调用示例）：https://vercel.com/ai-gateway/models/jev
-- 官方 agent skill 仓库 typesafe-ai/skills：https://github.com/typesafe-ai/skills
-- 01Coder《Jev 实测：这款爆火的极速决策模型的基本玩法》（2026-09-18）：https://www.youtube.com/watch?v=tYvu6IpSfiM
+- TypeSafe AI 官方发布博客《Introducing System One Models & Jev》（2026-09-15）：[查看页面：typesafe.ai · introducing-system-one-models-and-jev](<https://typesafe.ai/blog/introducing-system-one-models-and-jev>)
+- Hacker News 原帖（发布当日）：[查看页面：news.ycombinator.com · item](<https://news.ycombinator.com/item?id=49717558>)
+- Vercel AI Gateway 的 Jev 模型页（定价与调用示例）：[查看页面：vercel.com · jev](<https://vercel.com/ai-gateway/models/jev>)
+- 官方 agent skill 仓库 typesafe-ai/skills：[项目仓库：typesafe-ai/skills](<https://github.com/typesafe-ai/skills>)
+- 01Coder《Jev 实测：这款爆火的极速决策模型的基本玩法》（2026-09-18）：[查看页面：www.youtube.com · watch](<https://www.youtube.com/watch?v=tYvu6IpSfiM>)
 
 
 ---
@@ -125,32 +125,32 @@ Jev 是 TypeSafe AI 9 月 15 日发布的模型，当天在 Hacker News 上开�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

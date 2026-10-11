@@ -331,12 +331,12 @@ Using the bar chart from question 3, only four numbers are asked to verify wheth
 Judgment: The answer should include four numbers: 1810, 1154, 112, and 58. Qwen3.5 4B / 9B, Gemma 4 12B / E4B are read correctly; For two Bonsai, you need to think about about 1100 tokens. When the answer limit is 1024, the answer is cut off, and 2048 is correctly read.
 
 > [!tip]
-> Download page: https://github.com/HackerChi-Hub/localbrain-releases/releases
-> September 9: "1.4GB Small Model: Can It Really Be a Local Agent?" 》: https://hyphentech.top/minicpm5-2b-localbrain/
-> Independent Rankings (Open Source Small Models): https://artificialanalysis.ai/models/open-source/small
-> MiniCPM5-2B Model Card: https://huggingface.co/openbmb/MiniCPM5-2B
-> Qwen 3.5-9B Model Card: https://huggingface.co/Qwen/Qwen3.5-9B
-> Bonsai 27B Release Notes: https://prismml.com/news/bonsai-27b
+> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> September 9: "1.4GB Small Model: Can It Really Be a Local Agent?" 》: [View page：hyphentech.top · minicpm5-2b-localbrain](<https://hyphentech.top/minicpm5-2b-localbrain/>)
+> Independent Rankings (Open Source Small Models): [View page：artificialanalysis.ai · small](<https://artificialanalysis.ai/models/open-source/small>)
+> MiniCPM5-2B Model Card: [View page：huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
+> Qwen 3.5-9B Model Card: [View page：huggingface.co · Qwen3.5-9B](<https://huggingface.co/Qwen/Qwen3.5-9B>)
+> Bonsai 27B Release Notes: [View page：prismml.com · bonsai-27b](<https://prismml.com/news/bonsai-27b>)
 
 
 ---
@@ -350,32 +350,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

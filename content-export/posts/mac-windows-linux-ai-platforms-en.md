@@ -150,17 +150,17 @@ Back to the beginning: Windows is the biggest door, Mac is the most polished per
 
 ## 🧠 Main public sources
 
-- StatCounter: Global Desktop Operating System Share: https://gs.statcounter.com/os-market-share/desktop/worldwide/
-- Apple: M6 and M5 Pro Mac mini Press Release: https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/
-- Apple MLX Official Warehouse: https://github.com/ml-explore/mlx
-- Microsoft: Copilot+ PC Development Guide: https://learn.microsoft.com/en-us/windows/ai/npu-devices/
-- Microsoft: Windows AI Solution Comparison: https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison
-- NVIDIA: CUDA on WSL: https://developer.nvidia.com/cuda/wsl
-- NVIDIA: AI and HPC Containers: https://developer.nvidia.cn/ai-hpc-containers
-- PyTorch: Local installation and computing platform: https://pytorch.org/get-started/locally/
-- AMD:ROCm Compatibility Matrix:https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html
-- AMD: Radeon AI PRO R9700 Specifications: https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html
-- NVIDIA: GeForce RTX 5090 Specifications: https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/
+- StatCounter: Global Desktop Operating System Share: [View page：gs.statcounter.com · worldwide](<https://gs.statcounter.com/os-market-share/desktop/worldwide/>)
+- Apple: M6 and M5 Pro Mac mini Press Release: [View page：www.apple.com.cn · apple-unveils-powerful-mac-mini-with-m6-and-m5-pro](<https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/>)
+- Apple MLX Official Warehouse: [Repository：ml-explore/mlx](<https://github.com/ml-explore/mlx>)
+- Microsoft: Copilot+ PC Development Guide: [View page：learn.microsoft.com · npu-devices](<https://learn.microsoft.com/en-us/windows/ai/npu-devices/>)
+- Microsoft: Windows AI Solution Comparison: [View page：learn.microsoft.com · windows-ai-comparison](<https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison>)
+- NVIDIA: CUDA on WSL: [View page：developer.nvidia.com · wsl](<https://developer.nvidia.com/cuda/wsl>)
+- NVIDIA: AI and HPC Containers: [View page：developer.nvidia.cn · ai-hpc-containers](<https://developer.nvidia.cn/ai-hpc-containers>)
+- PyTorch: Local installation and computing platform: [View page：pytorch.org · locally](<https://pytorch.org/get-started/locally/>)
+- AMD:ROCm Compatibility Matrix:[Documentation：rocm.docs.amd.com · compatibility-matrix.html](<https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>)
+- AMD: Radeon AI PRO R9700 Specifications: [View page：www.amd.com · amd-radeon-ai-pro-r9700.html](<https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html>)
+- NVIDIA: GeForce RTX 5090 Specifications: [View page：www.nvidia.com · rtx-5090](<https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/>)
 
 
 ---
@@ -174,32 +174,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

@@ -206,32 +206,32 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 >
 > 免費大模型 API 雷達：持續複測可用性，本機統一介面，Key 只存本機
 >
-> [下載與更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下載與更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **狀態：** 正式迭代
 >
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
-> [下載與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影詞庫
 > **狀態：** 正式迭代
 >
 > 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
 >
-> [下載與更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉錄屏 HyphenScreen
 > **狀態：** 正式迭代
 >
 > 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
 >
-> [下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **讓AI成為你的超能力**
 > 本機部署 · 免費白嫖 · 自製軟體
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

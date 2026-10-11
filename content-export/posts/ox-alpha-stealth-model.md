@@ -66,7 +66,7 @@ legacy_paths: []
 | tokenizer | Other | 连分词器族系都没写 |
 | hugging\_face\_id | null | 没有可对应的公开权重仓库 |
 
-※ 数据来源：https://openrouter.ai/api/v1/models，2026-08-24 实取。created 字段换算为 2026-08-20 20:04 UTC。
+※ 数据来源：[https://openrouter.ai/api/v1/models](<https://openrouter.ai/api/v1/models>)，2026-08-24 实取。created 字段换算为 2026-08-20 20:04 UTC。
 
 能力侧也不是花架子：它接受 tools 和 tool\_choice 做函数调用，支持 response\_format 出 JSON（但不强制 schema）。页面把它定位成**面向编程、长程 agent 工作和生产负载的推理模型**。这几个词连起来，说的是同一件事——它是给你拿去干活的，不是拿去聊天的。
 
@@ -176,11 +176,11 @@ OpenRouter 会公开每个模型的应用榜。Ox Alpha 上面排第一的是 **
 
 ### ▍📚 数据来源与复现入口
 
-- OpenRouter · Ox Alpha 模型页：https://openrouter.ai/stealth/ox-alpha
+- OpenRouter · Ox Alpha 模型页：[查看页面：openrouter.ai · ox-alpha](<https://openrouter.ai/stealth/ox-alpha>)
 
-- OpenRouter 模型列表 API（本文数据来源）：https://openrouter.ai/api/v1/models
+- OpenRouter 模型列表 API（本文数据来源）：[https://openrouter.ai/api/v1/models](<https://openrouter.ai/api/v1/models>)
 
-- 零度解说的实测视频（2026-08-22）：https://www.youtube.com/watch?v=yhhyFO6hSTs
+- 零度解说的实测视频（2026-08-22）：[查看页面：www.youtube.com · watch](<https://www.youtube.com/watch?v=yhhyFO6hSTs>)
 
 
 ---
@@ -194,32 +194,32 @@ OpenRouter 会公开每个模型的应用榜。Ox Alpha 上面排第一的是 **
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

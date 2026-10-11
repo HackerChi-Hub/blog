@@ -136,7 +136,7 @@ Comparing the two, the sampling is completely as the official method is, with tw
 
 **The license is also worth a look. **Qwen Community License 1.0 allows free use, modification, and distribution; But if you are in a model-as-a-service business (providing external APIs or managed inference) or AI work assistants, you must obtain Qianwenqian for authorization before commercializing; If the product has over 100 million monthly active users or monthly revenue over 20 million USD, the model name must be prominently displayed on the interface. Individuals running on their own machines, using it internally within the company, and not opening up model capabilities to third parties, are not subject to the second restriction.
 
-> Data for this section comes from the official model card on ModelScope (accessed 2026-09-11): https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next/summary
+> Data for this section comes from the official model card on ModelScope (accessed 2026-09-11): [View page：modelscope.cn · summary](<https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next/summary>)
 
 ## 📋 The five questions on the surface of the questions
 
@@ -324,7 +324,7 @@ The most frequent changes in the agent cycle these past two days are the same th
 
 ## 🛠️ I want to run it myself: the path is all here
 
-- **Install Application:** LocalBrain 1.2.63 has released macOS (Apple Silicon) and Windows x64 installation packages, download library https://github.com/HackerChi-Hub/localbrain-releases/releases. Linux currently has no available inference runtime, so no package was included this time.
+- **Install Application:** LocalBrain 1.2.63 has released macOS (Apple Silicon) and Windows x64 installation packages, download library [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>). Linux currently has no available inference runtime, so no package was included this time.
 - **Lower model:** Search for Qwen3.8-Flash-Next on the 'Discover' page, select IQ4_XS for 64GB machines; For 32GB and below, avoid this; choose Ling 3.0 Tiny or Qwen 3.6 in the lower mode.
 - **Question Description:** Choose one from the "5 Questions Replay Package" below, paste the entire paragraph into the chat box, and send it. The agent can write documents, run self-checks, modify, and deliver; The finished product is under `~/Downloads/方寸智匣/系统输出/`.
 - **Watch the process:** Each round in the execution log contains input keywords, output amount, generation time, and tool feedback summary. When the speed drops, you'll see the line "This round's output limit tightened to 3,295 words."
@@ -361,32 +361,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

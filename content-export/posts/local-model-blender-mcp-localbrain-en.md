@@ -137,10 +137,10 @@ It's not suitable for people expecting a finished image from a single sentence, 
 If you really want to try, the recommended order is as follows. First, install Blender and blender-mcp, turn off both telemetry switches, and only select the few tools you need. Specify the Blender version in the requirements, and leave the steplist and intermediate files on disk. During acceptance, have the model see the final rendered image instead of a viewport screenshot, and finally open the render yourself to take a look. When outlining the reverse case, remember to open the back to remove it; if you need to make a window opening, make sure the Bull is actually cut to the body.
 
 > [!tip]
-> Original video: "No Need for GPT-6! Local Model Operation Blender Modeling Tutorial": https://www.bilibili.com/video/BV1MfYu68E73/
-> blender-mcp project: https://github.com/ahujasid/blender-mcp
-> Blender official website: https://www.blender.org/
-> LocalBrain Download Page: https://github.com/HackerChi-Hub/localbrain-releases/releases
+> Original video: "No Need for GPT-6! Local Model Operation Blender Modeling Tutorial": [View page：www.bilibili.com · BV1MfYu68E73](<https://www.bilibili.com/video/BV1MfYu68E73/>)
+> blender-mcp project: [Repository：ahujasid/blender-mcp](<https://github.com/ahujasid/blender-mcp>)
+> Blender official website: [View page：www.blender.org](<https://www.blender.org/>)
+> LocalBrain Download Page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 
 ---
@@ -154,32 +154,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

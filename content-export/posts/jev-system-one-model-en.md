@@ -115,11 +115,11 @@ So there's only one method you can follow, and it's the most important thing to 
 
 The framework, demonstration scenarios, and key usage points in this article are from 01Coder's hands-on video. Special thanks; All numbers, dates, and quotations in the text have been verified on the primary page, and all images are taken from the primary page rather than the video footage.
 
-- TypeSafe AI official blog "Introducing System One Models & Jev" (2026-09-15): https://typesafe.ai/blog/introducing-system-one-models-and-jev
-- Hacker News original post (on the day of publication): https://news.ycombinator.com/item?id=49717558
-- Vercel AI Gateway Jev Model Page (Pricing and Call Examples): https://vercel.com/ai-gateway/models/jev
-- Official agent skill repository typesafe-ai/skills:https://github.com/typesafe-ai/skills
-- 01 Coder "Jev Test: The Basic Gameplay of This Popular Rapid Decision Model" (2026-09-18): https://www.youtube.com/watch?v=tYvu6IpSfiM
+- TypeSafe AI official blog "Introducing System One Models & Jev" (2026-09-15): [View page：typesafe.ai · introducing-system-one-models-and-jev](<https://typesafe.ai/blog/introducing-system-one-models-and-jev>)
+- Hacker News original post (on the day of publication): [View page：news.ycombinator.com · item](<https://news.ycombinator.com/item?id=49717558>)
+- Vercel AI Gateway Jev Model Page (Pricing and Call Examples): [View page：vercel.com · jev](<https://vercel.com/ai-gateway/models/jev>)
+- Official agent skill repository typesafe-ai/skills:[Repository：typesafe-ai/skills](<https://github.com/typesafe-ai/skills>)
+- 01 Coder "Jev Test: The Basic Gameplay of This Popular Rapid Decision Model" (2026-09-18): [View page：www.youtube.com · watch](<https://www.youtube.com/watch?v=tYvu6IpSfiM>)
 
 
 ---
@@ -133,32 +133,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

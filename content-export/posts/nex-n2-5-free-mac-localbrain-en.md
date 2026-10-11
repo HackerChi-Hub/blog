@@ -101,14 +101,14 @@ For 64GB Mac users, mini has moved from "absolutely can't let go" to "opportunit
 
 > [!tip]
 > **Primary source**
-> Nex-N2.5 Official Warehouse: https://github.com/nex-agi/Nex-N2.5
-> Mini official weight and specs: https://huggingface.co/nex-agi/Nex-N2.5-mini
-> OpenRouter mini: https://openrouter.ai/nex-agi/nex-n2.5-mini:free
-> OpenRouter Pro: https://openrouter.ai/nex-agi/nex-n2.5-pro:free
+> Nex-N2.5 Official Warehouse: [Repository：nex-agi/Nex-N2.5](<https://github.com/nex-agi/Nex-N2.5>)
+> Mini official weight and specs: [View page：huggingface.co · Nex-N2.5-mini](<https://huggingface.co/nex-agi/Nex-N2.5-mini>)
+> OpenRouter mini: [View page：openrouter.ai · nex-n2.5-mini:free](<https://openrouter.ai/nex-agi/nex-n2.5-mini:free>)
+> OpenRouter Pro: [View page：openrouter.ai · nex-n2.5-pro:free](<https://openrouter.ai/nex-agi/nex-n2.5-pro:free>)
 > 
 > Community conversion is only for volume judgment:
-> https://huggingface.co/abenzerps/Nex-N2.5-mini-MLX-4bit
-> https://huggingface.co/abenzerps/Nex-N2.5-mini-GGUF
+> [View page：huggingface.co · Nex-N2.5-mini-MLX-4bit](<https://huggingface.co/abenzerps/Nex-N2.5-mini-MLX-4bit>)
+> [View page：huggingface.co · Nex-N2.5-mini-GGUF](<https://huggingface.co/abenzerps/Nex-N2.5-mini-GGUF>)
 
 
 ---
@@ -122,32 +122,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

@@ -115,7 +115,7 @@ MLX目前也没有捷径。截至截稿，mlx-community能找到多个V4 Flash�
 > [!tip]
 > **离线容量计算器**
 > 把你的统一内存、模型权重、视觉塔、系统预留和缓存填进去，先判断能否全量常驻：
-> https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/deepseek-mac-memory-calculator.html
+> [查看页面：hyphentech.top · deepseek-mac-memory-calculator.html](<https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/deepseek-mac-memory-calculator.html>)
 
 开源把选择权交给了用户，却不会替用户扩容。DeepSeek这次最值得关注的，是它终于把视觉接进Agent闭环，并用同价API和MIT权重同时拉拢开发者与本地生态；64GB Mac最该做的，则是承认今天的硬墙，别把下载和换页当成生产力。
 
@@ -138,32 +138,32 @@ MLX目前也没有捷径。截至截稿，mlx-community能找到多个V4 Flash�
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

@@ -163,9 +163,9 @@ If you have an Apple Silicon over 64 GB, want people in your video to speak acco
 > 4 seconds is about 2 minutes, 10 seconds is about 6 minutes, 20 seconds is about 12 minutes, with peak memory of 25~37 GB; You can say lines in quotation marks, and the longer the video, the easier it is to drift. Suitable for those with Apple Silicon over 64 GB in hand who want the person in the frame to speak according to your lines but don't want to upload the material to the cloud. If you want image consistency, 2K finished video, or only 32 GB of memory, don't rush to get involved.
 
 > [!tip]
-> Download page: https://github.com/HackerChi-Hub/localbrain-releases/releases
-> ModelScope: https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8
-> Runtime: https://github.com/MrMoferFRAN/ltx-2-mlx
+> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> ModelScope: [View page：modelscope.cn · ltx-2.5-mlx-q8](<https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8>)
+> Runtime: [Repository：MrMoferFRAN/ltx-2-mlx](<https://github.com/MrMoferFRAN/ltx-2-mlx>)
 
 
 ---
@@ -179,32 +179,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

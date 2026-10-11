@@ -75,7 +75,7 @@ I didn't cite any secondhand reports and directly pulled OpenRouter's model list
 | tokenizer | Other | They didn't even write about the participle family system |
 | hugging\_face\_id | null | There is no corresponding public weight repository |
 
-※ Data source: https://openrouter.ai/api/v1/models, retrieved on 2026-08-24. The created field is converted to 2026-08-20 20:04 UTC.
+※ Data source: [https://openrouter.ai/api/v1/models](<https://openrouter.ai/api/v1/models>), retrieved on 2026-08-24. The created field is converted to 2026-08-20 20:04 UTC.
 
 The capability side isn't just for show: it accepts tools and tool\_choice for function calls, supports response\_format generating JSON (but doesn't force schema). The page positions it as a **reasoning model oriented toward programming, long-range agent work, and production workloads**. Together, these words say the same thing—it's for you to get work done, not for chatting.
 
@@ -185,11 +185,11 @@ Finally, let's return to the contrast at the beginning. The most viral ironic li
 
 ### 📚 ▍ Data sources and reproduction entry points
 
-- OpenRouter · Ox Alpha Model Page: https://openrouter.ai/stealth/ox-alpha
+- OpenRouter · Ox Alpha Model Page: [View page：openrouter.ai · ox-alpha](<https://openrouter.ai/stealth/ox-alpha>)
 
-- OpenRouter Model List API (data source for this article): https://openrouter.ai/api/v1/models
+- OpenRouter Model List API (data source for this article): [https://openrouter.ai/api/v1/models](<https://openrouter.ai/api/v1/models>)
 
-- Zero Degree commentary test video (2026-08-22): https://www.youtube.com/watch?v=yhhyFO6hSTs
+- Zero Degree commentary test video (2026-08-22): [View page：www.youtube.com · watch](<https://www.youtube.com/watch?v=yhhyFO6hSTs>)
 
 
 ---
@@ -203,32 +203,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

@@ -78,11 +78,11 @@ legacy_paths: []
 > [!note]
 > 这是限时活动，不是永久零价。Chat 免费开始时间仍以模型实际上线为准。
 
-- 官方来源：https://docs.b.ai/llmservice/models/glm-5-3-flash/
+- 官方来源：[文档：docs.b.ai · glm-5-3-flash](<https://docs.b.ai/llmservice/models/glm-5-3-flash/>)
 
-- 官方来源：https://docs.b.ai/llmservice/models/qwen3-8-flash/
+- 官方来源：[文档：docs.b.ai · qwen3-8-flash](<https://docs.b.ai/llmservice/models/qwen3-8-flash/>)
 
-- 官方来源：https://docs.b.ai/llmservice/promotions-and-pricing-notices/
+- 官方来源：[价格说明：docs.b.ai · promotions-and-pricing-notices](<https://docs.b.ai/llmservice/promotions-and-pricing-notices/>)
 
 ![# B.AI 官方活动页：GLM-5.3-Flash 与 Qwen3.8-Flash 当前 API 按 0 Credits 结算 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-01-6c0ea50936.png)
 
@@ -99,19 +99,19 @@ legacy_paths: []
 | 项目 | 核实内容 |
 | --- | --- |
 | 可用模型 | coding-glm-5.3-free、coding-glm-5.3-flash-free |
-| 接入 | Base URL 为 https://aihubmix.com/v1；需要注册并创建自己的 API Key。 |
-| Base URL | https://aihubmix.com/v1 |
+| 接入 | Base URL 为 [https://aihubmix.com/v1](<https://aihubmix.com/v1>)；需要注册并创建自己的 API Key。 |
+| Base URL | [https://aihubmix.com/v1](<https://aihubmix.com/v1>) |
 | 核实结论 | 两款单模型页都标输入、输出与缓存读取为每百万 token 0 美元，并给出 OpenAI-compatible 调用示例。 |
 | 证据状态 | 官方页面确认，但限额口径冲突 |
 
 > [!note]
 > 单模型页写每分钟 5 次、每天 500 次、每天 100 万 token；2026-08-27 更新的免费总页则写未充值前共享 10 次试用，充值至少 1 美元后共享每分钟 10 次、每天 100 次、每天 100 万 token。两页口径冲突，接入前以账户控制台为准。
 
-- 官方来源：https://aihubmix.com/model/coding-glm-5.3-free
+- 官方来源：[查看页面：aihubmix.com · coding-glm-5.3-free](<https://aihubmix.com/model/coding-glm-5.3-free>)
 
-- 官方来源：https://aihubmix.com/model/coding-glm-5.3-flash-free
+- 官方来源：[查看页面：aihubmix.com · coding-glm-5.3-flash-free](<https://aihubmix.com/model/coding-glm-5.3-flash-free>)
 
-- 官方来源：https://aihubmix.com/models/free
+- 官方来源：[查看页面：aihubmix.com · free](<https://aihubmix.com/models/free>)
 
 ![# AIHubMix 单模型页：Coding GLM 5.3 Flash 免费模型与零价信息 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-03-c5f85b2feb.png)
 
@@ -128,17 +128,17 @@ legacy_paths: []
 | 项目 | 核实内容 |
 | --- | --- |
 | 可用模型 | qwen/qwen3.8-max-free |
-| 接入 | OpenAI、Claude 与 Gemini 兼容的统一模型网关；官方模型页示例使用 https://api.tokenrouter.com/v1。 |
-| Base URL | https://api.tokenrouter.com/v1 |
+| 接入 | OpenAI、Claude 与 Gemini 兼容的统一模型网关；官方模型页示例使用 [https://api.tokenrouter.com/v1](<https://api.tokenrouter.com/v1>)。 |
+| Base URL | [https://api.tokenrouter.com/v1](<https://api.tokenrouter.com/v1>) |
 | 核实结论 | 官方模型页已列出 qwen/qwen3.8-max-free，输入和输出价格都标为每百万 token 0 美元，支持 OpenAI-compatible chat/completions。 |
 | 证据状态 | 官方模型页当前确认 |
 
 > [!note]
 > 官方页同时提醒免费算力有限，服务稳定性与并发不作保证；公开模型页也没有给出可长期承诺的调用次数或 token 配额，仍需登录控制台核对。
 
-- 官方来源：https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/
+- 官方来源：[查看页面：www.tokenrouter.com · qwen3.8-max-free](<https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/>)
 
-- 官方来源：https://www.tokenrouter.com/
+- 官方来源：[查看页面：www.tokenrouter.com](<https://www.tokenrouter.com/>)
 
 ![# TokenRouter 官方模型页：Qwen3.8 Max 免费模型输入输出价格为 0 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-05-deaace89a5.png)
 
@@ -161,7 +161,7 @@ legacy_paths: []
 > [!note]
 > GLM 5.3 Flash 出现在 Agent Pass 增加模型中，Free 档明确标为 not included，不能写成免费档。
 
-- 官方来源：https://tokenharbor.ai/pricing
+- 官方来源：[价格说明：tokenharbor.ai · pricing](<https://tokenharbor.ai/pricing>)
 
 ![# TokenHarbor 官方定价页：Qwen3.8 27B 在免费档，GLM 5.3 Flash 属 Agent Pass · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-06-12098b97f8.png)
 
@@ -178,17 +178,17 @@ legacy_paths: []
 | 项目 | 核实内容 |
 | --- | --- |
 | 可用模型 | 官方页显示 GLM 5.3 Flash，并称正在准备 Qwen3.8-Flash-Next 免费端点 |
-| 接入 | 历史公开入口为 https://free.empero.org/v1；原页面说明为 OpenAI-compatible，任意 key 可用。 |
-| Base URL | https://free.empero.org/v1 |
+| 接入 | 历史公开入口为 [https://free.empero.org/v1](<https://free.empero.org/v1>)；原页面说明为 OpenAI-compatible，任意 key 可用。 |
+| Base URL | [https://free.empero.org/v1](<https://free.empero.org/v1>) |
 | 核实结论 | 2026-08-28 官方页面显示 MAINTENANCE，正在切换免费端点，API 请求会返回结构化维护错误。当前不能再写成最省事的可用入口。 |
 | 证据状态 | 官方页当前为维护状态；隐私披露来自此前官方页 |
 
 > [!note]
 > 此前官方页明确披露 prompts 和 completions 会与 hashed IP 一起记录，用于改进开源模型。即使恢复，也只适合公开代码、测试和 prompt 回归，不适合账号、密钥、客户数据或私有仓库。
 
-- 官方来源：https://free.empero.org/
+- 官方来源：[查看页面：free.empero.org](<https://free.empero.org/>)
 
-- 官方来源：https://free.empero.org/v1
+- 官方来源：[https://free.empero.org/v1](<https://free.empero.org/v1>)
 
 ![# Empero 官方页：免费端点正在维护切换 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-08-c74575f8a1.png)
 
@@ -211,11 +211,11 @@ legacy_paths: []
 > [!note]
 > 公开文档没有固定列出当前具体免费模型，因此“Cline 内 GLM-5.3 Flash 免费”仍要以登录后的 IDE 或 CLI 模型选择器为准。
 
-- 官方来源：https://cline.bot/
+- 官方来源：[查看页面：cline.bot](<https://cline.bot/>)
 
-- 官方来源：https://docs.cline.bot/provider-config/openai-compatible
+- 官方来源：[文档：docs.cline.bot · openai-compatible](<https://docs.cline.bot/provider-config/openai-compatible>)
 
-- 官方来源：https://docs.cline.bot/getting-started/free-models
+- 官方来源：[文档：docs.cline.bot · free-models](<https://docs.cline.bot/getting-started/free-models>)
 
 ![# Cline 官方文档：支持自定义 OpenAI-compatible API endpoint · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-09-6007e52e87.png)
 
@@ -232,19 +232,19 @@ legacy_paths: []
 | 项目 | 核实内容 |
 | --- | --- |
 | 可用模型 | 公开目录当前可见 GLM-5.3，但未列出 GLM-5.3-Flash |
-| 接入 | 系统升级公告要求使用新地址 https://api.hilinkup.com，并采用渠道/模型ID格式。 |
-| Base URL | https://api.hilinkup.com |
-| 核实结论 | 模型路由 https://hilinkup.com/models/glm-5-3-flash 当前只返回通用 SPA 页面；2026-08-28 读取官方 public/models 目录也未找到 GLM-5.3-Flash。 |
+| 接入 | 系统升级公告要求使用新地址 [https://api.hilinkup.com](<https://api.hilinkup.com>)，并采用渠道/模型ID格式。 |
+| Base URL | [https://api.hilinkup.com](<https://api.hilinkup.com>) |
+| 核实结论 | 模型路由 [查看页面：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>) 当前只返回通用 SPA 页面；2026-08-28 读取官方 public/models 目录也未找到 GLM-5.3-Flash。 |
 | 证据状态 | 官方公开目录未确认 |
 
 > [!note]
 > “2026-08-27 至 2026-09-02 限时免费”缺少可稳定打开的官方活动页，暂不写成已确认优惠。
 
-- 官方来源：https://hilinkup.com/models/glm-5-3-flash
+- 官方来源：[查看页面：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>)
 
-- 官方来源：https://hilinkup.com/api/v1/public/models
+- 官方来源：[https://hilinkup.com/api/v1/public/models](<https://hilinkup.com/api/v1/public/models>)
 
-- 官方来源：https://hilinkup.com/api/v1/public/announcements
+- 官方来源：[https://hilinkup.com/api/v1/public/announcements](<https://hilinkup.com/api/v1/public/announcements>)
 
 ---
 
@@ -291,32 +291,32 @@ legacy_paths: []
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)

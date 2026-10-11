@@ -100,9 +100,9 @@ A truly reliable statement isn't "I only opened localhost, so it's fine," but ra
 
 > [!tip]
 > **Official Safety Announcement**
-> WinML CLI / CVE-2026-84452: https://github.com/microsoft/winml-cli/security/advisories/GHSA-96p9-rh4f-92cf
-> vLLM SSRF / CVE-2026-73560: https://github.com/vllm-project/vllm/security/advisories/GHSA-4hhp-h66f-j5j7
-> vLLM Data Leak / CVE-2026-73558:https://github.com/vllm-project/vllm/security/advisories/GHSA-7m6h-x95x-82q5
+> WinML CLI / CVE-2026-84452: [Repository：microsoft/winml-cli](<https://github.com/microsoft/winml-cli/security/advisories/GHSA-96p9-rh4f-92cf>)
+> vLLM SSRF / CVE-2026-73560: [Repository：vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-4hhp-h66f-j5j7>)
+> vLLM Data Leak / CVE-2026-73558:[Repository：vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-7m6h-x95x-82q5>)
 
 
 ---
@@ -116,32 +116,32 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 >
 > A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] LocalBrain
 > **Status:** Official releases
 >
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex
 > **Status:** Official releases
 >
 > Learn new words while you watch shows. Free, for Mac and Windows
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] HyphenScreen
 > **Status:** Official releases
 >
 > Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
 >
-> [Downloads & updates](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] HyphenTech
 > **Make AI your superpower**
 > Local deployment · Free resources · Self-made software
-> https://hyphentech.top
+> [HyphenTech](https://hyphentech.top)

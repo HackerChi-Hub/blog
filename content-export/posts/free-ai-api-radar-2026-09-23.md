@@ -82,7 +82,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | nvidia/nemotron-3-super-120b-a12b:free |
 | 接入 | OpenAI 兼容；注册账号并创建 Key，无需信用卡即可用免费变体 |
-| Base URL | https://openrouter.ai/api/v1 |
+| Base URL | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
 | 免费类型 | 零价模型／账户级免费档 |
 | 鉴权 | 注册账号并创建 Key，无需信用卡即可用免费变体 |
 | 免费额度 | 官方免费模型限制及上游限制并存；本账户当前实际限额须看控制台 |
@@ -97,8 +97,8 @@ legacy_paths: []
 > [!warning]
 > 不同免费模型不是同一可用性；429、503 和账户余额约束须分开看。
 
-- 官方来源：https://openrouter.ai/docs/api-reference/limits
-- 官方来源：https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree
+- 官方来源：[文档：openrouter.ai · limits](<https://openrouter.ai/docs/api-reference/limits>)
+- 官方来源：[查看页面：openrouter.ai · nemotron-3-super-120b-a12b:free](<https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree>)
 
 - 本期探测：openrouter/liquid/lfm-2.5-2.6b:free · chat · 有效 0/4 · probe-report.local.json
 - 本期探测：openrouter/nvidia/nemotron-3-super-120b-a12b:free · chat · 有效 3/4 · probe-report.recheck.json
@@ -115,7 +115,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | PaddlePaddle/PaddleOCR-VL-1.5（官方价格页）；Qwen/Qwen2.5-7B-Instruct（本机探测目标） |
 | 接入 | OpenAI 兼容；注册 + 实名认证（实名后才能使用全部免费模型） |
-| Base URL | https://api.siliconflow.cn/v1 |
+| Base URL | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
 | 免费类型 | 零价模型／账户条件 |
 | 鉴权 | 注册 + 实名认证（实名后才能使用全部免费模型） |
 | 免费额度 | 账户级限额待控制台核验 |
@@ -130,7 +130,7 @@ legacy_paths: []
 > [!warning]
 > 官方公告称账户使用须实名；旧 PaddleOCR-VL 退役不等于 PaddleOCR-VL-1.5 退役。
 
-- 官方来源：https://siliconflow.cn/pricing
+- 官方来源：[价格说明：siliconflow.cn · pricing](<https://siliconflow.cn/pricing>)
 
 - 本期探测：siliconflow/Qwen/Qwen2.5-7B-Instruct · chat · 有效 0/4 · probe-report.local.json
 
@@ -144,7 +144,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 官方模型概览列出 GLM Flash 系列；具体免费型号待模型页复核 |
 | 接入 | OpenAI 兼容；注册账号获取 API Key |
-| Base URL | https://open.bigmodel.cn/api/paas/v4 |
+| Base URL | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
 | 免费类型 | 官方免费模型／账户层 |
 | 鉴权 | 注册账号获取 API Key |
 | 免费额度 | 待账户权益页核验 |
@@ -159,7 +159,7 @@ legacy_paths: []
 > [!warning]
 > 旧版型号和限额不得直接沿用。
 
-- 官方来源：https://docs.bigmodel.cn/cn/guide/start/model-overview
+- 官方来源：[文档：docs.bigmodel.cn · model-overview](<https://docs.bigmodel.cn/cn/guide/start/model-overview>)
 
 ---
 
@@ -170,10 +170,10 @@ legacy_paths: []
 | 项目 | 核实内容 |
 | --- | --- |
 | 可用模型 | 具体模型清单待官方控制台核验 |
-| 接入 | OpenAI 兼容；注册账号后在 https://modelscope.cn/my/myaccesstoken 获取 Access Token |
-| Base URL | https://api-inference.modelscope.cn/v1/ |
+| 接入 | OpenAI 兼容；注册账号后在 [密钥管理：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) 获取 Access Token |
+| Base URL | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | 免费类型 | 账户层免费服务 |
-| 鉴权 | 注册账号后在 https://modelscope.cn/my/myaccesstoken 获取 Access Token |
+| 鉴权 | 注册账号后在 [密钥管理：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) 获取 Access Token |
 | 免费额度 | 待核验 |
 | 重置周期 | 待核验 |
 | 有效期 | 以账户及官方活动条款为准 |
@@ -186,7 +186,7 @@ legacy_paths: []
 > [!warning]
 > 不能把 8 月清单当作 9 月可用模型。
 
-- 官方来源：https://www.modelscope.cn/docs/model-service/API-Inference/intro
+- 官方来源：[文档：www.modelscope.cn · intro](<https://www.modelscope.cn/docs/model-service/API-Inference/intro>)
 
 ---
 
@@ -198,7 +198,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | qwen/qwen3.8-27b；openai/gpt-oss-20b |
 | 接入 | OpenAI 兼容；注册账号创建 Key |
-| Base URL | https://api.groq.com/openai/v1 |
+| Base URL | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
 | 免费类型 | 周期恢复免费档 |
 | 鉴权 | 注册账号创建 Key |
 | 免费额度 | Qwen3.8-27b 官方限额表列 30 RPM、1000 RPD、8K TPM、200K TPD；账户实际限额以控制台为准 |
@@ -213,9 +213,9 @@ legacy_paths: []
 > [!warning]
 > 同平台不同模型不能共享稳定性结论。
 
-- 官方来源：https://console.groq.com/docs/rate-limits
-- 官方来源：https://console.groq.com/docs/your-data
-- 官方来源：https://console.groq.com/docs/deprecations
+- 官方来源：[文档：console.groq.com · rate-limits](<https://console.groq.com/docs/rate-limits>)
+- 官方来源：[文档：console.groq.com · your-data](<https://console.groq.com/docs/your-data>)
+- 官方来源：[文档：console.groq.com · deprecations](<https://console.groq.com/docs/deprecations>)
 
 - 本期探测：groq/openai/gpt-oss-20b · chat · 有效 2/4 · probe-report.local.json
 - 本期探测：groq/qwen/qwen3.8-27b · chat · 有效 4/4 · probe-report.recheck.json
@@ -232,7 +232,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | Workers AI 官方模型目录；具体免费可用模型按账户核实 |
 | 接入 | REST（Worker 内可直接 env.AI.run）；Cloudflare 账号；Free 与 Paid 两种 Workers 计划都享有该免费额度 |
-| Base URL | https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model} |
+| Base URL | `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/{model}` |
 | 免费类型 | 每日恢复免费档 |
 | 鉴权 | Cloudflare 账号；Free 与 Paid 两种 Workers 计划都享有该免费额度 |
 | 免费额度 | 10,000 Neurons／日 |
@@ -247,7 +247,7 @@ legacy_paths: []
 > [!warning]
 > 超额后免费计划失败；不能把 Neurons 换算成固定 Chat 次数。
 
-- 官方来源：https://developers.cloudflare.com/workers-ai/platform/pricing/
+- 官方来源：[价格说明：developers.cloudflare.com · pricing](<https://developers.cloudflare.com/workers-ai/platform/pricing/>)
 
 ![Cloudflare 官方定价页：Workers AI 每日免费 Neurons 配额 · 2026-09-23](/obsidian-assets/free-ai-api-radar-2026-09-23/image-cloudflare-1-686624d9ef.png)
 
@@ -261,7 +261,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | agnes-2.5-flash；agnes-2.0-flash（实测）；官网 Free API 当前主要展示 3.0 Flash |
 | 接入 | OpenAI 兼容（文本对话）+ REST（图片同步 / 视频异步轮询）；谷歌账号登录即可开通，取得 API Key |
-| Base URL | https://apihub.agnes-ai.com/v1 |
+| Base URL | [https://apihub.agnes-ai.com/v1](<https://apihub.agnes-ai.com/v1>) |
 | 免费类型 | 账户层免费档／动态限频 |
 | 鉴权 | 谷歌账号登录即可开通，取得 API Key |
 | 免费额度 | 本期未从官方可读取页面核实 2.5 Flash 的免费定价和固定数字 |
@@ -276,7 +276,7 @@ legacy_paths: []
 > [!warning]
 > 官网 Free API 的宣传不能自动套到 2.5 Flash；不能把连续三次成功等同长期稳定。
 
-- 官方来源：https://agnes-ai.com/
+- 官方来源：[查看页面：agnes-ai.com](<https://agnes-ai.com/>)
 
 - 本期探测：agnes/agnes-2.0-flash · chat · 有效 1/4 · probe-report.local.json
 - 本期探测：agnes/agnes-2.5-flash · chat · 有效 3/4 · probe-report.recheck.json
@@ -291,7 +291,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 按 Inference Providers 官方路由及账户可见模型 |
 | 接入 | OpenAI 兼容；HF 账号 + Access Token |
-| Base URL | https://router.huggingface.co/v1 |
+| Base URL | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
 | 免费类型 | 每月计算额度 |
 | 鉴权 | HF 账号 + Access Token |
 | 免费额度 | Free 用户每月 0.10 美元计算额度 |
@@ -306,7 +306,7 @@ legacy_paths: []
 > [!warning]
 > BYOK 路由的计费口径不同，不能把平台额度理解为无限调用。
 
-- 官方来源：https://huggingface.co/docs/inference-providers/pricing
+- 官方来源：[价格说明：huggingface.co · pricing](<https://huggingface.co/docs/inference-providers/pricing>)
 
 ![Hugging Face 官方定价页：免费账户月度计算额度 · 2026-09-23](/obsidian-assets/free-ai-api-radar-2026-09-23/image-huggingface-1-db3987ce99.png)
 
@@ -320,7 +320,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 以 build.nvidia.com 当期 Free Endpoint 标签为准 |
 | 接入 | OpenAI 兼容；NVIDIA 开发者账号 |
-| Base URL | https://integrate.api.nvidia.com/v1 |
+| Base URL | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
 | 免费类型 | 官方 Free Endpoint／账户层 |
 | 鉴权 | NVIDIA 开发者账号 |
 | 免费额度 | 未核实统一固定额度 |
@@ -335,7 +335,7 @@ legacy_paths: []
 > [!warning]
 > OpenRouter 转发的 NVIDIA 模型成功不等于 NVIDIA 直连接口实测成功。
 
-- 官方来源：https://build.nvidia.com/models
+- 官方来源：[查看页面：build.nvidia.com · models](<https://build.nvidia.com/models>)
 
 ---
 
@@ -347,7 +347,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | gemini-3.1-flash-lite（官方免费层）；gemini-embedding-001（调用有效，当前免费价格待核） |
 | 接入 | 原生 REST + OpenAI 兼容层；免费层资格条件为「有效项目或免费试用」，无需关联结算账号 |
-| Base URL | https://generativelanguage.googleapis.com/v1beta/openai/ |
+| Base URL | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
 | 免费类型 | 逐模型免费档 |
 | 鉴权 | 免费层资格条件为「有效项目或免费试用」，无需关联结算账号 |
 | 免费额度 | 按模型／项目 RPM、TPM、RPD 限额；本账户以 AI Studio 控制台为准 |
@@ -362,8 +362,8 @@ legacy_paths: []
 > [!warning]
 > 免费层请求可能用于改进 Google 产品；敏感内容不应投入。模型、地区和账户资格会影响免费层。
 
-- 官方来源：https://ai.google.dev/gemini-api/docs/rate-limits
-- 官方来源：https://ai.google.dev/gemini-api/docs/pricing
+- 官方来源：[文档：ai.google.dev · rate-limits](<https://ai.google.dev/gemini-api/docs/rate-limits>)
+- 官方来源：[价格说明：ai.google.dev · pricing](<https://ai.google.dev/gemini-api/docs/pricing>)
 
 - 本期探测：gemini/gemini-3.1-flash-lite · chat · 有效 4/4 · probe-report.local.json
 - 本期探测：gemini/gemini-embedding-001 · embedding · 有效 4/4 · probe-report.local.json
@@ -382,7 +382,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 以 Model Studio 当期模型定价页为准 |
 | 接入 | OpenAI 兼容；阿里云账号，部分权益需实名 |
-| Base URL | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| Base URL | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
 | 免费类型 | 新用户一次性额度 |
 | 鉴权 | 阿里云账号，部分权益需实名 |
 | 免费额度 | 新加坡地域新开通用户免费额度有效期按官方新规为 90 天；具体获赠数按账户 |
@@ -397,7 +397,7 @@ legacy_paths: []
 > [!warning]
 > 这不是长期周期免费档；历史开户用户条款不因公告自动变化。
 
-- 官方来源：https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment
+- 官方来源：[查看页面：www.alibabacloud.com · new-free-quota-validity-adjustment](<https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment>)
 
 ---
 
@@ -424,7 +424,7 @@ legacy_paths: []
 > [!warning]
 > 部分端点并非 Chat；密钥三件套不可写入探测报告。
 
-- 官方来源：https://www.xfyun.cn/doc/spark/Web.html
+- 官方来源：[查看页面：www.xfyun.cn · Web.html](<https://www.xfyun.cn/doc/spark/Web.html>)
 
 ---
 
@@ -436,7 +436,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 以账户可见模型为准 |
 | 接入 | OpenAI 兼容；注册账号 |
-| Base URL | https://api.cerebras.ai/v1 |
+| Base URL | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
 | 免费类型 | 新用户一次性额度／待核验 |
 | 鉴权 | 注册账号 |
 | 免费额度 | 本期官方抓取未核实可复用固定数 |
@@ -451,7 +451,7 @@ legacy_paths: []
 > [!warning]
 > 若需绑定支付方式，不能归入无门槛免费档。
 
-- 官方来源：https://inference-docs.cerebras.ai/support/pricing
+- 官方来源：[价格说明：inference-docs.cerebras.ai · pricing](<https://inference-docs.cerebras.ai/support/pricing>)
 
 ---
 
@@ -463,7 +463,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 以账户当前可见价格和模型目录为准 |
 | 接入 | OpenAI 兼容；注册账号创建 Key |
-| Base URL | https://api.together.xyz/v1 |
+| Base URL | [https://api.together.xyz/v1](<https://api.together.xyz/v1>) |
 | 免费类型 | 动态限流／免费资格待核验 |
 | 鉴权 | 注册账号创建 Key |
 | 免费额度 | 动态组织／模型限速，无统一固定免费数 |
@@ -478,7 +478,7 @@ legacy_paths: []
 > [!warning]
 > 不能把动态限速误写成固定免费配额。
 
-- 官方来源：https://docs.together.ai/docs/rate-limits
+- 官方来源：[文档：docs.together.ai · rate-limits](<https://docs.together.ai/docs/rate-limits>)
 
 ---
 
@@ -490,7 +490,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | openai-fast（官方模型目录列出匿名层） |
 | 接入 | REST / OpenAI 兼容路径；文本接口的匿名层无需 Key；生成类接口需自备 Key 与 Pollen 余额 |
-| Base URL | https://text.pollinations.ai/openai |
+| Base URL | [查看页面：text.pollinations.ai · openai](<https://text.pollinations.ai/openai>) |
 | 免费类型 | 公开无 Key／匿名层 |
 | 鉴权 | 文本接口的匿名层无需 Key；生成类接口需自备 Key 与 Pollen 余额 |
 | 免费额度 | 官方目录未列明稳定调用额度 |
@@ -505,7 +505,7 @@ legacy_paths: []
 > [!warning]
 > 模型发现不等于 Chat 可用；不能用 8 月实测替代本期。
 
-- 官方来源：https://text.pollinations.ai/models
+- 官方来源：[查看页面：text.pollinations.ai · models](<https://text.pollinations.ai/models>)
 
 ---
 
@@ -532,7 +532,7 @@ legacy_paths: []
 > [!warning]
 > 旧链接和旧额度均不可继续宣传。
 
-- 官方来源：https://docs.github.com/en/github-models
+- 官方来源：[文档：docs.github.com · github-models](<https://docs.github.com/en/github-models>)
 
 ---
 
@@ -544,7 +544,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | 由本地安装模型决定 |
 | 接入 | OpenAI 兼容；自己的机器；显存/内存决定能跑多大的模型 |
-| Base URL | http://localhost:11434/v1（Ollama 默认） |
+| Base URL | `http://localhost:11434/v1`（Ollama 默认） |
 | 免费类型 | 开源自托管 |
 | 鉴权 | 自己的机器；显存/内存决定能跑多大的模型 |
 | 免费额度 | 无平台外部调用额度；硬件与电费不为零 |
@@ -559,7 +559,7 @@ legacy_paths: []
 > [!warning]
 > 需要自己部署、维护并承担硬件和能耗成本。
 
-- 官方来源：https://github.com/ggml-org/llama.cpp
+- 官方来源：[项目仓库：ggml-org/llama.cpp](<https://github.com/ggml-org/llama.cpp>)
 
 ---
 
@@ -571,7 +571,7 @@ legacy_paths: []
 | --- | --- |
 | 可用模型 | jev-1.13-free 等，以 Zen 当前模型页为准 |
 | 接入 | 账户与 Zen API Key |
-| Base URL | https://opencode.ai/zen/v1 |
+| Base URL | [https://opencode.ai/zen/v1](<https://opencode.ai/zen/v1>) |
 | 免费类型 | 特定限时零价模型 |
 | 鉴权 | 账户与 Zen API Key |
 | 免费额度 | 待账户核验 |
@@ -586,7 +586,7 @@ legacy_paths: []
 > [!warning]
 > 不得把文档列名当成接口可用；不得绕过报名、实名或支付验证。
 
-- 官方来源：https://opencode.ai/docs/zen
+- 官方来源：[文档：opencode.ai · zen](<https://opencode.ai/docs/zen>)
 
 ---
 
@@ -613,7 +613,7 @@ legacy_paths: []
 > [!warning]
 > 不得把文档列名当成接口可用；不得绕过报名、实名或支付验证。
 
-- 官方来源：https://doc.freeinference.org/models
+- 官方来源：[查看页面：doc.freeinference.org · models](<https://doc.freeinference.org/models>)
 
 ---
 
@@ -640,7 +640,7 @@ legacy_paths: []
 > [!warning]
 > 不得把文档列名当成接口可用；不得绕过报名、实名或支付验证。
 
-- 官方来源：https://llm.ustc.edu.cn/guide/technical-updates/
+- 官方来源：[文档：llm.ustc.edu.cn · technical-updates](<https://llm.ustc.edu.cn/guide/technical-updates/>)
 
 ---
 
@@ -667,7 +667,7 @@ legacy_paths: []
 > [!warning]
 > 不得把文档列名当成接口可用；不得绕过报名、实名或支付验证。
 
-- 官方来源：https://www.ant-ling.com/
+- 官方来源：[查看页面：www.ant-ling.com](<https://www.ant-ling.com/>)
 
 ---
 
@@ -700,32 +700,32 @@ legacy_paths: []
 >
 > 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
 >
-> [下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
 
 > [!info] 方寸智匣 LocalBrain
 > **状态：** 正式迭代
 >
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
-> [下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
 
 > [!info] ScreenLex 光影词库
 > **状态：** 正式迭代
 >
 > 看美剧顺手把生词背了，Mac/Windows 双平台，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
 
 > [!info] 黑粉录屏 HyphenScreen
 > **状态：** 正式迭代
 >
 > 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
 >
-> [下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
 > [!quote] 黑粉科技
 > **让AI成为你的超能力**
 > 本地部署 · 免费白嫖 · 自制软件
-> https://hyphentech.top
+> [黑粉科技](https://hyphentech.top)
