@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "383596cd65b9f7940a94bdc9c995a2fea620b085b14ca92101c37d0d90d74f84",
-  "published_post_count": 152,
+  "content_sha256": "2d2ef1a14d2ab78cb33f2b98e406527d73f1a4ef1ac9064caad48858042b95e3",
+  "published_post_count": 153,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -885,6 +885,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "438964d78b6c7233d2ab81cd56f7b8beb796b7b30a3488eee2b4aa73ef54c948"
+    },
+    {
+      "file": "posts/localbrain-paper-delivery-179.md",
+      "slug": "localbrain-paper-delivery-179",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "50588d334a59f525b593b96f5acce22f7bf1eb2433414f9135c4dab8f73cbd0f"
     },
     {
       "file": "posts/localbrain-small-models-lowmem-en.md",
