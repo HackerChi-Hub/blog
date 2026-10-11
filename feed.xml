@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 11 Oct 2026 19:35:06 GMT</lastBuildDate>
-    <pubDate>Sun, 11 Oct 2026 19:35:06 GMT</pubDate>
+    <lastBuildDate>Sun, 11 Oct 2026 22:32:23 GMT</lastBuildDate>
+    <pubDate>Sun, 11 Oct 2026 22:32:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Qwen-Image-2.1-Turbo本地出图快三倍：美女萌宠、闪身步与狗熊哆嗦毛实测</title>
+      <link>https://hyphentech.top/qwen-image-21-turbo-q4-local-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/qwen-image-21-turbo-q4-local-test/</guid>
+      <description>M5 Pro 64GB实测普通Turbo Q4：两项对照约快三倍，追加六张美女萌宠与舞蹈热梗图，保留完整原图、动作偏差和运行截图。</description>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地模型</category>
+    </item>
     <item>
       <title>方寸智匣写论文升级：本地生成双格式文档，长任务和交付检查更可靠了</title>
       <link>https://hyphentech.top/localbrain-paper-delivery-179/</link>
@@ -214,17 +224,6 @@
     <category>LocalBrain</category>
     <category>Splash</category>
     <category>实测</category>
-    </item>
-    <item>
-      <title>Qwen-Image-2.1：卡三次才出图</title>
-      <link>https://hyphentech.top/qwen-image-21-local/</link>
-      <guid isPermaLink="true">https://hyphentech.top/qwen-image-21-local/</guid>
-      <description>31 GiB 权重，M5 Pro 上 20 步 69 秒；中文书法写对四字。接入 LocalBrain 踩中三处陷阱；第二轮换人像重测官方那三条，发现「商品保真」其实是道尺寸题。</description>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>模型发布</category>
     </item>
   </channel>
 </rss>
