@@ -21,6 +21,17 @@ assert(auditHtmlLinks('<div class="code-pre">curl https://example.com</div><p>ht
 assert.match(md.render('https://example.com/file.zip', {lang:'en'}), /Download/);
 assert.match(md.render('```text\nhttps://github.com/HackerChi-Hub/localbrain-releases/releases\n```'), /data-link-kind="download"/);
 assert.match(md.render('```text\nhttps://example.com/file.zip\n```', {lang:'en'}), /Opens in a new tab/);
+for (const [lang, first, second] of [['zh-CN','最新安装包','产品介绍'],['zh-TW','最新安裝包','產品介紹'],['en','Latest installer','Product page']]) {
+  const source = `\`\`\`text\n${first}\nhttps://github.com/HackerChi-Hub/localbrain-releases/releases/latest\n${second}\nhttps://hyphentech.top/localbrain\n\`\`\``;
+  const result = md.render(source, {lang});
+  assert.equal((result.match(/<a /g) || []).length, 2);
+  assert(!result.includes('<pre>'));
+  assert.deepEqual(auditHtmlLinks(result).failures, []);
+}
+assert(auditHtmlLinks('<pre><code>最新安装包\nhttps://example.com/file.zip\n产品介绍\nhttps://example.com/product\n</code></pre>').failures.length);
+const shellLinks = '```shell\n最新安装包\nhttps://github.com/HackerChi-Hub/localbrain-releases/releases/latest\n产品介绍\nhttps://hyphentech.top/localbrain\n```';
+assert.equal((md.render(shellLinks).match(/<a /g) || []).length, 2);
+assert(auditHtmlLinks('<pre><code class="language-shell">最新安装包\nhttps://example.com/file.zip\n</code></pre>').failures.length);
 assert(!md.render('`http://localhost:11434/v1`').includes('<a '));
 assert(!md.render('```text\nhttp://192.168.x.x:3080/\n```').includes('<a '));
 assert.deepEqual(auditHtmlLinks('<pre><code>http://192.168.x.x:3080/</code></pre>').failures, []);
