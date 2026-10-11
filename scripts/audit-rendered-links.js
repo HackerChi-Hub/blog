@@ -51,7 +51,9 @@ async function main() {
       const href = (match[1] || match[2]).replace(/&amp;/g, '&');
       try {
         const url = new URL(href, new URL(route, siteOrigin));
-        if (!['http:', 'https:'].includes(url.protocol) || url.hostname !== siteHost || url.port || url.pathname.startsWith('/api/')) continue;
+        // 留言接口与 CDN 邮箱保护入口由线上服务生成，不应要求静态导出里有对应文件。
+        if (!['http:', 'https:'].includes(url.protocol) || url.hostname !== siteHost || url.port
+          || url.pathname.startsWith('/api/') || url.pathname === '/cdn-cgi/l/email-protection') continue;
         const target = path.join(dir, decodeURIComponent(url.pathname));
         const fileExists = fs.existsSync(target) && fs.statSync(target).isFile();
         if (!fileExists && !fs.existsSync(path.join(target, 'index.html'))) missing.add(url.pathname);
