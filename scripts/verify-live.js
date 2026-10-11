@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { auditHtmlLinks } = require('../lib/link-presentation.cjs');
 
 const expectedRunId = process.argv[2] || '';
 const baseUrl = (process.env.BLOG_VERIFY_BASE_URL || 'https://hyphentech.top').replace(/\/+$/, '');
@@ -81,6 +82,8 @@ async function verifyUrl(url) {
     async () => {
       const response = await fetchWithTimeout(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const audit = auditHtmlLinks(await response.text());
+      if (audit.failures.length) throw new Error(audit.failures.join('；'));
       return url;
     },
     { label: url }

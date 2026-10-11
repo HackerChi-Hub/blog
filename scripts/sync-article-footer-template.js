@@ -82,7 +82,7 @@ function renderFooter(identity, lang = 'zh-CN') {
       '>',
       `> ${tr(product.tagline || '')}`,
       '>',
-      `> [${tr('下载与更新')}](${product.url})`,
+      `> [${tr('下载与更新')}：${tr(product.name)}](${product.url})`,
       '',
     );
   }
@@ -92,7 +92,7 @@ function renderFooter(identity, lang = 'zh-CN') {
     `> [!quote] ${tr(channel.name || '黑粉科技')}`,
     `> **${tr(channel.slogan || '让AI成为你的超能力')}**`,
     `> ${tr(footer.brand_focus || '本地部署 · 免费白嫖 · 自制软件')}`,
-    `> ${channel.site || 'https://hyphentech.top'}`,
+    `> [${tr(channel.name || '黑粉科技')}](${channel.site || 'https://hyphentech.top'})`,
     '',
     END,
   );

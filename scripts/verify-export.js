@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { unprotectedNextScripts } = require('../lib/runtime-script-policy.cjs');
+const { auditHtmlLinks } = require('../lib/link-presentation.cjs');
 
 const root = process.cwd();
 const outDir = path.join(root, 'out');
@@ -109,6 +110,9 @@ for (const rawUrl of urls) {
     continue;
   }
   const html = fs.readFileSync(htmlPath, 'utf8');
+  for (const failure of auditHtmlLinks(html).failures) {
+    failures.push(`${url.pathname} ${failure}`);
+  }
   if (unprotectedNextScripts(html).length) {
     failures.push(`页面交互脚本缺少 CDN 延迟豁免 ${url.pathname}`);
   }

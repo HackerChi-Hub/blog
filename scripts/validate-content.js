@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const YAML = require('yaml');
+const { normalizeReadableLinks } = require('../lib/article-links.cjs');
 
 const VALID_STATUSES = new Set(['draft', 'published', 'archived']);
 const VALID_ARTICLE_TYPES = new Set(['article', 'skill', 'model']);
@@ -214,6 +215,9 @@ function main() {
     const legacyPaths = asStringArray(data.legacy_paths).map(normalizeRoute).filter(Boolean);
     const ownedRoutes = [slug, ...legacyPaths].filter(Boolean);
     const body = parsed.content.trim();
+    if (normalizeReadableLinks(body, { lang: data.lang || 'zh-CN' }) !== body) {
+      warnings.push(`${relativePath} 含裸网址或不明确的下载入口，请运行 scripts/audit-article-links.js 检查`);
+    }
     const articleType = asString(data.article_type || 'article').toLowerCase();
 
     const coverValue = asString(data.cover || data.image);
