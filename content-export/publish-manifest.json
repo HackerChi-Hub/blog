@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2d2ef1a14d2ab78cb33f2b98e406527d73f1a4ef1ac9064caad48858042b95e3",
-  "published_post_count": 153,
+  "content_sha256": "132bbe44cb9a2729c928536f6ad42feb44f2670ec4567300cc3cf58c51547f03",
+  "published_post_count": 154,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1084,6 +1084,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "45355fdda828253183bc74800b301e1b42b4dc59b8cb49757af290b2fbfddbde"
+    },
+    {
+      "file": "posts/qwen-image-21-turbo-q4-local-test.md",
+      "slug": "qwen-image-21-turbo-q4-local-test",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "8a9270463f61d4904c0f95caebdf1adf75f4063afec8261ceb729a1ae00250a3"
     },
     {
       "file": "posts/qwen3-8-27b-local-test-en.md",
