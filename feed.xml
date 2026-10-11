@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 11 Oct 2026 05:52:28 GMT</lastBuildDate>
-    <pubDate>Sun, 11 Oct 2026 05:52:28 GMT</pubDate>
+    <lastBuildDate>Sun, 11 Oct 2026 10:55:08 GMT</lastBuildDate>
+    <pubDate>Sun, 11 Oct 2026 10:55:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣写论文升级：本地生成双格式文档，长任务和交付检查更可靠了</title>
+      <link>https://hyphentech.top/localbrain-paper-delivery-179/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-paper-delivery-179/</guid>
+      <description>双格式文档、时间刷新、长任务等待和分项检查已实测；完整论文仍需核对事实与引用。</description>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>方寸智匣</category>
+    <category>本地人工智能</category>
+    <category>文档写作</category>
+    </item>
     <item>
       <title>Qwen-Image-2.1-Turbo 已可下载，8 步生图适合谁？</title>
       <link>https://hyphentech.top/2026-10-10-official-74c72ca9b7d8/</link>
@@ -210,17 +221,6 @@
       <guid isPermaLink="true">https://hyphentech.top/qwen-image-21-local/</guid>
       <description>31 GiB 权重，M5 Pro 上 20 步 69 秒；中文书法写对四字。接入 LocalBrain 踩中三处陷阱；第二轮换人像重测官方那三条，发现「商品保真」其实是道尺寸题。</description>
       <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>模型发布</category>
-    </item>
-    <item>
-      <title>号称快一倍的 Mac 本地引擎，我测出中文只快 44%</title>
-      <link>https://hyphentech.top/splash-mac-local-inference/</link>
-      <guid isPermaLink="true">https://hyphentech.top/splash-mac-local-inference/</guid>
-      <description>Splash 在我的 M5 Pro 上把 Qwen3.8-27B 的代码生成跑到 79.3 tok/s，比同权重的朴素 MLX 快 5.11 倍；换成中文写稿只剩 1.44 倍。差别不在引擎，在草稿模型的接受率——代码 63.2%，中文 11.9%。</description>
-      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
     <category>学习思考</category>
     <category>AI</category>
     <category>本地部署</category>
