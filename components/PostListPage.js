@@ -7,7 +7,8 @@ import { formatDate, normalizeSummary } from '../lib/utils';
 import { makeT } from '../lib/blog-i18n.cjs';
 import { homeHref, listHref } from '../lib/site-lang.cjs';
 import SEO from './SEO';
-import LangToggle from './LangToggle';
+import BlogNavigation from './BlogNavigation';
+import ArticleCover from './ArticleCover';
 
 const PAGE_SIZE = 21;
 
@@ -49,48 +50,17 @@ export default function PostListPage({
         type="website"
         lang={lang}
       />
-      <main className="page">
-      <section className="site-hero floating">
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1rem',
-            flexWrap: 'wrap',
-          }}
-        >
-          <h1 className="hero-title">{t('黑粉科技 · 全部文章')}</h1>
-          <LangToggle
-            lang={lang}
-            alternates={{ 'zh-CN': listHref('zh-CN', currentPage), en: listHref('en', currentPage) }}
-          />
-          <Link
-            href={homeHref(lang)}
-            className="hero-button"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              padding: '0.55rem 1.4rem',
-              borderRadius: '999px',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-              color: '#03040a',
-              background: 'var(--accent-cyan)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              boxShadow: '0 10px 30px rgba(0, 229, 255, 0.3)',
-              transition: 'transform var(--transition-fast)',
-            }}
-          >
-            {t('返回首页')}
-          </Link>
+      <main className="page labnote-page archive-page">
+      <div className="labnote-shell">
+      <BlogNavigation lang={lang} alternates={{ 'zh-CN': listHref('zh-CN', currentPage), en: listHref('en', currentPage) }} />
+      <header className="archive-hero">
+        <div className="labnote-eyebrow">{t('黑粉科技 · 实测记录')}</div>
+        <h1>{t('黑粉科技 · 全部文章')}</h1>
+        <div className="archive-hero__foot">
+          <p>{progress}{' '}{tagline}</p>
+          <Link href={homeHref(lang)} className="hero-button hero-button--ghost">{t('返回首页')} →</Link>
         </div>
-        <p>
-          {/* JSX 原来把两行接成一个空格；SEO 描述那里没有空格。两处各自拼，中文输出与改造前一致 */}
-          {progress}{' '}{tagline}
-        </p>
-      </section>
+      </header>
 
       {errorMessage && <div className="empty-state">{errorMessage}</div>}
 
@@ -114,6 +84,9 @@ export default function PostListPage({
 
             return (
               <article className="post-card" key={`${post.id || slug}-${index}`}>
+                <Link href={href} className="post-card__cover-link" aria-label={post.title || slug} tabIndex={-1}>
+                  <ArticleCover src={post.cover || post.pageCover || post.image || post.thumbnail || post.heroImage} title={post.title || slug} lang={lang} />
+                </Link>
                 <div className="post-card__inner">
                   <Link href={href} className="post-title">
                     {post.title || slug}
@@ -143,6 +116,7 @@ export default function PostListPage({
                   {summaryText && (
                     <p className="post-excerpt">{summaryText}</p>
                   )}
+                  <Link href={href} className="post-card__action">{t('阅读全文')} <span aria-hidden="true">→</span></Link>
                 </div>
               </article>
             );
@@ -160,7 +134,7 @@ export default function PostListPage({
             {currentPage > 1 ? (
               <Link
                 className="pagination__next"
-                href={currentPage - 1 === 1 ? homeHref(lang) : listHref(lang, currentPage - 1)}
+                href={listHref(lang, currentPage - 1)}
               >
                 {t('← 上一页')}
               </Link>
@@ -185,6 +159,7 @@ export default function PostListPage({
           </div>
         </nav>
       )}
+      </div>
     </main>
     </>
   );

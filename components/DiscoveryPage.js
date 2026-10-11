@@ -165,7 +165,7 @@ export default function DiscoveryPage({ articleType, posts = [] }) {
         .discovery-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
         .discovery-card { min-width:0; overflow:hidden; display:flex; flex-direction:column; border:1px solid rgba(157,224,232,.15); border-radius:24px; background:linear-gradient(145deg,rgba(9,17,31,.98),rgba(5,24,29,.94)); box-shadow:0 20px 50px rgba(0,0,0,.24); transition:transform .24s ease,border-color .24s ease; }
         .discovery-card:hover { transform:translateY(-4px); border-color:rgba(92,225,223,.48); }
-        .discovery-card__cover { position:relative; flex:none; width:100%; aspect-ratio:2.35/1; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.08); background:#07131c; }
+        .discovery-card__cover { position:relative; flex:none; width:100%; aspect-ratio:var(--article-cover-ratio); overflow:hidden; border-bottom:1px solid rgba(255,255,255,.08); background:#07131c; }
         .discovery-card__cover > * { position:absolute; inset:0; width:100%; height:100%; }
         .discovery-card__fallback { display:flex; flex-direction:column; justify-content:flex-end; gap:12px; padding:24px; background:radial-gradient(circle at 75% 18%,rgba(92,225,223,.24),transparent 34%),linear-gradient(150deg,#07111f,#07343b); }
         .discovery-card__fallback span { color:#ffd34d; font-size:2.2rem; }

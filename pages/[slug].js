@@ -7,10 +7,11 @@ import RelatedPosts from '../components/RelatedPosts';
 import Comments from '../components/Comments';
 import SponsorCard from '../components/SponsorCard';
 import MarkdownContent from '../components/MarkdownContent';
-import ContainedCover from '../components/ContainedCover';
+import ArticleCover from '../components/ArticleCover';
+import BlogNavigation from '../components/BlogNavigation';
 import { getRelatedPosts } from '../lib/related-posts';
 import { getEnglishMap } from '../lib/home-data';
-import { homeHref, rememberLang } from '../lib/site-lang.cjs';
+import { homeHref, listHref, rememberLang } from '../lib/site-lang.cjs';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
 import { formatDateFor, LANG_NAMES, makeT } from '../lib/blog-i18n.cjs';
@@ -94,16 +95,14 @@ function LanguageSwitch({ translations, current }) {
   if (!Array.isArray(translations) || translations.length < 2) return null;
   return (
     <nav
-      aria-label="Language"
+      aria-label={LANG_NAMES[translations.find((item) => item.slug === current)?.lang] || '简体中文'}
       className="post-language-switch"
-      style={{ marginTop: '1rem', display: 'flex', gap: '10px', flexWrap: 'wrap', fontSize: '0.95rem' }}
     >
       {translations.map((item) =>
         item.slug === current ? (
           <span
             key={item.slug}
             aria-current="page"
-            style={{ padding: '4px 12px', borderRadius: '999px', background: 'rgba(105, 240, 174, 0.16)', color: 'var(--accent-green)' }}
           >
             {LANG_NAMES[item.lang] || item.lang}
           </span>
@@ -114,7 +113,6 @@ function LanguageSwitch({ translations, current }) {
             hrefLang={item.lang}
             // 点了就记住这个选择：之后再进站按它来，不再看浏览器语言
             onClick={() => rememberLang(item.lang)}
-            style={{ padding: '4px 12px', borderRadius: '999px', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
           >
             {LANG_NAMES[item.lang] || item.lang}
           </Link>
@@ -212,276 +210,61 @@ export default function PostPage({
       />
       {/* hreflang 互指由 pages/_document.js 统一输出（和自动跳转脚本同一份对照表，外加 x-default） */}
 
-      <main className="page">
-        {/* 按图片自然比例完整展示封面，不再强制裁成 16:9。 */}
-        {meta.image && (
-          <div className="article-cover">
-            <ContainedCover src={meta.image} alt={meta.title} priority natural />
-          </div>
-        )}
+      <main className="page labnote-page article-page">
+        <div className="labnote-shell article-shell">
+          <BlogNavigation lang={t.lang} />
+          <nav className="article-breadcrumb" aria-label={t('实测文章')}>
+            <Link href={homeHref(t.lang)}>{t('返回首页')}</Link>
+            <span aria-hidden="true">/</span>
+            <Link href={listHref(t.lang, 1)}>{t('查看全部文章')}</Link>
+          </nav>
 
-        <section
-          style={{
-            width: '100%',
-            padding: '2.4rem 2rem 1.6rem',
-            borderRadius: meta.image ? '0 0 40px 40px' : '40px',
-            border: '1px solid var(--border-color)',
-            borderTop: meta.image ? 'none' : undefined,
-            background:
-              'linear-gradient(135deg, rgba(3, 48, 54, 0.98), rgba(3, 70, 76, 0.95))',
-            boxShadow: 'var(--shadow-soft)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
-              backgroundSize: '48px 48px',
-              opacity: 0.4,
-              pointerEvents: 'none',
-            }}
-          />
-          <div style={{ position: 'relative' }}>
-            <h1
-              style={{
-                fontSize: 'clamp(2.0rem, 3.6vw, 2.6rem)',
-                margin: 0,
-                fontWeight: 700,
-                letterSpacing: '0.12em',
-                color: '#ffffff',
-              }}
-            >
-              {meta.title}
-            </h1>
-
-            <LanguageSwitch translations={translations} current={meta.slug || slug} />
-
-            <div
-              style={{
-                marginTop: '1.1rem',
-                display: 'flex',
-                gap: '16px',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                fontSize: '0.95rem',
-                color: 'var(--text-secondary)',
-              }}
-            >
-              {meta.date && (
-                <span style={{ letterSpacing: '0.18em' }}>
-                  {formatDateFor(meta.date, t.lang)}
+          <header className="article-hero">
+            <ArticleCover src={meta.image} title={meta.title} lang={t.lang} priority />
+            <div className="article-sheet">
+              <div className="labnote-eyebrow">{t('黑粉科技 · 实测记录')}</div>
+              <h1>{meta.title}</h1>
+              <div className="article-spec-strip">
+                {meta.date && <time dateTime={publishedTime}>{formatDateFor(meta.date, t.lang)}</time>}
+                <span className="article-reading-time">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  {readingTimeText}
                 </span>
+                <LanguageSwitch translations={translations} current={meta.slug || slug} />
+              </div>
+              {(categories.length || tagNames.length) > 0 && (
+                <div className="article-taxonomy">
+                  {categories.length > 0 && <div><span>{t('分类：')}</span>{categories.map((cat) => {
+                    const name = typeof cat === 'string' ? cat : cat.name;
+                    return name ? <span className="article-tag" key={cat.id || name}>{name}</span> : null;
+                  })}</div>}
+                  {tagNames.length > 0 && <div><span>{t('标签：')}</span>{tagNames.map((name) => <span className="article-tag" key={name}>#{name}</span>)}</div>}
+                </div>
               )}
-              <span
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  padding: '4px 10px',
-                  borderRadius: '6px',
-                  background: 'rgba(105, 240, 174, 0.1)',
-                  border: '1px solid rgba(105, 240, 174, 0.2)',
-                  color: 'var(--accent-green)',
-                  fontSize: '0.9rem',
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                {readingTimeText}
-              </span>
+              {normalizeSummary(meta.summary) && <div className="article-summary"><span>{t('摘要')}</span><p>{normalizeSummary(meta.summary)}</p></div>}
             </div>
+          </header>
 
-            {(categories.length || tags.length) > 0 && (
-              <section
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.75rem',
-                  marginTop: '1.6rem',
-                  fontSize: '0.95rem',
-                  color: 'var(--text-secondary)',
-                }}
-              >
-                {categories.length > 0 && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '0.5rem',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 600,
-                        color: 'var(--text-secondary)',
-                      }}
-                    >
-                      {t('分类：')}
-                    </span>
-                    {categories.map((cat) => (
-                      <span
-                        key={cat.id || cat.name}
-                        style={{
-                          padding: '4px 14px',
-                          borderRadius: '999px',
-                          border: '1px solid rgba(255,255,255,0.35)',
-                          background: 'rgba(255,255,255,0.09)',
-                          color: 'var(--text-secondary)',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {cat.name}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {tags.length > 0 && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '0.5rem',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 600,
-                        color: 'var(--text-secondary)',
-                      }}
-                    >
-                      {t('标签：')}
-                    </span>
-                    {tags.map((tag) => (
-                      <span
-                        key={tag.id || tag.name}
-                        style={{
-                          padding: '3px 12px',
-                          borderRadius: '999px',
-                          border: '1px solid rgba(255,255,255,0.28)',
-                          background: 'rgba(255,255,255,0.06)',
-                          color: 'var(--text-secondary)',
-                          fontSize: '0.9rem',
-                        }}
-                      >
-                        #{tag.name}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </section>
+          <section className="article-content">
+            <MarkdownContent html={markdownHtml} />
+            {!hasBrandSlogan && (
+              <aside className="article-signature" aria-label={t('黑粉科技宣传语')}>
+                <span>{t('黑粉科技')}</span>
+                <strong>{t(SITE_CONFIG.slogan)}</strong>
+                <p>{t('本地部署 / 免费白嫖 / 自制软件')}</p>
+              </aside>
             )}
-          </div>
-        </section>
-
-        <section className="article-content">
-          <MarkdownContent html={markdownHtml} />
-
-          {!hasBrandSlogan && (
-            <aside
-              aria-label={t('黑粉科技宣传语')}
-              style={{
-                marginTop: '40px',
-                padding: '22px 24px',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 211, 77, 0.28)',
-                background: 'linear-gradient(135deg, rgba(255, 211, 77, 0.08), rgba(0, 229, 255, 0.06))',
-                textAlign: 'center',
-              }}
-            >
-              <div style={{ color: 'var(--home-yellow)', fontSize: '0.78rem', letterSpacing: '0.18em' }}>
-                {t('黑粉科技')}
-              </div>
-              <div style={{ marginTop: '8px', color: '#f8fbff', fontSize: '1.25rem', fontWeight: 700 }}>
-                {t(SITE_CONFIG.slogan)}
-              </div>
-              <div style={{ marginTop: '8px', color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
-                {t('本地部署 / 免费白嫖 / 自制软件')}
-              </div>
-            </aside>
-          )}
-
-          {/* 分享按钮 - 融入文章区域末尾 */}
-          <div
-            style={{
-              marginTop: '48px',
-              padding: '24px',
-              borderRadius: '16px',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              background: 'rgba(255, 255, 255, 0.02)',
-            }}
-          >
-            <ShareButtons
-              title={meta.title}
-              url={articleUrl}
-              description={description}
-              lang={t.lang}
-            />
-          </div>
-
-          {/* 赞助 - 紧跟正文读完的时刻，排在「相关文章」这个离开入口之前 */}
-          <SponsorCard lang={t.lang} />
-
-          {/* 相关文章 - 融入文章区域末尾 */}
-          <div style={{ marginTop: '32px' }}>
+            <div className="article-share">
+              <ShareButtons title={meta.title} url={articleUrl} description={description} lang={t.lang} />
+            </div>
+            <SponsorCard lang={t.lang} />
             <RelatedPosts posts={relatedPosts} lang={t.lang} />
-          </div>
+            <Comments slug={meta.slug || slug} lang={t.lang} />
+          </section>
 
-          {/* 留言区 - 数据在客户端拉，不参与静态构建 */}
-          <Comments slug={meta.slug || slug} lang={t.lang} />
-        </section>
-
-        {/* 返回首页按钮 */}
-        <div
-          style={{
-            marginTop: '40px',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Link
-            href={homeHref(t.lang)}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '12px 24px',
-              borderRadius: '12px',
-              border: '1px solid rgba(105, 240, 174, 0.3)',
-              background: 'rgba(105, 240, 174, 0.1)',
-              color: 'var(--accent-green)',
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              textDecoration: 'none',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(105, 240, 174, 0.15)';
-              e.currentTarget.style.borderColor = 'rgba(105, 240, 174, 0.5)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(105, 240, 174, 0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(105, 240, 174, 0.1)';
-              e.currentTarget.style.borderColor = 'rgba(105, 240, 174, 0.3)';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            {t('返回首页')}
-          </Link>
+          <footer className="article-return"><Link className="hero-button hero-button--ghost" href={homeHref(t.lang)}>{t('返回首页')} →</Link></footer>
         </div>
       </main>
     </>

@@ -1,14 +1,17 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
-const normalizeSource = (source) =>
-  typeof source === 'string' ? source : source?.url || source?.src || '';
+const normalizeSource = (source) => {
+  const value = typeof source === 'string' ? source : source?.url || source?.src || '';
+  // 已镜像到 public 的站内素材走当前站点：本地验收不依赖线上 CDN，正文原件 URL 不变。
+  return value.replace(/^https?:\/\/(?:www\.)?hyphentech\.top\/(?=(?:obsidian-assets|images|png)\/)/i, '/');
+};
 
 /**
  * 封面统一展示组件。
  *
  * 卡片模式用一层柔化背景铺满容器，前景始终 contain，避免标题、人物和界面截图被裁掉。
- * natural 模式用于文章详情页，按照图片自身比例完整展开。
+ * natural 是可选插图模式；文章封面和实验台入口都使用共用比例的卡片模式。
  */
 export default function ContainedCover({
   src,
@@ -20,14 +23,15 @@ export default function ContainedCover({
   className = '',
   fallback = null,
 }) {
-  const [failed, setFailed] = useState(false);
+  const [failedSource, setFailedSource] = useState(null);
   const naturalImage = useRef(null);
   const source = normalizeSource(src);
+  const failed = failedSource === source;
 
   useEffect(() => {
     const image = naturalImage.current;
     // 原生图片可能在 React 接管前已经失败；仍要显示替代内容，不能留下空白框。
-    if (image?.complete && !image.naturalWidth) setFailed(true);
+    if (image?.complete && !image.naturalWidth) setFailedSource(source);
   }, [source, natural]);
 
   if (!source || failed) return fallback;
@@ -44,7 +48,7 @@ export default function ContainedCover({
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"
-        onError={() => setFailed(true)}
+        onError={() => setFailedSource(source)}
       />
     );
   }
@@ -58,7 +62,7 @@ export default function ContainedCover({
         aria-hidden="true"
         width={width}
         height={height}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
         unoptimized
       />
       <Image
@@ -70,7 +74,7 @@ export default function ContainedCover({
         priority={priority}
         loading={priority ? undefined : 'lazy'}
         unoptimized
-        onError={() => setFailed(true)}
+        onError={() => setFailedSource(source)}
       />
     </div>
   );
