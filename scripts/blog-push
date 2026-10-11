@@ -79,6 +79,10 @@ fi
 sync_remote_main "$REPO" "Blog 代码库"
 sync_remote_main "$SOURCE_REPO" "Obsidian 内容库"
 
+# 从最后一次成功部署取公开基线；HEAD可能含尚未成功部署的文章，不能误漏新文。
+# 查询失败不阻塞Blog，X助手停止增量判断并单独报告，不按全库猜测。
+x_before_public_sha=$(gh run list --workflow "$WORKFLOW" --status success --limit 1 --json headSha --jq '.[0].headSha // empty' 2>/dev/null || true)
+
 cd "$REPO"
 
 # 机器翻译：新文章与改动过的文章出英文版（只动脚本自己生成的，人工译文永不覆盖）。
@@ -127,6 +131,7 @@ fi
 if [ "$(git -C "$SOURCE_REPO" rev-list --count origin/main..HEAD)" -gt 0 ]; then
   git -C "$SOURCE_REPO" push origin main
 fi
+x_source_sha=$(git -C "$SOURCE_REPO" rev-parse HEAD)
 
 echo "📦 4/5 提交并推送公开快照"
 if [ -n "$(git status --porcelain -- content-export public/obsidian-assets)" ]; then
@@ -191,3 +196,9 @@ fi
 
 node scripts/verify-live.js "$run_id"
 echo "✅ Blog 发布完成：私有原件、公开快照、构建、线上版本、sitemap 与素材全部通过验收"
+
+# 用户2026-10-12授权：只整理待审文案，不发帖、不自动打开X、不调用付费API。
+# 此步骤失败不改变已部署事实，避免因文案失败重发整站。
+if ! node scripts/x-blog-handoff.js --before-ref "$x_before_public_sha" --source-ref "$x_source_sha" --public-ref "$sha" --verified-run-id "$run_id" --content-dir "$SOURCE_REPO"; then
+  echo "⚠️ Blog已上线，但X待审内容准备未完成；请处理上面的错误，不要重复发布Blog"
+fi
