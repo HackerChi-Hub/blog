@@ -1,0 +1,33 @@
+/* 正文和独立工具页共用：不用悬停，读者也能识别网页与下载入口。 */
+.resource-link,
+:is(p, li, td, figcaption, .page-footer, .footer) a[href^="https://"] {
+  color: var(--accent-green, #69f0ae);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+  overflow-wrap: anywhere;
+}
+.resource-link:focus-visible,
+a[href]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.resource-link::after { content: ' ↗'; font-size: .82em; }
+.resource-link[data-link-kind="download"] {
+  display: inline-block;
+  max-width: 100%;
+  padding: .4em .65em;
+  border: 1px solid rgba(105, 240, 174, .38);
+  border-radius: 7px;
+  background: rgba(105, 240, 174, .08);
+  font-weight: 650;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+.resource-link[data-link-kind="download"]:hover {
+  background: rgba(105, 240, 174, .16);
+  border-color: currentColor;
+}
+.download-entry { margin: .6rem 0 1.2rem; font-size: .92rem; }
+.download-entry > a { margin: .15rem .55rem .15rem 0; }
