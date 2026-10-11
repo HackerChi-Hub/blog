@@ -43,6 +43,22 @@ async function main() {
     routes.set(route, file);
   }
   const targets = [...routes].map(([route, file]) => ({route, file}));
+  const siteOrigin = urls[0].origin;
+  const siteHost = new URL(siteOrigin).hostname;
+  function missingInternalTargets(html, route) {
+    const missing = new Set();
+    for (const match of html.matchAll(/<a\b[^>]*\bhref=(?:"([^"]+)"|'([^']+)')/gi)) {
+      const href = (match[1] || match[2]).replace(/&amp;/g, '&');
+      try {
+        const url = new URL(href, new URL(route, siteOrigin));
+        if (!['http:', 'https:'].includes(url.protocol) || url.hostname !== siteHost || url.port || url.pathname.startsWith('/api/')) continue;
+        const target = path.join(dir, decodeURIComponent(url.pathname));
+        const fileExists = fs.existsSync(target) && fs.statSync(target).isFile();
+        if (!fileExists && !fs.existsSync(path.join(target, 'index.html'))) missing.add(url.pathname);
+      } catch { missing.add(href); }
+    }
+    return [...missing].map(target => `站内链接目标不存在：${target}`);
+  }
   report.sitemapPages = urls.length;
   report.independentPages = targets.length - urls.length;
   let index = 0;
@@ -55,6 +71,7 @@ async function main() {
         const result = auditHtmlLinks(html);
         report.pages++; report.links += result.links; report.downloads += result.downloads;
         report.failures.push(...result.failures.map(message => ({ page: route, message })));
+        report.failures.push(...missingInternalTargets(html, route).map(message => ({ page: route, message })));
       } catch (error) { report.failures.push({ page: route, message: error.message }); }
     }
   }
