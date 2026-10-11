@@ -19,5 +19,13 @@ assert.deepEqual(auditHtmlLinks('<script>https://example.com</script><a href="ht
 assert.deepEqual(auditHtmlLinks('<div class="code-pre"><span>$</span> curl https://example.com</div>').failures, []);
 assert(auditHtmlLinks('<div class="code-pre">curl https://example.com</div><p>https://example.com</p>').failures.length);
 assert.match(md.render('https://example.com/file.zip', {lang:'en'}), /Download/);
+assert.match(md.render('```text\nhttps://github.com/HackerChi-Hub/localbrain-releases/releases\n```'), /data-link-kind="download"/);
+assert.match(md.render('```text\nhttps://example.com/file.zip\n```', {lang:'en'}), /Opens in a new tab/);
+assert(!md.render('`http://localhost:11434/v1`').includes('<a '));
+assert(!md.render('```text\nhttp://192.168.x.x:3080/\n```').includes('<a '));
+assert.deepEqual(auditHtmlLinks('<pre><code>http://192.168.x.x:3080/</code></pre>').failures, []);
+assert.deepEqual(auditHtmlLinks('<p><code>http://localhost:11434/v1</code></p>').failures, []);
+assert.deepEqual(auditHtmlLinks("<div class='code-pre'>curl https://example.com/install.sh</div>").failures, []);
+assert(auditHtmlLinks('<p>www.example.com</p>').failures.length);
 assert(!md.render('[坏地址](javascript:alert(1))').includes('href="javascript:'));
 console.log('✅ 渲染兜底与 HTML 裸链接闸门检查通过');

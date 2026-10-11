@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+<link rel="stylesheet" href="/shared/resource-links.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>本地 LLM 完全指南 — 量化 · 框架 · 底层原理 · 具体应用</title>
@@ -1100,6 +1101,7 @@ table.hw .vram{font-weight:800;font-size:1.05rem;color:var(--green)}
       <div class="step-head"><div class="step-num sn-g">1</div><div class="step-title">安装 Ollama</div></div>
       <div class="step-body">
         <div class="step-desc">支持 Linux / macOS / Windows，一条命令搞定。Windows 可直接下载安装包。</div>
+        <p class="download-entry"><a class="resource-link" data-link-kind="download" href="https://ollama.com" target="_blank" rel="noopener noreferrer" title="在新窗口打开官网，按系统选择安装方式">打开 Ollama 官网与下载入口</a> <a class="resource-link" href="https://ollama.com/install.sh" target="_blank" rel="noopener noreferrer" title="在新窗口查看脚本，不自动执行">查看命令中使用的官方安装脚本</a></p>
         <div class="code-block">
           <div class="code-bar"><span class="cb-dot" style="background:#ff5f57"></span><span class="cb-dot" style="background:#febc2e"></span><span class="cb-dot" style="background:#28c840"></span><span class="cb-label">Linux / macOS</span></div>
           <div class="code-pre"><span class="p">$</span> curl -fsSL https://ollama.com/install.sh | sh
@@ -1496,9 +1498,9 @@ model = FastLanguageModel.get_peft_model(
 <div class="page-footer">
   <div class="footer-text">黑粉科技 · 本地 AI 指南 · 2026年4月 · 基于 Qwen3.6-27B 测试</div>
   <div style="display:flex;gap:16px">
-    <a href="https://ollama.com" class="footer-link" target="_blank" rel="noopener">Ollama →</a>
-    <a href="https://lmstudio.ai" class="footer-link" target="_blank" rel="noopener">LM Studio →</a>
-    <a href="https://openwebui.com" class="footer-link" target="_blank" rel="noopener">Open WebUI →</a>
+    <a href="https://ollama.com" class="footer-link resource-link" target="_blank" rel="noopener noreferrer">Ollama 官网与下载</a>
+    <a href="https://lmstudio.ai" class="footer-link resource-link" target="_blank" rel="noopener noreferrer">LM Studio 官网与下载</a>
+    <a href="https://openwebui.com" class="footer-link resource-link" target="_blank" rel="noopener noreferrer">Open WebUI 官方项目</a>
   </div>
 </div>
 
