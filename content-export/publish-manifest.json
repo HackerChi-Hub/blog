@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f6f5b54631edb814ea094aea6aeb663d42044b236652a288023bf448ffbfe557",
-  "published_post_count": 154,
+  "content_sha256": "ccace306bd21e2eea7ce6a3e2d7f74578d8b15cb244b91b939a512ee2977247a",
+  "published_post_count": 155,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -869,6 +869,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "2c09e86b48d8a8c4fc671f5978e736ad015c3e14460f78cae2f7a3d96c26c571"
+    },
+    {
+      "file": "posts/localbrain-media-chat-180.md",
+      "slug": "localbrain-media-chat-180",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "3d1c7a4f9a32b003588eb2e8b4685cc8b09436a168dcf329fff5f09b142ad341"
     },
     {
       "file": "posts/localbrain-network-security-en.md",
