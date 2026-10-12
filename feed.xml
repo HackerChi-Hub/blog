@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 12 Oct 2026 11:04:28 GMT</lastBuildDate>
-    <pubDate>Mon, 12 Oct 2026 11:04:28 GMT</pubDate>
+    <lastBuildDate>Mon, 12 Oct 2026 20:11:52 GMT</lastBuildDate>
+    <pubDate>Mon, 12 Oct 2026 20:11:52 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣1.8.0：聊天模型指挥六类本地AI，语音到视频实测</title>
+      <link>https://hyphentech.top/localbrain-media-chat-180/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-media-chat-180/</guid>
+      <description>同一聊天完成六类本地媒体调用，语音接转写、红杯接编辑；原始产物、参数回执和问题一起展示。</description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>方寸智匣</category>
+    <category>本地AI</category>
+    <category>实测</category>
+    </item>
     <item>
       <title>Qwen-Image-2.1-Turbo本地出图快三倍：美女萌宠、闪身步与狗熊哆嗦毛实测</title>
       <link>https://hyphentech.top/qwen-image-21-turbo-q4-local-test/</link>
@@ -212,18 +223,6 @@
     <category>资源分享</category>
     <category>AI</category>
     <category>免费白嫖</category>
-    </item>
-    <item>
-      <title>本地模型跑不完长任务，十有八九不是模型的问题</title>
-      <link>https://hyphentech.top/localbrain-longtask-splash/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-longtask-splash/</guid>
-      <description>12 组全交付，但同题重复跑本身差 15 倍：长任务卡在外面那圈循环，不在模型。</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>本地部署</category>
-    <category>LocalBrain</category>
-    <category>Splash</category>
-    <category>实测</category>
     </item>
   </channel>
 </rss>
