@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 13 Oct 2026 00:35:11 GMT</lastBuildDate>
-    <pubDate>Tue, 13 Oct 2026 00:35:11 GMT</pubDate>
+    <lastBuildDate>Tue, 13 Oct 2026 01:54:06 GMT</lastBuildDate>
+    <pubDate>Tue, 13 Oct 2026 01:54:06 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -83,6 +83,17 @@
     <category>资源分享</category>
     </item>
     <item>
+      <title>黑粉录屏：把讲解变成动画，本地模型能行吗？</title>
+      <link>https://hyphentech.top/hyphenscreen-ai-animation-150-preview/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-ai-animation-150-preview/</guid>
+      <description>九种风格参考复现与艺术长卷新编排，配合软件内本地模型真实生成，逐段展示动画画面与制作链路。</description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>黑粉录屏</category>
+    <category>AI动画</category>
+    <category>本地模型</category>
+    </item>
+    <item>
       <title>career-ops 能把求职流程交给 AI 到哪一步？</title>
       <link>https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</link>
       <guid isPermaLink="true">https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</guid>
@@ -157,72 +168,54 @@
     <category>你真的懂AI吗？</category>
     </item>
     <item>
-      <title>AI为什么一个词一个词往外蹦？跟着一次回答，走过分词、注意力和采样</title>
-      <link>https://hyphentech.top/understand-ai-10-conversation/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-10-conversation/</guid>
-      <description>零件拆过了，现在把它们装回去。跟着“今天天气真”走进一间只认数字的翻译社，看一句话怎样变成概率，再变成你屏幕上的文字。</description>
+      <title>神经网络真在“动脑”？2个旋钮，拆开机器学习和聊天记忆</title>
+      <link>https://hyphentech.top/understand-ai-04-neural-networks/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-04-neural-networks/</guid>
+      <description>给机器四组数字，不告诉它规律，它却能把两个旋钮拧向答案。再看神经元熔炉里的曲线：损失下降、界面能跑、真的学会，究竟差在哪里？</description>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <category>AI知识</category>
     <category>AI</category>
     <category>你真的懂AI吗？</category>
     </item>
     <item>
-      <title>方寸智匣能渗透接单了？</title>
-      <link>https://hyphentech.top/localbrain-network-security/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-network-security/</guid>
-      <description>从安全检查到授权渗透：1.6.7 新增服务识别、SQL注入探测与自写PoC执行，出口技术锁死授权目标；保留35B和27B连续实测、170条组件匹配与各平台验证边界。</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
+      <title>同一个strawberry能切成1块或3块？Token、活字印刷和AI的3笔账</title>
+      <link>https://hyphentech.top/understand-ai-05-tokens/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-05-tokens/</guid>
+      <description>草莓还是那颗草莓，前面多一个空格，机器看到的块数却变了。一个来自数据压缩的老办法，怎样走进聊天框，改变你的费用、速度和上下文？</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
     <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>网络安全</category>
+    <category>你真的懂AI吗？</category>
     </item>
     <item>
-      <title>黑粉录屏：东半球最好的录屏软件，录屏剪辑一体化，自动化 AI 剪辑</title>
-      <link>https://hyphentech.top/hyphenscreen-ai-editing-animation/</link>
-      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-ai-editing-animation/</guid>
-      <description>录完直接剪，一句话交给 AI：28 分钟原始录屏剪掉 8 分钟，导出前的体检查出没打码的密钥；368 个原生动画，17 个平台的关注卡在动画里切。没做到的也写在里面。</description>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>自制软件</category>
-    <category>黑粉录屏</category>
-    <category>AI 剪辑</category>
-    <category>动画</category>
+      <title>推理模型多想就更准？从17.7%到78.7%，一张草稿的价值与代价</title>
+      <link>https://hyphentech.top/understand-ai-09-reasoning/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-09-reasoning/</guid>
+      <description>心算容易丢中间数，写竖式就稳一些。模型也学会了先留草稿，可同一道题多等几秒，买到的究竟是正确答案，还是更长的错误解释？</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
+    <category>AI</category>
+    <category>你真的懂AI吗？</category>
     </item>
     <item>
-      <title>LTX-2.5，本地免费跑，效果比肩大片</title>
-      <link>https://hyphentech.top/localbrain-ltx25-video/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-ltx25-video/</guid>
-      <description>LocalBrain 1.4.8 接进第二个本地视频引擎 LTX-2.5：写一句带引号的台词，画面里的人会说出来。64GB 的 M5 Pro 上 4 秒 1024×576 约 2 分钟、峰值 25GB，运行时默认参数本来要 54GB；43.4GB 权重国内经 ModelScope 直连，发现页一键下载。</description>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
+      <title>AI寒冬有2次，为什么2012年才翻身？显卡、数据和一场比赛的故事</title>
+      <link>https://hyphentech.top/understand-ai-02-history/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-02-history/</guid>
+      <description>1958年，人们已经在期待会学习的机器。几十年后它才真正改变行业。中间不是一条直线上升的曲线，而是承诺、失望，以及老想法终于等到条件的故事。</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
     <category>AI</category>
-    <category>本地部署</category>
-    <category>自制软件</category>
-    <category>LocalBrain</category>
-    <category>AI视频</category>
+    <category>你真的懂AI吗？</category>
     </item>
     <item>
-      <title>Mac、Windows、Linux，谁才是 AI 时代的主力机？</title>
-      <link>https://hyphentech.top/mac-windows-linux-ai-platforms/</link>
-      <guid isPermaLink="true">https://hyphentech.top/mac-windows-linux-ai-platforms/</guid>
-      <description>同样是 AI 电脑，Mac 买共享内存和低维护，Windows 买兼容与显卡选择，Linux 买生产栈；加入 9 月 28 日官方现货价后，答案更具体。</description>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
+      <title>AI会续写却不肯答题？预训练、SFT与偏好优化，3个环节怎样教出助手</title>
+      <link>https://hyphentech.top/understand-ai-08-training/</link>
+      <guid isPermaLink="true">https://hyphentech.top/understand-ai-08-training/</guid>
+      <description>补全机能接着列题，助手却会回答、解释或拒绝。把它教得像个助手，和让它每句话都真实，是两项并不相同的工作。</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+    <category>AI知识</category>
     <category>AI</category>
-    <category>热点速递</category>
-    </item>
-    <item>
-      <title>2026 年 9 月 23 日，免费 AI API 还有几个真能用？</title>
-      <link>https://hyphentech.top/free-ai-api-radar-2026-09-23/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-ai-api-radar-2026-09-23/</guid>
-      <description>17 个旧入口逐一复核，并审视 4 个候选；按本期非空真实请求筛出 3 个可调用平台，同时记录额度和失败边界。</description>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>AI</category>
-    <category>免费白嫖</category>
+    <category>你真的懂AI吗？</category>
     </item>
   </channel>
 </rss>
