@@ -3,7 +3,7 @@ import { makeT, formatDateFor } from '../lib/blog-i18n.cjs';
 export function ProductReleaseMeta({ product, lang = 'zh-CN' }) {
   const t = makeT(lang);
   return (
-    <div className="current-product-meta" data-product-repo={product.releaseRepo} data-product-version={product.version}>
+    <div className="current-product-meta" data-product-repo={product.releaseRepo} data-product-version={product.version} data-product-revision={product.revision}>
       <div className="current-product-version">
         <strong>{t('最新版本 {version}', { version: product.version })}</strong>
         {product.prerelease && <span>{t('初步构建 · 预览版')}</span>}

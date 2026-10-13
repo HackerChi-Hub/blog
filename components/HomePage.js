@@ -312,7 +312,7 @@ const ProductSection = ({ products = [] }) => {
           // 英文页在构建时切换介绍文章的 slug，固定用途和界面标签由词典翻译。
           const name = t(product.name);
           return (
-            <article className="product-card tilt" key={product.slug} data-product-repo={product.releaseRepo} data-product-version={product.version}>
+            <article className="product-card tilt" key={product.slug} data-product-repo={product.releaseRepo} data-product-version={product.version} data-product-revision={product.revision}>
               <div className="product-card__badge">{t(product.badge)}</div>
               <span className="product-card__monogram" aria-hidden="true">{product.name.split(' ').at(-1).replace(/[^A-Z]/g, '').slice(0, 2)}</span>
               <h3 className="product-card__name">{name}</h3>

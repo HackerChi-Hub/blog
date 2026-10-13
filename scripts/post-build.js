@@ -4,6 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const { protectNextScripts } = require('../lib/runtime-script-policy.cjs');
+const { readProductSnapshot, validateProductSnapshot } = require('../lib/product-release-data.cjs');
+const { writeSnapshotAtomic } = require('./refresh-product-releases.js');
 
 const outDir = path.join(process.cwd(), 'out');
 
@@ -73,6 +75,11 @@ processFile('robots.txt/index.html', 'robots.txt');
 
 // 处理 feed.xml (RSS)
 processFile('feed.xml/index.html', 'feed.xml');
+
+// 与页面同一份公开发行快照：只含公开产品信息，供定时部署和线上回读核验。
+const productSnapshot = validateProductSnapshot(readProductSnapshot());
+writeSnapshotAtomic(path.join(outDir, 'product-releases.json'), productSnapshot);
+console.log('[post-build] 已导出公开软件发行快照 product-releases.json');
 
 // NextScript 不转发任意 data 属性；直接在静态导出产物上保护完整的框架依赖链。
 let protectedPages = 0;

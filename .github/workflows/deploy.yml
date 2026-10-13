@@ -1,4 +1,5 @@
 name: Deploy Next.js Blog to GitHub Pages
+run-name: ${{ inputs.product_update_id && format('软件信息刷新 · {0}', inputs.product_update_id) || format('博客部署 · {0}', github.event_name) }}
 
 on:
   push:
@@ -7,6 +8,16 @@ on:
   schedule:
     - cron: '17 */3 * * *'
   workflow_dispatch:
+    inputs:
+      product_update_id:
+        description: 软件信息刷新请求标识（脚本自动生成，普通手动部署可留空）
+        required: false
+        type: string
+
+# 定时刷新、手动刷新和文章部署串行，避免旧任务覆盖新部署。
+concurrency:
+  group: blog-pages-deploy
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -27,6 +38,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify product update scripts
+        run: npm run test:products
 
       - name: Build (static export)
         env:
@@ -57,8 +71,7 @@ jobs:
           publish_branch: gh-pages
 
       - name: Verify live pages and assets
-        # 推送和手动发布必须核对真实域名，定时刷新仍沿用现有运行频率与边界。
-        if: github.event_name != 'schedule'
+        # 定时软件更新也必须回读官网，不能只把构建成功当成已更新。
         timeout-minutes: 10
         run: |
           node scripts/verify-live.js "${{ github.run_id }}"
