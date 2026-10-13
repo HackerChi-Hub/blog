@@ -1,0 +1,23 @@
+.current-products { margin: 2rem 0; padding: clamp(18px, 3vw, 30px); border: 1px solid var(--hp-border, #344047); border-radius: 16px; background: var(--hp-panel, #111820); }
+.current-products h2 { margin: 0 0 .7rem; font-size: 1.35rem; }
+.current-products-explanation { color: var(--hp-muted, #aeb8c4); font-size: .85rem; line-height: 1.65; }
+.current-products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.current-products--focused .current-products-grid { grid-template-columns: 1fr; }
+.current-product { min-width: 0; display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--hp-border, #344047); border-radius: 12px; background: var(--hp-bg, #0b1016); }
+.current-product h3 { margin: 0 0 10px; font-size: 1.1rem; line-height: 1.5; overflow-wrap: anywhere; }
+.current-product > p { color: var(--hp-muted, #aeb8c4); font-size: .87rem; line-height: 1.7; }
+.current-product-version { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; font-size: .88rem; }
+.current-product-version strong { color: var(--hp-green, #79d9b0); }
+.current-product-version > span { font-size: .75rem; }
+.current-product-platforms { list-style: none; padding: 0; margin: 12px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.current-product-platforms li { margin: 0; padding: 0; }
+.current-product-platforms a { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid var(--hp-border, #344047); border-radius: 7px; font-size: .78rem; line-height: 1.5; }
+.current-product-meta time { display: block; margin-top: 10px; color: var(--hp-muted, #aeb8c4); font-size: .72rem; }
+.current-product-changes { margin: 16px 0; font-size: .84rem; line-height: 1.7; }
+.current-product-changes > strong { color: var(--hp-green, #79d9b0); font-size: .78rem; }
+.current-product-changes p { margin: 7px 0 0; }
+.current-product-download { align-self: flex-start; margin-top: auto; padding: 10px 14px; border: 1px solid var(--hp-green, #79d9b0); border-radius: 7px; font-size: .83rem; font-weight: 600; }
+.current-products a, .current-product-meta a { text-decoration: underline; text-underline-offset: .22em; color: var(--hp-green, #79d9b0); }
+.current-products a:focus-visible, .current-product-meta a:focus-visible { outline: 2px solid var(--hp-green, #79d9b0); outline-offset: 4px; }
+.product-history-note { margin: 24px 0; padding: 14px 18px; border-left: 3px solid var(--hp-yellow, #f4d36a); color: var(--hp-muted, #aeb8c4); background: var(--hp-panel, #111820); font-size: .85rem; line-height: 1.8; }
+@media (max-width: 620px) { .current-products-grid { grid-template-columns: 1fr; } .current-product { padding: 16px; } .current-product-platforms { flex-direction: column; } .current-product-platforms a { justify-content: space-between; } }

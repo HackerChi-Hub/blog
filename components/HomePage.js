@@ -312,7 +312,7 @@ const ProductSection = ({ products = [] }) => {
           // 英文页在构建时切换介绍文章的 slug，固定用途和界面标签由词典翻译。
           const name = t(product.name);
           return (
-            <article className="product-card tilt" key={product.slug}>
+            <article className="product-card tilt" key={product.slug} data-product-repo={product.releaseRepo} data-product-version={product.version}>
               <div className="product-card__badge">{t(product.badge)}</div>
               <span className="product-card__monogram" aria-hidden="true">{product.name.split(' ').at(-1).replace(/[^A-Z]/g, '').slice(0, 2)}</span>
               <h3 className="product-card__name">{name}</h3>
@@ -323,6 +323,7 @@ const ProductSection = ({ products = [] }) => {
                   <a href={product.releaseUrl} target="_blank" rel="noreferrer">{t('更新说明 ↗')}</a>
                 </div>
               )}
+              {product.platforms?.length > 0 && <ul className="current-product-platforms" aria-label={t('各平台公开安装包')}>{product.platforms.map((item) => <li key={item.platform}><a href={item.url} target="_blank" rel="noopener noreferrer"><span>{item.platform}</span><strong>{item.version}</strong><span aria-hidden="true">↗</span></a></li>)}</ul>}
               <p className="product-card__description">{t(product.description)}</p>
               {lang !== 'en' && product.updateSummary && (
                 <div className="product-card__update"><strong>{t('最新变化')}</strong><p>{product.updateSummary}</p></div>

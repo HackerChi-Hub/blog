@@ -2,9 +2,40 @@ const assert = require('assert');
 const {
   buildProductCards,
   extractReleaseSummary,
+  publishedReleases,
+  platformReleases,
+  selectRelease,
 } = require('../lib/product-catalog.cjs');
+const { splitProductFooter } = require('../lib/product-footer.cjs');
+const { auditProductVersions } = require('./verify-product-versions.js');
 
 async function main() {
+  const history = publishedReleases([
+    { tag_name: 'v2.0.0', draft: true, published_at: '2026-10-14T00:00:00Z' },
+    { tag_name: 'v1.8.0', published_at: '2026-10-13T00:00:00Z', html_url: 'https://example.test/1.8.0', assets: [{ name: 'App_arm64.dmg' }, { name: 'App_x64.exe.sig' }] },
+    { tag_name: 'v1.9.0', prerelease: true, published_at: '2026-10-13T01:00:00Z', html_url: 'https://example.test/preview', assets: [{ name: 'App_x64.exe' }] },
+    { tag_name: 'v1.7.6', published_at: '2026-10-12T00:00:00Z', html_url: 'https://example.test/1.7.6', assets: [{ name: 'App_x64.exe' }, { name: 'App_x64.deb' }] },
+  ]);
+  assert.strictEqual(selectRelease(history).tag_name, 'v1.8.0');
+  assert.deepStrictEqual(platformReleases(history).map(({ platform, version }) => [platform, version]), [
+    ['macOS', '1.8.0'], ['Windows', '1.7.6'], ['Linux', '1.7.6'],
+  ]);
+  assert.strictEqual(selectRelease(history.filter((item) => item.prerelease)).tag_name, 'v1.9.0');
+  const realFooter = '\n---\n\n## 🧰 Tools I build\n\n' + [
+    'hyphenbox-release', 'localbrain-releases', 'screenlex-download', 'HyphenScreen-Releases',
+  ].map((repo) => `> [Download](https://github.com/HackerChi-Hub/${repo}/releases)`).join('\n') + '\n\n> [!quote] HyphenTech\n> [HyphenTech](https://hyphentech.top)\n';
+  const historicalBody = '## Original test\n\nTested with 1.0.2.\n';
+  assert.deepStrictEqual(splitProductFooter(historicalBody + realFooter), { body: historicalBody.trimEnd(), managed: true });
+  assert.deepStrictEqual(splitProductFooter(historicalBody), { body: historicalBody, managed: false });
+  const humanSection = historicalBody + '\n## 🧰 Tools I build\n\nMy own handwritten comparison.';
+  assert.deepStrictEqual(splitProductFooter(humanSection), { body: humanSection, managed: false });
+  assert.deepStrictEqual(splitProductFooter(historicalBody + '<!-- HFKJ_FIXED_FOOTER_START -->\nmanaged\n<!-- HFKJ_FIXED_FOOTER_END -->'), { body: historicalBody.trimEnd(), managed: true });
+  const expected = [{ releaseRepo: 'Owner/Product', version: '1.8.0' }];
+  const cardHtml = '<div data-product-repo="Owner/Product" data-product-version="1.8.0"></div>';
+  assert.deepStrictEqual(auditProductVersions(cardHtml, expected), []);
+  assert.strictEqual(auditProductVersions(cardHtml + cardHtml, expected).length, 1);
+  assert.strictEqual(auditProductVersions(cardHtml.replace('1.8.0', '1.4.8'), expected).length, 1);
+  assert.strictEqual(auditProductVersions('', expected).length, 1);
   const releases = {
     'localbrain-releases': {
       tag_name: 'v1.2.28',
@@ -99,13 +130,24 @@ async function main() {
   assert.strictEqual(fallbackCards[1].source, 'fallback');
   assert.strictEqual(fallbackCards[1].badge, '我做的 · 正式迭代');
   assert.doesNotMatch(fallbackCards[1].badge, /预览版/);
+  await assert.rejects(() => buildProductCards(posts, {
+    fetchImpl: async () => ({ ok: false, status: 503 }), token: '', strict: true,
+  }), /无法核对当前公开发行/);
 
   assert.strictEqual(
     extractReleaseSummary('ScreenLex 1.0.1\n\n- 修复按钮。\n- 新增复习模式。'),
     '修复按钮；新增复习模式。'
   );
+  assert.strictEqual(
+    extractReleaseSummary('ScreenLex 1.0.5\n\n- 新增不打扰的赞助入口。\n\n**下载**\n- Mac 安装包\n\n自动更新覆盖三个平台。'),
+    '新增不打扰的赞助入口。'
+  );
+  assert.strictEqual(
+    extractReleaseSummary('这是版本号晋升说明。\n\n## 本版内容\n\n- 保留本地密钥保险箱。\n- 新增候选核验。\n\n## 下载\n\n- 安装包'),
+    '保留本地密钥保险箱；新增候选核验。'
+  );
 
-  console.log('✅ 产品目录测试通过：中英命名、Release 摘要、预览版不被 latest 端点漏掉、版本日期与离线回退');
+  console.log('✅ 产品目录测试通过：正式与预览版区分、各平台真实安装包、共享发行摘要、读取失败关闭、脚本页尾去重及历史正文不改');
 }
 
 main().catch((error) => {

@@ -9,6 +9,8 @@ import SponsorCard from '../components/SponsorCard';
 import MarkdownContent from '../components/MarkdownContent';
 import ArticleCover from '../components/ArticleCover';
 import BlogNavigation from '../components/BlogNavigation';
+import CurrentProducts from '../components/CurrentProducts';
+import { currentProductCards } from '../lib/product-release-data.cjs';
 import { getRelatedPosts } from '../lib/related-posts';
 import { getEnglishMap } from '../lib/home-data';
 import { homeHref, listHref, rememberLang } from '../lib/site-lang.cjs';
@@ -46,10 +48,11 @@ export async function getStaticProps({ params }) {
   console.log('[getStaticProps] slug:', slug);
 
   try {
-    const [post, allPosts, translations] = await Promise.all([
+    const [post, allPosts, translations, products] = await Promise.all([
       getPostBySlug(slug),
       getPosts(),
       getTranslationGroup(slug),
+      currentProductCards(),
     ]);
 
     if (!post) {
@@ -80,6 +83,7 @@ export async function getStaticProps({ params }) {
         markdownHtml: post.markdownHtml || null,
         relatedPosts,
         translations,
+        products,
       },
     };
   } catch (error) {
@@ -127,6 +131,7 @@ export default function PostPage({
   markdownHtml = null,
   relatedPosts = [],
   translations = [],
+  products = [],
 }) {
   const router = useRouter();
   const slug = router.query.slug;
@@ -184,7 +189,11 @@ export default function PostPage({
     return String(summary);
   };
   
-  const description = normalizeSummary(meta.summary) || `${meta.title} - ${SITE_CONFIG.name}`;
+  const rootSlug = meta.translationOf || meta.slug;
+  const focusedProduct = products.find((product) => rootSlug === product.slug ||
+    meta.title.includes(product.name.split(' ').at(-1)) || meta.title.includes(product.name.split(' ')[0]));
+  const isProductOverview = products.some((product) => rootSlug === product.slug);
+  const description = isProductOverview && focusedProduct ? t(focusedProduct.description) : normalizeSummary(meta.summary) || `${meta.title} - ${SITE_CONFIG.name}`;
   const tagNames = tags.map(tag => typeof tag === 'string' ? tag : tag.name || tag).filter(Boolean);
   const articleUrl = `/${meta.slug || slug}/`;
   const publishedTime = meta.date ? new Date(meta.date).toISOString() : null;
@@ -243,12 +252,17 @@ export default function PostPage({
                   {tagNames.length > 0 && <div><span>{t('标签：')}</span>{tagNames.map((name) => <span className="article-tag" key={name}>#{name}</span>)}</div>}
                 </div>
               )}
-              {normalizeSummary(meta.summary) && <div className="article-summary"><span>{t('摘要')}</span><p>{normalizeSummary(meta.summary)}</p></div>}
+              {normalizeSummary(meta.summary) && <div className="article-summary"><span>{t('摘要')}</span><p>{description}</p></div>}
             </div>
           </header>
 
           <section className="article-content">
+            {focusedProduct && <>
+              <CurrentProducts products={[focusedProduct]} lang={t.lang} focused />
+              <aside className="product-history-note">{t('下方正文保留原日期的实测、截图和版本记录，不冒充当前版本实测；现行功能与下载以上方公开发行信息为准。')}</aside>
+            </>}
             <MarkdownContent html={markdownHtml} />
+            {meta.fixedProductFooter && <CurrentProducts products={products.filter((product) => product.releaseRepo !== focusedProduct?.releaseRepo)} lang={t.lang} />}
             {!hasBrandSlogan && (
               <aside className="article-signature" aria-label={t('黑粉科技宣传语')}>
                 <span>{t('黑粉科技')}</span>

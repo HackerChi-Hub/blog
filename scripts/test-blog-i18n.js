@@ -33,6 +33,7 @@ const SOURCES = [
   'components/ArticleCover.js',
   'components/BlogNavigation.js',
   'components/SponsorCard.js',
+  'components/CurrentProducts.js',
   'components/SEO.js',
   'lib/markdown.js',
   'lib/reading-time.js',

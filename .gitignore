@@ -5,6 +5,7 @@
 node_modules/
 .next/
 out/
+.product-release-cache.json
 
 # 构建生成的临时附件
 public/downloads/
