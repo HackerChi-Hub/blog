@@ -25,6 +25,7 @@
  *   node scripts/translate-posts.js --slug <slug>       翻一篇
  *   node scripts/translate-posts.js --limit 3           翻最近的 3 篇
  *   node scripts/translate-posts.js --all               全部待翻译的
+ *   node scripts/translate-posts.js --sync-metadata     只同步机翻封面与固定标签，不调 API
  *   node scripts/translate-posts.js --all --dry-run     跑完整流程但不写盘、不调 API
  *   加 --force 连已是最新的机翻版也重译
  *
@@ -108,6 +109,10 @@ const TAG_MAP = new Map([
   ['AI 剪辑', 'AI editing'],
   ['视频生成', 'Video generation'],
   ['本地模型', 'Local models'],
+  ['本地AI', 'Local AI'],
+  ['端侧推理', 'On-device inference'],
+  ['多模态', 'Multimodal'],
+  ['你真的懂AI吗？', 'Do you really understand AI?'],
   ['科技前沿', 'Frontier'],
   ['行业分析', 'Industry'],
   ['提示词工程', 'Prompt engineering'],
@@ -647,7 +652,8 @@ function parseFrontmatter(raw) {
 }
 
 function readScalar(fmText, key) {
-  const m = fmText.match(new RegExp(`^${key}:\\s*(.*)$`, 'm'));
+  // \s 会吞掉换行，把空 cover 后面的 tags/brand_slogan 当成封面值。
+  const m = fmText.match(new RegExp(`^${key}:[ \\t]*(.*)$`, 'm'));
   if (!m) return '';
   return m[1].trim().replace(/^["']|["']$/g, '');
 }
@@ -721,6 +727,40 @@ function syncDiscoveryMetadata(source, translatedRaw) {
   return translatedRaw.replace(parsed.fmText, next);
 }
 
+function syncMachineMetadata(source, translatedRaw) {
+  const raw = syncDiscoveryMetadata(source, translatedRaw);
+  const parsed = parseFrontmatter(raw);
+  if (readScalar(parsed.fmText, 'translation_source') !== 'machine') return translatedRaw;
+  let next = parsed.fmText;
+  const sourceCover = readScalar(source.fmText, 'cover');
+  // 只补空封面，保留已有的译文专用封面；正文与来源哈希都不重写。
+  if (sourceCover && !readScalar(next, 'cover')) {
+    next = next.replace(/^cover:[^\r\n]*(?:\r?\n|$)/m, '');
+    next = `${next.trimEnd()}\ncover: ${yamlString(sourceCover)}\n`;
+  }
+  const sourceTags = readList(source.fmText, 'tags');
+  const translatedTags = readList(next, 'tags');
+  // 标签数量不一致时无法可靠对齐，保持原件，不按位置猜测。
+  if (sourceTags.length && sourceTags.length === translatedTags.length) {
+    const fixedTags = sourceTags.map((tag, index) => TAG_MAP.get(tag) || TERMS.get(tag) || translatedTags[index]);
+    if (fixedTags.some((tag, index) => tag !== translatedTags[index])) {
+      next = next.replace(/^tags:[^\r\n]*(?:\r?\n[ \t]+-[^\r\n]*)*/m, yamlList('tags', fixedTags).join('\n'));
+    }
+  }
+  return raw.replace(parsed.fmText, next);
+}
+
+function translationCoverOf(post) {
+  const cover = readScalar(post.fmText, 'cover');
+  const type = readScalar(post.fmText, 'article_type') || 'article';
+  const allowedPending = ['skill', 'model'].includes(type)
+    && readScalar(post.fmText, 'cover_status') === 'pending_generation_and_approval';
+  if (!cover && !allowedPending) {
+    throw new Error(`${post.file || post.slug || '原稿'} 缺少 cover；请先补齐正式封面，未调用翻译 API`);
+  }
+  return cover;
+}
+
 function listPosts() {
   return fs.readdirSync(POSTS_DIR)
     .filter((name) => name.endsWith('.md'))
@@ -782,6 +822,7 @@ function planWork(posts, { force }) {
 }
 
 async function translatePost(post, { dryRun }) {
+  const cover = translationCoverOf(post);
   const title = readScalar(post.fmText, 'title');
   const summary = readScalar(post.fmText, 'summary');
   const categories = readList(post.fmText, 'categories');
@@ -805,7 +846,6 @@ async function translatePost(post, { dryRun }) {
   const mapCategory = (c) => CATEGORY_MAP.get(c) || c;
   const mapTag = (t) => TAG_MAP.get(t) || TERMS.get(t) || tagTranslations.get(t) || t;
 
-  const cover = readScalar(post.fmText, 'cover');
   const lines = [
     '---',
     `title: ${yamlString(restore(tidy(translatedTitle), titleProtector))}`,
@@ -821,7 +861,7 @@ async function translatePost(post, { dryRun }) {
     `summary: ${yamlString(restore(tidy(translatedSummary), summaryProtector))}`,
     ...yamlList('categories', categories.map(mapCategory)),
     ...yamlList('tags', tags.map(mapTag)),
-    `cover: ${absolutizeAssets(cover)}`,
+    `cover: ${yamlString(cover)}`,
     `brand_slogan: ${readScalar(post.fmText, 'brand_slogan')}`,
     'legacy_paths: []',
     '---',
@@ -842,15 +882,26 @@ async function main() {
   };
 
   const dryRun = has('--dry-run');
+  const syncMetadataOnly = has('--sync-metadata');
+  const metadataSlugs = new Set(valueOf('--slug').split(',').map(slug => slug.trim()).filter(Boolean));
   const force = has('--force');
   const posts = listPosts();
   // 元数据变化不需要重译正文；只修复本脚本拥有的机翻副本。
-  if (has('--all') && !dryRun) {
+  if (has('--all') || syncMetadataOnly) {
+    let changed = 0;
     for (const translated of posts.filter((post) => post.translationSource === 'machine')) {
+      if (syncMetadataOnly && metadataSlugs.size && !metadataSlugs.has(translated.translationOf)) continue;
       const source = posts.find((post) => post.slug === translated.translationOf);
       if (!source) continue;
-      const next = syncDiscoveryMetadata(source, translated.raw);
-      if (next !== translated.raw) fs.writeFileSync(translated.fullPath, next);
+      const next = syncMachineMetadata(source, translated.raw);
+      if (next !== translated.raw) {
+        changed += 1;
+        if (!dryRun) fs.writeFileSync(translated.fullPath, next);
+      }
+    }
+    if (syncMetadataOnly) {
+      console.log(`✅ ${dryRun ? '预计更新' : '已同步'} ${changed} 篇机翻文章的元数据；未调用翻译 API、未改正文`);
+      return;
     }
   }
   const { todo, skipped } = planWork(posts, { force });
@@ -926,8 +977,8 @@ if (require.main === module) {
 }
 
 module.exports = {
-  discoveryMetadata, syncDiscoveryMetadata,
+  TAG_MAP, discoveryMetadata, syncDiscoveryMetadata, syncMachineMetadata, translationCoverOf,
   createProtector, protectInline, restore, structureOf, assertSameStructure, absolutizeAssets,
-  readList, yamlList, halfInBrackets,
+  readScalar, readList, yamlList, halfInBrackets,
   replaceTerms, assertTermsPreserved, termsKeptInLine, translateSegmented, pangu, tidy, needsFallback,
 };

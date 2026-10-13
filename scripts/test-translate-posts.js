@@ -13,7 +13,8 @@ const assert = require('assert');
 const {
   createProtector, protectInline, restore, structureOf, assertSameStructure, absolutizeAssets,
   replaceTerms, assertTermsPreserved, termsKeptInLine, translateSegmented, pangu, tidy, needsFallback,
-  readList, yamlList, halfInBrackets,
+  readScalar, readList, yamlList, halfInBrackets,
+  TAG_MAP, syncMachineMetadata, translationCoverOf,
 } = require('./translate-posts.js');
 
 let passed = 0;
@@ -22,6 +23,62 @@ const check = (name, fn) => {
   passed += 1;
   console.log(`  ✓ ${name}`);
 };
+
+console.log('固定标签与封面元数据：');
+
+check('空标量只读本行，不吞掉后面的元数据', () => {
+  assert.strictEqual(readScalar('cover: \nbrand_slogan: 宣传语\ntags: [AI]', 'cover'), '');
+  assert.strictEqual(readScalar('cover:\nslug: example', 'cover'), '');
+  assert.strictEqual(readScalar('cover: \t\r\nslug: example', 'cover'), '');
+});
+
+check('四个新增标签使用固定译名，不进入标签 API 翻译队列', () => {
+  const expected = new Map([
+    ['本地AI', 'Local AI'],
+    ['端侧推理', 'On-device inference'],
+    ['多模态', 'Multimodal'],
+    ['你真的懂AI吗？', 'Do you really understand AI?'],
+  ]);
+  for (const [tag, value] of expected) assert.strictEqual(TAG_MAP.get(tag), value);
+  assert.deepStrictEqual([...expected.keys()].filter(tag => !TAG_MAP.has(tag)), []);
+});
+
+const metadataSource = {
+  fmText: 'title: 原稿\ncover: ../preview-assets/s/cover.jpg\ntags:\n  - 本地AI\n  - 端侧推理\n  - 多模态\n  - 你真的懂AI吗？',
+};
+const metadataTranslation = '---\ntitle: Original\ntranslation_source: machine\nsource_sha256: keep-me\ncover: \ntags:\n  - Old local label\n  - Old edge label\n  - Old multimodal label\n  - Old series label\n---\n\nBody stays byte-for-byte.\n';
+check('无需重译正文，也能补回空封面并统一已生成的标签', () => {
+  const result = syncMachineMetadata(metadataSource, metadataTranslation);
+  assert.match(result, /cover: "\.\.\/preview-assets\/s\/cover\.jpg"/);
+  assert.match(result, /source_sha256: keep-me/);
+  assert(result.endsWith('\n\nBody stays byte-for-byte.\n'));
+  assert.deepStrictEqual(readList(result, 'tags'), [...TAG_MAP.entries()].filter(([tag]) => ['本地AI', '端侧推理', '多模态', '你真的懂AI吗？'].includes(tag)).map(([, value]) => value));
+  assert.strictEqual(syncMachineMetadata(metadataSource, result), result, '元数据同步必须幂等');
+});
+check('保留已有的译文专用封面，不覆盖人工译文', () => {
+  const dedicated = metadataTranslation.replace('cover: ', 'cover: ../preview-assets/s/english.jpg');
+  assert(syncMachineMetadata(metadataSource, dedicated).includes('cover: ../preview-assets/s/english.jpg'));
+  const human = metadataTranslation.replace('translation_source: machine', 'translation_source: human');
+  assert.strictEqual(syncMachineMetadata(metadataSource, human), human);
+});
+check('未知标签及标签数量不一致时不猜测、不丢弃既有译名', () => {
+  const source = {fmText: 'tags: [本地AI, 自定义标签]'};
+  const translated = '---\ntranslation_source: machine\ntags: [Old, Custom label]\n---\nBody\n';
+  assert.deepStrictEqual(readList(syncMachineMetadata(source, translated), 'tags'), ['Local AI', 'Custom label']);
+  const unmatched = translated.replace('[Old, Custom label]', '[Single]');
+  assert.deepStrictEqual(readList(syncMachineMetadata(source, unmatched), 'tags'), ['Single']);
+});
+check('普通原稿缺封面时在调用翻译 API 前明确失败', () => {
+  assert.throws(() => translationCoverOf({slug:'missing-cover',fmText:'status: published'}), /缺少 cover.*未调用翻译 API/);
+  assert.throws(() => translationCoverOf({fmText:'article_type: article\ncover_review: pending'}), /缺少 cover/);
+  assert.strictEqual(translationCoverOf(metadataSource), '../preview-assets/s/cover.jpg');
+});
+check('只有现有官方模型与技能通道可以保留其待生成封面状态', () => {
+  for (const type of ['model', 'skill']) {
+    assert.strictEqual(translationCoverOf({fmText:`article_type: ${type}\ncover_status: pending_generation_and_approval`}), '');
+    assert.throws(() => translationCoverOf({fmText:`article_type: ${type}`}), /缺少 cover/);
+  }
+});
 
 console.log('占位符保护与还原：');
 
