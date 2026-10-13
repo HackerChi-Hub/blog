@@ -108,16 +108,25 @@ echo "🧪 2/5 按线上模式构建并验收"
 BLOG_CONTENT_DIR=./content-export npm run build
 
 unexpected=""
-while IFS= read -r line; do
+while IFS= read -r -d '' line; do
   [ -n "$line" ] || continue
+  status="${line:0:2}"
   file="${line:3}"
   case "$file" in
     content-export/*|public/obsidian-assets/*) ;;
-    *) unexpected="${unexpected}${line}\n" ;;
+    *) unexpected="${unexpected}${status} ${file}"$'\n' ;;
   esac
-done < <(git status --porcelain --untracked-files=all)
+  # -z 不转义中文、空格、引号等文件名；重命名/复制还有一个来源路径，必须同样核对。
+  if [[ "$status" == *R* || "$status" == *C* ]]; then
+    IFS= read -r -d '' source_file || fail "无法读取重命名或复制的来源路径"
+    case "$source_file" in
+      content-export/*|public/obsidian-assets/*) ;;
+      *) unexpected="${unexpected}${status} ${source_file}"$'\n' ;;
+    esac
+  fi
+done < <(git status --porcelain=v1 -z --untracked-files=all)
 if [ -n "$unexpected" ]; then
-  printf "❌ 同步或构建产生了受管目录外的改动，拒绝混合提交：\n%b" "$unexpected"
+  printf "❌ 同步或构建产生了受管目录外的改动，拒绝混合提交：\n%s" "$unexpected"
   exit 1
 fi
 
