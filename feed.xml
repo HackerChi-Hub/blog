@@ -5,16 +5,16 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 12 Oct 2026 21:17:50 GMT</lastBuildDate>
-    <pubDate>Mon, 12 Oct 2026 21:17:50 GMT</pubDate>
+    <lastBuildDate>Tue, 13 Oct 2026 00:35:11 GMT</lastBuildDate>
+    <pubDate>Tue, 13 Oct 2026 00:35:11 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>方寸智匣1.8.0：聊天模型指挥六类本地AI，语音到视频实测</title>
+      <title>方寸智匣1.8.0：聊天模型指挥六类本地AI，从语音到视频实测</title>
       <link>https://hyphentech.top/localbrain-media-chat-180/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-media-chat-180/</guid>
-      <description>同一聊天完成六类本地媒体调用，语音接转写、红杯接编辑；原始产物、参数回执和问题一起展示。</description>
+      <description>六类本地模型接入聊天，追加十份视觉样品；画面、编辑保持与实际问题原样展示。</description>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>方寸智匣</category>
