@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localhost-local-ai-security
 translation_source: machine
-source_sha256: f24b9dcdd89a1016
+source_sha256: bbd1fe6982e05491
 date: 2026-09-09
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Just listening to 127.0.0.1 doesn't mean browsers can't encounter it. Three recent official security announcements plus a set of completely isolated CORS tests break down the most easily misunderstood security boundaries of local AI."
 categories:
   - Thoughts
@@ -100,9 +100,9 @@ A truly reliable statement isn't "I only opened localhost, so it's fine," but ra
 
 > [!tip]
 > **Official Safety Announcement**
-> WinML CLI / CVE-2026-84452: [Repository：microsoft/winml-cli](<https://github.com/microsoft/winml-cli/security/advisories/GHSA-96p9-rh4f-92cf>)
-> vLLM SSRF / CVE-2026-73560: [Repository：vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-4hhp-h66f-j5j7>)
-> vLLM Data Leak / CVE-2026-73558:[Repository：vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-7m6h-x95x-82q5>)
+> WinML CLI / CVE-2026-84452:[Project repository: microsoft/winml-cli](<https://github.com/microsoft/winml-cli/security/advisories/GHSA-96p9-rh4f-92cf>)
+> vLLM SSRF / CVE-2026-73560:[Project repository: vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-4hhp-h66f-j5j7>)
+> vLLM Data Leak / CVE-2026-73558:[Project Repository: vllm-project/vllm](<https://github.com/vllm-project/vllm/security/advisories/GHSA-7m6h-x95x-82q5>)
 
 
 ---

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-api-radar-2026-08-27
 translation_source: machine
-source_sha256: bf8a059aec5acb16
+source_sha256: d61410025f2ae1b9
 date: 2026-08-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Free interface review of GLM-5.3-Flash, Qwen3.8, and Coding GLM: whether they work, how to connect, and the limits and privacy risks all at once."
 categories:
   - Resources
@@ -87,11 +87,11 @@ legacy_paths: []
 > [!note]
 > This is a limited-time event, not a permanent zero price. The start time for Chat free is still based on the actual launch of the model.
 
-- Official source: [Documentation：docs.b.ai · glm-5-3-flash](<https://docs.b.ai/llmservice/models/glm-5-3-flash/>)
+- Official source: [Document: docs.b.ai · glm-5-3-flash](<https://docs.b.ai/llmservice/models/glm-5-3-flash/>)
 
-- Official source: [Documentation：docs.b.ai · qwen3-8-flash](<https://docs.b.ai/llmservice/models/qwen3-8-flash/>)
+- Official source: [Document: docs.b.ai · qwen3-8-flash](<https://docs.b.ai/llmservice/models/qwen3-8-flash/>)
 
-- Official source: [Pricing：docs.b.ai · promotions-and-pricing-notices](<https://docs.b.ai/llmservice/promotions-and-pricing-notices/>)
+- Official source: [Price information: docs.b.ai · promotions-and-pricing-notices](<https://docs.b.ai/llmservice/promotions-and-pricing-notices/>)
 
 ![# B.AI Official event page: GLM-5.3-Flash and Qwen3.8-Flash current API settle at 0 credits · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-01-6c0ea50936.png)
 
@@ -116,11 +116,11 @@ legacy_paths: []
 > [!note]
 > Single model pages say 5 times per minute, 500 times per day, and 1 million tokens per day; The free page updated on 2026-08-27 states 10 shared trials before recharging, and after recharging at least $1, sharing 10 times per minute, 100 times per day, and 1 million tokens per day. The two pages conflict in scope; before accessing, refer to the account console.
 
-- Official source: [View page：aihubmix.com · coding-glm-5.3-free](<https://aihubmix.com/model/coding-glm-5.3-free>)
+- Official source: [View page: aihubmix.com · coding-glm-5.3-free](<https://aihubmix.com/model/coding-glm-5.3-free>)
 
-- Official source: [View page：aihubmix.com · coding-glm-5.3-flash-free](<https://aihubmix.com/model/coding-glm-5.3-flash-free>)
+- Official source: [View page: aihubmix.com · coding-glm-5.3-flash-free](<https://aihubmix.com/model/coding-glm-5.3-flash-free>)
 
-- Official source: [View page：aihubmix.com · free](<https://aihubmix.com/models/free>)
+- Official source: [View page: aihubmix.com · free](<https://aihubmix.com/models/free>)
 
 ![# AIHubMix Single Model Page: Coding GLM 5.3 Flash Free Model and Zero-Price Information · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-03-c5f85b2feb.png)
 
@@ -145,9 +145,9 @@ legacy_paths: []
 > [!note]
 > The official page also reminds that free computing power is limited, and service stability and concurrency are not guaranteed; The public model page also does not provide long-term committed call counts or token quotas, which still require verification via the console.
 
-- Official source: [View page：www.tokenrouter.com · qwen3.8-max-free](<https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/>)
+- Official source: [View page: www.tokenrouter.com · qwen3.8-max-free](<https://www.tokenrouter.com/models/qwen/qwen3.8-max-free/>)
 
-- Official source: [View page：www.tokenrouter.com](<https://www.tokenrouter.com/>)
+- Official source: [View page: www.tokenrouter.com](<https://www.tokenrouter.com/>)
 
 ![# TokenRouter official model page: Qwen3.8 Max free model input/output price is 0 · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-05-deaace89a5.png)
 
@@ -170,7 +170,7 @@ legacy_paths: []
 > [!note]
 > GLM 5.3 Flash appears in the Agent Pass addition model, where the Free file is clearly marked as not included and cannot be written as the Free file.
 
-- Official source: [Pricing：tokenharbor.ai · pricing](<https://tokenharbor.ai/pricing>)
+- Official source: [Price information: tokenharbor.ai · pricing](<https://tokenharbor.ai/pricing>)
 
 ![# TokenHarbor Official Pricing Page: Qwen 3.8 27B is in the free tier, GLM 5.3 Flash belongs to Agent Pass · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-06-12098b97f8.png)
 
@@ -195,7 +195,7 @@ legacy_paths: []
 > [!note]
 > Previously, the official page clearly stated that prompts and completions would be recorded together with hashed IPs to improve open-source models. Even if restored, it would only be suitable for public code, testing, and prompt regression, not for accounts, keys, customer data, or private repositories.
 
-- Official source: [View page：free.empero.org](<https://free.empero.org/>)
+- Official source: [View page: free.empero.org](<https://free.empero.org/>)
 
 - Official source: [https://free.empero.org/v1](<https://free.empero.org/v1>)
 
@@ -220,11 +220,11 @@ legacy_paths: []
 > [!note]
 > Public documentation does not specify the current free model, so "GLM-5.3 Flash free in Cline" should still be based on the IDE or CLI model selector after login.
 
-- Official source: [View page：cline.bot](<https://cline.bot/>)
+- Official source: [View page: cline.bot](<https://cline.bot/>)
 
-- Official source: [Documentation：docs.cline.bot · openai-compatible](<https://docs.cline.bot/provider-config/openai-compatible>)
+- Official source: [Document: docs.cline.bot · openai-compatible](<https://docs.cline.bot/provider-config/openai-compatible>)
 
-- Official source: [Documentation：docs.cline.bot · free-models](<https://docs.cline.bot/getting-started/free-models>)
+- Official source: [Document: docs.cline.bot · free-models](<https://docs.cline.bot/getting-started/free-models>)
 
 ![# Cline Official Documentation: Supports custom OpenAI-compatible API endpoint · 2026-08-28](https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/image-09-6007e52e87.png)
 
@@ -243,13 +243,13 @@ legacy_paths: []
 | Available models | GLM-5.3 is currently available in the public directory, but GLM-5.3-Flash is not listed |
 | Access | System upgrade announcements require the use of the new address [https://api.hilinkup.com](<https://api.hilinkup.com>) and the channel/model ID format. |
 | Base URL | [https://api.hilinkup.com](<https://api.hilinkup.com>) |
-| Verify the conclusion | Model routing [View page：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>) currently only returns the general SPA page; On 2026-08-28, the official public/models directory was read but GLM-5.3-Flash was not found. |
+| Verify the conclusion | Model routing [View page: hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>) Currently, only the general SPA page is returned; On 2026-08-28, I also read the official public/models directory but did not find GLM-5.3-Flash. |
 | Evidence status | The official public catalog has not been confirmed |
 
 > [!note]
 > "Limited-time free from 2026-08-27 to 2026-09-02" lacks an official event page that can be reliably opened and will not be marked as a confirmed offer.
 
-- Official source: [View page：hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>)
+- Official source: [View page: hilinkup.com · glm-5-3-flash](<https://hilinkup.com/models/glm-5-3-flash>)
 
 - Official source: [https://hilinkup.com/api/v1/public/models](<https://hilinkup.com/api/v1/public/models>)
 

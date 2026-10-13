@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-small-models-lowmem
 translation_source: machine
-source_sha256: 4d524bc8ab681d19
+source_sha256: b2cc62e24aa4b5a1
 date: 2026-09-13
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Bringing 11 low-memory local models released this year to the local machine, using LocalBrain's built-in llama.cpp unified memory, speed, and tool calls: 6 under 8K context are within the default limit of 8GB devices. Qwen3.5-9B takes up 3GB less than last year's Qwen3-8B, and 27B of 1-bit can run but only has manufacturer numbers. This batch of models has also been added to LocalBrain's discovery page."
 categories:
   - Tech
@@ -331,12 +331,12 @@ Using the bar chart from question 3, only four numbers are asked to verify wheth
 Judgment: The answer should include four numbers: 1810, 1154, 112, and 58. Qwen3.5 4B / 9B, Gemma 4 12B / E4B are read correctly; For two Bonsai, you need to think about about 1100 tokens. When the answer limit is 1024, the answer is cut off, and 2048 is correctly read.
 
 > [!tip]
-> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-> September 9: "1.4GB Small Model: Can It Really Be a Local Agent?" 》: [View page：hyphentech.top · minicpm5-2b-localbrain](<https://hyphentech.top/minicpm5-2b-localbrain/>)
-> Independent Rankings (Open Source Small Models): [View page：artificialanalysis.ai · small](<https://artificialanalysis.ai/models/open-source/small>)
-> MiniCPM5-2B Model Card: [View page：huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
-> Qwen 3.5-9B Model Card: [View page：huggingface.co · Qwen3.5-9B](<https://huggingface.co/Qwen/Qwen3.5-9B>)
-> Bonsai 27B Release Notes: [View page：prismml.com · bonsai-27b](<https://prismml.com/news/bonsai-27b>)
+> Download page: [Download and update: LocalBrain (distribution page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> September 9: "1.4GB Small Model, Can It Really Be a Local Agent?" :[View page: hyphentech.top · minicpm5-2b-localbrain](<https://hyphentech.top/minicpm5-2b-localbrain/>)
+> Independent Rankings (Open-source Small Models): [View page: artificialanalysis.ai · small](<https://artificialanalysis.ai/models/open-source/small>)
+> MiniCPM5-2B Model Card: [View page: huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
+> Qwen 3.5-9B Model Card: [View page: huggingface.co · Qwen3.5-9B](<https://huggingface.co/Qwen/Qwen3.5-9B>)
+> Bonsai 27B Release Notes: [View page: prismml.com · bonsai-27b](<https://prismml.com/news/bonsai-27b>)
 
 
 ---

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-ai-api-radar-2026-09-23
 translation_source: machine
-source_sha256: e0154ede59daf8a5
+source_sha256: 63a21d4583e3e35b
 date: 2026-09-23
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "17 old entry points were reviewed one by one, and 4 candidates were reviewed; 3 callable platforms were screened based on current non-empty real requests, with quotas and failure boundaries recorded."
 categories:
   - Resources
@@ -105,8 +105,8 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Different free models are not identical in availability; 429, 503, and account balance constraints must be viewed separately.
 
-- Official source: [Documentation：openrouter.ai · limits](<https://openrouter.ai/docs/api-reference/limits>)
-- Official source: [View page：openrouter.ai · nemotron-3-super-120b-a12b:free](<https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree>)
+- Official source: [Document: openrouter.ai · limits](<https://openrouter.ai/docs/api-reference/limits>)
+- Official source: [View page: openrouter.ai · nemotron-3-super-120b-a12b:free](<https://openrouter.ai/nvidia/nemotron-3-super-120b-a12b%3Afree>)
 
 - This issue's detection: openrouter/liquid/lfm-2.5-2.6b: free · chat · Effective 0/4 · probe-report.local.json
 - This issue's detection: OpenRouter/nvidia/Nemotron-3-super-120b-a12b:free · chat · Effective 3/4 · probe-report.recheck.json
@@ -138,7 +138,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > The official announcement states that account usage requires real-name verification; Retiring the old PaddleOCR-VL does not mean retiring the PaddleOCR-VL-1.5.
 
-- Official source: [Pricing：siliconflow.cn · pricing](<https://siliconflow.cn/pricing>)
+- Official source: [Price information: siliconflow.cn · pricing](<https://siliconflow.cn/pricing>)
 
 - This issue's detection: siliconflow/Qwen/Qwen2.5-7B-Instruct · chat · Effective 0/4 · probe-report.local.json
 
@@ -167,7 +167,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Old models and quotas must not be directly reused.
 
-- Official source: [Documentation：docs.bigmodel.cn · model-overview](<https://docs.bigmodel.cn/cn/guide/start/model-overview>)
+- Official source: [Document: docs.bigmodel.cn · model-overview](<https://docs.bigmodel.cn/cn/guide/start/model-overview>)
 
 ---
 
@@ -178,10 +178,10 @@ For regular users, I first try using short tasks without privacy, then check sli
 | Project | Verify the content |
 | --- | --- |
 | Available models | The specific model list is subject to verification by the official console |
-| Access | Compatible with OpenAI; After registering an account, you can obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
+| Access | OpenAI compatible; After registering an account, in [Key Management: modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) Obtain Access Token |
 | Base URL | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | Free type | The account layer offers free service |
-| Jian Quan | After registering an account, obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
+| Jian Quan | After registering an account, in [Key Management: modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) Obtain Access Token |
 | Free quota | awaiting verification |
 | Reset cycle | awaiting verification |
 | Validity period | Subject to account and official event terms |
@@ -194,7 +194,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > You can't treat the August list as the available model for September.
 
-- Official source: [Documentation：www.modelscope.cn · intro](<https://www.modelscope.cn/docs/model-service/API-Inference/intro>)
+- Official source: [Document: www.modelscope.cn · intro](<https://www.modelscope.cn/docs/model-service/API-Inference/intro>)
 
 ---
 
@@ -221,9 +221,9 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Different models on the same platform cannot share stability conclusions.
 
-- Official source: [Documentation：console.groq.com · rate-limits](<https://console.groq.com/docs/rate-limits>)
-- Official source: [Documentation：console.groq.com · your-data](<https://console.groq.com/docs/your-data>)
-- Official source: [Documentation：console.groq.com · deprecations](<https://console.groq.com/docs/deprecations>)
+- Official source: [Document: console.groq.com · rate-limits](<https://console.groq.com/docs/rate-limits>)
+- Official source: [Document: console.groq.com · your-data](<https://console.groq.com/docs/your-data>)
+- Official source: [Document: console.groq.com · deprecations](<https://console.groq.com/docs/deprecations>)
 
 - This issue's detection: Groq/OpenAI/GPT-OSS-20B · chat · Effective 2/4 · probe-report.local.json
 - This issue's detection: groq/qwen/qwen 3.8-27b · chat · Effective 4/4 · probe-report.recheck.json
@@ -255,7 +255,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > If you exceed the limit, the free plan will fail; Neurons cannot be converted into a fixed number of chats.
 
-- Official source: [Pricing：developers.cloudflare.com · pricing](<https://developers.cloudflare.com/workers-ai/platform/pricing/>)
+- Official source: [Price information: developers.cloudflare.com · pricing](<https://developers.cloudflare.com/workers-ai/platform/pricing/>)
 
 ![Cloudflare Official Pricing Page: Workers AI Daily Free Neurons Allowance · 2026-09-23](https://hyphentech.top/obsidian-assets/free-ai-api-radar-2026-09-23/image-cloudflare-1-686624d9ef.png)
 
@@ -284,7 +284,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > The official Free API promotion cannot automatically apply to 2.5 Flash; You cannot equate three consecutive successes with long-term stability.
 
-- Official source: [View page：agnes-ai.com](<https://agnes-ai.com/>)
+- Official source: [View page: agnes-ai.com](<https://agnes-ai.com/>)
 
 - This issue's detection: agnes/agnes-2.0-flash · chat · Effective 1/4 · probe-report.local.json
 - This issue's detection: agnes/agnes-2.5-flash · chat · Effective 3/4 · probe-report.recheck.json
@@ -314,7 +314,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > BYOK routing charges differ and cannot be understood as unlimited calls from the platform.
 
-- Official source: [Pricing：huggingface.co · pricing](<https://huggingface.co/docs/inference-providers/pricing>)
+- Official source: [Price information: huggingface.co · pricing](<https://huggingface.co/docs/inference-providers/pricing>)
 
 ![Hugging Face Official Pricing Page: Monthly Limit Calculation for Free Accounts · 2026-09-23](https://hyphentech.top/obsidian-assets/free-ai-api-radar-2026-09-23/image-huggingface-1-db3987ce99.png)
 
@@ -343,7 +343,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > A successful NVIDIA model forwarded by OpenRouter does not necessarily mean the NVIDIA direct connection port is tested successfully.
 
-- Official source: [View page：build.nvidia.com · models](<https://build.nvidia.com/models>)
+- Official source: [View page: build.nvidia.com · models](<https://build.nvidia.com/models>)
 
 ---
 
@@ -370,8 +370,8 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Free tier requests may be used to improve Google products; Sensitive content should not be included. Model, region, and account eligibility affect the free tier.
 
-- Official source: [Documentation：ai.google.dev · rate-limits](<https://ai.google.dev/gemini-api/docs/rate-limits>)
-- Official source: [Pricing：ai.google.dev · pricing](<https://ai.google.dev/gemini-api/docs/pricing>)
+- Official source: [Document: ai.google.dev · rate-limits](<https://ai.google.dev/gemini-api/docs/rate-limits>)
+- Official source: [Price description: ai.google.dev · pricing](<https://ai.google.dev/gemini-api/docs/pricing>)
 
 - This issue's detection: gemini/gemini-3.1-flash-lite · chat · Effective 4/4 · probe-report.local.json
 - This issue's detection: gemini/gemini-embedding-001 · embedding · Effective 4/4 · probe-report.local.json
@@ -405,7 +405,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > This is not a long-term free period; The terms for historical account holders do not change automatically due to announcements.
 
-- Official source: [View page：www.alibabacloud.com · new-free-quota-validity-adjustment](<https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment>)
+- Official source: [View page: www.alibabacloud.com · new-free-quota-validity-adjustment](<https://www.alibabacloud.com/help/zh/model-studio/new-free-quota-validity-adjustment>)
 
 ---
 
@@ -432,7 +432,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Some endpoints are not Chat; The key trio cannot be written to the probe report.
 
-- Official source: [View page：www.xfyun.cn · Web.html](<https://www.xfyun.cn/doc/spark/Web.html>)
+- Official source: [View page: www.xfyun.cn · Web.html](<https://www.xfyun.cn/doc/spark/Web.html>)
 
 ---
 
@@ -459,7 +459,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > If you need to bind a payment method, it cannot be included in the no-threshold free tier.
 
-- Official source: [Pricing：inference-docs.cerebras.ai · pricing](<https://inference-docs.cerebras.ai/support/pricing>)
+- Official source: [Price information: inference-docs.cerebras.ai · pricing](<https://inference-docs.cerebras.ai/support/pricing>)
 
 ---
 
@@ -486,7 +486,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Dynamic speed limits should not be mistakenly written as fixed free quotas.
 
-- Official source: [Documentation：docs.together.ai · rate-limits](<https://docs.together.ai/docs/rate-limits>)
+- Official source: [Document: docs.together.ai · rate-limits](<https://docs.together.ai/docs/rate-limits>)
 
 ---
 
@@ -498,7 +498,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 | --- | --- |
 | Available models | openai-fast (official model directory list anonymity layer) |
 | Access | REST / OpenAI compatible path; The anonymity layer of text interfaces does not require Keys; Generative interfaces require a key and Pollen balance |
-| Base URL | [View page：text.pollinations.ai · openai](<https://text.pollinations.ai/openai>) |
+| Base URL | [View page: text.pollinations.ai · openai](<https://text.pollinations.ai/openai>) |
 | Free type | Publicly Revealed Keyless/Anonymous Layer |
 | Jian Quan | The anonymity layer of text interfaces does not require Keys; Generation class interfaces require a built-in Key and Pollen balance |
 | Free quota | The official directory does not specify the stable call limit |
@@ -513,7 +513,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Model discovery does not mean Chat is available; You cannot use the August test to replace this issue.
 
-- Official source: [View page：text.pollinations.ai · models](<https://text.pollinations.ai/models>)
+- Official source: [View page: text.pollinations.ai · models](<https://text.pollinations.ai/models>)
 
 ---
 
@@ -540,7 +540,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Old links and old quotas must not continue to be promoted.
 
-- Official source: [Documentation：docs.github.com · github-models](<https://docs.github.com/en/github-models>)
+- Official source: [Document: docs.github.com · github-models](<https://docs.github.com/en/github-models>)
 
 ---
 
@@ -567,7 +567,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Requires self-deployment, maintenance, and bearing hardware and energy costs.
 
-- Official source: [Repository：ggml-org/llama.cpp](<https://github.com/ggml-org/llama.cpp>)
+- Official source: [Project repository: ggml-org/llama.cpp](<https://github.com/ggml-org/llama.cpp>)
 
 ---
 
@@ -594,7 +594,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: [Documentation：opencode.ai · zen](<https://opencode.ai/docs/zen>)
+- Official source: [Document: opencode.ai · zen](<https://opencode.ai/docs/zen>)
 
 ---
 
@@ -621,7 +621,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: [View page：doc.freeinference.org · models](<https://doc.freeinference.org/models>)
+- Official source: [View page: doc.freeinference.org · models](<https://doc.freeinference.org/models>)
 
 ---
 
@@ -648,7 +648,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: [Documentation：llm.ustc.edu.cn · technical-updates](<https://llm.ustc.edu.cn/guide/technical-updates/>)
+- Official source: [Document: llm.ustc.edu.cn · technical-updates](<https://llm.ustc.edu.cn/guide/technical-updates/>)
 
 ---
 
@@ -675,7 +675,7 @@ For regular users, I first try using short tasks without privacy, then check sli
 > [!warning]
 > Do not use document names as interfaces; Do not bypass registration, real-name verification, or payment verification.
 
-- Official source: [View page：www.ant-ling.com](<https://www.ant-ling.com/>)
+- Official source: [View page: www.ant-ling.com](<https://www.ant-ling.com/>)
 
 ---
 

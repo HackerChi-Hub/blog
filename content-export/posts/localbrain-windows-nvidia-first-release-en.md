@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-windows-nvidia-first-release
 translation_source: machine
-source_sha256: 585f359eb0a72c28
+source_sha256: b1239179e32419a0
 date: 2026-09-04
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Instead of discussing superficial questions like \"Is there a Windows version of the software?\", let's answer two practical questions: which local models and tools can run on an 8 GB NVIDIA graphics card, and what makes the Mac's unified memory and complete multimedia chain strong."
 categories:
   - Tech
@@ -128,7 +128,7 @@ Code signing also doesn't work. If the Windows installation package isn't signed
 - You can install it without an NVIDIA graphics card, but it runs on the CPU version, which is much slower. The program will clearly indicate the installation progress in the installer.
 
 > [!tip]
-> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>) (Windows version under v1.2.50 pre-release)
+> Download page: [Download and update: LocalBrain (distribution page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>) (Windows version pre-released with v1.2.50)
 
 > [!summary] A Windows laptop with 8 GB of VRAM, combining local text models and local tools is already usable
 > The two 8GB models ran at 73.9 and about 60.8 tokens/s respectively, with Windows from 32K to 55K. After fixing those three tools, the internet, file, and document tools all worked. The multimedia half won't come to Windows in the short term; Linux has no schedule, so automatic updates require waiting for the private key to be transferred. My judgment only covers the 8 GB tier—the window and uninstall path on larger graphics cards are the same deduction, but there's no actual data. If you're using 12, 16, or 24 GB graphics cards, please send me your results.
@@ -141,9 +141,9 @@ Code signing also doesn't work. If the Windows installation package isn't signed
 | **LocalBrain** | Turn your computer into a private AI box: manage transcription/voiceover/raw images/video/MCP all in one place | Officially updated |
 | **ScreenLex ScreenLex** | Local movie subtitles become a review English vocabulary, fully offline | Officially updated |
 
-- HyphenBox: [Downloads & updates: HyphenBox (releases)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-- LocalBrain: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-- ScreenLex ScreenLex: [Downloads & updates: ScreenLex (releases)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
+- HyphenBox: [Download and update: HyphenBox (release page)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
+- LocalBrain:[Download and Update: LocalBrain (Distribution Page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+- ScreenLex ScreenLex: [Download and Update: ScreenLex (Release Page)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: fable-5-1-mythos-update
 translation_source: machine
-source_sha256: e13382b7c4597fac
+source_sha256: e492cde434856e9b
 date: 2026-09-02
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Fable 5.1 and Mythos 5.1 are the same underlying model, but were split into public and trusted access versions. The base unit price hasn't dropped, but cache reads are 75% cheaper; What truly changes are the task economics, security boundaries, and access methods for long-term agents."
 categories:
   - Thoughts
@@ -136,11 +136,11 @@ So what truly makes this update worth remembering is not "another strongest mode
 > [!tip]
 > **Primary source**
 > Anthropic official release page:
-> [View page：www.anthropic.com · claude-fable-and-mythos-5-1](<https://www.anthropic.com/claude-fable-and-mythos-5-1>)
+> [View page: www.anthropic.com · claude-fable-and-mythos-5-1](<https://www.anthropic.com/claude-fable-and-mythos-5-1>)
 > Claude Platform Model Specifications:
-> [Documentation：platform.claude.com · overview](<https://platform.claude.com/docs/en/models/fable-5-1/overview>)
+> [Document: platform.claude.com · overview](<https://platform.claude.com/docs/en/models/fable-5-1/overview>)
 > Update and Migration Notes:
-> [Documentation：platform.claude.com · whats-new-fable-5-1](<https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1>)
+> [Document: platform.claude.com · whats-new-fable-5-1](<https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1>)
 
 > [!summary] Same model, two sets of boundaries, price not dropped, but long-term tasks might actually save money
 > Fable 5.1 shares the underlying model with Mythos 5.1: the former is fully open, while the latter only provides trusted access to projects. The base price for 1M context, 128K output, and $10/$50 remains unchanged, but cache reads are reduced to $0.25/MTok, reducing the effective cost of typical tasks by about 25% and highly agent tasks by up to about 45%. It is best suited for long-term code, research, and complex knowledge work; Ordinary Q&A does not require defaulting to the most expensive tier, and there is no deployment route for local Macs.

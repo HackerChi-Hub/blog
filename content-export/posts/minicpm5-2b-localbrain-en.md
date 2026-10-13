@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: minicpm5-2b-localbrain
 translation_source: machine
-source_sha256: 83a33c3b736b0475
+source_sha256: 2cab8be645747c7e
 date: 2026-09-09
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "MiniCPM5-2B packs 130,000 contexts, agent training, and official GGUF/MLX into 2.52B parameters; The real highlight isn't the benchmark scores, but whether it qualifies as a resident actuator in local software."
 categories:
   - Thoughts
@@ -102,10 +102,10 @@ Therefore, its potential should not be described as "2B counter-killing 70B." Mo
 
 > [!tip]
 > **Primary source**
-> MiniCPM Official Warehouse: [Repository：OpenBMB/MiniCPM](<https://github.com/OpenBMB/MiniCPM>)
-> MiniCPM5-2B: [View page：huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
-> Official MLX 4bit: [View page：huggingface.co · MiniCPM5-2B-MLX](<https://huggingface.co/openbmb/MiniCPM5-2B-MLX>)
-> Official GGUF:[View page：huggingface.co · MiniCPM5-2B-GGUF](<https://huggingface.co/openbmb/MiniCPM5-2B-GGUF>)
+> MiniCPM Official Repository: [Project Repository: OpenBMB/MiniCPM](<https://github.com/OpenBMB/MiniCPM>)
+> MiniCPM5-2B: [View page: huggingface.co · MiniCPM5-2B](<https://huggingface.co/openbmb/MiniCPM5-2B>)
+> Official MLX 4bit: [View page: huggingface.co · MiniCPM5-2B-MLX](<https://huggingface.co/openbmb/MiniCPM5-2B-MLX>)
+> Official GGUF:[View page: huggingface.co · MiniCPM5-2B-GGUF](<https://huggingface.co/openbmb/MiniCPM5-2B-GGUF>)
 > 
 > The KV cache figures in this article are theoretical estimates based on model configuration and are not actual peak values for the local machine.
 

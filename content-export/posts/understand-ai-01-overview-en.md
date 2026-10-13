@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-01-overview
 translation_source: machine
-source_sha256: e89d32ef99f7861f
+source_sha256: f35cee6ae5b1b6d8
 date: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-13
 summary: "30 sessions are not 30 lessons. From a talking program, two AI winters, to models that can truly work on your computer: following a storyline, connecting knowledge, real products, and choices."
 categories:
   - AI知识

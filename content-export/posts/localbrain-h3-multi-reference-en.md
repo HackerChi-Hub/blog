@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-h3-multi-reference
 translation_source: machine
-source_sha256: 80ef9d2179162ef5
+source_sha256: 5416864ad47ddd9b
 date: 2026-09-11
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "LocalBrain 1.2.65 can run MiniMax H3's multi-reference plates (REF2VA) locally, with up to 9 images at once. On a 64 GB M5 Pro, I used 0, 1, 2, and 4 reference images to generate a 3-second video of 960×544 each with 0, memory, copied details, and reasons why Turbo wouldn't open."
 categories:
   - Tech
@@ -187,9 +187,9 @@ The peak memory of 38.2 GB was calculated before generation based on this reques
 > Use all 4 reference images, and you can keep the characters, rooms, and props; A 3-second video takes 7.5~10 minutes, with up to 38.4 GB of available memory, and details in the reference images will be copied directly. Suitable for those with Apple Silicon over 64 GB, who want characters and scenes consistent and don't want to upload images to the cloud. If you want 2K shots, batch output, or less than 48 GB of memory, don't rush to get involved. My suggestion is to start with one person image and 3~4 seconds to describe it, then add scenes and props when satisfied.
 
 > [!tip]
-> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-> Model Card: [View page：huggingface.co · MiniMax-H3-REF2VA-MLX-Serve-8bit](<https://huggingface.co/ddalcu/MiniMax-H3-REF2VA-MLX-Serve-8bit>)
-> Official Warehouse: [Repository：MiniMax-AI/MiniMax-H3](<https://github.com/MiniMax-AI/MiniMax-H3>)
+> Download page: [Download and update: LocalBrain (distribution page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> Model Card: [View page: huggingface.co · MiniMax-H3-REF2VA-MLX-Serve-8bit](<https://huggingface.co/ddalcu/MiniMax-H3-REF2VA-MLX-Serve-8bit>)
+> Official Warehouse: [Project Warehouse: MiniMax-AI/MiniMax-H3](<https://github.com/MiniMax-AI/MiniMax-H3>)
 
 
 ---

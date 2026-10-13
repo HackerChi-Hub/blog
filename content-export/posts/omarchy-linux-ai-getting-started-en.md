@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: omarchy-linux-ai-getting-started
 translation_source: machine
-source_sha256: ef8380155f30aca1
+source_sha256: baeaf68e68b1d167
 date: 2026-09-07
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "From installation and shortcuts to programming assistants and local models, it explains Omaly's features and getting started with it."
 categories:
   - Tech

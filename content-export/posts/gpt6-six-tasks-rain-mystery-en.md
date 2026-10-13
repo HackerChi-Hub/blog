@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gpt6-six-tasks-rain-mystery
 translation_source: machine
-source_sha256: e77aff05a18f0c27
+source_sha256: ab8f85d044ea56cb
 date: 2026-09-06
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Six questions are made and reviewed with public evaluation, with free rainy night reasoning mini-games, complete clues, and answers."
 categories:
   - Tech
@@ -745,21 +745,21 @@ Image source: [Original author's page](https://developers.openai.com/blog/archit
 Free large model interface radar, plus local unified routing.
 
 - **Current Status**: Initial Build · Preview; For Apple chip Macs, self-signed, manual release is required for the first time
-- [Download and Update](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+- [Download and update: HyphenBox (release page)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
 
 ### LocalBrain
 
 Turn your Mac into your private AI toolbox, integrating transcription, voiceover, raw images, video, and MCP.
 
 - **Current Status**: Continuous iteration
-- [Download and Update](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+- [Download and update: LocalBrain (release page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 ### ScreenLex ScreenLex
 
 Turn new words from local movie subtitles into a reviewable English vocabulary, fully offline.
 
 - **Current Status**: Continuous iteration
-- [Download and Update](https://github.com/HackerChi-Hub/screenlex-download/releases)
+- [Download and update: ScreenLex (distribution page)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---

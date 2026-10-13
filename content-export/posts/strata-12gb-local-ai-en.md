@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: strata-12gb-local-ai
 translation_source: machine
-source_sha256: 943c3e6533093774
+source_sha256: 8400479ef670d036
 date: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-13
 summary: "Besides the 12GB graphics card, how much more memory do you need? Breaking down Strata's official speed, quantitative trade-offs, and Mac access boundaries."
 categories:
   - Tech
@@ -136,7 +136,7 @@ This part is actually more useful for Mac users like me: there's no need to forc
 | Access methods | Client address illustration | Key differences |
 | --- | --- | --- |
 | Served on the same computer | `http://127.0.0.1:8080/v1` | The loopback address points to the current computer |
-| Mac accessing PCs in the local area network | [View page：pc](<http://PC>) LAN IP: 8080/v1 | You must use the address of the PC running Strata |
+| Mac accessing PCs in the local area network | LAN IP of [http://PC: 8080/v1](<http://PC的局域网IP:8080/v1>) | You must use the address of the PC running Strata |
 | Service monitors all network cards | 0.0.0.0 | This is the listening setting, not the target address the client should provide |
 
 The official list lists OpenAI-style chat interfaces, Anthropic messaging interfaces, and Responses interfaces. For toolboxes like LocalBrain, it's worth studying whether the service can be treated as a compatible backend, rather than whether it can allow Mac to launch Strata directly. **This article has not verified the adaptation of streaming, tool calls, images, or inference fields between LocalBrain and Strata, so it cannot be considered fully integrated. **

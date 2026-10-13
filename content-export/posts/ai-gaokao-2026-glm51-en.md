@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-gaokao-2026-glm51
 translation_source: machine
-source_sha256: 5274e5a71970bb7a
+source_sha256: 1caf04f282c2c4bc
 date: 2026-06-09
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "The 2026 college entrance exam just ended, with 13 AI large models competing in math papers simultaneously. GLM-5.1 personally tested Chinese composition, math, and English, with honest score reports. AI can score 130 but never gets \"sincere emotions.\" Exploring the contradiction between AI progress and human knowledge."
 categories:
   - Thoughts

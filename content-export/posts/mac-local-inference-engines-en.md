@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mac-local-inference-engines
 translation_source: machine
-source_sha256: 0616e339c8c98c9e
+source_sha256: 797a2e52d78d7fd8
 date: 2026-09-05
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Ollama switched Mac inference to MLX kernel half a year ago, and now a bunch of challengers claiming to be faster have emerged. I didn't run the tests, just put the scores published by the four companies on one table—the result was: none of them were running the same set of problems."
 categories:
   - Tech
@@ -144,10 +144,10 @@ Finally, leave a habit you can use long-term: **Next time you see 'N times faste
 
 ## 📚 Source
 
-- Ollama official announcement: "Ollama is now powered by MLX on Apple Silicon in preview": [View page：ollama.com · mlx](<https://ollama.com/blog/mlx>)
-- Rapid-MLX open-source repository: [Repository：raullenchai/Rapid-MLX](<https://github.com/raullenchai/Rapid-MLX>)
-- vMLX official website and comparison data: [View page：vmlx.net](<https://vmlx.net/>)
-- Apple MLX framework: [Repository：ml-explore/mlx](<https://github.com/ml-explore/mlx>)
+- Ollama official announcement: 'Ollama is now powered by MLX on Apple Silicon in preview': [View page: ollama.com · mlx](<https://ollama.com/blog/mlx>)
+- Rapid-MLX open-source repository: [Project repository: raullenchai/Rapid-MLX](<https://github.com/raullenchai/Rapid-MLX>)
+- vMLX official website and comparison data: [View page: vmlx.net](<https://vmlx.net/>)
+- Apple MLX framework: [Project repository: ml-explore/mlx](<https://github.com/ml-explore/mlx>)
 
 
 ---

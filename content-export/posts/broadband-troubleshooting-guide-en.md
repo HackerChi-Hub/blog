@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: broadband-troubleshooting-guide
 translation_source: machine
-source_sha256: 1907c21c6b8e7b2b
+source_sha256: 71f11a0a004a855c
 date: 2026-04-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Self-inspection guide for broadband faults by the three major operators nationwide, including customer service hotline, optical modem indicator light, and error codes."
 categories:
   - Tech

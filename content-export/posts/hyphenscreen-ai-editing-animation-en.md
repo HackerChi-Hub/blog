@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenscreen-ai-editing-animation
 translation_source: machine
-source_sha256: 5a4dab31f36f752e
+source_sha256: b09b4201acab6e4e
 date: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "After recording, you cut it directly, leaving it to AI in one sentence: 28 minutes of original screen recording, 8 minutes cut, pre-export checks to check for uncensored keys; 368 native animations, 17 platforms stuck in the animation for followers. Anything you didn't do is also written inside."
 categories:
   - Tech
@@ -116,9 +116,9 @@ The software is free, ad-free, and the installation package is publicly availabl
 
 ## 📚 Source
 
-- HyphenScreen Download Page (HyphenScreen-Releases, 1.0.7, 2026-10-03): [Downloads & updates: HyphenScreen (releases)](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
-- HyphenScreen Initial Introduction (HyphenTech, 2026-09-16): [View page：hyphentech.top · hyphenscreen-local-screen-recorder](<https://hyphentech.top/hyphenscreen-local-screen-recorder/>)
-- Simple Icons 16.33.0 (platform logo source, CC0 1.0): [View page：simpleicons.org](<https://simpleicons.org>)
+- HyphenScreen Download Page (HyphenScreen-Releases, 1.0.7, 2026-10-03): [Download and Update: HyphenScreen (Release Page)](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- HyphenScreen First Release Introduction (HyphenTech, 2026-09-16): [View page: hyphentech.top · hyphenscreen-local-screen-recorder](<https://hyphentech.top/hyphenscreen-local-screen-recorder/>)
+- Simple Icons 16.33.0 (platform logo source, CC0 1.0): [View page: simpleicons.org](<https://simpleicons.org>)
 - Acceptance record for this issue: 2026-09-27 Two copies of the project from the editing test (0.4.47) and the original claude CLI output, the 1.0.7 installation platform card export report, and frame-by-frame comparison evidence: retained locally, not publicly disclosed
 
 

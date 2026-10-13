@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-agent-ufo-game-prompt-template-2026
 translation_source: machine
-source_sha256: 0d003ba32e5178ff
+source_sha256: a21320530562e626
 date: 2026-06-04
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "I used a UFO sucking baby web game to test whether AI could continuously advance according to goals, boundaries, and acceptance documents like employees, and organized reusable prompt templates."
 categories:
   - Tech

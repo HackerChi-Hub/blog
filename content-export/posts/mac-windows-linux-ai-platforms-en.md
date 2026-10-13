@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mac-windows-linux-ai-platforms
 translation_source: machine
-source_sha256: f5ded0e4d7cef7e6
+source_sha256: d5572a18717e4bc9
 date: 2026-09-28
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "For AI computers, Mac should buy shared memory and low maintenance, Windows should be compatible with graphics card options, Linux should be the production stack; After adding the official spot price on September 28, the answer becomes more specific."
 categories:
   - Thoughts
@@ -150,17 +150,17 @@ Back to the beginning: Windows is the biggest door, Mac is the most polished per
 
 ## 🧠 Main public sources
 
-- StatCounter: Global Desktop Operating System Share: [View page：gs.statcounter.com · worldwide](<https://gs.statcounter.com/os-market-share/desktop/worldwide/>)
-- Apple: M6 and M5 Pro Mac mini Press Release: [View page：www.apple.com.cn · apple-unveils-powerful-mac-mini-with-m6-and-m5-pro](<https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/>)
-- Apple MLX Official Warehouse: [Repository：ml-explore/mlx](<https://github.com/ml-explore/mlx>)
-- Microsoft: Copilot+ PC Development Guide: [View page：learn.microsoft.com · npu-devices](<https://learn.microsoft.com/en-us/windows/ai/npu-devices/>)
-- Microsoft: Windows AI Solution Comparison: [View page：learn.microsoft.com · windows-ai-comparison](<https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison>)
-- NVIDIA: CUDA on WSL: [View page：developer.nvidia.com · wsl](<https://developer.nvidia.com/cuda/wsl>)
-- NVIDIA: AI and HPC Containers: [View page：developer.nvidia.cn · ai-hpc-containers](<https://developer.nvidia.cn/ai-hpc-containers>)
-- PyTorch: Local installation and computing platform: [View page：pytorch.org · locally](<https://pytorch.org/get-started/locally/>)
-- AMD:ROCm Compatibility Matrix:[Documentation：rocm.docs.amd.com · compatibility-matrix.html](<https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>)
-- AMD: Radeon AI PRO R9700 Specifications: [View page：www.amd.com · amd-radeon-ai-pro-r9700.html](<https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html>)
-- NVIDIA: GeForce RTX 5090 Specifications: [View page：www.nvidia.com · rtx-5090](<https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/>)
+- StatCounter: Global desktop operating system share: [View page: gs.statcounter.com · worldwide](<https://gs.statcounter.com/os-market-share/desktop/worldwide/>)
+- Apple: M6 and M5 Pro Mac mini Press Release: [View page: www.apple.com.cn · apple-unveils-powerful-mac-mini-with-m6-and-m5-pro](<https://www.apple.com.cn/newsroom/2026/08/apple-unveils-powerful-mac-mini-with-m6-and-m5-pro/>)
+- Apple MLX Official Repository: [Project Repository: ml-explore/mlx](<https://github.com/ml-explore/mlx>)
+- Microsoft: Copilot+ PC Development Guide: [View page: learn.microsoft.com · npu-devices](<https://learn.microsoft.com/en-us/windows/ai/npu-devices/>)
+- Microsoft: Windows AI Solution Comparison: [View page: learn.microsoft.com · windows-ai-comparison](<https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison>)
+- NVIDIA: CUDA on WSL:[View page: developer.nvidia.com · wsl](<https://developer.nvidia.com/cuda/wsl>)
+- NVIDIA: AI and HPC Containers: [View page: developer.nvidia.cn · ai-hpc-containers](<https://developer.nvidia.cn/ai-hpc-containers>)
+- PyTorch: Local installation and computing platform: [View page: pytorch.org · locally](<https://pytorch.org/get-started/locally/>)
+- AMD:ROCm Compatibility Matrix:[Documentation:rocm.docs.amd.com · compatibility-matrix.html](<https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html>)
+- AMD: Radeon AI PRO R9700 Specifications: [View page: www.amd.com · amd-radeon-ai-pro-r9700.html](<https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html>)
+- NVIDIA: GeForce RTX 5090 Specifications: [View page: www.nvidia.com · rtx-5090](<https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/>)
 
 
 ---

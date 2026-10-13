@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gpt-6-astra-computer-use
 translation_source: machine
-source_sha256: d6b6e141afa2453f
+source_sha256: bc086f9432e4052b
 date: 2026-09-05
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "The real change in GPT-6 Astra isn't just a slight increase in chat score, but the simultaneous integration of computer operation, long tasks, and high-risk capabilities into the product. This article breaks down the available range, API costs, security boundaries, and how ordinary people choose based on OpenAI's official materials."
 categories:
   - Thoughts
@@ -113,16 +113,16 @@ Back to the glowing "hand" at the beginning. It certainly represents efficiency,
 > [!tip]
 > **Primary source**
 > OpenAI official release page:
-> [View page：openai.com · gpt-6-astra](<https://openai.com/index/gpt-6-astra/>)
+> [View page: openai.com · gpt-6-astra](<https://openai.com/index/gpt-6-astra/>)
 > 
 > OpenAI API Model Specifications:
-> [Documentation：developers.openai.com · gpt-6-astra](<https://developers.openai.com/api/docs/models/gpt-6-astra>)
+> [Document: developers.openai.com · gpt-6-astra](<https://developers.openai.com/api/docs/models/gpt-6-astra>)
 > 
 > ChatGPT Package and Credit Limit Description:
-> [View page：help.openai.com · 20001354-gpt-56-and-gpt-6-pro-in-chatgpt](<https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt>)
+> [View page: help.openai.com · 20001354-gpt-56-and-gpt-6-pro-in-chatgpt](<https://help.openai.com/en/articles/20001354-gpt-56-and-gpt-6-pro-in-chatgpt>)
 > 
 > GPT-6 Astra System Card:
-> [View page：deploymentsafety.openai.com · safety-overview-gpt-6-astra](<https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra>)
+> [View page: deploymentsafety.openai.com · safety-overview-gpt-6-astra](<https://deploymentsafety.openai.com/gpt-6-astra/safety-overview-gpt-6-astra>)
 
 > [!summary] The turning point for GPT-6 was moving from answering questions to operating computers
 > It delivers 1.05 million contexts, 128,000 maximum outputs, computer operations, and stronger multi-step execution; API standard price is $10 per million inputs and $50 per output. At the same time, it has reached the cybersecurity Critical capability level for the first time, making permissions, monitoring, acknowledgments, and rollbacks more important than model benchmarks.

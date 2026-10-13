@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: jev-system-one-model
 translation_source: machine
-source_sha256: 46541785ca2b0b1a
+source_sha256: aaf96fd71677bcc2
 date: 2026-09-20
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Jev doesn't generate text, only makes probabilistic judgments based on status. The official multiplier is impressive, but they put the exaggeration in their own footnotes; Free access on Vercel until September 25."
 categories:
   - Thoughts
@@ -115,11 +115,11 @@ So there's only one method you can follow, and it's the most important thing to 
 
 The framework, demonstration scenarios, and key usage points in this article are from 01Coder's hands-on video. Special thanks; All numbers, dates, and quotations in the text have been verified on the primary page, and all images are taken from the primary page rather than the video footage.
 
-- TypeSafe AI official blog "Introducing System One Models & Jev" (2026-09-15): [View page：typesafe.ai · introducing-system-one-models-and-jev](<https://typesafe.ai/blog/introducing-system-one-models-and-jev>)
-- Hacker News original post (on the day of publication): [View page：news.ycombinator.com · item](<https://news.ycombinator.com/item?id=49717558>)
-- Vercel AI Gateway Jev Model Page (Pricing and Call Examples): [View page：vercel.com · jev](<https://vercel.com/ai-gateway/models/jev>)
-- Official agent skill repository typesafe-ai/skills:[Repository：typesafe-ai/skills](<https://github.com/typesafe-ai/skills>)
-- 01 Coder "Jev Test: The Basic Gameplay of This Popular Rapid Decision Model" (2026-09-18): [View page：www.youtube.com · watch](<https://www.youtube.com/watch?v=tYvu6IpSfiM>)
+- TypeSafe AI officially released the blog "Introducing System One Models & Jev" (2026-09-15): [View page: typesafe.ai · introducing-system-one-models-and-jev](<https://typesafe.ai/blog/introducing-system-one-models-and-jev>)
+- Hacker News original post (on the day of publication): [View page: news.ycombinator.com · item](<https://news.ycombinator.com/item?id=49717558>)
+- Vercel AI Gateway Jev Model Page (Pricing and Call Examples): [View Page: vercel.com · jev](<https://vercel.com/ai-gateway/models/jev>)
+- Official agent skill repository typesafe-ai/skills:[Project repository: typesafe-ai/skills](<https://github.com/typesafe-ai/skills>)
+- 01 Coder "Jev Hands-on Test: The Basic Gameplay of This Popular Rapid Decision Model" (2026-09-18): [View page: www.youtube.com · watch](<https://www.youtube.com/watch?v=tYvu6IpSfiM>)
 
 
 ---

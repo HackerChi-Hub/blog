@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-logo-brand-assets-workflow
 translation_source: machine
-source_sha256: f1b97030d2e883f3
+source_sha256: de898342d6ed5965
 date: 2026-03-26
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Use Gemini to generate logo concept images, then use ImageMagick command-line to crop, trim, and batch generate branding materials across all platforms. Zero-design software, full command-line processing."
 categories:
   - Tech

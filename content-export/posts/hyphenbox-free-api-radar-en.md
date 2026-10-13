@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenbox-free-api-radar
 translation_source: machine
-source_sha256: 440e736294b48b90
+source_sha256: b24cabb68ca7a0e0
 date: 2026-08-29
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "HyphenBox has officially launched, starting from version 1.0.0, and offers installation packages for Mac, Windows, and Linux. Early screenshots and detection numbers in this article are retained as development records and do not represent the current free quota."
 categories:
   - Resources

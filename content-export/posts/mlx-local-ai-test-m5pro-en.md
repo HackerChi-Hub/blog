@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mlx-local-ai-test-m5pro
 translation_source: machine
-source_sha256: 9a8baa08fd29847b
+source_sha256: 9da31b64b1a84504
 date: 2026-05-21
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "MacBook Pro M5 Pro+ 64GB runs 6 AI models locally in real-world tests. Multi-turn conversations + tool calls: file verification completed in as fast as 1.9 seconds, and 125 seconds as fastest—a 66x difference. Pitfalls + fixes fully revealed."
 categories:
   - Thoughts

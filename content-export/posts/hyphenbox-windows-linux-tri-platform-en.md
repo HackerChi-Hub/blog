@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenbox-windows-linux-tri-platform
 translation_source: machine
-source_sha256: 14233ff7834b64dd
+source_sha256: 3893b94b25f12fc0
 date: 2026-09-04
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Turn the decentralized free API into a local entry point: first check official evidence, then use your own Key to test the route, and finally let Cursor, Cline, and OpenCode automatically switch to a usable model. Windows and Mac are now available, and platform differences are clearly stated."
 categories:
   - Resources
@@ -184,9 +184,9 @@ Back to the initial "numbers don't move" problem: it does move now. But what's e
 | **LocalBrain** | Turn your computer into a private AI box: manage transcription/voiceover/raw images/video/MCP all in one place | Officially updated |
 | **ScreenLex ScreenLex** | Local movie subtitles become a review English vocabulary, fully offline | Officially updated |
 
-- HyphenBox: [Downloads & updates: HyphenBox (releases)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-- LocalBrain: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-- ScreenLex ScreenLex: [Downloads & updates: ScreenLex (releases)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
+- HyphenBox: [Download and update: HyphenBox (release page)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
+- LocalBrain:[Download and Update: LocalBrain (Distribution Page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+- ScreenLex ScreenLex: [Download and Update: ScreenLex (Release Page)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
 
 
 ---

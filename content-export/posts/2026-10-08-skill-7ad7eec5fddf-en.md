@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: 2026-10-08-skill-7ad7eec5fddf
 translation_source: machine
-source_sha256: c230bf8f1c51ea32
+source_sha256: b00f25a8c564296f
 date: 2026-10-08
-updated: 2026-10-09
+updated: 2026-10-13
 summary: "It breaks down emotions, facts, and actions, but open-source code does not mean the entire process is free or tested."
 categories:
   - Tech
 tags:
   - AI
   - Resource sharing
-cover: "https://hyphentech.top/obsidian-assets/2026-10-08-skill-7ad7eec5fddf/wordmark-wide-718eb29f275b.jpg"
+cover: https://hyphentech.top/obsidian-assets/2026-10-08-skill-7ad7eec5fddf/wordmark-wide-718eb29f275b.jpg
 brand_slogan: 
 legacy_paths: []
-cover_pipeline: "programmatic-wordmark-v1"
 article_type: "skill"
 cover_status: "generated_user_authorized"
 skill_name: "狗头军师 Goutoujunshi"
@@ -52,7 +51,7 @@ The project also compiles 135 references and maintains topics such as relationsh
 
 ## How to get started, and what does it require?
 
-The project is designed for the Codex Skill scenario. The author suggests starting by having the AI assistant install the native Skill from the public repository, then raise specific relationship questions. The repository entry is [Repository：shengjidaguai-china/goutoujunshi](<https://github.com/shengjidaguai-china/goutoujunshi>). This is the installation path declared by the author and does not mean all chat clients that support custom commands are compatible.
+The project is designed for the Codex Skill scenario. The author suggests starting by installing the AI assistant as a local skill from a public repository, then asking specific relationship questions. The repository entry point is [Project repository: shengjidaguai-China/goutoujunshi](<https://github.com/shengjidaguai-china/goutoujunshi>). This is the installation path declared by the author and does not mean that all chat clients that support custom commands are compatible.
 
 When used for the first time, Skill will ask about the basic information of the user and the target person, relationship history, goals, and current emotions; Items unknown can be left blank. When saving streamlined files across tasks, documents require clear consent first and the ability to view, pause, revoke, or delete. When involving real names, chat content, and intimate relationship details, anonymization should still be done first, providing only necessary information that may affect judgment.
 

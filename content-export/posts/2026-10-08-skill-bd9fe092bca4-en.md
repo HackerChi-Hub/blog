@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: 2026-10-08-skill-bd9fe092bca4
 translation_source: machine
-source_sha256: 7527563afc21835c
+source_sha256: 8d856c17c4379441
 date: 2026-10-08
-updated: 2026-10-09
+updated: 2026-10-13
 summary: "career-ops entrusts job screening, resume rewriting, and application tracking to AI, but the final submission is still decided by the applicant."
 categories:
   - Tech
 tags:
   - AI
   - Resource sharing
-cover: "https://hyphentech.top/obsidian-assets/2026-10-08-skill-bd9fe092bca4/wordmark-wide-908f40db1bd0.jpg"
+cover: https://hyphentech.top/obsidian-assets/2026-10-08-skill-bd9fe092bca4/wordmark-wide-908f40db1bd0.jpg
 brand_slogan: 
 legacy_paths: []
-cover_pipeline: "programmatic-wordmark-v1"
 article_type: "skill"
 cover_status: "generated_user_authorized"
 skill_name: "career-ops"

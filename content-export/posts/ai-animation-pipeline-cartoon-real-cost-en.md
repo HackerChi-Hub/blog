@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-animation-pipeline-cartoon-real-cost
 translation_source: machine
-source_sha256: 69ababfd555fbb17
+source_sha256: 6099cc6742d1a668
 date: 2026-08-21
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "From character assets and storyboard binding to generation, dubbing, and editing, recalculate the cash and time costs of a 4-minute cartoon; It also provides local open-source, free cloud quotas and hybrid routes, including tools, usage, effects, and boundaries."
 categories:
   - Tech

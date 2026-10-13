@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-ltx25-video
 translation_source: machine
-source_sha256: bb8862a3535056fa
+source_sha256: 3cf8b8827035862e
 date: 2026-09-30
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "LocalBrain 1.4.8 connects to the second local video engine, LTX-2.5: Write a quoted line, and the person in the screen will say it. On a 64GB M5 Pro, 1024×576 in 4 seconds takes about 2 minutes, peak at 25GB; the default running parameter is originally 54GB; 43.4GB weight is directly connected to ModelScope domestically, with one-click download from the discovery page."
 categories:
   - Tech
@@ -163,9 +163,9 @@ If you have an Apple Silicon over 64 GB, want people in your video to speak acco
 > 4 seconds is about 2 minutes, 10 seconds is about 6 minutes, 20 seconds is about 12 minutes, with peak memory of 25~37 GB; You can say lines in quotation marks, and the longer the video, the easier it is to drift. Suitable for those with Apple Silicon over 64 GB in hand who want the person in the frame to speak according to your lines but don't want to upload the material to the cloud. If you want image consistency, 2K finished video, or only 32 GB of memory, don't rush to get involved.
 
 > [!tip]
-> Download page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-> ModelScope: [View page：modelscope.cn · ltx-2.5-mlx-q8](<https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8>)
-> Runtime: [Repository：MrMoferFRAN/ltx-2-mlx](<https://github.com/MrMoferFRAN/ltx-2-mlx>)
+> Download page: [Download and update: LocalBrain (distribution page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> ModelScope: [View page: modelscope.cn · ltx-2.5-mlx-q8](<https://modelscope.cn/models/mlx-community/ltx-2.5-mlx-q8>)
+> Runtime: [Project warehouse: MrMoferFRAN/ltx-2-mlx](<https://github.com/MrMoferFRAN/ltx-2-mlx>)
 
 
 ---

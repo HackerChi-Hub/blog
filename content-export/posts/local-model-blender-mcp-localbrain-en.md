@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: local-model-blender-mcp-localbrain
 translation_source: machine
-source_sha256: b33894caa12a80b2
+source_sha256: 032a95292d396a3a
 date: 2026-09-15
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Using local Qwen3.8-27B modeling with blender-mcp, then testing it in LocalBrain for five rounds: the model can be done step by step, but slowly; The delivered black map is just one checkbox short; if it's not visible, it counts as complete, and only after viewing the final render can you use the correct modification."
 categories:
   - Tech
@@ -137,10 +137,10 @@ It's not suitable for people expecting a finished image from a single sentence, 
 If you really want to try, the recommended order is as follows. First, install Blender and blender-mcp, turn off both telemetry switches, and only select the few tools you need. Specify the Blender version in the requirements, and leave the steplist and intermediate files on disk. During acceptance, have the model see the final rendered image instead of a viewport screenshot, and finally open the render yourself to take a look. When outlining the reverse case, remember to open the back to remove it; if you need to make a window opening, make sure the Bull is actually cut to the body.
 
 > [!tip]
-> Original video: "No Need for GPT-6! Local Model Operation Blender Modeling Tutorial": [View page：www.bilibili.com · BV1MfYu68E73](<https://www.bilibili.com/video/BV1MfYu68E73/>)
-> blender-mcp project: [Repository：ahujasid/blender-mcp](<https://github.com/ahujasid/blender-mcp>)
-> Blender official website: [View page：www.blender.org](<https://www.blender.org/>)
-> LocalBrain Download Page: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
+> Original video: "No Need for GPT-6! Local Model Operation Blender Modeling Tutorial": [View page: www.bilibili.com · BV1MfYu68E73](<https://www.bilibili.com/video/BV1MfYu68E73/>)
+> blender-mcp project: [Project repository: ahujasid/blender-mcp](<https://github.com/ahujasid/blender-mcp>)
+> Blender official website: [View page: www.blender.org](<https://www.blender.org/>)
+> LocalBrain Download Page: [Download and Update: LocalBrain (Distribution Page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
 
 
 ---

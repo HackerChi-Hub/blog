@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-ai-tools-64
 translation_source: machine
-source_sha256: 74d9e169634b5d9c
+source_sha256: f20bd4ec37b39936
 date: 2026-04-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "64 free AI tools tested and recommended, covering writing, images, programming, video, audio, design, office, and learning."
 categories:
   - Resources

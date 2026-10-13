@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-design-resources
 translation_source: machine
-source_sha256: 3b42e9cff5e9c431
+source_sha256: f0696186655887af
 date: 2026-04-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "65+ free resource websites for designers and programmers, covering 7 major categories: images, icons, color schemes, fonts, 3D, and sound effects."
 categories:
   - Resources

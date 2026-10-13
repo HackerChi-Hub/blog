@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: local-ai-old-laptop-business
 translation_source: machine
-source_sha256: 3bdef1407e3e3ab0
+source_sha256: 904076f246bfc76f
 date: 2026-09-15
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Local AI is not a developer's toy. A comprehensive four-piece set of models, warehouses, software, and workflows is explained, plus three ideas you can copy"
 categories:
   - Thoughts

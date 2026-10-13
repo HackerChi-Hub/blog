@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: nex-n2-5-free-mac-localbrain
 translation_source: machine
-source_sha256: 8e2a51fbc754f181
+source_sha256: a4e0b92dc93ac863
 date: 2026-09-09
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "35B multimodal agent is open source, and online endpoints are currently free; Whether Mac capacity is sufficient means runtime is already connected."
 categories:
   - Thoughts
@@ -101,14 +101,14 @@ For 64GB Mac users, mini has moved from "absolutely can't let go" to "opportunit
 
 > [!tip]
 > **Primary source**
-> Nex-N2.5 Official Warehouse: [Repository：nex-agi/Nex-N2.5](<https://github.com/nex-agi/Nex-N2.5>)
-> Mini official weight and specs: [View page：huggingface.co · Nex-N2.5-mini](<https://huggingface.co/nex-agi/Nex-N2.5-mini>)
-> OpenRouter mini: [View page：openrouter.ai · nex-n2.5-mini:free](<https://openrouter.ai/nex-agi/nex-n2.5-mini:free>)
-> OpenRouter Pro: [View page：openrouter.ai · nex-n2.5-pro:free](<https://openrouter.ai/nex-agi/nex-n2.5-pro:free>)
+> Nex-N2.5 Official Warehouse: [Project Warehouse: Nex-Agi/Nex-N2.5](<https://github.com/nex-agi/Nex-N2.5>)
+> Mini official weight and specs: [View page: huggingface.co · Nex-N2.5-mini](<https://huggingface.co/nex-agi/Nex-N2.5-mini>)
+> OpenRouter mini:[View page: openrouter.ai · nex-n2.5-mini:free](<https://openrouter.ai/nex-agi/nex-n2.5-mini:free>)
+> OpenRouter Pro:[View page: openrouter.ai · nex-n2.5-pro:free](<https://openrouter.ai/nex-agi/nex-n2.5-pro:free>)
 > 
 > Community conversion is only for volume judgment:
-> [View page：huggingface.co · Nex-N2.5-mini-MLX-4bit](<https://huggingface.co/abenzerps/Nex-N2.5-mini-MLX-4bit>)
-> [View page：huggingface.co · Nex-N2.5-mini-GGUF](<https://huggingface.co/abenzerps/Nex-N2.5-mini-GGUF>)
+> [View page: huggingface.co · Nex-N2.5-mini-MLX-4bit](<https://huggingface.co/abenzerps/Nex-N2.5-mini-MLX-4bit>)
+> [View page: huggingface.co · Nex-N2.5-mini-GGUF](<https://huggingface.co/abenzerps/Nex-N2.5-mini-GGUF>)
 
 
 ---

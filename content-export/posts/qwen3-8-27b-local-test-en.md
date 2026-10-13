@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: qwen3-8-27b-local-test
 translation_source: machine
-source_sha256: a096934dbec4b3fc
+source_sha256: bf482b5360a8515f
 date: 2026-08-18
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "On August 14, the open-source 27B multimodal model was fed into an M5 Pro. All six problems produced executable files, with a median of 13.4 tokens/second. By the way, I clarified where to get the review version and how much memory it needed."
 categories:
   - Tech
@@ -216,15 +216,15 @@ The getting started is very simple: select the quantization file on the LocalBra
 
 ### 📚 ▍ Official information and reproduction entry
 
-- Qwen3.8-27B Official Model Card: [View page：huggingface.co · Qwen3.8-27B](<https://huggingface.co/Qwen/Qwen3.8-27B>)
+- Qwen3.8-27B Official Model Card: [View Page: huggingface.co · Qwen3.8-27B](<https://huggingface.co/Qwen/Qwen3.8-27B>)
 
-- Weights used in this test unsloth/Qwen3.8-27B-GGUF:[View page：huggingface.co · Qwen3.8-27B-GGUF](<https://huggingface.co/unsloth/Qwen3.8-27B-GGUF>)
+- Weights used in this test: unsloth/Qwen3.8-27B-GGUF:[View page: huggingface.co · Qwen3.8-27B-GGUF](<https://huggingface.co/unsloth/Qwen3.8-27B-GGUF>)
 
-- Uncensored version JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:[View page：huggingface.co · Qwen3.8-27B-Uncensored-GGUF](<https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF>)
+- Uncensored version JonathanColetti/Qwen3.8-27B-Uncensored-GGUF:[View page: huggingface.co · Qwen3.8-27B-Uncensored-GGUF](<https://huggingface.co/JonathanColetti/Qwen3.8-27B-Uncensored-GGUF>)
 
-- Go Review + Visual Version Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF:[View page：huggingface.co · Qwen3.8-27B-ABLITERATED-GGUF](<https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF>)
+- Go review + Visual version Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF:[View page: huggingface.co · Qwen3.8-27B-ABLITERATED-GGUF](<https://huggingface.co/Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF>)
 
-- LocalBrain (LocalBrain) Download: [Downloads & updates: LocalBrain (releases)](<https://github.com/HackerChi-Hub/localbrain-releases/releases/latest>)
+- LocalBrain (LocalBrain) Download: [Download and Update: LocalBrain (Distribution Page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases/latest>)
 
 
 ---

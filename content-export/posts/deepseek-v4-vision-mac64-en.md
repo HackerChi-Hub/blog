@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: deepseek-v4-vision-mac64
 translation_source: machine
-source_sha256: 876f809b769623a4
+source_sha256: bf9aba924b0daadb
 date: 2026-09-02
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "DeepSeek turns vision into the Agent's perception entry point and opens up a 305B weight. The latest minimum visual GGUF is still about 67.8GiB: 64GB Mac is not suitable for stable deployment today. This article is based on official data and files, and does not use local running impersonation."
 categories:
   - Thoughts
@@ -124,7 +124,7 @@ Second, experts cut off long-tail capacity and submit quality loss reports. Thir
 > [!tip]
 > **Offline Capacity Calculator**
 > Fill in your unified memory, model weights, visual tower, system reservations, and cache, and first check if full resident storage is possible:
-> [View page：hyphentech.top · deepseek-mac-memory-calculator.html](<https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/deepseek-mac-memory-calculator.html>)
+> [View page: hyphentech.top · deepseek-mac-memory-calculator.html](<https://hyphentech.top/obsidian-assets/deepseek-v4-vision-mac64/deepseek-mac-memory-calculator.html>)
 
 Open source gives users the choice but does not expand their capacity. What makes DeepSeek most noteworthy this time is that it finally integrates vision into the Agent closed loop, using same-price APIs and MIT weights to attract developers and the local ecosystem; What a 64GB Mac should do most is acknowledge today's hard walls, and not treat downloads and page changes as productivity.
 

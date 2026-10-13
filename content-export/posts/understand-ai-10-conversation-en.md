@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-10-conversation
 translation_source: machine
-source_sha256: d559a2c29bdec389
+source_sha256: e5a73d319ae0960b
 date: 2026-10-05
-updated: 2026-10-06
+updated: 2026-10-13
 summary: "The parts have been disassembled, now put back together. Follow \"Today's Weather True\" into a translation agency that only recognizes numbers, see how a sentence becomes probability, and then into text on your screen."
 categories:
   - AI知识

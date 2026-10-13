@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-longtask-splash
 translation_source: machine
-source_sha256: c8409165bc626fdf
+source_sha256: f1027087aac14975
 date: 2026-09-23
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "All 12 sets are delivered, but repeating the same problem is 15 times worse: long tasks get stuck in the loop outside, not in the model."
 categories:
   - Tech

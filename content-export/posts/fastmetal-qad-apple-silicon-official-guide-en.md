@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: fastmetal-qad-apple-silicon-official-guide
 translation_source: machine
-source_sha256: ddfd0917468d2c83
+source_sha256: 0fe2ee3647022d20
 date: 2026-08-20
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "The FastVideo team has launched three open-source video models for Apple Silicon: 1.3B, 5B, and 14B. This article compiles memory thresholds, speed gauges, generation modes, and installation entry points based on official materials, excluding local tests."
 categories:
   - Tech

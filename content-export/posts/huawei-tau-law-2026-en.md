@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: huawei-tau-law-2026
 translation_source: machine
-source_sha256: ba6e1c097a46b9f0
+source_sha256: 8df3700aa78e4382
 date: 2026-05-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Logic folding, 55% density increase, and 1.4nm equivalent to 2031—Huawei has quietly carved out a new path around EUV with 381 chips in six years."
 categories:
   - Tech

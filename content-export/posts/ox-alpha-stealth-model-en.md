@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ox-alpha-stealth-model
 translation_source: machine
-source_sha256: ddd5bded77a6bc69
+source_sha256: a219ca8db811aa95
 date: 2026-08-24
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Late at night on August 20, OpenRouter added a line of stealth/ox-alpha. No company, no warehouse, no name, but in two days it shot to number one in call volume. Around 1.04 million yuan, you can watch videos, completely free—the price is written at the top of the page."
 categories:
   - Thoughts
@@ -185,11 +185,11 @@ Finally, let's return to the contrast at the beginning. The most viral ironic li
 
 ### 📚 ▍ Data sources and reproduction entry points
 
-- OpenRouter · Ox Alpha Model Page: [View page：openrouter.ai · ox-alpha](<https://openrouter.ai/stealth/ox-alpha>)
+- OpenRouter · Ox Alpha Model Page: [View Page: openrouter.ai · ox-alpha](<https://openrouter.ai/stealth/ox-alpha>)
 
 - OpenRouter Model List API (data source for this article): [https://openrouter.ai/api/v1/models](<https://openrouter.ai/api/v1/models>)
 
-- Zero Degree commentary test video (2026-08-22): [View page：www.youtube.com · watch](<https://www.youtube.com/watch?v=yhhyFO6hSTs>)
+- Zero Degree commentary test video (2026-08-22): [View page: www.youtube.com · watch](<https://www.youtube.com/watch?v=yhhyFO6hSTs>)
 
 
 ---

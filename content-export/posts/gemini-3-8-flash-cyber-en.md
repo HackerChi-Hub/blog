@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gemini-3-8-flash-cyber
 translation_source: machine
-source_sha256: a34f6adaae030b9a
+source_sha256: 62c5c2a40caaee88
 date: 2026-09-03
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "On September 2, Google released 3.8 Flash and 3.8 Flash Cyber all at once. Same core, two faces: one cheap and easy to use, accessible to everyone, the other specialized in fixing vulnerabilities but only for trusted defenders. What's interesting isn't who is stronger, but where this dividing line lies."
 categories:
   - Thoughts
@@ -126,8 +126,8 @@ As for the cybersecurity board, accept this reality: **What you can read is its 
 
 ## 📚 Sources and reproduction entries
 
-- Google's official announcement "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber": [View page：blog.google · 3-8-flash-and-3-8-flash-cyber](<https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/>)
-- Gemini API Developer Documentation: [Documentation：ai.google.dev · docs](<https://ai.google.dev/gemini-api/docs>)
+- Google's official announcement "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber": [View page: blog.google · 3-8-flash-and-3-8-flash-cyber](<https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/>)
+- Gemini API Developer Documentation: [Documentation: ai.google.dev · docs](<https://ai.google.dev/gemini-api/docs>)
 
 
 ---

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: wifi-finder-vibe-coding
 translation_source: machine
-source_sha256: 8a21bd6fe38d7b5c
+source_sha256: 93c2f462aefa77c1
 date: 2026-03-31
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Using Vibe Coding, I spent 30 minutes creating an offline public WiFi password querier covering 15+ countries and 150+ hotspots"
 categories:
   - Tech

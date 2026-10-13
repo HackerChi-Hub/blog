@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-api-radar
 translation_source: machine
-source_sha256: 393dc5880a4385be
+source_sha256: 0e44d1c6797de279
 date: 2026-08-23
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "Free interfaces, features, and limitations that can be directly called"
 categories:
   - Resources
@@ -63,7 +63,7 @@ legacy_paths: []
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：openrouter.ai](<https://openrouter.ai/>) |
+| Official entrance | [View page: openrouter.ai](<https://openrouter.ai/>) |
 | base\_url | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account and create a Key, and use the free variant without a credit card |
@@ -105,7 +105,7 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：cloud.siliconflow.cn](<https://cloud.siliconflow.cn/>) |
+| Official entrance | [View page: cloud.siliconflow.cn](<https://cloud.siliconflow.cn/>) |
 | base\_url | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Registration + Real-name authentication (you can use all free models after real-name verification) |
@@ -145,7 +145,7 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：bigmodel.cn](<https://bigmodel.cn/>) |
+| Official entrance | [View page: bigmodel.cn](<https://bigmodel.cn/>) |
 | base\_url | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account to obtain an API Key |
@@ -190,10 +190,10 @@ r = client.chat.completions.create(
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：www.modelscope.cn](<https://www.modelscope.cn/>) |
+| Official entrance | [View page: www.modelscope.cn](<https://www.modelscope.cn/>) |
 | base\_url | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
 | Interface protocol | OpenAI compatible |
-| Eligibility requirements | After registering an account, obtain an Access Token at [Key management：modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) |
+| Eligibility requirements | After registering an account, in [Key Management: modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) Obtain Access Token |
 | Quota | Provided free of charge to registered users, with specific limits subject to the official "Usage Restrictions Notice." |
 | Reset cycle | Please refer to the official documentation |
 | Domestic availability | Direct connection is suitable |
@@ -226,7 +226,7 @@ client = OpenAI(api_key="<MODELSCOPE_ACCESS_TOKEN>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：console.groq.com](<https://console.groq.com/>) |
+| Official entrance | [View page: console.groq.com](<https://console.groq.com/>) |
 | base\_url | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account and create a Key |
@@ -264,7 +264,7 @@ client = OpenAI(api_key="<GROQ_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Reset daily |
-| Official entrance | [View page：dash.cloudflare.com](<https://dash.cloudflare.com/>) |
+| Official entrance | [View page: dash.cloudflare.com](<https://dash.cloudflare.com/>) |
 | base\_url | `https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\}` |
 | Interface protocol | REST (Within Worker, you can directly env. AI.run) |
 | Eligibility requirements | Cloudflare account; Both Free and Paid Workers plans enjoy this free quota |
@@ -301,7 +301,7 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：agnes-ai.com](<https://agnes-ai.com/>) |
+| Official entrance | [View page: agnes-ai.com](<https://agnes-ai.com/>) |
 | base\_url | [https://apihub.agnes-ai.com](<https://apihub.agnes-ai.com>) |
 | Interface protocol | REST (Image Synchronization / Video Asynchronous Polling) |
 | Eligibility requirements | You can activate it by logging in with your Google account to obtain the API Key |
@@ -339,7 +339,7 @@ const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
 | Project | Content |
 | --- | --- |
 | Free type | Each month is granted a quota |
-| Official entrance | [Key management：huggingface.co · tokens](<https://huggingface.co/settings/tokens>) |
+| Official entrance | [Key Management: huggingface.co · tokens](<https://huggingface.co/settings/tokens>) |
 | base\_url | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | HF account + Access Token |
@@ -375,7 +375,7 @@ client = OpenAI(api_key="<HF_TOKEN>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：build.nvidia.com](<https://build.nvidia.com/>) |
+| Official entrance | [View page: build.nvidia.com](<https://build.nvidia.com/>) |
 | base\_url | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | NVIDIA developer account |
@@ -411,7 +411,7 @@ client = OpenAI(api_key="<NVIDIA_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [Key management：aistudio.google.com · apikey](<https://aistudio.google.com/apikey>) |
+| Official entrance | [Key Management: aistudio.google.com · apikey](<https://aistudio.google.com/apikey>) |
 | base\_url | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
 | Interface protocol | Native REST + OpenAI compatibility layer |
 | Eligibility requirements | The free tier qualification requirement is "valid project or free trial," with no need to link a settlement account |
@@ -449,7 +449,7 @@ client = OpenAI(api_key="<GEMINI_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | One-time trial payment |
-| Official entrance | [View page：bailian.console.aliyun.com](<https://bailian.console.aliyun.com/>) |
+| Official entrance | [View page: bailian.console.aliyun.com](<https://bailian.console.aliyun.com/>) |
 | base\_url | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Some benefits for Alibaba Cloud accounts require real-name verification |
@@ -485,7 +485,7 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Periodic free tier |
-| Official entrance | [View page：xinghuo.xfyun.cn · sparkapi](<https://xinghuo.xfyun.cn/sparkapi>) |
+| Official entrance | [View page: xinghuo.xfyun.cn · sparkapi](<https://xinghuo.xfyun.cn/sparkapi>) |
 | base\_url | wss://spark-api.xf-yun.com/ (WebSocket) |
 | Interface protocol | WebSocket native protocol (not compatible with OpenAI) |
 | Eligibility requirements | After registering, get the AppID, APIKey, and APISecret trio in the console, and claim the free credit on the product page |
@@ -520,7 +520,7 @@ client = OpenAI(api_key="<DASHSCOPE_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | One-time trial payment |
-| Official entrance | [View page：cloud.cerebras.ai](<https://cloud.cerebras.ai/>) |
+| Official entrance | [View page: cloud.cerebras.ai](<https://cloud.cerebras.ai/>) |
 | base\_url | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Register an account |
@@ -592,7 +592,7 @@ client = OpenAI(api_key="<TOGETHER_KEY>",
 | Project | Content |
 | --- | --- |
 | Free type | Open source custody |
-| Official entrance | [View page：ollama.com](<https://ollama.com/>) |
+| Official entrance | [View page: ollama.com](<https://ollama.com/>) |
 | base\_url | `http://localhost:11434/v1` (Ollama default) |
 | Interface protocol | OpenAI compatible |
 | Eligibility requirements | Your own machine; VRAM/memory determines how large the model can run |
@@ -629,8 +629,8 @@ r = client.chat.completions.create(model="qwen3",
 | Project | Content |
 | --- | --- |
 | Free type | Keyless public interface |
-| Official entrance | [View page：pollinations.ai](<https://pollinations.ai/>) |
-| base\_url | [View page：text.pollinations.ai](<https://text.pollinations.ai>) |
+| Official entrance | [View page: pollinations.ai](<https://pollinations.ai/>) |
+| base\_url | [View page: text.pollinations.ai](<https://text.pollinations.ai>) |
 | Interface protocol | REST / OpenAI compatible path |
 | Eligibility requirements | The anonymity layer of text interfaces does not require Keys; Generation class interfaces require a built-in Key and Pollen balance |
 | Quota | The anonymous layer does not publish the quota number; In actual tests, it can be called directly, but temporary 402 may occur |
@@ -668,7 +668,7 @@ curl -s https://text.pollinations.ai/openai \
 | Project | Content |
 | --- | --- |
 | Free type | Retired / Invalid |
-| Official entrance | [Documentation：docs.github.com · github-models](<https://docs.github.com/en/github-models>) |
+| Official entrance | [Document: docs.github.com · github-models](<https://docs.github.com/en/github-models>) |
 | base\_url | — |
 | Interface protocol | — |
 | Eligibility requirements | — |

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: a164251f27fab245
+source_sha256: abfdb30f8478bdc2
 date: 2026-10-03
-updated: 2026-10-04
+updated: 2026-10-13
 summary: "From security checks to authorized penetration: 1.6.7 adds service identification, SQL injection detection, and self-written PoC execution, locking export technology to authorization targets; Retaining continuous 35B and 27B tests, 170 component matching and verification boundaries across platforms."
 categories:
   - Tech

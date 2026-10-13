@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-prompt-templates-12-scenes
 translation_source: machine
-source_sha256: ef8963e241506a90
+source_sha256: b86ede2be61c0ddf
 date: 2026-04-27
-updated: 2026-10-03
+updated: 2026-10-13
 summary: "12 AI prompt templates for everyday scenarios, including the universal CRISPF formula, covering writing, translation, programming, analysis, and learning."
 categories:
   - Tech
