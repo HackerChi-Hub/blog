@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-14T11:58:09.035Z",
-  "contentHash": "86078293e4a59f325eb2ce50fa7b158788195d3f8e35d0b2f1e3ab7e0eb41fe2",
+  "checkedAt": "2026-10-14T15:58:48.733Z",
+  "contentHash": "9684e603deddf9bf859d3affbaed050411e75a4899375fbc5a97974cf52e256d",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,25 +17,25 @@
       "fallbackDescription": "把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。",
       "action": "查看产品与下载",
       "description": "把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。",
-      "updateSummary": "本轮公开 Apple Silicon Mac 安装包。聊天模型现在可通过同一代理按需调用已集成的语音、转写、图像、图片编辑、音乐和视频工具，并把实际产物交给下一项工具继续处理。",
-      "updated": "2026-10-12",
-      "version": "1.8.0",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.0",
+      "updateSummary": "本轮公开 Apple Silicon Mac 安装包（1.8.7），合并发现页与下载状态统一、Splash 魔搭传输适配、两款社区 Splash 模型恢复适配，以及模型重复显示与新版 Splash 启动就绪识别修复。",
+      "updated": "2026-10-14",
+      "version": "1.8.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.8.0",
+          "version": "1.8.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.0",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.7",
           "assets": [
             {
-              "name": "LocalBrain_1.8.0_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.8.0/LocalBrain_1.8.0_aarch64.dmg",
-              "id": 634215891,
-              "size": 72148664,
-              "updatedAt": "2026-10-12T15:45:12Z",
-              "digest": "sha256:189922cfa4cd7356f03ffd72a5f1c30556165de64ab7a0796ba70555f391adff"
+              "name": "LocalBrain_1.8.7_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.8.7/LocalBrain_1.8.7_aarch64.dmg",
+              "id": 640854958,
+              "size": 72231035,
+              "updatedAt": "2026-10-14T15:53:25Z",
+              "digest": "sha256:9f5468acabc5f0d6915310ed9ef34d60519432c4771cbfba84e5c5fa99ad5c10"
             }
           ]
         },
@@ -72,10 +72,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-14T11:58:09.035Z",
+      "checkedAt": "2026-10-14T15:58:48.733Z",
       "prerelease": false,
-      "releaseNotesHash": "20d9b00ddc60c3f622383e070b8d5683167decba3d2d6d27c905163e09402209",
-      "revision": "497ec8681dd0d89b283cac3ea15bc8fea42e4c4cd709d13d20598a45a2d85aad"
+      "releaseNotesHash": "3d45092494c3f49bf2809024c40ed46ff9a9abba7da421c0e7bf7c0d1a0ad32c",
+      "revision": "5eb00fa23e1ae7fd9835c2b9322a6ae3481a26288b659a2eeef0350c9a82f4ab"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-14T11:58:09.035Z",
+      "checkedAt": "2026-10-14T15:58:48.733Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-14T11:58:09.035Z",
+      "checkedAt": "2026-10-14T15:58:48.733Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -287,25 +287,25 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "修复编辑时切换抠图、模糊、自定义背景后摄像头消失的问题。 实际macOS桌面已验证全片原画／抠图／模糊／自定义图片切换、播放和片段独立模糊；独立原生导出涵盖原画、抠图、模糊、自定义纯色／渐变／图片，共144帧完整解码。真实新组件对照复现并修复三个模式的迟到结果空白问题。",
-      "updated": "2026-10-13",
-      "version": "1.5.2",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.2",
+      "updateSummary": "同类素材可以共用轨道，减少时间线占用；同时修复字幕消失、大段剪辑后无法直接播放的问题。 源码验收：4500项回归通过、2项跳过，两套类型检查和生产构建通过。独立审查补齐连续拆轨、合轨、再次拆轨时的编号唯一性，隐藏与锁定不会串到另一轨。macOS真实桌面完成删除600秒后直接续播、字幕显示、素材上下层级拖动、标注合轨4→3→2、保存重开…",
+      "updated": "2026-10-14",
+      "version": "1.5.3",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.3",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.5.2",
+          "version": "1.5.3",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.2",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.3",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.2_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.2/HyphenScreen_1.5.2_arm64.dmg",
-              "id": 635803102,
-              "size": 282131857,
-              "updatedAt": "2026-10-13T03:49:47Z",
-              "digest": "sha256:8d87059c578f4f9b793c92bf8072370dbbdfd8694cf2558ebc41de5805b2c2d9"
+              "name": "HyphenScreen_1.5.3_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.3/HyphenScreen_1.5.3_arm64.dmg",
+              "id": 640732756,
+              "size": 282132011,
+              "updatedAt": "2026-10-14T15:06:09Z",
+              "digest": "sha256:5d71818ae8632380b22f58092d5cef21f230e4c87c3e27f6fd9e80e7b2d15f3a"
             }
           ]
         },
@@ -350,10 +350,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-14T11:58:09.035Z",
+      "checkedAt": "2026-10-14T15:58:48.733Z",
       "prerelease": false,
-      "releaseNotesHash": "125e62f040af6ff0b04dcc22876c11a808eba6c103f55d804260f20acabe7f60",
-      "revision": "d8f779a00c1ea8aa3d5c231684358537ceee854996095600e590911be2dfa06a"
+      "releaseNotesHash": "03394fcce829836c9fc56367edfc4a0c0395129df3cd82ac796ea1245c6885fb",
+      "revision": "96fc7ffe256c45d34dae4cc45c6557330cafd08d1bedc15e5f709eaa5e981a17"
     }
   ]
 }
