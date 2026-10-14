@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "3193a57d1af93d1dba9a79694a6d3f2d914633ffb1473e18f2fd6d0f975cd0d9",
+  "content_sha256": "31cf9fbf24feb8959da9bae625906e621401a05bcc60a2c72b4d84fa0892dd2f",
   "published_post_count": 176,
   "posts": [
     {
@@ -667,7 +667,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-animation-150-preview",
       "lang": "en",
-      "sha256": "1932354423d04d87334da0e98438a605367a8ff01e6412e2fa1ec2bd4b0a4b07"
+      "sha256": "41b1f05eb0ab9751ac58c6054e0abb0880a37b328ccfd31ee08173156a0ff983"
     },
     {
       "file": "posts/hyphenscreen-ai-animation-150-preview.md",
@@ -1261,7 +1261,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-02-history",
       "lang": "en",
-      "sha256": "19eab20b055b9626654cfe7b9bfb5fc2a8ab903a45127514a2f7f9a3b9ed6d8f"
+      "sha256": "5609f02ff7df92c690cd4d3a19870f472243fc2c6cb8f1fbe55312f581bd1599"
     },
     {
       "file": "posts/understand-ai-02-history.md",
@@ -1277,7 +1277,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-03-open-race",
       "lang": "en",
-      "sha256": "d824b44ec164b5a278f9f8237c0592f57a9cd15afe81505cbb3cebb0623f6f3d"
+      "sha256": "249b24a8f5b2e95be46f1e7b795a511a7aeebf09098a1870fd331244c0d71af4"
     },
     {
       "file": "posts/understand-ai-03-open-race.md",
@@ -1293,7 +1293,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-04-neural-networks",
       "lang": "en",
-      "sha256": "8c72628f1ddac8210c24545daae5881554bf24b7d048b49cfe33578512f3a397"
+      "sha256": "6b590bdbb0eb5c807f105368cf77e0ef59e5ca1873fab5a3c61e205b5d9557b0"
     },
     {
       "file": "posts/understand-ai-04-neural-networks.md",
@@ -1309,7 +1309,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-05-tokens",
       "lang": "en",
-      "sha256": "ecf5fb0e4baebc467e33da8c272739fd9f70e5d1c6271ee6ff3d680acbe77159"
+      "sha256": "5fdd5d875b8e45923583100addfc8ed50d822d25289c8e6a0dcc86b161adc4f1"
     },
     {
       "file": "posts/understand-ai-05-tokens.md",
@@ -1325,7 +1325,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-06-embeddings",
       "lang": "en",
-      "sha256": "14bf0589cd0437e846b40b7482254b53cc92cdca1eecb760d4a544edb5f38ddb"
+      "sha256": "ec0a27ba115334b000af371411caebbb4b7e762746d2c484da1cddfd39734a92"
     },
     {
       "file": "posts/understand-ai-06-embeddings.md",
@@ -1341,7 +1341,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-07-attention",
       "lang": "en",
-      "sha256": "b11b4ec18eb744a824f3e4bfd53e7da8224cadb6612d7bb3dc3b2fb62d40ea19"
+      "sha256": "b4a1712c0238fa93ee174d3499337aef3baa39e4204627278c5ebb8e840410b6"
     },
     {
       "file": "posts/understand-ai-07-attention.md",
@@ -1357,7 +1357,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-08-training",
       "lang": "en",
-      "sha256": "3214238f3845d68ec5a23eee854de60af04d44558094ab6fff64e00a20665515"
+      "sha256": "256fbf1fc479b9294436fd1c8e7977b42f49675b43357d15cf0627735ba97524"
     },
     {
       "file": "posts/understand-ai-08-training.md",
@@ -1373,7 +1373,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-09-reasoning",
       "lang": "en",
-      "sha256": "9c827c77869f8e452c0889d0c10e893214d3e2ca51b21d581819509801cb06a3"
+      "sha256": "654908327a1c3732010ef1da24ac857b6f02acb2238ef9555722c242e0f2bfe6"
     },
     {
       "file": "posts/understand-ai-09-reasoning.md",
