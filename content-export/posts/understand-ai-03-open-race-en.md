@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: understand-ai-03-open-race
 translation_source: machine
-source_sha256: 804cb227e1bd7e44
+source_sha256: 7291c871d56fc159
 date: 2026-10-05
-updated: 2026-10-13
+updated: 2026-10-14
 summary: "For ordinary people, running AI on their own computers is not a blessing that falls from the sky. Phased releases, research licenses, open engines, and download links divide the same technological competition into two tracks."
 categories:
   - AI知识
 tags:
   - AI
   - Do you really understand AI?
-cover: https://hyphentech.top/obsidian-assets/understand-ai-03-open-race/cover-87b121c499.jpg
+cover: "/obsidian-assets/understand-ai-03-open-race/cover-87b121c499.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

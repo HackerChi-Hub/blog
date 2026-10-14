@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: understand-ai-05-tokens
 translation_source: machine
-source_sha256: a36bb433756c2aaf
+source_sha256: c5a9a1f0ca240878
 date: 2026-10-05
-updated: 2026-10-13
+updated: 2026-10-14
 summary: "The strawberry is still the same strawberry, with an extra space in front, but the machine sees a different number of blocks. An old method from data compression: how to enter the chat window and change your fees, speed, and context?"
 categories:
   - AI知识
 tags:
   - AI
   - Do you really understand AI?
-cover: https://hyphentech.top/obsidian-assets/understand-ai-05-tokens/cover-d06e79963c.jpg
+cover: "/obsidian-assets/understand-ai-05-tokens/cover-d06e79963c.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
