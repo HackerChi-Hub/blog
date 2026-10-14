@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "31cf9fbf24feb8959da9bae625906e621401a05bcc60a2c72b4d84fa0892dd2f",
-  "published_post_count": 176,
+  "content_sha256": "9dcade0d1f8fb38cc5ce23699dd9e1497a6fa210659b17de949707304de16cbc",
+  "published_post_count": 177,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -131,6 +131,13 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "6e2ee3c2cfec5d380255092e7e10c76b1e537f2eb5750671a5ef7655c76a2f83"
+    },
+    {
+      "file": "posts/2026-10-15-official-1dd915a82f3f.md",
+      "slug": "2026-10-15-official-1dd915a82f3f",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "651cfdb8d2bb1156b765937617b4fefd99c0d67a51c98454ff173871551f73a0"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
