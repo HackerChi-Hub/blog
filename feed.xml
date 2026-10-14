@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 14 Oct 2026 16:04:59 GMT</lastBuildDate>
-    <pubDate>Wed, 14 Oct 2026 16:04:59 GMT</pubDate>
+    <lastBuildDate>Wed, 14 Oct 2026 16:11:24 GMT</lastBuildDate>
+    <pubDate>Wed, 14 Oct 2026 16:11:24 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Gemini 4 Argon 全球上线：API 开放、每百万输入 2 美元，官方成绩与边界怎么看</title>
+      <link>https://hyphentech.top/2026-10-15-official-1dd915a82f3f/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-15-official-1dd915a82f3f/</guid>
+      <description>Gemini 4 Argon 全球上线：API 开放、每百万输入 2 美元，官方成绩与边界怎么看</description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>方寸智匣1.8.0：聊天模型指挥六类本地AI，从语音到视频实测</title>
       <link>https://hyphentech.top/localbrain-media-chat-180/</link>
@@ -202,16 +212,6 @@
       <link>https://hyphentech.top/understand-ai-02-history/</link>
       <guid isPermaLink="true">https://hyphentech.top/understand-ai-02-history/</guid>
       <description>1958年，人们已经在期待会学习的机器。几十年后它才真正改变行业。中间不是一条直线上升的曲线，而是承诺、失望，以及老想法终于等到条件的故事。</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
-    </item>
-    <item>
-      <title>AI会续写却不肯答题？预训练、SFT与偏好优化，3个环节怎样教出助手</title>
-      <link>https://hyphentech.top/understand-ai-08-training/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-08-training/</guid>
-      <description>补全机能接着列题，助手却会回答、解释或拒绝。把它教得像个助手，和让它每句话都真实，是两项并不相同的工作。</description>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <category>AI知识</category>
     <category>AI</category>
