@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "9dcade0d1f8fb38cc5ce23699dd9e1497a6fa210659b17de949707304de16cbc",
-  "published_post_count": 177,
+  "content_sha256": "84046ccbdd654f90bee5f8a96303926877871f18eaf0b3f14182fc80988ed00f",
+  "published_post_count": 178,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -131,6 +131,15 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "6e2ee3c2cfec5d380255092e7e10c76b1e537f2eb5750671a5ef7655c76a2f83"
+    },
+    {
+      "file": "posts/2026-10-15-official-1dd915a82f3f-en.md",
+      "slug": "2026-10-15-official-1dd915a82f3f-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-15-official-1dd915a82f3f",
+      "lang": "en",
+      "sha256": "cd110821a663a055c61cae891282ec0be8c0a3306fd9b90dd6d1e0a444c8d002"
     },
     {
       "file": "posts/2026-10-15-official-1dd915a82f3f.md",
@@ -843,7 +852,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "aa51fac1f53354360103e979837d256d9585b513cd1b5f7e30710b40307dc52f"
+      "sha256": "0cbd8297388f8bb82b4a520163ad0993fab30b73ff9e0b26c437269b7f1c3c0c"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -852,14 +861,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "27c2968eb23fcff6bda0c46e829534a352fc61c2a1c26011fe7ede2f169fa44b"
+      "sha256": "05f2c32421bbd7ed25050425461b329c6fb90ec1c0fccdf16ee00c19f4c25100"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "48dd2d95d1fe8fb52b686d25f78c16a089367873dff8d5d6d4c0c5d4754dcda9"
+      "sha256": "d59a8d43548da78d26396c0997239ac95dd72ae9eed528e45793612d4d4f297a"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",

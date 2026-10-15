@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-09-30
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. 1.4.8 adds a second local video engine, LTX-2.5, with a direct download from mainland China on Discover; a full tour with screenshots.
+updated: 2026-10-15
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. The walkthrough was written at 1.4.8; a version line through the current 1.8.8 is appended at the end, with a full tour and screenshots.
 categories:
   - Resources
 tags:
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.4.8 · 2026-09-30 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.8.8 · 2026-10-15 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This is version 1.4.8. Below is a walk through each page; every screenshot is the real 1.4.6 interface (1.4.7 and 1.4.8 add a few things on top — see “New in 1.4.8” and “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This walkthrough was written at 1.4.8; the current version is 1.8.8. Below is a walk through each page; every screenshot is the real 1.4.6 interface (later releases added security checks, office documents, Splash models and more — see “After 1.4.8”, “New in 1.4.8” and “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -159,14 +159,24 @@ File tools can only read the folders you allow by default. Running project comma
 
 **Stuck on something? It can look it up online, or configure another machine over SSH.** The new “Network access” switch is off by default; once on, the model can send HTTP requests to call APIs or read endpoints, run commands and copy files over SSH on the devices in your `~/.ssh/config`, check connectivity and TLS certificates, and view this machine's network status. SSH logs in with keys only — LocalBrain never touches or stores a password. Permissions are per conversation: read-only operations run directly, while changes (restarting a service, editing config, uploading a file, POST/PUT and the like) ask you each time, and you can grant full trust within one conversation so it stops interrupting. It is separate from “Web search” — that one looks things up, this one operates other machines; port scanning and packet capture, the kind of probing done against other people's networks, are not included.
 
+### ▸ After 1.4.8: security checks, office documents, community models, download experience (current: 1.8.8)
+
+The walkthrough and screenshots stop at 1.4.8; every later version has its own article, so here is just the main line:
+
+- **Authorized network security checks (1.5–1.6)**: two entries — workspace security audit and authorized network checks — with fixed-parameter vectors, sandboxed execution and local target-range reverse verification, fail-closed throughout. See [[localbrain-network-security|the network security testing post]].
+- **Office documents, format-preserving (1.6.8)**: format-preserving editing and template filling for DOCX / XLSX / PPTX — “fill in the table without touching the original layout.”
+- **Media tools right inside chat (1.8.0)**: with a model running, speech, transcription, image, music and video all go through the same task agent. See [[localbrain-media-chat-180|media calls in chat]].
+- **Splash community models (1.8.x)**: downloading, assembling and launching community 4-bit models, with ModelScope transfer, automatic resume after stalls and pinned-revision hash checks.
+- **Download speed display (1.8.8)**: live speed and estimated time remaining now appear right in the progress line; within two seconds of a stall the stale reading is withdrawn with a waiting notice — no more inflated or frozen phantom speeds.
+
 ---
 
-#### LocalBrain 1.4.8
+#### LocalBrain 1.8.8
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.4.4 · Installer LocalBrain\_1.4.8\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.7.6 · Installer LocalBrain\_1.8.8\_aarch64.dmg
 
 ```shell
 Latest installer
@@ -175,7 +185,7 @@ Product page
 https://hyphentech.top/localbrain
 ```
 
-The SHA-256 of the current installer is **1416f07243136206755892071810ab6cac661245b73182714fde7a1dc74bc143**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **aa6e49b9c6e66802c06060fbc3a117a3d78da5e4db3f6794f692b36853566744**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
