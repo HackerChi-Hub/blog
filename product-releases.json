@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-15T05:37:58.603Z",
-  "contentHash": "29ae220e53fbc8b35f009216f330ca2d1cf72561973209da8a5ffbccff4fac4f",
+  "checkedAt": "2026-10-15T11:35:03.658Z",
+  "contentHash": "7dbdb42bcb32b29c6700042c1149602018a9df97cee6c50ed0910372953de745",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T05:37:58.603Z",
+      "checkedAt": "2026-10-15T11:35:03.658Z",
       "prerelease": false,
       "releaseNotesHash": "d8d5584158add3a4ee09bbe48c1b0821a498aee81a762865d69cb52d927160be",
       "revision": "7ea940534c86347c8bbae2979abda3b63102c8b07d65dfe2a100ae7cc5ba1a6c"
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T05:37:58.603Z",
+      "checkedAt": "2026-10-15T11:35:03.658Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T05:37:58.603Z",
+      "checkedAt": "2026-10-15T11:35:03.658Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -287,25 +287,25 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "同类素材可以共用轨道，减少时间线占用；同时修复字幕消失、大段剪辑后无法直接播放的问题。 源码验收：4500项回归通过、2项跳过，两套类型检查和生产构建通过。独立审查补齐连续拆轨、合轨、再次拆轨时的编号唯一性，隐藏与锁定不会串到另一轨。macOS真实桌面完成删除600秒后直接续播、字幕显示、素材上下层级拖动、标注合轨4→3→2、保存重开…",
-      "updated": "2026-10-14",
-      "version": "1.5.3",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.3",
+      "updateSummary": "源码验收：deep-agent 全部 164 条测试通过，新增动画时限分型与「kimi/openai-compatible 必须带规范化 fetch」回归用例；类型检查与 lint 干净。其余能力与 1.5.4 相同。",
+      "updated": "2026-10-15",
+      "version": "1.5.5",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.5",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.5.3",
+          "version": "1.5.5",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.3",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.5",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.3_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.3/HyphenScreen_1.5.3_arm64.dmg",
-              "id": 640732756,
-              "size": 282132011,
-              "updatedAt": "2026-10-14T15:06:09Z",
-              "digest": "sha256:5d71818ae8632380b22f58092d5cef21f230e4c87c3e27f6fd9e80e7b2d15f3a"
+              "name": "HyphenScreen_1.5.5_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.5/HyphenScreen_1.5.5_arm64.dmg",
+              "id": 643407350,
+              "size": 282121240,
+              "updatedAt": "2026-10-15T09:47:35Z",
+              "digest": "sha256:f85ee6b3e9cdda7383e7a6a1771d125f23e46fbf3cb84378af0eabc2000beb12"
             }
           ]
         },
@@ -350,10 +350,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T05:37:58.603Z",
+      "checkedAt": "2026-10-15T11:35:03.658Z",
       "prerelease": false,
-      "releaseNotesHash": "03394fcce829836c9fc56367edfc4a0c0395129df3cd82ac796ea1245c6885fb",
-      "revision": "96fc7ffe256c45d34dae4cc45c6557330cafd08d1bedc15e5f709eaa5e981a17"
+      "releaseNotesHash": "2a992b59e4608616ad07bea01fee69a9b0ab0a3232d05f6a90a6069822ee5179",
+      "revision": "e38fdf48578b5307a524b5eae0a445e3b4a544bef9e2bfc170a325fb74d4b1c9"
     }
   ]
 }
