@@ -8,8 +8,7 @@
 // · 数据点卡 —— 已发布文章数与自制软件数；
 // · 数据带 —— 文章 / 软件 / 雷达收录 / 实验台工具的真实计数。
 //
-// 视差、倾斜与滚动进入全部在一个 useEffect 里注册并清理；reduced-motion 时一律不挂。
-// .reveal 也由 JS 添加：脚本没跑起来时内容直接可见，不藏。
+// 视差与倾斜仅在精细指针设备注册；正文不依赖滚动观察器才显示。
 
 import { useEffect, useRef } from 'react';
 import { formatDate, normalizeSummary } from '../lib/utils';
@@ -37,7 +36,7 @@ export default function HomeHero({ t, lang, latest, latestCover, products = [], 
     const root = document.querySelector('.home-page');
     if (!root) return undefined;
     const cleanups = [];
-    const motionOK = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+    const motionOK = window.matchMedia('(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)').matches;
 
     // HERO 鼠标视差
     const hero = heroRef.current;
@@ -82,21 +81,6 @@ export default function HomeHero({ t, lang, latest, latestCover, products = [], 
           card.removeEventListener('mouseleave', onLeave);
         });
       });
-    }
-
-    // 滚动进入：JS 先加 .reveal，进入视口再加 .on；没有 JS 时内容始终可见
-    if (motionOK && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('on');
-          observer.unobserve(entry.target);
-        }
-      }), { threshold: 0.12 });
-      root.querySelectorAll('.js-reveal').forEach((el) => {
-        el.classList.add('reveal');
-        observer.observe(el);
-      });
-      cleanups.push(() => observer.disconnect());
     }
 
     return () => cleanups.forEach((cleanup) => cleanup());

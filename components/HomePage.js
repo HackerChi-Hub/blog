@@ -361,7 +361,6 @@ const LabTool = ({ tool }) => {
             alt=""
             width={tool.imageWidth}
             height={tool.imageHeight}
-            priority
             fallback={diagram}
           />
         ) : diagram}

@@ -732,8 +732,9 @@ img:hover {
   background: transparent;
   box-shadow: none;
   opacity: 0.9;
-  filter: blur(18px) saturate(0.85) brightness(0.8);
-  transform: scale(1.04);
+  /* 背板已在构建时缩小并柔化，避免每张大封面实时执行模糊滤镜。 */
+  filter: none;
+  transform: none;
   transition: none;
 }
 

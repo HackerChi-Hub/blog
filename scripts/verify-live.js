@@ -192,6 +192,15 @@ async function main() {
   const assetFiles = walkFiles(publicAssetRoot);
   if (assetFiles.length === 0) throw new Error('public/obsidian-assets 为空，拒绝把无图站点视为成功');
   await verifyAssetsInBatches(assetFiles.map(assetUrlForFile));
+  const coverPreviewRoot = path.resolve(__dirname, '..', 'public', 'cover-previews');
+  const coverPreviewFiles = walkFiles(coverPreviewRoot);
+  if (fs.existsSync(path.resolve(__dirname, '../lib/cover-variants.generated.json')) && !coverPreviewFiles.length) {
+    throw new Error('已启用轻量封面但没有生成公开展示图片');
+  }
+  if (coverPreviewFiles.length) {
+    await verifyAssetsInBatches(coverPreviewFiles.map(assetUrlForFile));
+    console.log(`✅ 轻量封面验收：${coverPreviewFiles.length} 个响应式封面和背景衍生文件全部可读`);
+  }
   console.log(
     `✅ 素材验收：${assetFiles.length} 个实际被文章引用的公开文件全部可读`
   );

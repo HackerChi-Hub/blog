@@ -16,8 +16,7 @@
   padding: 10px 22px;
   border: 1px solid var(--hp-line, rgba(255,255,255,.09));
   border-radius: 14px;
-  background: rgba(10, 13, 18, .72);
-  backdrop-filter: blur(16px);
+  background: rgba(10, 13, 18, .96);
 }
 .home-brand {
   display: inline-flex;

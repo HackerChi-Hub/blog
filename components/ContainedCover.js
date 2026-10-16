@@ -1,5 +1,6 @@
-import Image from 'next/image';
+import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
+import coverVariants from '../lib/cover-variants.generated.json';
 
 const normalizeSource = (source) => {
   const value = typeof source === 'string' ? source : source?.url || source?.src || '';
@@ -27,6 +28,11 @@ export default function ContainedCover({
   const naturalImage = useRef(null);
   const source = normalizeSource(src);
   const failed = failedSource === source;
+  const preview = coverVariants[source];
+  const variants = preview?.variants || [];
+  const displaySource = variants[0]?.src || source;
+  const sourceSet = variants.map((item) => `${item.src} ${item.width}w`).join(', ') || undefined;
+  const sizes = priority ? '(max-width: 1200px) 100vw, 1200px' : '(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 33vw';
 
   useEffect(() => {
     const image = naturalImage.current;
@@ -55,25 +61,28 @@ export default function ContainedCover({
 
   return (
     <div className={`contained-cover ${className}`.trim()}>
-      <Image
+      {priority && <Head><link rel="preload" as="image" href={displaySource} imageSrcSet={sourceSet} imageSizes={sourceSet ? sizes : undefined} /></Head>}
+      <img
         className="contained-cover__backdrop"
-        src={source}
+        src={preview?.backdrop || source}
         alt=""
         aria-hidden="true"
         width={width}
         height={height}
         loading={priority ? 'eager' : 'lazy'}
-        unoptimized
+        decoding="async"
       />
-      <Image
+      <img
         className="contained-cover__image"
-        src={source}
+        src={displaySource}
+        srcSet={sourceSet}
+        sizes={sourceSet ? sizes : undefined}
         alt={alt}
         width={width}
         height={height}
-        priority={priority}
-        loading={priority ? undefined : 'lazy'}
-        unoptimized
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        decoding="async"
         onError={() => setFailedSource(source)}
       />
     </div>

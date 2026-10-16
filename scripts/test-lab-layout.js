@@ -33,9 +33,9 @@ for (const tool of AI_LAB_TOOLS.filter((item) => item.image)) {
 const home = fs.readFileSync(path.join(root, 'components/HomePage.js'), 'utf8');
 const lab = home.slice(home.indexOf('const LabTool ='), home.indexOf('const LabSection ='));
 assert.doesNotMatch(lab, /\bnatural\b/, '实验台封面与其他文章一样用包含式清晰层和同图背景');
-assert.match(lab, /\bpriority\b/, '实验台图片不应等待懒加载');
+assert.doesNotMatch(lab, /\bpriority\b/, '非首屏实验台图片不应抢占首屏带宽');
 assert.match(lab, /fallback=\{diagram\}/, '加载失败必须有非空替代展示');
 const cover = fs.readFileSync(path.join(root, 'components/ContainedCover.js'), 'utf8');
 assert.match(cover, /if \(!source \|\| failed\) return fallback;/);
 assert.match(cover, /image\?\.complete && !image\.naturalWidth/, '图片在页面接管前失败也要显示替代内容');
-console.log('✅ 实验台布局回归通过：共用封面比例、原图完整、无固定高度黑边、图示铺满、提前加载与失败替代');
+console.log('✅ 实验台布局回归通过：共用封面比例、原图完整、图示铺满、按需加载与失败替代');

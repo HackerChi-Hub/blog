@@ -6,6 +6,9 @@ node_modules/
 .next/
 out/
 .product-release-cache.json
+lib/cover-variants.generated.json
+lib/cover-variants.generated.json.*.tmp
+public/cover-previews/
 
 # 构建生成的临时附件
 public/downloads/

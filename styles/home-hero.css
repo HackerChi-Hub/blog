@@ -304,11 +304,11 @@
 .home-footer b { color: var(--hp-muted); }
 .home-footer__mono { letter-spacing: .18em; }
 
-/* ——— 滚动进入（JS 加 .reveal，IntersectionObserver 加 .on）——— */
-.home-page .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-.home-page .reveal.on { opacity: 1; transform: none; }
+/* 内容始终可见，不能因长板块达不到滚动触发比例而一直留白。 */
+.home-page .reveal, .home-page .reveal.on { opacity: 1; transform: none; }
 
 @media (max-width: 960px) {
+  .home-hero .layer, .home-hero .orb, .home-hero .scroll-cue, .home-hero .live-dot { animation: none; }
   .home-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 90px; }
   .stage { height: 460px; max-width: 560px; }
   .pillars { grid-template-columns: 1fr; }

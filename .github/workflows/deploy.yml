@@ -42,6 +42,9 @@ jobs:
       - name: Verify product update scripts
         run: npm run test:products
 
+      - name: Verify layout performance
+        run: npm run test:performance
+
       - name: Build (static export)
         env:
           BLOG_CONTENT_DIR: ./content-export

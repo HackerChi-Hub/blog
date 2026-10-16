@@ -6,11 +6,15 @@
     "links:audit": "node scripts/audit-article-links.js --check",
     "test:links": "node scripts/test-article-links.js",
     "dev": "BLOG_CONTENT_DIR=../blog-content next dev",
-    "prebuild": "node scripts/refresh-product-releases.js",
+    "predev": "node scripts/build-cover-previews.js",
+    "prebuild": "node scripts/refresh-product-releases.js && node scripts/build-cover-previews.js",
+    "prebuild:obsidian-test": "node scripts/build-cover-previews.js",
+    "covers:build": "node scripts/build-cover-previews.js",
+    "test:performance": "node scripts/test-layout-performance.js",
     "products:check": "node scripts/refresh-product-releases.js --check",
     "products:update": "node scripts/refresh-product-releases.js",
     "products:publish": "node scripts/publish-product-updates.js",
-    "build": "BLOG_CONTENT_DIR=./content-export next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./content-export && node scripts/verify-product-versions.js && node scripts/audit-rendered-links.js --dir out",
+    "build": "BLOG_CONTENT_DIR=./content-export next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./content-export && node scripts/verify-product-versions.js && node scripts/audit-rendered-links.js --dir out && node scripts/verify-layout-performance.js",
     "build:obsidian-test": "BLOG_CONTENT_DIR=./tests/fixtures/blog-content next build && node scripts/post-build.js && node scripts/verify-export.js --content-dir ./tests/fixtures/blog-content && node scripts/audit-rendered-links.js --dir out",
     "content:check": "node scripts/validate-content.js",
     "content:check-fixture": "node scripts/validate-content.js --content-dir ./tests/fixtures/blog-content",
@@ -19,7 +23,7 @@
     "content:fill-preview": "node scripts/fill-preview-assets.js",
     "comments:test": "node workers/comments/test.mjs",
     "comments:admin": "node scripts/comments-admin.js",
-    "test:content": "node scripts/test-publish-scope.js && node scripts/test-product-catalog.js && node scripts/test-product-release-sync.js && node scripts/test-translate-posts.js && node scripts/test-article-links.js && node scripts/test-link-presentation.js && node scripts/test-standalone-links.js && node scripts/test-internal-links.js && node scripts/test-content-pipeline.js && node scripts/test-video-renderer.js && node scripts/test-blog-i18n.js && node scripts/test-site-lang.js && node scripts/test-home-content.js && node scripts/test-lab-layout.js && node scripts/test-article-layout.js && node scripts/test-runtime-script-policy.js",
+    "test:content": "node scripts/test-publish-scope.js && node scripts/test-product-catalog.js && node scripts/test-product-release-sync.js && node scripts/test-layout-performance.js && node scripts/test-translate-posts.js && node scripts/test-article-links.js && node scripts/test-link-presentation.js && node scripts/test-standalone-links.js && node scripts/test-internal-links.js && node scripts/test-content-pipeline.js && node scripts/test-video-renderer.js && node scripts/test-blog-i18n.js && node scripts/test-site-lang.js && node scripts/test-home-content.js && node scripts/test-lab-layout.js && node scripts/test-article-layout.js && node scripts/test-runtime-script-policy.js",
     "test:i18n": "node scripts/test-blog-i18n.js",
     "test:link-presentation": "node scripts/test-link-presentation.js",
     "test:products": "node scripts/test-product-catalog.js && node scripts/test-product-release-sync.js",
@@ -39,5 +43,8 @@
   },
   "overrides": {
     "postcss": "8.5.26"
+  },
+  "devDependencies": {
+    "sharp": "0.35.4"
   }
 }
