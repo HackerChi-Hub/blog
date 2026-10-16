@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-16T13:00:32.752Z",
-  "contentHash": "8eb5d9b2af2d9cada7f9f799b06204e4744ffc76d0267bcf44af005820e7f061",
+  "checkedAt": "2026-10-16T13:25:11.283Z",
+  "contentHash": "7811c50c6098aaa4306a767a7218e9800a65ca114a475b7c4da6dae766a0abf3",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T13:00:32.752Z",
+      "checkedAt": "2026-10-16T13:25:11.283Z",
       "prerelease": false,
       "releaseNotesHash": "fc1b0b13dacb2a5fda44068d10174d7f8c2326fbd6a63420fae5091d028e11aa",
       "revision": "3461b514f30790b564730e202614a64aa3c1d197f3099f6fc0d8ed0f50d643b5"
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T13:00:32.752Z",
+      "checkedAt": "2026-10-16T13:25:11.283Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T13:00:32.752Z",
+      "checkedAt": "2026-10-16T13:25:11.283Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -287,25 +287,25 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "全量4513项测试通过、2项跳过；生产构建、应用和测试两套类型检查、多语言、文档及四语言主页合同通过；本机macOS苹果芯片包已签名校验并安装，安装后的程序资源与构建产物一致。",
+      "updateSummary": "5项新增来源选择回归，相关20项测试通过；全量4516项通过、2项跳过。应用与测试类型检查、生产构建通过；macOS独立真实编辑器打开11场景、两音轨、无主视频的146.83秒工程，验证起点、中段、末段跳转；从起点连续播放到结尾并检查实际画面。",
       "updated": "2026-10-16",
-      "version": "1.5.7",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.7",
+      "version": "1.5.8",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.8",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.5.7",
+          "version": "1.5.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.7_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.7/HyphenScreen_1.5.7_arm64.dmg",
-              "id": 645717931,
-              "size": 282138117,
-              "updatedAt": "2026-10-16T01:14:36Z",
-              "digest": "sha256:ef0b8a8725e04eee465c361893bd5d603e0d4294227c9cbebd225e3109cb96f2"
+              "name": "HyphenScreen_1.5.8_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.8/HyphenScreen_1.5.8_arm64.dmg",
+              "id": 647405707,
+              "size": 265231510,
+              "updatedAt": "2026-10-16T13:23:33Z",
+              "digest": "sha256:5d1d287f65b41d84bd6a163b0c768856dc3f7e74e345f3167a05a6714fa65187"
             }
           ]
         },
@@ -350,10 +350,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T13:00:32.752Z",
+      "checkedAt": "2026-10-16T13:25:11.283Z",
       "prerelease": false,
-      "releaseNotesHash": "f9df645e3d096c17f0bc7e168a2a6b658bab5032be7334df2ec6c570c1b2ca05",
-      "revision": "31df04551af842b4c596c2cd00c1aeba97c8aa9855f7739cd33b3a73d201a0b5"
+      "releaseNotesHash": "4da5ef078d3c7327a90e7e38477b928c4fbc590faedb0591be8f9fe67051aee9",
+      "revision": "f99dcbe993420cb9e4c31a29b9448a02df90a71721b14a29faeb809c16348315"
     }
   ]
 }
