@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "3bea7952be2f880e2c42151c696b1bf5cc55331d16b7c78bf5588bf609222831",
-  "published_post_count": 178,
+  "content_sha256": "25c4f1d98bb8154e4a74b5bfe1361b147d9623de0f9b1b7a020c97a1dd9662d1",
+  "published_post_count": 180,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -147,6 +147,13 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "651cfdb8d2bb1156b765937617b4fefd99c0d67a51c98454ff173871551f73a0"
+    },
+    {
+      "file": "posts/2026-10-16-official-6b1fdcbd2e4f.md",
+      "slug": "2026-10-16-official-6b1fdcbd2e4f",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "94849c00b95bccf29fbf96d368e8547f793b3bd31929f48efbefab50552af25c"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -1189,6 +1196,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "1e9d9b9a20545a6a341ca0378af4000c1a7372aac22b39fbc86a486533aaca6d"
+    },
+    {
+      "file": "posts/rea-reverse-engineering.md",
+      "slug": "rea-reverse-engineering",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "ef4669ab81f78f72c98f4f7835c6832e6be77013b38f5253d60bedef3ded7a71"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide-en.md",
