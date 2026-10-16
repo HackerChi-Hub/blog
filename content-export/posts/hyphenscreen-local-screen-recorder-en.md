@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: a free screen recorder that edits, redacts and checks its own output"
+title: "HyphenScreen: recording, editing and AI animation — version 1.5.8"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-09-29
-summary: The worst thing a screen recording can do is show what it should not. HyphenScreen 1.0.2 finds sensitive text on your own computer, keeps the mosaic on it through zooms and scrolling, and reads the finished video back before you publish. A full tour with screenshots.
+updated: 2026-10-16
+summary: HyphenScreen combines recording, editing and editable AI animation. Mac 1.5.8 fixes preview for animation projects with narration and music, and external scene-writing compatibility. Adjustable timeouts and incremental feedback remain available; includes verification scope, downloads and checksum.
 categories:
   - Resources
 tags:
@@ -16,6 +16,38 @@ cover: https://hyphentech.top/obsidian-assets/hyphenscreen-local-screen-recorder
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Current release: 1.5.8 for Apple Silicon Mac
+
+Version 1.5.8 fixes preview in projects containing native animation, narration and music but no source video. Initialization could incorrectly send the first audio asset to the video decoder. Preview now selects the actual visual source from the compiled timeline, including the generated animation canvas, rather than an unrelated asset.
+
+External scene-by-scene writing compatibility is also fixed. Before packaging, a private copy of a 146.83-second project with 11 animation clips and two audio tracks was checked in the real editor: start, middle and end seeks, plus continuous playback from beginning to end. The installed build passed those seeks and early playback across scenes; subsequent system capture errors prevented reading back its playback endpoint. The original project was preserved. This is a targeted preview check, not a claim that every device, model-generation task or subjective audio review has passed.
+
+## Animation generation: adjustable waiting and incremental feedback
+
+Open a project, select your configured AI engine and choose animation creation. Describe the purpose, style, duration and actions; generated scenes can be edited on the timeline. For local generation, select LocalBrain in AI settings and load a model that supports tool calling in LocalBrain.
+
+The pink clock button opens waiting settings. Total and idle timeouts can each be set from 1 to 360 minutes, with 15/45/90-minute shortcuts and settings remembered per engine. LocalBrain defaults to 45/10 minutes; online and subscription engines default to 15/5. Longer waiting allows a slow model more time; it does not make generation faster.
+
+![Animation waiting settings](/obsidian-assets/hyphenscreen-local-screen-recorder/v157-animation-wait-settings.png)
+
+Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
+
+- Apple Silicon Mac: **1.5.8**, DMG **265,231,510 bytes**, locally signed and not Apple-notarized.
+- Windows and Linux: **1.5.0** remains available; platform versions are not identical.
+- Online model fees are charged by the selected provider; local models consume local hardware resources.
+
+[Download HyphenScreen 1.5.8 for Apple Silicon Mac (DMG)](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.8/HyphenScreen_1.5.8_arm64.dmg) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [SHA-256 checksum file](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.8/SHA256SUMS.txt)
+
+The uploaded Mac package was downloaded again and verified:
+
+```text
+5d1d287f65b41d84bd6a163b0c768856dc3f7e74e345f3167a05a6714fa65187
+```
+
+## Earlier feature tour and development history
+
+The following screenshots and development records describe versions 1.0.1/1.0.2. Their layouts, counts and test results are historical, not the latest 1.5.8 interface. Current platform versions and downloads are listed above.
 
 > [!abstract]
 > Recording is easy; the work starts after
