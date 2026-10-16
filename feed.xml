@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Oct 2026 14:30:27 GMT</lastBuildDate>
-    <pubDate>Fri, 16 Oct 2026 14:30:27 GMT</pubDate>
+    <lastBuildDate>Fri, 16 Oct 2026 14:35:26 GMT</lastBuildDate>
+    <pubDate>Fri, 16 Oct 2026 14:35:26 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Hy-Memory-30B-A3B 是什么：它能把长期记忆写好到什么程度？</title>
+      <link>https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f/</guid>
+      <description>腾讯混元开放长期记忆写入模型，先看它解决什么、成绩如何、怎样验收。</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>REA爆火，一行命令复刻任何软件</title>
+      <link>https://hyphentech.top/rea-reverse-engineering/</link>
+      <guid isPermaLink="true">https://hyphentech.top/rea-reverse-engineering/</guid>
+      <description>REA 一周卷走 10 万星：一行命令让 AI Agent 拆开任何闭源软件。它没发明反编译，拆掉的是净室那堵墙——“分析”有法条依据，“重建”没有。本地分析也不等于数据不出门。</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>Gemini 4 Argon 全球上线：API 开放、每百万输入 2 美元，官方成绩与边界怎么看</title>
       <link>https://hyphentech.top/2026-10-15-official-1dd915a82f3f/</link>
@@ -192,26 +212,6 @@
       <link>https://hyphentech.top/understand-ai-05-tokens/</link>
       <guid isPermaLink="true">https://hyphentech.top/understand-ai-05-tokens/</guid>
       <description>草莓还是那颗草莓，前面多一个空格，机器看到的块数却变了。一个来自数据压缩的老办法，怎样走进聊天框，改变你的费用、速度和上下文？</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
-    </item>
-    <item>
-      <title>推理模型多想就更准？从17.7%到78.7%，一张草稿的价值与代价</title>
-      <link>https://hyphentech.top/understand-ai-09-reasoning/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-09-reasoning/</guid>
-      <description>心算容易丢中间数，写竖式就稳一些。模型也学会了先留草稿，可同一道题多等几秒，买到的究竟是正确答案，还是更长的错误解释？</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
-    </item>
-    <item>
-      <title>AI寒冬有2次，为什么2012年才翻身？显卡、数据和一场比赛的故事</title>
-      <link>https://hyphentech.top/understand-ai-02-history/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-02-history/</guid>
-      <description>1958年，人们已经在期待会学习的机器。几十年后它才真正改变行业。中间不是一条直线上升的曲线，而是承诺、失望，以及老想法终于等到条件的故事。</description>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <category>AI知识</category>
     <category>AI</category>
