@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-16T04:36:32.676Z",
-  "contentHash": "da892a45e2b1179d79dc9110fba9c1b450f53b9547edcb3a06349e1550818954",
+  "checkedAt": "2026-10-16T11:08:22.490Z",
+  "contentHash": "8eb5d9b2af2d9cada7f9f799b06204e4744ffc76d0267bcf44af005820e7f061",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,25 +17,25 @@
       "fallbackDescription": "把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。",
       "action": "查看产品与下载",
       "description": "把 Mac 变成私有 AI 盒子：本地转写、配音、生图、视频和 MCP 工具一站管理。",
-      "updateSummary": "本轮公开 Apple Silicon Mac 安装包（1.8.8），优化模型下载速度显示的准确性与响应速度。 已完成 Rust（343 项）与前端 TypeScript 回归测试，含速度计窗口平均、停滞衰减、回退清零与文案保鲜判断的新增用例。用户工作区中独立的 videoltx25bridge.py 改动未纳入本次干净构建。",
-      "updated": "2026-10-15",
-      "version": "1.8.8",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.8",
+      "updateSummary": "本轮公开 Apple Silicon Mac 安装包，包含1.8.9至1.9.1期间完成的技能、记忆和上下文整理功能。Windows与Linux保留各自原发行。",
+      "updated": "2026-10-16",
+      "version": "1.9.1",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.1",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.8.8",
+          "version": "1.9.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.8.8",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.1",
           "assets": [
             {
-              "name": "LocalBrain_1.8.8_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.8.8/LocalBrain_1.8.8_aarch64.dmg",
-              "id": 642593350,
-              "size": 72913206,
-              "updatedAt": "2026-10-15T03:57:00Z",
-              "digest": "sha256:aa6e49b9c6e66802c06060fbc3a117a3d78da5e4db3f6794f692b36853566744"
+              "name": "LocalBrain_1.9.1_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.1/LocalBrain_1.9.1_aarch64.dmg",
+              "id": 647035453,
+              "size": 71556128,
+              "updatedAt": "2026-10-16T10:52:55Z",
+              "digest": "sha256:74725034276f594c5d01556c35a6e12f10c4a636a1b8c9bdea355dd23466d148"
             }
           ]
         },
@@ -72,10 +72,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T04:36:32.676Z",
+      "checkedAt": "2026-10-16T11:08:22.490Z",
       "prerelease": false,
-      "releaseNotesHash": "d8d5584158add3a4ee09bbe48c1b0821a498aee81a762865d69cb52d927160be",
-      "revision": "7ea940534c86347c8bbae2979abda3b63102c8b07d65dfe2a100ae7cc5ba1a6c"
+      "releaseNotesHash": "fc1b0b13dacb2a5fda44068d10174d7f8c2326fbd6a63420fae5091d028e11aa",
+      "revision": "3461b514f30790b564730e202614a64aa3c1d197f3099f6fc0d8ed0f50d643b5"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T04:36:32.676Z",
+      "checkedAt": "2026-10-16T11:08:22.490Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T04:36:32.676Z",
+      "checkedAt": "2026-10-16T11:08:22.490Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -350,7 +350,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-16T04:36:32.676Z",
+      "checkedAt": "2026-10-16T11:08:22.490Z",
       "prerelease": false,
       "releaseNotesHash": "f9df645e3d096c17f0bc7e168a2a6b658bab5032be7334df2ec6c570c1b2ca05",
       "revision": "31df04551af842b4c596c2cd00c1aeba97c8aa9855f7739cd33b3a73d201a0b5"
