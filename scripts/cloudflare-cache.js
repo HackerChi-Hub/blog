@@ -12,7 +12,7 @@ const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function request(url, options = {}) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(20000) });
   const text = await response.text();
-  return { status: response.status, ok: response.ok, text };
+  return { status: response.status, ok: response.ok, text, headers: response.headers };
 }
 
 function urlsForFile(file) {
@@ -139,11 +139,33 @@ async function purge(plan, token, fetcher = request, sleep = pause) {
   console.log(`✅ Cloudflare 缓存刷新成功：${plan.bootstrap ? '首次清除本站旧缓存' : plan.urls.length + ' 个变更地址'}；已确认新版构建 ${plan.buildId}`);
 }
 
+async function verify(fetcher = request, sleep = pause) {
+  for (const route of ['/', '/page/1/', '/localbrain-local-ai-box/']) {
+    let status = '';
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const response = await fetcher(ORIGIN + route);
+      status = response.headers?.get('cf-cache-status') || '';
+      if (!response.ok || !response.text.includes('<html')) throw new Error(`缓存样本不是正常网页：${route}`);
+      if (['HIT', 'REVALIDATED'].includes(status)) break;
+      if (attempt === 3) throw new Error(`网页未命中 Cloudflare 缓存：${route} (${status || '无状态头'})`);
+      await sleep(1500);
+    }
+    console.log(`✅ 页面边缘缓存：${route} ${status}`);
+  }
+  for (const route of ['/.build-id', '/api/comments?slug=localbrain-local-ai-box']) {
+    const response = await fetcher(ORIGIN + route);
+    const status = response.headers?.get('cf-cache-status') || '';
+    if (!response.ok || ['HIT', 'REVALIDATED', 'STALE', 'UPDATING'].includes(status)) throw new Error(`实时入口响应异常或被缓存：${route}`);
+    console.log(`✅ 实时入口不读边缘缓存：${route} ${status || '无缓存状态头'}`);
+  }
+}
+
 async function main() {
   const root = path.resolve(__dirname, '..');
   if (process.argv[2] === 'prepare') return prepare(root);
   if (process.argv[2] === 'purge') return purge(JSON.parse(fs.readFileSync(path.join(root, PLAN), 'utf8')), process.env.CLOUDFLARE_CACHE_PURGE_TOKEN);
-  throw new Error('用法：node scripts/cloudflare-cache.js prepare|purge');
+  if (process.argv[2] === 'verify') return verify();
+  throw new Error('用法：node scripts/cloudflare-cache.js prepare|purge|verify');
 }
-module.exports = { urlsForFile, validateManifest, buildManifest, makePlan, prepare, waitForOrigin, purge };
+module.exports = { urlsForFile, validateManifest, buildManifest, makePlan, prepare, waitForOrigin, purge, verify };
 if (require.main === module) main().catch((error) => { console.error(`❌ ${error.message}`); process.exitCode = 1; });

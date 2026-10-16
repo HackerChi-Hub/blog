@@ -4,7 +4,7 @@ const assert = require('assert/strict');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { urlsForFile, validateManifest, buildManifest, makePlan, prepare, purge } = require('./cloudflare-cache');
+const { urlsForFile, validateManifest, buildManifest, makePlan, prepare, purge, verify } = require('./cloudflare-cache');
 const origin = 'https://hyphentech.top';
 const hash = (s) => s.repeat(64);
 const manifest = (files) => ({ version: 1, origin, files });
@@ -56,6 +56,9 @@ async function main() {
     return ++retries === 1 ? { ok: false, status: 429, text: '' } : { ok: true, status: 200, text: '{"success":true}' };
   }, async () => {});
   assert.equal(retries, 2);
+  await verify(async (url) => ({ ok: true, text: '<html>公开网页</html>', headers: new Map([['cf-cache-status', url.includes('/.build-id') || url.includes('/api/') ? 'DYNAMIC' : 'HIT']]) }), async () => {});
+  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'DYNAMIC']]) }), async () => {}), /未命中/);
+  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'HIT']]) }), async () => {}), /实时入口/);
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-cache-test-'));
   try {
     fs.mkdirSync(path.join(root, 'out'));

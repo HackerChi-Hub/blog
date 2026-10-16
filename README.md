@@ -448,6 +448,8 @@ GitHub Actions 使用仓库加密机密 `CLOUDFLARE_CACHE_PURGE_TOKEN`，权限�
 
 自检：`npm run test:cache`。生成计划：`node scripts/cloudflare-cache.js prepare`。
 执行刷新：`node scripts/cloudflare-cache.js purge`（由工作流注入令牌；不在命令行传明文）。
+每次发布最后还运行 `node scripts/cloudflare-cache.js verify`，实际 GET 首页、分页和
+产品文章，确认 HIT / REVALIDATED；版本标识与留言接口必须保持非缓存响应。
 缓存清单仅包含已经公开部署的文件路径和哈希，不读取私有 Obsidian 草稿。
 
 ## 开源提示

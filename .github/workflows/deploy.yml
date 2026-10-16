@@ -104,3 +104,6 @@ jobs:
           node scripts/verify-live.js "${{ github.run_id }}"
           node scripts/verify-product-versions.js --base https://hyphentech.top
           node scripts/audit-rendered-links.js --base https://hyphentech.top
+
+      - name: Verify edge cache and live endpoint isolation
+        run: node scripts/cloudflare-cache.js verify
