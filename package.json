@@ -11,6 +11,7 @@
     "prebuild:obsidian-test": "node scripts/build-cover-previews.js",
     "covers:build": "node scripts/build-cover-previews.js",
     "test:performance": "node scripts/test-layout-performance.js",
+    "test:cache": "node scripts/test-cloudflare-cache.js",
     "products:check": "node scripts/refresh-product-releases.js --check",
     "products:update": "node scripts/refresh-product-releases.js",
     "products:publish": "node scripts/publish-product-updates.js",

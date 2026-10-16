@@ -21,6 +21,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   build-and-deploy:
@@ -45,6 +46,18 @@ jobs:
       - name: Verify layout performance
         run: npm run test:performance
 
+      - name: Verify cache invalidation safety
+        run: npm run test:cache
+
+      - name: Require cache purge credentials
+        env:
+          CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
+        run: |
+          if [ -z "$CACHE_PURGE_TOKEN" ]; then
+            echo "缺少缓存刷新专用令牌，停止部署，避免官网缓存与新版不同步。"
+            exit 1
+          fi
+
       - name: Build (static export)
         env:
           BLOG_CONTENT_DIR: ./content-export
@@ -66,12 +79,23 @@ jobs:
       - name: Force unique build
         run: echo "${{ github.run_id }}-$(date +%s)" > out/.build-id
 
+      - name: Prepare selective cache invalidation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/cloudflare-cache.js prepare
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           publish_branch: gh-pages
+
+      - name: Wait for new site and refresh Cloudflare cache
+        timeout-minutes: 8
+        env:
+          CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
+        run: node scripts/cloudflare-cache.js purge
 
       - name: Verify live pages and assets
         # 定时软件更新也必须回读官网，不能只把构建成功当成已更新。

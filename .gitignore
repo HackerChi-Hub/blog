@@ -6,6 +6,7 @@ node_modules/
 .next/
 out/
 .product-release-cache.json
+.cloudflare-purge-plan.json
 lib/cover-variants.generated.json
 lib/cover-variants.generated.json.*.tmp
 public/cover-previews/
