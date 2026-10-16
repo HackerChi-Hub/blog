@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-15T21:26:49.515Z",
-  "contentHash": "cd9a5b2b2a95a9a8e5dab384e7f579b89971b9989aed56f58b4580b4c1ce6d43",
+  "checkedAt": "2026-10-16T04:36:32.676Z",
+  "contentHash": "da892a45e2b1179d79dc9110fba9c1b450f53b9547edcb3a06349e1550818954",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T21:26:49.515Z",
+      "checkedAt": "2026-10-16T04:36:32.676Z",
       "prerelease": false,
       "releaseNotesHash": "d8d5584158add3a4ee09bbe48c1b0821a498aee81a762865d69cb52d927160be",
       "revision": "7ea940534c86347c8bbae2979abda3b63102c8b07d65dfe2a100ae7cc5ba1a6c"
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T21:26:49.515Z",
+      "checkedAt": "2026-10-16T04:36:32.676Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T21:26:49.515Z",
+      "checkedAt": "2026-10-16T04:36:32.676Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -287,25 +287,25 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "保留1.5.5的渐进式动画制作、Kimi订阅兼容修复以及各提供商独立配置。 验证范围：动画界面实际组件交互、两套类型、完整应用回归、真实素材解码失败恢复、六素材原生预览切换；包体及公开回读结果见进度记录。本次按用户要求仅打包与公开下载，不替换本机已安装应用。完整物理录制清单、正式安装桌面与Windows／Linux新增修复未计通过；同…",
-      "updated": "2026-10-15",
-      "version": "1.5.6",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.6",
+      "updateSummary": "全量4513项测试通过、2项跳过；生产构建、应用和测试两套类型检查、多语言、文档及四语言主页合同通过；本机macOS苹果芯片包已签名校验并安装，安装后的程序资源与构建产物一致。",
+      "updated": "2026-10-16",
+      "version": "1.5.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.5.6",
+          "version": "1.5.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.6",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.7",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.6_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.6/HyphenScreen_1.5.6_arm64.dmg",
-              "id": 644365327,
-              "size": 305432727,
-              "updatedAt": "2026-10-15T15:57:37Z",
-              "digest": "sha256:e0d037dfc86039716336265dc60c72255def26a1d35408d43052e3a19109e2e7"
+              "name": "HyphenScreen_1.5.7_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.7/HyphenScreen_1.5.7_arm64.dmg",
+              "id": 645717931,
+              "size": 282138117,
+              "updatedAt": "2026-10-16T01:14:36Z",
+              "digest": "sha256:ef0b8a8725e04eee465c361893bd5d603e0d4294227c9cbebd225e3109cb96f2"
             }
           ]
         },
@@ -350,10 +350,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-15T21:26:49.515Z",
+      "checkedAt": "2026-10-16T04:36:32.676Z",
       "prerelease": false,
-      "releaseNotesHash": "6e41f5c5599f9d8c0e201e2e5905f5ff73fecf7deffcc88157d8bcf50db50cae",
-      "revision": "5ff80e1ee3e0370f78946dd9b8113d9f5e6c60c62c7dde34afeda6145f6a4959"
+      "releaseNotesHash": "f9df645e3d096c17f0bc7e168a2a6b658bab5032be7334df2ec6c570c1b2ca05",
+      "revision": "31df04551af842b4c596c2cd00c1aeba97c8aa9855f7739cd33b3a73d201a0b5"
     }
   ]
 }
