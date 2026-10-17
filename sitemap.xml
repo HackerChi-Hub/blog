@@ -79,7 +79,19 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://hyphentech.top/rea-reverse-engineering-en/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://hyphentech.top/rea-reverse-engineering/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f-en/</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
