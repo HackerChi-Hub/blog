@@ -28,7 +28,7 @@ export default function HomeHero({ t, lang, latest, latestCover, products = [], 
   const sceneRef = useRef(null);
 
   const newestProduct = products.length
-    ? products.slice().sort((a, b) => String(b.updated || '').localeCompare(String(a.updated || '')))[0]
+    ? products.slice().sort((a, b) => String(b.activityAt || b.updated || '').localeCompare(String(a.activityAt || a.updated || '')))[0]
     : null;
   const latestSummary = latest ? truncateText(normalizeSummary(latest.summary), 72) : '';
 

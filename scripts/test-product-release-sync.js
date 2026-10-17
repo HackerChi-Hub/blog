@@ -87,9 +87,12 @@ async function main() {
     await syncProducts(baseOptions);
     records[repo][0].assets[0].id = 101;
     records[repo][0].assets[0].digest = 'sha256:changed';
+    records[repo][0].assets[1].updated_at = '2026-10-14T02:00:00Z';
     const assetChange = await syncProducts({ ...baseOptions, check: true });
     assert.deepEqual(assetChange.changes[0].fields, ['各平台版本或安装包']);
     const changed = await syncProducts(baseOptions);
+    assert.equal(changed.snapshot.products[0].activityAt, '2026-10-14T02:00:00Z');
+    assert.equal(changed.snapshot.products[0].updated, '2026-10-14', '单独上传 Windows 安装包也更新卡片日期');
     const preserved = fs.readFileSync(filePath, 'utf8');
 
     // 任何一个仓库、格式、平台、链接失败都不污染已可用快照。
