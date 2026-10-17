@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.5.9 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.1 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-10-17
-summary: 黑粉录屏把录制、多轨剪辑与 AI 动画放进同一条时间线。1.5.9 已提供 Mac、Windows 和 Linux 安装包，包含跳剪与删除联动改进；附各平台下载、校验值和真实验证边界。
+summary: 黑粉录屏把录制、多轨剪辑与 AI 动画放进同一条时间线。Mac 1.6.1 修复编辑后音乐叠播、动画闪入及分层片段横移，Windows 与 Linux 保持1.5.9；附下载、校验值与验证边界。
 categories:
   - 资源分享
 tags:
@@ -17,10 +17,22 @@ legacy_paths: []
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen 1.5.9 正式版 · Mac／Windows／Linux
+> 黑粉录屏 HyphenScreen · Mac 1.6.1／Windows 与 Linux 1.5.9
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-17
 
-## 本次更新：跳剪更直接，删除后内容一起前移
+## 本次更新：编辑后音乐不叠播，画面跟上时间线
+
+**Mac 1.6.1 补修调整时间线后的背景音乐叠播。** 预览在整段预混音与实时混音之间切换时，先停止旧声音；延迟完成的起播请求也会核对当前模式。已保存的真实工程里五组音乐没有相互重叠，新回归则复现了旧预混音未停的路径。修正后双向切换和延迟起播测试通过，独立编辑器完成带音乐播放、播放中横移与保存回读。测试工程实际导出并完整解码，音乐电平未出现重复混入；主观声音听审尚未完成。
+
+**动画突然闪入的问题也一起修复。**前面剪掉了一些内容，官网素材的入场、离场或来源标签却延迟出现在后面的主录屏上；当前位置看不到对应素材块，播放和导出仍可能闪出一张图。原因是动画的编辑尺标与压紧后的播放时间混用，现在会先恢复实际位置，再换算到素材源时间。主录屏和导入视频采用同一映射，预览与导出同时修正。
+
+本次用固定工程快照对照旧、新逻辑，原生预览复现并消除了官网标志闪入；实际短段 MP4 导出也复现并消除了网页闪入。跨主录屏与辅助视频的回归检查、两套类型检查通过。短段验证不等于全片审片或声音听审，也不代表所有操作系统均完成桌面验收。工程格式不变，无需删除动画或重做人工剪辑。
+
+Windows 与 Linux 暂保留实际可下载的1.5.9，本次动画定位修正先提供给 Mac。
+
+这次也修复了**主录屏抬到独立画面轨道后，横向拖动却跳回开头**的问题。分层后的片段按绝对时间移动，其余片段保持位置，单一主轨保留原来的排序方式。独立开发窗口实测10～20秒的片段向后移约3秒，再移回原位；另两段始终保持0～10秒和20～30秒。纵向抬升及保存回读也通过。本轮全量测试4535项通过、2项跳过；正式安装包和公开状态以本次发行记录为准。
+
+## 跳剪更直接，删除后内容一起前移
 
 **1.5.9 把时间线上的“添加剪辑”改成了“添加跳剪”。**选中主录屏片段后，默认覆盖整段，右侧双端范围条可调起止、重置与恢复；删除主录屏后，后续独立标注、动画、辅助视频、音频和标记一起前移。源时间绑定的字幕与效果沿用原来的片段映射，避免重复移动。
 
@@ -48,18 +60,18 @@ legacy_paths: []
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.5.9，DMG 共 265,233,048 字节，约 265 MB |
+| Mac 苹果芯片 | 1.6.1，DMG 共 265,233,474 字节，约 265 MB |
 | Windows 10/11 x64 | 1.5.9，安装程序 263,954,381 字节，未签名 |
 | Linux x86_64 | 1.5.9，AppImage 464,534,772 字节；deb 367,509,352 字节；pacman 335,385,732 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.1/HyphenScreen_1.6.1_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包上传后已重新下载核对，SHA-256 为：
 
 ```text
-dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
+026c7c43a85ceac1876e9663b9e709cd5dc0921224f3e107a98e6a5291d09fcb
 ```
 
 Windows 与 Linux 1.5.9 的 SHA-256：
@@ -75,7 +87,7 @@ Windows 已在本机安装并与打包目录逐文件比对；Ubuntu 22.04 的 d
 
 ## 原有能力与制作经历
 
-下文保留 1.0.1／1.0.2 时期的实机截图和制作记录，用来说明录制、剪辑、打码与成片体检的设计；图中的界面、数量和历史测试数据不代表 1.5.9 的最新布局。当前版本、平台和下载以上表与发行页为准。
+下文保留 1.0.1／1.0.2 时期的实机截图和制作记录，用来说明录制、剪辑、打码与成片体检的设计；图中的界面、数量和历史测试数据不代表当前版本的最新布局。当前版本、平台和下载以上表与发行页为准。
 
 先讲一件让我后背发凉的事。我给自己写的录屏软件做了自动打码——识别画面里的邮箱、密钥这些东西，盖上马赛克。功能做完，**单元测试全绿**：打码框的位置算得准，静止帧上看也严丝合缝。
 
@@ -100,7 +112,7 @@ Windows 已在本机安装并与打包目录逐文件比对；Ubuntu 22.04 的 d
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前三个平台均已提供 1.5.9；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前 Mac 为1.6.1，Windows 与 Linux 为1.5.9；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -247,7 +259,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：三个平台均已提供 1.5.9；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac 为1.6.1，Windows 与 Linux 为1.5.9；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
@@ -257,13 +269,13 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 笨办法有笨办法的好处：它不相信我自己写的任何一个中间步骤，只认最后那个文件。经历过「单测全绿但邮箱露出来」之后，我觉得这个不信任是值得的。这次给这篇文章拍截图，我又被自己的软件教育了一遍：**拍图的时候看出来三个问题**——切分片段会丢掉后面的音乐、滚动页面上的打码框太大、静音被转写成「[BLANK_AUDIO]」这样的英文标记——都是测试没抓到、画面一看就明白的。修好了才出 1.0.1。1.0.2 加赞助码时又来了一次：我写的 14 项实机检查全部通过，截图一看，赞助条卡在导出对话框的底边，只露出半行字，按钮在底边以下，点开的码也落在看不见的地方。检查问的是「它在不在」，用的人要的是「看不看得见」。
 
 > [!summary] 1.0.2 时期的设计总结
-> 黑粉录屏是我自己在用的录屏 + 剪辑软件，1.0.1 起为正式版。这段历史记录讲的是当时的 Mac 版：本机识别敏感信息并让马赛克跟着放大、裁切和滚动走，导出后回读成片本身做体检（响度、黑屏、卡帧、字幕越界，还用文字识别逐帧确认没漏）。当前 1.5.9 的下载、平台差异与验收范围见本文开头。
+> 黑粉录屏是我自己在用的录屏 + 剪辑软件，1.0.1 起为正式版。这段历史记录讲的是当时的 Mac 版：本机识别敏感信息并让马赛克跟着放大、裁切和滚动走，导出后回读成片本身做体检（响度、黑屏、卡帧、字幕越界，还用文字识别逐帧确认没漏）。当前版本的下载、平台差异与验收范围见本文开头。
 
 ---
 
 ## 📚 说明
 
-- 当前 1.5.9 下载：[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest>)
+- 当前版本下载：[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest>)
 - 本文数字来自软件仓库的版本说明与实测回执；截图用专门制作的演示素材现拍，赞助码那张是 1.0.2，其余是 1.0.1。
 - 黑粉科技官网：[访问黑粉科技官网](<https://hyphentech.top>)
 
