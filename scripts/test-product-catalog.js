@@ -104,7 +104,7 @@ async function main() {
   assert.strictEqual(cards[0].version, '1.2.28');
   assert.strictEqual(cards[0].updated, '2026-09-01');
   assert.match(cards[0].updateSummary, /隐藏暂存事务/);
-  assert.match(cards[0].description, /私有 AI 盒子/);
+  assert.match(cards[0].description, /本地 AI 工具箱/);
   assert.match(cards[1].description, /免费大模型 API 雷达/);
   assert.doesNotMatch(cards[1].description, /macOS 安装包/);
   assert.strictEqual(cards[1].version, '1.0.0');
@@ -125,7 +125,7 @@ async function main() {
     token: '',
   });
   assert.strictEqual(fallbackCards[0].updateSummary, '文章摘要兜底。');
-  assert.match(fallbackCards[0].description, /私有 AI 盒子/);
+  assert.match(fallbackCards[0].description, /本地 AI 工具箱/);
   assert.strictEqual(fallbackCards[0].source, 'article');
   assert.strictEqual(fallbackCards[1].source, 'fallback');
   assert.strictEqual(fallbackCards[1].badge, '我做的 · 正式迭代');

@@ -98,7 +98,7 @@ export default function HomeHero({ t, lang, latest, latestCover, products = [], 
             </h1>
             <p className="hero-sub">
               <b>{t('踩过的坑、测过的数据、亲手做的工具，全部交给你。')}</b>
-              {t('参数先别吹，上机跑一回。')}{t('这里的每个结论都出自我自己那台 Mac。')}
+              {t('参数先别吹，上机跑一回。')}{t('实测时写清设备、环境和结果边界。')}
             </p>
             <div className="positioning">
               {CONTENT_PILLARS.map((pillar) => (
