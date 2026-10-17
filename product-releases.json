@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-17T06:42:45.300Z",
-  "contentHash": "999fcd0dabd7216c77efcfac7a44dbb5a9159ee6424d5e18999286dbbb9e81ce",
+  "checkedAt": "2026-10-17T06:51:19.758Z",
+  "contentHash": "56627c8b94db7199fb2ce43b5eb2accf6bd7bf4d4ee980b1d33e0d7630e69e0d",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -19,6 +19,7 @@
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "updateSummary": "接入独立 PolyStrata，支持 Qwen3.6-35B-A3B MTP 配套模型。先完成本平台的 PolyStrata 安装，再在首页「连接 PolyStrata」选择安装根，从语言模型列表启动。推荐 NVIDIA 8GB 显存、32GB 内存；Q3 模型另行下载约 17GB，本轮不把模型打进安装包。Qwen3.8-27B、视觉…",
       "updated": "2026-10-17",
+      "activityAt": "2026-10-17T06:05:51Z",
       "version": "1.9.2",
       "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.2",
       "source": "release",
@@ -72,10 +73,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T06:42:45.300Z",
+      "checkedAt": "2026-10-17T06:51:19.758Z",
       "prerelease": false,
       "releaseNotesHash": "c3d0289e33dc89140d477ceda2e9426e924ecd0de19f98daf1bb2e8cfcb0d987",
-      "revision": "e0283e023d4ecf5309e4bcd9bbe0a6c67da4ea57c13e12edc5e1e6d97b2194d8"
+      "revision": "8dbce6c5d5a71a86fb40021575d9da8444dda728137a8a27e548c8ac17cc0954"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -92,7 +93,8 @@
       "action": "查看产品与下载",
       "description": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
       "updateSummary": "保留私有签名目录、本地密钥保险箱、模型实测和本机兼容路由的现有能力；AMD Radeon Cloud、Ollama 云服务和 Vercel AI Gateway 的官方条件已在。",
-      "updated": "2026-09-29",
+      "updated": "2026-10-02",
+      "activityAt": "2026-10-02T05:50:18Z",
       "version": "1.0.0",
       "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.0",
       "source": "release",
@@ -170,10 +172,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T06:42:45.300Z",
+      "checkedAt": "2026-10-17T06:51:19.758Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
-      "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
+      "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
     },
     {
       "slug": "screenlex-watch-and-learn",
@@ -190,7 +192,8 @@
       "action": "查看产品与下载",
       "description": "把本地电影与剧集字幕变成可复习的英语词库，全程离线。",
       "updateSummary": "侧边栏新增赞助入口，点开是一张二维码，不打扰、不弹窗、不影响任何功能。",
-      "updated": "2026-09-29",
+      "updated": "2026-09-30",
+      "activityAt": "2026-09-30T09:43:42Z",
       "version": "1.0.5",
       "releaseUrl": "https://github.com/HackerChi-Hub/screenlex-download/releases/tag/v1.0.5",
       "source": "release",
@@ -268,10 +271,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T06:42:45.300Z",
+      "checkedAt": "2026-10-17T06:51:19.758Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
-      "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
+      "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
     },
     {
       "slug": "hyphenscreen-local-screen-recorder",
@@ -289,6 +292,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "作者于2026-10-17追加授权推送、安装及Blog同步，现将既有签名测试包准备为正式发行；实际安装和公开回读以发行记录为准。Mac提供1.5.9，Windows／Linux保持各自实际可下载版本。",
       "updated": "2026-10-17",
+      "activityAt": "2026-10-17T06:40:13Z",
       "version": "1.5.9",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.9",
       "source": "release",
@@ -350,10 +354,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T06:42:45.300Z",
+      "checkedAt": "2026-10-17T06:51:19.758Z",
       "prerelease": false,
       "releaseNotesHash": "37dfd6baeb8ce173a63962d271f51b4a5d918649d5fd5c11b06760f8636aaca5",
-      "revision": "1021ff8d52e50dc3a588551cce84c00aacb7215e12833bd6301568cf6b55d199"
+      "revision": "8220e28760a99b391e239e2e300d89f1ea9ac3113df6f4dd491b573aa5d15ca2"
     }
   ]
 }
