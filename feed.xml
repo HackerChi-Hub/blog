@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 17 Oct 2026 06:51:42 GMT</lastBuildDate>
-    <pubDate>Sat, 17 Oct 2026 06:51:42 GMT</pubDate>
+    <lastBuildDate>Sat, 17 Oct 2026 08:27:42 GMT</lastBuildDate>
+    <pubDate>Sat, 17 Oct 2026 08:27:42 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek-V4.1-Flash-1017 发布：官方说更快更省，普通人现在能用吗</title>
+      <link>https://hyphentech.top/2026-10-17-official-621d1cb6bd14/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-17-official-621d1cb6bd14/</guid>
+      <description>DeepSeek-V4.1-Flash-1017 发布：官方说更快更省，普通人现在能用吗</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>Hy-Memory-30B-A3B 是什么：它能把长期记忆写好到什么程度？</title>
       <link>https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f/</link>
@@ -202,16 +212,6 @@
       <link>https://hyphentech.top/understand-ai-04-neural-networks/</link>
       <guid isPermaLink="true">https://hyphentech.top/understand-ai-04-neural-networks/</guid>
       <description>给机器四组数字，不告诉它规律，它却能把两个旋钮拧向答案。再看神经元熔炉里的曲线：损失下降、界面能跑、真的学会，究竟差在哪里？</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
-    </item>
-    <item>
-      <title>同一个strawberry能切成1块或3块？Token、活字印刷和AI的3笔账</title>
-      <link>https://hyphentech.top/understand-ai-05-tokens/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-05-tokens/</guid>
-      <description>草莓还是那颗草莓，前面多一个空格，机器看到的块数却变了。一个来自数据压缩的老办法，怎样走进聊天框，改变你的费用、速度和上下文？</description>
       <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
     <category>AI知识</category>
     <category>AI</category>
