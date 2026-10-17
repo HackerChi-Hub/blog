@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "509f9d31c3041ea0d6660c8818db4c2c27f57e1851f45459dc924518e032d750",
-  "published_post_count": 180,
+  "content_sha256": "d7a9926ab192105a7a6ff8ca2a68c16d4559e9ba8e8401aad6c8018a3de5e1e9",
+  "published_post_count": 182,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -139,7 +139,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-15-official-1dd915a82f3f",
       "lang": "en",
-      "sha256": "cd110821a663a055c61cae891282ec0be8c0a3306fd9b90dd6d1e0a444c8d002"
+      "sha256": "657c368b59bfcf578473c832abbd33a7e692a034300970d5140d435df0e40b9f"
     },
     {
       "file": "posts/2026-10-15-official-1dd915a82f3f.md",
@@ -147,6 +147,15 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "651cfdb8d2bb1156b765937617b4fefd99c0d67a51c98454ff173871551f73a0"
+    },
+    {
+      "file": "posts/2026-10-16-official-6b1fdcbd2e4f-en.md",
+      "slug": "2026-10-16-official-6b1fdcbd2e4f-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-16-official-6b1fdcbd2e4f",
+      "lang": "en",
+      "sha256": "1b29d18c3691428cf692a4a04760cc80985217ecb64877cfde904c315cfad539"
     },
     {
       "file": "posts/2026-10-16-official-6b1fdcbd2e4f.md",
@@ -1196,6 +1205,15 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "1e9d9b9a20545a6a341ca0378af4000c1a7372aac22b39fbc86a486533aaca6d"
+    },
+    {
+      "file": "posts/rea-reverse-engineering-en.md",
+      "slug": "rea-reverse-engineering-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "rea-reverse-engineering",
+      "lang": "en",
+      "sha256": "a65f75b364d9ed36df385d04f1959fb73f700b17a44cd362f94d0ff85379c811"
     },
     {
       "file": "posts/rea-reverse-engineering.md",
