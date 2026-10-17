@@ -6,7 +6,7 @@ lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-17
-summary: HyphenScreen combines recording, multitrack editing and editable AI animation. Mac 1.5.9 adds adjustable whole-clip jump cuts, ripple deletion and compatible shared tracks, with playback recovery and player-resource improvements. Includes downloads, checksum and verification limits.
+summary: HyphenScreen combines recording, multitrack editing and editable AI animation. Version 1.5.9 is available for Mac, Windows and Linux, with jump-cut and ripple-deletion improvements. Includes platform downloads, checksums and verification limits.
 categories:
   - Resources
 tags:
@@ -17,7 +17,7 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## Current release: 1.5.9 for Apple Silicon Mac
+## Current release: 1.5.9 for Mac, Windows and Linux
 
 Version 1.5.9 makes jump cuts explicit: Add Jump Cut starts with the selected main clip’s full range and offers adjustable endpoints, reset and restore. Deleting a main recording shifts later independent visuals, audio and markers; source-anchored captions and effects keep their existing mapping.
 
@@ -38,16 +38,28 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
 - Apple Silicon Mac: **1.5.9**, DMG **265,233,048 bytes**, locally signed and not Apple-notarized.
-- Windows and Linux: **1.5.0** remains available; platform versions are not identical.
+- Windows 10/11 x64: **1.5.9**, installer **263,954,381 bytes**, unsigned.
+- Linux x86_64: **1.5.9** in AppImage (**464,534,772 bytes**), deb (**367,509,352 bytes**) and pacman (**335,385,732 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Download HyphenScreen 1.5.9 for Apple Silicon Mac (DMG)](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [SHA-256 checksum file](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/SHA256SUMS.txt)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
 ```text
 dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 ```
+
+SHA-256 checksums for Windows and Linux 1.5.9:
+
+| Package | SHA-256 |
+| --- | --- |
+| Windows installer | `24cb77f24df4e76c14bf5e53098bae599980619128c2937ec28c8b9ef0b05d57` |
+| Linux AppImage | `923e06008b24bcfefbe706a5ffb314940acae8b0462c5d2bea54afb6e8d0fdf1` |
+| Ubuntu/Debian deb | `f905d8895597824862f51e6bd5a9636449bddf613aaf49fec6738113a0d89282` |
+| Arch pacman | `14eb6269141fd4b46bc031b758ef23b2fc343f9488e20a132d71ac7bd299ae19` |
+
+The Windows installation was compared file by file with the packaged build. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 
 ## Earlier feature tour and development history
 
@@ -62,7 +74,7 @@ Let me start with something that made my stomach drop. I built automatic redacti
 
 Then I exported a video and watched it from start to finish. **During the few seconds the picture zoomed in, the mosaic fell behind, and an e-mail address and a key starting with `sk-` were plainly readable.** It happened once more inside a vertical reframe. The tests checked whether the box coordinates were right; what I actually needed was that nobody could read anything sensitive in the finished video. Those are two different things, with zooms, tilts, crops and encoding in between.
 
-Since that day the app has something most screen recorders do not: **after export, it reads the finished video itself back**, frame by frame with text recognition, to confirm that what should be covered is covered. This post is about what the app has become — 1.0.1 was its first official release, and it is now at 1.0.2.
+Since that day the app has something most screen recorders do not: **after export, it reads the finished video itself back**, frame by frame with text recognition, to confirm that what should be covered is covered. This section was written for version 1.0.2; the current release is listed above.
 
 ![HyphenScreen 1.0.1: the preview is zoomed in on a code block, the key and contact details are redacted automatically, captions below and a watermark in the corner; the timeline gives captions, annotations, zoom, video, voiceover and music each their own track](/obsidian-assets/hyphenscreen-local-screen-recorder/v101-en-editor.jpg)
 
@@ -72,16 +84,16 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 
 | | Facts |
 | --- | --- |
-| Current version | 1.0.2, official release (2026-09-29) |
+| Version at the time | 1.0.2, official release (2026-09-29) |
 | Built with | Electron interface + a native Rust compositor; recognition, transcription and voice isolation all run on your computer |
 | Installer | Mac 265.7 MB (Apple silicon), signed with my own HyphenTech certificate, not Apple-notarized |
-| Other platforms | Windows 10/11 x64 and Linux x64 currently get 1.0.1 (without 1.0.2's sponsor code); unsigned |
+| Other platforms at the time | Windows 10/11 x64 and Linux x64 received 1.0.1 (without 1.0.2's sponsor code); unsigned |
 | Download | Free and public, with SHA-256 checksums; the source is private |
 
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> 1.0.2 is an official release, but it is **still not notarized by Apple or code-signed on Windows**, so your system will stop it once; allow it as the download page describes. Windows and Linux are on 1.0.1, without 1.0.2's sponsor code; a few features are macOS-only, see the limits at the end.
+> This is a version 1.0.2 record. All three platforms now offer 1.5.9. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -228,7 +240,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Windows and Linux are on 1.0.1**: 1.0.2's sponsor code waits for a new build on the Windows machine. Voice isolation, sensitive-text detection for automatic redaction and "click a window to take its bounds" rely on native components built for macOS only.
+- **Platform features differ**: all three platforms offer 1.5.9. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
@@ -237,14 +249,14 @@ If you make tutorials, reviews or software demos, the real cost of screen record
 
 The clumsy way has its merits: it trusts none of the intermediate steps I wrote, only the final file. After "all tests green but the e-mail showed", I think that distrust is worth it. Taking the screenshots for this post, my own app taught me the lesson again: **the screenshots revealed three problems** — splitting a clip dropped the music after the cut, redaction boxes on a scrolling page were far too big, and silence got transcribed as the marker "[BLANK_AUDIO]" — none caught by tests, all obvious the moment you look at the picture. They were fixed before 1.0.1 went out. Adding the sponsor code in 1.0.2 taught me the same lesson again: all 14 of my real-app checks passed, yet the screenshot showed the strip stuck at the bottom edge of the export dialog — half a line visible, the buttons below the edge, the code opening out of sight. The checks asked whether it was there; the person using it needs to see it.
 
-> [!summary] In one sentence
-> HyphenScreen is the screen recorder and editor I use myself — official since 1.0.1, now at 1.0.2: it recognises sensitive text on your own computer and keeps the mosaic on it through zooms, crops and scrolling; after export it checks the finished video itself (loudness, black frames, frozen pictures, overflowing captions, plus a frame-by-frame text read-back); AI works on your timeline with your own Codex subscription or a local model; and you decide where recordings and caches live. It is a free download, but not yet signed or notarized, so your system will stop it once.
+> [!summary] The design as described for 1.0.2
+> HyphenScreen is the screen recorder and editor I use myself. This historical account describes the Mac build at the time: local sensitive-text recognition, redaction through zooms and crops, and a read-back of the exported video. Current 1.5.9 downloads, platform differences and verification limits are listed at the start of this article.
 
 ---
 
 ## 📚 Notes
 
-- Download (Mac 1.0.2; Windows / Linux 1.0.1): [Downloads & updates: HyphenScreen (releases)](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- Current 1.5.9 download: [Downloads & updates: HyphenScreen (releases)](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest>)
 - The numbers come from the project's release notes and measured receipts; the screenshots were taken with purpose-made demo media — the sponsor one on 1.0.2, the rest on 1.0.1.
 - HyphenTech: [Visit HyphenTech](<https://hyphentech.top>)
 

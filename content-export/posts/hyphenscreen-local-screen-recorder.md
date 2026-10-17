@@ -4,7 +4,7 @@ slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-10-17
-summary: 黑粉录屏把录制、多轨剪辑与 AI 动画放进同一条时间线。Mac 1.5.9 新增整段跳剪范围调节，删除主录屏后内容联动前移，支持兼容画面共轨，并改进续播与播放器资源释放；附下载、校验值和真实验证边界。
+summary: 黑粉录屏把录制、多轨剪辑与 AI 动画放进同一条时间线。1.5.9 已提供 Mac、Windows 和 Linux 安装包，包含跳剪与删除联动改进；附各平台下载、校验值和真实验证边界。
 categories:
   - 资源分享
 tags:
@@ -17,7 +17,7 @@ legacy_paths: []
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen 1.5.9 正式版 · Mac 苹果芯片
+> 黑粉录屏 HyphenScreen 1.5.9 正式版 · Mac／Windows／Linux
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-17
 
 ## 本次更新：跳剪更直接，删除后内容一起前移
@@ -49,17 +49,29 @@ legacy_paths: []
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
 | Mac 苹果芯片 | 1.5.9，DMG 共 265,233,048 字节，约 265 MB |
-| Windows / Linux | 暂保留 1.5.0，具体文件见发行页 |
+| Windows 10/11 x64 | 1.5.9，安装程序 263,954,381 字节，未签名 |
+| Linux x86_64 | 1.5.9，AppImage 464,534,772 字节；deb 367,509,352 字节；pacman 335,385,732 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载黑粉录屏 1.5.9：Mac 苹果芯片 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [下载与更新：全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [查看 1.5.9 校验清单](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/SHA256SUMS.txt)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-本次 Mac 安装包上传后已重新下载核对，SHA-256 为：
+Mac 安装包上传后已重新下载核对，SHA-256 为：
 
 ```text
 dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 ```
+
+Windows 与 Linux 1.5.9 的 SHA-256：
+
+| 安装包 | SHA-256 |
+| --- | --- |
+| Windows 安装程序 | `24cb77f24df4e76c14bf5e53098bae599980619128c2937ec28c8b9ef0b05d57` |
+| Linux AppImage | `923e06008b24bcfefbe706a5ffb314940acae8b0462c5d2bea54afb6e8d0fdf1` |
+| Ubuntu／Debian deb | `f905d8895597824862f51e6bd5a9636449bddf613aaf49fec6738113a0d89282` |
+| Arch pacman | `14eb6269141fd4b46bc031b758ef23b2fc343f9488e20a132d71ac7bd299ae19` |
+
+Windows 已在本机安装并与打包目录逐文件比对；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
 
 ## 原有能力与制作经历
 
@@ -69,7 +81,7 @@ dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 
 然后我把成片导出来，从头到尾看了一遍。**画面放大的那几秒，马赛克没跟上，邮箱和一串 sk- 开头的密钥明明白白地露在屏幕上。**竖屏改版的裁切里也露了一次。单测测的是「打码框的坐标对不对」，而我真正要的是「成片里认不出敏感信息」——这两件事不是一回事，中间隔着放大、倾斜、裁剪和编码。
 
-从那天起我给这个软件加了一道别的录屏工具基本没有的东西：**导出之后，回读成片本身做一次体检**，用文字识别一帧一帧看过去，确认该盖住的确实盖住了。这篇讲这个软件现在做成了什么样——1.0.1 是它的第一个正式版，现在是 1.0.2。
+从那天起我给这个软件加了一道别的录屏工具基本没有的东西：**导出之后，回读成片本身做一次体检**，用文字识别一帧一帧看过去，确认该盖住的确实盖住了。这段记录写于 1.0.2 时期；当前发行版本见上方。
 
 ![黑粉录屏 1.0.1 的编辑器：预览正放大到代码块，密钥和联系方式被自动打码，下方是字幕，右上角是水印；时间线上字幕、标注、缩放、视频、配音、音乐各占一轨](/obsidian-assets/hyphenscreen-local-screen-recorder/v101-zh-CN-editor.jpg)
 
@@ -79,16 +91,16 @@ dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 
 | 项目 | 实际情况 |
 | --- | --- |
-| 当前版本 | 1.0.2 正式版（2026-09-29） |
+| 当时版本 | 1.0.2 正式版（2026-09-29） |
 | 技术栈 | Electron 界面 + Rust 原生合成器；识别、转写、人声隔离全部本机运行 |
 | 安装包 | Mac 版 265.7 MB（Apple 芯片），本机黑粉科技证书签名，未做苹果公证 |
-| 其它平台 | Windows 10/11 x64 与 Linux x64 目前提供 1.0.1（没有 1.0.2 的赞助码），未签名 |
+| 当时其它平台 | Windows 10/11 x64 与 Linux x64 提供 1.0.1（没有 1.0.2 的赞助码），未签名 |
 | 下载 | 公开免费下载，附 SHA-256 清单；源码私有 |
 
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 1.0.2 是正式版，但**还是没有做苹果公证和 Windows 代码签名**，装的时候系统一定会拦一道，按下载页的步骤放行即可。Windows 和 Linux 目前是 1.0.1，少了 1.0.2 的赞助码；另有几项只做了 macOS 版，见文末的限制。
+> 这是 1.0.2 时期的版本记录。当前三个平台均已提供 1.5.9；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -235,7 +247,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **Windows / Linux 是 1.0.1**：1.0.2 的赞助码要等 Windows 机器出新包；另外人声隔离、自动打码里的敏感信息识别、框选时「单击窗口取范围」依赖只做了 macOS 版的本机组件。
+- **平台能力不同**：三个平台均已提供 1.5.9；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
@@ -244,14 +256,14 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 
 笨办法有笨办法的好处：它不相信我自己写的任何一个中间步骤，只认最后那个文件。经历过「单测全绿但邮箱露出来」之后，我觉得这个不信任是值得的。这次给这篇文章拍截图，我又被自己的软件教育了一遍：**拍图的时候看出来三个问题**——切分片段会丢掉后面的音乐、滚动页面上的打码框太大、静音被转写成「[BLANK_AUDIO]」这样的英文标记——都是测试没抓到、画面一看就明白的。修好了才出 1.0.1。1.0.2 加赞助码时又来了一次：我写的 14 项实机检查全部通过，截图一看，赞助条卡在导出对话框的底边，只露出半行字，按钮在底边以下，点开的码也落在看不见的地方。检查问的是「它在不在」，用的人要的是「看不看得见」。
 
-> [!summary] 一句话收尾
-> 黑粉录屏是我自己在用的录屏 + 剪辑软件，1.0.1 起为正式版，现在是 1.0.2：本机识别敏感信息并让马赛克跟着放大、裁切和滚动走，导出后回读成片本身做体检（响度、黑屏、卡帧、字幕越界，还用文字识别逐帧确认没漏），AI 用你自己的 Codex 订阅或本地模型在你的时间线上动手，录制和缓存放在哪自己定。免费下载，但还没签名、没公证，装的时候系统会拦一道。
+> [!summary] 1.0.2 时期的设计总结
+> 黑粉录屏是我自己在用的录屏 + 剪辑软件，1.0.1 起为正式版。这段历史记录讲的是当时的 Mac 版：本机识别敏感信息并让马赛克跟着放大、裁切和滚动走，导出后回读成片本身做体检（响度、黑屏、卡帧、字幕越界，还用文字识别逐帧确认没漏）。当前 1.5.9 的下载、平台差异与验收范围见本文开头。
 
 ---
 
 ## 📚 说明
 
-- 下载（Mac 1.0.2；Windows / Linux 1.0.1）：[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- 当前 1.5.9 下载：[下载与更新：黑粉录屏 HyphenScreen（发行页）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest>)
 - 本文数字来自软件仓库的版本说明与实测回执；截图用专门制作的演示素材现拍，赞助码那张是 1.0.2，其余是 1.0.1。
 - 黑粉科技官网：[访问黑粉科技官网](<https://hyphentech.top>)
 

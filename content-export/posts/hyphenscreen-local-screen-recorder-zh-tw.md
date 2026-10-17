@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-17
-summary: 黑粉錄屏整合錄製、多軌剪輯與可編輯 AI 動畫。Mac 1.5.9 新增整段跳剪範圍調節、刪除主錄屏後內容連動前移及相容畫面共軌，並改善續播與播放器資源釋放；附下載、校驗值與驗證邊界。
+summary: 黑粉錄屏整合錄製、多軌剪輯與可編輯 AI 動畫。1.5.9 已提供 Mac、Windows 與 Linux 安裝包，包含跳剪及刪除連動改進；附各平台下載、校驗值與驗證邊界。
 categories:
   - 資源分享
 tags:
@@ -17,7 +17,7 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## 最新版本：Mac 蘋果晶片 1.5.9
+## 最新版本：Mac、Windows 與 Linux 1.5.9
 
 1.5.9 將「新增剪輯」改為「新增跳剪」，預設涵蓋選中的整段主錄屏，可調起止、重設及恢復。刪除主錄屏後，後續獨立標註、動畫、輔助影片、音訊與標記一起前移；來源時間綁定的字幕與效果沿用既有映射，避免重複位移。
 
@@ -38,16 +38,28 @@ legacy_paths: []
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
 - Mac 蘋果晶片目前為 **1.5.9**，DMG **265,233,048 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows／Linux 暫保留 **1.5.0**，不代表已包含 Mac 新版全部更新。
+- Windows 10/11 x64 目前為 **1.5.9**，安裝程式 **263,954,381 位元組**，未簽署。
+- Linux x86_64 目前為 **1.5.9**：AppImage **464,534,772 位元組**、deb **367,509,352 位元組**、pacman **335,385,732 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[下載黑粉錄屏 1.5.9：Mac 蘋果晶片 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [SHA-256 校驗清單](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/SHA256SUMS.txt)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-安裝包上傳後已重新下載比對，SHA-256 為：
+Mac 安裝包上傳後已重新下載比對，SHA-256 為：
 
 ```text
 dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 ```
+
+Windows 與 Linux 1.5.9 的 SHA-256：
+
+| 安裝包 | SHA-256 |
+| --- | --- |
+| Windows 安裝程式 | `24cb77f24df4e76c14bf5e53098bae599980619128c2937ec28c8b9ef0b05d57` |
+| Linux AppImage | `923e06008b24bcfefbe706a5ffb314940acae8b0462c5d2bea54afb6e8d0fdf1` |
+| Ubuntu／Debian deb | `f905d8895597824862f51e6bd5a9636449bddf613aaf49fec6738113a0d89282` |
+| Arch pacman | `14eb6269141fd4b46bc031b758ef23b2fc343f9488e20a132d71ac7bd299ae19` |
+
+Windows 已在本機安裝並與打包目錄逐檔比對；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
 
 ## 原有功能與製作歷程
 
@@ -62,7 +74,7 @@ dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 
 然後我把成片匯出來，從頭到尾看了一遍。**畫面放大的那幾秒，馬賽克沒跟上，電子郵件和一串 sk- 開頭的金鑰清清楚楚地露在螢幕上。**直式改版的裁切裡也露了一次。單元測試測的是「打碼框的座標對不對」，而我真正要的是「成片裡認不出敏感資訊」——這兩件事不是一回事，中間隔著放大、傾斜、裁切和編碼。
 
-從那天起，我替這個軟體加了一道別的錄屏工具幾乎沒有的東西：**匯出之後，回讀成片本身做一次體檢**，用文字辨識一格一格看過去，確認該蓋住的確實蓋住了。這篇講這個軟體現在做成了什麼樣子——1.0.1 是它的第一個正式版，現在是 1.0.2。
+從那天起，我替這個軟體加了一道別的錄屏工具幾乎沒有的東西：**匯出之後，回讀成片本身做一次體檢**，用文字辨識一格一格看過去，確認該蓋住的確實蓋住了。這段記錄寫於 1.0.2 時期；目前版本見上方。
 
 ![黑粉錄屏 1.0.1 的編輯器：預覽正放大到程式碼區塊，金鑰和聯絡方式被自動打碼，下方是字幕，右上角是浮水印；時間軸上字幕、標註、縮放、影片、配音、音樂各佔一軌](/obsidian-assets/hyphenscreen-local-screen-recorder/v101-zh-TW-editor.jpg)
 
@@ -72,16 +84,16 @@ dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 
 | 項目 | 實際情況 |
 | --- | --- |
-| 目前版本 | 1.0.2 正式版（2026-09-29） |
+| 當時版本 | 1.0.2 正式版（2026-09-29） |
 | 技術架構 | Electron 介面 + Rust 原生合成器；辨識、轉寫、人聲隔離全部在本機執行 |
 | 安裝程式 | Mac 版 265.7 MB（Apple 晶片），以我自己的黑粉科技憑證簽署，未經 Apple 公證 |
-| 其他平台 | Windows 10/11 x64 與 Linux x64 目前提供 1.0.1（沒有 1.0.2 的贊助碼），未簽署 |
+| 當時其他平台 | Windows 10/11 x64 與 Linux x64 提供 1.0.1（沒有 1.0.2 的贊助碼），未簽署 |
 | 下載 | 公開免費下載，附 SHA-256 清單；原始碼不公開 |
 
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 1.0.2 是正式版，但**還是沒有做 Apple 公證和 Windows 程式碼簽署**，安裝時系統一定會攔一次，依下載頁的步驟放行即可。Windows 和 Linux 目前是 1.0.1，少了 1.0.2 的贊助碼；另有幾項只做了 macOS 版，見文末的限制。
+> 這是 1.0.2 時期的版本記錄。目前三個平台均已提供 1.5.9；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -228,7 +240,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **Windows / Linux 是 1.0.1**：1.0.2 的贊助碼要等 Windows 機器出新版；另外人聲隔離、自動打碼裡的敏感資訊辨識、框選時「點視窗取範圍」依賴只做了 macOS 版的本機元件。
+- **平台能力不同**：三個平台均已提供 1.5.9；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷
@@ -237,14 +249,14 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 
 笨方法有笨方法的好處：它不相信我自己寫的任何一個中間步驟，只認最後那個檔案。經歷過「單元測試全部通過但電子郵件露出來」之後，我覺得這個不信任是值得的。這次替這篇文章拍截圖，我又被自己的軟體上了一課：**拍圖時看出三個問題**——切分片段會丟掉後面的音樂、捲動頁面上的打碼框太大、靜音被轉寫成「[BLANK_AUDIO]」這樣的英文標記——都是測試沒抓到、畫面一看就明白的。修好了才出 1.0.1。1.0.2 加贊助碼時又來了一次：我寫的 14 項實機檢查全部通過，截圖一看，贊助條卡在匯出對話框的底邊，只露出半行字，按鈕在底邊以下，點開的碼也落在看不見的地方。檢查問的是「它在不在」，用的人要的是「看不看得見」。
 
-> [!summary] 一句話收尾
-> 黑粉錄屏是我自己在用的錄屏 + 剪輯軟體，1.0.1 起為正式版，現在是 1.0.2：本機辨識敏感資訊並讓馬賽克跟著放大、裁切和捲動走，匯出後回讀成片本身做體檢（響度、黑畫面、卡格、字幕越界，還用文字辨識逐格確認沒有外洩），AI 用你自己的 Codex 訂閱或本機模型在你的時間軸上動手，錄製和快取放在哪自己決定。免費下載，但還沒簽署、沒公證，安裝時系統會攔一次。
+> [!summary] 1.0.2 時期的設計總結
+> 黑粉錄屏是我自己在用的錄屏 + 剪輯軟體。這段歷史記錄講的是當時的 Mac 版：本機辨識敏感資訊、讓馬賽克跟著放大與裁切移動，並在匯出後回讀成片。當前 1.5.9 的下載、平台差異與驗收範圍見本文開頭。
 
 ---
 
 ## 📚 說明
 
-- 下載（Mac 1.0.2；Windows / Linux 1.0.1）：[下載與更新：黑粉录屏 HyphenScreen（發行頁）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases>)
+- 目前 1.5.9 下載：[下載與更新：黑粉录屏 HyphenScreen（發行頁）](<https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest>)
 - 本文數字來自軟體專案的版本說明與實測紀錄；截圖用專門製作的示範素材現拍，贊助碼那張是 1.0.2，其餘是 1.0.1。
 - 黑粉科技官網：[造訪黑粉科技官網](<https://hyphentech.top>)
 
