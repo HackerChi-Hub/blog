@@ -1,12 +1,12 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.5.8 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.5.9 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-16
-summary: 黑粉錄屏整合錄製、剪輯與可編輯 AI 動畫。Mac 1.5.8 修復只有動畫、旁白與音樂的工程預覽，以及外部逐場景寫入相容性；保留可調等待與分步回饋，附實際驗收範圍、下載與校驗值。
+updated: 2026-10-17
+summary: 黑粉錄屏整合錄製、多軌剪輯與可編輯 AI 動畫。Mac 1.5.9 新增整段跳剪範圍調節、刪除主錄屏後內容連動前移及相容畫面共軌，並改善續播與播放器資源釋放；附下載、校驗值與驗證邊界。
 categories:
   - 資源分享
 tags:
@@ -17,7 +17,11 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## 最新版本：Mac 蘋果晶片 1.5.8
+## 最新版本：Mac 蘋果晶片 1.5.9
+
+1.5.9 將「新增剪輯」改為「新增跳剪」，預設涵蓋選中的整段主錄屏，可調起止、重設及恢復。刪除主錄屏後，後續獨立標註、動畫、輔助影片、音訊與標記一起前移；來源時間綁定的字幕與效果沿用既有映射，避免重複位移。
+
+片尾跳剪後重播、素材變動時的來源身分及移除播放器的資源釋放已有修正。針對性測試及開發桌面操作通過，但長期會話的「建立媒體播放器失敗」尚未穩定重現，不宣稱完全解決。外部介面亦支援同類且時間不重疊的畫面共軌：本期獨立工程由51條動畫軌整理為3條，保留51段動畫與29組重疊物件順序；這是個別工程結果，原始人工定稿未被覆蓋。
 
 1.5.8 修復只有原生動畫、旁白和背景音樂，卻沒有主影片時的預覽錯誤。先前初始化可能把第一份音訊送進影片解碼器，導致顯示無法預覽；現在依實際畫面時間軸選取動畫畫布或真正使用的影片，避免殘留素材搶佔預覽。
 
@@ -33,21 +37,21 @@ legacy_paths: []
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.5.8**，DMG **265,231,510 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Mac 蘋果晶片目前為 **1.5.9**，DMG **265,233,048 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
 - Windows／Linux 暫保留 **1.5.0**，不代表已包含 Mac 新版全部更新。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[下載黑粉錄屏 1.5.8：Mac 蘋果晶片 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.8/HyphenScreen_1.5.8_arm64.dmg) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [SHA-256 校驗清單](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.8/SHA256SUMS.txt)
+[下載黑粉錄屏 1.5.9：Mac 蘋果晶片 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_arm64.dmg) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest) · [SHA-256 校驗清單](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/SHA256SUMS.txt)
 
 安裝包上傳後已重新下載比對，SHA-256 為：
 
 ```text
-5d1d287f65b41d84bd6a163b0c768856dc3f7e74e345f3167a05a6714fa65187
+dd04d587d9012390825eb54e63edc736107226981f94780f6f7d032782cccaa2
 ```
 
 ## 原有功能與製作歷程
 
-以下保留 1.0.1／1.0.2 時期的實機畫面和製作記錄，畫面佈局、數量與歷史測試結果不代表最新 1.5.8 介面。當前版本、平台與下載以上方更新為準。
+以下保留 1.0.1／1.0.2 時期的實機畫面和製作記錄，畫面佈局、數量與歷史測試結果不代表最新 1.5.9 介面。當前版本、平台與下載以上方更新為準。
 
 > [!abstract]
 > 錄屏容易，錄完之後才是功夫
