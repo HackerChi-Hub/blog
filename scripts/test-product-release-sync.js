@@ -12,6 +12,7 @@ const { validateProductSnapshot } = require('../lib/product-release-data.cjs');
 const { syncProducts, parseArgs, writeSnapshotAtomic } = require('./refresh-product-releases.js');
 const { publishProductUpdates } = require('./publish-product-updates.js');
 const { auditProductVersions } = require('./verify-product-versions.js');
+const { checkLiveProductUpdates } = require('./check-live-product-updates.js');
 
 function release(repo, version, extensions = ['dmg', 'exe', 'deb']) {
   return {
@@ -65,6 +66,15 @@ async function main() {
     assert.equal(fs.readFileSync(filePath, 'utf8'), bytes);
     assert.equal(fs.statSync(filePath).mtimeMs, mtime);
     assert.equal(fingerprint({ b: 2, a: 1 }), fingerprint({ a: 1, b: 2 }), '键顺序不影响指纹');
+    const liveFetch = async () => ({ ok: true, json: async () => first.snapshot });
+    const liveSame = await checkLiveProductUpdates({ fetchImpl: liveFetch, currentProducts: async () => first.snapshot.products });
+    assert.equal(liveSame.changed, false, '同一发行内容不能触发重复部署');
+    const onePlatformChanged = structuredClone(first.snapshot.products);
+    onePlatformChanged[0].platforms.find((item) => item.platform === 'Windows').version = '1.8.1';
+    const livePlatform = await checkLiveProductUpdates({ fetchImpl: liveFetch, currentProducts: async () => onePlatformChanged });
+    assert.equal(livePlatform.changed, true, '只有 Windows 版本变化也要触发部署');
+    assert.deepEqual(livePlatform.changes[0].fields, ['各平台版本或安装包']);
+    await assert.rejects(() => checkLiveProductUpdates({ fetchImpl: async () => ({ ok: false, status: 503 }) }), /HTTP 503/);
 
     // 同一版本的后半段发行说明修改：摘要不变也必须识别。
     const repo = PRODUCT_DEFINITIONS[0].releaseRepo;
@@ -164,9 +174,11 @@ async function main() {
     await assert.rejects(() => publishProductUpdates({ gh: () => 'disabled_manually', log: () => {} }), /未启用/);
 
     const workflow = YAML.parse(fs.readFileSync(path.resolve(__dirname, '../.github/workflows/deploy.yml'), 'utf8'));
-    assert.equal(workflow.on.schedule[0].cron, '17 */3 * * *');
+    assert.equal(workflow.on.schedule[0].cron, '17 * * * *');
     assert.equal(workflow.concurrency['cancel-in-progress'], false);
     assert.ok(workflow.on.workflow_dispatch.inputs.product_update_id);
+    assert.equal(workflow.jobs['build-and-deploy'].needs, 'check-product-updates');
+    assert.match(workflow.jobs['build-and-deploy'].if, /should_deploy/);
     const verify = workflow.jobs['build-and-deploy'].steps.find((step) => step.name === 'Verify live pages and assets');
     assert.equal(verify.if, undefined, '定时任务不能跳过线上核验');
     assert.match(verify.run, /verify-product-versions/);

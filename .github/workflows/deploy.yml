@@ -6,7 +6,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '17 */3 * * *'
+    # 每小时核对公开 Release；仅发行内容变化时才构建和发布。
+    - cron: '17 * * * *'
   workflow_dispatch:
     inputs:
       product_update_id:
@@ -24,7 +25,31 @@ permissions:
   actions: read
 
 jobs:
+  check-product-updates:
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.decision.outputs.should_deploy }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Check public releases against the live site
+        id: decision
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            node scripts/check-live-product-updates.js
+          else
+            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
   build-and-deploy:
+    needs: check-product-updates
+    if: needs.check-product-updates.outputs.should_deploy == 'true'
     runs-on: ubuntu-latest
 
     steps:
