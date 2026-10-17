@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-17T05:20:50.092Z",
-  "contentHash": "e8a7801ec657c7d9c569f2811540cabc0da8338c972ef39d973b552990913394",
+  "checkedAt": "2026-10-17T06:42:45.300Z",
+  "contentHash": "999fcd0dabd7216c77efcfac7a44dbb5a9159ee6424d5e18999286dbbb9e81ce",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,10 +17,10 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "本轮公开 Apple Silicon Mac 安装包，包含1.8.9至1.9.1期间完成的技能、记忆和上下文整理功能。2026-10-17 补齐同源 Windows x64 与 Linux x64 Debian 安装包，启用原生工具引擎。",
-      "updated": "2026-10-16",
-      "version": "1.9.1",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.1",
+      "updateSummary": "接入独立 PolyStrata，支持 Qwen3.6-35B-A3B MTP 配套模型。先完成本平台的 PolyStrata 安装，再在首页「连接 PolyStrata」选择安装根，从语言模型列表启动。推荐 NVIDIA 8GB 显存、32GB 内存；Q3 模型另行下载约 17GB，本轮不把模型打进安装包。Qwen3.8-27B、视觉…",
+      "updated": "2026-10-17",
+      "version": "1.9.2",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.2",
       "source": "release",
       "platforms": [
         {
@@ -41,41 +41,41 @@
         },
         {
           "platform": "Windows",
-          "version": "1.9.1",
+          "version": "1.9.2",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.1",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.2",
           "assets": [
             {
-              "name": "LocalBrain_1.9.1_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.1/LocalBrain_1.9.1_x64-setup.exe",
-              "id": 649553376,
-              "size": 39211065,
-              "updatedAt": "2026-10-17T04:40:08Z",
-              "digest": "sha256:a14a76342dc6a04b2c4a3edc1e92ca85dd52963789184c5933cdfad4f22cba24"
+              "name": "LocalBrain_1.9.2_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.2/LocalBrain_1.9.2_x64-setup.exe",
+              "id": 649710377,
+              "size": 39218713,
+              "updatedAt": "2026-10-17T06:05:40Z",
+              "digest": "sha256:9d8732be966714908e1150a3023508bcd408d7300a7d802ef77d586766b8a137"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.9.1",
+          "version": "1.9.2",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.1",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.2",
           "assets": [
             {
-              "name": "LocalBrain_1.9.1_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.1/LocalBrain_1.9.1_amd64.deb",
-              "id": 649539472,
-              "size": 79296394,
-              "updatedAt": "2026-10-17T04:32:58Z",
-              "digest": "sha256:234a9005d0c1a18ebb0516924340bfaf618addba8cafc99179ac601cd5d566ac"
+              "name": "LocalBrain_1.9.2_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.2/LocalBrain_1.9.2_amd64.deb",
+              "id": 649710362,
+              "size": 79285034,
+              "updatedAt": "2026-10-17T06:05:50Z",
+              "digest": "sha256:d3829507c24b2a9c3396da63365f7f3cf0895a638fbc1ba93c48ce5b9e56d4af"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-17T05:20:50.092Z",
+      "checkedAt": "2026-10-17T06:42:45.300Z",
       "prerelease": false,
-      "releaseNotesHash": "c1ac4920cb8ef4a8b7906d07a7472e748ee5851c617d507174c10c1774e701a2",
-      "revision": "43936612326067522aa2044a3d074f297d00966422bc0e0a181eff03977d7ed8"
+      "releaseNotesHash": "c3d0289e33dc89140d477ceda2e9426e924ecd0de19f98daf1bb2e8cfcb0d987",
+      "revision": "e0283e023d4ecf5309e4bcd9bbe0a6c67da4ea57c13e12edc5e1e6d97b2194d8"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -170,7 +170,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T05:20:50.092Z",
+      "checkedAt": "2026-10-17T06:42:45.300Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "6046cc3f8cee8ede34b5800a3b58e1d0ef9be79fb03a1e3940ac8ddefb5ed525"
@@ -268,7 +268,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-17T05:20:50.092Z",
+      "checkedAt": "2026-10-17T06:42:45.300Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "6cb11b415f4024732f7cc800176406475aa5633e7422803ae38d0fac01ee4357"
@@ -311,49 +311,49 @@
         },
         {
           "platform": "Windows",
-          "version": "1.5.0",
+          "version": "1.5.9",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.0",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.9",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.0_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.0/HyphenScreen_1.5.0_x64-setup.exe",
-              "id": 621994648,
-              "size": 263928904,
-              "updatedAt": "2026-10-08T14:03:36Z",
-              "digest": "sha256:d2c18f25c686e1e315832e851ca5dfca08a5712f00d29233390e4a967147ea07"
+              "name": "HyphenScreen_1.5.9_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe",
+              "id": 649772728,
+              "size": 263954381,
+              "updatedAt": "2026-10-17T06:39:07Z",
+              "digest": "sha256:24cb77f24df4e76c14bf5e53098bae599980619128c2937ec28c8b9ef0b05d57"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.5.0",
+          "version": "1.5.9",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.0",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.5.9",
           "assets": [
             {
-              "name": "HyphenScreen_1.5.0_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.0/HyphenScreen_1.5.0_amd64.deb",
-              "id": 621994647,
-              "size": 367534792,
-              "updatedAt": "2026-10-08T14:04:17Z",
-              "digest": "sha256:d5f0660e64eee598927db1a2c7ec8db15d339725cd27d366a9e85adfac79d153"
+              "name": "HyphenScreen_1.5.9_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb",
+              "id": 649772730,
+              "size": 367509352,
+              "updatedAt": "2026-10-17T06:39:52Z",
+              "digest": "sha256:f905d8895597824862f51e6bd5a9636449bddf613aaf49fec6738113a0d89282"
             },
             {
-              "name": "HyphenScreen_1.5.0_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.0/HyphenScreen_1.5.0_x86_64.AppImage",
-              "id": 621994646,
-              "size": 464534969,
-              "updatedAt": "2026-10-08T14:04:37Z",
-              "digest": "sha256:47d0eb091c25ad9d0852e387a89cd089154f11c1886dc0f1dfec45b6e6ea8254"
+              "name": "HyphenScreen_1.5.9_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage",
+              "id": 649772729,
+              "size": 464534772,
+              "updatedAt": "2026-10-17T06:40:07Z",
+              "digest": "sha256:923e06008b24bcfefbe706a5ffb314940acae8b0462c5d2bea54afb6e8d0fdf1"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-17T05:20:50.092Z",
+      "checkedAt": "2026-10-17T06:42:45.300Z",
       "prerelease": false,
-      "releaseNotesHash": "a62d881186bd93e9de819ea63ec2a0aa981e6d5c87cb088b88d0bad9049ab429",
-      "revision": "f8bbbced4841ed990d0d3d92265b97f23452d8dba502be8f9bfc6a8cfbfbae1e"
+      "releaseNotesHash": "37dfd6baeb8ce173a63962d271f51b4a5d918649d5fd5c11b06760f8636aaca5",
+      "revision": "1021ff8d52e50dc3a588551cce84c00aacb7215e12833bd6301568cf6b55d199"
     }
   ]
 }
