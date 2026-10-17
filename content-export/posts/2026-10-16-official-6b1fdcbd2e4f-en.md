@@ -4,12 +4,6 @@ slug: 2026-10-16-official-6b1fdcbd2e4f-en
 status: published
 lang: en
 translation_of: 2026-10-16-official-6b1fdcbd2e4f
-article_type: "model"
-cover_status: "generated_user_authorized"
-model_name: "Hy-Memory-30B-A3B"
-model_category: "AI大模型"
-model_stage: "官方发布"
-model_url: "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
 translation_source: machine
 source_sha256: e69d8f7d529300fc
 date: 2026-10-16
@@ -23,6 +17,12 @@ tags:
 cover: "/obsidian-assets/2026-10-16-official-6b1fdcbd2e4f/wordmark-wide-09c3da7710b8.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "model"
+cover_status: "generated_user_authorized"
+model_name: "Hy-Memory-30B-A3B"
+model_category: "AI大模型"
+model_stage: "官方发布"
+model_url: "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
 ---
 
 > [!info] Machine translation

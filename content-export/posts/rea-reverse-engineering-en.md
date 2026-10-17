@@ -4,7 +4,6 @@ slug: rea-reverse-engineering-en
 status: published
 lang: en
 translation_of: rea-reverse-engineering
-article_type: "article"
 translation_source: machine
 source_sha256: d93b13db70a2345f
 date: 2026-10-16
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/rea-reverse-engineering/cover-4aa67d53e1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

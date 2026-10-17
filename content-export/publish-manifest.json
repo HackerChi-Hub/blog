@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "9554ecc161ad830b5b55fadbe6e5b2fbb500f37b126f6715d36dc0118bade402",
+  "content_sha256": "d24f5afdc39bf03fcc4777ae0483bf90f70a7855fc34ba9b0a3e6b31a27e0a58",
   "published_post_count": 182,
   "posts": [
     {
@@ -155,7 +155,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-16-official-6b1fdcbd2e4f",
       "lang": "en",
-      "sha256": "1b29d18c3691428cf692a4a04760cc80985217ecb64877cfde904c315cfad539"
+      "sha256": "f2ace7e5bc94e858e0f4a7473d3f3206c1b777d7ada67fdf74bb21803a34a986"
     },
     {
       "file": "posts/2026-10-16-official-6b1fdcbd2e4f.md",
@@ -1213,7 +1213,7 @@
       "legacy_paths": [],
       "translation_of": "rea-reverse-engineering",
       "lang": "en",
-      "sha256": "a65f75b364d9ed36df385d04f1959fb73f700b17a44cd362f94d0ff85379c811"
+      "sha256": "aefd6dc9e4af203e6461a2d0fe7366218227dc18b355077364ffd86061cc5fac"
     },
     {
       "file": "posts/rea-reverse-engineering.md",
