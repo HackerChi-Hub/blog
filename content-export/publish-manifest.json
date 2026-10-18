@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2d623d4f40a5bd14639571856309430f6c1adfa064c92cceefd69914ae5e4504",
-  "published_post_count": 183,
+  "content_sha256": "525c398133be7b4af969230a371603f357fc4e2012b2dfb50d80cbdde7d2fe35",
+  "published_post_count": 188,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -163,6 +163,15 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "94849c00b95bccf29fbf96d368e8547f793b3bd31929f48efbefab50552af25c"
+    },
+    {
+      "file": "posts/2026-10-17-official-621d1cb6bd14-en.md",
+      "slug": "2026-10-17-official-621d1cb6bd14-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-17-official-621d1cb6bd14",
+      "lang": "en",
+      "sha256": "3b38f52a7e78e7bc4cff987dfb54fe102e99472cd4f99699e1a5ea993936572d"
     },
     {
       "file": "posts/2026-10-17-official-621d1cb6bd14.md",
@@ -604,6 +613,23 @@
       "sha256": "26f695ed230457ec86b6f965f5e415830fe9e12e6acee5c72ff5407c930a2f79"
     },
     {
+      "file": "posts/gemini-argon-google-flow-experience-en.md",
+      "slug": "gemini-argon-google-flow-experience-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "gemini-argon-google-flow-experience",
+      "lang": "en",
+      "sha256": "ef60be6c41bf94d7bb3e99eee80abf6fe81a1353c0c123069a06a242cfec437c"
+    },
+    {
+      "file": "posts/gemini-argon-google-flow-experience.md",
+      "slug": "gemini-argon-google-flow-experience",
+      "article_type": "article",
+      "legacy_paths": [],
+      "lang": "zh-CN",
+      "sha256": "05866221791ba2f84664a148192f2bf594d424179ddf1707b886375d307e2fd3"
+    },
+    {
       "file": "posts/google-io-2026-gemini-agentic-era-en.md",
       "slug": "google-io-2026-gemini-agentic-era-en",
       "article_type": "article",
@@ -835,6 +861,23 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "e4bfcb9467f5b3a79965c93a1232eac88d55aedee50297af6a8311dab24c48f3"
+    },
+    {
+      "file": "posts/localbrain-dance-paper-delivery-en.md",
+      "slug": "localbrain-dance-paper-delivery-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "localbrain-dance-paper-delivery",
+      "lang": "en",
+      "sha256": "1e97357b3616e63325d7d1acec398dbf3c7d4486a4fd16aa7b08ed7340976fe5"
+    },
+    {
+      "file": "posts/localbrain-dance-paper-delivery.md",
+      "slug": "localbrain-dance-paper-delivery",
+      "article_type": "article",
+      "legacy_paths": [],
+      "lang": "zh-CN",
+      "sha256": "7eca26d3c0e6cdd52da2c54e452c8b013882fa646c52ccbc1a85e7135d7e944f"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks-en.md",
