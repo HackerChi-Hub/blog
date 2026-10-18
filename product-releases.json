@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-18T22:57:16.918Z",
-  "contentHash": "8940714bbeab11bc966e2d423d475f04ae939eee698eed3052b935b6e3662d9a",
+  "checkedAt": "2026-10-18T23:21:04.912Z",
+  "contentHash": "36ab99786b6422fa84762186c957bdc9ad52a06e4de7cbe5b9043431e0fde61e",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -73,7 +73,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T22:57:16.918Z",
+      "checkedAt": "2026-10-18T23:21:04.912Z",
       "prerelease": false,
       "releaseNotesHash": "6e7b916466a929a105b9ff2cc569605dfd6cc9f2532baa7fb2bdc6cda7fd3bca",
       "revision": "c291e66766e83f9c99862ff403f3b37b9ba4407b3e18a6c99875ba7b772b9e0e"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T22:57:16.918Z",
+      "checkedAt": "2026-10-18T23:21:04.912Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T22:57:16.918Z",
+      "checkedAt": "2026-10-18T23:21:04.912Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -292,7 +292,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "动画与效果库从上一轮316个发现入口整理为230个，九类用途；常用是快捷筛选，不重复计数。底层1002条记录保留，同类样式在动画面板集中选择，不修改旧工程标识；动态标题22种、章节标题13种、人物介绍10种、引用卡片6种、底部信息条18种、环形进度4种、终端演示6种。数值图表与装饰图标区分，智能原理与流程架构保持独立分类。",
       "updated": "2026-10-18",
-      "activityAt": "2026-10-18T22:44:43Z",
+      "activityAt": "2026-10-18T23:06:21Z",
       "version": "1.6.3",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.3",
       "source": "release",
@@ -354,10 +354,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T22:57:16.918Z",
+      "checkedAt": "2026-10-18T23:21:04.912Z",
       "prerelease": false,
-      "releaseNotesHash": "bb0d7039784373b3575dc2dbb7515a7899a84786983455306b46480aba72de22",
-      "revision": "dfe0c735ad4674f5c29dec351d28e7b694de4c02aeb1c2c58dc49e7c5b176165"
+      "releaseNotesHash": "5fa7323723b9abb200891e9b6799902ca8388462b327a43f8489e143c2476ab1",
+      "revision": "42f3be20f3f2b8b6216a1049ae94433c1ef15d6b5604aa7a65e6bc7eab86d3f8"
     }
   ]
 }
