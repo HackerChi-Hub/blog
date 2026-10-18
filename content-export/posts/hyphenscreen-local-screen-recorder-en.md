@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-18
-summary: HyphenScreen combines recording, multitrack editing and native animation. Mac 1.6.3 consolidates the library into 230 purpose-based entries, adds Chinese examples and fixes model-side material discovery. Windows and Linux remain at 1.5.9.
+updated: 2026-10-19
+summary: HyphenScreen combines recording, multitrack editing and native animation. Version 1.6.3 is now available on Mac, Windows and Linux. It consolidates the library into 230 purpose-based entries, adds Chinese examples and fixes model-side material discovery.
 categories:
   - Resources
 tags:
@@ -31,7 +31,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. This release ships on Apple Silicon Mac first; Windows and Linux remain at their actual downloadable version 1.5.9. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Version 1.6.3 is now available on Apple Silicon Mac, Windows and Linux. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -39,7 +39,7 @@ The signed 1.6.3 installer passed disk-image and resource checks; all 427 files 
 
 Mac 1.6.1 stops stale programme audio before preview returns to live mixing after timeline edits, and delayed playback requests recheck the current mode. Five music groups in the saved real project do not overlap; a regression reproduced the stale-audio path. Two-way handoff, delayed startup, isolated desktop playback, clip movement and saved-project readback passed. A real native export decoded fully and its music level showed no duplicate mix. Subjective listening review remains incomplete.
 
-This release also fixes animation entrances, exits and source labels flashing over later recordings after earlier jump cuts. Animation placements now map from their actual editor-ruler position to source footage in both preview and export. The project format is unchanged; existing animations and manual edits do not need to be rebuilt. Other platforms remain at 1.5.9.
+This release also fixes animation entrances, exits and source labels flashing over later recordings after earlier jump cuts. Animation placements now map from their actual editor-ruler position to source footage in both preview and export. The project format is unchanged; existing animations and manual edits do not need to be rebuilt. The fix is now available on all three platforms in 1.6.3.
 
 Recordings lifted into separate picture rows also move horizontally in absolute time instead of repacking the entire main sequence to the start. In an isolated development desktop, a 10–20-second clip moved about three seconds later and back while the other clips stayed at 0–10 and 20–30 seconds. Vertical lifting and saved-project readback passed. The final full suite passed 4,535 tests, with two skipped; installation and public availability are tracked separately in the release record.
 
@@ -64,11 +64,11 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
 - Apple Silicon Mac: **1.6.3**, DMG **262,134,882 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.5.9**, installer **263,954,381 bytes**, unsigned.
-- Linux x86_64: **1.5.9** in AppImage (**464,534,772 bytes**), deb (**367,509,352 bytes**) and pacman (**335,385,732 bytes**) formats.
+- Windows 10/11 x64: **1.6.3**, installer **251,112,617 bytes**, unsigned.
+- Linux x86_64: **1.6.3** in AppImage (**461,609,343 bytes**), deb (**364,510,124 bytes**) and pacman (**332,406,992 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
@@ -76,14 +76,14 @@ The uploaded Mac package was downloaded again and verified:
 38c3f5dc587ac3fa2f9f71833c3fe047e91a599cba315aed18998fcb34cc3204
 ```
 
-SHA-256 checksums for Windows and Linux 1.5.9:
+SHA-256 checksums for Windows and Linux 1.6.3:
 
 | Package | SHA-256 |
 | --- | --- |
-| Windows installer | `24cb77f24df4e76c14bf5e53098bae599980619128c2937ec28c8b9ef0b05d57` |
-| Linux AppImage | `923e06008b24bcfefbe706a5ffb314940acae8b0462c5d2bea54afb6e8d0fdf1` |
-| Ubuntu/Debian deb | `f905d8895597824862f51e6bd5a9636449bddf613aaf49fec6738113a0d89282` |
-| Arch pacman | `14eb6269141fd4b46bc031b758ef23b2fc343f9488e20a132d71ac7bd299ae19` |
+| Windows installer | `67491489d137c1c715b152543a43006f3862f1294cfb462532735a5aa4e3536c` |
+| Linux AppImage | `0121c34dcab43ed944525bacb5ac08c95929caaa2c260c985f0b06dacb9001de` |
+| Ubuntu/Debian deb | `f1f9799bd694b5d82c8ae00444baccd09a93bfecb9160188c3798ed2a3eefb56` |
+| Arch pacman | `c4edaf6094a3c39740e98f373cc4120aa1e1b50b7a845c7f33c3941a80de64c1` |
 
 The Windows installation was compared file by file with the packaged build. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 
@@ -119,7 +119,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac now offers 1.6.3; Windows and Linux remain at 1.5.9. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.6.3. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -266,7 +266,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.6.3; Windows and Linux remain at 1.5.9. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac, Windows and Linux offer 1.6.3. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take

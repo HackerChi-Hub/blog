@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "d989fe7d7b6f5be35a71f0cbb6dc9616a21379008ca79438494d3814233b4f94",
-  "published_post_count": 189,
+  "content_sha256": "0bf73a497afd6e017851aea3492e6be2b71d13ab6c21cde7f9871d24d5a4522b",
+  "published_post_count": 190,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -179,6 +179,15 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "ff20ce720d75b7a795f095082ec6172e262f90dd3a1c89bdf63128c3be4618c6"
+    },
+    {
+      "file": "posts/2026-10-18-official-39d610a807a3-en.md",
+      "slug": "2026-10-18-official-39d610a807a3-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-18-official-39d610a807a3",
+      "lang": "en",
+      "sha256": "d2b8b69d81d20f11c1bcc32ebe6b9ed7695c923da695d09c0bc9d1adf7399d4e"
     },
     {
       "file": "posts/2026-10-18-official-39d610a807a3.md",
@@ -626,7 +635,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-argon-google-flow-experience",
       "lang": "en",
-      "sha256": "ef60be6c41bf94d7bb3e99eee80abf6fe81a1353c0c123069a06a242cfec437c"
+      "sha256": "3e66c5a7f31491544be04481c972f8adca29b0832ee6309aefd444295c405ce1"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience.md",
@@ -771,7 +780,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "9910fd7b88158b1f0be31b63433350836df75f164d4038119368e340feb746b6"
+      "sha256": "ad343c15c2c11dd6dc99563e08d974e3f180c3a2c01faa4a85b3e409f7bde7f2"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -780,14 +789,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "d330836677b1ad63926b2bc302a9b2c694ea6f0aeed04a9a6921d909d8bb9d2f"
+      "sha256": "2d82e2647463f360c223161ba275425f520f825c936815bcb6bcd85b99844ee1"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "3c2ce8c03dc9b60b0c9d571804401deacbf8077b6d73c5d8fafd38f2a5a64abc"
+      "sha256": "3df0076ad7e761b6656029762969e5d36cc454ec00073c729dea8f3bcc4e821a"
     },
     {
       "file": "posts/jev-system-one-model-en.md",
@@ -876,7 +885,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-dance-paper-delivery",
       "lang": "en",
-      "sha256": "1e97357b3616e63325d7d1acec398dbf3c7d4486a4fd16aa7b08ed7340976fe5"
+      "sha256": "a50756bd7baa93ba2817cc12415142ff2bee732ab93523e327ae19a56645fd2f"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery.md",

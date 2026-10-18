@@ -4,7 +4,6 @@ slug: localbrain-dance-paper-delivery-en
 status: published
 lang: en
 translation_of: localbrain-dance-paper-delivery
-cover_status: "approved"
 translation_source: machine
 source_sha256: 66c3b0046b1ebd56
 date: 2026-10-17
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/localbrain-dance-paper-delivery/cover-20261017-fusion-v1.jpg"
 brand_slogan: 
 legacy_paths: []
+cover_status: "approved"
 ---
 
 > [!info] Machine translation

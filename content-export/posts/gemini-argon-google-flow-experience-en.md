@@ -4,7 +4,6 @@ slug: gemini-argon-google-flow-experience-en
 status: published
 lang: en
 translation_of: gemini-argon-google-flow-experience
-cover_status: "approved"
 translation_source: machine
 source_sha256: 1d113e0b52c840c3
 date: 2026-10-17
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/gemini-argon-google-flow-experience/cover-20261017-fusion-v1.jpg"
 brand_slogan: 
 legacy_paths: []
+cover_status: "approved"
 ---
 
 > [!info] Machine translation
