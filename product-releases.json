@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-18T00:28:26.816Z",
-  "contentHash": "d097626e0f23018d8e5c71a01971f7da64b26dc36f08b7785345e2587c5183d5",
+  "checkedAt": "2026-10-18T01:37:01.647Z",
+  "contentHash": "99b05f7e67f83ec226cfcf1075b5d31af12f6e051376d8f3e6f870a3e7e4c90c",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,26 +17,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "本次更新 Apple Silicon Mac；Windows/Linux 保留各自 1.9.2，Linux AppImage 自动更新保留 1.7.2。",
+      "updateSummary": "新增个人设备检查，按手机、电脑、嵌入式和固件分类，默认只读、低负载。 本轮本地回归：前端1580通过、2跳过；生产适配器12通过；Rust363通过、27忽略。真实适配器完成本机信息与受控固件/目录检查。正式安装版通过原生名单、草稿、批准及真实Qwen模型三次工具调用，报告证据读取完成。测试资料已清理。",
       "updated": "2026-10-18",
-      "activityAt": "2026-10-18T00:10:11Z",
-      "version": "1.9.3",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.3",
+      "activityAt": "2026-10-18T01:29:36Z",
+      "version": "1.9.4",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.4",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.9.3",
+          "version": "1.9.4",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.3",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.4",
           "assets": [
             {
-              "name": "LocalBrain_1.9.3_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.3/LocalBrain_1.9.3_aarch64.dmg",
-              "id": 651954204,
-              "size": 72598255,
-              "updatedAt": "2026-10-18T00:05:02Z",
-              "digest": "sha256:29fb02a61a5350a7381d0d0851be090edb93bd8d809da223db1b14e056991354"
+              "name": "LocalBrain_1.9.4_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.4/LocalBrain_1.9.4_aarch64.dmg",
+              "id": 652119151,
+              "size": 72649476,
+              "updatedAt": "2026-10-18T01:28:33Z",
+              "digest": "sha256:f2542209eb8000bf77aacb2bd9b24abaa57613c125bd5a46f44c9bc64475c929"
             }
           ]
         },
@@ -73,10 +73,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T00:28:26.816Z",
+      "checkedAt": "2026-10-18T01:37:01.647Z",
       "prerelease": false,
-      "releaseNotesHash": "1e3af604b96134efbb3d41d3b9067cb14092fd369a7cebf5d41eec3097f1d7a1",
-      "revision": "a7a3e4bc4af4b51f1a1148d38284def9a8f6ea013bf1595ed5a237a395e013dd"
+      "releaseNotesHash": "c19b77190a682beb29ca87be9e06988f6604d06d46a159786800cbeb48db87e7",
+      "revision": "14ee96c5a2ee1b8a81aa7decdceeec7c207fa2eb8d10fd1263066bba6c767c67"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T00:28:26.816Z",
+      "checkedAt": "2026-10-18T01:37:01.647Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T00:28:26.816Z",
+      "checkedAt": "2026-10-18T01:37:01.647Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -354,7 +354,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-18T00:28:26.816Z",
+      "checkedAt": "2026-10-18T01:37:01.647Z",
       "prerelease": false,
       "releaseNotesHash": "ca390293f240ff962ea4d92827a4abc107a4418eb593c94582ea716091d6cbba",
       "revision": "cc440c9143168b5702eab4128a4a0eec03870303f6892791d4dcaf0d36373bab"
