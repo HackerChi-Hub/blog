@@ -1,23 +1,41 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.6.1"
+title: "HyphenScreen: recording, editing and AI animation — version 1.6.3"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-17
-summary: HyphenScreen combines recording, multitrack editing and editable AI animation. Mac 1.6.1 fixes doubled preview music, delayed animation flashes and lifted-clip movement; Windows and Linux remain at 1.5.9. Includes downloads and verification limits.
+updated: 2026-10-18
+summary: HyphenScreen combines recording, multitrack editing and native animation. Mac 1.6.3 consolidates the library into 230 purpose-based entries, adds Chinese examples and fixes model-side material discovery. Windows and Linux remain at 1.5.9.
 categories:
   - Resources
 tags:
   - AI
   - Self-made software
-cover: https://hyphentech.top/obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
+cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## Current release: Mac 1.6.1; Windows and Linux 1.5.9
+## This update: 230 purpose-based animation entries
+
+The library consolidates the previous 316 discovery entries into 230 across nine categories: text and titles, data and charts, explanations, AI concepts, flows and architecture, intros and outros, social media, picture effects and hardware. Common is a shortcut filter rather than an additional category. Source assets, original IDs and existing projects remain compatible.
+
+![HyphenScreen 1.6.3 purpose library and real chapter preview](/obsidian-assets/hyphenscreen-local-screen-recorder/material-library-163.png)
+
+Shared entries include 22 title styles, 13 chapter styles, ten people profiles, six quote cards, 18 lower thirds, 11 column comparisons, ten line trends, four progress rings and six terminal demonstrations. New examples include statistical rings, terminal simulation, code typing, chat, ranking races and heatmaps. Default text and URLs use Chinese HyphenTech examples; necessary third-party licensing and provenance remain included. Blinds and clock-wipe transitions leave discovery while old-project resources remain available.
+
+![Consolidated title, chapter and profile entries](/obsidian-assets/hyphenscreen-local-screen-recorder/material-text-163.png)
+
+Choose a purpose, insert the material, then select a style in the animation panel. Independent animation and overlays retain their different editing paths. Some sampled-vector internals require regeneration; this is not a promise of arbitrary source-parameter recomputation. Model tools now correctly find reference variants inside mixed-source families when filtering by storage kind.
+
+The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
+
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. This release ships on Apple Silicon Mac first; Windows and Linux remain at their actual downloadable version 1.5.9. Package size and checksums are listed below.
+
+The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
+
+## Earlier timeline and audio improvements
 
 Mac 1.6.1 stops stale programme audio before preview returns to live mixing after timeline edits, and delayed playback requests recheck the current mode. Five music groups in the saved real project do not overlap; a regression reproduced the stale-audio path. Two-way handoff, delayed startup, isolated desktop playback, clip movement and saved-project readback passed. A real native export decoded fully and its music level showed no duplicate mix. Subjective listening review remains incomplete.
 
@@ -45,17 +63,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.6.1**, DMG **265,233,474 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.6.3**, DMG **262,134,882 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.5.9**, installer **263,954,381 bytes**, unsigned.
 - Linux x86_64: **1.5.9** in AppImage (**464,534,772 bytes**), deb (**367,509,352 bytes**) and pacman (**335,385,732 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.1/HyphenScreen_1.6.1_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
 ```text
-026c7c43a85ceac1876e9663b9e709cd5dc0921224f3e107a98e6a5291d09fcb
+38c3f5dc587ac3fa2f9f71833c3fe047e91a599cba315aed18998fcb34cc3204
 ```
 
 SHA-256 checksums for Windows and Linux 1.5.9:

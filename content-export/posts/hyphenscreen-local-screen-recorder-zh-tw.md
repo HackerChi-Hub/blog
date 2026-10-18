@@ -1,23 +1,41 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.1 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.3 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-17
-summary: 黑粉錄屏整合錄製、多軌剪輯與可編輯 AI 動畫。Mac 1.6.1 修復編輯後音樂重疊播放、動畫閃入與分層片段橫移，Windows 與 Linux 保持1.5.9；附下載、校驗值與驗證邊界。
+updated: 2026-10-18
+summary: 黑粉錄屏整合錄製、多軌剪輯與智慧動畫。Mac 1.6.3將素材整理為230個用途入口，加入中文動畫範例並修復模型素材篩選；Windows與Linux保持1.5.9。附實際下載與驗證邊界。
 categories:
   - 資源分享
 tags:
   - AI
   - 自製軟體
-cover: https://hyphentech.top/obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
+cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## 最新版本：Mac 1.6.1；Windows 與 Linux 1.5.9
+## 本次更新：動畫依用途整理，230個入口更好找
+
+這次把上一輪316個發現入口合併為230個，依文字標題、資料圖表、講解引導、智慧原理、流程架構、片頭片尾、社群平台、畫面效果、硬體裝置九類用途排列。同類排版和動作集中選擇，底層素材和舊專案標識保留，常用只是快捷篩選，不重複計數。
+
+![黑粉錄屏1.6.3用途分類與章節動畫](/obsidian-assets/hyphenscreen-local-screen-recorder/material-library-163.png)
+
+動態標題22種、章節標題13種、人物介紹10種、引用卡6種、底部資訊條18種、柱狀對比11種、折線趨勢10種、環形進度4種、終端示範6種。新增統計環、終端模擬、程式碼輸入、對話、排名及熱力圖範例，預設文字和網址統一為黑粉科技中文內容，必要來源與第三方許可保留。百葉窗和時鐘擦除退出發現入口，舊專案資源保留。
+
+![合併後的文字與章節入口](/obsidian-assets/hyphenscreen-local-screen-recorder/material-text-163.png)
+
+先依用途選素材並插入，再到動畫面板切換樣式。獨立動畫與疊加範本仍有不同編輯方式；部分逐影格向量內部內容需要重新生成，不承諾全部來源參數自動重算。模型依素材類型篩選混合來源系列時遺漏選項的問題也已修復。
+
+開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
+
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。此次先提供蘋果晶片Mac更新，Windows與Linux保持實際可下載的1.5.9；大小及校驗值依下方發行資料為準。
+
+正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
+
+## 先前的時間軸與聲音改進
 
 Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混音與即時混音時先停止舊聲音，延遲起播也重新核對模式。已儲存的真實工程五組音樂沒有互相重疊，回歸測試則重現了舊預混音未停的路徑。雙向切換、延遲起播、獨立編輯器播放與橫移儲存通過；測試工程實際匯出並完整解碼，音樂電平未出現重複混入。主觀聲音聽審尚未完成。
 
@@ -45,17 +63,17 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.6.1**，DMG **265,233,474 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Mac 蘋果晶片目前為 **1.6.3**，DMG **262,134,882 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
 - Windows 10/11 x64 目前為 **1.5.9**，安裝程式 **263,954,381 位元組**，未簽署。
 - Linux x86_64 目前為 **1.5.9**：AppImage **464,534,772 位元組**、deb **367,509,352 位元組**、pacman **335,385,732 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.1/HyphenScreen_1.6.1_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包上傳後已重新下載比對，SHA-256 為：
 
 ```text
-026c7c43a85ceac1876e9663b9e709cd5dc0921224f3e107a98e6a5291d09fcb
+38c3f5dc587ac3fa2f9f71833c3fe047e91a599cba315aed18998fcb34cc3204
 ```
 
 Windows 與 Linux 1.5.9 的 SHA-256：

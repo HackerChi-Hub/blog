@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.1 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.3 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
-updated: 2026-10-17
-summary: 黑粉录屏把录制、多轨剪辑与 AI 动画放进同一条时间线。Mac 1.6.1 修复编辑后音乐叠播、动画闪入及分层片段横移，Windows 与 Linux 保持1.5.9；附下载、校验值与验证边界。
+updated: 2026-10-18
+summary: 黑粉录屏把录制、多轨剪辑与智能动画放进同一条时间线。Mac 1.6.3把素材整理为230个用途入口，补充中文动画样例并修复模型素材筛选；Windows与Linux保持1.5.9。附实际下载与验证边界。
 categories:
   - 资源分享
 tags:
@@ -15,12 +15,46 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
+## 本次更新：动画按用途整理，230个入口更好找
+
+这次主要整理动画素材库。此前同一个用途分散在不同来源和不同名字下，找章节标题要翻好几个位置，进度条也容易与装饰图标混在一起。现在把上一轮316个发现入口收口为230个，按九类用途排列；同类排版和动作在一个入口里选择样式，底层素材和旧工程标识继续保留。
+
+![黑粉录屏1.6.3：用途分类与实际章节动画](/obsidian-assets/hyphenscreen-local-screen-recorder/material-library-163.png)
+
+文字标题、数据图表、讲解引导、智能原理、流程架构、片头片尾、社交平台、画面效果、硬件设备各自有明确入口，常用只是快捷筛选，不重复计数。短分类名避免按钮换行，卡片主要显示用途与样式数量，具体编辑能力仍以素材本身为准。
+
+| 统一用途 | 可选样式 |
+| --- | ---: |
+| 动态标题 | 22 |
+| 章节标题 | 13 |
+| 人物介绍 | 10 |
+| 引用卡片 | 6 |
+| 底部信息条 | 18 |
+| 柱状对比 | 11 |
+| 折线趋势 | 10 |
+| 环形进度 | 4 |
+| 终端演示 | 6 |
+
+本轮还接入统计环、终端命令模拟、代码输入、对话演示、排名竞赛和活动热力图等内容。默认关键词、网址和示例文字采用黑粉科技中文内容；必要的第三方来源和许可说明继续保留。百叶窗与时钟擦除不再出现在素材发现入口，旧工程需要的资源保留。
+
+![统一章节、引用与人物介绍入口](/obsidian-assets/hyphenscreen-local-screen-recorder/material-text-163.png)
+
+用法是先按用途找素材，点击插入，再到动画面板选择同类样式、编辑内容与时间。原名称和原标识仍可搜索。独立动画与叠加模板的编辑方式不同，保留明确入口；可改文字的原生图层、需要重新生成的逐帧矢量、数字能否带动图形变化，也没有混成同一种承诺。
+
+这次还补修了模型调用接口的一个遗漏：合并后的入口可能同时含内置动画和原生素材，按素材类型筛选时，原本会漏掉其中的部分样式。现在会先选出相应类型的素材和样式集合，再搜索和分页，避免界面能找到、模型却找不到。
+
+开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
+
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。此次先提供苹果芯片Mac更新，Windows与Linux保持实际可下载的1.5.9。
+
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.6.1／Windows 与 Linux 1.5.9
-> 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-17
+> 黑粉录屏 HyphenScreen · Mac 1.6.3／Windows 与 Linux 1.5.9
+> 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-18
 
-## 本次更新：编辑后音乐不叠播，画面跟上时间线
+正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
+
+## 此前的时间线与声音改进
 
 **Mac 1.6.1 补修调整时间线后的背景音乐叠播。** 预览在整段预混音与实时混音之间切换时，先停止旧声音；延迟完成的起播请求也会核对当前模式。已保存的真实工程里五组音乐没有相互重叠，新回归则复现了旧预混音未停的路径。修正后双向切换和延迟起播测试通过，独立编辑器完成带音乐播放、播放中横移与保存回读。测试工程实际导出并完整解码，音乐电平未出现重复混入；主观声音听审尚未完成。
 
@@ -60,18 +94,18 @@ Windows 与 Linux 暂保留实际可下载的1.5.9，本次动画定位修正先
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.6.1，DMG 共 265,233,474 字节，约 265 MB |
+| Mac 苹果芯片 | 1.6.3，DMG 共 262,134,882 字节，约 262 MB |
 | Windows 10/11 x64 | 1.5.9，安装程序 263,954,381 字节，未签名 |
 | Linux x86_64 | 1.5.9，AppImage 464,534,772 字节；deb 367,509,352 字节；pacman 335,385,732 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.1/HyphenScreen_1.6.1_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.5.9/HyphenScreen_1.5.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包上传后已重新下载核对，SHA-256 为：
 
 ```text
-026c7c43a85ceac1876e9663b9e709cd5dc0921224f3e107a98e6a5291d09fcb
+38c3f5dc587ac3fa2f9f71833c3fe047e91a599cba315aed18998fcb34cc3204
 ```
 
 Windows 与 Linux 1.5.9 的 SHA-256：
