@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 18 Oct 2026 00:12:13 GMT</lastBuildDate>
-    <pubDate>Sun, 18 Oct 2026 00:12:13 GMT</pubDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:18:23 GMT</lastBuildDate>
+    <pubDate>Sun, 18 Oct 2026 00:18:23 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>本地27B把“狗熊哆嗦毛”写成论文？22分9秒，方寸智匣交出了什么</title>
+      <link>https://hyphentech.top/localbrain-dance-paper-delivery/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-dance-paper-delivery/</guid>
+      <description>从“狗熊哆嗦毛”到动作捕捉与机器人：检查本地27B交出的Word、7页PDF，以及仍未完成的验收。</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>方寸智匣</category>
+    <category>本地模型</category>
+    <category>智能体</category>
+    <category>论文生成</category>
+    <category>AI实录</category>
+    </item>
     <item>
       <title>DeepSeek-V4.1-Flash-1017 发布：官方说更快更省，普通人现在能用吗</title>
       <link>https://hyphentech.top/2026-10-17-official-621d1cb6bd14/</link>
@@ -19,6 +32,19 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
+    </item>
+    <item>
+      <title>Gemini Argon做游戏，Google Flow做创作：3个项目看懂谷歌AI到底能帮你干什么</title>
+      <link>https://hyphentech.top/gemini-argon-google-flow-experience/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-argon-google-flow-experience/</guid>
+      <description>从三个真实游戏项目，到Google Flow的素材、修改和创作工具：不只看模型，也看普通人能怎样把想法推进成作品。</description>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>Gemini Argon</category>
+    <category>Google Flow</category>
+    <category>AI创作</category>
+    <category>游戏生成</category>
+    <category>使用体验</category>
     </item>
     <item>
       <title>Hy-Memory-30B-A3B 是什么：它能把长期记忆写好到什么程度？</title>
@@ -196,26 +222,6 @@
     <category>技术分享</category>
     <category>本地AI</category>
     <category>Strata</category>
-    </item>
-    <item>
-      <title>你真的懂AI吗？30期纵览：从一次回答，走到模型、评测与本地部署</title>
-      <link>https://hyphentech.top/understand-ai-01-overview/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-01-overview/</guid>
-      <description>30期不是30堂课。从一个会说话的程序、两次AI寒冬，到你电脑上真正能用的模型：沿着一条故事线，把知识、真实产物与选择连起来。</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
-    </item>
-    <item>
-      <title>神经网络真在“动脑”？2个旋钮，拆开机器学习和聊天记忆</title>
-      <link>https://hyphentech.top/understand-ai-04-neural-networks/</link>
-      <guid isPermaLink="true">https://hyphentech.top/understand-ai-04-neural-networks/</guid>
-      <description>给机器四组数字，不告诉它规律，它却能把两个旋钮拧向答案。再看神经元熔炉里的曲线：损失下降、界面能跑、真的学会，究竟差在哪里？</description>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-    <category>AI知识</category>
-    <category>AI</category>
-    <category>你真的懂AI吗？</category>
     </item>
   </channel>
 </rss>
