@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-16
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. The walkthrough was written at 1.4.8; a version line through the current 1.9.1 is appended at the end, with a full tour and screenshots.
+updated: 2026-10-18
+summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. The walkthrough was written at 1.4.8; a version line through the current 1.9.3 is appended at the end, with a full tour and screenshots.
 categories:
   - Resources
 tags:
@@ -21,13 +21,13 @@ legacy_paths: []
 > Not another chat web page: local models, media, documents and agent tools gathered into one Mac workbench.
 
 > [!note]
-> HyphenTech · LocalBrain 1.9.1 · 2026-10-16 · Also available in 简体中文 and 繁體中文 (switch below the title)
+> HyphenTech · LocalBrain 1.9.3 · 2026-10-18 · Also available in 简体中文 and 繁體中文 (switch below the title)
 
 ---
 
 I did not build LocalBrain because local models now beat the cloud. On the same hard task, the top cloud models are usually still smarter and steadier. What wore me out was everything else: models in one folder, MLX in one terminal, GGUF needing another server, and transcription, voice-over, image, video and documents each running their own way.
 
-So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This walkthrough was written at 1.4.8; the current version is 1.9.1. Below is a walk through each page; every screenshot is the real 1.4.6 interface (later releases added security checks, office documents, Splash models and more — see “After 1.4.8”, “New in 1.4.8” and “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
+So the goal has not changed: **not a smarter brain, but a calmer master switch for local AI.** This walkthrough was written at 1.4.8; the current version is 1.9.3. Below is a walk through each page; every screenshot is the real 1.4.6 interface (later releases added security checks, office documents, Splash models and more — see “After 1.4.8”, “New in 1.4.8” and “New in 1.4.7” near the end): a fully visible task process, output and cache folders you can place anywhere and clean out completely, and three complete interface languages.
 
 > [!note]
 > LocalBrain is not meant to replace Codex, Claude Code or OpenCode. It gives them, and its own chat, a set of controllable models and tools that start on demand and stay on your machine as far as possible.
@@ -159,7 +159,7 @@ File tools can only read the folders you allow by default. Running project comma
 
 **Stuck on something? It can look it up online, or configure another machine over SSH.** The new “Network access” switch is off by default; once on, the model can send HTTP requests to call APIs or read endpoints, run commands and copy files over SSH on the devices in your `~/.ssh/config`, check connectivity and TLS certificates, and view this machine's network status. SSH logs in with keys only — LocalBrain never touches or stores a password. Permissions are per conversation: read-only operations run directly, while changes (restarting a service, editing config, uploading a file, POST/PUT and the like) ask you each time, and you can grant full trust within one conversation so it stops interrupting. It is separate from “Web search” — that one looks things up, this one operates other machines; port scanning and packet capture, the kind of probing done against other people's networks, are not included.
 
-### ▸ After 1.4.8: security checks, office documents, community models, download experience (current: 1.9.1)
+### ▸ After 1.4.8: security checks, office documents, community models, download experience (current: 1.9.3)
 
 The walkthrough and screenshots stop at 1.4.8; every later version has its own article, so here is just the main line:
 
@@ -171,20 +171,22 @@ The walkthrough and screenshots stop at 1.4.8; every later version has its own a
 - **Skills and long-term memory (1.8.9)**: discover other agents' file locations, choose read-only mounts or copy imports, edit internal entries and select automatic, manual-only or disabled loading. The model can search and read managed entries; it cannot create or enable them by itself.
 - **Context compaction (1.9.1)**: a long chat is like a stack of records: originals remain available while a separate handoff outline is written. Incremental semantic summaries run at message or capacity thresholds; Compact now is available while idle. Tool chats use concise Chinese summaries, and recovery does not replay completed tools. Installed-app samples took about 2.97 seconds automatically and 2.48 seconds manually. These are sample timings, not a general speed promise; summaries can still miss details.
 
+- **Configuration and interface fixes (Mac 1.9.3)**: restore only managed external-client keys; empty backups retain later additions, and malformed files keep their original content and backup. Home pauses polling when unfocused, and window switching no longer scans Discover directories. Sessions support search and renaming; sidebar and attachments skip unrelated renders. Memory conflicts allow an explicit model switch, with no media start after a failed language-model stop. Windows/Linux retain their separate 1.9.2 releases.
+
 ---
 
-#### LocalBrain 1.9.1
+#### LocalBrain 1.9.3
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.7.6 · Installer LocalBrain\_1.9.1\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.9.2 · Installer LocalBrain\_1.9.3\_aarch64.dmg
 
 [LocalBrain downloads and updates (release page)](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 [LocalBrain product page](https://hyphentech.top/localbrain)
 
-The SHA-256 of the current installer is **74725034276f594c5d01556c35a6e12f10c4a636a1b8c9bdea355dd23466d148**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **29fb02a61a5350a7381d0d0851be090edb93bd8d809da223db1b14e056991354**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
