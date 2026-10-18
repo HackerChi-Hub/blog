@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 18 Oct 2026 00:18:23 GMT</lastBuildDate>
-    <pubDate>Sun, 18 Oct 2026 00:18:23 GMT</pubDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:28:49 GMT</lastBuildDate>
+    <pubDate>Sun, 18 Oct 2026 00:28:49 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>腾讯 Hy-Memory-30B-A3B-FP8 已开放权重，适合拿来做什么？</title>
+      <link>https://hyphentech.top/2026-10-18-official-39d610a807a3/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-18-official-39d610a807a3/</guid>
+      <description>它不是通用聊天模型，而是负责筛选、改写和更新长期记忆的专用模型。</description>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>本地27B把“狗熊哆嗦毛”写成论文？22分9秒，方寸智匣交出了什么</title>
       <link>https://hyphentech.top/localbrain-dance-paper-delivery/</link>
@@ -212,16 +222,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Strata让12GB显卡跑Qwen3.8？拆开94词元/秒背后的内存账</title>
-      <link>https://hyphentech.top/strata-12gb-local-ai/</link>
-      <guid isPermaLink="true">https://hyphentech.top/strata-12gb-local-ai/</guid>
-      <description>12GB显卡之外，还要多少内存？拆解Strata的官方速度、量化取舍与Mac接入边界。</description>
-      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>本地AI</category>
-    <category>Strata</category>
     </item>
   </channel>
 </rss>
