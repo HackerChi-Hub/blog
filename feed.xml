@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 18 Oct 2026 23:21:33 GMT</lastBuildDate>
-    <pubDate>Sun, 18 Oct 2026 23:21:33 GMT</pubDate>
+    <lastBuildDate>Mon, 19 Oct 2026 14:36:12 GMT</lastBuildDate>
+    <pubDate>Mon, 19 Oct 2026 14:36:12 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>腾讯混元 Hy-Memory-30B-A3B-GGUF 上架：本地记忆写入模型怎么跑</title>
+      <link>https://hyphentech.top/2026-10-19-official-40b84d6dd7e4/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-19-official-40b84d6dd7e4/</guid>
+      <description>腾讯混元 Hy-Memory-30B-A3B-GGUF 上架：本地记忆写入模型怎么跑</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>腾讯 Hy-Memory-30B-A3B-FP8 已开放权重，适合拿来做什么？</title>
       <link>https://hyphentech.top/2026-10-18-official-39d610a807a3/</link>
@@ -212,16 +222,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>Mistral Large 4 公开预览：1 万亿参数、10 月底开放权重，本地能跑得动吗？</title>
-      <link>https://hyphentech.top/2026-10-07-official-b31ed069464a/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-official-b31ed069464a/</guid>
-      <description>Mistral Large 4 预览已上线，月底计划放权重；本地门槛尚未公布。</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
