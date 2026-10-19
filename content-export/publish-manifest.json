@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "1e2806c8bd9477e275e11984e7e4402695428ecaab410726b38e998f425735d7",
+  "content_sha256": "ffd3c97ba17936999dc5ac2af89817bb2ad2c3e302df05696c8b4c47135dee17",
   "published_post_count": 194,
   "posts": [
     {
@@ -1231,7 +1231,7 @@
       "legacy_paths": [],
       "translation_of": "polystrata-qwen36-8gb-localbrain-test",
       "lang": "en",
-      "sha256": "cc1d9615289ea5b3fca30585e09ef78f903433ef2dd7efe59dcee5a5fcddccee"
+      "sha256": "2f1bc293cb391cc8b77284289b4effa9e199a666fb2450c8bf482f6f6ae33127"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",

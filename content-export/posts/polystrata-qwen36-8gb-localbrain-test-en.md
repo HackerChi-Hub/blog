@@ -4,7 +4,6 @@ slug: polystrata-qwen36-8gb-localbrain-test-en
 status: published
 lang: en
 translation_of: polystrata-qwen36-8gb-localbrain-test
-article_type: "article"
 translation_source: machine
 source_sha256: b3e6729365fae521
 date: 2026-10-19
@@ -17,6 +16,7 @@ tags:
 cover: "/obsidian-assets/polystrata-qwen36-8gb-localbrain-test/cover-4b873018e1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation
