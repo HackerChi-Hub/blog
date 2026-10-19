@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 19 Oct 2026 17:34:26 GMT</lastBuildDate>
-    <pubDate>Mon, 19 Oct 2026 17:34:26 GMT</pubDate>
+    <lastBuildDate>Mon, 19 Oct 2026 18:40:44 GMT</lastBuildDate>
+    <pubDate>Mon, 19 Oct 2026 18:40:44 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -19,6 +19,15 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
+    </item>
+    <item>
+      <title>完全免费，Windows下8GB显卡跑Qwen 35B</title>
+      <link>https://hyphentech.top/polystrata-qwen36-8gb-localbrain-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/polystrata-qwen36-8gb-localbrain-test/</guid>
+      <description>35B模型在8GB显卡上能跑，但能否交付？12题逐项看，成功与失败都保留。</description>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
     </item>
     <item>
       <title>腾讯 Hy-Memory-30B-A3B-FP8 已开放权重，适合拿来做什么？</title>
@@ -208,16 +217,6 @@
       <link>https://hyphentech.top/2026-10-07-skill-a28a79f12713/</link>
       <guid isPermaLink="true">https://hyphentech.top/2026-10-07-skill-a28a79f12713/</guid>
       <description>用代码控制镜头、动作与画风，角色需有授权；运行效果仍待实测。</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
-    </item>
-    <item>
-      <title>ChatGPT如何做出精彩的视频？</title>
-      <link>https://hyphentech.top/2026-10-07-skill-80ac89e6ef58/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-skill-80ac89e6ef58/</guid>
-      <description>从脚本到成片，岚叔技能串起配音、画面与验收；运行效果仍待实测。</description>
       <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
