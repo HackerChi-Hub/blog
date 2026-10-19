@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "d31dd6572513b7e2cdbd14b5d14f1dffce2706cea494cae99814f445e378d7f0",
-  "published_post_count": 191,
+  "content_sha256": "df5b17deb0fe878bec4d1fa33df6658c2afb7d197f9357f0eabd4522e48fb4f4",
+  "published_post_count": 194,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -195,6 +195,15 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "c8aa0105d169ac95f71ac5609f799df8d4a5a715df011d81eeab2659b997ef9b"
+    },
+    {
+      "file": "posts/2026-10-19-official-40b84d6dd7e4-en.md",
+      "slug": "2026-10-19-official-40b84d6dd7e4-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-19-official-40b84d6dd7e4",
+      "lang": "en",
+      "sha256": "915f3f16f7e104873f8b7db4af4c1c0897e70cc262fad9f5efc67aadde8c1dbe"
     },
     {
       "file": "posts/2026-10-19-official-40b84d6dd7e4.md",
@@ -1214,6 +1223,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "68e13bb318ddabf88e11bcb33cc0beab0d071a9d645051fbc50de3bb6ba77d66"
+    },
+    {
+      "file": "posts/polystrata-qwen36-8gb-localbrain-test-en.md",
+      "slug": "polystrata-qwen36-8gb-localbrain-test-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "polystrata-qwen36-8gb-localbrain-test",
+      "lang": "en",
+      "sha256": "4e9f1751eb170a83c8fbd4055c4847978a74c05d0e1591199c67eb25da7e77f9"
+    },
+    {
+      "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",
+      "slug": "polystrata-qwen36-8gb-localbrain-test",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "f57e31825fc293958911f575ef27b1d4378fe93470adadc4ae626a76e3a53047"
     },
     {
       "file": "posts/qwen-image-21-local-en.md",
