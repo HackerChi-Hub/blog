@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "df5b17deb0fe878bec4d1fa33df6658c2afb7d197f9357f0eabd4522e48fb4f4",
+  "content_sha256": "1e2806c8bd9477e275e11984e7e4402695428ecaab410726b38e998f425735d7",
   "published_post_count": 194,
   "posts": [
     {
@@ -203,7 +203,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-19-official-40b84d6dd7e4",
       "lang": "en",
-      "sha256": "915f3f16f7e104873f8b7db4af4c1c0897e70cc262fad9f5efc67aadde8c1dbe"
+      "sha256": "5fd5d90dd4f609574de827f88046af352aebf94459b44cd4db30ca77d8bcefb3"
     },
     {
       "file": "posts/2026-10-19-official-40b84d6dd7e4.md",
@@ -1231,7 +1231,7 @@
       "legacy_paths": [],
       "translation_of": "polystrata-qwen36-8gb-localbrain-test",
       "lang": "en",
-      "sha256": "4e9f1751eb170a83c8fbd4055c4847978a74c05d0e1591199c67eb25da7e77f9"
+      "sha256": "cc1d9615289ea5b3fca30585e09ef78f903433ef2dd7efe59dcee5a5fcddccee"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",
