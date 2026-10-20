@@ -158,13 +158,6 @@ tags:
 - [参考样式：阿江视频包装工具](https://ajiang.me/toolbox/ajiang-video-broll/)
 - [参考源码与许可](https://github.com/NanmiCoder/ajiang-vibe-coding-skills)
 
-## 我做的工具
-
-- [黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)：免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
-- [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)：本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
-- [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)：看美剧顺手把生词背了，Mac/Windows 双平台，免费
-- [黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)：录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
-
 ## 完整带声成片
 
 <video controls preload="metadata" src="/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4"></video>
