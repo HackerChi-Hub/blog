@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 20 Oct 2026 15:38:05 GMT</lastBuildDate>
-    <pubDate>Tue, 20 Oct 2026 15:38:05 GMT</pubDate>
+    <lastBuildDate>Tue, 20 Oct 2026 23:08:06 GMT</lastBuildDate>
+    <pubDate>Tue, 20 Oct 2026 23:08:06 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>黑粉录屏：十套整片包装，让一期视频从开场到结尾风格统一</title>
+      <link>https://hyphentech.top/hyphenscreen-whole-video-packaging-165/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-whole-video-packaging-165/</guid>
+      <description>十套风格、四种版式，本地生成成套包装。新增紧凑界面实图，附成片与动态范例。</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>黑粉录屏</category>
+    <category>视频制作</category>
+    <category>整片包装</category>
+    </item>
     <item>
       <title>方寸智匣接入Sushi：同一份Qwen3.8 Flash Next，常驻与SSD模式差多少？</title>
       <link>https://hyphentech.top/localbrain-sushi-resident-ssd/</link>
@@ -207,20 +218,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>本地 AI 完全拆解：4 类模型 + 11 个实测，从 1.5GB 到 80GB 全跑一遍</title>
-      <link>https://hyphentech.top/local-ai-completely-decomposed/</link>
-      <guid isPermaLink="true">https://hyphentech.top/local-ai-completely-decomposed/</guid>
-      <description>端侧 AI 元年到了。本地 AI 不是便宜的云端，是"数据出门不出门"的新部署形态。我用方寸智匣 11 个模型——从 1.5GB 的 LFM2.5 到 80GB 的 Qwen3.8-Flash-Next——把定义、心智模型、硬件边界、量化、家族、多模态、工作流、混合架构、商业意义、入门路径、误区、所有面拆一遍。</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>本地AI</category>
-    <category>端侧推理</category>
-    <category>方寸智匣</category>
-    <category>模型评测</category>
-    <category>多模态</category>
-    <category>LocalBrain</category>
     </item>
   </channel>
 </rss>
