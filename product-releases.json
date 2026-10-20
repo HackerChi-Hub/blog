@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-20T03:48:58.697Z",
-  "contentHash": "8c4730a30ee1e43e5ba032d18de50ec3baaa93a13904fedde5b1d4a1f799eb90",
+  "checkedAt": "2026-10-20T04:10:53.738Z",
+  "contentHash": "6523c018c02b9b93691a23b33d90ca0814047d6822c566dc7ec0dd402176dc97",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -73,7 +73,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T03:48:58.697Z",
+      "checkedAt": "2026-10-20T04:10:53.738Z",
       "prerelease": false,
       "releaseNotesHash": "dbf711388dbfe2466a1eae7dfb9402d51b7c8b796853ce57a0b073b137fdbad7",
       "revision": "0f7041c6fc9f8c455aebfd3af0ca872dd941fd478303657bb3c02e77410af817"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T03:48:58.697Z",
+      "checkedAt": "2026-10-20T04:10:53.738Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T03:48:58.697Z",
+      "checkedAt": "2026-10-20T04:10:53.738Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -292,7 +292,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "在缩放片段的对焦模式中加入「稳重讲解」「灵敏演示」。小范围操作保持构图，超过安全区后平滑移动，缩小退出时保持最后焦点；连续点击按时间与空间组成操作段，减少同一菜单操作中反复缩放。新自动缩放默认稳重讲解，保留原有间隔、频率与清晰度限制。",
       "updated": "2026-10-20",
-      "activityAt": "2026-10-20T02:53:21Z",
+      "activityAt": "2026-10-20T04:04:46Z",
       "version": "1.6.4",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.4",
       "source": "release",
@@ -315,49 +315,49 @@
         },
         {
           "platform": "Windows",
-          "version": "1.6.3",
+          "version": "1.6.4",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.3",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.4",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.3_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64-setup.exe",
-              "id": 654653977,
-              "size": 251112617,
-              "updatedAt": "2026-10-18T22:43:26Z",
-              "digest": "sha256:67491489d137c1c715b152543a43006f3862f1294cfb462532735a5aa4e3536c"
+              "name": "HyphenScreen_1.6.4_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64-setup.exe",
+              "id": 658209643,
+              "size": 260991566,
+              "updatedAt": "2026-10-20T04:03:39Z",
+              "digest": "sha256:9b1e1af1a364018414afed245e971e5ba596d00dc9bc3d1e5f792a6bd49ca870"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.6.3",
+          "version": "1.6.4",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.3",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.4",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.3_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_amd64.deb",
-              "id": 654653979,
-              "size": 364510124,
-              "updatedAt": "2026-10-18T22:44:20Z",
-              "digest": "sha256:f1f9799bd694b5d82c8ae00444baccd09a93bfecb9160188c3798ed2a3eefb56"
+              "name": "HyphenScreen_1.6.4_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_amd64.deb",
+              "id": 658209640,
+              "size": 364519396,
+              "updatedAt": "2026-10-20T04:04:22Z",
+              "digest": "sha256:10d7a77234b51b055d738f013f783cf1829278137d9dc2514aad00285f0a6f41"
             },
             {
-              "name": "HyphenScreen_1.6.3_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x86_64.AppImage",
-              "id": 654653976,
-              "size": 461609343,
-              "updatedAt": "2026-10-18T22:44:39Z",
-              "digest": "sha256:0121c34dcab43ed944525bacb5ac08c95929caaa2c260c985f0b06dacb9001de"
+              "name": "HyphenScreen_1.6.4_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x86_64.AppImage",
+              "id": 658209639,
+              "size": 461620924,
+              "updatedAt": "2026-10-20T04:04:41Z",
+              "digest": "sha256:ce2281d83e4997ef6359e0d648b59766c246b7c881bc47844a3e74c007a41ee9"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-20T03:48:58.697Z",
+      "checkedAt": "2026-10-20T04:10:53.738Z",
       "prerelease": false,
-      "releaseNotesHash": "de090abe0d3fbc8c4676a114f50cad24a2661cbd9c2e39a56730bc9820913dd3",
-      "revision": "611098bb82530c06ea0f8e380754f385764774f1c27b0db157c4839ada1aca35"
+      "releaseNotesHash": "875eea2d0342777400bdd3c4bbc714a01bc9a5813b8525e3d37af4262b2f1424",
+      "revision": "291f5c23a9573be09c15bbe1c04e6807d7b3f2cca59e9a5dcdc02c5742af3007"
     }
   ]
 }
