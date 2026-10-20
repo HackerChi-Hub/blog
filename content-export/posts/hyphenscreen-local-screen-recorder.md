@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.5 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.6 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
-updated: 2026-10-20
-summary: 黑粉录屏把录制、多轨剪辑与动画放进同一条时间线。Mac 1.6.5新增十套整片包装、四十种布局，本地批量生成，多个段落共用排版、配色、动效与声音；Windows与Linux保持1.6.4。附实际界面、下载和核验范围。
+updated: 2026-10-21
+summary: 黑粉录屏把录制、多轨剪辑与动画放进同一条时间线。十套整片包装、四十种布局，本地批量生成；Windows与Linux更新至1.6.6并修复编码器兼容性，Mac保持1.6.5。附实际界面、下载和核验范围。
 categories:
   - 资源分享
 tags:
@@ -15,7 +15,13 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## 本次更新：为一期录屏选一套完整包装
+## 1.6.6：Windows 与 Linux 补齐整片包装
+
+Windows、Linux 本地打包至 1.6.6，包含十套整片包装、四十种布局。修复生成时调用未附带的 libx264 的问题，改用随包 OpenH264，不需要额外安装编码器。Mac 保持已发布的 1.6.5。
+
+Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 秒、480 帧，画面与主题声音完整解码通过。Windows 包内 331 个包装资源与源码逐一核对；Ubuntu deb 安装及文件校验通过。此项不替代完整桌面录制或所有设备验证。
+
+## 1.6.5：为一期录屏选一套完整包装
 
 一段录屏插入了片头、清单和数据图，单看都不错，放到一起却像三个视频。1.6.5增加了“整片包装”：先选整套设计，再把本期多个段落填进去，让排版、配色、动效和声音共用一套规则。
 
@@ -27,7 +33,7 @@ legacy_paths: []
 
 这轮用实际录屏做了四段27.4秒合辑，在黑粉录屏里完成生成、加入、替换、前后跳转、连续播放、保存重开，再导出1920×1080、30帧视频。十套默认配色、四十布局均完成导出和完整解码；声音客观检查未发现削波，四段主题声音没有时间重叠，27.4秒合辑经作者实际听审确认正常。其余配色没有逐一导出，另外九套没有单独记录主观听审。
 
-生成片段可以剪辑，内部图层暂不能逐层编辑；要改文案和数据，应修改保存的配置再生成。画面与主题声音目前分轨，挪动时一起框选。它适合快速统一一期视频的设计，原生动画仍用于需要直接改图层和关键帧的内容。当前新功能在Apple芯片Mac验证，其他系统保留各自实际可下载版本。
+生成片段可以剪辑，内部图层暂不能逐层编辑；要改文案和数据，应修改保存的配置再生成。画面与主题声音目前分轨，挪动时一起框选。它适合快速统一一期视频的设计，原生动画仍用于需要直接改图层和关键帧的内容。Mac实际录屏专项沿用1.6.5记录，Windows／Linux整片包装生成验证范围见本页1.6.6说明。
 
 ## 此前1.6.4：鼠标小幅移动，画面不用跟着晃
 
@@ -73,12 +79,12 @@ legacy_paths: []
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac 提供1.6.5，Windows与Linux保持1.6.4。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac 提供1.6.5，Windows与Linux提供1.6.6。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.6.5；Windows／Linux 1.6.4
-> 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-20
+> 黑粉录屏 HyphenScreen · Mac 1.6.5；Windows／Linux 1.6.6
+> 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-21
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
 
@@ -123,12 +129,12 @@ legacy_paths: []
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
 | Mac 苹果芯片 | 1.6.5，DMG 共 416,175,276 字节，约 416 MB |
-| Windows 10/11 x64 | 1.6.4，安装程序 260,991,566 字节，未签名 |
-| Linux x86_64 | 1.6.4，AppImage 461,620,924 字节；deb 364,519,396 字节；pacman 332,420,148 字节 |
+| Windows 10/11 x64 | 1.6.6，安装程序 399,421,712 字节，未签名 |
+| Linux x86_64 | 1.6.6，AppImage 598,231,509 字节；deb 511,176,604 字节；pacman 472,292,440 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.5/HyphenScreen_1.6.5_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.5/HyphenScreen_1.6.5_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包上传后已重新下载核对，SHA-256 为：
 
@@ -136,16 +142,16 @@ Mac 安装包上传后已重新下载核对，SHA-256 为：
 08d9e24702d6df4595020e6ae1c1c8b6b5cab6598febc1a48878d540afd00444
 ```
 
-Windows 与 Linux 1.6.4 的 SHA-256：
+Windows 与 Linux 1.6.6 的 SHA-256：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Windows 安装程序 | `9b1e1af1a364018414afed245e971e5ba596d00dc9bc3d1e5f792a6bd49ca870` |
-| Linux AppImage | `ce2281d83e4997ef6359e0d648b59766c246b7c881bc47844a3e74c007a41ee9` |
-| Ubuntu／Debian deb | `10d7a77234b51b055d738f013f783cf1829278137d9dc2514aad00285f0a6f41` |
-| Arch pacman | `e48cf22db0424cf63edcc275c4acc5a0f91349f442abe5fbd93cb981e80cf61e` |
+| Windows 安装程序 | `8cb544f34e17253e92192368278bdaaa0918ba899cc10c90605884731d7fd185` |
+| Linux AppImage | `7cb71e48cc310ac915de37d3c9105e992d09093ea0ae329f3dda7a9d510b4009` |
+| Ubuntu／Debian deb | `a66d0b2066e33af37e1c50020257913f533024359714521418cd662497101c3f` |
+| Arch pacman | `27dab06253ef42b48790013c8dbe09f166330f93048451ebdb9bf50e9f44aea2` |
 
-Windows 构建包通过原生部件检查，并完成三种运镜合成样例的原生导出及完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
+Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
 
 ## 原有能力与制作经历
 
@@ -174,7 +180,7 @@ Windows 构建包通过原生部件检查，并完成三种运镜合成样例的
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.6.5，Windows与Linux为1.6.4；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.6.5，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -321,7 +327,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.6.5，Windows与Linux为1.6.4；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.6.5，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
