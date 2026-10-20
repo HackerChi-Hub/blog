@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.6.3"
+title: "HyphenScreen: recording, editing and AI animation — version 1.6.4"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-19
-summary: HyphenScreen combines recording, multitrack editing and native animation. Version 1.6.3 is now available on Mac, Windows and Linux. It consolidates the library into 230 purpose-based entries, adds Chinese examples and fixes model-side material discovery.
+updated: 2026-10-20
+summary: HyphenScreen combines recording, multitrack editing and native animation. Mac 1.6.4 adds steady and responsive camera styles, operation-aware zooms and held exit focus, while existing projects retain legacy follow. Includes actual UI, downloads and verification scope.
 categories:
   - Resources
 tags:
@@ -17,7 +17,19 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## This update: 230 purpose-based animation entries
+## This update: keep the composition steady during small pointer movements
+
+Version 1.6.4 adds steady and responsive camera styles to zoom regions. Select a region, then choose its focus mode in the Zoom inspector. The steady style suits document explanations; the responsive style reacts faster to movements between controls.
+
+![Camera follow settings](/obsidian-assets/hyphenscreen-local-screen-recorder/camera-follow-164.png)
+
+Think of the safe area as room for the pointer to move inside the shot: small movements hold the composition, while crossing the boundary starts a smooth pan. Zoom-out holds the last focus. Consecutive clicks are grouped by time and position to avoid repeatedly zooming during one menu operation. New automatic zooms use the steady style; existing projects retain legacy follow. Pointer-art smoothing is independent of the new camera path. Recorded cursor telemetry is required; external videos can use manual focus.
+
+A 48-second comparison used the same real recording and cursor telemetry for all three modes. The isolated Mac workspace passed mode switching, saving, complete playback and seeking. Two returns to 19.94 seconds produced identical preview pixels. Native export produced 1,440 frames at 1920×1080 and 30 fps, with complete decoding and extracted-frame inspection. The initial preview canvas path was also corrected. This is a Mac camera-motion check; other systems and the full capture-device matrix were not re-tested.
+
+The installed Mac app returned all three camera modes and exported the 48-second comparison with full decoding verified. Desktop checks covered continuous playback after seeking to 20 seconds and another seek to 35 seconds. The public installer was downloaded again and matched the local checksum; it adds only about 14 KB over 1.6.3. GitHub blocked this round of Windows and Linux builds before startup because of account payment or spending limits. Those platforms retain 1.6.3 without the new camera modes.
+
+## Earlier in 1.6.3: 230 purpose-based animation entries
 
 The library consolidates the previous 316 discovery entries into 230 across nine categories: text and titles, data and charts, explanations, AI concepts, flows and architecture, intros and outros, social media, picture effects and hardware. Common is a shortcut filter rather than an additional category. Source assets, original IDs and existing projects remain compatible.
 
@@ -31,7 +43,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Version 1.6.3 is now available on Apple Silicon Mac, Windows and Linux. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.4; Windows and Linux retain 1.6.3. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -63,17 +75,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.6.3**, DMG **262,134,882 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.6.4**, DMG **262,149,096 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.6.3**, installer **251,112,617 bytes**, unsigned.
 - Linux x86_64: **1.6.3** in AppImage (**461,609,343 bytes**), deb (**364,510,124 bytes**) and pacman (**332,406,992 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
 ```text
-38c3f5dc587ac3fa2f9f71833c3fe047e91a599cba315aed18998fcb34cc3204
+92eb1893f1f14ebe3b2e6285e6987a33be10a6d85274ba95b465575a458002ff
 ```
 
 SHA-256 checksums for Windows and Linux 1.6.3:
@@ -119,7 +131,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.6.3. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac now offers 1.6.4; Windows and Linux retain 1.6.3. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -266,7 +278,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac, Windows and Linux offer 1.6.3. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.6.4; Windows and Linux retain 1.6.3. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
