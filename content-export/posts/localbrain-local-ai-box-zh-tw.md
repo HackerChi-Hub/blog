@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-18
-summary: 我把 Mac 上分散的本機模型、轉寫、生圖、影片、文件和 MCP，收進一個能下載、啟停、對話、交付檔案，還能自己清理快取的本機工作台。正文寫於 1.4.8，文末附到現行 1.9.4 的版本主線，功能與截圖全介紹。
+updated: 2026-10-20
+summary: 方寸智匣把本機模型、語音、圖像、影片與工具收進同一工作台。更新Windows 2.0.0小視窗壓縮修復、Mac 1.9.9啟動診斷，以及Sushi常駐與精確SSD實測；保留歷史功能介紹及截圖。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,26 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows 2.0.0：小視窗任務與壓縮修復
+
+2026年10月20日核對公開發行，Windows現為2.0.0，Mac保留1.9.9。Windows修復短片段壓縮沒有縮減收益卻使任務提早停止的問題：仍有安全回答空間時保留原文繼續，真實溢出仍停止並保存紀錄。內建長工具參數表按需載入，摘要停用工具與思考；歷史工具回執按唯讀資料處理，避免接續執行舊工具指令。
+
+發行驗收包含最終套件安裝、問候、倒數計時檔案交付、自動壓縮後續答、2K／5K輸出上限下真實連網與聊天介面操作；倒數開始、暫停、重設通過。這不是原12題全量重測；摘要仍可能錯誤推斷局部狀態，連網成功不代表新聞新鮮度或事實正確性。
+
+[下載Windows 2.0.0安裝程式](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.0/LocalBrain_2.0.0_x64-setup.exe) · [最終套件驗收及限制](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.0.0.md)。SHA-256：`547c745ad1494b89bc7c4d3ee8646b6fcc28f1c469a59be3496361e149b6e668`。更新器簽章已驗證，非Windows Authenticode簽章；CUDA、驅動及第三方模型環境未升級。
+
+## 1.9.9更新：Sushi常駐與精確SSD已實測
+
+Mac 1.9.9修復下載100%後的終態重新整理與Sushi啟動錯誤診斷。安裝版已驗證真實記憶體預檢拒絕並顯示所需／可用數值；狀態輪詢先回收退出程序也不遮蔽具體原因。恢復32K後完整常駐重新載入並完成中文回應。原有約79.21 GB權重保留，沒有重新下載。
+
+2026年10月20日，M5 Pro／64 GiB，同一份Qwen3.8 Flash Next 2.6位權重、Sushi1.2.4、32K上下文、關閉思考：完整常駐／32 GiB精確SSD登記駐留44.20／31.21 GiB；首次材料回答總耗時4.99／8.10秒，重複材料2.68／2.87秒。重複材料命中2595個輸入快取詞元。隔離首次啟動40.39／8.98秒，原生再次常駐啟動17.02秒；未清系統檔案快取，不當作冷啟動平均值。
+
+常駐預設載入視覺塔，SSD預設關閉；顯式載入視覺塔的SSD補測首次材料8.23秒、重複2.60秒，僅確認載入，未測看圖品質。單機樣本不外推普遍速度與品質。SSD原生對話完成中文短答及本機時間工具往返。
+
+**兩模式手動選擇：** 設定→執行環境與診斷，SSD預算0為完整常駐，非零如32為精確SSD，儲存並重啟模型生效。不因記憶體不足自動切換，不繞過保護；專家快取內部自動調度不等於模式切換。
+
+[下載Mac 1.9.9（DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.9/LocalBrain_1.9.9_aarch64.dmg) · [實測條件與驗收限制](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-1.9.9-MAC.md)。DMG SHA-256：`6fbc94eb895220fbf99a8d497b8ec3506074e6964c51dc895374d985ae5d6c27`。本機簽章、未Apple公證；Windows保留1.9.8、Linux保留既有套件。下方舊文及截圖保留當時狀態。
 
 ## 把 Mac 變成 私有 AI 盒子
 

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "ffd3c97ba17936999dc5ac2af89817bb2ad2c3e302df05696c8b4c47135dee17",
-  "published_post_count": 194,
+  "content_sha256": "f4b7787d6dff5854814d5ea1707d5d9c6e378e95c3f2dab9e0f468ee36b49d48",
+  "published_post_count": 196,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -950,7 +950,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "9b9fa2669aaf809b66a340dfd851911766b93267e2729c932eefd45d64a3d3da"
+      "sha256": "1dc49015cca3330d27ad0e0c6b78f15fce4e75657cef36a37995e4e56316c222"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -959,14 +959,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "39cd0aaf929a2772d415b1859a190ad77e72c7cf61eeca5faae821a90fe84e8d"
+      "sha256": "bf223f90e1eae423456daec1c16292761aeb97878fc6c8dccf6211d105c25956"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1a79936eb773e56a00c9b91ae0dd2a2f73b5d80a2e18887f3b9e63ad26c506f9"
+      "sha256": "5869d12fc03f65b3caa00f8a454f4672cfcfc2b6be851f1446156169687e54c3"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",
@@ -1063,6 +1063,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "271bbcf2c846640a4bdbae32628494bfce60e16024379b7387853be631737eb2"
+    },
+    {
+      "file": "posts/localbrain-sushi-resident-ssd-en.md",
+      "slug": "localbrain-sushi-resident-ssd-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "localbrain-sushi-resident-ssd",
+      "lang": "en",
+      "sha256": "952a98b291fa7c31a1fe6ec59a0ea3c48d4aa107e06d8604217683a610b823c1"
+    },
+    {
+      "file": "posts/localbrain-sushi-resident-ssd.md",
+      "slug": "localbrain-sushi-resident-ssd",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "ced78726a12622fc0695c31e1c2c953440f8167b4a94124bc62d5749339757c4"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release-en.md",

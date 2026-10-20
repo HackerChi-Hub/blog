@@ -3,8 +3,8 @@ title: LocalBrain：把 Mac 变成私有 AI 盒子
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-10-18
-summary: 我把 Mac 上分散的本地模型、转写、生图、视频、文档和 MCP，收进一个能下载、启停、对话、交付文件，还能自己清理缓存的本地工作台。正文写于 1.4.8，文末附到现行 1.9.4 的版本主线，功能与截图全介绍。
+updated: 2026-10-20
+summary: 方寸智匣把本地模型、语音、图像、视频和工具收进同一个工作台。更新Windows 2.0.0小窗口压缩修复、Mac 1.9.9启动诊断，以及Sushi常驻与精确SSD实测；保留历史功能介绍与截图。
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,33 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows 2.0.0：小窗口任务与压缩修复
+
+2026年10月20日核对公开发行，Windows现为2.0.0，Mac保留1.9.9。Windows这轮修复了短片段压缩没有缩减收益却使任务提前停止的问题：仍有安全回答空间时保留原文继续，真实溢出仍停止并保存记录。内置长工具参数表按需加载，摘要请求禁用工具与思考；摘要中的历史工具回执按只读资料处理，避免继续执行历史工具指令。
+
+发行验收记录包括最终包安装、问候、倒计时文件交付、自动压缩后续答、2K／5K输出上限下的真实联网与聊天界面操作；倒计时开始、暂停、重置通过。它不是原12题全量重测，摘要仍可能错误推断局部状态，联网链路成功也不代表新闻新鲜度与事实正确性。
+
+[下载Windows 2.0.0安装程序](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.0/LocalBrain_2.0.0_x64-setup.exe) · [Windows最终包验收与限制](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.0.0.md)。SHA-256：`547c745ad1494b89bc7c4d3ee8646b6fcc28f1c469a59be3496361e149b6e668`。更新器签名已验证，未使用Windows Authenticode签名；没有升级CUDA、驱动或第三方模型环境。
+
+## 1.9.9更新：Sushi常驻与精确SSD已实测
+
+Mac 1.9.9补上下载100%后的终态刷新与Sushi启动错误诊断。安装版已真实验证内存预检拒绝，提示需要／可用内存；状态轮询先回收退出进程时，也不会再用“后端已被移除”遮住具体原因。恢复32K后，完整常驻重新加载并完成中文响应。用户原有约79.21 GB权重保留，没有重新下载。
+
+2026年10月20日，M5 Pro／64 GiB，同一份Qwen3.8 Flash Next 2.6位权重、Sushi1.2.4、32K上下文、关闭思考：
+
+| 项目 | 完整常驻 | 32 GiB精确SSD |
+|---|---:|---:|
+| 引擎登记驻留 | 44.20 GiB | 31.21 GiB |
+| 首次材料回答总耗时 | 4.99秒 | 8.10秒 |
+| 重复材料回答总耗时 | 2.68秒 | 2.87秒 |
+| 隔离首次启动至就绪 | 40.39秒 | 8.98秒 |
+
+常驻新材料更快；重复材料命中2595个输入缓存词元后差距很小。最后从原生主页再次常驻启动为17.02秒；未清系统文件缓存，启动数字是单次观测。完整常驻默认加载视觉塔，SSD默认关闭；显式加载视觉塔的SSD补测首次材料8.23秒、重复2.60秒，仅确认加载，未测看图质量。原始请求、回答与逐秒采样均保留，不外推普遍速度与质量。
+
+**两模式手动选择。** 设置→运行环境与诊断，SSD驻留预算0为完整常驻，非零如32为精确SSD；保存并重启模型生效。不会因内存不足自动切换或绕过保护，SSD专家缓存内部的自动调度也不等于模式切换。SSD模式还在原生对话完成了中文短答与本地时间工具往返。
+
+[下载Mac 1.9.9安装包（DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.9/LocalBrain_1.9.9_aarch64.dmg) · [本轮验收、对比条件与限制](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-1.9.9-MAC.md)。DMG SHA-256：`6fbc94eb895220fbf99a8d497b8ec3506074e6964c51dc895374d985ae5d6c27`。Mac本地签名、未Apple公证；Windows保留1.9.8、Linux保留既有包。下方旧版本叙述与截图保留其拍摄、撰写时状态。
 
 ## 把 Mac 变成 私有 AI 盒子
 

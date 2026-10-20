@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-18
-summary: I gathered the local models, transcription, image and video generation, documents and MCP scattered across my Mac into one local workbench that downloads, starts, chats, delivers files and cleans up its own caches. The walkthrough was written at 1.4.8; a version line through the current 1.9.4 is appended at the end, with a full tour and screenshots.
+updated: 2026-10-20
+summary: LocalBrain gathers local models, speech, images, video and tools into one workbench. Updated with Windows 2.0.0 compaction repairs, Mac 1.9.9 startup diagnostics and matched Sushi resident versus exact SSD tests, while retaining historical walkthroughs and screenshots.
 categories:
   - Resources
 tags:
@@ -15,6 +15,26 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows 2.0.0: small-context tasks and compaction repairs
+
+Public releases checked on October 20, 2026: Windows is now 2.0.0; Mac remains 1.9.9. Windows avoids stopping tasks merely because a tiny compaction provides no reduction: it preserves the original and continues when safe response space remains, while actual overflow still stops with records retained. Long built-in tool schemas load on demand. Summaries disable tools and thinking, and serialize historical tool receipts as read-only material rather than continuing their instructions.
+
+The release record covers final-package installation, greeting, countdown file delivery, continuation after automatic compaction, real network calls at 2K/5K output limits and the chat UI. Countdown start, pause and reset passed. This is not the original twelve-task full rerun. Summaries can still infer local state incorrectly; successful network delivery does not establish news freshness or factual accuracy.
+
+[Download Windows 2.0.0 installer](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.0/LocalBrain_2.0.0_x64-setup.exe) · [Final-package verification and limits](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.0.0.md). SHA-256: `547c745ad1494b89bc7c4d3ee8646b6fcc28f1c469a59be3496361e149b6e668`. Updater signature verified; not Windows Authenticode-signed. CUDA, drivers and third-party model environments were not upgraded.
+
+## 1.9.9 update: Sushi residency and exact SSD tested
+
+Mac 1.9.9 repairs completion after downloads reach 100% and explains Sushi startup failures. Installed-app checks exercised real memory preflight rejection with required/available values, including when status polling reaps the process first. Restoring 32K allowed full-resident loading and a Chinese response. Existing approximately 79.21 GB weights were preserved without downloading them again.
+
+On October 20, 2026, M5 Pro/64 GiB, the same Qwen3.8 Flash Next 2.6-bit weights, Sushi 1.2.4, 32K context and thinking off: full residency versus 32 GiB exact SSD registered 44.20/31.21 GiB; first-context response totals were 4.99/8.10 seconds, repeated-context totals 2.68/2.87 seconds. Repeated context reused 2,595 input tokens. Isolated starts were 40.39/8.98 seconds; a later native resident start took 17.02 seconds. System file caches were not cleared, so these are individual observations, not cold-start averages.
+
+Full residency loads vision by default; SSD does not. An additional SSD run explicitly loading vision took 8.23 seconds for first context and 2.60 seconds for repeated context. This verifies loading, not image-understanding quality. These single-machine samples do not establish universal speed or quality. Native SSD chat also completed a Chinese reply and a local-time tool roundtrip.
+
+**Mode selection is manual.** In Settings, runtime and diagnostics, SSD budget 0 means full residency; a nonzero value such as 32 selects exact SSD after saving and restarting the model. Low memory does not trigger an automatic switch or bypass protection. Automatic expert-cache scheduling is separate from switching modes.
+
+[Download Mac 1.9.9 DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.9/LocalBrain_1.9.9_aarch64.dmg) · [Test conditions and limits](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-1.9.9-MAC.md). DMG SHA-256: `6fbc94eb895220fbf99a8d497b8ec3506074e6964c51dc895374d985ae5d6c27`. Local signature, not Apple-notarized. Windows remains 1.9.8; Linux retains existing releases. Older walkthrough text and screenshots below describe their original dates.
 
 ## Turn your Mac into a private AI box
 
