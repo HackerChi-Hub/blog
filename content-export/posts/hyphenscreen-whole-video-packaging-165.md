@@ -160,7 +160,7 @@ tags:
 
 ## 完整带声成片
 
-<video controls preload="metadata" src="/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4"></video>
+![27.4秒完整带声成片](/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4)
 
 [打开完整带声成片](/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4)
 

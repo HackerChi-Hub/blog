@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a4a5cfd6a047d664db539b8bcdf07572c4978112f688c6bfe0c8081a7983d72c",
+  "content_sha256": "0ccdf618b850a5696b04cf8e2ff5a333308d7600a9d2c428fd867cd3f08c6bed",
   "published_post_count": 197,
   "posts": [
     {
@@ -819,7 +819,7 @@
       "slug": "hyphenscreen-whole-video-packaging-165",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "2301f183512fbad9c9d71c3d5029a542d4427c8753676b076fa4ca2f740c8504"
+      "sha256": "86e7e8edfe69e0660b1aeae00472e494e313ef02be78807239b98e73572325f3"
     },
     {
       "file": "posts/jev-system-one-model-en.md",
