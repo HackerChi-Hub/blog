@@ -1,0 +1,214 @@
+---
+title: 黑粉录屏：十套整片包装，让一期视频从开场到结尾风格统一
+slug: hyphenscreen-whole-video-packaging-165
+status: published
+cover: /obsidian-assets/hyphenscreen-whole-video-packaging-165/封面－横版.jpg
+cover_review: user-approved
+weixin_status: draft-created
+date: 2026-10-21
+updated: 2026-10-21
+summary: 十套风格、四种版式，本地生成成套包装。新增紧凑界面实图，附成片与动态范例。
+categories:
+  - 资源分享
+tags:
+  - 黑粉录屏
+  - 视频制作
+  - 整片包装
+---
+
+录屏剪完以后，最容易拖住我的，往往是包装：开头想做得醒目一点，中间要列几个要点，讲到网页又想拉近给观众看，最后还有一个数字需要强调。每一段单独找动画，拼在一起却像临时凑出来的。
+
+所以黑粉录屏这次增加了一个独立入口：**整片包装**。先为这一期选定一套视觉，再用同一套排版、颜色、动效和声音，完成开场、清单、聚焦与数字。十套风格，四十种组合，直接在软件里生成并加入时间线。
+
+## 先看成片：四段包装，来自同一条真实录屏
+
+下面这段27.4秒合辑，是用正式安装版1.6.5重新生成、加入工程后导出的实际结果。开场交代主题，清单拆出三个观察角度，聚焦展示订阅网页，数字版式再强调录屏里的具体信息。看的是包装如何组织讲解，网页上的订阅信息只作为本期录屏素材，不作为本文的价格推荐。
+
+![实际成片｜27.4秒完整画面，动图为静音版](/obsidian-assets/hyphenscreen-whole-video-packaging-165/完整成片－静音动图.gif)
+
+留意它们之间的共同点：纸白底色、粗黑字、信号橙强调块、细网格和扫描式揭示一直在。换了信息的摆法，观众仍能认出这是同一期视频。包装的作用，是把你正在讲的内容托出来。
+
+![实际成片｜三个要点用清单展开](/obsidian-assets/hyphenscreen-whole-video-packaging-165/实际成片-2.jpg)
+
+![实际成片｜讲到网页时，把证据放进聚焦版式](/obsidian-assets/hyphenscreen-whole-video-packaging-165/实际成片-3.jpg)
+
+![实际成片｜把一个关键数字单独突出](/obsidian-assets/hyphenscreen-whole-video-packaging-165/实际成片-4.jpg)
+
+## 十套风格，先看效果再选
+
+我把十套都做成了实际动态范例。下面每张动图截取开场的5.5秒，展示文字怎样出现、强调块怎样进入，以及纸张、线条和几何元素如何配合。它们是软件生成的效果，不是封面概念图。
+
+### 01 · 纸白橙调
+
+纸白橙调：纸白底、墨黑粗字和橙色强调，适合工具实测与信息拆解。这次真实录屏采用的就是这一套。
+
+![生成实录｜纸白橙调](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-01.gif)
+
+### 02 · 贴纸波普
+
+贴纸波普：更鲜明的色块和贴纸感，适合轻松一点的功能介绍、创作过程和栏目开场。
+
+![生成实录｜贴纸波普](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-02.gif)
+
+### 03 · 黑白薄荷
+
+黑白薄荷：深色底配薄荷色强调，想让技术内容更冷静、屏幕对比更清楚时，可以从这套开始。
+
+![生成实录｜黑白薄荷](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-03.gif)
+
+### 04 · 暖雾光影
+
+暖雾光影：颜色和变化更柔和，适合节奏舒缓的介绍，让文字有重点又不过分抢画面。
+
+![生成实录｜暖雾光影](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-04.gif)
+
+### 05 · 便签复盘
+
+便签复盘：用便签和纸面关系组织内容，适合复盘、步骤与清单，也方便把一段口播拆成几个点。
+
+![生成实录｜便签复盘](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-05.gif)
+
+### 06 · 孔版印刷
+
+孔版印刷：颗粒、叠色与印刷质感更明显。需要保留手工感的内容，可以看这套的运动和边缘。
+
+![生成实录｜孔版印刷](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-06.gif)
+
+### 07 · 红色海报
+
+红色海报：复古海报的排版气质更突出，适合有明确章节和标题的内容。
+
+![生成实录｜红色海报](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-07.gif)
+
+### 08 · 复古旭日
+
+复古旭日：放射结构和强烈的视觉中心，适合短时间内建立主题，使用时要给标题留足空间。
+
+![生成实录｜复古旭日](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-08.gif)
+
+### 09 · 彩卡拼贴
+
+彩卡拼贴：彩色卡片形成层次，适合多信息讲解。整期沿用同一套，比每一段另找一种拼贴更容易统一。
+
+![生成实录｜彩卡拼贴](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-09.gif)
+
+### 10 · 几何构成
+
+几何构成：几何形状、比例和配色承担视觉节奏，适合希望画面简洁、有结构的栏目。
+
+![生成实录｜几何构成](/obsidian-assets/hyphenscreen-whole-video-packaging-165/动态-10.gif)
+
+这些用途是我的选择建议，不是题材限制。同一条资讯、产品介绍或学习总结，都可以先看动态范例，再挑适合自己频道的一套。每套还有完整带声范例保存在本次文章素材包里。
+
+## 怎么用：把讲解拆成几段，交给一套设计
+
+先打开一个工程，在AI区域进入“整片包装”。这里的生成使用本地预设程序，**无需配置大模型，也不按模型调用计费**。原来的“制作动画”入口继续负责更自由的动画任务，两种方式按需要选择。
+
+下面三张是这次实际运行的紧凑开发界面，尚未随公开安装包发布。十套名称统一为四字，例如“纸白橙调”“暖雾光影”“红色海报”“几何构成”；样式、配色和声音保留。四段配置在1280×720窗口中可完整显示，聚焦版式的截图与检查项也能同时看到。
+
+![开发版实图｜四段集中选择，主要参数一屏可见](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑浅色.jpg)
+
+这次又把编辑窗口收紧了一轮：右上只保留一组片段列表，每张卡片同时显示缩略图、标题、版式和时间。先点要改的片段，再用“本段版式”切换开场、清单、聚焦或数字，下面只显示本段需要填写的参数。选片段与改版式各管一件事，不用在两组大卡片之间来回找。
+
+![开发版实图｜红色海报，深色模式与数字版式](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑深色.jpg)
+
+每组可以安排1到12段，每段4到30秒，分别填写在时间线上的插入时间。同组片段不能重叠。最省事的做法，是先剪顺口播，再找出需要包装的四五个位置，依次填进去，不用把整条视频都盖满动画。
+
+| 讲到什么 | 选择什么 | 主要作用 |
+| --- | --- | --- |
+| 本期主题、章节开始 | 开场 | 建立主题与识别 |
+| 几个理由、步骤或结论 | 清单 | 让观众跟得上结构 |
+| 网页、界面、证据 | 聚焦 | 把正在解释的画面放大 |
+| 容量、数量、结果 | 数字 | 突出一项关键信息 |
+
+聚焦这一项要特别说清楚：目前是从工程里的视频，按指定的原始素材时间提取一张截图，再把截图放进包装。适合指着界面解释，截图里不会继续播放原视频。需要连续演示操作时，仍然让原录屏承担主体。
+
+![开发版实图｜选中片段后，直接修改聚焦参数](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑聚焦.jpg)
+
+确认后生成，软件会显示处理进度。完成后整组加入工程，画面和主题声音分别进入时间线；已有这一组时，重新生成会替换原组，避免一遍遍叠上同一组声音。整组加入也可以一次撤销。
+
+![1.6.5安装版原轮实测｜四段生成、加入与保存完成](/obsidian-assets/hyphenscreen-whole-video-packaging-165/界面－实际生成成功.png)
+
+## 好用的关键，还在于改完以后能继续剪
+
+此前1.6.5实测没有停在“文件生成了”。正式安装版从保存的配置加载四段，修改副标题，实际点击生成并加入；随后从中段继续播放到片尾，再重新导出。工程读回仍是一个包装组、四段画面和四段主题声音。
+
+导出的成片为1920×1080、每秒30帧，共822帧，完整媒体解码通过。十套默认配色下的四十种版式组合，也都实际生成并完成了解码检查；其他可选配色没有逐一导出，不把这一部分算成全部实测。
+
+声音也保留了使用选择：主题声效默认开启，主题配乐默认关闭，先给原来的口播留位置。这段27.4秒合辑已由本人实际听过，确认声音正常；正式安装版重导出的音轨与听过的版本一致。其他九套完成了客观声音检查，还没有逐套做主观听审。动图没有声音，判断声音请听完整视频。
+
+还有两点使用时要记住。第一，包装画面生成后是可剪辑的视频片段，**不是能够逐个拆开文字和形状的原生动画图层**。想改标题或数字，回到保存的配置里修改，再生成。第二，画面和声音目前分轨，挪位置时一起框选，才能保持同步。
+
+如果你已经手动移动、裁切或锁定过这一组，软件会拒绝直接覆盖，保护已有剪辑。先决定保留手剪，还是重新生成，再继续处理。这比悄悄把你调好的时间线重置掉更可靠。
+
+## 把设计留在模板里，把时间花在讲解上
+
+我更看重这次更新带来的工作方式：录屏继续讲清楚事情，需要主题时放开场，需要分点时放清单，讲证据时放聚焦，遇到关键数据时用数字。整期采用同一套颜色、字形和动作，观众不用跟着不断切换视觉规则。
+
+固定版式让每次生成更可预期；真正决定成片节奏的，仍然是你的文案、信息取舍和插入位置。想让角色自由表演、讲完整故事，可以继续用“制作动画”；想快速给一期录屏建立成套包装，这次的新入口更直接。
+
+十套包装的样式与声音编排参考了阿江视频包装工具的开源内容，在许可证允许范围内做本地转换与接入，相关许可随资源保留。本文展示的是黑粉录屏里的实际生成和剪辑成果，不把参考样式说成全部原创。
+
+本文成片与生成验收来自macOS苹果芯片版1.6.5；紧凑编辑窗口与四字名称来自这次开发版，尚未打包发布。Windows与Linux公开包仍为1.6.4。现有安装包的界面可能与本文新截图不同，下载时请按平台查看发行说明。
+
+## 下载与参考
+
+- [黑粉录屏1.6.5发行说明与苹果芯片安装包](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.5)
+- [黑粉录屏完整功能与使用说明](https://hyphentech.top/hyphenscreen-local-screen-recorder/)
+- [参考样式：阿江视频包装工具](https://ajiang.me/toolbox/ajiang-video-broll/)
+- [参考源码与许可](https://github.com/NanmiCoder/ajiang-vibe-coding-skills)
+
+## 我做的工具
+
+- [黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)：免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+- [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)：本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+- [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)：看美剧顺手把生词背了，Mac/Windows 双平台，免费
+- [黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)：录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+
+## 完整带声成片
+
+<video controls preload="metadata" src="/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4"></video>
+
+[打开完整带声成片](/obsidian-assets/hyphenscreen-whole-video-packaging-165/正式安装版－27秒完整成片.mp4)
+
+
+---
+
+## 🧰 我做的工具
+
+这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
+
+> [!info] 黑粉盒子 HyphenBox
+> **状态：** 正式迭代
+>
+> 免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
+>
+> [下载与更新：黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+
+> [!info] 方寸智匣 LocalBrain
+> **状态：** 正式迭代
+>
+> 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
+>
+> [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影词库
+> **状态：** 正式迭代
+>
+> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉录屏 HyphenScreen
+> **状态：** 正式迭代
+>
+> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+>
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
+
+---
+
+> [!quote] 黑粉科技
+> **让AI成为你的超能力**
+> 本地部署 · 免费白嫖 · 自制软件
+> [黑粉科技](https://hyphentech.top)

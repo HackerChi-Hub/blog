@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f10367c05069c58d2fd84f529f96c5a5724f2c4276bade2c7e793fbe3cd9183b",
-  "published_post_count": 196,
+  "content_sha256": "25dcb3056866101dbc6157742c2e407b96c07270d532d8238c9270da34ffa93a",
+  "published_post_count": 197,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -813,6 +813,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "24f7c1bf5c867443d8e0835c756a7b0c4e9c2bfc6319dac428857e0628d4e224"
+    },
+    {
+      "file": "posts/hyphenscreen-whole-video-packaging-165.md",
+      "slug": "hyphenscreen-whole-video-packaging-165",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "4294f590aa7778b742ccbbf7df8027a4903bc1eca0a99fd1fa6fae94a71b454e"
     },
     {
       "file": "posts/jev-system-one-model-en.md",
