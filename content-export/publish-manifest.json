@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "5dcffe58a85d4c8543bc768ee45c551b6cb12510c87318b3192f42559e155daf",
+  "content_sha256": "db49a3769349d9c2c2185c33d077d0b1ee576abda0519fc27cf62afd4f75ff3e",
   "published_post_count": 196,
   "posts": [
     {
@@ -796,7 +796,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "ae119ec9fadbfef6c7b598e2219ddabb3f3d6b0dc26bf7b95e4f2c2cfd61665b"
+      "sha256": "24d51df7efb9404911ead20b39e4db252373eb40b742ee220f55df1d770f56a9"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -805,14 +805,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "3b0537f2aed4e2d37abb181e4586d6f3afd6a94618d11fc7c71a0505dc5ee4b2"
+      "sha256": "ad269f6845e5c75c900eb72c73b180af021c13de45f7a3f07ad4bcfc5fe21aba"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "0ff4d094fc342dec98f2e1401016fed5002c5fe5124c7ece9c2de4abf108eb2e"
+      "sha256": "24ba259c8123886ce06c07ce14a538d1888fa32dd8af2c25752c64730710abc2"
     },
     {
       "file": "posts/jev-system-one-model-en.md",

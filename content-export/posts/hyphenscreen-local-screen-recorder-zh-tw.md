@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-20
-summary: 黑粉錄屏整合錄製、多軌剪輯與智慧動畫。Mac 1.6.4新增穩重與靈敏運鏡、連續操作縮放及退出焦點保持，舊專案保留原有跟隨。附實際介面、下載與驗證範圍。
+summary: 黑粉錄屏整合錄製、多軌剪輯與智慧動畫。Mac、Windows 與 Linux 1.6.4 新增穩重與靈敏運鏡、連續操作縮放及退出焦點保持，舊專案保留原有跟隨。附實際介面、下載與驗證範圍。
 categories:
   - 資源分享
 tags:
@@ -29,7 +29,7 @@ legacy_paths: []
 
 同一真實錄屏及游標軌跡組成三模式48秒工程，獨立Mac工作室完成模式切換、儲存、連續播放及跳轉；兩次回到19.94秒的預覽像素一致。1920×1080、30幀、1440幀原生匯出與完整解碼通過，並修復預覽初始化畫布路徑。本輪未重測其他系統及全部錄製裝置。
 
-正式Mac安裝版再次讀回三種運鏡設定，48秒匯出完整解碼通過；介面檢查了20秒跳轉後的連續播放與35秒跳轉。安裝包公開上傳後重新下載，校驗值與本機一致，較1.6.3僅增加約14 KB。Windows、Linux本輪建置因GitHub帳戶付款／消費限額在啟動前被拒絕，暫保留1.6.3，不含新運鏡。
+正式Mac安裝版再次讀回三種運鏡設定，48秒匯出完整解碼通過；介面檢查了20秒跳轉後的連續播放與35秒跳轉。安裝包公開上傳後重新下載，校驗值與本機一致，較1.6.3僅增加約14 KB。Windows 與 Linux 現已透過本機和 WSL 本地建置補齊 1.6.4。Windows 包完成三種運鏡模式的合成範例原生匯出及完整解碼專項，Ubuntu deb 安裝校驗通過。對應系統的桌面錄製全流程仍需實機驗證。
 
 ## 此前1.6.3：動畫依用途整理，230個入口更好找
 
@@ -45,7 +45,7 @@ legacy_paths: []
 
 開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
 
-包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.6.4，Windows與Linux保留1.6.3；大小及校驗值依下方發行資料為準。
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前 Mac、Windows 與 Linux 均提供 1.6.4；大小及校驗值依下方發行資料為準。
 
 正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
 
@@ -78,11 +78,11 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
 - Mac 蘋果晶片目前為 **1.6.4**，DMG **262,149,096 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows 10/11 x64 目前為 **1.6.3**，安裝程式 **251,112,617 位元組**，未簽署。
-- Linux x86_64 目前為 **1.6.3**：AppImage **461,609,343 位元組**、deb **364,510,124 位元組**、pacman **332,406,992 位元組**。
+- Windows 10/11 x64 目前為 **1.6.4**，安裝程式 **260,991,566 位元組**，未簽署。
+- Linux x86_64 目前為 **1.6.4**：AppImage **461,620,924 位元組**、deb **364,519,396 位元組**、pacman **332,420,148 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.3/HyphenScreen_1.6.3_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包上傳後已重新下載比對，SHA-256 為：
 
@@ -90,16 +90,16 @@ Mac 安裝包上傳後已重新下載比對，SHA-256 為：
 92eb1893f1f14ebe3b2e6285e6987a33be10a6d85274ba95b465575a458002ff
 ```
 
-Windows 與 Linux 1.6.3 的 SHA-256：
+Windows 與 Linux 1.6.4 的 SHA-256：
 
 | 安裝包 | SHA-256 |
 | --- | --- |
-| Windows 安裝程式 | `67491489d137c1c715b152543a43006f3862f1294cfb462532735a5aa4e3536c` |
-| Linux AppImage | `0121c34dcab43ed944525bacb5ac08c95929caaa2c260c985f0b06dacb9001de` |
-| Ubuntu／Debian deb | `f1f9799bd694b5d82c8ae00444baccd09a93bfecb9160188c3798ed2a3eefb56` |
-| Arch pacman | `c4edaf6094a3c39740e98f373cc4120aa1e1b50b7a845c7f33c3941a80de64c1` |
+| Windows 安裝程式 | `9b1e1af1a364018414afed245e971e5ba596d00dc9bc3d1e5f792a6bd49ca870` |
+| Linux AppImage | `ce2281d83e4997ef6359e0d648b59766c246b7c881bc47844a3e74c007a41ee9` |
+| Ubuntu／Debian deb | `10d7a77234b51b055d738f013f783cf1829278137d9dc2514aad00285f0a6f41` |
+| Arch pacman | `e48cf22db0424cf63edcc275c4acc5a0f91349f442abe5fbd93cb981e80cf61e` |
 
-Windows 已在本機安裝並與打包目錄逐檔比對；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
+Windows 建置包通過原生部件檢查，並完成三種運鏡合成範例的原生匯出及完整解碼；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
 
 ## 原有功能與製作歷程
 
@@ -133,7 +133,7 @@ Windows 已在本機安裝並與打包目錄逐檔比對；Ubuntu 22.04 的 deb 
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 這是 1.0.2 時期的版本記錄。目前Mac為1.6.4，Windows與Linux為1.6.3；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
+> 這是 1.0.2 時期的版本記錄。目前 Mac、Windows 與 Linux 均為 1.6.4；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -280,7 +280,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **平台能力不同**：Mac為1.6.4，Windows與Linux為1.6.3；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
+- **平台能力不同**：Mac、Windows 與 Linux 均為 1.6.4；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷
