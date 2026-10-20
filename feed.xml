@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 19 Oct 2026 18:40:44 GMT</lastBuildDate>
-    <pubDate>Mon, 19 Oct 2026 18:40:44 GMT</pubDate>
+    <lastBuildDate>Tue, 20 Oct 2026 01:31:13 GMT</lastBuildDate>
+    <pubDate>Tue, 20 Oct 2026 01:31:13 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣接入Sushi：同一份Qwen3.8 Flash Next，常驻与SSD模式差多少？</title>
+      <link>https://hyphentech.top/localbrain-sushi-resident-ssd/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-sushi-resident-ssd/</guid>
+      <description>同一份2.6位权重，完整常驻约44.20 GiB、精确SSD约31.21 GiB。对比首次与重复回答、启动耗时和实际内存，并说明手动切换方法与本轮修复。</description>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>本地AI</category>
+    <category>自制软件</category>
+    </item>
     <item>
       <title>腾讯混元 Hy-Memory-30B-A3B-GGUF 上架：本地记忆写入模型怎么跑</title>
       <link>https://hyphentech.top/2026-10-19-official-40b84d6dd7e4/</link>
@@ -211,16 +221,6 @@
     <category>模型评测</category>
     <category>多模态</category>
     <category>LocalBrain</category>
-    </item>
-    <item>
-      <title>让代码画出能动的艺术风格</title>
-      <link>https://hyphentech.top/2026-10-07-skill-a28a79f12713/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-07-skill-a28a79f12713/</guid>
-      <description>用代码控制镜头、动作与画风，角色需有授权；运行效果仍待实测。</description>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>

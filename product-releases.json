@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-19T18:40:15.027Z",
-  "contentHash": "c1b96f1fdfd473e61062a1dc8169c08b1c99e56b75d328d779e0a866f123b30e",
+  "checkedAt": "2026-10-20T01:30:43.031Z",
+  "contentHash": "6bdb13c72cae5e616987d7572d8e2b35fe319ec2c14f7da2333b1b6f8570fba5",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,42 +17,42 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "Mac 新增可选 Sushi 1.2.4 独立运行环境，在设置显式安装及校验，后续随软件受控升级；启动模型不更新引擎，不依赖 Homebrew，不修改系统代理、系统 Python 或 GPU 内存上限。发现页提供 Qwen3.8 Flash Next 2.6位专用包，也可挂载完整已有包。默认32K上下文和完整常驻，精确SSD预算由用户…",
+      "updateSummary": "Windows 2.0.0 已完成本机安装与最终包验收。 最终包真实测试通过：问候、倒计时保存一次后结束、长回执自动压缩后续答、2K/5K输出上限下实际联网并核对链接来源、正式聊天界面。倒计时浏览器开始、暂停、重置通过，脚本错误为0。",
       "updated": "2026-10-19",
-      "activityAt": "2026-10-19T15:24:03Z",
-      "version": "1.9.8",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.8",
+      "activityAt": "2026-10-19T23:54:40Z",
+      "version": "2.0.0",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.0",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.9.8",
+          "version": "1.9.9",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.8",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.9",
           "assets": [
             {
-              "name": "LocalBrain_1.9.8_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.8/LocalBrain_1.9.8_aarch64.dmg",
-              "id": 656633274,
-              "size": 72679280,
-              "updatedAt": "2026-10-19T15:18:37Z",
-              "digest": "sha256:c6a82c9a3c5beef5f0ab8501b3f3d19cbd9106fb532d88488d3f88230906c855"
+              "name": "LocalBrain_1.9.9_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.9/LocalBrain_1.9.9_aarch64.dmg",
+              "id": 657703771,
+              "size": 72680800,
+              "updatedAt": "2026-10-19T23:20:54Z",
+              "digest": "sha256:6fbc94eb895220fbf99a8d497b8ec3506074e6964c51dc895374d985ae5d6c27"
             }
           ]
         },
         {
           "platform": "Windows",
-          "version": "1.9.8",
+          "version": "2.0.0",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.8",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.0",
           "assets": [
             {
-              "name": "LocalBrain_1.9.8_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.8/LocalBrain_1.9.8_x64-setup.exe",
-              "id": 656568691,
-              "size": 39288605,
-              "updatedAt": "2026-10-19T14:52:08Z",
-              "digest": "sha256:af933c87a14c303be70dd6b107a411083ad704e2c452695493e6ee072b475eb0"
+              "name": "LocalBrain_2.0.0_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.0/LocalBrain_2.0.0_x64-setup.exe",
+              "id": 657761114,
+              "size": 39307350,
+              "updatedAt": "2026-10-19T23:53:20Z",
+              "digest": "sha256:547c745ad1494b89bc7c4d3ee8646b6fcc28f1c469a59be3496361e149b6e668"
             }
           ]
         },
@@ -73,10 +73,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-19T18:40:15.027Z",
+      "checkedAt": "2026-10-20T01:30:43.031Z",
       "prerelease": false,
-      "releaseNotesHash": "2682c70aed47390c46df84ffbe2fa704b17f2c409c222cc5f7a16726f72539ec",
-      "revision": "ee2da29a0b05d7a9b0c1ca60d018959ccae0c74c5dd3d1e38e74b911a81191bc"
+      "releaseNotesHash": "0232ef40cf1a24d9d207366b3451dcd042bd6e1a3bfc806cce75a4375d89c8c6",
+      "revision": "1197a68f877f751734b05c613ef9c531e079a799f77095c5dc43c26eafe65f3b"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-19T18:40:15.027Z",
+      "checkedAt": "2026-10-20T01:30:43.031Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-19T18:40:15.027Z",
+      "checkedAt": "2026-10-20T01:30:43.031Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -354,7 +354,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-19T18:40:15.027Z",
+      "checkedAt": "2026-10-20T01:30:43.031Z",
       "prerelease": false,
       "releaseNotesHash": "5fa7323723b9abb200891e9b6799902ca8388462b327a43f8489e143c2476ab1",
       "revision": "42f3be20f3f2b8b6216a1049ae94433c1ef15d6b5604aa7a65e6bc7eab86d3f8"
