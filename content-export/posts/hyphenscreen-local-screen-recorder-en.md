@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.6.4"
+title: "HyphenScreen: recording, editing and AI animation — version 1.6.5"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-20
-summary: HyphenScreen combines recording, multitrack editing and native animation. Version 1.6.4 for Mac, Windows and Linux adds steady and responsive camera styles, operation-aware zooms and held exit focus, while existing projects retain legacy follow. Includes actual UI, downloads and verification scope.
+summary: HyphenScreen brings recording, multitrack editing and animation into one timeline. Mac 1.6.5 adds ten coordinated video packages with forty layouts, generated locally without a model. Windows and Linux remain on 1.6.4. Includes actual UI, downloads and verification scope.
 categories:
   - Resources
 tags:
@@ -17,7 +17,21 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
-## This update: keep the composition steady during small pointer movements
+## This update: one coordinated design for a whole episode
+
+An opener, list and chart can each look good yet feel unrelated in one video. Version 1.6.5 adds coordinated video packages: choose a design, then fill several segments with this episode’s content while sharing typography, colors, motion and sound.
+
+![Whole-video packaging editor](/obsidian-assets/hyphenscreen-local-screen-recorder/packaging-165.png)
+
+Open a project and select Whole-video packaging in the AI panel. Ten packages each provide opener, list, focus and metric layouts, with real thumbnails and animated examples. One editor displays the fields needed for the current layout. Light and dark themes are readable; generation actions and progress stay in a fixed footer.
+
+Each group supports 1–12 segments of 4–30 seconds. Enter content and timing, and select a frame from a project video for focus layouts. Generate locally and add the group together without a model call or uploading the recording. Effects default on, music defaults off, and existing narration remains. Saved configurations can regenerate and replace their original group; manually moved, trimmed or locked groups are protected.
+
+A real four-segment, 27.4-second recording passed generation, insertion, replacement, seeking, continuous playback, saving and reopening in HyphenScreen, then exported at 1920×1080 and 30 fps. All ten default palettes and forty layouts were rendered and fully decoded. Objective audio checks found no clipped samples or overlap among the four theme tracks. The author listened to the real-recording edit and confirmed normal sound. Other palettes were not individually rendered; the other nine examples do not have separate subjective listening approval.
+
+Generated clips can be edited on the timeline, but their internal layers are not individually editable. Change saved settings and regenerate to edit content. Picture and theme audio remain separate tracks, so select both when moving. This feature was tested on Apple-silicon Mac; other platforms retain their actually available versions.
+
+## Earlier in 1.6.4: steadier camera movement
 
 Version 1.6.4 adds steady and responsive camera styles to zoom regions. Select a region, then choose its focus mode in the Zoom inspector. The steady style suits document explanations; the responsive style reacts faster to movements between controls.
 
@@ -43,7 +57,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac, Windows and Linux now offer 1.6.4. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.5; Windows and Linux remain on 1.6.4. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -75,17 +89,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.6.4**, DMG **262,149,096 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.6.5**, DMG **416,175,276 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.6.4**, installer **260,991,566 bytes**, unsigned.
 - Linux x86_64: **1.6.4** in AppImage (**461,620,924 bytes**), deb (**364,519,396 bytes**) and pacman (**332,420,148 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.5/HyphenScreen_1.6.5_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.4/HyphenScreen_1.6.4_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
 ```text
-92eb1893f1f14ebe3b2e6285e6987a33be10a6d85274ba95b465575a458002ff
+08d9e24702d6df4595020e6ae1c1c8b6b5cab6598febc1a48878d540afd00444
 ```
 
 SHA-256 checksums for Windows and Linux 1.6.4:
@@ -131,7 +145,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.6.4. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac now offers 1.6.5; Windows and Linux remain on 1.6.4. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -278,7 +292,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac, Windows and Linux offer 1.6.4. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.6.5; Windows and Linux remain on 1.6.4. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
