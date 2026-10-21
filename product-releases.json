@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-21T08:41:06.577Z",
-  "contentHash": "7268d6403b8873984892ab9e33a16e46de05922ddebd2f744ab07c6e0b1a6b65",
+  "checkedAt": "2026-10-21T12:02:06.419Z",
+  "contentHash": "0098f77f2ac6dd388ae189fe212cefc6ba351d3c39c1b5ca7088e35beee628df",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -19,7 +19,7 @@
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "updateSummary": "网络安全工作台补齐授权渗透完整线：逐目标显式授权（单地址、最多8个端口、1–60分钟有效期、内网单独确认），隔离沙箱内提供 nmap 服务识别、sqlmap 注入探测（限只读技术、硬编码排除危险参数）、TLS 配置审计、目录发现与自写 PoC（逐次原生确认、每次全新容器、出口锁死授权端口、破坏性类别一律拒绝）。",
       "updated": "2026-10-21",
-      "activityAt": "2026-10-21T06:19:28Z",
+      "activityAt": "2026-10-21T11:57:20Z",
       "version": "2.0.7",
       "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
       "source": "release",
@@ -42,41 +42,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.0.1",
+          "version": "2.0.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.1",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
           "assets": [
             {
-              "name": "LocalBrain_2.0.1_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.1/LocalBrain_2.0.1_x64-setup.exe",
-              "id": 657991874,
-              "size": 39302750,
-              "updatedAt": "2026-10-20T01:59:11Z",
-              "digest": "sha256:e854ac19dd5f9c861f998b2fab313f34a8069a9f562de78d7f37e7f867c74123"
+              "name": "LocalBrain_2.0.7_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.7/LocalBrain_2.0.7_x64-setup.exe",
+              "id": 662349131,
+              "size": 39386900,
+              "updatedAt": "2026-10-21T11:54:54Z",
+              "digest": "sha256:1acef63f83793b5b28ba0b31cfced1a7f32cb132a75c0f3fcb8dc1c5eb2ec670"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.9.5",
+          "version": "2.0.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.9.5",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
           "assets": [
             {
-              "name": "LocalBrain_1.9.5_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v1.9.5/LocalBrain_1.9.5_amd64.deb",
-              "id": 654641943,
-              "size": 79394164,
-              "updatedAt": "2026-10-18T22:34:00Z",
-              "digest": "sha256:882c7800ba8455379bcb1911bc3456dfca8a22612e4e3193cc046f3f50ac9e33"
+              "name": "LocalBrain_2.0.7_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.7/LocalBrain_2.0.7_amd64.AppImage",
+              "id": 662349101,
+              "size": 157604344,
+              "updatedAt": "2026-10-21T11:55:31Z",
+              "digest": "sha256:0f15d45d54990f853a430db65cdfefd23349e14e28c9dd86c9c50cba1889afb9"
+            },
+            {
+              "name": "LocalBrain_2.0.7_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.7/LocalBrain_2.0.7_amd64.deb",
+              "id": 662349097,
+              "size": 79220572,
+              "updatedAt": "2026-10-21T11:55:17Z",
+              "digest": "sha256:2288a85a22d15b7b4922dc169d184aaa0f09686f5f6d687e958102d586741cf2"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-21T08:41:06.577Z",
+      "checkedAt": "2026-10-21T12:02:06.419Z",
       "prerelease": false,
-      "releaseNotesHash": "f13aad9348d3d31f9ccb91b07ddd1ad387225c61e3c4406787c3195b66b39465",
-      "revision": "ee85cf6884552e1b4ba71bb1ca01e2d9e4d7c860f9e712ce3acb74b95d69ee36"
+      "releaseNotesHash": "9ce2cedca9e6e71ecc794256bb802880c74f22e5dd007923c3817f94ebd66008",
+      "revision": "9313cf67565d839f7131a1ef4915f7a8751d53d6f4c9f364bcf31aed22416e41"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -172,7 +180,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T08:41:06.577Z",
+      "checkedAt": "2026-10-21T12:02:06.419Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +279,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T08:41:06.577Z",
+      "checkedAt": "2026-10-21T12:02:06.419Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -290,26 +298,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "Windows与Linux包含十套整片包装、四十种布局。本版将整片包装的H.264编码改为随包提供的OpenH264，修复原路径调用未附带的libx264而无法生成的问题，无需用户额外安装编码器。Mac继续提供已发行1.6.5，原VideoToolbox路径不变。",
-      "updated": "2026-10-20",
-      "activityAt": "2026-10-20T23:45:30Z",
-      "version": "1.6.6",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.6",
+      "updateSummary": "本版先更新Apple芯片Mac；Windows与Linux继续提供1.6.6，包含各自的OpenH264编码修复，但不包含本轮紧凑界面。",
+      "updated": "2026-10-21",
+      "activityAt": "2026-10-21T11:57:30Z",
+      "version": "1.6.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.6.5",
+          "version": "1.6.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.5",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.7",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.5_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.5/HyphenScreen_1.6.5_arm64.dmg",
-              "id": 659697713,
-              "size": 416175276,
-              "updatedAt": "2026-10-20T15:30:31Z",
-              "digest": "sha256:08d9e24702d6df4595020e6ae1c1c8b6b5cab6598febc1a48878d540afd00444"
+              "name": "HyphenScreen_1.6.7_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.7/HyphenScreen_1.6.7_arm64.dmg",
+              "id": 662352586,
+              "size": 416145536,
+              "updatedAt": "2026-10-21T11:57:27Z",
+              "digest": "sha256:e062c91893532f45272f8e85adfabe5050ea1337b21f1ea9208dedbdf26e998e"
             }
           ]
         },
@@ -354,10 +362,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T08:41:06.577Z",
+      "checkedAt": "2026-10-21T12:02:06.419Z",
       "prerelease": false,
-      "releaseNotesHash": "5927b23f12a8735896d63ce05cfab5a1726bb1d2f36a7a8d2e341f8fe713ecaf",
-      "revision": "1a71111fab8c5972be95ff7fcc5566003e5960ee184cbbc3d8e65df15c865c37"
+      "releaseNotesHash": "67e012d87a7b71ee94174b76b912654da725d4ff242472d108f96647e04d5afa",
+      "revision": "32a9092cf5c670157b6440fb290c595605324b0b9ed7ba9afb9427d481d33320"
     }
   ]
 }
