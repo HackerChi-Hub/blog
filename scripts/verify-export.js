@@ -80,7 +80,10 @@ function chromeText(html) {
     // 先剔 <pre> 再剔行内 <code>（代码块是 <pre><code>）。界面本身不用这两个标签，
     // 所以真正的界面漏翻照样抓得到。
     .replace(/<pre\b[\s\S]*?<\/pre>/gi, ' ')
-    .replace(/<code\b[\s\S]*?<\/code>/gi, ' ');
+    .replace(/<code\b[\s\S]*?<\/code>/gi, ' ')
+    // 产品发行摘要是有意保留的简体原文引用（渲染时带 lang="zh-CN" 标记）：
+    // 它逐字来自 GitHub 发行说明，繁体页展示原文不是界面漏翻。
+    .replace(/<p[^>]*\blang="zh-CN"[\s\S]*?<\/p>/gi, ' ');
 }
 
 const args = parseArgs(process.argv.slice(2));
