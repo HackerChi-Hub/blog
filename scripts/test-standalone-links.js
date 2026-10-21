@@ -17,6 +17,14 @@ assert.equal(repos.length, new Set(repos).size, '模型仓库不得重复');
 const guide = fs.readFileSync(path.join(root, 'public/llm-guide/index.html'), 'utf8');
 assert(guide.includes('curl -fsSL https://ollama.com/install.sh | sh'), '安装命令不可被链接改写');
 assert(guide.includes('href="https://ollama.com/install.sh"'));
+for (const file of ['llm-guide/index.html', 'ai-hardware-survey/index.html', 'mlx-model-test.html', 'agent-comparison.html', 'shortcuts/index.html', 'wifi/index.html']) {
+  const html = fs.readFileSync(path.join(root, 'public', file), 'utf8');
+  // 用 .fade-in 做滚动显现的页面，必须同时有负责点亮它的脚本；否则正文会停在 opacity:0
+  if (/\.fade-in\s*\{/.test(html)) {
+    assert(html.includes('IntersectionObserver'), `${file} 用了 .fade-in 滚动显现，但缺少负责点亮的脚本`);
+    assert(html.includes('<noscript>'), `${file} 缺无脚本兜底，脚本失败时正文会不可见`);
+  }
+}
 const css = fs.readFileSync(path.join(root, 'public/shared/resource-links.css'), 'utf8');
 assert(css.includes('text-decoration-line: underline'));
 assert(css.includes(':focus-visible'));

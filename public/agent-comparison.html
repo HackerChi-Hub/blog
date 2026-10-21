@@ -432,6 +432,7 @@ figcaption { color: var(--text-muted); font-size: .84rem; margin-top: .7rem; lin
 .section a { color: var(--accent-cyan); }
 .chart-card h4 { margin-bottom: 1rem; }
 </style>
+<noscript><style>.fade-in{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 <div class="container">
@@ -1041,6 +1042,14 @@ session-projection / tools）
 
 </div>
 
+
+<script>
+// ── Fade-in on scroll ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 <div data-standalone-share></div>
 <script src="/shared/standalone-share.js" defer></script>
