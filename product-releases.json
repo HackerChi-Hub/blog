@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-21T01:41:39.781Z",
-  "contentHash": "16c46f65739c653316bf65622a0f23ef8ad022b4f27f5c0f7d9b1140d0b30cf3",
+  "checkedAt": "2026-10-21T08:41:06.577Z",
+  "contentHash": "7268d6403b8873984892ab9e33a16e46de05922ddebd2f744ab07c6e0b1a6b65",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,26 +17,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "聊天参数新增按模型和本次思考模式联动的采样推荐，保留手动调整，支持恢复自动。底栏显示精确温度和来源，0.65不再显示成0.7。 生产参数组件交互已验证；Mac锁定阻止安装版参数面板的原生点选，该项待补核。GitHub账户付款／支出额度限制使远端说明检查作业未启动，本地同项检查通过，不冒充远端通过。",
-      "updated": "2026-10-20",
-      "activityAt": "2026-10-20T03:39:59Z",
-      "version": "2.0.2",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.2",
+      "updateSummary": "网络安全工作台补齐授权渗透完整线：逐目标显式授权（单地址、最多8个端口、1–60分钟有效期、内网单独确认），隔离沙箱内提供 nmap 服务识别、sqlmap 注入探测（限只读技术、硬编码排除危险参数）、TLS 配置审计、目录发现与自写 PoC（逐次原生确认、每次全新容器、出口锁死授权端口、破坏性类别一律拒绝）。",
+      "updated": "2026-10-21",
+      "activityAt": "2026-10-21T06:19:28Z",
+      "version": "2.0.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.0.2",
+          "version": "2.0.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.2",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
           "assets": [
             {
-              "name": "LocalBrain_2.0.2_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.2/LocalBrain_2.0.2_aarch64.dmg",
-              "id": 658169734,
-              "size": 72793657,
-              "updatedAt": "2026-10-20T03:39:31Z",
-              "digest": "sha256:60089a54af5a3dbbd5b4e7850214977b33a31e58d10fb225c4329ddbb5c91c66"
+              "name": "LocalBrain_2.0.7_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.7/LocalBrain_2.0.7_aarch64.dmg",
+              "id": 661556714,
+              "size": 72498379,
+              "updatedAt": "2026-10-21T06:19:25Z",
+              "digest": "sha256:1d2914d82a9ba251cdff69f77dd86f7d412a6826d12019e08374a049b1706aa8"
             }
           ]
         },
@@ -73,10 +73,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T01:41:39.781Z",
+      "checkedAt": "2026-10-21T08:41:06.577Z",
       "prerelease": false,
-      "releaseNotesHash": "dbf711388dbfe2466a1eae7dfb9402d51b7c8b796853ce57a0b073b137fdbad7",
-      "revision": "0f7041c6fc9f8c455aebfd3af0ca872dd941fd478303657bb3c02e77410af817"
+      "releaseNotesHash": "f13aad9348d3d31f9ccb91b07ddd1ad387225c61e3c4406787c3195b66b39465",
+      "revision": "ee85cf6884552e1b4ba71bb1ca01e2d9e4d7c860f9e712ce3acb74b95d69ee36"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T01:41:39.781Z",
+      "checkedAt": "2026-10-21T08:41:06.577Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T01:41:39.781Z",
+      "checkedAt": "2026-10-21T08:41:06.577Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -354,7 +354,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-21T01:41:39.781Z",
+      "checkedAt": "2026-10-21T08:41:06.577Z",
       "prerelease": false,
       "releaseNotesHash": "5927b23f12a8735896d63ce05cfab5a1726bb1d2f36a7a8d2e341f8fe713ecaf",
       "revision": "1a71111fab8c5972be95ff7fcc5566003e5960ee184cbbc3d8e65df15c865c37"

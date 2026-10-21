@@ -5,11 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Oct 2026 01:41:58 GMT</lastBuildDate>
-    <pubDate>Wed, 21 Oct 2026 01:41:58 GMT</pubDate>
+    <lastBuildDate>Wed, 21 Oct 2026 08:41:37 GMT</lastBuildDate>
+    <pubDate>Wed, 21 Oct 2026 08:41:37 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣 2.0.7 能自己做安全测试了？本地大模型10分2秒挖出越权漏洞</title>
+      <link>https://hyphentech.top/localbrain-security-architecture/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-security-architecture/</guid>
+      <description>权限在程序、调查在模型：本地大模型 10 分 2 秒独立完成授权安全检查，25 轮 32 次工具调用挖出真实越权漏洞，修复后复测闭环。怎么实现的、模型是什么角色、破坏力边界在哪，一篇讲清。</description>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>黑粉录屏：十套整片包装，让一期视频从开场到结尾风格统一</title>
       <link>https://hyphentech.top/hyphenscreen-whole-video-packaging-165/</link>
@@ -208,16 +217,6 @@
     <category>黑粉录屏</category>
     <category>AI动画</category>
     <category>本地模型</category>
-    </item>
-    <item>
-      <title>career-ops 能把求职流程交给 AI 到哪一步？</title>
-      <link>https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-08-skill-bd9fe092bca4/</guid>
-      <description>career-ops把职位筛选、简历改写和申请跟踪交给AI，但最终提交仍由求职者决定。</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
