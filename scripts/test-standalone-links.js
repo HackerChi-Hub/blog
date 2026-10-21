@@ -11,8 +11,9 @@ const repos = [...models.matchAll(/hf download ([\w.-]+\/[\w.-]+)/g)].map(match 
 assert.equal(repos.length, 4);
 for (const repo of repos) assert(models.includes(`href="https://huggingface.co/${repo}"`), `${repo} 缺少可点击的模型仓库入口`);
 assert.equal((models.match(/class='download-cmd'/g) || []).length, 4, '下载命令仍然完整保留');
-assert.equal((models.match(/匿名访问返回 401/g) || []).length, 4, '两条仓库的可见文字和提示均说明匿名访问状态');
-assert.equal((models.match(/公开下载未确认/g) || []).length, 2, '不把未确认公开访问的仓库当成已验证下载');
+assert.equal((models.match(/匿名下载复核/g) || []).length, 8, '四个仓库的可见文字和链接提示均记录了当次匿名下载复核状态');
+assert.equal((models.match(/HTTP 206/g) || []).length, 4, '四个仓库均记录了当次匿名拉取的实际结果');
+assert.equal(repos.length, new Set(repos).size, '模型仓库不得重复');
 const guide = fs.readFileSync(path.join(root, 'public/llm-guide/index.html'), 'utf8');
 assert(guide.includes('curl -fsSL https://ollama.com/install.sh | sh'), '安装命令不可被链接改写');
 assert(guide.includes('href="https://ollama.com/install.sh"'));
