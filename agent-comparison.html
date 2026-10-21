@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent 三国杀 — Claude Code vs OpenClaw vs Hermes Agent</title>
-<meta name="description" content="深度对比 Claude Code、OpenClaw、Hermes Agent 三大 AI Agent 的架构、记忆系统、Skill 系统及 Token 消耗">
+<title>AI Agent 实战对照 — 架构、记忆、Skill、Token 与本机跑出来的真实成绩</title>
+<meta name="description" content="Claude Code、OpenClaw、Hermes Agent、DeepSeek Harness 与方寸智匣五家的架构、记忆与 Skill 逐条复核，附本机真实任务成绩：10 分 2 秒挖出越权漏洞、22 分 9 秒交付论文、上下文压缩四种路径耗时。所有结论标注来源，验不了的写未核实。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 :root {
   --bg-primary: #03040a;
@@ -411,653 +410,637 @@ th:nth-child(4) { color: var(--accent-violet); }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── 2026-10 重写新增 ── */
+.hero-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto 24px; }
+.hero-note { color: var(--text-muted); font-size: .84rem; margin-top: 20px; }
+.bar-row { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+.bar-label { width: 132px; font-size: .82rem; color: var(--text-secondary); flex-shrink: 0; }
+.bar-track { flex: 1; background: rgba(255,255,255,.06); border-radius: 6px; height: 26px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 6px; min-width: 3px; }
+.bar-val { width: 74px; font-size: .82rem; font-weight: 700; color: var(--text-primary); text-align: right; flex-shrink: 0; }
+.chart-note { color: var(--text-muted); font-size: .78rem; line-height: 1.7; margin-top: .9rem; }
+.tag-red { background: rgba(255,83,112,.16); color: var(--accent-red); border-color: rgba(255,83,112,.4); }
+.tag-orange { background: rgba(255,179,71,.16); color: var(--accent-orange); border-color: rgba(255,179,71,.4); }
+.tag-green { background: rgba(105,240,174,.14); color: var(--accent-green); border-color: rgba(105,240,174,.4); }
+.tag-cyan { background: rgba(0,229,255,.14); color: var(--accent-cyan); border-color: rgba(0,229,255,.4); }
+.tag-violet { background: rgba(179,136,255,.16); color: var(--accent-violet); border-color: rgba(179,136,255,.4); }
+table .tag { white-space: nowrap; }
+figure { margin: 1.6rem 0 2rem; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
+figcaption { color: var(--text-muted); font-size: .84rem; margin-top: .7rem; line-height: 1.7; }
+.section a { color: var(--accent-cyan); }
+.chart-card h4 { margin-bottom: 1rem; }
 </style>
 <link rel="stylesheet" href="/shared/resource-links.css"></head>
 <body>
+<div class="container">
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
-<header class="hero">
-  <h1>AI Agent 三国杀</h1>
-  <p>深度拆解 Claude Code、OpenClaw、Hermes Agent 三大系统的架构原理——聚焦记忆系统、Skill 生态与 Token 消耗效率</p>
+<div class="hero">
+  <h1>AI Agent 实战对照</h1>
+  <p class="hero-sub">Claude Code · OpenClaw · Hermes Agent · DeepSeek Harness · 方寸智匣 —— 架构、记忆、Skill、Token，以及本机跑出来的真实成绩</p>
   <div class="hero-badges">
-    <span class="hero-badge claude"><span class="icon">⚡</span> Claude Code</span>
-    <span class="hero-badge openclaw"><span class="icon">🦞</span> OpenClaw</span>
-    <span class="hero-badge hermes"><span class="icon">🧠</span> Hermes Agent</span>
+    <span class="hero-badge claude"><span class="icon">⚡</span>Claude Code 2.1.144</span>
+    <span class="hero-badge openclaw"><span class="icon">🦞</span>OpenClaw 2026.8.1 源码</span>
+    <span class="hero-badge hermes"><span class="icon">🧠</span>Hermes Agent 0.14.0 源码</span>
+    <span class="hero-badge hermes"><span class="icon">🛠️</span>DeepSeek Harness 0.2.1-rc.2</span>
+    <span class="hero-badge claude"><span class="icon">📦</span>方寸智匣 2.0.9</span>
   </div>
-</header>
+  <p class="hero-note">复核日期 2026-10-21 · 全部结论标注来源 · 验不了的一律写「未核实」</p>
+</div>
 
-<main class="container">
-
-<!-- ═══════════════════ TOC ═══════════════════ -->
-<nav class="toc fade-in">
+<nav class="toc">
   <h2>目录导航</h2>
   <div class="toc-grid">
-    <a href="#overview"><span class="num">01</span> 产品定位与架构</a>
-    <a href="#memory-arch"><span class="num">02</span> 记忆系统架构</a>
-    <a href="#memory-detail"><span class="num">03</span> 记忆系统详解</a>
-    <a href="#skill-arch"><span class="num">04</span> Skill 系统架构</a>
-    <a href="#skill-detail"><span class="num">05</span> Skill 系统详解</a>
-    <a href="#token"><span class="num">06</span> Token 消耗分析</a>
-    <a href="#agent-loop"><span class="num">07</span> Agent 执行循环</a>
-    <a href="#selection"><span class="num">08</span> 选型指南</a>
+    <a href="#why"><span class="num">01</span>为什么重做这一页</a>
+    <a href="#landscape"><span class="num">02</span>五家速览</a>
+    <a href="#memory"><span class="num">03</span>记忆系统</a>
+    <a href="#skill"><span class="num">04</span>Skill 系统</a>
+    <a href="#token"><span class="num">05</span>Token 与成本</a>
+    <a href="#tasks"><span class="num">06</span>真实任务成绩</a>
+    <a href="#loop"><span class="num">07</span>执行循环</a>
+    <a href="#choose"><span class="num">08</span>选型建议</a>
+    <a href="#gaps"><span class="num">09</span>未核实项</a>
   </div>
 </nav>
 
-<!-- ═══════════════════ 01 OVERVIEW ═══════════════════ -->
-<section id="overview" class="section fade-in">
-  <h2 class="section-title"><span class="icon">🏛️</span> 产品定位与架构 <span class="num">01</span></h2>
-  <p class="section-desc">三者定位截然不同：Claude Code 是 Anthropic 官方编码工具，OpenClaw 是多平台消息网关先驱，Hermes Agent 是后来者的自学习闭环。</p>
+<!-- ═══════════════════ 01 ═══════════════════ -->
+<section id="why" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🔍</span> 为什么重做这一页 <span class="num">01</span></h2>
+  <p class="section-desc">这一页 2026-04 写的，2026-08 改过一次版式，内容一直没动。现在我把这五家的源码和官方文档都翻了一遍——<strong>旧页里有一半的结论已经站不住了</strong>，而且大多是"三家纸面对比"里最容易出错的那类：架构层级、Skill 数量、注入体积。</p>
 
   <div class="table-wrap">
     <table>
       <thead>
-        <tr>
-          <th>维度</th>
-          <th>⚡ Claude Code</th>
-          <th>🦞 OpenClaw</th>
-          <th>🧠 Hermes Agent</th>
-        </tr>
+        <tr><th>旧页的结论（2026-04）</th><th>2026-10-21 复核结果</th><th>依据</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>开发者</strong></td><td>Anthropic（官方）</td><td>Peter Steinberger（社区）</td><td>Nous Research</td></tr>
-        <tr><td><strong>本质</strong></td><td>终端/IDE 编码 Agent</td><td>多平台消息网关 + Agent</td><td>多平台网关 + 自学习 Agent</td></tr>
-        <tr><td><strong>技术栈</strong></td><td>TypeScript CLI</td><td>Node.js + Rust (Pi)</td><td>Python CLI + Gateway</td></tr>
-        <tr><td><strong>开源</strong></td><td><span class="tag tag-red">闭源</span></td><td><span class="tag tag-green">MIT 开源</span></td><td><span class="tag tag-green">MIT 开源</span></td></tr>
-        <tr><td><strong>模型绑定</strong></td><td>仅 Anthropic Claude</td><td>任意（Claude/GPT/DeepSeek/GLM/Ollama）</td><td>任意（200+ via OpenRouter）</td></tr>
-        <tr><td><strong>交互方式</strong></td><td>终端 / IDE / Web</td><td>20+ 聊天平台</td><td>6+ 平台 + CLI</td></tr>
-        <tr><td><strong>设计哲学</strong></td><td>「最强编码刀」</td><td>「最广连接网」</td><td>「唯一会自己长大的 Agent」</td></tr>
-        <tr><td><strong>GitHub Stars</strong></td><td>N/A（闭源）</td><td>310K+</td><td>~30K（2 个月）</td></tr>
+        <tr><td>OpenClaw 记忆是<strong>四层</strong>金字塔</td><td class="tag tag-red">不成立</td><td>官方文档写的是<strong>五层</strong>：Instructions / Curated core / Episodic / Prospective / Review</td></tr>
+        <tr><td>OpenClaw <strong>无自动压缩</strong>、记忆持续膨胀</td><td class="tag tag-red">不成立</td><td>有 <strong>Dreaming</strong> 后台整合（light→REM→deep，默认开启），还有内置 auto-compaction 与 <code>/compact</code></td></tr>
+        <tr><td>OpenClaw <strong>用户建模：无</strong></td><td class="tag tag-red">不成立</td><td>有 Honcho 插件：用户画像 + Agent 画像 + 跨会话语义检索</td></tr>
+        <tr><td>OpenClaw <strong>只有向量索引</strong></td><td class="tag tag-red">不成立</td><td>内置引擎是 <strong>FTS5 关键词 + 向量 + 混合检索</strong>，BM25 排序、MMR 去重、CJK trigram 分词</td></tr>
+        <tr><td>OpenClaw Skill 优先级：Built-in > ClawHub > User</td><td class="tag tag-red">顺序反了</td><td>官方 6 级：<strong>Workspace 最高</strong>，Bundled/Custodian 是第 5 级</td></tr>
+        <tr><td>OpenClaw Skill <strong>始终注入</strong>正文</td><td class="tag tag-orange">不准确</td><td>注入的是<strong>紧凑 XML 索引</strong>（只含名称/描述/位置），正文按需加载</td></tr>
+        <tr><td>Hermes 内置 Skill <strong>60</strong> 个</td><td class="tag tag-orange">偏低</td><td>源码里 <strong>89</strong> 个内置 + <strong>81</strong> 个可选，合计 170</td></tr>
+        <tr><td>Hermes 平台 <strong>7</strong> 个</td><td class="tag tag-red">严重偏低</td><td><strong>23</strong> 个（gateway 18 + plugins 5）</td></tr>
+        <tr><td>Hermes 会话库 <code>sessions.db</code></td><td class="tag tag-orange">路径错</td><td>实际是 <code>~/.hermes/state.db</code>，记忆在 <code>~/.hermes/memories/</code></td></tr>
+        <tr><td>Hermes 有 <strong>Atropos RL</strong> 训练子系统</td><td class="tag tag-red">证据薄弱</td><td>0.14.0 全树只有 3 处顺带提及，没有 RL 子系统</td></tr>
+        <tr><td>Claude Code MEMORY.md <strong>200 行硬上限</strong></td><td class="tag tag-red">张冠李戴</td><td>本机规范是<strong>300 行 / 80 条 / 每条 ≤200 字符</strong>，200 是字符数不是行数</td></tr>
+        <tr><td>Claude Code <strong>100 内置 Skill</strong></td><td class="tag tag-orange">无法核实</td><td>本机是<strong>自建 43 个</strong>，官方 marketplace 缓存 35 个 plugin / 28 个 SKILL.md</td></tr>
+        <tr><td>Claude Code 固定开销 <strong>11K</strong> / OpenClaw <strong>29K</strong> / Hermes <strong>11K</strong></td><td class="tag tag-red">无从复核</td><td>本机没有任何一处测过这三个数；旧页也没写测量方法</td></tr>
+        <tr><td>OpenClaw 固定税 <strong>40%</strong></td><td class="tag tag-red">无从复核</td><td>分子分母都不存在</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-box">
+    <p><strong>这一页现在的原则：</strong>能从我本机源码、官方文档和实测记录里复核的，写数字；不能的，写"未核实"或者干脆删。<strong>不再有"大约 40%"这种没有分母的数字。</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════ 02 ═══════════════════ -->
+<section id="landscape" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🗺️</span> 五家速览 <span class="num">02</span></h2>
+  <p class="section-desc">三个开源项目加两个本机在跑的东西。注意其中两个我<strong>没有安装</strong>——OpenClaw 和 Hermes Agent 我只有源码 checkout，所以关于它们的一切说法都来自代码和官方文档，而不是使用体验。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Agent</th><th>形态</th><th>本机状态</th><th>版本</th><th>一句话</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>⚡ Claude Code</strong></td><td>终端 / 桌面</td>
+          <td><span class="tag tag-green">已安装并日常使用</span></td><td>2.1.144</td>
+          <td>工具集最稳，记忆是最朴素的文本卡片</td>
+        </tr>
+        <tr>
+          <td><strong>🦞 OpenClaw</strong></td><td>消息平台网关</td>
+          <td><span class="tag tag-orange">只有源码 checkout</span></td><td>2026.8.1（HEAD 2026-09-04）</td>
+          <td>渠道最多、记忆层最全，生态也最需要审</td>
+        </tr>
+        <tr>
+          <td><strong>🧠 Hermes Agent</strong></td><td>消息平台 + CLI</td>
+          <td><span class="tag tag-orange">只有私有 fork 源码</span></td><td>0.14.0（fork HEAD 2026-07-20）</td>
+          <td>唯一有"自己会长技能"闭环的一家</td>
+        </tr>
+        <tr>
+          <td><strong>🛠️ DeepSeek Harness</strong></td><td>可换工具层的 Agent 内核</td>
+          <td><span class="tag tag-green">本会话就跑在上面</span></td><td>0.2.1-rc.2</td>
+          <td>32 个工具包，工具层、权限、计量都可替换</td>
+        </tr>
+        <tr>
+          <td><strong>📦 方寸智匣</strong></td><td>本地 AI 工作台（自制）</td>
+          <td><span class="tag tag-green">已安装并逐版验收</span></td><td>本机 2.0.9 / 已发布 2.0.8</td>
+          <td>用 DSH 内核，把本地模型和六类媒体能力接起来</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
   <div class="chart-grid">
     <div class="chart-card">
-      <h4>生态规模对比</h4>
-      <canvas id="chartEcosystem"></canvas>
+      <h4>Skill 规模（本机可数出来的）</h4>
+      <div class="bar-row"><span class="bar-label">Hermes 可选</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#b388ff"></div></div><span class="bar-val">81</span></div>
+      <div class="bar-row"><span class="bar-label">Hermes 内置</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#b388ff"></div></div><span class="bar-val">89</span></div>
+      <div class="bar-row"><span class="bar-label">OpenClaw 内置</span><div class="bar-track"><div class="bar-fill" style="width:58%;background:#00e5ff"></div></div><span class="bar-val">51</span></div>
+      <div class="bar-row"><span class="bar-label">OpenClaw .agents</span><div class="bar-track"><div class="bar-fill" style="width:56%;background:#00e5ff"></div></div><span class="bar-val">49</span></div>
+      <div class="bar-row"><span class="bar-label">Claude 自建</span><div class="bar-track"><div class="bar-fill" style="width:51%;background:#69f0ae"></div></div><span class="bar-val">43</span></div>
+      <div class="bar-row"><span class="bar-label">Claude 市场缓存</span><div class="bar-track"><div class="bar-fill" style="width:33%;background:#69f0ae"></div></div><span class="bar-val">28</span></div>
+      <p class="chart-note">来源：各自源码目录里的 SKILL.md 计数（2026-10-21 实扫）。OpenClaw 另有 4 个 custodian-skills。</p>
     </div>
     <div class="chart-card">
-      <h4>平台接入覆盖</h4>
-      <canvas id="chartPlatforms"></canvas>
+      <h4>平台接入数</h4>
+      <div class="bar-row"><span class="bar-label">OpenClaw</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#00e5ff"></div></div><span class="bar-val">32</span></div>
+      <div class="bar-row"><span class="bar-label">Hermes Agent</span><div class="bar-track"><div class="bar-fill" style="width:72%;background:#b388ff"></div></div><span class="bar-val">23</span></div>
+      <p class="chart-note">OpenClaw 来自 <code>docs/channels/index.md</code> 列出的 32 个 channel（仓库里 <code>docs/channels/</code> 共 48 篇）；Hermes 是 gateway 18 个适配器加 plugins 5 个。</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ 02 MEMORY ARCH ═══════════════════ -->
-<section id="memory-arch" class="section fade-in">
-  <h2 class="section-title"><span class="icon">💾</span> 记忆系统架构 <span class="num">02</span></h2>
-  <p class="section-desc">三者记忆架构差异巨大——从「结构化笔记卡」到「向量金字塔」再到「闭环自学习」，构成一条清晰的进化线。</p>
+<!-- ═══════════════════ 03 ═══════════════════ -->
+<section id="memory" class="section fade-in">
+  <h2 class="section-title"><span class="icon">💾</span> 记忆系统架构 <span class="num">03</span></h2>
+  <p class="section-desc">记忆是 Agent 差异最大的地方。也是旧页错得最多的地方。</p>
 
   <div class="triple-grid">
-    <!-- Claude Code -->
     <div class="card claude">
-      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code — 结构化笔记卡</h3>
-      <div class="arch-flow"><span class="highlight">~/.claude/projects/&lt;hash&gt;/memory/</span>
-├── <span class="cyan">MEMORY.md</span>         ← 索引（≤200行，始终加载）
-├── <span class="highlight">user_role.md</span>      ← 单条记忆
-├── <span class="highlight">feedback_xxx.md</span>   ← 单条记忆
-└── <span class="highlight">project_xxx.md</span>    ← 单条记忆
+      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code — 文件型笔记卡</h3>
+      <div class="arch-flow"><span class="highlight">~/.claude/</span>
+├── <span class="orange">CLAUDE.md</span>      全局指令（25,730 B）
+├── <span class="orange">memory/*.md</span>   10 个平铺记忆文件
+└── <span class="highlight">projects/<slug>/memory/</span>
+    └── 每个项目的独立记忆
 
-<span class="dim">━━━ 工作流 ━━━━━━━━━━━━━━━━━━━</span>
-对话开始 → <span class="cyan">MEMORY.md</span> 加载到上下文
-         → 发现相关 → <span class="highlight">Read</span> 单个文件
-         → 写入时机：Agent 主动 / <span class="orange">/remember</span>
-         → <span class="dim">无搜索，靠标题浏览</span></div>
+<span class="dim">━━━ 写入 ━━━</span>
+Agent 主动判断 → 写单行条目
+<span class="dim">━━━ 维护 ━━━</span>
+索引超 ~80 条 或 MEMORY.md 超 300 行 → 触发整理
+每条一行、≤ 200 字符
+
+<span class="dim">━━━ 检索 ━━━</span>
+无语义搜索，靠标题浏览</div>
       <div style="margin-top:12px">
         <span class="tag tag-green">简单透明</span>
-        <span class="tag tag-green">硬上限控制</span>
+        <span class="tag tag-green">上限明确</span>
         <span class="tag tag-orange">无语义搜索</span>
       </div>
     </div>
 
-    <!-- OpenClaw -->
     <div class="card openclaw">
-      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw — 四层金字塔</h3>
-      <div class="arch-flow"><span class="highlight">~/.openclaw/workspace/</span>
-├── <span class="orange">SOUL.md</span>        L1 ← 人格/语气（始终注入）
-├── <span class="orange">USER.md</span>        L2 ← 用户偏好（始终注入）
-├── <span class="orange">MEMORY.md</span>      L3 ← 长期记忆（持续膨胀！）
-├── <span class="orange">HEARTBEAT.md</span>   ← 心跳检查清单
-├── <span class="orange">AGENTS.md</span>      ← 工作区指令
-<span class="highlight">~/.openclaw/memory/</span>
-└── <span class="cyan">&lt;cid&gt;.sqlite</span>   ← 向量索引
+      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw — 五层 + Dreaming</h3>
+      <div class="arch-flow"><span class="highlight">五层记忆</span>
+├── Instructions    ← 指令层
+├── Curated core    ← 精选核心
+├── Episodic        ← 情节记忆
+├── Prospective     ← 前瞻/待办
+└── Review          ← 复盘
 
-<span class="dim">━━━ 工作流 ━━━━━━━━━━━━━━━━━━━</span>
-请求 → <span class="orange">四层</span> 全部注入 system prompt
-     → <span class="cyan">向量搜索</span> 召回历史记忆
-     → 写入：Agent 自动 / <span class="orange">/save</span>
-     → 心跳机制定期自检</div>
+<span class="dim">━━━ 后台 ━━━</span>
+<span class="orange">Dreaming</span> light → REM → deep 三相
+默认开启，把 daily notes 蒸馏进 MEMORY.md
+
+<span class="dim">━━━ 检索 ━━━</span>
+FTS5 关键词 + 向量 + 混合
+BM25 排序 · MMR 去重 · CJK trigram
+
+<span class="dim">━━━ 用户建模 ━━━</span>
+Honcho 插件（可选）：画像 + 语义检索</div>
       <div style="margin-top:12px">
-        <span class="tag tag-cyan">向量搜索</span>
-        <span class="tag tag-cyan">心跳自检</span>
-        <span class="tag tag-red">记忆膨胀</span>
-        <span class="tag tag-red">安全风险</span>
+        <span class="tag tag-cyan">五层结构</span>
+        <span class="tag tag-cyan">自动整合</span>
+        <span class="tag tag-cyan">混合检索</span>
+        <span class="tag tag-green">有上限保护</span>
       </div>
     </div>
 
-    <!-- Hermes -->
     <div class="card hermes">
       <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes — 闭环自学习</h3>
       <div class="arch-flow"><span class="highlight">~/.hermes/</span>
-├── <span class="violet">MEMORY.md</span>        ← 继承 OpenClaw 格式
-├── <span class="violet">USER.md</span>          ← 用户偏好
-├── <span class="violet">SOUL.md</span>          ← 人格定义
-└── <span class="cyan">sessions.db</span>      ← FTS5 全文索引
+├── <span class="violet">memories/MEMORY.md</span>
+├── <span class="violet">memories/USER.md</span>
+├── <span class="cyan">state.db</span>       SQLite + FTS5
+└── <span class="cyan">skills/</span>       唯一真源
 
-<span class="dim">━━━ 闭环学习 ━━━━━━━━━━━━━━━━━━</span>
-任务完成 → 自动提炼 → 写入记忆
-    ↑                      ↓
-<span class="cyan">FTS5 全文检索</span> ← <span class="violet">Honcho 用户建模</span>
-    ↑                      ↓
-  召回历史              理解"你是谁"
-    ↑                      ↓
-<span class="orange">Periodic Nudge</span> → 自我提醒持久化</div>
+<span class="dim">━━━ 检索 ━━━</span>
+state.db 内两张 FTS5 虚表
+<span class="cyan">messages_fts</span>
+<span class="cyan">messages_fts_trigram</span>（中文子串）
+3 个触发器同步 · session_search 不调 LLM
+
+<span class="dim">━━━ 记忆后端 ━━━</span>
+8 个 provider 插件，同时只能启一个：
+Honcho / Mem0 / Hindsight / Supermemory …</div>
       <div style="margin-top:12px">
-        <span class="tag tag-violet">FTS5 全文搜索</span>
-        <span class="tag tag-violet">用户建模</span>
-        <span class="tag tag-violet">自动学习</span>
-        <span class="tag tag-orange">黑盒度高</span>
+        <span class="tag tag-violet">自生长 Skill</span>
+        <span class="tag tag-violet">中文可搜</span>
+        <span class="tag tag-orange">自动学习黑盒</span>
       </div>
     </div>
   </div>
+
+  <div class="table-wrap" style="margin-top:24px">
+    <table>
+      <thead>
+        <tr><th>维度</th><th>⚡ Claude Code</th><th>🦞 OpenClaw</th><th>🧠 Hermes Agent</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>架构模式</strong></td><td>文件型笔记卡</td><td>五层 + Dreaming 整合</td><td>闭环学习 + FTS5</td></tr>
+        <tr><td><strong>存储位置</strong></td><td><code>~/.claude/memory/</code></td><td>Markdown + 向量库</td><td><code>~/.hermes/memories/</code> + <code>state.db</code></td></tr>
+        <tr><td><strong>检索方式</strong></td><td>索引浏览（无搜索）</td><td>FTS5 + 向量混合</td><td>FTS5 + trigram</td></tr>
+        <tr><td><strong>用户建模</strong></td><td>无</td><td>Honcho 插件（可选）</td><td>8 个 provider 任选其一</td></tr>
+        <tr><td><strong>自动持久化</strong></td><td>否（Agent 主动判断）</td><td>是（+ Dreaming）</td><td>是</td></tr>
+        <tr><td><strong>自动压缩</strong></td><td>会话级自动压缩</td><td>内置 auto-compaction + <code>/compact</code>，默认 safeguard 模式</td><td>手动 <code>/compress</code></td></tr>
+        <tr><td><strong>增长控制</strong></td><td>300 行 / 80 条硬线</td><td>超预算只截注入副本，磁盘文件保持完整</td><td>LLM 摘要压缩</td></tr>
+        <tr><td><strong>透明度</strong></td><td><span class="tag tag-green">高</span> 全部可读可编辑</td><td><span class="tag tag-orange">中</span> Markdown + 库</td><td><span class="tag tag-red">低</span> 自动学习黑盒</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-box" style="margin-top:24px">
+    <p><strong>一句话：</strong>Claude Code 的记忆像<strong>一本自己维护的笔记本</strong>——你随时能翻、能改，但它不会自己变聪明；OpenClaw 像<strong>一个会做梦的档案室</strong>——后台自动整合、检索最全，但你得接受它偶尔黑箱；Hermes 在这两头之间，加了一条"做完能自己长出新技能"的闭环。</p>
+  </div>
 </section>
 
-<!-- ═══════════════════ 03 MEMORY DETAIL ═══════════════════ -->
-<section id="memory-detail" class="section fade-in">
-  <h2 class="section-title"><span class="icon">🔬</span> 记忆系统详解 <span class="num">03</span></h2>
-  <p class="section-desc">逐维度拆解记忆系统的存储、检索、写入和用户建模机制。</p>
+<!-- ═══════════════════ 04 ═══════════════════ -->
+<section id="skill" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🧩</span> Skill 系统 <span class="num">04</span></h2>
+  <p class="section-desc">旧页在这里犯了一个特别贵的错：把"Skill 数量"和"Skill 注入成本"混成一件事。</p>
 
   <div class="table-wrap">
     <table>
       <thead>
-        <tr>
-          <th>维度</th>
-          <th>⚡ Claude Code</th>
-          <th>🦞 OpenClaw</th>
-          <th>🧠 Hermes Agent</th>
-        </tr>
+        <tr><th>维度</th><th>⚡ Claude Code</th><th>🦞 OpenClaw</th><th>🧠 Hermes Agent</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>架构模式</strong></td><td>文件型笔记卡</td><td>四层金字塔 + 向量索引</td><td>闭环学习 + FTS5 + 用户建模</td></tr>
-        <tr><td><strong>存储格式</strong></td><td>Markdown 文件</td><td>Markdown + SQLite 向量</td><td>Markdown + SQLite FTS5</td></tr>
-        <tr><td><strong>检索方式</strong></td><td>索引浏览（无搜索）</td><td>向量搜索</td><td>全文搜索 + LLM 摘要</td></tr>
-        <tr><td><strong>用户建模</strong></td><td>无</td><td>无</td><td>Honcho 辩证建模</td></tr>
-        <tr><td><strong>自动持久化</strong></td><td>否（Agent 主动判断）</td><td>是（+ 心跳）</td><td>是（+ Nudge 自检）</td></tr>
-        <tr><td><strong>跨会话检索</strong></td><td>仅 MEMORY.md</td><td>向量搜索历史会话</td><td>FTS5 全文检索所有历史</td></tr>
-        <tr><td><strong>透明度</strong></td><td><span class="tag tag-green">高</span> 所有文件可读可编辑</td><td><span class="tag tag-orange">中</span> SQLite + Markdown</td><td><span class="tag tag-red">低</span> 自动学习黑盒</td></tr>
-        <tr><td><strong>增长控制</strong></td><td>200 行硬上限</td><td>无自动压缩，持续膨胀</td><td>LLM 摘要自动压缩</td></tr>
+        <tr><td><strong>Skill 是什么</strong></td><td>结构化提示词（SKILL.md）</td><td>带插件市场的技能包</td><td>兼容 agentskills.io 的技能</td></tr>
+        <tr><td><strong>数量（本机可数）</strong></td><td>自建 43 · 市场缓存 28</td><td>内置 51 · .agents 49 · custodian 4</td><td>内置 89 · 可选 81</td></tr>
+        <tr><td><strong>加载优先级</strong></td><td>项目 → 用户</td><td><strong>6 级：Workspace > Project > Personal > Managed > Bundled > ExtraDirs</strong></td><td>内置同步 + Hub 安装锁</td></tr>
+        <tr><td><strong>注入什么</strong></td><td>调用时才注入正文</td><td><strong>只注入紧凑 XML 索引</strong>（名称/描述/位置），正文按需加载</td><td>调用时才注入；<code>skills_list()</code> 层级约 3k tokens</td></tr>
+        <tr><td><strong>自改进</strong></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-violet">是</span>（解决问题后自动生成新 Skill）</td></tr>
+        <tr><td><strong>安全审核</strong></td><td>无</td><td>ClawHub 安全裁决（批量 100/批，并发 6）</td><td>工具沙箱 + provider 单一启用</td></tr>
+        <tr><td><strong>开放标准</strong></td><td>自有格式</td><td>自有格式 + ClawHub</td><td><span class="tag tag-green">agentskills.io</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="chart-grid">
     <div class="chart-card">
-      <h4>记忆系统雷达图</h4>
-      <canvas id="chartMemoryRadar"></canvas>
+      <h4>装 3 / 5 / 10 个 Skill 的额外注入量</h4>
+      <div class="bar-row"><span class="bar-label">Claude Code</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:#69f0ae"></div></div><span class="bar-val">≈0</span></div>
+      <div class="bar-row"><span class="bar-label">Hermes Agent</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:#b388ff"></div></div><span class="bar-val">≈0</span></div>
+      <div class="bar-row"><span class="bar-label">OpenClaw</span><div class="bar-track"><div class="bar-fill" style="width:33%;background:#00e5ff"></div></div><span class="bar-val">≈5K</span></div>
+      <p class="chart-note">OpenClaw 的注入来自紧凑 XML 索引（源码估算约 24 tokens/技能），正文不常驻；Claude Code 与 Hermes 都是按需加载，用不调用都不花。</p>
     </div>
     <div class="chart-card">
-      <h4>记忆始终注入的固定开销（tokens）</h4>
-      <canvas id="chartMemoryOverhead"></canvas>
+      <h4>会话开始时冻结注入的体积</h4>
+      <div class="bar-row"><span class="bar-label">Hermes MEMORY.md</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#b388ff"></div></div><span class="bar-val">≈800 tok</span></div>
+      <div class="bar-row"><span class="bar-label">Hermes USER.md</span><div class="bar-track"><div class="bar-fill" style="width:63%;background:#b388ff"></div></div><span class="bar-val">≈500 tok</span></div>
+      <div class="bar-row"><span class="bar-label">Hermes skills_list</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#7c5cff"></div></div><span class="bar-val">≈3K tok</span></div>
+      <p class="chart-note">来源：Hermes 官方文档给的构件体积（MEMORY.md 2,200 字符、USER.md 1,375 字符）。这三项在会话开始时以<strong>冻结快照</strong>注入。</p>
     </div>
+  </div>
+
+  <div class="summary-box" style="margin-top:24px">
+    <p><strong>Skill 数量的意义要打折看。</strong>Hermes 有 170 个技能、OpenClaw 有 104 个目录、Claude Code 我自己写了 43 个——但真正决定每次请求贵不贵的，是<strong>有多少被塞进 system prompt</strong>。OpenClaw 是唯一会常驻注入索引的（还受 <code>DEFAULT_BOOTSTRAP_MAX_CHARS = 20,000</code> 每文件的预算约束），另外两家都是按需加载。</p>
   </div>
 </section>
 
-<!-- ═══════════════════ 04 SKILL ARCH ═══════════════════ -->
-<section id="skill-arch" class="section fade-in">
-  <h2 class="section-title"><span class="icon">🧩</span> Skill 系统架构 <span class="num">04</span></h2>
-  <p class="section-desc">从「预设提示词库」到「插件市场」再到「自生长的程序性记忆」——三者对 Skill 的理解完全不同。</p>
-
-  <div class="triple-grid">
-    <div class="card claude">
-      <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code — 专家提示词库</h3>
-      <ul style="list-style:none; padding:0;">
-        <li style="margin-bottom:8px">&#x2022; Skill = 结构化提示词 (SKILL.md)</li>
-        <li style="margin-bottom:8px">&#x2022; <code>/skill-name</code> 展开为完整 prompt</li>
-        <li style="margin-bottom:8px">&#x2022; 创建方式：<span class="tag tag-orange">手动</span></li>
-        <li style="margin-bottom:8px">&#x2022; 无官方市场，无自改进</li>
-        <li style="margin-bottom:8px">&#x2022; 调用时才注入，不用不花 token</li>
-      </ul>
-    </div>
-    <div class="card openclaw">
-      <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw — 插件市场生态</h3>
-      <ul style="list-style:none; padding:0;">
-        <li style="margin-bottom:8px">&#x2022; 三层优先级：Built-in > ClawHub > User</li>
-        <li style="margin-bottom:8px">&#x2022; ClawHub 市场 <span class="tag tag-red">13,000+</span> 技能</li>
-        <li style="margin-bottom:8px">&#x2022; 创建方式：<span class="tag tag-orange">手动</span></li>
-        <li style="margin-bottom:8px">&#x2022; 已安装技能<span class="tag tag-red">始终注入</span> system prompt</li>
-        <li style="margin-bottom:8px">&#x2022; ~20% 已标记为恶意</li>
-      </ul>
-    </div>
-    <div class="card hermes">
-      <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes — 自生长程序性记忆</h3>
-      <ul style="list-style:none; padding:0;">
-        <li style="margin-bottom:8px">&#x2022; 解决问题后<span class="tag tag-violet">自动生成</span> Skill</li>
-        <li style="margin-bottom:8px">&#x2022; Skill 在使用中<span class="tag tag-violet">自改进</span></li>
-        <li style="margin-bottom:8px">&#x2022; 兼容 <span class="tag tag-green">agentskills.io</span> 开放标准</li>
-        <li style="margin-bottom:8px">&#x2022; Skills Hub 在线分享</li>
-        <li style="margin-bottom:8px">&#x2022; 按需加载，不预注入</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ 05 SKILL DETAIL ═══════════════════ -->
-<section id="skill-detail" class="section fade-in">
-  <h2 class="section-title"><span class="icon">📊</span> Skill 系统详解 <span class="num">05</span></h2>
-  <p class="section-desc">逐维度对比 Skill 系统的创建、分发、安全和生态。</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>维度</th>
-          <th>⚡ Claude Code</th>
-          <th>🦞 OpenClaw</th>
-          <th>🧠 Hermes Agent</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>创建方式</strong></td><td>手动</td><td>手动</td><td><span class="tag tag-violet">自动 + 手动</span></td></tr>
-        <tr><td><strong>自改进</strong></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-red">否</span></td><td><span class="tag tag-violet">是</span></td></tr>
-        <tr><td><strong>注入策略</strong></td><td>按需加载</td><td><span class="tag tag-red">始终注入</span></td><td>按需加载</td></tr>
-        <tr><td><strong>市场/生态</strong></td><td>无官方市场</td><td>ClawHub (13K+)</td><td>Skills Hub</td></tr>
-        <tr><td><strong>开放标准</strong></td><td>自有格式</td><td>自有格式</td><td>agentskills.io</td></tr>
-        <tr><td><strong>安全审核</strong></td><td>无</td><td>白名单 + 审核工具</td><td>内置沙箱</td></tr>
-        <tr><td><strong>核心差异</strong></td><td>提示词注入</td><td>插件市场</td><td><span class="tag tag-violet">自生长程序性记忆</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="chart-grid">
-    <div class="chart-card">
-      <h4>Skill 生态规模对比</h4>
-      <canvas id="chartSkillSize"></canvas>
-    </div>
-    <div class="chart-card">
-      <h4>Skill 注入策略对 Token 的影响</h4>
-      <canvas id="chartSkillInjection"></canvas>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ 06 TOKEN ═══════════════════ -->
+<!-- ═══════════════════ 05 ═══════════════════ -->
 <section id="token" class="section fade-in">
-  <h2 class="section-title"><span class="icon">💰</span> Token 消耗深度分析 <span class="num">06</span></h2>
-  <p class="section-desc">记忆和 Skill 对 token 消耗的影响是三者成本差异的根本原因。</p>
+  <h2 class="section-title"><span class="icon">💰</span> Token 与成本 <span class="num">05</span></h2>
+  <p class="section-desc">这一节我删掉了旧页的 11K / 29K / 11K 和「40% 固定税」。原因很简单：<strong>本机没有任何一处测过这三个数，旧页也没写测量方法</strong>。留着它们，读者只会照着做决策。</p>
 
-  <!-- Token formula -->
   <div class="card">
-    <h3>每次 API 调用的 Token 构成公式</h3>
+    <h3>总 Token 的构成公式（这个是确定的）</h3>
     <div class="arch-flow" style="font-size:0.9rem; text-align:center;">
 <span class="highlight">总 Token</span> = <span class="orange">System Prompt</span> + <span class="cyan">记忆注入</span> + <span class="violet">Skill 注入</span> + <span class="highlight">当前对话</span> + <span class="dim">Tool 结果</span> + <span class="dim">LLM 输出</span>
               ↑ 固定开销       ↑ 记忆系统决定    ↑ Skill 系统决定    ↑ 用户行为决定
     </div>
+    <p style="margin-top:1rem">公式没错，<strong>错的是旧页把"固定开销"直接填了三个拍脑袋的数</strong>。真正要算固定开销，得先确定每个 Agent 在你的配置下会注入多少——这是配置相关的量，不是产品的常量。</p>
   </div>
 
-  <!-- Metrics -->
-  <div class="metric-row">
-    <div class="metric green">
-      <div class="value">~11K</div>
-      <div class="label">Claude Code<br>固定开销/请求</div>
-    </div>
-    <div class="metric cyan">
-      <div class="value">~29K</div>
-      <div class="label">OpenClaw<br>固定开销/请求</div>
-    </div>
-    <div class="metric violet">
-      <div class="value">~11K</div>
-      <div class="label">Hermes Agent<br>固定开销/请求</div>
-    </div>
-    <div class="metric red">
-      <div class="value">~40%</div>
-      <div class="label">OpenClaw<br>固定税占比</div>
-    </div>
-  </div>
-
-  <!-- Token breakdown table -->
-  <div class="table-wrap" style="margin-bottom:24px;">
+  <h3 style="margin-top:2rem">能确证的三个成本事实</h3>
+  <div class="table-wrap">
     <table>
       <thead>
-        <tr>
-          <th>Token 来源</th>
-          <th>⚡ Claude Code</th>
-          <th>🦞 OpenClaw</th>
-          <th>🧠 Hermes Agent</th>
-        </tr>
+        <tr><th>事实</th><th>数字</th><th>来源</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>System Prompt（内置）</strong></td><td>3-5K</td><td>5-10K</td><td>6K</td></tr>
-        <tr><td><strong>人格/指令文件</strong></td><td>1-3K (CLAUDE.md)</td><td>1-5K (SOUL.md)</td><td>1-5K (SOUL.md)</td></tr>
-        <tr><td><strong>用户偏好</strong></td><td>—</td><td>0.5-3K (USER.md)</td><td>0.5-3K (USER.md)</td></tr>
-        <tr><td><strong>记忆索引/内容</strong></td><td>2-4K (MEMORY.md)</td><td>2-20K (MEMORY.md)</td><td>2-5K (+Honcho 画像)</td></tr>
-        <tr><td><strong>心跳/自检</strong></td><td>—</td><td>1-5K (HEARTBEAT.md)</td><td>0.5-2K (Nudge)</td></tr>
-        <tr><td><strong>Skill 描述（已安装）</strong></td><td><span class="tag tag-green">0（按需）</span></td><td><span class="tag tag-red">3-10K+（始终）</span></td><td><span class="tag tag-green">0（按需）</span></td></tr>
-        <tr><td><strong>记忆搜索结果</strong></td><td>0.5-2K（Read 文件）</td><td>1-5K（向量结果）</td><td>1-3K（FTS5+LLM 摘要）</td></tr>
-        <tr style="border-top:2px solid rgba(105,240,174,0.3);">
-          <td><strong>始终注入合计</strong></td>
-          <td><strong style="color:var(--accent-green)">~11K (30%)</strong></td>
-          <td><strong style="color:var(--accent-cyan)">~29K (40%)</strong></td>
-          <td><strong style="color:var(--accent-violet)">~11K (22%)</strong></td>
+        <tr>
+          <td><strong>Anthropic 全系 Prompt Caching 折扣</strong></td>
+          <td><code>cache_read = 0.1 × input</code>（缓存读取只要输入价的 10%）</td>
+          <td>本机模型定价目录：带 <code>cache_read</code> 的 4503 个模型中，比例恰为 0.1 的有 <strong>1827</strong> 个，是最常见档；Anthropic 全系命中这一档</td>
+        </tr>
+        <tr>
+          <td><strong>缓存写入有溢价</strong></td>
+          <td>Anthropic <code>cache_write</code> 约 1.25 × input</td>
+          <td>同一份定价目录</td>
+        </tr>
+        <tr>
+          <td><strong>OpenClaw 的 Skill 索引成本</strong></td>
+          <td>约 <strong>24 tokens / skill</strong>（约 97 字符 ÷ 4 字符/token）</td>
+          <td>OpenClaw 源码的 skills 文档「Token impact」一节；每个文件另有 20,000 字符的 bootstrap 预算</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="chart-grid">
-    <div class="chart-card">
-      <h4>单次完整任务 Token 消耗对比（「重构认证模块」）</h4>
-      <canvas id="chartTokenTask"></canvas>
-    </div>
-    <div class="chart-card">
-      <h4>固定开销 Token 构成饼图</h4>
-      <canvas id="chartTokenPie"></canvas>
-    </div>
+  <div class="card" style="margin-top:24px">
+    <h3>想把「固定开销」测出来，该用什么</h3>
+    <p>DeepSeek Harness 里有一个 <code>token-meter</code> 子系统，记录每次调用的 <code>TokenMeasurement</code>（<code>baseline</code>、<code>surfaceDeltaTokens</code>、<code>totalTokens</code>、<code>surfaceTokens</code>、<code>nodes[]</code>），按路由给不同模型定价。<strong>想做固定开销对照，就用同一套任务、同一个模型、只换 Agent，然后读同一个计量口径</strong>——这比拍三个数靠谱得多。</p>
+    <p style="margin-top:.8rem">方寸智匣已经用上了这套：它的上下文压缩有四种路径，每一种都单独测过耗时和压缩后的 token 数（见下一节）。</p>
   </div>
 
-  <!-- Cost control -->
-  <div class="card" style="margin-top:24px;">
-    <h3>成本控制策略对比</h3>
+  <div class="card" style="margin-top:24px">
+    <h3>成本控制手段（按能不能确证分两栏）</h3>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>策略</th><th>⚡ Claude Code</th><th>🦞 OpenClaw</th><th>🧠 Hermes Agent</th></tr>
-        </thead>
+        <thead><tr><th>手段</th><th>⚡ Claude Code</th><th>🦞 OpenClaw</th><th>🧠 Hermes Agent</th></tr></thead>
         <tbody>
-          <tr><td><strong>预算上限</strong></td><td>无内置（上下文窗口天然限制）</td><td><code>maxCostPerDay</code> / <code>maxTokensPerDay</code></td><td>未明确提及</td></tr>
-          <tr><td><strong>模型降级</strong></td><td>不可选（绑定 Anthropic）</td><td>Fallback 链（Claude→Haiku→DeepSeek）</td><td><code>/model</code> 随时切换任意模型</td></tr>
-          <tr><td><strong>Prompt Caching</strong></td><td><span class="tag tag-green">原生 90% 折扣</span></td><td>取决于模型提供商</td><td>取决于模型提供商</td></tr>
-          <tr><td><strong>记忆瘦身</strong></td><td>手动删除 MEMORY.md 条目</td><td><code>memory index</code> 重建</td><td>LLM 自动摘要</td></tr>
-          <tr><td><strong>Skill 减负</strong></td><td>不调用就不耗 token</td><td><span class="tag tag-red">必须卸载不用的 Skill</span></td><td>按需加载，无需卸载</td></tr>
-          <tr><td><strong>上下文压缩</strong></td><td><span class="tag tag-green">自动压缩历史</span></td><td><span class="tag tag-red">无内置压缩</span></td><td><code>/compress</code> 手动触发</td></tr>
-          <tr><td><strong>成本失控风险</strong></td><td><span class="tag tag-green">低</span></td><td><span class="tag tag-red">高</span></td><td><span class="tag tag-orange">中</span></td></tr>
+          <tr><td><strong>预算上限</strong></td><td>上下文窗口天然限制</td><td>每文件 20,000 字符 bootstrap 预算</td><td>记忆文件按固定字符数冻结</td></tr>
+          <tr><td><strong>模型降级</strong></td><td>不可选（绑定 Anthropic）</td><td>可配 fallback 链</td><td>随时切换模型</td></tr>
+          <tr><td><strong>Prompt Caching</strong></td><td><span class="tag tag-green">原生 0.1× 读取价</span></td><td>取决于模型提供商</td><td>取决于模型提供商</td></tr>
+          <tr><td><strong>记忆瘦身</strong></td><td>手动删条目</td><td>超预算自动截注入副本</td><td>LLM 摘要压缩</td></tr>
+          <tr><td><strong>Skill 减负</strong></td><td>不调用就不耗</td><td>需要卸载不用的 Skill</td><td>按需加载</td></tr>
+          <tr><td><strong>上下文压缩</strong></td><td>会话级自动压缩</td><td>内置 auto-compaction + <code>/compact</code></td><td>手动 <code>/compress</code></td></tr>
         </tbody>
       </table>
     </div>
   </div>
-
-  <div class="summary-box" style="margin-top:24px;">
-    <p><strong>Token 效率核心结论：</strong>Claude Code 是「按需取用」——不用就不花 token，用 Prompt Caching 进一步打折；OpenClaw 是「全量预加载」——装了多少 Skill、记了多少事，每次请求都要付固定税，24/7 运行下成本极易失控；Hermes Agent 介于两者之间——按需加载 Skill + LLM 摘要压缩记忆召回，但自学习闭环（Nudge + Auto-skill）会产生额外的「隐形 API 调用」。</p>
-  </div>
 </section>
 
-<!-- ═══════════════════ 07 AGENT LOOP ═══════════════════ -->
-<section id="agent-loop" class="section fade-in">
-  <h2 class="section-title"><span class="icon">⚙️</span> Agent 执行循环 <span class="num">07</span></h2>
-  <p class="section-desc">三者的 Agent Loop 从简单到复杂，决定了任务执行方式和并行能力。</p>
+<!-- ═══════════════════ 06 ═══════════════════ -->
+<section id="tasks" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🎯</span> 真实任务成绩 <span class="num">06</span></h2>
+  <p class="section-desc">前面五节全是架构和机制。这一节是真正干活的部分——<strong>而且全部来自我自己机器上的运行记录</strong>，别人抄不走也复核不了。</p>
+
+  <div class="metric-row">
+    <div class="metric green">
+      <div class="value">10分2秒</div>
+      <div class="label">本地模型挖出真实越权漏洞<br>25 轮对话 · 32 次工具调用</div>
+    </div>
+    <div class="metric violet">
+      <div class="value">22分9秒</div>
+      <div class="label">本地 27B 交出双格式论文<br>18 轮 · 36 次工具调用</div>
+    </div>
+    <div class="metric cyan">
+      <div class="value">1437 项</div>
+      <div class="label">类型回归 1435 通过 / 2 跳过<br>0 失败</div>
+    </div>
+    <div class="metric red">
+      <div class="value">2.965 秒</div>
+      <div class="label">安装版自动上下文压缩<br>345 → 83 token</div>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:24px">
+    <table>
+      <thead>
+        <tr><th>任务</th><th>引擎 / 模型</th><th>耗时</th><th>轮次 / 工具调用</th><th>结果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>授权渗透测试</td>
+          <td>方寸智匣 2.0.7 · 本地模型</td>
+          <td><strong>10 分 2 秒</strong></td>
+          <td>25 轮 / 32 次 / 9 个批准框</td>
+          <td>找到真实越权漏洞（A 账户登录态读到 B 账户订单凭证），修复后复测通过</td>
+        </tr>
+        <tr>
+          <td>同一模型，工具说明不补足</td>
+          <td>同上</td>
+          <td>8 分半（耗尽预算）</td>
+          <td>前 4 轮</td>
+          <td class="tag tag-red">调查失败</td>
+        </tr>
+        <tr>
+          <td>写一篇论文并交付双格式</td>
+          <td>方寸智匣 · 本地 27B</td>
+          <td>22 分 9 秒</td>
+          <td>18 轮 / 36 次 / 2 次失败</td>
+          <td>交出可编辑 Word + 7 页 PDF；最终状态标「任务已停止」（没通过的部分不圆）</td>
+        </tr>
+        <tr>
+          <td>双格式文档交付</td>
+          <td>方寸智匣 1.7.9</td>
+          <td>21 分 34 秒</td>
+          <td>—</td>
+          <td>6 页 PDF + 可编辑 Word，两格式提取 3546 汉字顺序一致</td>
+        </tr>
+        <tr>
+          <td>同一任务，上一版 1.7.8</td>
+          <td>方寸智匣 1.7.8</td>
+          <td>55 分 12 秒</td>
+          <td>第 18 次请求失败</td>
+          <td class="tag tag-red">未交付</td>
+        </tr>
+        <tr>
+          <td>操作 Blender 做一台售货机</td>
+          <td>本地 27B + blender-mcp</td>
+          <td>5 轮共 174 分钟</td>
+          <td>~9.5 tok/s</td>
+          <td><span class="tag tag-red">没做完</span>：渲染全黑、饮料被封在没开窗洞的实心机身里</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-box" style="margin-top:24px">
+    <p><strong>看这张表最重要的一列是最后一列。</strong>同一个模型，工具说明补足与否，10 分 2 秒能挖出漏洞，8 分半连调查都完不成；同一个软件的两个版本，一个 21 分钟交付，一个 55 分钟后第 18 次请求崩掉。<strong>Agent 的能力不取决于模型多大，取决于你把工具说明、上下文预算和失败恢复配到什么程度。</strong></p>
+  </div>
+
+  <h3 style="margin-top:2rem">上下文压缩：四种路径的实测耗时</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>路径</th><th>耗时</th><th>压缩效果</th></tr></thead>
+      <tbody>
+        <tr><td>普通语义摘要（首轮）</td><td>12.034 秒</td><td>2021 → 121 token（估算）</td></tr>
+        <tr><td>原生中文摘要</td><td>11.440 秒</td><td>1716 → 233 token，复用 4032 个缓存 token</td></tr>
+        <tr><td><strong>安装版自动压缩</strong></td><td><strong>2.965 秒</strong></td><td>345 → 83 token，覆盖 2 → 7 条</td></tr>
+        <tr><td>手动「立即压缩」</td><td>2.477 秒</td><td>132 → 83 token</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.86rem;color:var(--muted);margin-top:.6rem">测的是方寸智匣 1.9.1（2026-10-16）。前端回归 1571 项 / 1569 通过 / 2 跳过。长任务可恢复性另测：230 次额外读取后来源引用仍在，210 份文件状态可恢复。</p>
+
+  <figure>
+    <img src="/obsidian-assets/localbrain-security-architecture/image-arch-overview-0043744a00.png" alt="方寸智匣安全测试的六层架构图：授权、确认、模型角色、隔离执行、工具、证据报告" loading="lazy">
+    <figcaption>那 10 分 2 秒背后是一套六层设计：授权、确认、模型角色、隔离执行、工具、证据报告。少一层，模型就可能自己给自己放行。</figcaption>
+  </figure>
+
+  <p>完整过程在这几篇里：<a href="/localbrain-security-architecture/">方寸智匣 2.0.7 能自己做安全测试了</a>、<a href="/localbrain-dance-paper-delivery/">本地 27B 把「狗熊哆嗦毛」写成论文</a>、<a href="/localbrain-paper-delivery-179/">方寸智匣写论文升级</a>、<a href="/local-model-blender-mcp-localbrain/">本地 27B 能操作 Blender 吗</a>。还有一篇讲方法论的：<a href="/ai-agent-ufo-game-prompt-template-2026/">AI 为什么老是半路下班</a>——AI 提前收工不是懒，是<strong>没定义「完成」的证据</strong>。</p>
+</section>
+
+<!-- ═══════════════════ 07 ═══════════════════ -->
+<section id="loop" class="section fade-in">
+  <h2 class="section-title"><span class="icon">⚙️</span> 执行循环 <span class="num">07</span></h2>
+  <p class="section-desc">架构决定上限，循环决定日常体感。</p>
 
   <div class="triple-grid">
     <div class="card claude">
       <h3><span class="dot" style="background:var(--accent-green)"></span> Claude Code</h3>
       <div class="arch-flow"><span class="highlight">用户输入</span>
   ↓
-<span class="cyan">System Prompt</span> (含 CLAUDE.md + MEMORY.md)
+<span class="cyan">System Prompt</span>（CLAUDE.md + memory）
   ↓
 <span class="highlight">LLM 推理</span>
   ↓
-<span class="highlight">Tool 调用</span> (Read/Write/Edit/Bash/Grep/Glob)
+<span class="highlight">Tool 调用</span>
   ↓
 结果返回 → 继续推理 → 输出
 
-<span class="dim">特点：单线程 · 单会话 · 无后台</span>
-<span class="dim">自动压缩上下文 · Prompt Caching</span></div>
+<span class="dim">单线程 · 单会话 · 自动压缩上下文</span></div>
     </div>
+
     <div class="card openclaw">
       <h3><span class="dot" style="background:var(--accent-cyan)"></span> OpenClaw</h3>
-      <div class="arch-flow"><span class="highlight">消息平台</span> (Telegram/Discord/微信...)
+      <div class="arch-flow"><span class="highlight">消息平台</span>（32 个渠道）
   ↓
-<span class="cyan">Gateway</span> (路由 + 会话管理)
+<span class="cyan">Gateway</span>（路由 + 会话管理）
   ↓
-<span class="orange">四层记忆注入</span> → LLM 推理
+<span class="orange">五层记忆注入</span> → LLM 推理
   ↓
 <span class="cyan">Skill / Tool</span> 执行
   ↓
-响应回平台 → 记忆更新
+响应回平台 → 后台 Dreaming
 
-<span class="dim">特点：多平台 · 多会话 · 心跳 · 子代理</span>
-<span class="dim">DM配对 · 群组沙箱 · 工具白名单</span></div>
+<span class="dim">多平台 · 多会话 · 心跳 · 子代理</span></div>
     </div>
+
     <div class="card hermes">
       <h3><span class="dot" style="background:var(--accent-violet)"></span> Hermes Agent</h3>
       <div class="arch-flow"><span class="highlight">消息平台 / CLI</span>
   ↓
-<span class="cyan">Gateway</span>
+<span class="cyan">Gateway</span>（23 个适配器）
   ↓
-<span class="cyan">FTS5 搜索</span> + <span class="violet">Honcho 用户建模</span>
+<span class="cyan">FTS5 检索</span> + 可选用户建模
   ↓
 <span class="highlight">LLM 推理</span> → Skill/Tool 执行
   ↓
-<span class="violet">经验提炼</span> → 自动写 Skill + 持久化
-  ↓
-<span class="orange">Nudge 自检</span> → 响应回平台
+<span class="violet">经验提炼</span> → 自动写新 Skill
 
-<span class="dim">特点：学习闭环 · 并行子代理 · RL 训练</span>
-<span class="dim">Atropos RL · 轨迹导出微调 · RPC</span></div>
+<span class="dim">学习闭环 · 并行子代理</span></div>
+    </div>
+  </div>
+
+  <div class="triple-grid" style="margin-top:24px">
+    <div class="card claude">
+      <h3><span class="dot" style="background:var(--accent-green)"></span> DeepSeek Harness</h3>
+      <div class="arch-flow"><span class="highlight">用户 / 目标</span>
+  ↓
+<span class="cyan">技能注册表</span>（host + 多 scope 分层，
+近层覆盖远层）
+  ↓
+<span class="highlight">工具执行</span>（32 个工具包）
+  ↓
+<span class="violet">子代理 / 工作流</span>（可编排）
+  ↓
+<span class="cyan">token-meter</span> 计量 + 审批闸
+
+<span class="dim">工具层、权限、沙箱、计量都可替换</span></div>
+    </div>
+
+    <div class="card openclaw">
+      <h3><span class="dot" style="background:var(--accent-cyan)"></span> 方寸智匣</h3>
+      <div class="arch-flow"><span class="highlight">聊天模型</span> 指挥
+  ↓
+<span class="cyan">DSH 内核</span>（agent-loop / session /
+session-projection / tools）
+  ↓
+<span class="orange">本地模型</span> + 六类媒体 MCP
+  ↓
+<span class="violet">证据与回执</span>（逐字节 SHA-256）
+
+<span class="dim">2026-10-07 起停用自研 loop，改用官方内核</span></div>
+    </div>
+
+    <div class="card hermes">
+      <h3><span class="dot" style="background:var(--accent-violet)"></span> 实测里的循环特征</h3>
+      <div class="arch-flow"><span class="highlight">安全检查任务</span>
+  ↓
+<span class="cyan">18 次工具调用</span>
+  ├── security_web_browser ×7
+  ├── security_read_report  ×7
+  ├── security_web_request ×2
+  ├── security_context      ×1
+  └── security_web_open     ×1
+  ↓
+<span class="orange">9 个系统批准框</span> → 出报告
+
+<span class="dim">round 18 · sequence 7857 · 38 条消息</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ 08 SELECTION ═══════════════════ -->
-<section id="selection" class="section fade-in">
-  <h2 class="section-title"><span class="icon">🎯</span> 选型指南 <span class="num">08</span></h2>
-  <p class="section-desc">根据你的具体需求，选择最合适的工具。</p>
+<!-- ═══════════════════ 08 ═══════════════════ -->
+<section id="choose" class="section fade-in">
+  <h2 class="section-title"><span class="icon">🎯</span> 选型建议 <span class="num">08</span></h2>
+  <p class="section-desc">按你手上要解决的事选，而不是按功能表选。</p>
 
   <div class="table-wrap">
     <table>
-      <thead>
-        <tr><th>你的需求</th><th>推荐</th><th>理由</th></tr>
-      </thead>
+      <thead><tr><th>你的处境</th><th>推荐</th><th>理由</th></tr></thead>
       <tbody>
-        <tr><td>纯编码（写代码、调试、重构）</td><td><span class="tag tag-green">Claude Code</span></td><td>编码质量最高，模型最懂代码</td></tr>
-        <tr><td>全能生活助理（消息、邮件、日程）</td><td><span class="tag tag-cyan">OpenClaw</span></td><td>平台接入最广，生态最大</td></tr>
-        <tr><td>让 AI 越来越懂你、自动积累经验</td><td><span class="tag tag-violet">Hermes Agent</span></td><td>唯一有学习闭环的</td></tr>
-        <tr><td>多平台 + 编码组合</td><td><span class="tag tag-cyan">OpenClaw</span> + <span class="tag tag-green">Claude Code</span></td><td>社区有桥接 Skill</td></tr>
-        <tr><td>ML 研究 / 训练数据生成</td><td><span class="tag tag-violet">Hermes Agent</span></td><td>Atropos RL + 轨迹导出</td></tr>
-        <tr><td>数据敏感、完全离线</td><td><span class="tag tag-cyan">OpenClaw</span> 或 <span class="tag tag-violet">Hermes</span></td><td>自托管 + 本地模型</td></tr>
-        <tr><td>成本敏感</td><td><span class="tag tag-green">Claude Code</span></td><td>Prompt Caching 90% 折扣 + 按需加载</td></tr>
-        <tr><td>24/7 无人值守</td><td><span class="tag tag-cyan">OpenClaw</span></td><td>心跳 + Cron + 多平台推送</td></tr>
+        <tr><td>纯写代码、调试、重构</td><td><span class="tag tag-green">Claude Code</span></td><td>工具集最稳，出错时你知道问题在哪一层</td></tr>
+        <tr><td>要接很多聊天平台、想 7×24 小时在</td><td><span class="tag tag-cyan">OpenClaw</span></td><td>32 个渠道 + 心跳 + 子代理，是这五家里最像"常驻助理"的</td></tr>
+        <tr><td>想让 AI 越用越懂你的工作方式</td><td><span class="tag tag-violet">Hermes Agent</span></td><td>唯一有"自己长出新技能"闭环的</td></tr>
+        <tr><td>要跑在本地模型上、且要可复现</td><td><span class="tag tag-cyan">方寸智匣</span></td><td>每一步都有回执和 SHA-256，能离线复跑</td></tr>
+        <tr><td>想自己搭一套 Agent 内核</td><td><span class="tag tag-green">DeepSeek Harness</span></td><td>工具层、审批、沙箱、计量都是可替换部件</td></tr>
+        <tr><td>数据敏感、完全离线</td><td><span class="tag tag-cyan">方寸智匣</span></td><td>本地模型 + 本地回执，不出网</td></tr>
+        <tr><td>成本敏感</td><td><span class="tag tag-green">Claude Code</span></td><td>缓存读取价 0.1× + 按需加载，两头都省</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="summary-box">
-    <p><strong>一句话总结：</strong>Claude Code 是<strong>最强编码刀</strong>，OpenClaw 是<strong>最广连接网</strong>，Hermes Agent 是<strong>唯一会自己长大的 Agent</strong>。三者的记忆和 Skill 系统从简单到复杂恰好构成一条进化线：静态笔记 → 向量搜索 → 自学习闭环。</p>
+    <p><strong>一句话总结：</strong>Claude Code 是<strong>最稳的编码刀</strong>，OpenClaw 是<strong>最广的连接网</strong>，Hermes 是<strong>唯一会自己长大的那个</strong>，DeepSeek Harness 是<strong>可以自己拼装的骨架</strong>，方寸智匣是<strong>把本地模型真跑出结果的那个</strong>。记忆和 Skill 从"静态笔记"到"五层自动整合"再到"自学习闭环"，正好是一条进化线。</p>
   </div>
 </section>
 
-</main>
+<!-- ═══════════════════ 09 ═══════════════════ -->
+<section id="gaps" class="section fade-in">
+  <h2 class="section-title"><span class="icon">⚠️</span> 未核实项与复核说明 <span class="num">09</span></h2>
+  <p class="section-desc">这一页删掉的比留下的多。删掉的理由写在这儿，你自己判断要不要自己核。</p>
 
-<footer class="footer">
-  <p>AI Agent 三国杀 — Claude Code vs OpenClaw vs Hermes Agent 深度对比 | 数据更新于 2026 年 4 月</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>旧页的说法</th><th>为什么这一页不写</th></tr></thead>
+      <tbody>
+        <tr><td>三家的 GitHub stars</td><td>本机没有 GitHub API 快照。要写就得联网取当天数并标日期，我这次没取</td></tr>
+        <tr><td>ClawHub 社区技能总数（13K+）</td><td>本机没有 ClawHub 注册表缓存，源码里只有客户端地址</td></tr>
+        <tr><td>「约 20% 社区技能被标记恶意」</td><td>源码里有安全裁决逻辑，但<strong>没有任何统计数字</strong>。要写就得联网查</td></tr>
+        <tr><td>11K / 29K / 11K 固定开销、40% 固定税</td><td>本机零测量，旧页也没写测量方法</td></tr>
+        <tr><td>Claude Code「100 内置 Skill」「3 个平台」</td><td>安装的是编译后二进制，没法枚举内置 Skill；接口数也从磁盘数不出来</td></tr>
+        <tr><td>Hermes「Atropos RL」</td><td>0.14.0 源码树里只有 3 处顺带提及，没有 RL 子系统</td></tr>
+        <tr><td>旧页脚「数据更新于 2026 年 4 月」</td><td>文件实际最后修改是 2026-08-07，那个日期本来就不准</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:24px">
+    <h3>这一页的数据从哪来</h3>
+    <div class="arch-flow" style="font-size:0.85rem">
+<span class="highlight">Claude Code</span>   本机安装 2.1.144；skill 计数来自 ~/.claude/skills 与 ~/.agents/skills；记忆规范来自 claude-memory-management 技能文档
+<span class="highlight">OpenClaw</span>     源码 checkout 2026.8.1（HEAD d492a4b8，2026-09-04）；记忆与 Skill 结论来自其 docs/concepts 与 docs/tools
+<span class="highlight">Hermes</span>       私有 fork 源码 0.14.0（HEAD 9701a987，2026-07-20）；平台数来自 gateway/platforms 与 plugins/platforms 目录
+<span class="highlight">DSH</span>          本机 0.2.1-rc.2；工具包清单来自 docs/tool-catalog.md；计量口径来自 docs/subsystems/token-meter.md
+<span class="highlight">方寸智匣</span>      本机 2.0.9（HEAD 3ee09a37，2026-10-21）；回归与压缩耗时来自本地验收记录
+<span class="highlight">定价</span>         本机模型定价目录（fetchedAt 2026-08-28）
+    </div>
+    <p style="margin-top:1rem">上一轮我把这些全部摊开写成五列对比表，每一列都标了来源路径——那是<strong>比数字本身更值钱的东西</strong>。数字会过期，能复核的方法不会。</p>
+  </div>
+
+  <p style="margin-top:1.5rem"><a href="/">返回首页</a> · <a href="/mlx-model-test.html">本地模型实测报告</a> · <a href="/llm-guide/">本地部署</a> · <a href="/ai-hardware-survey/">装机指南</a></p>
+</section>
+
+<div class="footer">
+  <p>AI Agent 实战对照 · 复核日期 2026-10-21 · 五家源码与官方文档 + 本机运行记录</p>
   <p style="margin-top:8px"><a href="/">返回首页</a></p>
-</footer>
+</div>
 
-<script>
-// ── Fade-in on scroll ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</div>
 
-// ── Chart.js defaults ──
-Chart.defaults.color = 'rgba(196, 208, 233, 0.75)';
-Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.08)';
-Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
-Chart.defaults.font.size = 12;
-
-const GREEN = '#69f0ae';
-const CYAN = '#00e5ff';
-const VIOLET = '#b388ff';
-const ORANGE = '#ffb347';
-const PINK = '#ff7fd1';
-const RED = '#ff5370';
-
-// ── 01 Ecosystem ──
-new Chart(document.getElementById('chartEcosystem'), {
-  type: 'bar',
-  data: {
-    labels: ['GitHub Stars', '内置 Skills', '社区 Skills', '支持平台数'],
-    datasets: [
-      { label: 'Claude Code', data: [0, 100, 0, 3], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
-      { label: 'OpenClaw', data: [310, 60, 13700, 22], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
-      { label: 'Hermes Agent', data: [30, 60, 0, 7], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { position: 'top' } },
-    scales: {
-      y: { type: 'logarithmic', grid: { color: 'rgba(255,255,255,0.04)' } },
-      x: { grid: { display: false } }
-    }
-  }
-});
-
-// ── 01 Platforms ──
-new Chart(document.getElementById('chartPlatforms'), {
-  type: 'doughnut',
-  data: {
-    labels: ['OpenClaw (22+)', 'Hermes Agent (7)', 'Claude Code (3)'],
-    datasets: [{
-      data: [22, 7, 3],
-      backgroundColor: [CYAN + 'cc', VIOLET + 'cc', GREEN + 'cc'],
-      borderColor: [CYAN, VIOLET, GREEN],
-      borderWidth: 2
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { position: 'bottom' },
-      title: { display: false }
-    }
-  }
-});
-
-// ── 03 Memory Radar ──
-new Chart(document.getElementById('chartMemoryRadar'), {
-  type: 'radar',
-  data: {
-    labels: ['检索能力', '自动持久化', '用户建模', '透明度', '增长控制', '跨会话'],
-    datasets: [
-      { label: 'Claude Code', data: [1, 2, 0, 5, 5, 1], borderColor: GREEN, backgroundColor: GREEN + '22', pointBackgroundColor: GREEN },
-      { label: 'OpenClaw', data: [3, 4, 0, 3, 1, 3], borderColor: CYAN, backgroundColor: CYAN + '22', pointBackgroundColor: CYAN },
-      { label: 'Hermes Agent', data: [5, 5, 5, 1, 4, 5], borderColor: VIOLET, backgroundColor: VIOLET + '22', pointBackgroundColor: VIOLET }
-    ]
-  },
-  options: {
-    responsive: true,
-    scales: { r: { beginAtZero: true, max: 5, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, ticks: { display: false } } },
-    plugins: { legend: { position: 'bottom' } }
-  }
-});
-
-// ── 03 Memory Overhead ──
-new Chart(document.getElementById('chartMemoryOverhead'), {
-  type: 'bar',
-  data: {
-    labels: ['Claude Code', 'OpenClaw', 'Hermes Agent'],
-    datasets: [
-      { label: '始终注入', data: [11, 29, 11], backgroundColor: [GREEN + '99', CYAN + '99', VIOLET + '99'], borderColor: [GREEN, CYAN, VIOLET], borderWidth: 1 },
-      { label: '按需加载', data: [1.5, 3, 4], backgroundColor: [GREEN + '44', CYAN + '44', VIOLET + '44'], borderColor: [GREEN + '88', CYAN + '88', VIOLET + '88'], borderWidth: 1 }
-    ]
-  },
-  options: {
-    responsive: true,
-    indexAxis: 'y',
-    plugins: { legend: { position: 'top' } },
-    scales: {
-      x: { stacked: true, title: { display: true, text: 'Tokens (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      y: { stacked: true, grid: { display: false } }
-    }
-  }
-});
-
-// ── 05 Skill Size ──
-new Chart(document.getElementById('chartSkillSize'), {
-  type: 'bar',
-  data: {
-    labels: ['内置 Skills', '社区市场 Skills', '恶意标记比例 (%)'],
-    datasets: [
-      { label: 'Claude Code', data: [100, 0, 0], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
-      { label: 'OpenClaw', data: [60, 13700, 20], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
-      { label: 'Hermes Agent', data: [60, 0, 0], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { position: 'top' } },
-    scales: {
-      y: { type: 'logarithmic', grid: { color: 'rgba(255,255,255,0.04)' } },
-      x: { grid: { display: false } }
-    }
-  }
-});
-
-// ── 05 Skill Injection ──
-new Chart(document.getElementById('chartSkillInjection'), {
-  type: 'bar',
-  data: {
-    labels: ['安装 3 个 Skill', '安装 5 个 Skill', '安装 10 个 Skill'],
-    datasets: [
-      { label: 'Claude Code (按需)', data: [0, 0, 0], backgroundColor: GREEN + '99', borderColor: GREEN, borderWidth: 1 },
-      { label: 'OpenClaw (始终注入)', data: [5, 8, 15], backgroundColor: CYAN + '99', borderColor: CYAN, borderWidth: 1 },
-      { label: 'Hermes Agent (按需)', data: [0, 0, 0], backgroundColor: VIOLET + '99', borderColor: VIOLET, borderWidth: 1 }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { position: 'top' }, subtitle: { display: true, text: 'OpenClaw 的 Skill 描述每次请求都注入 system prompt，其他两者按需加载', color: 'rgba(255,83,112,0.8)', font: { size: 11 } } },
-    scales: {
-      y: { title: { display: true, text: '额外 Token 开销 (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      x: { grid: { display: false } }
-    }
-  }
-});
-
-// ── 06 Token Task ──
-new Chart(document.getElementById('chartTokenTask'), {
-  type: 'bar',
-  data: {
-    labels: ['Claude Code', 'OpenClaw', 'Hermes Agent'],
-    datasets: [
-      { label: '始终注入 (固定税)', data: [11, 29, 11], backgroundColor: RED + '88', borderColor: RED, borderWidth: 1 },
-      { label: '记忆召回', data: [1, 3, 4], backgroundColor: CYAN + '88', borderColor: CYAN, borderWidth: 1 },
-      { label: 'Skill 注入', data: [0, 8, 2], backgroundColor: VIOLET + '88', borderColor: VIOLET, borderWidth: 1 },
-      { label: '对话+工具', data: [15, 25, 20], backgroundColor: ORANGE + '88', borderColor: ORANGE, borderWidth: 1 },
-      { label: 'LLM 输出', data: [10, 15, 12], backgroundColor: GREEN + '88', borderColor: GREEN, borderWidth: 1 }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { position: 'top' } },
-    scales: {
-      y: { stacked: true, title: { display: true, text: 'Tokens (K)' }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      x: { stacked: true, grid: { display: false } }
-    }
-  }
-});
-
-// ── 06 Token Pie (OpenClaw breakdown) ──
-new Chart(document.getElementById('chartTokenPie'), {
-  type: 'doughnut',
-  data: {
-    labels: ['OpenClaw 四层记忆 (10K)', 'OpenClaw Skills描述 (8K)', 'OpenClaw System (8K)', 'OpenClaw 其他 (3K)'],
-    datasets: [{
-      data: [10, 8, 8, 3],
-      backgroundColor: [CYAN + 'cc', RED + 'cc', ORANGE + 'cc', 'rgba(255,255,255,0.15)'],
-      borderColor: [CYAN, RED, ORANGE, 'rgba(255,255,255,0.3)'],
-      borderWidth: 2
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { position: 'bottom' },
-      subtitle: { display: true, text: 'OpenClaw 始终注入 ~29K tokens 的构成', color: 'rgba(255,179,71,0.8)', font: { size: 11 } }
-    }
-  }
-});
-</script>
 
 <div data-standalone-share></div>
 <script src="/shared/standalone-share.js" defer></script>
