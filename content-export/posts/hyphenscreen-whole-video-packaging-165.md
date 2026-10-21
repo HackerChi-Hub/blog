@@ -4,10 +4,10 @@ slug: hyphenscreen-whole-video-packaging-165
 status: published
 cover: /obsidian-assets/hyphenscreen-whole-video-packaging-165/封面－横版.jpg
 cover_review: user-approved
-weixin_status: draft-created
+weixin_status: published-user-confirmed
 date: 2026-10-21
 updated: 2026-10-21
-summary: 十套风格、四种版式，本地生成成套包装。新增紧凑界面实图，附成片与动态范例。
+summary: 十套风格、四种版式，本地生成成套包装。新增1.6.7紧凑界面与操作说明，保留完整成片和十套动态范例。
 categories:
   - 资源分享
 tags:
@@ -104,13 +104,15 @@ tags:
 
 先打开一个工程，在AI区域进入“整片包装”。这里的生成使用本地预设程序，**无需配置大模型，也不按模型调用计费**。原来的“制作动画”入口继续负责更自由的动画任务，两种方式按需要选择。
 
-下面三张是这次实际运行的紧凑开发界面，尚未随公开安装包发布。十套名称统一为四字，例如“纸白橙调”“暖雾光影”“红色海报”“几何构成”；样式、配色和声音保留。四段配置在1280×720窗口中可完整显示，聚焦版式的截图与检查项也能同时看到。
+Mac版1.6.7已经公开提供紧凑编辑窗口。下面的实图展示同版界面组件：片段集中选择，版式按当前片段修改，十套名称统一为四字，原有样式、配色和声音保留。四段常规配置在1280×720与1024×768窗口中检查通过；片段更多或窗口更小时，在区域内滚动。
 
-![开发版实图｜四段集中选择，主要参数一屏可见](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑浅色.jpg)
+![最新版界面组件实图｜一组片段列表，配合“本段版式”直接编辑](/obsidian-assets/hyphenscreen-whole-video-packaging-165/整片包装－1.6.7.jpg)
+
+![1.6.7界面组件实图｜片段集中选择，主要参数同屏显示](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑浅色.jpg)
 
 这次又把编辑窗口收紧了一轮：右上只保留一组片段列表，每张卡片同时显示缩略图、标题、版式和时间。先点要改的片段，再用“本段版式”切换开场、清单、聚焦或数字，下面只显示本段需要填写的参数。选片段与改版式各管一件事，不用在两组大卡片之间来回找。
 
-![开发版实图｜红色海报，深色模式与数字版式](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑深色.jpg)
+![1.6.7界面组件实图｜红色海报与当前片段版式](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑深色.jpg)
 
 每组可以安排1到12段，每段4到30秒，分别填写在时间线上的插入时间。同组片段不能重叠。最省事的做法，是先剪顺口播，再找出需要包装的四五个位置，依次填进去，不用把整条视频都盖满动画。
 
@@ -123,7 +125,7 @@ tags:
 
 聚焦这一项要特别说清楚：目前是从工程里的视频，按指定的原始素材时间提取一张截图，再把截图放进包装。适合指着界面解释，截图里不会继续播放原视频。需要连续演示操作时，仍然让原录屏承担主体。
 
-![开发版实图｜选中片段后，直接修改聚焦参数](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑聚焦.jpg)
+![1.6.7界面组件实图｜聚焦参数按当前片段显示](/obsidian-assets/hyphenscreen-whole-video-packaging-165/新版紧凑聚焦.jpg)
 
 确认后生成，软件会显示处理进度。完成后整组加入工程，画面和主题声音分别进入时间线；已有这一组时，重新生成会替换原组，避免一遍遍叠上同一组声音。整组加入也可以一次撤销。
 
@@ -149,11 +151,11 @@ tags:
 
 十套包装的样式与声音编排参考了阿江视频包装工具的开源内容，在许可证允许范围内做本地转换与接入，相关许可随资源保留。本文展示的是黑粉录屏里的实际生成和剪辑成果，不把参考样式说成全部原创。
 
-本文成片与生成验收来自macOS苹果芯片版1.6.5；紧凑编辑窗口与四字名称来自这次开发版，尚未打包发布。Windows与Linux公开包仍为1.6.4。现有安装包的界面可能与本文新截图不同，下载时请按平台查看发行说明。
+目前Mac苹果芯片版已更新到1.6.7，Windows与Linux仍为1.6.6。本文27.4秒成片和四段生成操作记录来自此前1.6.5实测，继续保留供大家看效果；1.6.7正式安装版已读取独立工程重新导出，1920×1080、每秒30帧、822帧音画完整解码通过。本轮安装版的点击生成与跳转交互由我接手手动测试，暂不记为已经验收通过。
 
 ## 下载与参考
 
-- [黑粉录屏1.6.5发行说明与苹果芯片安装包](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.5)
+- [黑粉录屏1.6.7发行说明与Mac苹果芯片安装包](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.7)
 - [黑粉录屏完整功能与使用说明](https://hyphentech.top/hyphenscreen-local-screen-recorder/)
 - [参考样式：阿江视频包装工具](https://ajiang.me/toolbox/ajiang-video-broll/)
 - [参考源码与许可](https://github.com/NanmiCoder/ajiang-vibe-coding-skills)
