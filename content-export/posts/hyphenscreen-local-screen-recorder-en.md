@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.6.6"
+title: "HyphenScreen: recording, editing and AI animation — version 1.6.7"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-21
-summary: HyphenScreen combines recording, multitrack editing and animation. Ten coordinated video packages offer forty layouts. Windows and Linux 1.6.6 fix encoder compatibility; Mac retains 1.6.5. Includes actual UI, downloads and verification scope.
+summary: HyphenScreen combines recording, multitrack editing and animation. Ten coordinated video packages offer forty layouts. Windows and Linux 1.6.6 fix encoder compatibility; Mac is updated to 1.6.7. Includes actual UI, downloads and verification scope.
 categories:
   - Resources
 tags:
@@ -17,9 +17,19 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
+## 1.6.7: compact packaging controls on Mac
+
+Mac is updated to 1.6.7. A single segment list combines thumbnails, titles, layouts and timing; the current layout is changed in a dropdown. Fields sit side by side, and still and animated previews share one area. Typical four-segment settings fit at 1280×720 and 1024×768; smaller windows and longer lists can scroll.
+
+![1.6.7紧凑界面，实际组件截图](/obsidian-assets/hyphenscreen-local-screen-recorder/packaging-167.jpg)
+
+Ten Chinese display names now have four characters, including Red Poster. Existing theme IDs, project compatibility, palettes, animation and sound are retained. Windows and Linux remain at 1.6.6 without this interface update.
+
+This revision passed 4,615 tests with 2 skipped, plus application and test type checks. All 570 installed files and links match the Mac installation image and strict signature checks passed. The installed app re-exported an independent four-segment project: 27.4 seconds, 1920×1080, 30 fps and 822 frames, with complete video and audio decoding. It reused existing media and is not a new generation run. App startup and opening the studio passed. A system screen-capture error blocked further desktop interaction; the author explicitly chose to test manually and continue release. Desktop generation and seeking are therefore not reported as agent-verified in this round.
+
 ## 1.6.6: whole-video packaging for Windows and Linux
 
-Windows and Linux are locally built as 1.6.6 with ten packages and forty layouts. Generation now uses bundled OpenH264 instead of unavailable libx264, without an extra encoder installation. Mac retains published 1.6.5.
+Windows and Linux are locally built as 1.6.6 with ten packages and forty layouts. Generation now uses bundled OpenH264 instead of unavailable libx264, without an extra encoder installation. Mac now provides 1.6.7.
 
 Rendering checks on each platform generated four layouts from synthetic material: 16 seconds and 480 frames, with complete video and theme-audio decoding. All 331 packaging resources in the Windows package matched source bytes. The Ubuntu deb passed installation and file verification. This does not replace desktop capture or device testing.
 
@@ -63,7 +73,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.5; Windows and Linux offer 1.6.6. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.7; Windows and Linux offer 1.6.6. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -95,17 +105,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.6.5**, DMG **416,175,276 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.6.7**, DMG **416,145,536 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.6.6**, installer **399,421,712 bytes**, unsigned.
 - Linux x86_64: **1.6.6** in AppImage (**598,231,509 bytes**), deb (**511,176,604 bytes**) and pacman (**472,292,440 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.5/HyphenScreen_1.6.5_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.7/HyphenScreen_1.6.7_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 The uploaded Mac package was downloaded again and verified:
 
 ```text
-08d9e24702d6df4595020e6ae1c1c8b6b5cab6598febc1a48878d540afd00444
+e062c91893532f45272f8e85adfabe5050ea1337b21f1ea9208dedbdf26e998e
 ```
 
 SHA-256 checksums for Windows and Linux 1.6.6:
@@ -151,7 +161,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac now offers 1.6.5; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac now offers 1.6.7; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -298,7 +308,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.6.5; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.6.7; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
