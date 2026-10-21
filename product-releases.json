@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-20T23:38:21.740Z",
-  "contentHash": "01614533323980c4eb5393f138ff81d16945a35c08e8301e594ee240f9a20b8c",
+  "checkedAt": "2026-10-21T01:41:39.781Z",
+  "contentHash": "16c46f65739c653316bf65622a0f23ef8ad022b4f27f5c0f7d9b1140d0b30cf3",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -73,7 +73,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T23:38:21.740Z",
+      "checkedAt": "2026-10-21T01:41:39.781Z",
       "prerelease": false,
       "releaseNotesHash": "dbf711388dbfe2466a1eae7dfb9402d51b7c8b796853ce57a0b073b137fdbad7",
       "revision": "0f7041c6fc9f8c455aebfd3af0ca872dd941fd478303657bb3c02e77410af817"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T23:38:21.740Z",
+      "checkedAt": "2026-10-21T01:41:39.781Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T23:38:21.740Z",
+      "checkedAt": "2026-10-21T01:41:39.781Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -292,7 +292,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "Windows与Linux包含十套整片包装、四十种布局。本版将整片包装的H.264编码改为随包提供的OpenH264，修复原路径调用未附带的libx264而无法生成的问题，无需用户额外安装编码器。Mac继续提供已发行1.6.5，原VideoToolbox路径不变。",
       "updated": "2026-10-20",
-      "activityAt": "2026-10-20T23:28:57Z",
+      "activityAt": "2026-10-20T23:45:30Z",
       "version": "1.6.6",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.6",
       "source": "release",
@@ -354,10 +354,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-20T23:38:21.740Z",
+      "checkedAt": "2026-10-21T01:41:39.781Z",
       "prerelease": false,
-      "releaseNotesHash": "0d10e359be3106a1d9827e4c91a9634e46164441d49c6b4a02784e7894a36efc",
-      "revision": "66495f0878a0a5118aeda5589da5143b489ecc2954d0ef5f8368407883aee244"
+      "releaseNotesHash": "5927b23f12a8735896d63ce05cfab5a1726bb1d2f36a7a8d2e341f8fe713ecaf",
+      "revision": "1a71111fab8c5972be95ff7fcc5566003e5960ee184cbbc3d8e65df15c865c37"
     }
   ]
 }
