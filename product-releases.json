@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-22T09:41:56.810Z",
-  "contentHash": "d0dad58426d442bcf76e0c7d21092772410cbf45d4ab7de6383f801111acdfd0",
+  "checkedAt": "2026-10-22T14:06:04.058Z",
+  "contentHash": "e973bed0a06f95d87176963213f67a54e655c8bd583f7e186fce9d40af71d5ff",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -17,26 +17,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "模型设置保存与登记统一路径校验，普通保存不再误停独立引擎；加入网页CTF基础入口、任务内登录态、分页证据与截图导出。网页CTF为基础能力，完整隔离浏览器、原生批准和真实模型CTF闭环尚未验收，隔离验证不过仍禁用。",
-      "updated": "2026-10-21",
-      "activityAt": "2026-10-21T13:03:34Z",
-      "version": "2.0.8",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.8",
+      "updateSummary": "压缩后保留你给出的原始约束：自动与手动压缩都在中文语义摘要之外，从官方追加日志保留可信的用户原文，按事件顺序核对目标、账户、参数与限制；网页内容、工具回执、宿主审查提示与旧摘要不能冒充你的要求。保留块不恢复授权、不构成待执行队列、不重放已执行工具；原文过长无法缩减时如实报告边界。",
+      "updated": "2026-10-22",
+      "activityAt": "2026-10-22T13:58:51Z",
+      "version": "2.1.1",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.1",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.0.7",
+          "version": "2.1.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.0.7",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.1",
           "assets": [
             {
-              "name": "LocalBrain_2.0.7_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.0.7/LocalBrain_2.0.7_aarch64.dmg",
-              "id": 661556714,
-              "size": 72498379,
-              "updatedAt": "2026-10-21T06:19:25Z",
-              "digest": "sha256:1d2914d82a9ba251cdff69f77dd86f7d412a6826d12019e08374a049b1706aa8"
+              "name": "LocalBrain_2.1.1_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.1/LocalBrain_2.1.1_aarch64.dmg",
+              "id": 666037766,
+              "size": 72671693,
+              "updatedAt": "2026-10-22T13:58:49Z",
+              "digest": "sha256:20f44469c1ef3804657017965de199fbc0a37f3a484c0c97edecff29ae1aea72"
             }
           ]
         },
@@ -81,10 +81,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-22T09:41:56.810Z",
+      "checkedAt": "2026-10-22T14:06:04.058Z",
       "prerelease": false,
-      "releaseNotesHash": "9b3cdde40bead9a5de204a46cabaa376cf4de5c06a87c35fa41062a24bf23bec",
-      "revision": "4887d0fce09971834985995ed26b3af78a63c68b73f0b0adfcce94b9363d012a"
+      "releaseNotesHash": "4ba660c61eebdb79152d37481430d46ec8a6e8a9b53249b3e2f7e68752d15850",
+      "revision": "300366351cfa523d8b87b0d9dceac733fb1cf68128ae98e61109ba92ea80ee1d"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -180,7 +180,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-22T09:41:56.810Z",
+      "checkedAt": "2026-10-22T14:06:04.058Z",
       "prerelease": false,
       "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
       "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
@@ -279,7 +279,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-22T09:41:56.810Z",
+      "checkedAt": "2026-10-22T14:06:04.058Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -362,7 +362,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-22T09:41:56.810Z",
+      "checkedAt": "2026-10-22T14:06:04.058Z",
       "prerelease": false,
       "releaseNotesHash": "67e012d87a7b71ee94174b76b912654da725d4ff242472d108f96647e04d5afa",
       "revision": "32a9092cf5c670157b6440fb290c595605324b0b9ed7ba9afb9427d481d33320"
