@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "a0e89df2dc02814052da577ac598ea4e4d67a7500d6a6e7a9b19926b9fc7c166",
+  "content_sha256": "2c0c9b7da143f6199c9d0876e2276de0c19e791f11a0bff6590a3622a1e87c13",
   "published_post_count": 198,
   "posts": [
     {
@@ -1037,7 +1037,7 @@
       "slug": "localbrain-network-security",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "6c52a340448795d43c84e5cf78931202f9d0546314fcfb04b739593be946e861"
+      "sha256": "beefe47988772ee6267ac29705b9028631646b7a388a0dc6a8006df4f8d445f1"
     },
     {
       "file": "posts/localbrain-paper-delivery-179-en.md",
