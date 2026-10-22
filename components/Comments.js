@@ -107,6 +107,9 @@ function CommentItem({ comment, onReply, replyingTo, t }) {
     <li className="comment-item">
       <div className="comment-head">
         <span className="comment-nickname">{comment.nickname}</span>
+        {comment.author_verified === 1 && comment.nickname === '黑粉科技' && (
+          <span className="comment-owner-badge">{t('站长 · 已认证')}</span>
+        )}
         <time className="comment-time" dateTime={new Date(comment.created_at).toISOString()}>
           {formatTime(comment.created_at, t)}
         </time>

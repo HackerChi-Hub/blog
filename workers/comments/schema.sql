@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS comments (
   created_at  INTEGER NOT NULL,
   ip_hash     TEXT    NOT NULL,
   ua          TEXT,
+  author_verified INTEGER NOT NULL DEFAULT 0 CHECK (author_verified IN (0, 1)),
   status      TEXT    NOT NULL DEFAULT 'visible' CHECK (status IN ('visible', 'hidden'))
 );
 

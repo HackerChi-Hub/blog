@@ -305,6 +305,63 @@ if (strategyReady) {
   }
 }
 
+// ---------- 站长身份：独立库，不污染访客限流用例 ----------
+console.log('\n站长身份与防冒名：');
+{
+  const ownerEnv = { ...env, DB: makeDB() };
+  const run = (path, options) => worker.fetch(request(path, options), ownerEnv);
+  for (const nickname of ['黑粉科技', ' 黑粉科技 ', '黑 粉 科 技', '黑\u200b粉科技', '黑粉科技✅', '【黑粉科技】站长', 'HyphenTech', 'ＨｙｐｈｅｎＴｅｃｈ']) {
+    const response = await run('/api/comments', { method: 'POST', body: {
+      slug: 'owner-test', nickname, content: '伪造', turnstileToken: 'good', author_verified: 1, role: 'owner',
+    } });
+    check('公开接口拒绝冒名：' + nickname, response.status === 403);
+  }
+  const before = await (await run('/api/comments?slug=owner-test')).json();
+  check('冒名请求没有写入数据库', before.count === 0);
+  for (const token of ['', 'wrong']) {
+    const response = await run('/api/comments/admin/post', { method: 'POST',
+      headers: { authorization: 'Bearer ' + token }, body: { slug: 'owner-test', content: '伪造' } });
+    check('无效口令不能发表站长留言', response.status === 401);
+  }
+  const missing = await worker.fetch(request('/api/comments/admin/post', { method: 'POST',
+    body: { slug: 'owner-test', content: 'x' } }), { ...ownerEnv, ADMIN_TOKEN: '' });
+  check('站长口令缺失时关闭认证入口', missing.status === 401);
+  const auth = { authorization: 'Bearer ' + env.ADMIN_TOKEN };
+  const identity = await (await run('/api/comments/admin/identity', { headers: auth })).json();
+  check('正确凭据绑定固定身份', identity.nickname === '黑粉科技' && identity.author_verified === 1);
+  const preview = await run('/api/comments/admin/post', { method: 'POST', headers: auth,
+    body: { slug: 'owner-test', content: '预检', validateOnly: true } });
+  check('认证预检成功且不写入', preview.status === 200 && (await (await run('/api/comments?slug=owner-test')).json()).count === 0);
+  turnstileVerdict = false;
+  const posted = await run('/api/comments/admin/post', { method: 'POST', headers: auth,
+    body: { slug: 'owner-test', content: '本人留言', nickname: '伪装成别人', author_verified: 0 } });
+  const owner = (await posted.json()).comment;
+  check('站长以服务端固定名字发表，不依赖访客验证码', posted.status === 201 && owner.nickname === '黑粉科技' && owner.author_verified === 1);
+  turnstileVerdict = true;
+  const visible = (await (await run('/api/comments?slug=owner-test')).json()).comments[0];
+  check('认证标记能在公开列表回读', visible.author_verified === 1 && !('ip_hash' in visible) && !('ua' in visible));
+  const visitor = await run('/api/comments', { method: 'POST', body: {
+    slug: 'owner-test', nickname: '普通访客', content: '不能伪造勋章', turnstileToken: 'good', author_verified: 1,
+  } });
+  check('访客伪造认证字段被忽略', (await visitor.json()).comment?.author_verified === 0);
+  ownerEnv.DB.__rewindSeconds(15);
+  const crossPost = await run('/api/comments/admin/post', { method: 'POST', headers: auth,
+    body: { slug: 'another-post', content: '跨文章回复', parentId: owner.id } });
+  check('站长不能把回复挂到另一篇文章', crossPost.status === 400);
+  const reply = await run('/api/comments/admin/post', { method: 'POST', headers: auth,
+    body: { slug: 'owner-test', content: '站长回复', parentId: owner.id } });
+  check('认证身份能正常回复同篇留言', reply.status === 201 && (await reply.json()).comment.author_verified === 1);
+}
+
+// 旧库升级只加认证列，不能把同名历史数据自动变成站长。
+{
+  const legacy = new DatabaseSync(':memory:');
+  legacy.exec('CREATE TABLE comments (id INTEGER PRIMARY KEY, nickname TEXT); INSERT INTO comments VALUES (1, \'黑粉科技\');');
+  legacy.exec(readFileSync(join(here, 'migrations/0001_owner_identity.sql'), 'utf8'));
+  check('历史同名留言不自动认证', legacy.prepare('SELECT author_verified FROM comments').get().author_verified === 0);
+  legacy.close();
+}
+
 // ---------- 结果 ----------
 
 console.log(`\n通过 ${passed} · 失败 ${failed}`);

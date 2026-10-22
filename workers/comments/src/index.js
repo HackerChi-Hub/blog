@@ -20,6 +20,14 @@ const LIST_LIMIT = 200;
 const RATE_WINDOW_SECONDS = 3600;
 
 const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]{0,80}$/;
+const OWNER_NAME = '黑粉科技';
+
+// 只用于防冒名，不改变正常访客昵称。装饰字符和不可见字符不能绕过保护。
+function isReservedNickname(value) {
+  const normalized = String(value).normalize('NFKC').toLowerCase()
+    .replace(/[\p{White_Space}\p{Cf}\p{M}\p{P}\p{S}]/gu, '');
+  return normalized.includes(OWNER_NAME) || normalized.includes('hyphentech');
+}
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -107,7 +115,7 @@ async function handleList(request, env) {
   if (!SLUG_PATTERN.test(slug)) return json({ error: '文章标识不合法' }, 400);
 
   const { results } = await env.DB.prepare(
-    `SELECT id, nickname, content, parent_id, created_at
+    `SELECT id, nickname, content, parent_id, created_at, author_verified
        FROM comments
       WHERE slug = ?1 AND status = 'visible'
       ORDER BY created_at ASC
@@ -117,7 +125,7 @@ async function handleList(request, env) {
   return json({ slug, count: results.length, comments: results });
 }
 
-async function handleCreate(request, env) {
+async function handleCreate(request, env, owner = false) {
   let payload;
   try {
     payload = await request.json();
@@ -125,23 +133,36 @@ async function handleCreate(request, env) {
     return json({ error: '请求格式不正确' }, 400);
   }
 
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return json({ error: '请求格式不正确' }, 400);
+
   const slug = String(payload.slug || '');
-  const nickname = String(payload.nickname || '').trim();
+  // 只有经过管理路由鉴权的调用能决定身份；忽略正文中伪造的身份字段。
+  const nickname = owner ? OWNER_NAME : String(payload.nickname || '').trim();
   const content = String(payload.content || '').trim();
   const parentId = payload.parentId ? Number(payload.parentId) : null;
 
   if (!SLUG_PATTERN.test(slug)) return json({ error: '文章标识不合法' }, 400);
   if (!nickname) return json({ error: '请填个昵称' }, 400);
   if (nickname.length > MAX_NICKNAME) return json({ error: `昵称最多 ${MAX_NICKNAME} 个字` }, 400);
+  if (!owner && isReservedNickname(nickname)) {
+    return json({ error: '此昵称为站长专用，请换一个昵称' }, 403);
+  }
   if (!content) return json({ error: '留言内容是空的' }, 400);
   if (content.length > MAX_CONTENT) return json({ error: `留言最多 ${MAX_CONTENT} 个字` }, 400);
-  if (parentId !== null && !Number.isInteger(parentId)) return json({ error: '回复目标不合法' }, 400);
+  if (parentId !== null && (!Number.isSafeInteger(parentId) || parentId < 1)) return json({ error: '回复目标不合法' }, 400);
+  if (parentId !== null) {
+    const parent = await env.DB.prepare('SELECT id FROM comments WHERE id = ?1 AND slug = ?2').bind(parentId, slug).first();
+    if (!parent) return json({ error: '回复目标不合法' }, 400);
+  }
+
+  // 认证后的无写入预检，用于验证站长入口，不发布测试留言。
+  if (owner && payload.validateOnly === true) return json({ nickname: OWNER_NAME, author_verified: 1, validated: true });
 
   const ip = request.headers.get('cf-connecting-ip') || '';
-  const passed = await verifyTurnstile(payload.turnstileToken, env.TURNSTILE_SECRET, ip);
+  const passed = owner || await verifyTurnstile(payload.turnstileToken, env.TURNSTILE_SECRET, ip);
   if (!passed) return json({ error: '人机校验没通过，刷新页面再试一次' }, 403);
 
-  const ipHash = await hashIp(ip, env.IP_SALT);
+  const ipHash = owner ? 'authenticated-owner' : await hashIp(ip, env.IP_SALT);
   const now = Date.now();
   const windowStart = now - RATE_WINDOW_SECONDS * 1000;
 
@@ -159,9 +180,9 @@ async function handleCreate(request, env) {
   if (reason) return json({ error: reason }, 429);
 
   const inserted = await env.DB.prepare(
-    `INSERT INTO comments (slug, nickname, content, parent_id, created_at, ip_hash, ua)
-     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)
-     RETURNING id, nickname, content, parent_id, created_at`
+    `INSERT INTO comments (slug, nickname, content, parent_id, created_at, ip_hash, ua, author_verified)
+     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)
+     RETURNING id, nickname, content, parent_id, created_at, author_verified`
   ).bind(
     slug,
     nickname,
@@ -169,7 +190,8 @@ async function handleCreate(request, env) {
     parentId,
     now,
     ipHash,
-    (request.headers.get('user-agent') || '').slice(0, 300)
+    (request.headers.get('user-agent') || '').slice(0, 300),
+    owner ? 1 : 0
   ).first();
 
   return json({ comment: inserted }, 201);
@@ -184,7 +206,7 @@ function isAdmin(request, env) {
 async function handleAdminRecent(request, env) {
   const limit = Math.min(Number(new URL(request.url).searchParams.get('limit')) || 50, 200);
   const { results } = await env.DB.prepare(
-    `SELECT id, slug, nickname, content, status, created_at, ip_hash
+    `SELECT id, slug, nickname, content, status, created_at, ip_hash, author_verified
        FROM comments ORDER BY created_at DESC LIMIT ?1`
   ).bind(limit).all();
   return json({ count: results.length, comments: results });
@@ -265,6 +287,12 @@ export default {
 
     if (pathname.startsWith('/api/comments/admin/')) {
       if (!isAdmin(request, env)) return json({ error: '未授权' }, 401);
+      if (method === 'GET' && pathname === '/api/comments/admin/identity') {
+        return json({ nickname: OWNER_NAME, author_verified: 1 });
+      }
+      if (method === 'POST' && pathname === '/api/comments/admin/post') {
+        return handleCreate(request, env, true);
+      }
       if (method === 'GET' && pathname === '/api/comments/admin/recent') {
         return handleAdminRecent(request, env);
       }

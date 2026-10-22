@@ -177,6 +177,22 @@ async function cmdSetStatus(id, status) {
   console.log(`#${data.comment.id} ${word}`);
 }
 
+async function cmdPost(args) {
+  const slug = args[1];
+  const content = args[2];
+  const replyIndex = args.indexOf('--reply');
+  const parentId = replyIndex < 0 ? null : Number(args[replyIndex + 1]);
+  if (!slug || !content) throw new Error('用法：blog-comments post <文章标识> "留言内容" [--reply <留言编号>] [--check]');
+  if (parentId !== null && (!Number.isSafeInteger(parentId) || parentId < 1)) throw new Error('回复编号必须是正整数');
+  const data = await api('/admin/post', {
+    method: 'POST',
+    body: JSON.stringify({ slug, content, parentId, validateOnly: args.includes('--check') }),
+  });
+  if (data.validated) return console.log('站长身份与留言参数校验通过，未发布留言。');
+  if (data.comment?.nickname !== '黑粉科技' || data.comment?.author_verified !== 1) throw new Error('服务端未确认站长身份，请检查后再操作，不要重复发表');
+  console.log(`已以认证身份「黑粉科技」发表 #${data.comment.id}：${SITE_BASE}/${slug}/`);
+}
+
 /**
  * 盯着有没有新留言。轮询而不是推送：留言量很小，为它架一条推送通道不值得。
  * 只在发现新 id 时通知，避免每轮都刷屏。
@@ -238,6 +254,8 @@ ${bold('blog-comments')} — 黑粉科技 Blog 留言管理
   ${bold('blog-comments stats')}            只看统计
   ${bold('blog-comments hide')} <id>        隐藏一条（不是删除，可恢复）
   ${bold('blog-comments show')} <id>        恢复显示
+  ${bold('blog-comments post')} <slug> "内容"  以认证站长「黑粉科技」发表
+    加 --reply <id> 回复留言；加 --check 只校验，不发表
   ${bold('blog-comments watch')} [秒]       盯新留言，有就 macOS 通知（默认 60 秒）
 
   加 ${bold('--json')} 输出机器可读格式（list / stats 支持）
@@ -264,6 +282,8 @@ async function main() {
       return cmdList({ limit: 10, json: false });
     case 'stats':
       return cmdStats({ json });
+    case 'post':
+      return cmdPost(args);
     case 'list': {
       const slugFlag = args.indexOf('--slug');
       const slug = slugFlag >= 0 ? args[slugFlag + 1] : '';

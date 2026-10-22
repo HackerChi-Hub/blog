@@ -155,6 +155,24 @@ curl -s -X POST https://hyphentech.top/api/comments \
 
 ## 日常管理
 
+### 站长身份保护（2026-10-23）
+
+“黑粉科技”以及忽略空格、零宽字符、装饰符号后的变体、HyphenTech 名称均为保留昵称。
+公开发表接口始终拒绝这些名字，即使请求伪造 `author_verified` 或 `role` 字段。
+只有管理凭据认证后的 `/api/comments/admin/post` 才能发表站长留言；昵称由服务端固定为
+“黑粉科技”，数据库单独记录 `author_verified=1`。历史留言默认是 0，不按同名追认。
+网页只显示服务端返回的认证标记，不收集或保存管理口令。
+
+```bash
+blog-comments post <文章标识> "留言内容"
+blog-comments post <文章标识> "回复内容" --reply <留言编号>
+blog-comments post <文章标识> "待检查内容" --check # 无写入预检
+```
+
+升级现有数据库必须先执行 `wrangler d1 migrations apply hyphentech-comments --remote`，
+再 `wrangler deploy`。首次建库的 `schema.sql` 已包含该列，不要在同一库重复添加。
+此身份安全依赖现有 ADMIN_TOKEN 仅由站长持有；不要共享、入库或放进前端。
+
 全局命令 `blog-comments`，任意目录可用，口令自动从 `blog/.env.local` 的
 `COMMENTS_ADMIN_TOKEN` 读取，不需要先 `export`：
 

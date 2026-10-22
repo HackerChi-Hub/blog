@@ -168,6 +168,15 @@
   color: var(--text-muted);
 }
 
+.comment-owner-badge {
+  color: var(--accent-color, #69f0ae);
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
 .comment-content {
   margin: 6px 0 0;
   color: var(--text-secondary);
