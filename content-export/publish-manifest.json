@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "b2e296896508173d85383e0d79fcfbbda972de693114f1a39ceff22f28baa937",
-  "published_post_count": 200,
+  "content_sha256": "a0e89df2dc02814052da577ac598ea4e4d67a7500d6a6e7a9b19926b9fc7c166",
+  "published_post_count": 198,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -815,15 +815,6 @@
       "sha256": "cbfb6cce802c860579fd354d073358b83d681ea1e504948a24122e249cf72e93"
     },
     {
-      "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
-      "slug": "hyphenscreen-whole-video-packaging-165-en",
-      "article_type": "article",
-      "legacy_paths": [],
-      "translation_of": "hyphenscreen-whole-video-packaging-165",
-      "lang": "en",
-      "sha256": "08eb1595379156e0314e76cfd09578c7f8924bf3f1c2795c514cf84ee633a75f"
-    },
-    {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
       "slug": "hyphenscreen-whole-video-packaging-165",
       "article_type": "article",
@@ -1063,15 +1054,6 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "87a7fd75a2c3df1b93ce333c05073727b3b11d28083f501a3ff6a23d0818f42a"
-    },
-    {
-      "file": "posts/localbrain-security-architecture-en.md",
-      "slug": "localbrain-security-architecture-en",
-      "article_type": "article",
-      "legacy_paths": [],
-      "translation_of": "localbrain-security-architecture",
-      "lang": "en",
-      "sha256": "1531747f8b4036e84a5c13788e5722cac5a8d69e79cd75a805881ede37e458fb"
     },
     {
       "file": "posts/localbrain-security-architecture.md",
