@@ -23,7 +23,9 @@ assert.ok(!rules['.lab-tool__preview']['min-height'], '图片框不能用最小�
 assert.equal(rules['.lab-tool__diagram'].width, '100%');
 assert.ok(rules['.lab-tool__diagram']['aspect-ratio']);
 
-for (const tool of AI_LAB_TOOLS.filter((item) => item.image)) {
+assert.equal(AI_LAB_TOOLS.length, 4);
+assert.ok(AI_LAB_TOOLS.every((tool) => tool.image), '四个实验台入口必须都有正式封面，不能退回符号占位');
+for (const tool of AI_LAB_TOOLS) {
   const bytes = fs.readFileSync(path.join(root, 'public', tool.image));
   assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
   assert.equal(bytes.readUInt32BE(16), tool.imageWidth, `${tool.title} 宽度必须等于真实图片`);
