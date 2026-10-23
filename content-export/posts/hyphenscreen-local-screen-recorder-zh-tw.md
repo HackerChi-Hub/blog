@@ -1,12 +1,12 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.7 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.8 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-21
-summary: 黑粉錄屏整合錄製、多軌剪輯與動畫。十套整片包裝、四十種版面，本機批次產生；Windows與Linux更新至1.6.6並修復編碼器相容性，Mac更新至1.6.7。附實際介面、下載與驗證範圍。
+updated: 2026-10-24
+summary: Mac1.6.8新增本機編排，來源證據、原理過程與角色講解無需模型；文字、圖片和節拍可改。附實際介面、下載與驗證邊界。Windows與Linux維持1.6.6。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,22 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.6.8：改內容、調節拍，本機產生講解動畫
+
+Mac新增「本機編排」：開啟專案，在「製作動畫」選擇來源證據、原理過程或角色講解，填寫內容與動作時刻，即可產生原生動畫，無需模型。它適合反覆更換內容的講解段落，沿用排版並修改本期原圖、步驟與動作。
+
+![本機編排實際製作視窗](/obsidian-assets/hyphenscreen-local-screen-recorder/local-explanation-168.png)
+
+來源證據保存本機原圖、來源名稱、地址及核對日期，依時刻出現、聚焦與保留重點。原理過程支援兩到五步，可逐項調整節拍並選擇工程既有音效。角色提供看向、指向、接物、放下、確認與收勢等預設動作。這些任務由本機腳本編排，不執行模型產生的程式；自由設計仍可使用原有模型創作。
+
+![動畫內容、節拍及時間關聯](/obsidian-assets/hyphenscreen-local-screen-recorder/content-editing-168.png)
+
+動畫「內容」頁可直接改普通文字與本機圖片，也可修改編排的來源、步驟、配色及事件時間。動作與聲音共用節拍。動畫可固定在專案時間尺或跟隨完整涵蓋它的一個主錄影片段，隨移動、分割、裁短及刪除調整。連續相容且不重疊的編排優先共軌，不跨中間畫面軌強行合併。
+
+內容與節拍確定後再精調圖層：重新編排會重算受控圖層，保留人工新增圖層，鎖定受控層則拒絕覆蓋。它不是通用角色骨架或任意長故事產生器，獨立旁白與輔助影片的來源綁定不在本輪範圍。
+
+開發版實際點擊產生、修改標題與4.25秒節拍，儲存並切換專案後重開，修改保留。兩份不同內容的24秒工程及12秒角色工程完成跳轉與連續播放，三部1920×1080、30幀原生匯出完整解碼通過。4637項測試通過、2項跳過。音量檢查通過，主觀聽審未完成；其他系統與實體錄製未重測。Windows與Linux維持1.6.6。
 
 ## 1.6.7：整片包裝，選片段與改版式更直接
 
@@ -29,7 +45,7 @@ Mac更新至1.6.7。片段選擇合為一組，卡片顯示縮圖、標題、版
 
 ## 1.6.6：Windows 與 Linux 補齊整片包裝
 
-Windows、Linux 本機建置至 1.6.6，包含十套整片包裝、四十種版面。修復產生時呼叫未附帶的 libx264 的問題，改用隨包 OpenH264，不需要額外安裝編碼器。Mac現提供1.6.7。
+Windows、Linux 本機建置至 1.6.6，包含十套整片包裝、四十種版面。修復產生時呼叫未附帶的 libx264 的問題，改用隨包 OpenH264，不需要額外安裝編碼器。Mac現提供1.6.8。
 
 Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒、480 幀，畫面與主題聲音完整解碼通過。Windows 包內 331 個包裝資源與原始碼逐一核對；Ubuntu deb 安裝及檔案校驗通過。此項不替代完整桌面錄製或所有裝置驗證。
 
@@ -107,17 +123,17 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.6.7**，DMG **416,145,536 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Mac 蘋果晶片目前為 **1.6.8**，DMG **416,144,191 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
 - Windows 10/11 x64 目前為 **1.6.6**，安裝程式 **399,421,712 位元組**，未簽署。
 - Linux x86_64 目前為 **1.6.6**：AppImage **598,231,509 位元組**、deb **511,176,604 位元組**、pacman **472,292,440 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.7/HyphenScreen_1.6.7_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.8/HyphenScreen_1.6.8_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包上傳後已重新下載比對，SHA-256 為：
 
 ```text
-e062c91893532f45272f8e85adfabe5050ea1337b21f1ea9208dedbdf26e998e
+afacc7b4ac426b1820e31e47c69f28a497816c6cf8f74b3eb7c23479e28b1808
 ```
 
 Windows 與 Linux 1.6.6 的 SHA-256：
