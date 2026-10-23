@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "6a592bc1ad372bbd9cd1d294f5cd97f4112298f2d9beb3510cd8669f4236fd2b",
+  "content_sha256": "9fbe54237e34d043b7de3a53fa01b20e98a9202c9f3d2ff5fb7af162aae067e2",
   "published_post_count": 202,
   "posts": [
     {
@@ -507,14 +507,14 @@
       "legacy_paths": [],
       "translation_of": "deepseek-harness-mobile-remote",
       "lang": "en",
-      "sha256": "0e5180418fee4af5908addf396381eaa02d21e94c2b5b59c59c814baef62c850"
+      "sha256": "595eb7eb62fac1b3e040dc7583d9804b2d0a2ab917c14da61e62bacf750b8f2b"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote.md",
       "slug": "deepseek-harness-mobile-remote",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "83cee733cd591cc2b5e268b755a498c7049b59b80fbee82035c55fb60b0adf25"
+      "sha256": "4f5004634cd11e0d51ae240c016d1e0bdc23ce1a839f0dc3b25c9b1f5e4d36e7"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
@@ -837,7 +837,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-whole-video-packaging-165",
       "lang": "en",
-      "sha256": "8114bc3569469c6b422be296c2dea967cd6312a82e8eb4e767ebaeae89c557a9"
+      "sha256": "292dfff8a91cc65e802ee9aafdfb60ff462a580d645576647a67eb6daa97b7e2"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
@@ -1055,7 +1055,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "addc069bf10c216feaeb4257b13989e8828574cb61cd033d4c7586950f2e20d1"
+      "sha256": "cbe87a5148b6ef4ae3c27488a33162055f57c7f274bf168e2a5cfefb1c520f3b"
     },
     {
       "file": "posts/localbrain-network-security.md",
@@ -1087,7 +1087,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-architecture",
       "lang": "en",
-      "sha256": "c983a9fd86927f3d99a30541853b4771acea4f0f3809512aefb34a0f045bb688"
+      "sha256": "92fdddcd7aac6c082294f897aa4f1aa495d9c0e9d237801a16bcd9be94d587f9"
     },
     {
       "file": "posts/localbrain-security-architecture.md",

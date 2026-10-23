@@ -4,7 +4,6 @@ slug: localbrain-security-architecture-en
 status: published
 lang: en
 translation_of: localbrain-security-architecture
-article_type: "article"
 translation_source: machine
 source_sha256: ba0e6da989ed8710
 date: 2026-10-21
@@ -17,6 +16,7 @@ tags:
 cover: "/obsidian-assets/localbrain-security-architecture/cover-c9ad7c7088.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

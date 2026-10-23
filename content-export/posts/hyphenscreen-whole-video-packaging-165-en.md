@@ -18,6 +18,7 @@ tags:
 cover: "/obsidian-assets/hyphenscreen-whole-video-packaging-165/封面－横版.jpg"
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation
