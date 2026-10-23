@@ -89,7 +89,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.7; Windows and Linux offer 1.6.6. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.6.8; Windows and Linux offer 1.6.6. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -177,7 +177,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac now offers 1.6.7; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac now offers 1.6.8; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -324,7 +324,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.6.7; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.6.8; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take

@@ -206,7 +206,7 @@ Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.6.7，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.6.8，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -353,7 +353,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.6.7，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.6.8，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
