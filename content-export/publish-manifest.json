@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "ec7a8921a2c2a43fd72960ca1d5db7e6dd2195a13ee2156891895894a379132d",
-  "published_post_count": 203,
+  "content_sha256": "3f5886bc9ac2b33b863d6ba97e730e2488a17c1f3691a619a145490e2460adce",
+  "published_post_count": 204,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1095,6 +1095,15 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "eac8b39bdb2a8d9a3b100f22f927ed7ece27942493477c39b78a0393dba7cb4f"
+    },
+    {
+      "file": "posts/localbrain-security-howto-en.md",
+      "slug": "localbrain-security-howto-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "localbrain-security-howto",
+      "lang": "en",
+      "sha256": "dbbc9faa46de73f300f45062e7faa76f66e54a4e045dd1baf154ce2cb1c72618"
     },
     {
       "file": "posts/localbrain-security-howto.md",
