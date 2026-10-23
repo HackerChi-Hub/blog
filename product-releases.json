@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-23T23:07:02.847Z",
-  "contentHash": "b754a456550ec5328571021d591db365e7234aea4dec05a7ff4cdfb78260b0a0",
+  "checkedAt": "2026-10-23T23:36:05.781Z",
+  "contentHash": "55c0f6a08718934592780f3cfc74d755a2efb1c73820346c3fb97b1f9297326a",
   "products": [
     {
       "slug": "localbrain-local-ai-box",
@@ -81,7 +81,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:07:02.847Z",
+      "checkedAt": "2026-10-23T23:36:05.781Z",
       "prerelease": false,
       "releaseNotesHash": "7f8b70309b87d17bc9c9efed348cd5b1825d1e6bc34c361d6c2f57c09ebfb8f2",
       "revision": "fc7703cea0a201c0a36e272f88fe0dd5b39c6d9d60f9b1a0271ac987cc048545"
@@ -100,26 +100,26 @@
       "fallbackDescription": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
       "action": "查看产品与下载",
       "description": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
-      "updateSummary": "保留私有签名目录、本地密钥保险箱、模型实测和本机兼容路由的现有能力；AMD Radeon Cloud、Ollama 云服务和 Vercel AI Gateway 的官方条件已在。",
-      "updated": "2026-10-02",
-      "activityAt": "2026-10-02T05:50:18Z",
-      "version": "1.0.0",
-      "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.0",
+      "updateSummary": "一键连接改为 DeepSeek Harness，使用其官方原生 OpenAI 兼容适配连接本地接口；删除旧 OpenCode 配置写入、缓存清理、迁移及客户端验收运行入口，不再检测、创建或刷新旧客户端配置。",
+      "updated": "2026-10-23",
+      "activityAt": "2026-10-23T23:34:46Z",
+      "version": "1.0.1",
+      "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.1",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.0",
+          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.1",
           "assets": [
             {
-              "name": "HyphenBox_1.0.0_universal.dmg",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.0/HyphenBox_1.0.0_universal.dmg",
-              "id": 599264158,
-              "size": 10637615,
-              "updatedAt": "2026-09-29T21:28:11Z",
-              "digest": "sha256:361f9c150dcd71feab6fd04b5e89d648427012dac7eb661ece7defee9d59e7eb"
+              "name": "HyphenBox_1.0.1_universal.dmg",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.1/HyphenBox_1.0.1_universal.dmg",
+              "id": 670715501,
+              "size": 10599118,
+              "updatedAt": "2026-10-23T23:34:45Z",
+              "digest": "sha256:d91c5263a42d27ba8a1b368bdcc3db0ab7c58cf27c91a6d48fa83c5f7278067e"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:07:02.847Z",
+      "checkedAt": "2026-10-23T23:36:05.781Z",
       "prerelease": false,
-      "releaseNotesHash": "530902e971e93bfc85609b639fbf4042fcd60415ca5fc6c34233393ab36d4626",
-      "revision": "775679c17d5f9b4c4686dcaac74503d06228646993e41ca3c2f147f0aa568043"
+      "releaseNotesHash": "38d8527764236d276a2434869f425789327cc74e03f914d54ce23855fae475a2",
+      "revision": "ed1059d94eaf019791b6c81a26ff464c08cd51659db1f794a31d34d1261270fe"
     },
     {
       "slug": "screenlex-watch-and-learn",
@@ -279,7 +279,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:07:02.847Z",
+      "checkedAt": "2026-10-23T23:36:05.781Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -362,7 +362,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:07:02.847Z",
+      "checkedAt": "2026-10-23T23:36:05.781Z",
       "prerelease": false,
       "releaseNotesHash": "88fe5ce8d0dd6b1143533eb3f82a5b27f450fb3e363a371ebee11e737416b63b",
       "revision": "19a46267559342511942bf0487c569a3e27ad0eae1e0e92ee149b9955ed93f1e"
