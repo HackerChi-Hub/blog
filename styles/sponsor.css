@@ -1,6 +1,4 @@
-/* 文章底部赞助卡片。
-   刻意做得比分享区更轻：不用强调色描边、不用高对比背景。
-   它在页面上应该是「看得见但不喊」的存在。 */
+/* 正文之后的明确赞助入口；保持普通文档流，不做悬浮、弹出、动画或追踪。 */
 
 .sponsor-card {
   display: flex;
@@ -8,13 +6,24 @@
   /* 聚成一组居中，而不是把两端拉满。七言只有两行短句，让它 flex:1 撑满整行的话，
      诗句会孤零零钉在最左、右边留一大片空——看着像布局坏了，不像刻意留白。 */
   justify-content: center;
-  gap: 56px;
-  margin-top: 32px;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.02);
+  gap: clamp(24px, 5vw, 48px);
+  margin-top: 36px;
+  padding: clamp(24px, 4vw, 36px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 211, 77, 0.5);
+  border-top: 4px solid var(--hp-yellow, #ffd34d);
+  background: linear-gradient(125deg, rgba(255, 211, 77, 0.1), rgba(255, 211, 77, 0.025) 70%), var(--hp-paper-2, #161d28);
 }
+
+.sponsor-label {
+  margin: 0 0 12px;
+  color: var(--hp-yellow, #ffd34d);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.sponsor-label span { font-size: 1.25em; }
 
 .sponsor-body {
   /* 不抢剩余空间：宽度由内容决定，配合父级的 justify-content: center 聚成一组 */
@@ -24,8 +33,8 @@
 
 .sponsor-heading {
   margin: 0;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-weight: 700;
   color: var(--text-primary);
   /* 对联不是正文，字距放开一点，读起来才有停顿 */
   letter-spacing: 0.06em;
@@ -48,17 +57,43 @@
 
 .sponsor-hint {
   margin: 12px 0 0;
-  font-size: 0.82rem;
-  color: var(--accent-green);
+  font-size: 0.84rem;
+  line-height: 1.8;
+  color: var(--text-secondary, #9aa7bd);
 }
+
+.sponsor-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 18px;
+  padding: 9px 16px;
+  border: 1px solid var(--hp-yellow, #ffd34d);
+  border-radius: 8px;
+  background: var(--hp-yellow, #ffd34d);
+  color: #171a20;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sponsor-save:hover { color: #171a20; background: #ffe17c; }
+.sponsor-save:focus-visible { outline: 3px solid var(--hp-yellow, #ffd34d); outline-offset: 4px; }
+.sponsor-code { flex: 0 0 auto; text-align: center; }
+.sponsor-code-caption { margin: 10px 0 0; color: var(--hp-yellow, #ffd34d); font-size: 0.8rem; font-weight: 600; line-height: 1.7; }
 
 /* 二维码必须保持白底和足够的静区，否则扫码识别率会掉。
    这里不加圆角裁切、不加滤镜、不做混合模式——深色主题下让它保持原样。 */
 .sponsor-qr {
   flex: 0 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
+  display: block;
+  width: 180px;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0;
   background: #fff;
   /* 原图四边留白偏窄，补一点内衬当静区 */
   padding: 6px;
@@ -77,17 +112,18 @@
        先甩一个二维码再解释，读者第一眼看到的是一个不知道干嘛用的码。
        桌面端是文左码右，视线同样先经过文案，两端顺序一致。 */
     flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 18px;
+    align-items: stretch;
+    gap: 24px;
+    padding: 24px 20px;
   }
 
   .sponsor-qr {
     /* 手机上要留出足够大的可长按区域，太小会按不准 */
-    width: 160px;
-    height: 160px;
-    align-self: center;
+    width: 180px;
+    height: auto;
   }
+
+  .sponsor-code { align-self: center; }
 
   .sponsor-hint-desktop {
     display: none;

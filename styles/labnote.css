@@ -132,7 +132,7 @@
 .article-signature strong { display: block; margin-top: 8px; color: var(--hp-green); font-size: 1.2rem; }
 .article-signature p { margin: 8px 0 0; color: var(--hp-muted); font-size: .8rem; }
 .article-share { margin-top: 40px; padding: 20px 0; border-top: 1px dashed var(--hp-line-strong); border-bottom: 1px dashed var(--hp-line-strong); }
-.article-page :is(.sponsor-card, .comments-section) { border-color: var(--hp-line); background: var(--hp-paper); }
+.article-page .comments-section { border-color: var(--hp-line); background: var(--hp-paper); }
 .related-posts { margin-top: 40px; }
 .related-posts > h2 { margin: 0 0 18px; color: var(--hp-text); font-size: 1.2rem; }
 .related-posts__grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }

@@ -25,18 +25,23 @@ export default function SponsorCard({ lang }) {
   return (
     <section className="sponsor-card" aria-labelledby="sponsor-heading">
       <div className="sponsor-body">
+        <p className="sponsor-label"><span aria-hidden="true">♡</span> {t('支持黑粉科技')}</p>
         {/* 上下联各占一行。拆成两个元素而不是一句带逗号的文本：
             对仗要靠两行对齐才看得出来，挤成一行遇到窄屏还会从中间折断。 */}
         <h2 id="sponsor-heading" className="sponsor-heading">
           <span className="sponsor-verse">{t('熬夜烧钱三千字')}</span>
           <span className="sponsor-verse">{t('扫码随心一杯茶')}</span>
         </h2>
+        <a className="sponsor-save" href={QR_SRC} download="黑粉科技-微信赞赏码.png">
+          {t('保存赞赏码')} <span aria-hidden="true">↓</span>
+        </a>
         <p className="sponsor-hint">
           <span className="sponsor-hint-desktop">{t('微信扫码')}</span>
           <span className="sponsor-hint-mobile">{t('长按保存图片，用微信「扫一扫」从相册选取')}</span>
         </p>
       </div>
-      <img
+      <div className="sponsor-code">
+        <img
         className="sponsor-qr"
         src={QR_SRC}
         alt={t('微信赞赏码')}
@@ -44,7 +49,9 @@ export default function SponsorCard({ lang }) {
         height={555}
         loading="lazy"
         decoding="async"
-      />
+        />
+        <p className="sponsor-code-caption">{t('微信赞赏 · 金额随意')}</p>
+      </div>
     </section>
   );
 }

@@ -38,4 +38,15 @@ assert.match(read('components/DiscoveryPage.js'), /aspect-ratio:var\(--article-c
 assert.match(read('components/ArticleCover.js'), /fallback=\{fallback\}/);
 assert.match(read('components/ContainedCover.js'), /failedSource === source/, '换图后不能沿用上一张图的失败状态');
 assert.match(read('components/PostListPage.js'), /href=\{listHref\(lang, currentPage - 1\)\}/, '第 2 页的上一页应到列表第 1 页，而不是首页');
+const sponsor = read('components/SponsorCard.js');
+const sponsorStyle = postcss.parse(read('styles/sponsor.css'));
+assert.ok(detail.indexOf('<ShareButtons') < detail.indexOf('<SponsorCard') && detail.indexOf('<SponsorCard') < detail.indexOf('<RelatedPosts'), '赞助保留在分享后、相关文章前，不插进正文');
+assert.doesNotMatch(sponsor, /\b(?:useEffect|useState|setTimeout|localStorage|sessionStorage|fetch)\b/, '赞助区不能弹窗、计时或追踪');
+assert.match(sponsor, /href=\{QR_SRC\} download=/, '保留同源赞赏码保存入口');
+assert.match(sponsor, /长按保存图片，用微信「扫一扫」从相册选取/);
+assert.equal(rules('styles/sponsor.css')['.sponsor-qr'].height, 'auto', '二维码保持原始比例');
+sponsorStyle.walkDecls((decl) => {
+  assert.ok(!(decl.prop === 'position' && /fixed|sticky|absolute/.test(decl.value)), '赞助元素不能悬浮或覆盖正文');
+  assert.ok(!/^(animation|z-index)$/.test(decl.prop), '赞助区不靠动画和叠层打断阅读');
+});
 console.log('✅ 文章布局回归通过：封面统一 16:9、清晰层完整显示、同图背板铺满、故障占位、正文自然比例与分页跳转');
