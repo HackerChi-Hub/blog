@@ -5,11 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 02:07:03 GMT</lastBuildDate>
-    <pubDate>Fri, 23 Oct 2026 02:07:03 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2026 02:22:15 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Oct 2026 02:22:15 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek Harness 手机遥控：电脑跑任务，外网看进度、发要求</title>
+      <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
+      <guid isPermaLink="true">https://hyphentech.top/deepseek-harness-mobile-remote/</guid>
+      <description>手机看原会话，电脑继续执行。实测结果、配对修复与三平台脚本，也把尚未验收的边界讲清。</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    </item>
     <item>
       <title>方寸智匣 2.0.7 能自己做安全测试了？本地大模型10分2秒挖出越权漏洞</title>
       <link>https://hyphentech.top/localbrain-security-architecture/</link>
@@ -206,17 +215,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>资源分享</category>
-    </item>
-    <item>
-      <title>黑粉录屏：把讲解变成动画，本地模型能行吗？</title>
-      <link>https://hyphentech.top/hyphenscreen-ai-animation-150-preview/</link>
-      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-ai-animation-150-preview/</guid>
-      <description>九种风格参考复现与艺术长卷新编排，配合软件内本地模型真实生成，逐段展示动画画面与制作链路。</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>黑粉录屏</category>
-    <category>AI动画</category>
-    <category>本地模型</category>
     </item>
   </channel>
 </rss>
