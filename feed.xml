@@ -5,19 +5,20 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 02:22:15 GMT</lastBuildDate>
-    <pubDate>Fri, 23 Oct 2026 02:22:15 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2026 03:18:15 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Oct 2026 03:18:15 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
     <item>
-      <title>DeepSeek Harness 手机遥控：电脑跑任务，外网看进度、发要求</title>
+      <title>DeepSeek Harness 手机遥控工具：下载、安装与外网使用实测</title>
       <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
       <guid isPermaLink="true">https://hyphentech.top/deepseek-harness-mobile-remote/</guid>
-      <description>手机看原会话，电脑继续执行。实测结果、配对修复与三平台脚本，也把尚未验收的边界讲清。</description>
+      <description>电脑继续跑，手机接着看。下载、安装、配对、外网配置与实测结果，一篇讲清。</description>
       <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
+    <category>远程访问</category>
     </item>
     <item>
       <title>方寸智匣 2.0.7 能自己做安全测试了？本地大模型10分2秒挖出越权漏洞</title>
