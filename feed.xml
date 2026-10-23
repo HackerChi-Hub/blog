@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 03:18:15 GMT</lastBuildDate>
-    <pubDate>Fri, 23 Oct 2026 03:18:15 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2026 09:34:08 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Oct 2026 09:34:08 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>方寸智匣本地安全测试：简明教程</title>
+      <link>https://hyphentech.top/localbrain-security-howto/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-security-howto/</guid>
+      <description>从授权、执行到导出报告，把方寸智匣本地安全测试的完整流程走一遍；含内容/目录发现、核验与清单校验，以及四个真实踩过的坑。</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>自制软件</category>
+    <category>LocalBrain</category>
+    <category>网络安全</category>
+    </item>
     <item>
       <title>DeepSeek Harness 手机遥控工具：下载、安装与外网使用实测</title>
       <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
@@ -203,16 +216,6 @@
       <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-08f7362ddd33/</guid>
       <description>Huashu Design 可交付什么，免费边界和使用门槛一次说清。</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
-    </item>
-    <item>
-      <title>狗头军师能把恋爱建议变成可执行的下一步吗？</title>
-      <link>https://hyphentech.top/2026-10-08-skill-7ad7eec5fddf/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-08-skill-7ad7eec5fddf/</guid>
-      <description>它把情绪、事实和行动拆开，但开源代码不等于全程免费或已经实测。</description>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
     <category>资源分享</category>
