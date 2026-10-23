@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2c0c9b7da143f6199c9d0876e2276de0c19e791f11a0bff6590a3622a1e87c13",
-  "published_post_count": 198,
+  "content_sha256": "6a592bc1ad372bbd9cd1d294f5cd97f4112298f2d9beb3510cd8669f4236fd2b",
+  "published_post_count": 202,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -501,6 +501,22 @@
       "sha256": "e833fb29635ab1a94492d4274ef508f1faf7713bac48709df09239e5817b7d3f"
     },
     {
+      "file": "posts/deepseek-harness-mobile-remote-en.md",
+      "slug": "deepseek-harness-mobile-remote-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "deepseek-harness-mobile-remote",
+      "lang": "en",
+      "sha256": "0e5180418fee4af5908addf396381eaa02d21e94c2b5b59c59c814baef62c850"
+    },
+    {
+      "file": "posts/deepseek-harness-mobile-remote.md",
+      "slug": "deepseek-harness-mobile-remote",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "83cee733cd591cc2b5e268b755a498c7049b59b80fbee82035c55fb60b0adf25"
+    },
+    {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
       "slug": "deepseek-v4-vision-mac64-en",
       "article_type": "article",
@@ -815,6 +831,15 @@
       "sha256": "cbfb6cce802c860579fd354d073358b83d681ea1e504948a24122e249cf72e93"
     },
     {
+      "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
+      "slug": "hyphenscreen-whole-video-packaging-165-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "hyphenscreen-whole-video-packaging-165",
+      "lang": "en",
+      "sha256": "8114bc3569469c6b422be296c2dea967cd6312a82e8eb4e767ebaeae89c557a9"
+    },
+    {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
       "slug": "hyphenscreen-whole-video-packaging-165",
       "article_type": "article",
@@ -1030,7 +1055,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "a78a913be32ee93e6adaab3a8adf693099200dce795b2db16927862186d64f72"
+      "sha256": "addc069bf10c216feaeb4257b13989e8828574cb61cd033d4c7586950f2e20d1"
     },
     {
       "file": "posts/localbrain-network-security.md",
@@ -1054,6 +1079,15 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "87a7fd75a2c3df1b93ce333c05073727b3b11d28083f501a3ff6a23d0818f42a"
+    },
+    {
+      "file": "posts/localbrain-security-architecture-en.md",
+      "slug": "localbrain-security-architecture-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "localbrain-security-architecture",
+      "lang": "en",
+      "sha256": "c983a9fd86927f3d99a30541853b4771acea4f0f3809512aefb34a0f045bb688"
     },
     {
       "file": "posts/localbrain-security-architecture.md",

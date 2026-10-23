@@ -5,10 +5,10 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: abfdb30f8478bdc2
+source_sha256: c3fb126f5295ce3e
 date: 2026-10-03
-updated: 2026-10-13
-summary: "From security checks to authorized penetration: 1.6.7 adds service identification, SQL injection detection, and self-written PoC execution, locking export technology to authorization targets; Retaining continuous 35B and 27B tests, 170 component matching and verification boundaries across platforms."
+updated: 2026-10-23
+summary: "From security checks to authorized penetration: export technology locks authorization targets; 2.1.1 After further compression, retain user originals, session drafts isolation, full cycle duration limits, and continue reading web evidence; The real HTB has not yet been established, but the local equivalent link is already open."
 categories:
   - Tech
 tags:
@@ -17,10 +17,9 @@ tags:
   - Self-made software
   - LocalBrain
   - Security
-cover: https://hyphentech.top/obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg
+cover: "/obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
@@ -270,7 +269,7 @@ So the answer to "can you use the order" is: the scope is locked by technology, 
 
 ## 12. Which version should I download? Which conclusions have not yet been accepted?
 
-The official version for this round is [1.6.7 All-Platform Release Page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.7), which is the version where the authorized penetration capability from Section 11 is located. After re-downloading the installation package from the release page for the three platforms, SHA-256 matches the build value step by step, and the update signature is validated; Mac is not yet notarized by Apple. The update list and download page are synchronized to 1.6.7, and the old release has been cleaned up. The operation screenshots in this article still come from the locally installed version 1.6.6; 1.6.7 adds penetration capabilities on it, and the conclusion comes from end-to-end verification in the isolated environment rather than screenshots of the interface.
+This section describes the first version of this article corresponding to [1.6.7 all-platform distribution page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v1.6.7), i.e., the version where the license penetration capability from Section 11 is located; The current Mac version is [2.1.1 distribution page](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.1), while Windows and Linux still use 2.0.8. After re-downloading the installation package from the distribution page for the three platforms, SHA-256 matches the build value step by step, and the update signature is validated; Mac is not Apple notarization. The update list and download page are synchronized to 1.6.7, and the old release has been cleaned up. The operation screenshot in this article still comes from the locally installed version 1.6.6; 1.6.7 adds penetration capabilities to it, and the conclusion comes from end-to-end verification in the isolated environment, not from the interface screenshot.
 
 Windows and Linux are built from the same source code submission; installation package hashes and update signatures have been verified, but both platforms have not yet been accepted for real-world use. Linux is still considered to be preview-supported, MLX/Splash cannot run, and managed llama.cpp and Prism downloads have not yet been fully integrated. The model runs and native window tests in this article are from Mac and are not extended to guarantee across all platforms.
 
@@ -279,6 +278,24 @@ In source code acceptance, 1,423 frontend tests passed, with 2 skipped; Rust tes
 ![Acceptance layering: Records real Mac model calls, backend evidence, and cross-platform package validation separately, building acceptance without impersonating real devices.](https://hyphentech.top/obsidian-assets/localbrain-network-security/chart-evidence-levels.png)
 
 For Mac, select the Apple Silicon package and install it into the application; For Windows, select the x64 installer; For Linux, choose either the AppImage or Debian package depending on the system. For initial preparation, additional dependencies may be required; confirm according to the software prompts; For downloads requiring international networks, prepare the connection in advance. Specific dependencies, hashes, and platform boundaries are based on the release page.
+
+## 13. 2.1.1: Don't forget long quests, don't suffer silent losses for web evidence
+
+The question in the title hasn't changed in this version: whether you can take orders, first check if the chain of evidence is stable. 2.1.1 The two things I repaired aren't new features; they're just areas where problems arise while using them.
+
+The first thing is compression. I ran a mall question on local 27B, and after compression, it logged in with a different password and returned 401. After reviewing the official session view, I saw clearly: before compression, the context had the correct password; after compression, the original user message was replaced by a summary, and the summary only left the account name. This isn't because the model is dumb; it's that it really didn't see it. Now, both automatic and manual compression are outside the semantic summary, preserving trusted user originals from the official append logs, and checking targets, accounts, parameters, and restrictions in event order; Web content, tool receipts, and host prompts cannot be spoofed as you say. Block retention does not restore authorization or replay executed operations; If the original text is too long to be pressed, the record is kept and boundary is reported, not claiming losslessness.
+
+The second is drafting a visit. After switching or deleting a session, any drafts that haven't been sent will be linked to another conversation, including the security task tag. Now, drafts are restored with the corresponding session, and drafts deleted from the session are directly discarded; The native confirmation box shows the exact operation title; clicking cancel will still leave the original conversation.
+
+There are two places where you go straight for long quests:
+
+- "Single round duration" changed from "reclocking after the first word" to a full round hard limit, with pre-filling and generation sharing one portion of time, and the time reported separately on prefill or generation at the time. Actual tests show that the local 27B prefills about 360–390 words per second, and 190,000 words of context alone takes about 530 to 600 seconds to reach the point before and after the first word. This is a matter of context scale; compressing or splitting tasks first doesn't mean the model refuses to do the work.
+- Web evidence: control lists that reveal link targets; If the main text is not fully read, continue reading guidance is given based on the actual read range; the next request is directly taken from the adapter, no need to manually offset; Verification only recognizes the read HTML body window; failures are divided into "not in the read window" and "abstract does not match," and only the window is stated, not the candidate is correct. When the authorization expires midway, the program directly requires the model to stop and report truthfully.
+
+The cleanup section also adds another step. Previously, the cleanup entry was batch deleted by name, and once there was an issue where things that should have been kept were accidentally deleted. Now, by pre-checking the real resource tags in batches, rereading tags before deletion, only recognizing the exact "non-existent" determination, and cross-checking against an external protection registration form; The 20 tests cover up root causes like empty labels, wildcards, and ownership mismatches.
+
+Finally, what I didn't finish: the real HTB version still didn't connect. I let TUN pass, letting traffic pass through proxy nodes to the edge, but the container still only saw TCP established and then reset; I switched to official UDP 1337, pinned down the real IP, switched to UDP-supporting nodes, and the control packet sent out with no server response; I tried 10 nodes in the subscription one by one, and the result was the same; I turned off the proxy and went for direct connections, but at that edge (DigitalOcean subnet), it timed out immediately. So now I can only confirm whether "this network can't reach that edge," whether the proxy exit is blocked or on the platform or account side, I have no evidence. Local equivalent test (self-built OpenVPN server) ran tunnels, port discovery, screenshots, and exports, but it proved the link, not the platform's performance.
+
 
 ## Finally: the first time you get the report, the second time you learn to question the evidence
 
