@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 09:45:01 GMT</lastBuildDate>
-    <pubDate>Fri, 23 Oct 2026 09:45:01 GMT</pubDate>
+    <lastBuildDate>Fri, 23 Oct 2026 11:26:24 GMT</lastBuildDate>
+    <pubDate>Fri, 23 Oct 2026 11:26:24 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -22,6 +22,16 @@
     <category>自制软件</category>
     <category>LocalBrain</category>
     <category>网络安全</category>
+    </item>
+    <item>
+      <title>腾讯 Hy-Nomas 开放权重：一张 RTX 4090 能跑怎样的交互式视频世界？</title>
+      <link>https://hyphentech.top/2026-10-23-official-3a68097e4e1d/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-23-official-3a68097e4e1d/</guid>
+      <description>Hy-Nomas 已开放模型资产，也给出单张 RTX 4090 方案，但本地运行仍有门槛。</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
     </item>
     <item>
       <title>DeepSeek Harness 手机遥控工具：下载、安装与外网使用实测</title>
@@ -205,16 +215,6 @@
       <link>https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</link>
       <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</guid>
       <description>它把书、长视频和播客拆成可调用技能，但代码免费不等于整套流程零成本。</description>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
-    </item>
-    <item>
-      <title>Huashu Design 能把一句话变成可交付设计吗？</title>
-      <link>https://hyphentech.top/2026-10-09-skill-08f7362ddd33/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-08f7362ddd33/</guid>
-      <description>Huashu Design 可交付什么，免费边界和使用门槛一次说清。</description>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
