@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T14:35:27.004Z",
-  "contentHash": "73b24962465604b875f46f1c6e42386880c70a6e448650795d6f5af285bd5cdc",
+  "checkedAt": "2026-10-24T14:56:25.346Z",
+  "contentHash": "cefcac036a08a16672aff9046bd0a20eb3f4ef84d7148f045bc68b399cd60e58",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -17,26 +17,26 @@
       "fallbackDescription": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
       "action": "查看产品与下载",
       "description": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
-      "updateSummary": "本次修复“开放端口”和“动态域名＋开放端口”模式中，电脑无法回读自身外网地址时，配对二维码按钮一直不可用的问题。二维码和一次性配对令牌均在本机生成，不依赖在线二维码服务。外网回读失败时可以生成二维码，再用手机移动网络实际测试；界面会明确提示入口尚未验证。临时链接仍须实际连通后才能生成二维码。",
+      "updateSummary": "修复“开放端口”和“动态域名＋开放端口”模式中，电脑无法回读自身外网地址时，配对二维码按钮一直不可用的问题。二维码和一次性配对令牌均在本机生成，不依赖在线二维码服务。外网回读失败时可以先生成二维码，再用手机移动网络实际测试；界面明确提示入口尚未验证。临时链接仍须实际连通后才能生成二维码。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T14:33:14Z",
+      "activityAt": "2026-10-24T14:51:46Z",
       "version": "1.0.1",
       "releaseUrl": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.0.0",
+          "version": "1.0.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0",
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1",
           "assets": [
             {
-              "name": "HyphenAssistant-1.0.0-macos-arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.0/HyphenAssistant-1.0.0-macos-arm64.dmg",
-              "id": 672342668,
-              "size": 61710037,
-              "updatedAt": "2026-10-24T13:30:30Z",
-              "digest": "sha256:641576417a33e7d50bd9cbb23ede9bd998151bf5166650728d8b5be5da04e8b1"
+              "name": "HyphenAssistant-1.0.1-macos-arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v1.0.1/HyphenAssistant-1.0.1-macos-arm64.dmg",
+              "id": 672501195,
+              "size": 61748733,
+              "updatedAt": "2026-10-24T14:41:54Z",
+              "digest": "sha256:11bfc13915572dc6c8f910c371555c7f0c21959258b5fe0efbf87de66ded967e"
             }
           ]
         },
@@ -89,10 +89,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T14:35:27.004Z",
+      "checkedAt": "2026-10-24T14:56:25.346Z",
       "prerelease": false,
-      "releaseNotesHash": "45f90b06c018ea935f0a9c5f46de586f16d473c0d661a56a9f74710d429f8db6",
-      "revision": "b818b2fdb96a8dbf84f5f9bbf18b1e4e9264a593d144630a7fdd3ec018c6b6ba"
+      "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
+      "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
     },
     {
       "slug": "localbrain-local-ai-box",
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T14:35:27.004Z",
+      "checkedAt": "2026-10-24T14:56:25.346Z",
       "prerelease": false,
       "releaseNotesHash": "aa0b9d9ecd3379be7006586d620905ca241a5828f602c0ba5836232e3f5996ac",
       "revision": "be97d298990d32373d48121b1012bc57a45e285504eb6c894abe2209416f8821"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T14:35:27.004Z",
+      "checkedAt": "2026-10-24T14:56:25.346Z",
       "prerelease": false,
       "releaseNotesHash": "482e76548363163209ecddde9d38dfca90a3487ad8c0e6b7143dab12446f27ea",
       "revision": "77fcf73d68a2f5d09687cef97bc2b917e2cd50437edf2e2ea753275b7d9d7434"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T14:35:27.004Z",
+      "checkedAt": "2026-10-24T14:56:25.346Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T14:35:27.004Z",
+      "checkedAt": "2026-10-24T14:56:25.346Z",
       "prerelease": false,
       "releaseNotesHash": "41ad38252f142b65b93f21674827f98e28c831f6f8102090fe1c6e917d197437",
       "revision": "b8dd7c581ae28d569cd9e3f3be5cc1c479c26112b4d7e3e2bdb07b9eb95d8934"
