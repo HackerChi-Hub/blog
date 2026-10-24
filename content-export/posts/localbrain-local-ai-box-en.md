@@ -1,12 +1,12 @@
 ---
-title: "LocalBrain: turn your Mac into a private AI box"
+title: "LocalBrain: a local AI workbench for Mac, Windows and Linux"
 slug: localbrain-local-ai-box-en
 status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-20
-summary: LocalBrain gathers local models, speech, images, video and tools into one workbench. Updated with Windows 2.0.0 compaction repairs, Mac 1.9.9 startup diagnostics and matched Sushi resident versus exact SSD tests, while retaining historical walkthroughs and screenshots.
+updated: 2026-10-24
+summary: Local models, speech, images, video and tools in one workbench. Version 2.1.2 adds current Windows/Linux packages, fixes bundled-resource registration and Windows Unicode-path encoding, and updates the security layout, with platform-specific verification limits.
 categories:
   - Resources
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## 2.1.2: three-platform downloads and tool installation fixes
+
+LocalBrain brings local models, speech, images, video and file tools into one desktop workbench. Each platform maintains its own runtime: Mac offers specialized engines including MLX, Splash and Sushi; Windows supports llama.cpp and PolyStrata; Linux provides preview Debian and AppImage packages. Model compatibility and memory requirements depend on the engine and local checks. Updating the app does not implicitly upgrade CUDA, drivers or model weights.
+
+Version 2.1.2 registers bundled tool paths in the managed Python environment and verifies their origin in a fresh process, avoiding build output inside read-only app resources. Windows Unicode paths and diagnostics explicitly use UTF-8. The security target list uses the full width, with connections and tools shown as needed. Batch handoff creates a draft requiring manual submission and execution approval. Integration retains DeepSeek Harness configuration. A completed turn shows only a support text entry; clicking reveals a QR code without inserting it into model context.
+
+The final Windows package was checked on an RTX 4070 Laptop 8GB/32GB RAM machine with PolyStrata Qwen3.6-35B-A3B Q3 at 8K: native chat, one file write, actual compaction and continuation; the installed configuration hash stayed unchanged. Both Linux packages passed bundled Node/DSH, resource and WSL2 Ubuntu22.04+Xvfb startup checks; Debian was installed. This is neither bare-metal Linux GPU inference nor real HTB acceptance, and does not rerun the original twelve-question benchmark. Windows has updater signatures, not Authenticode. Existing Mac packages retain their separate acceptance record.
+
+[Windows installer](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_amd64.AppImage) · [Mac DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_aarch64.dmg)
+
+The author explicitly approved this release exception: the source GitHub check could not start due to account payment/spending restrictions. Local passing checks are not reported as passing online CI.
+
+[Windows/Linux verification and hashes](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.2-WIN-LINUX.md) · [Mac verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.2-MAC.md) · [Latest release](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest). Older figures, walkthroughs and screenshots below retain their original dates and are not new results from this batch.
 
 ## Windows 2.0.0: small-context tasks and compaction repairs
 

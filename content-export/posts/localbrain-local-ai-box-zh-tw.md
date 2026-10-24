@@ -1,12 +1,12 @@
 ---
-title: LocalBrain：把 Mac 變成私有 AI 盒子
+title: "LocalBrain：Mac、Windows、Linux 的本機 AI 工作台"
 slug: localbrain-local-ai-box-zh-tw
 status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-20
-summary: 方寸智匣把本機模型、語音、圖像、影片與工具收進同一工作台。更新Windows 2.0.0小視窗壓縮修復、Mac 1.9.9啟動診斷，以及Sushi常駐與精確SSD實測；保留歷史功能介紹及截圖。
+updated: 2026-10-24
+summary: 本機模型、語音、圖像、影片與工具集中管理。2.1.2 補齊 Windows/Linux 下載，修正唯讀資源註冊及 Windows 中文路徑編碼，調整安全工作台；各平台實測範圍與特殊執行環境分別說明。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## 2.1.2：三平台下載與工具安裝修正
+
+LocalBrain 將本機模型、語音、圖片、影片及檔案工具放在一個桌面工作台。Mac、Windows、Linux 各自維護執行環境：Mac 可選 MLX、Splash、Sushi；Windows 可用 llama.cpp 與 PolyStrata，Linux 提供 Debian 及 AppImage 預覽套件。模型相容性與記憶體需求以本機檢查及引擎要求為準，應用程式升版不會順帶升級 CUDA、驅動或模型權重。
+
+2.1.2 不再向唯讀程式目錄寫入建置產物，而是向受管 Python 環境註冊資源路徑，並以新程序驗證來源；Windows 中文路徑及診斷輸出統一使用 UTF-8。安全工作台目標名單改為全寬，連線及工具按需展開；批次交接只產生草稿，仍需手動傳送與執行批准。接入頁保留 DeepSeek Harness 設定。每輪結束僅顯示「贊助開發」文字，點擊才出現 QR 碼，不加入模型上下文。
+
+Windows 最終套件在 RTX 4070 Laptop 8GB／32GB 記憶體機器，以 PolyStrata Qwen3.6-35B-A3B Q3、8K 視窗核對原生聊天、一次檔案寫入、實際壓縮及續答；安裝前後正式設定雜湊未變。Linux 兩種套件通過內建 Node／DSH、資源核對及 WSL2 Ubuntu22.04＋Xvfb 啟動檢查，Debian 已安裝。這不等於 Linux 裸機 GPU 推理或真實 HTB 任務驗收，也不是原12題能力評測重跑。Windows 使用應用更新簽章，非 Authenticode；既有 Mac 套件保留其獨立驗收紀錄。
+
+[Windows 安裝程式](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_amd64.AppImage) · [Mac DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_aarch64.dmg)
+
+本次已獲作者明確授權例外發布：原始碼 GitHub 檢查因帳戶付款／額度限制未啟動，不能把本機通過當作線上 CI 通過。
+
+[Windows/Linux 驗收與校驗值](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.2-WIN-LINUX.md) · [Mac 驗收](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.2-MAC.md) · [最新發行](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)。以下舊版本數字、功能介紹及截圖保留撰寫時狀態，不當作本輪新測結果。
 
 ## Windows 2.0.0：小視窗任務與壓縮修復
 
