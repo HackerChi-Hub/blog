@@ -108,6 +108,13 @@
 .article-page .markdown-content a { text-decoration: underline; text-decoration-color: rgba(105,240,174,.35); overflow-wrap: anywhere; }
 .article-page .markdown-content :is(img, video) { width: 100%; height: auto; max-height: none; object-fit: contain; border-radius: var(--hp-radius-el); border-color: var(--hp-line); box-shadow: none; transform: none; }
 .article-page .markdown-content img { margin: 1.6em auto; }
+.article-page .markdown-content img[src*="/deepseek-harness-mobile-remote/"] { width: min(100%, 692px); max-width: 100%; }
+.article-page .markdown-content img[src$="/tutorial-018-harness.png"] { width: min(100%, 482px); }
+.article-page .markdown-content img[src$="/image-web-message-history-74a6376fd4.jpg"] { width: min(100%, 545px); }
+.article-page .markdown-content img[src$="/image-aliyun-subuser-choice-6271b13528.jpg"] { width: min(100%, 513px); }
+.article-page .markdown-content img[src$="/image-aliyun-download-csv-d39682ba98.jpg"] { width: min(100%, 514px); }
+.article-page .markdown-content p:has(> img[src*="/deepseek-harness-mobile-remote/"]) { margin-bottom: .35em; }
+.article-page .markdown-content p:has(> img[src*="/deepseek-harness-mobile-remote/"]) + p:has(> em:only-child) { margin: 0 auto 1.8em; max-width: 680px; color: var(--hp-faint); font-size: .84rem; line-height: 1.7; text-align: center; }
 .article-page .markdown-content figcaption { margin-top: 10px; padding-left: 12px; border-left: 2px solid var(--hp-line-strong); font: .78rem/1.8 var(--hp-mono); color: var(--hp-faint); }
 .article-page .markdown-content blockquote { margin: 2em 0; padding: 20px 22px; border: 1px solid var(--hp-line-strong); border-left: 3px solid var(--hp-green); border-radius: var(--hp-radius-el); background: var(--hp-paper); }
 .article-page .markdown-content blockquote > :last-child { margin-bottom: 0; }
