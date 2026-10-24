@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 translation_source: machine
-source_sha256: 277054b0bdf84f5c
+source_sha256: 45e7a1393147c56e
 date: 2026-10-23
 updated: 2026-10-24
 summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
@@ -28,9 +28,9 @@ The AI on the computer is still processing tasks, but the person has already lef
 
 This article starts with downloading and installing, and when you get a real reply on your phone. First, use a temporary link to run the game, then choose an open port or dynamic domain name as needed. Alibaba Cloud, Tencent Cloud DNSPod, and Cloudflare—all three resolution platforms—just choose the one you're currently using—you don't need to register for all of them.
 
-This article covers **Heifen Assistant 0.1.8, the stable release verified on October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
+The download links in this article have been checked against **Heifen Assistant 1.0.0, the stable release on October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
 
-The Heifen Assistant interface image has been replaced with the 0.1.8 isolation demo. The form uses a fictitious domain name and test credentials, so it cannot be used to determine that a real cloud account has been successfully configured. The cloud platform image is only for identifying the entry point; the actual button position depends on the console you open.
+The Heifen Assistant interface screenshots remain from the 0.1.8 isolated demo and illustrate the steps. The forms use a fictitious domain name and test credentials, so they do not prove that a real cloud account has been configured. The cloud platform images only help identify the entry point; button positions depend on the console you open.
 
 **First time using it, take the shortest route:** Harness on your computer can answer → Connect the same configuration in the assistant → select a temporary link and start → pair your phone with a new QR code → send a test message in the original session. The following sections on port mapping and dynamic domain name resolution among three providers are advanced parts to review when you have your own network access.
 
@@ -46,7 +46,7 @@ On the computer, select an unimportant test session and send "Reply only: comput
 
 ### Download the installation package suitable for your system
 
-0.1.8 is now a stable release. Open the [Heifen Assistant 0.1.8 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8) and choose the installer for your system; the Source code archives are not installers. Existing versions can also check for updates in the app. The live update manifest now points to 0.1.8.
+1.0.0 is now the stable release. Open the [Heifen Assistant 1.0.0 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0) and choose the installer for your system; the Source code archives are not installers. Existing versions can also check for updates in the app. The live update manifest now points to 1.0.0.
 
 | Computer system | Selected files | Installation method |
 | --- | --- | --- |
@@ -101,6 +101,8 @@ Here, only the original workspace is added as an entry. When a task is running, 
 3. Go to "Check and Help" and click "Check Actual Connection"; After the entry reload passes, return to the homepage to generate a matching QR code. Scan the latest QR code with your mobile browser; do not reuse the link generated from the previous link.
 
 Starting from 0.1.8, **"Local Gateway Started" and "Phone Entry Accessable" are checked separately**. If the homepage shows "Computer connected, mobile entry pending repair", first go to "Inspection and Help" to run the actual connection check. We saw Cloudflare return HTTP 530 on a Windows worker with HTTP 530: Harness connected, but the TLS handshake from the channel to edge node failed, and the phone cannot be used at this time. After adjusting the local network or TUN, refresh, check the entry readback and the actual response received by the phone.
+
+Version 1.0.0 also rechecks the waiting state when a temporary tunnel starts. A single failed external readback no longer remains on the screen indefinitely: if the entry recovers, the connection status and QR-code button update automatically. A persistent failure still appears disconnected. Confirm phone access with the connection check and an actual reply.
 
 ![0.1.8 Unique Setting for Temporary Links | Isolation Demo](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-quick-link.png)
 
@@ -435,7 +437,7 @@ The current version has passed the build and installation startup checks for the
 | Phenomenon | Priority checks |
 | --- | --- |
 | The start button cannot be pressed | Whether the original Harness is accessed; Whether dynamic domain credentials have been saved |
-| After selecting the configuration, you return to the selection box | Update to 0.1.8; the mounted configuration should display "Connector Mounted", then check whether the original Harness has loaded the connector |
+| After selecting the configuration, you return to the selection box | Update to the current release; the mounted configuration should display "Connector Mounted", then check whether the original Harness has loaded the connector |
 | The original session was connected, but the temporary entrance was not connected | Run "Check Actual Connection"; If an HTTP 530 or other external network error is returned, check the local network or TUN and refresh the status |
 | Parsing check prompts 'unauthorized not authorized.' | Whether the account is selected, whether the policy is bound, whether the domain resource scope is correct, and whether the key is valid |
 | Records cannot be found or records are not unique | A Whether records are pre-created, whether hostnames are correct, and whether default lines are duplicated |
