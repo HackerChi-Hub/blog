@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T02:02:00.860Z",
-  "contentHash": "0bb7c9c9344451fe1354b7657f568f119f6eba5fb00a66240d9be90924b95e48",
+  "checkedAt": "2026-10-24T02:54:52.461Z",
+  "contentHash": "5d4de8263d2ce459e191599f7323dd9dec0cc18a9a9e9f8ba4fbead3786bbbb0",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:02:00.860Z",
+      "checkedAt": "2026-10-24T02:54:52.461Z",
       "prerelease": false,
       "releaseNotesHash": "82e91d0641fc38a7828aa2b71b968ccd40c710af66a91fc97ca0f04d4d695cf6",
       "revision": "0747450d21702472b1a2e31ca01fad24be0cc2be105876100830ac9cc78ffe54"
@@ -108,26 +108,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "修复只读程序资源导致的 MCP 安装失败：不再执行开发模式构建，仅向受管 Python 环境注册当前资源路径，并验证来源；失败回滚，不修改程序资源权限；每轮聊天结束显示「赞助开发」文字，点击才展开二维码；临时关闭后文字入口保留，不自动弹出，也不写入模型上下文或会话导出。",
+      "updateSummary": "恢复 Codex、Claude Code 的 MCP 工具接入，保留 DeepSeek Harness，不恢复 OpenCode。只添加工具，不更换客户端模型、提供方、其它 MCP 或项目设置。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T01:16:56Z",
-      "version": "2.1.2",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.2",
+      "activityAt": "2026-10-24T02:53:54Z",
+      "version": "2.1.3",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.3",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.1.2",
+          "version": "2.1.3",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.2",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.3",
           "assets": [
             {
-              "name": "LocalBrain_2.1.2_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.2/LocalBrain_2.1.2_aarch64.dmg",
-              "id": 670823436,
-              "size": 72436313,
-              "updatedAt": "2026-10-24T00:32:26Z",
-              "digest": "sha256:b31de804c4b3cd6e934353c64576e4f7bba0ab0fec523ee150f7ae5aef6992e7"
+              "name": "LocalBrain_2.1.3_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_aarch64.dmg",
+              "id": 671088625,
+              "size": 72538788,
+              "updatedAt": "2026-10-24T02:53:50Z",
+              "digest": "sha256:023934d617c93cb50cd3dd41f55bd7ad672d29983548000cfb78d1f7985417b8"
             }
           ]
         },
@@ -172,10 +172,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:02:00.860Z",
+      "checkedAt": "2026-10-24T02:54:52.461Z",
       "prerelease": false,
-      "releaseNotesHash": "65bf85bc7895a1e485b6453cc76888e8a5217b5aeccf8e812216ab9848eb3615",
-      "revision": "c30eb5bccc054aa7475f549445815f78bcbb3e8d5d4d066b4a5252f445a78ec3"
+      "releaseNotesHash": "b9bcced4130a56bb7afad05c9ef4d8ce4973f1153aff9064c7ece05f84a66146",
+      "revision": "5f16ee3ab8ec32962e7660b05c07f152fe047af03e551408c16cd6244b94acaa"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:02:00.860Z",
+      "checkedAt": "2026-10-24T02:54:52.461Z",
       "prerelease": false,
       "releaseNotesHash": "482e76548363163209ecddde9d38dfca90a3487ad8c0e6b7143dab12446f27ea",
       "revision": "77fcf73d68a2f5d09687cef97bc2b917e2cd50437edf2e2ea753275b7d9d7434"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:02:00.860Z",
+      "checkedAt": "2026-10-24T02:54:52.461Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,26 +389,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "本版先发布Apple芯片Mac；Windows与Linux继续提供1.6.6，未包含本轮功能。不自动替换本机安装版。",
-      "updated": "2026-10-23",
-      "activityAt": "2026-10-23T17:48:51Z",
-      "version": "1.6.8",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.8",
+      "updateSummary": "本轮更新Apple芯片Mac。Windows和Linux由作者另行构建，公开下载暂保留实际1.6.6，不将旧包标成已包含本次功能。",
+      "updated": "2026-10-24",
+      "activityAt": "2026-10-24T02:43:01Z",
+      "version": "1.6.9",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.9",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.6.8",
+          "version": "1.6.9",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.8",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.9",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.8_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.8/HyphenScreen_1.6.8_arm64.dmg",
-              "id": 669900486,
-              "size": 416144191,
-              "updatedAt": "2026-10-23T17:48:49Z",
-              "digest": "sha256:afacc7b4ac426b1820e31e47c69f28a497816c6cf8f74b3eb7c23479e28b1808"
+              "name": "HyphenScreen_1.6.9_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.9/HyphenScreen_1.6.9_arm64.dmg",
+              "id": 671069070,
+              "size": 425503925,
+              "updatedAt": "2026-10-24T02:43:00Z",
+              "digest": "sha256:d8a60cc3138a248596d29917eff929acde82822f0daa26877b0374e00fd2697e"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:02:00.860Z",
+      "checkedAt": "2026-10-24T02:54:52.461Z",
       "prerelease": false,
-      "releaseNotesHash": "88fe5ce8d0dd6b1143533eb3f82a5b27f450fb3e363a371ebee11e737416b63b",
-      "revision": "19a46267559342511942bf0487c569a3e27ad0eae1e0e92ee149b9955ed93f1e"
+      "releaseNotesHash": "41ad38252f142b65b93f21674827f98e28c831f6f8102090fe1c6e917d197437",
+      "revision": "b8dd7c581ae28d569cd9e3f3be5cc1c479c26112b4d7e3e2bdb07b9eb95d8934"
     }
   ]
 }
