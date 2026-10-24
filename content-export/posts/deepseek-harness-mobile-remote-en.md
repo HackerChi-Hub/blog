@@ -1,20 +1,21 @@
 ---
-title: "DeepSeek Harness Mobile Remote Control Tool: Download, Installation, and External Network Testing"
+title: "Heifen Assistant: Connect back to DeepSeek Harness with your phone, three complete tutorials on three connection methods"
 slug: deepseek-harness-mobile-remote-en
 status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 article_type: "article"
 translation_source: machine
-source_sha256: 1593998f305b5e1b
+source_sha256: f87df91ded1cf9b3
 date: 2026-10-23
-updated: 2026-10-23
-summary: "Keep running on the computer, keep watching on the phone. Download, installation, pairing, external configuration, and test results—all explained in one article."
+updated: 2026-10-24
+summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
 categories:
   - Tech
 tags:
   - AI
   - Remote access
+  - Self-made software
 cover: "/obsidian-assets/deepseek-harness-mobile-remote/cover-959d9a32e5.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
@@ -23,232 +24,396 @@ legacy_paths: []
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/deepseek-harness-mobile-remote/) is authoritative.
 
-> [!abstract]
-> DeepSeek Harness mobile remote control tool: From download to external network pairing, it clearly explains actual usage and acceptance results.
-> HyphenTech · 2026-10-23
+The AI on the computer is still processing tasks, but the person has already left the desktop. The phone opens a new chat window, but can't reconnect the original files or execution logs. What the anti-fan assistant does is add a mobile entry point to the DeepSeek Harness running on the computer: use the phone browser to view the original session, continue sending requests, and the task is still executed by the original computer.
 
-The AI on the computer is editing code and running tests, and I want to know how far it will go after leaving. I open a chat window again on my phone, but the previous tasks, files, and execution logs can't be connected. What I need is to return to the ongoing work on the computer, check the progress, and continue to explain requirements if necessary.
+This article starts with downloading and installing, and when you get a real reply on your phone. First, use a temporary link to run the game, then choose an open port or dynamic domain name as needed. Alibaba Cloud, Tencent Cloud DNSPod, and Cloudflare—all three resolution platforms—just choose the one you're currently using—you don't need to register for all of them.
 
-The gadget I've put together this time is to add a mobile access entry to **DeepSeek Harness**. The computer handles the model and execution; the phone uses a browser to view the original session and send messages, without installing a separate mobile app. It's already being deployed, and my phone can access and see the original session via the external network; Another independent web inspection also actually received a response from the model.
+This article corresponds to **Heifen Assistant 0.1.7 preview, with a verification date of October 24, 2026**. The cloud console images use real interface examples from the official help documents of three companies; the Alibaba Cloud section is based on the official older interface; The specific entry point is based on the current path mentioned in the article.
 
-![Web Message Test](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-web-message-74a6376fd4.jpg)
+The software form image comes from the 0.1.7 isolation demo, using a fictitious domain name and test credentials, so it cannot be used to determine that a real cloud account has been successfully configured.
 
-The image above shows independent web acceptance using the MiniMax model selected at the time; a simple reply display takes 1 second. Here, we look at whether remote messages can be delivered and replies can be returned; The speed of complex tasks is still determined by the original computer, model, and network. Harness can be configured with different models; the tool name includes DeepSeek, but that doesn't mean it can only use the DeepSeek model.
+![Anti-Fan Assistant Connection Center | Isolation Demonstration](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-home-97d364a688.jpg)
 
-## First, let's talk about whether it's worth installing
+## 🎯 1. What to prepare first: The computer can answer, then let the phone connect
 
-If you're already using Harness on your computer and often need to leave your desktop, this entry point is very useful: it keeps the computer running so you don't have to stay in the window all the time. If you only ask a couple of questions or haven't run Harness yet, it's easier to use the local version first.
+** The BlackSeek Assistant is an independent auxiliary tool developed by HyphenTech. ** It connects to the official DeepSeek Harness, does not provide models itself, and does not include model quotas. The models, work directories, and sessions you configured in the original Harness will continue to be used. The fees for model requests and data flow will continue to be determined by the original configuration.
 
-| Project | The actual situation of this tool |
-| --- | --- |
-| Names and versions | DeepSeek Harness Private Remote Management · 0.1.0 Preview |
-| Purpose | The phone logs into the Harness webpage and the original session on the original computer |
-| Form | Chinese menus and command-line portable tools, no third-party operation dependencies |
-| Reveal the carrying bag | ZIP, 35,299 bytes, approximately 35 KB |
-| Operating prerequisites | Node.js 22 or above; The computer already has an official Harness that works properly |
-| Platform | Provides macOS, Windows, and Linux inputs; actual acceptance is detailed later |
-| Cost boundaries | The portable bag can be downloaded for free; Model quota is not included; the original interface and network services are used according to their respective plans |
+The Black Fan Assistant's own operating environment, temporary channel, and QR code components have already been included in the installation package, so there is no need to install Node.js or channel tools for them. **The official Harness still needs to be installed, configured, and restored normally on your computer**; The required operating environment for the original Harness must be prepared separately according to the official documentation.
 
-It's an auxiliary tool I compiled separately, **not an official DeepSeek mobile app**. The package also doesn't include Node.js, models, Harness main program, or certificates. The so-called about 35 KB refers to the publicly available connection and management scripts, which can't be directly compared to the installation size of a full client. The development repository remains private, and the public package only includes runtime files and user instructions; Downloaders can view the runtime scripts in the package.
+If you haven't installed the Harness yet, first open [DeepSeek Harness official Chinese documentation](https://github.com/deepseek-ai/deepseek-harness/blob/master/README.zh.md), install according to the current official entry, and complete the model setup. It's still in the developer preview phase; upstream updates may change connector compatibility; If mounting fails, first check both versions and release notes; don't force upgrades directly to the environment where the task is being executed.
 
-![Process Diagram | Return to the original task on your phone](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-same-task-1c400d9c1a.png)
+On the computer, select an unimportant test session and send "Reply only: computer connection is normal, no tool called." After seeing a real reply, proceed with the subsequent remote connection. The webpage can open, the software can start, and the model can answer—these are three different things.
 
-You can think of your phone as connecting back to the same WeChat chat: after changing the device, the original chat is still there. The computer actually performing the task here hasn't been changed. The computer must stay on, and Harness and model services must be available; When the phone is offline, the tool will not resubmit the previous request for you. Running and resuming the original task is still handled by Harness.
+### Download the installation package suitable for your system
 
-## Download entry and pre-construction preparations
+Open [Download & Update: Heifen Assistant Distribution Page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest), select the installation package from the attachments, and do not treat the Source Code compressed package as an installer.
 
-Get these three ready: the official harness, Node.js, and this remote portable bag. If you can already have normal conversations on your computer webpage, you can start directly with the portable bag; Don't download an existing model again just for remote access.
+| Computer system | Selected files | Installation method |
+| --- | --- | --- |
+| macOS 13 and above, Apple Silicon chip | macos-arm64.dmg | Open the disk image and drag the Hefen Assistant into "Applications" |
+| Windows, x64 architecture | windows-x64-setup.exe | Install according to the installation wizard; the package includes an offline WebView2 installer |
+| Linux, x64 architecture | AppImage, deb, or rpm | Choose a format suitable for distribution; AppImage requires execution permissions and a compatible desktop environment |
 
-- [Official Harness: Project and Installation Instructions](https://github.com/deepseek-ai/deepseek-harness)——The main program is from DeepSeek's official source. First, confirm that the device can send and receive messages normally.
-- [Node.js: Official Chinese download page](https://nodejs.org/zh-cn/download) — Choose the long-term support version suitable for your system and confirm it meets the requirements of 22 or above.
+Mac Intel chips, Windows ARM, and Linux ARM are not covered by this batch of installation packages. The installer has not yet been notarized by Apple or signed by Windows commercial code; When blocked by the system for the first time, first verify the download source and the SHA-256 verification file with the same name, then decide whether to allow it in the system-provided security settings.
 
-The official current README provides the webpage launch method as follows. The first run will follow npm's normal process to obtain the main program; You also need to complete the model and usage environment configuration according to the official interface. Those who have already installed it can continue with the original startup method; there is no need to create a separate instance just to copy this command.
+## 🔍 2. How to choose among the three methods: First, think carefully about who will lead the way
 
-```shell
-npx @deepseek-ai/dsh web
-```
+Treat the computers at home as a household in the neighborhood. **Domain name resolution** is like checking the address book and telling your phone which public network address to go to; **Port mapping** Like a branching at the community entrance, it sends access to a certain address to the computer inside the house; **HTTPS certificate** helps browsers verify identities and encrypt content on the road. Each of the three things serves a purpose.
 
-After installing Node.js, reopen the terminal and run the following check. If you see a v22 or higher version number, continue; If it says the node cannot be found, first handle the runtime environment; subsequent menus also depend on it.
+Dynamic domain name updates are often written as DDNS: When your home public address changes, the program updates your address book for you. It won't open the router's door or automatically install certificates for web pages. Where to buy a domain doesn't decide which platform to choose; **it depends on who currently handles the authoritative DNS resolution for the domain**. If you buy a domain on Alibaba Cloud and transfer resolution to Cloudflare, you should choose Cloudflare.
 
-```shell
-node --version
-```
+| Connection method | What does the anti-fan assistant do? | What do you need to prepare? | Whoever it suits you |
+| --- | --- | --- | --- |
+| Temporary link | Generate temporary HTTPS entry points using built-in channels | Networks that can access channel services | First trial and short connection |
+| Open ports | Monitor the HTTP port on the computer and keep pairing authentication | Prepare external addresses and port mappings yourself; For public networks, configure HTTPS yourself | Existing domain names, proxies, or ready-made network portals |
+| Dynamic domain name + open port | Open the port and regularly update a record of A on the selected platform | Domain name, platform credentials, available public access points, port mapping, and external HTTPS | The home public network address will change, so I hope the computer updates and parses it on its own |
 
-- [Remote Control Tool 0.1.0: Public release page and version notes](https://github.com/HackerChi-Hub/deepseek-harness-remote-releases/releases/tag/v0.1.0).
-- [Directly download the three-platform portable pack (ZIP)](https://github.com/HackerChi-Hub/deepseek-harness-remote-releases/releases/download/v0.1.0/deepseek-harness-remote-0.1.0.zip).
-- [Download SHA-256 verification file](https://github.com/HackerChi-Hub/deepseek-harness-remote-releases/releases/download/v0.1.0/deepseek-harness-remote-0.1.0.zip.sha256).
-- [View the full instructions](https://github.com/HackerChi-Hub/deepseek-harness-remote-releases#readme).
+The third method can replace the dynamic domain name update program on Raspberry Pi or another machine, provided the original device only handles this task. If the original device still performs reverse proxy, certificate renewal, or other services, these functions must be retained or migrated by you. **Do not shut down the entire old device just because the domain update succeeds. **
 
-This is a standalone public download repository and does not require developer repository authorization. Select deepseek-harness-remote-0.1.0.zip, or click the ZIP direct link above; The automatically generated source code attachment on the GitHub page is just a snapshot of the repository documentation, **not a running bag**. Whether an international network is required to access GitHub downloads depends on your actual network environment.
+## ⚡ 3. First, connect the Harness currently in use on the computer
 
-After downloading, extract to a directory to be kept long-term: both the connector and the login auto-start will reference the location of the tool file. After installation, do not move it elsewhere. To verify the file's completeness, run the corresponding system validation command in the ZIP directory and compare it with the adjacent .sha256 file; The file name must be consistent.
+Open the "Connection Center" of the Black Fan Assistant. "Built-in Runtime Environment" is ready, indicating the assistant's own components are available; "Original Harness Session" is connected, indicating it has connected to the original workspace.
 
-```shell
-# macOS
-shasum -a 256 deepseek-harness-remote-0.1.0.zip
+1. First, keep the official Harness running normally.
 
-# Linux
-sha256sum deepseek-harness-remote-0.1.0.zip
+2. If the page says "Access existing Harness," click it and refresh the status. This applies to environments where an existing connector already exists.
 
-# Windows PowerShell
-Get-FileHash .\deepseek-harness-remote-0.1.0.zip -Algorithm SHA256
-```
+3. When using it for the first time, select the current Harness configuration under "Select Configuration in Use," then click "Mount Connector." Users with multiple configurations should select the one they actually use for their work.
 
-The SHA-256 of the portable bag revealed this time:
+4. Wait for Harness to load the connector, then refresh. If it doesn't load automatically, wait for the original task to be free and reopen Harness.
+
+5. After seeing "Original Harness session: Connected," start the remote entry again.
+
+Here, only the original workspace is added as an entry. When a task is running, wait until it reaches the appropriate pause point; don't forcibly end the original process just to refresh the state. If no configuration is available, return to the official Harness for the first startup, then come back to refresh.
+
+## 💰 4. Method One: Temporary link, first use this one
+
+On the left, enter "Remote Entry" and select "Temporary Link · Automatic Generation" as the connection method, then click "Save Connection Method". Return to "Connection Center" and click "Start Remote Connection". Once the entry is ready, click "Generate Pairing QR Code".
+
+![Temporary Link Settings | Isolation Demonstration](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-temporary-28d1609c7c.jpg)
+
+Open the complete link you get by scanning the QR code with your phone's system browser. The link contains one-time matching information, valid within ten minutes, and can only be redeemed once. Don't treat it as a regular website address you can share publicly; If you switch to another browser, you must also pair separately.
+
+Go to the phone page, find the test session you just mentioned, and send "Reply only: Phone connection is normal, do not call the tool." ** Only when the phone receives a real reply from this new message does the connection complete. ** Keep the computer online, and the model and original Harness should remain usable.
+
+![Webpage Message Sending and Receiving | Tested on October 23, 2026 with the old version](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-web-message-history-74a6376fd4.jpg)
+
+This preserved web acceptance diagram shows the result that should be checked: a new message is sent, and the model does return the corresponding response. It comes from the old independent web acceptance on October 23 and cannot replace your current version or current network testing; Model response speed does not represent execution speed for complex tasks.
+
+Temporary links do not require a custom domain name or router mapping. Traffic is forwarded through Cloudflare's temporary channel, and the network must be able to access the service; Addresses may change after recreation, and there is no guarantee of continued availability. If connection fails, first check the "Check & Help" entry results; do not disable pairing or certificate verification to make up for success.
+
+## 🧩 5. Method 2: Open the port and continue using your existing network entry
+
+If you can already access your home computer from an external network, this method is the most straightforward. Go to "Remote Entry" and select "Open Port · Configure and Interface by Yourself", mainly fill in three items.
+
+![Open Port Settings | Isolation Demonstration](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-open-port-a520a93fca.jpg)
+
+| Project | How to fill it out | The meaning of the example |
+| --- | --- | --- |
+| Listening address | When forwarding directly from the router to the local machine, it usually uses 0.0.0.0; for same-machine reverse proxy, you can use 127.0.0.1 | The former allows access from the computer's network card, while the latter only receives access from the same computer |
+| Listening ports | Select an unoccupied local port, default is 8767 | This is the port for the Black Fan Assistant HTTP service |
+| External access address | The full address actually accessed by the phone, including protocols; if not a default port, write the port | HTTPS, domain ai.example.com, external port 19527 |
+
+Full configuration example (replace the domain with your own):
 
 ```text
-b46203a7721a15a412d2392bd5018bd3dec006b098f043bac1fefbef3dfbe6e0
+https://ai.example.com:19527
 ```
 
-![Operation sequence | First local machine, then mobile](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-quick-start-892a58d04e.png)
+**0.0.0.0 is a listening setting and cannot be entered as a access address in the mobile browser. ** 127.0.0.1 is "This device itself": The phone will only find the phone itself to access it. 192.168.1.100 This type of address is a local area network address and usually cannot be used directly from the home network.
 
-## Step 1: Open the menu corresponding to your system
+### Scenario A: The router forwards directly to the Heifen Assistant
 
-| System | How to open it | Double-tap when it hasn't started |
-| --- | --- | --- |
-| macOS | Double-click manage.command in the extracted directory | Run sh manage.command in the terminal of that directory |
-| Windows | Double-click manage.cmd | Run .\manage.cmd in PowerShell in that directory |
-| Linux | Open the terminal in the extracted directory | Run sh manage.sh |
+Assuming the computer's LAN address is 192.168.1.100 and the assistant listens at 0.0.0.0:8767, the router can set "External TCP port 19527 → 192.168.1.100:8767". Different routers may call the entry port forwarding, virtual server, or NAT mapping. It is recommended to reserve the DHCP address for the computer to avoid changes in the internal network address after reboot.
 
-After seeing the Chinese menu, first identify the numbers you'll use this time: **2 Mount connector → 3 Configure HTTPS entry → 4 Launch → 6 Diagnostics → 5 Phone pairing**. The 0 in the menu is the exit management interface and will not close the background gateway.
+This connection goes directly to the HTTP service. Use HTTP and your actual external port:
 
-![Chinese menu | Actual operation record layout](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-menu-82df1fd3db.png)
+```text
+http://YOUR_PUBLIC_IP_OR_DOMAIN:19527
+```
 
-The tool will create its own private state directory, save entry settings, match data, and logs. Do not share it publicly with the portable bag. If Windows is restricted by account permission policies, you should first check the corresponding directory and scheduled task permissions; do not use "full control by everyone" as a universal solution.
+** Only port forwarding is performed; you cannot change HTTP to HTTPS to get an encrypted connection. ** To protect session and pairing information during public network access, HTTPS should be deployed externally before using it; This direct HTTP explanation is for understanding port relationships and is not recommended as a long-term public network entry.
 
-## Step 2: Mount it onto the Harness you actually use
+### Case B: HTTPS proxy and certificate already exist
 
-Enter 2 in the menu. The tool will list the configuration patch files found. You can select the number or fill in the full path of the actual file. The key is to select the one currently used by the Harness: the desktop and web profiles may each have their own configurations; write another configuration so that the running window will naturally not change.
+Suppose the same computer already has HTTPS service listening for 19527 and forwarding the request to `http://127.0.0.1:8767`. The assistant can listen on 127.0.0.1:8767. Enter the HTTPS example below as the external access address; the router mapping target is the **HTTPS listening port 19527** on the computer.
 
-The automatically searched locations include .dsh/profiles/desktop/cordis.patch.yml in user directories, dsh/profiles/web/cordis.patch.yml, and .dsh/cordis.patch.yml. When using custom directories, choose your own path; Do not mistake model configurations, certificate files, or entire folders for patch files.
+```text
+https://ai.example.com:19527
+```
 
-This action only adds to the connector configuration and does not automatically start checking, resubmitting tasks, or restarting Harness. If the Host does not automatically load the new connector, wait until the current task is free and then restart the Host as before. If you have already mounted an old phone connector, the tool will prompt verification to confirm the migration method first, and do not overlay multiple configurations on the same device.
+The complete order is: mobile phone → public address corresponding to the domain: 19527 → router → external HTTPS service: 19527 → Hater Assistant HTTP: 8767 → original Harness. If the proxy is on another device, the assistant must listen for the network card address accessible by that proxy; The proxy target cannot continue to enter the other device's own 127.0.0.1.
 
-## Step 3: Choose a network entry point that can truly reach the computer
+The proxy needs to retain the webpage and WebSocket connection. The certificate must cover the domain name accessed by the phone and be properly trusted by the browser; Application, private key storage, proxy configuration, and auto-renewal are all handled by your original external solution. Heifen Assistant does not import certificates or take over renewals.
 
-Enter 3 from the menu to display three modes: Local only, existing HTTPS reverse proxy or private channel, and built-in HTTPS. ** "Local only" is suitable for checking the computer first; phones cannot access directly from the external network using this mode. ** The last two are the options you should choose based on your environment for remote use.
+Save the settings, return to "Connection Center" to launch it, and generate the QR code again. When verifying the public network, turn off Wi-Fi on your phone and access it via mobile network; This can eliminate the misjudgment that "only works on home Wi-Fi." If you can't open a public domain name on the same Wi-Fi connection, it may be related to the router's backflow access capability, so you need to verify both internal and external networks.
 
-![Access Diagram | Two Types of Remote Entry Points](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-network-options-9fc5fa6a8e.png)
+## 🚀 6. Method 3: Dynamic domain name + open ports to update the address book on your computer
 
-### HTTPS reverse proxies or private channels are already available
+The third method is to add automatic DNS updates to the network link mentioned in the previous section. **First, make sure the open port and external HTTPS work properly, then add dynamic domain names. Troubleshooting will be much easier. **
 
-In the entry mode, select 2 and enter the full HTTPS address you can already access. A reverse proxy is like a mailbox at the door: it first receives the browser request, then hands it over to the gateway on the computer. This solution sets the proxy target to `http://127.0.0.1:8766`, only connects to the remote gateway, and does not directly expose the original Host.
+On your own resolution platform, first manually create a record A for mobile phone access. Here's a unified example: root domain example.com, host record ai, combined to form ai.example.com.
 
-This version requires entry points to use the root path of a unique domain name; you cannot arbitrarily link them to the /deepseek/ subdirectory of a website. The proxy must also support WebSocket, retaining the browser's Host, Origin, and cookies. WebSocket is used to continuously transmit new messages, such as maintaining the line after a call is connected; The homepage displaying does not mean the persistent connection is also configured.
+A records the actual public IPv4 of the home network; It only stores the address, not https, port, or URL path. example.com and the internal network addresses in the text are examples; replace them with your own values.
 
-Below is a Caddy configuration to illustrate the target relationship. remote.example.test is a placeholder domain and cannot be used directly. Only when you have installed and managed Caddy will you replace the domain domain with your own actual entry point and load the configuration according to the existing deployment method; These lines will not install a private channel for you.
+If you want to use the example.com directly, enter @ in the host record. For Alibaba Cloud and Tencent Cloud, select the default line for this record; Cloudflare must ensure that the complete host name has only one A record. The assistant only updates existing unique records and will not automatically create domain names or records; duplicate records or unenabled records need to be organized in the cloud first.
 
-```caddyfile
-remote.example.test {
-    reverse_proxy 127.0.0.1:8766
+In the "Remote Entry" section, select "Dynamic Domain Name + Open Port". The listening address, listening port, and external access address should continue the actual link from the previous section; Then select the resolution platform, fill in the root domain name and host records, and import the corresponding credentials.
+
+![Alibaba Cloud Dynamic Domain Domain Form | Isolated Demo](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-aliyun-53da9bd544.jpg)
+
+For public address detection, you can select "Domestic Source · Dual-source Verification". Updates will only occur if both sources are successful and the results are consistent; If the detection fails or the results differ, the update will stop. When enabling a proxy, especially verify whether the test result matches the public IPv4 of your home router. Do not write the proxy server export into your home domain.
+
+"Router Public Network IPv4 (optional)" is usually left blank for the program to detect automatically. After manual entry, this value is used consistently, suitable for situations where you clearly know which address to write; If the home public network address changes, it will not correct this manual input value for you.
+
+First, click "Save Connection Method," then click "Check parsing configuration (do not modify records)". The check will read cloud records, display whether the records exist, and check if the address matches; The check button will also verify and save valid local form settings, **not writing parsing records to the cloud**. After checking, return to the home page to start the connection, synchronize once at startup, then check every five minutes; If the address does not change, do not write again.
+
+DDNS can update domain names but cannot penetrate the operator's internal network. If the router's WAN address belongs to the operator's internal network, has multi-level NAT, or the inbound port is restricted by the carrier, simply adding the domain name and mapping may still prevent access from the public network. In this case, temporary links can be used first, or you can arrange a network plan that supports inbound access yourself. Current dynamic updates target IPv4 A records and are not responsible for AAAA records.
+
+## 🧠 7. Alibaba Cloud: Create a dedicated RAM user and download the AccessKey file
+
+First, confirm that the domain name resolution is indeed managed by Alibaba Cloud. Open [Alibaba Cloud RAM Console](https://ram.console.aliyun.com/) and operate it with an administrator with permissions. RAM users are like a separate work pass issued to the app: only let it search for and modify the specified domain, avoiding handing over the entire cloud account key to the software.
+
+1. Create dedicated users in "Identity Management → Users," such as hyphen-ddns.
+
+2. Choose the permanent AccessKey access method for the program; Accounts used only for assistants usually do not require console login.
+
+3. Create a custom policy under "Permission Management → Permission Policy," switch to script editing, restrict operations to DescribeDomainRecords and UpdateDomainRecord, and restrict resources to your target domain.
+
+4. Go back to the RAM user's "Add authorization," select the custom policy you just created, and confirm the binding. A policy was created but not bound, and the program still has no permissions.
+
+5. Enter the user's "Credential Management" to create an AccessKey and complete the verification on the page. Secret will only appear once when created; download the CSV file immediately and save it properly.
+
+![Alibaba Cloud User Entry | Official Old Version Examples](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-aliyun-subuser-choice-6271b13528.jpg)
+
+The above image shows Alibaba Cloud's official old security prompt, helping to identify subuser entrances. The current path is checked by [to create RAM users](https://help.aliyun.com/zh/ram/user-guide/create-a-ram-user) and [to create AccessKey](https://help.aliyun.com/zh/ram/user-guide/create-an-accesskey-pair).
+
+Do not bind AdministratorAccess or AliyunRAMFullAccess to the assistant; These are permissions for managing cloud accounts or identities, not required for resolving or updating the data.
+
+You can start from the following minimal operation set, **replace ACCOUNT_ID and example.com with the Alibaba Cloud account ID and actual root domain name of the resource**.
+
+> Domain-level permissions do not restrict the AI record alone; only the assistant itself filters the recorded hosts.
+
+```json
+{
+  "Version": "1",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": [
+      "alidns:DescribeDomainRecords",
+      "alidns:UpdateDomainRecord"
+    ],
+    "Resource": ["acs:alidns:*:ACCOUNT_ID:domain/example.com"]
+  }]
 }
 ```
 
-### Use router port mapping with built-in HTTPS
+The generation of resource ARNs and specific interface authorization are based on the [Alibaba Cloud DNS custom permission examples](https://help.aliyun.com/zh/dns/alibaba-cloud-dns-custom-permission-policy-reference-dns) and [interface authorization information](https://help.aliyun.com/zh/dns/api-alidns-2015-01-09-ram).
 
-Select 3 in the entry mode. It is suitable for those who already have a domain name and valid certificate and are ready to map the designated port of their home computer. The menu will ask in order for the full HTTPS entry, local network card IP, HTTPS listening port, full certificate chain path, and private key path.
+If console validation requires adjusting resource syntax, use the target domain ARN generated by the resource selector; Do not use administrator privileges to cover up the resource range error. This working user does not need to manage other RAM users separately, nor does it require certificate permissions.
 
-| Fill in the required information | How should this be verified? |
-| --- | --- |
-| HTTPS entry | The full address ultimately used by the browser; If using a non-default port, add : port |
-| Local network card IP | The address of the computer that the router can reach; After switching networks, you may need to reconfigure the computer |
-| HTTPS port | Select the free port and align it with the TCP forwarding target of the router |
-| Certificate chain and private key | Using your own files, the certificate overrides the domain name you actually accessed and remains valid |
-| DNS and firewalls | Domain name resolution is correct; Only access required for this entry is open |
+![Alibaba Cloud Download CSV | Official Old Version Examples](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-aliyun-download-csv-d39682ba98.jpg)
 
-For example, if you choose 19527, you need to check "Public TCP 19527 → the internal address of this computer: 19527" item by item, and the computer will also listen for the same target port. The port number itself has no special capability; switching to a free port is also possible. **Domain name resolution, port mapping, and firewall release are three things**: Having a domain name does not mean the request has been sent to the computer.
+The official "Download CSV file" allows you to skip manual copying. The two columns used for software import are AccessKey ID and AccessKey Secret. If the downloaded content does not meet the format requirements below, organize it into corresponding CSV or JSON files before importing; Do not upload a full multi-account credential list.
 
-The HTTPS certificate is responsible for having the phone verify "is this address I want to connect to," while the matching code is for the computer to verify "is the authorized phone I am authorized for." This is like first finding the correct address and then using your own key to open the door; both must be valid. The tool checks whether the imported certificate matches the private key, whether the domain name is overridden and valid, and if it fails, it will not be converted to a public plaintext service.
-
-![Process Illustration | Encryption and Pairing](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-access-chain-12093a56a4.png)
-
-If you don't have public network mapping conditions, you can first prepare a suitable private channel or HTTPS reverse proxy before using the previous solution. The tool will not automatically bypass the carrier's network for you, nor will it modify your router, VPN, or firewall to pretend it is "connected." Certificate application and renewal are handled by the original certificate management process.
-
-## Step 4: First diagnose, then pair with your phone
-
-After completing configuration, enter 4 to start, then enter 6 to diagnose. Here you need to look at two results: first, the gateway service is running; second, the original Harness webpage has been successfully authenticated. The former only means the reception entrance is open, while the latter means the interface behind the entrance is connected to the original work environment.
-
-![Key Diagnostic Points | Gateway and Original Services Separately](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-diagnostic-guide-875a2bfe61.png)
-
-When using the command line, run the following two items in the tool extraction directory. Check 'running' in 'status'; 'Doctor' further check 'upstream.authenticatedHTTP'; it should be true when accessed normally. If the latter is false, first check whether the correct profile is mounted and whether the host has loaded connectors. Don't rush to repeatedly pair them.
-
-```shell
-node bin/dsh-remote.mjs status
-node bin/dsh-remote.mjs doctor
+```csv
+AccessKey ID,AccessKey Secret
+替换为自己的AccessKeyID,替换为自己的AccessKeySecret
 ```
 
-Then enter the menu 5 to generate the phone pairing entry. Open the tooltip for local "Phone Connection .html", give the latest complete link to your phone, open it in the phone's browser and click "Confirm Connection". The link has a one-time matching code, **valid for ten minutes, expires after one redemption**; Do not put it in public screenshots, group chats, or tutorials.
+You can also save the following JSON. This is the **credential file**, which serves a different purpose than the **permission policy file** above; The permission policy is placed in the RAM console before the credential file is imported into the BlackFan Assistant.
 
-For the first check, you can first check the home network confirmation page, then turn off the phone's wireless network and reopen the same paired entry using the mobile network. Only if you can see the original session from the mobile network does it indicate that the external network route is available this time. This is about how readers should verify; This round did not list the long task recovery after the real phone switched to the internet as accepted.
-
-After entering, first select a non-important test session and send "Reply only: Remote connection is normal, no tool called." You can see the reply, then return to the original official task. When you need to adjust your work, clearly state "which task to continue, what to modify, and which to leave untouched." The original Harness tool permissions and execution approval remain valid. The real tool approval process on mobile has not yet been individually accepted this round.
-
-## What did I actually measure?
-
-During real access, the first problem encountered was that the page could open but pairing wouldn't go in. At first, the phone reported that the pairing code was invalid; Later, when the server confirmed successful pairing, the browser still prompted source check and rejection. After fixing normal page navigation, my phone finally confirmed "Entered and can see the original session." So acceptance shouldn't stop at just one login page; you also need to continue checking session and send/receive results.
-
-![Access Log| From Pairing to Original Session](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-pairing-steps-4a232b92c4.png)
-
-This time, the entire security check was not disabled: top-level navigation for entering the homepage and login page could continue, but write requests from other websites were still rejected. Persistent connection was also performed independently, and after eleven seconds of idleness, two-way sending and receiving were still possible. These checks supported access and transmission behaviors, not the model's answering ability or all mobile network conditions.
-
-| Actual test project | Results and boundaries |
-| --- | --- |
-| I accessed it via external internet on my mobile phone | You have entered, and it has been confirmed that the original session can be viewed |
-| Independent web message sending and receiving | Actually submit a request and receive a model response; A simple reply is displayed in 1 second |
-| The new temporary gateway connects to the real Host | After completing the pairing and loading the official webpage, the original service was not restarted |
-| macOS programs return | 20 passed, 0 failed |
-| Linux isolate container regression | 20 items passed, 0 failed; Does not replace native desktop acceptance |
-| macOS login starts automatically | Complete installation, system boot, repeated reuse, reload, and remove; Log in again without actual logout |
-| Windows and Linux native environments | Windows permissions, scheduled tasks and Host, and Linux login auto-start remain to be tested |
-| Used for long tasks on mobile phones | Approval of genuine tools, network disconnection, and long-term restoration still require specialized acceptance |
-
-![Acceptance Results | Classified by Environment](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-verification-3295d1a29b.png)
-
-This public package removes development testing and workflows, supplementing reader-oriented instructions; 13 runtimes are consistent byte-byte with the tested versions mentioned above. The scope of the contract has been adjusted without adding new platform pass-through items. The three-platform startup script is already available, but at this stage it is more suitable for users who already have existing Harnesses and network access points and are willing to first complete small task confirmations.
-
-Windows users should especially test according to their account permissions and not treat Linux container pass records as Windows running. GitHub's automatic regression on the three platforms was previously not enabled due to account billing restrictions and was not counted as a pass.
-
-## How do you manage, upgrade, and remove them in daily life?
-
-After the first match, you don't need to redo all steps each time. First, check the status and generate a new pairing code when connecting to a new browser; If your phone is lost, lent out, or suspects someone else has obtained the link, enter 8 in the menu to undo login. It will revoke all mobile browser logins and unredeemed codes, and the computer's original tasks will continue to be managed by Harness.
-
-![Daily Management | Status, Matching, and Undo](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-management-956bb2af97.png)
-
-```shell
-node bin/dsh-remote.mjs status
-node bin/dsh-remote.mjs pair
-node bin/dsh-remote.mjs revoke
+```json
+{"provider":"aliyun","AccessKeyId":"自己的AccessKeyID","AccessKeySecret":"自己的AccessKeySecret"}
 ```
 
-Enter 9 from the menu to choose to start automatically after logging in. macOS uses the current user's LaunchAgent, Windows uses the current user's scheduled tasks, and Linux uses the user's systemd service; none of these proactively promote to administrator. Due to company computer policies and Linux environments without systemd, corresponding methods may not be allowed; In this case, manual startup is sufficient.
+In the assistant, select "Alibaba Cloud → import key file," choose CSV or JSON, and after the import is successful, click save. File import only skips filling out text and does not create users or authorizations for you on Alibaba Cloud.
 
-Enter 7 from the menu to stop this gateway; When already logged in on your phone, it will prompt confirmation first. Enter 0 to exit the menu, and the background will continue running. Restarting the gateway will repair the phone, so when the original task is running and the phone entry is still in use, don't suddenly stop just to change files.
+For instructions on downloading and displaying one-time content, see [official creation and save tutorial](https://help.aliyun.com/zh/ram/product-overview/quick-start-create-and-use-accesskey-pairs-for-programmatic-calls). Currently, the assistant does not support STS temporary credentials.
 
-When upgrading, stop the tool when it is free, replace the original tool directory with a new file, keep the independent private status directory, then restart and re-pair. If even the tool directory location has been changed, first disconnect the connector and auto-start from the old position, then mount it in the new position to avoid the two positions occupying each other.
+## 📉 8. Tencent Cloud DNSPod: Use Tencent Cloud API keys, not legacy tokens
 
-When you are no longer using it at all, run the following removal command in the original tool directory. By default, you disconnect the connector and start by login, keeping private data; The program only deletes the configuration blocks it manages, while later added user settings are retained. When a block is manually modified, it will require verification and will not fully overwrite the old file.
+Open [Tencent Cloud Access Management CAM](https://console.cloud.tencent.com/cam), create a subuser dedicated to dynamic domain names, and select program access. Do not hand over the main account key to the assistant, nor look for the ID/Token on the old DNSPod token page; Currently, the implementation calls Tencent Cloud API 3.0, which requires a pair of SecretId and SecretKey.
 
-```shell
-node bin/dsh-remote.mjs uninstall
+### First, bind domain name permissions to the sub-user
+
+Create a custom policy in CAM under "Policies" using the policy generator or following syntax. Select the DNSPod service, keep only DescribeRecordList (query records) and ModifyDynamicDNS (update dynamic records), select the target domain for resources, and then associate the policy with the previous subuser.
+
+| Values that need to be prepared | Where to look | Purpose |
+| --- | --- | --- |
+| Main account UIN | Tencent Cloud account information page | The account belonging to the resource in the permission policy |
+| DomainId | DNSPod domain details, or the administrator can call DescribeDomain to query | domain name resources with limited authorization; RecordId, not a record of A |
+| Root domain name | The domain name actually hosted in DNSPod | Enter the assistant root domain in the field of domain name |
+
+Below is an example of narrowing operations using [Tencent Cloud authorization syntax,](https://cloud.tencent.com/document/product/302/105718) and [resource type descriptions,](https://cloud.tencent.com/document/product/302/105719) narrowing operations. **Replace OWNER_UIN and DOMAIN_ID**, do not save placeholders as they are.
+
+```json
+{
+  "version": "2.0",
+  "statement": [{
+    "effect": "allow",
+    "action": [
+      "name/dnspod:DescribeRecordList",
+      "name/dnspod:ModifyDynamicDNS"
+    ],
+    "resource": ["qcs::dnspod::uin/OWNER_UIN:domain/DOMAIN_ID"]
+  }]
+}
 ```
 
-## If connection fails, investigate according to the symptoms
+QcloudDNSPodFullAccess is a broader DNSPod read/write system policy, including more resources and operations, and is not the minimum authorization for these two interfaces. Read-only policies cannot update addresses. Whether permissions are effective in real accounts requires assistant verification and subsequent updates; policy savings cannot be judged as successful.
 
-| Phenomenon | What to investigate first |
+### Then create and save the API key
+
+Go to "User List → Target Subuser → API Key", click "New Key", and complete verification on the page. Immediately save SecretId and SecretKey; SecretKey cannot be queried again.
+
+For specific steps, see [Tencent Cloud Sub-Account Key Management](https://cloud.tencent.com/document/product/598/37140).
+
+![Tencent Cloud Subuser API Key Page | Official Example](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-tencent-subuser-api-bcc0ea6229.jpg)
+
+![Tencent Cloud New Key Button | Official Example](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-tencent-create-key-e1f5537f3a.jpg)
+
+If the creation page is available for download, after saving, first check the table header; You can also save this pair of values as a set of CSV below. You don't need to enter your Tencent Cloud login password into the file, nor import CAM permission policies.
+
+```csv
+SecretId,SecretKey
+替换为自己的SecretId,替换为自己的SecretKey
+```
+
+The JSON format is also usable:
+
+```json
+{"provider":"tencent","SecretId":"自己的SecretId","SecretKey":"自己的SecretKey"}
+```
+
+Reply to the Heifen Assistant: select "Tencent Cloud DNSPod" on the platform, enter the root domain example.com, host records enter ai, import, save, and check. DNSPod must have the default line A record.
+
+Assistant calls [Dynamically update interfaces](https://cloud.tencent.com/document/api/1427/56158) No need to enter a region, and the interface does not need to select Guangzhou or Shanghai.
+
+![Tencent Cloud Solution Form | Isolation Demonstration](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-tencent-d60f79a9c0.jpg)
+
+## 🎯 9. Cloudflare: Create API Tokens for a limited area
+
+First [Cloudflare console](https://dash.cloudflare.com/) Confirm that the domain domain area is active and that authoritative resolution is indeed handed over to Cloudflare. On its DNS record page, first create a unique A record corresponding to the AI.
+
+Go to "My Profile → API Tokens", click "Create Token", and use the "Edit zone DNS" template or custom tokens. In the English interface, you can follow the corresponding fields below.
+
+| Console project | How should you choose? | Why? |
+| --- | --- | --- |
+| Permissions | Zone → DNS → Edit | Read, list, and update DNS records; Edit permissions include the corresponding read capabilities |
+| Zone Resources | Include → Specific zone → your own example.com | Only the token operates on this domain domain |
+| Zone → Zone → Read | Added when automatically searching for zones; Optionally omitted when manually filling in Zone ID | Allows assistants to find regions by root domain |
+| Client IP Address Filtering | Only set it once the exit is stable | The home exit will change, and binding the old address will cause subsequent calls to fail |
+| TTL / Validity Period | Set it according to your own rotation plan | This is the token validity period, which is different from the DNS record cache time |
+
+![Cloudflare Token Permission Page | Official Example](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-cloudflare-token-permissions-81053f21e8.jpg)
+
+** In the official sample image, the resource section shows 'All zones', which is used only to identify page locations. In practice, change the configuration to Specific zone and select your own domain name. ** The Zone Read in the image corresponds to an automatic search area; If you want to reduce this permission, enter your own Zone ID.
+
+Click "Continue to summary," check the authorized domain and scope of operations, then create the token. Copy and securely save the token value, which is only displayed once when creation is complete. Do not copy the entire curl test command, nor use the Global API Key.
+
+[Official token creation instructions](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) provides the current field and the complete process.
+
+![Cloudflare Permission Confirmation Summary | Official Examples](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-cloudflare-token-summary-ea99672621.jpg)
+
+The Zone ID is the number of this domain name range, usually a 32-bit hexadecimal string.
+
+Search in the API area of the domain overview page; You can also follow the [Official Account and Region ID Guide](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/) on the current interface. **Do not enter the Account ID into the Zone ID. **
+
+The easiest file is TXT: just put the token itself in one row, without quotes or the "Token=" prefix. Choose UTF-8 plaintext for save; don't save as a Word document or rich text file. If you import the Zone ID at the same time, you can use JSON:
+
+```json
+{
+  "provider": "cloudflare",
+  "apiToken": "自己的APIToken",
+  "zoneId": "替换为自己的32位ZoneID"
+}
+```
+
+The zoneId above is a placeholder and must be replaced with a true 32-bit value; If the assistant searches automatically, the entire zoneId field is deleted, and the token must have Zone Read permissions. Also supports two-column CSV:
+
+```csv
+APIToken,ZoneId
+替换为自己的APIToken,替换为自己的32位ZoneID
+```
+
+![Cloudflare Forms Parsed | Isolation Demo](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-cloudflare-e265b68acb.jpg)
+
+After importing, save and check. When using custom public ports like 19527, note that Cloudflare's Orange Cloud proxy does not support arbitrary ports. When only domain name resolution is needed, you can set the record to "DNS only"; If you want to use a proxy, choose it yourself [Officially supported ports and solutions](https://developers.cloudflare.com/fundamentals/reference/network-ports/).
+
+**Only DNS will not automatically provide HTTPS to your computer**; certificates are still managed by external solutions. When the assistant updates records, it retains the existing proxy switch and TTL, and does not switch between orange cloud or graycloud for you.
+
+## 🔍 10. What are the differences between importing, saving, rechanging, and clearing files?
+
+All three platforms follow this order: **Select platform → Enter domain name and host records → Import the corresponding credential file → Save connection method → Check resolution configuration → Start connection → Phone verification. **
+
+After importing, the field content will be hidden, and the interface will prompt "Credentials have been imported." At this point, you are only filling in the current form; Only after clicking Save will it be written to the local machine. If the page does not display plaintext echo, it does not mean the file was not loaded. After saving, it shows "Saved, no need to fill in again," indicating that the old credentials from the same platform are still present; Leaving the input box blank will continue to use it.
+
+![File Import Success Prompt | Isolation Demonstration](https://hyphentech.top/obsidian-assets/deepseek-harness-mobile-remote/image-app-import-result-334cf64005.jpg)
+
+| Things I want to do | Operate correctly |
 | --- | --- |
-| The menu flashes and closes, or it prompts that there is no node | Reopen the terminal and check node --version; Check the error from the extraction directory running the corresponding entry |
-| The diagnostic gateway is normal, but there is no original session | Check upstream.authenticatedHTTP; verify that the current profile and host have loaded the connector |
-| The mobile page won't open | Check DNS, router TCP mapping, computer listening address, firewall, and certificates separately |
-| Prompt that the pairing code is invalid | Generate the latest matching page; Open the full link in the system browser that has not been redeemed within ten minutes |
-| Prompt: Source verification failed | Verify the complete HTTPS entry point; Check if the proxy has overwritten Host or Origin, and do not disable the check as a safety net |
-| The homepage can be opened, but new messages are not updated | Check for proxy WebSocket forwarding and read timeouts, not just test homepage HTTP 200 |
-| Certificate expiration or domain name mismatch | First, the original certificate manager handles it, then updates the certificate file currently in use and executes reload-cert |
+| Add credentials for the first time | After importing or filling in the information, click Save and then check |
+| Replace the Alibaba Cloud/Tencent Cloud paired key | Replace both items together, or import new files and save them |
+| Modify parameters during connection runtime | Click "Stop Connection and Modify Configuration" first; the phone will disconnect, and the original Harness task will continue |
+| Forget the old credentials saved by the machine | Click "Clear Saved Key" and confirm, then import the new credential |
+| Switching from Alibaba Cloud to Cloudflare | After switching platforms, re-import the platform credentials and will not mix the old platform keys |
+| Completely disable the leaked credentials | Besides local device clearance, you also need to disable or revoke that key on the cloud platform |
 
-Whether the public account external link can be directly clicked depends on the platform and current display method; If the address appears in text, please copy it to the system browser for access. The blog text should retain clickable download and document entry points. When requesting help, only provide the desensitized diagnostic results, without matching full links, cookies, private keys, or real conversation content.
+Clearing the local key will retain the domain name and listening parameters, do not delete cloud records, do not modify certificates, and do not revoke the cloud platform key. The original CSV/JSON/TXT files remain in the location you saved; During import operations, do not upload the original file, nor copy the original file into the application directory, but the saved credentials will remain in the private local configuration. Please protect your computer account and backups; do not place key files in public cloud drives or code repositories.
 
-My current judgment about this tool is clear: it has solved the practical problem of "people wanting to continue watching the same task after leaving the computer"; The first configuration still requires you to have an accessible HTTPS network access. First, follow the tutorial to send and receive small messages without the tool, then hand over the official task to it, which helps you more quickly distinguish whether the problem is with the computer, network, or the pairing stage.
+Only one set of credentials is imported at a time, and the file must not exceed 64KB. Multi-account files, duplicate fields, or platform mismatches will be rejected. The Chinese placeholders in the sample files in this article cannot be used to connect to real platforms; The certificates fullchain.pem and privkey.pem are also not credential files here.
 
-[Official Public Deployment Instructions](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/public-deployments.zh.md) Can be used to further understand the original Host's address announcements, trusted hosts, and TLS. The remote control tool in this article currently only supports root path entry; configuration should follow the requirements of this version of this tool.
+## ⚡ 11. From "Showing Started" to Truly Usable
+
+When using temporary links, just pair after checking that the channel is ready; When using your own domain name, check in the order below, and if you fail any step, process the layer first.
+
+1. The native Harness on the computer can receive model responses.
+
+2. The assistant shows that the original session is connected and the gateway is activated.
+
+3. Dynamic domain name mode can find unique A records and verify that public network addresses match routers. Cloud platforms confirm record values are correct; Old DNS caches may still need to wait for TTL.
+
+4. Using mobile networks on mobile phones can open external HTTPS addresses, and browsers have no certificate errors.
+
+5. Use the newly generated complete matching link to complete the match within the validity period.
+
+6. On the phone, enter the original test session and send "Only reply: Phone connection is normal, no tool called," waiting for a new reply.
+
+7. Refresh the phone page and send another simple message to confirm that the static page is not just open.
+
+If migrating DDNS from another device, first record the old configuration, confirm that the assistant has found the correct record, completed startup synchronization, and completed the next five-minute check, then disable the program that updated the same record on the old device. Both programs maintain the same record simultaneously, especially when different exits are detected, which may overwrite back and forth. Other services such as certificate renewal continue to operate as planned.
+
+The current version has passed the build and installation startup checks for the three systems; Alibaba Cloud already has records of real-world environment resolution, updates, recovery, and message sending and receiving records.
+
+** Tencent Cloud and Cloudflare completed official interface and signature verification, isolated simulated interface, and import interface acceptance, without using real cloud accounts for DNS writes. ** Account permissions, plans, networks, and final resolution results should still be verified in the above order in your own environment.
+
+### When encountering problems, first look at which layer it is
+
+| Phenomenon | Priority checks |
+| --- | --- |
+| The start button cannot be pressed | Whether the original Harness is accessed; Whether dynamic domain credentials have been saved |
+| Parsing check prompts 'unauthorized not authorized.' | Whether the account is selected, whether the policy is bound, whether the domain resource scope is correct, and whether the key is valid |
+| Records cannot be found or records are not unique | A Whether records are pre-created, whether hostnames are correct, and whether default lines are duplicated |
+| Domain name resolution works, but phone won't open the phone | Public network inbound conditions, router target address, external listening port, firewall, and proxy target |
+| HTTPS certificate error | Domain name, validity period, certificate chain, and renewal of external certificates; No certificate repair entry within the app |
+| Only the same Wi-Fi is available | Check if the LAN address has been misused; Then verify the public network entry point with the mobile network |
+| The phone was open, but there was no conversation | Check whether the original configuration was correctly selected, whether connectors are loaded, and whether the original session authentication is normal |
+| Pairing link is invalid | Regenerate and redeem within ten minutes; Pair with different browsers separately, then re-pair after the gateway restarts |
+| The parsed value becomes a proxy export | Stop connecting, verify the outlet inspection, switch to the appropriate testing method, and only start after confirming |
+| Cloudflare stopped working after opening Orange Cloud | Check whether the external port is within the standard proxy support range, and whether the backbound HTTPS matches the proxy mode |
+
+## 💰 12. How to use it daily: Keep computer tasks and manage phone access well
+
+Closing the Hefen Assistant window will keep the background connection; Stopping the assistant connection will disconnect the phone and will not stop the original tasks on the computer. To restore the connection, restart the entry and pair as needed. When the computer is dormant, shuts down, Harness exits, or the model service is unavailable, the phone will not continue to function normally.
+
+After pairing, the phone can continue to operate the original session, prioritizing your own device and trusted browser. When taking screenshots, live streaming, or sharing demonstrations, hide the full QR code, pairing link, cloud platform key, and private session. When someone receives matching information or keys, they must revoke both the phone login and cloud platform credentials, not just one screenshot.
+
+Under "Check & Help," you can disable anonymous statistics under "Enhance User Experience." The scope of statistics includes device identifiers, versions, systems, and architectures after product isolation, without collecting sessions, commands, files, or keys; For specific scopes, please refer to the privacy documentation. If you need to troubleshoot version issues based on this information, first check the instructions here.
+
+The easiest to replicate the starting sequence is: **First, let the computer reply, then use a temporary link to get the phone to receive the reply; If you already have a public network entry, switch to open the port, and follow the changes in your home public network address before opening a dynamic domain. ** You can stop on any route according to your network, without having to configure all three cloud platforms just to use the mobile entry point.
+
+The Heifen Assistant can be downloaded and updated from the [public release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest). If it saves you time sitting in front of your computer, feel free to support development through the "Sponsored Support" section on the homepage; For more self-made software, visit [HyphenTech official website](https://hyphentech.top).
 
 
 ---
