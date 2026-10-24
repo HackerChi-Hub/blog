@@ -234,6 +234,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 初步構建 · 預覽版
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >

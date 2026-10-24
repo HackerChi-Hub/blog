@@ -116,6 +116,13 @@ AI 最像职场新人的地方，不是犯错，而是它特别喜欢半路下�
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **状态：** 初步构建 · 预览版
+>
+> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
+>
+> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >

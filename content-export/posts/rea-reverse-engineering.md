@@ -129,6 +129,13 @@ REA 值得装吗？对开发者和安全学习者，值得。MIT 协议、本机
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **状态：** 初步构建 · 预览版
+>
+> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
+>
+> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
