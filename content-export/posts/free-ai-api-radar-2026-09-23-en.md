@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: free-ai-api-radar-2026-09-23
 translation_source: machine
-source_sha256: 63a21d4583e3e35b
+source_sha256: 03de907ea9450e8f
 date: 2026-09-23
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "17 old entry points were reviewed one by one, and 4 candidates were reviewed; 3 callable platforms were screened based on current non-empty real requests, with quotas and failure boundaries recorded."
 categories:
   - Resources
 tags:
   - AI
   - Free resources
-cover: https://hyphentech.top/obsidian-assets/free-ai-api-radar-2026-09-23/cover-cd849e2436.jpg
+cover: "/obsidian-assets/free-ai-api-radar-2026-09-23/cover-cd849e2436.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-05-tokens
 translation_source: machine
-source_sha256: c5a9a1f0ca240878
+source_sha256: f539283f109781d2
 date: 2026-10-05
-updated: 2026-10-14
+updated: 2026-10-24
 summary: "The strawberry is still the same strawberry, with an extra space in front, but the machine sees a different number of blocks. An old method from data compression: how to enter the chat window and change your fees, speed, and context?"
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-05-tokens/cover-d06e79963c.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

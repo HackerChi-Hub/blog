@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: strata-12gb-local-ai
 translation_source: machine
-source_sha256: 8400479ef670d036
+source_sha256: 90d0e4ddaf8f31fb
 date: 2026-10-06
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Besides the 12GB graphics card, how much more memory do you need? Breaking down Strata's official speed, quantitative trade-offs, and Mac access boundaries."
 categories:
   - Tech
 tags:
   - Local AI
   - Strata
-cover: https://hyphentech.top/obsidian-assets/strata-12gb-local-ai/cover-f502b3c798.jpg
+cover: "/obsidian-assets/strata-12gb-local-ai/cover-f502b3c798.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

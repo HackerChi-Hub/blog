@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: localhost-local-ai-security
 translation_source: machine
-source_sha256: bbd1fe6982e05491
+source_sha256: 6dee9a6bf8d34f0b
 date: 2026-09-09
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Just listening to 127.0.0.1 doesn't mean browsers can't encounter it. Three recent official security announcements plus a set of completely isolated CORS tests break down the most easily misunderstood security boundaries of local AI."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/localhost-local-ai-security/cover-affefce7bf.jpg
+cover: "/obsidian-assets/localhost-local-ai-security/cover-affefce7bf.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

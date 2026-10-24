@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-02-history
 translation_source: machine
-source_sha256: 56d9d9dfff5f235c
+source_sha256: 6554fe408751ebe1
 date: 2026-10-05
-updated: 2026-10-14
+updated: 2026-10-24
 summary: "By 1958, people were already expecting machines that would learn. It took decades before it truly changed the industry. The middle was not a straight upward curve, but a story of promise, disappointment, and old ideas finally waiting for the right conditions."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-02-history/cover-5429872b4f.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

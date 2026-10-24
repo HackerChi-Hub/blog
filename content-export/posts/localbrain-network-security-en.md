@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-network-security
 translation_source: machine
-source_sha256: c3fb126f5295ce3e
+source_sha256: 1a70b97c3555481a
 date: 2026-10-03
-updated: 2026-10-23
+updated: 2026-10-24
 summary: "From security checks to authorized penetration: export technology locks authorization targets; 2.1.1 After further compression, retain user originals, session drafts isolation, full cycle duration limits, and continue reading web evidence; The real HTB has not yet been established, but the local equivalent link is already open."
 categories:
   - Tech
@@ -20,7 +20,6 @@ tags:
 cover: "/obsidian-assets/localbrain-network-security/cover-mask-vulnerability-20261004.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-dance-paper-delivery
 translation_source: machine
-source_sha256: 66c3b0046b1ebd56
+source_sha256: 02adf7a0aeb38b48
 date: 2026-10-17
-updated: 2026-10-18
+updated: 2026-10-24
 summary: "From \"Bear Trembling Fur\" to Motion Capture and Robotics: Examining Local 27B Submitted Word, 7 Pages PDF, and Unfinished Acceptance."
 categories:
   - Tech

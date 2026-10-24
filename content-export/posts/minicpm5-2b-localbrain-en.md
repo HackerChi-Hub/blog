@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: minicpm5-2b-localbrain
 translation_source: machine
-source_sha256: 2cab8be645747c7e
+source_sha256: a02470118f4a288c
 date: 2026-09-09
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "MiniCPM5-2B packs 130,000 contexts, agent training, and official GGUF/MLX into 2.52B parameters; The real highlight isn't the benchmark scores, but whether it qualifies as a resident actuator in local software."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/minicpm5-2b-localbrain/cover-812be1aa65.jpg
+cover: "/obsidian-assets/minicpm5-2b-localbrain/cover-812be1aa65.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

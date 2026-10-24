@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: omarchy-linux-ai-getting-started
 translation_source: machine
-source_sha256: baeaf68e68b1d167
+source_sha256: ada10ed9c62adc07
 date: 2026-09-07
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "From installation and shortcuts to programming assistants and local models, it explains Omaly's features and getting started with it."
 categories:
   - Tech
 tags:
   - AI
   - Linux
-cover: https://hyphentech.top/obsidian-assets/omarchy-linux-ai-getting-started/cover-f4fa1d8b83.jpg
+cover: "/obsidian-assets/omarchy-linux-ai-getting-started/cover-f4fa1d8b83.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

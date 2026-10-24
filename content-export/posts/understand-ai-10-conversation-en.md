@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: understand-ai-10-conversation
 translation_source: machine
-source_sha256: e5a73d319ae0960b
+source_sha256: b6e857210971cc64
 date: 2026-10-05
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "The parts have been disassembled, now put back together. Follow \"Today's Weather True\" into a translation agency that only recognizes numbers, see how a sentence becomes probability, and then into text on your screen."
 categories:
   - AI知识
 tags:
   - AI
   - Do you really understand AI?
-cover: https://hyphentech.top/obsidian-assets/understand-ai-10-conversation/cover-8008eb06e1.jpg
+cover: "/obsidian-assets/understand-ai-10-conversation/cover-8008eb06e1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

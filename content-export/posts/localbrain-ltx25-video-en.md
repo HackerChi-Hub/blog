@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-ltx25-video
 translation_source: machine
-source_sha256: 3cf8b8827035862e
+source_sha256: c38fc667f6bb1d52
 date: 2026-09-30
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "LocalBrain 1.4.8 connects to the second local video engine, LTX-2.5: Write a quoted line, and the person in the screen will say it. On a 64GB M5 Pro, 1024×576 in 4 seconds takes about 2 minutes, peak at 25GB; the default running parameter is originally 54GB; 43.4GB weight is directly connected to ModelScope domestically, with one-click download from the discovery page."
 categories:
   - Tech
@@ -17,10 +17,9 @@ tags:
   - Self-made software
   - LocalBrain
   - AI video
-cover: https://hyphentech.top/obsidian-assets/localbrain-ltx25-video/cover-6056dcb3d5.jpg
+cover: "/obsidian-assets/localbrain-ltx25-video/cover-6056dcb3d5.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

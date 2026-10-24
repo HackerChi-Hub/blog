@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: local-model-blender-mcp-localbrain
 translation_source: machine
-source_sha256: 032a95292d396a3a
+source_sha256: ff822541c19bec01
 date: 2026-09-15
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Using local Qwen3.8-27B modeling with blender-mcp, then testing it in LocalBrain for five rounds: the model can be done step by step, but slowly; The delivered black map is just one checkbox short; if it's not visible, it counts as complete, and only after viewing the final render can you use the correct modification."
 categories:
   - Tech
@@ -18,10 +18,9 @@ tags:
   - LocalBrain
   - Blender
   - MCP
-cover: https://hyphentech.top/obsidian-assets/local-model-blender-mcp-localbrain/cover-590c1793d9.jpg
+cover: "/obsidian-assets/local-model-blender-mcp-localbrain/cover-590c1793d9.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

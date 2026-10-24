@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: fable-5-1-mythos-update
 translation_source: machine
-source_sha256: e492cde434856e9b
+source_sha256: ebdbcb8ae3b3ae49
 date: 2026-09-02
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Fable 5.1 and Mythos 5.1 are the same underlying model, but were split into public and trusted access versions. The base unit price hasn't dropped, but cache reads are 75% cheaper; What truly changes are the task economics, security boundaries, and access methods for long-term agents."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/fable-5-1-mythos-update/cover-135e02a88b.jpg
+cover: "/obsidian-assets/fable-5-1-mythos-update/cover-135e02a88b.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

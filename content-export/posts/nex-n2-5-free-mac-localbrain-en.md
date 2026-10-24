@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: nex-n2-5-free-mac-localbrain
 translation_source: machine
-source_sha256: a4e0b92dc93ac863
+source_sha256: ecc0bffea53ace9d
 date: 2026-09-09
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "35B multimodal agent is open source, and online endpoints are currently free; Whether Mac capacity is sufficient means runtime is already connected."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/nex-n2-5-free-mac-localbrain/cover-ee37558b86.jpg
+cover: "/obsidian-assets/nex-n2-5-free-mac-localbrain/cover-ee37558b86.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

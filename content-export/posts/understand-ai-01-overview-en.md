@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: understand-ai-01-overview
 translation_source: machine
-source_sha256: f35cee6ae5b1b6d8
+source_sha256: e25f2db2bff7e313
 date: 2026-10-05
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "30 sessions are not 30 lessons. From a talking program, two AI winters, to models that can truly work on your computer: following a storyline, connecting knowledge, real products, and choices."
 categories:
   - AI知识
 tags:
   - AI
   - Do you really understand AI?
-cover: https://hyphentech.top/obsidian-assets/understand-ai-01-overview/cover-823817c2f8.jpg
+cover: "/obsidian-assets/understand-ai-01-overview/cover-823817c2f8.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

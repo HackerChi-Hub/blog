@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: llama-cpp-0-4-64gb-localbrain
 translation_source: machine
-source_sha256: 0de4c1be4ce50a06
+source_sha256: 55e26315b975b3e8
 date: 2026-09-10
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "llama.cpp 0.4 rewrote the memory boundaries of large models with lazy loading, streaming quantization, and Apple RDMA. But LocalBrain's 64GB Mac records prove that a file larger than memory can boot, but that doesn't mean long contexts can run at full speed."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/llama-cpp-0-4-64gb-localbrain/cover-b591828048.jpg
+cover: "/obsidian-assets/llama-cpp-0-4-64gb-localbrain/cover-b591828048.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

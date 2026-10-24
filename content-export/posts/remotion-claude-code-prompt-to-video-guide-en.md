@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: remotion-claude-code-prompt-to-video-guide
 translation_source: machine
-source_sha256: fa7831503ec4ebc9
+source_sha256: 36c32bab9bdb2bdc
 date: 2026-03-24
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "A hands-on guide to Remotion for developers. Fully covers all technical details, including environment setup, Agent Skills installation, prompt framework design, core API explanations (useCurrentFrame/interpolate/spring/Sequence), theme injection system, rendering and exporting. Comes with multiple prompt templates that can be applied directly."
 categories:
   - Tech
@@ -19,10 +19,9 @@ tags:
   - AI
   - Frontend
   - Programming
-cover: https://hyphentech.top/obsidian-assets/remotion-claude-code-prompt-to-video-guide/image-01-02636e804c.png
+cover: "https://hyphentech.top/obsidian-assets/remotion-claude-code-prompt-to-video-guide/image-01-02636e804c.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenscreen-whole-video-packaging-165
 translation_source: machine
-source_sha256: dcb82a5eabffa225
+source_sha256: b9a0d82d1dcf41ef
 date: 2026-10-21
-updated: 2026-10-23
+updated: 2026-10-24
 summary: "Ten styles and four layouts, locally generated complete packaging. Added 1.6.7 compact interface and operation instructions, retaining complete images and ten dynamic examples."
 categories:
   - Resources

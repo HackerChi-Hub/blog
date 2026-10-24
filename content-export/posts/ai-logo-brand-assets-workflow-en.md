@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-logo-brand-assets-workflow
 translation_source: machine
-source_sha256: de898342d6ed5965
+source_sha256: daf87980eb271934
 date: 2026-03-26
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Use Gemini to generate logo concept images, then use ImageMagick command-line to crop, trim, and batch generate branding materials across all platforms. Zero-design software, full command-line processing."
 categories:
   - Tech
@@ -17,10 +17,9 @@ tags:
   - Tutorial
   - Linux
   - Images
-cover: https://hyphentech.top/obsidian-assets/ai-logo-brand-assets-workflow/image-01-9a7b151514.png
+cover: "https://hyphentech.top/obsidian-assets/ai-logo-brand-assets-workflow/image-01-9a7b151514.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

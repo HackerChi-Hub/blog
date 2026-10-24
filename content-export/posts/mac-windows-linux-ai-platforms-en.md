@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: mac-windows-linux-ai-platforms
 translation_source: machine
-source_sha256: d5572a18717e4bc9
+source_sha256: 0046976bac2e89aa
 date: 2026-09-28
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "For AI computers, Mac should buy shared memory and low maintenance, Windows should be compatible with graphics card options, Linux should be the production stack; After adding the official spot price on September 28, the answer becomes more specific."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/mac-windows-linux-ai-platforms/cover-be7af05769.jpg
+cover: "/obsidian-assets/mac-windows-linux-ai-platforms/cover-be7af05769.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: jev-system-one-model
 translation_source: machine
-source_sha256: aaf96fd71677bcc2
+source_sha256: 110ddf8c9d91db6c
 date: 2026-09-20
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Jev doesn't generate text, only makes probabilistic judgments based on status. The official multiplier is impressive, but they put the exaggeration in their own footnotes; Free access on Vercel until September 25."
 categories:
   - Thoughts
 tags:
   - AI
   - Model releases
-cover: https://hyphentech.top/obsidian-assets/jev-system-one-model/cover-22107b0e94.jpg
+cover: "/obsidian-assets/jev-system-one-model/cover-22107b0e94.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: movie-model-benchmark
 translation_source: machine
-source_sha256: 8c70f7d63528af50
+source_sha256: 40dc83f71749f5cb
 date: 2026-05-31
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "I assigned the same set of film data analysis tasks to Codex, Claude, DeepSeek, GLM, and MiniMax, breaking down the real data collection experience in Excel, Word, and PPT item by item. Conclusion: Codex narrowly outperformed Claude, but DeepSeek, since it did not participate in data search tests, cannot be considered a complete end-to-end sample."
 categories:
   - Thoughts
@@ -18,10 +18,9 @@ tags:
   - Hands-on
   - Tools
   - Workflow
-cover: https://hyphentech.top/obsidian-assets/movie-model-benchmark/cover-75732bed10.jpg
+cover: "https://hyphentech.top/obsidian-assets/movie-model-benchmark/cover-75732bed10.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

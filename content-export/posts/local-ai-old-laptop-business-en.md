@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: local-ai-old-laptop-business
 translation_source: machine
-source_sha256: 904076f246bfc76f
+source_sha256: 0d3d2b334480f46a
 date: 2026-09-15
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Local AI is not a developer's toy. A comprehensive four-piece set of models, warehouses, software, and workflows is explained, plus three ideas you can copy"
 categories:
   - Thoughts
@@ -17,10 +17,9 @@ tags:
   - LLM
   - Open source
   - Workflow
-cover: https://hyphentech.top/obsidian-assets/local-ai-old-laptop-business/cover-9f0e24e14f.jpg
+cover: "/obsidian-assets/local-ai-old-laptop-business/cover-9f0e24e14f.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: localbrain-flash-next-five-tasks
 translation_source: machine
-source_sha256: a91a8e5210aef8c8
+source_sha256: da96883239e71a61
 date: 2026-09-11
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Qwen3.8-Flash-Next on a 64GB Mac ran five offline web challenges: 1 delivered, 3 executable, 1 abandoned. Every timeout, crash, and long context stall ultimately became a universal fix for LocalBrain."
 categories:
   - Thoughts
 tags:
   - AI
   - News
-cover: https://hyphentech.top/obsidian-assets/localbrain-flash-next-five-tasks/cover-920b629b16.jpg
+cover: "/obsidian-assets/localbrain-flash-next-five-tasks/cover-920b629b16.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

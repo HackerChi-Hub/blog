@@ -4,10 +4,12 @@ slug: localbrain-paper-delivery-179-en
 status: published
 lang: en
 translation_of: localbrain-paper-delivery-179
+article_type: "article"
+cover_status: "approved"
 translation_source: machine
-source_sha256: 7131424b2734df4b
+source_sha256: 955498457973d123
 date: 2026-10-11
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Dual-format documents, time refresh, long task waiting, and itemized checks have been tested; Complete papers still require fact-checking and citation."
 categories:
   - Tech
@@ -15,11 +17,9 @@ tags:
   - LocalBrain
   - Local artificial intelligence
   - Document writing
-cover: https://hyphentech.top/obsidian-assets/localbrain-paper-delivery-179/cover-50b90c5dbc.jpg
+cover: "/obsidian-assets/localbrain-paper-delivery-179/cover-50b90c5dbc.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
-cover_status: "approved"
 ---
 
 > [!info] Machine translation

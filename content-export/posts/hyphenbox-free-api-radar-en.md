@@ -1,56 +1,54 @@
 ---
-title: "HyphenBox: free API radar, local routing and DeepSeek Harness integration"
+title: "HyphenBox: Free API radar, local routing, and DeepSeek Harness access"
 slug: hyphenbox-free-api-radar-en
 status: published
 lang: en
 translation_of: hyphenbox-free-api-radar
 translation_source: machine
-source_sha256: b24cabb68ca7a0e0
+source_sha256: f05519a25a94b7d2
 date: 2026-08-29
 updated: 2026-10-24
-summary: "Version 1.0.3 for macOS, Windows and Linux: manage your own API keys, verify models, recognize quota errors and continue eligible requests from complete tool checkpoints."
+summary: "1.0.3 Supplementing Mac, Windows, and Linux: Manage your own API key, verify models realistically, identify quota errors, and switch routes under complete tool results."
 categories:
   - Resources
 tags:
   - AI
   - Free resources
   - Self-made software
-cover: https://hyphentech.top/obsidian-assets/hyphenbox-free-api-radar/cover-8db465d484.jpg
+cover: "https://hyphentech.top/obsidian-assets/hyphenbox-free-api-radar/cover-8db465d484.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
-
-
-<!-- hyphenbox-current-release:start -->
-## October 24, 2026 update: version 1.0.3 on three desktop platforms
-
-HyphenBox combines a free API radar, your own credentials and real model checks behind a local OpenAI-compatible endpoint. Current integrations are **DeepSeek Harness, Cursor and Cline**; the old dedicated OpenCode integration has been removed. Provider keys remain in system secure storage, and model requests go directly from your computer to the provider you select.
-
-This update adds Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers to the existing macOS universal release, all at **1.0.3**. Installers include SHA-256 checksums and updater signatures. These signatures are separate from Windows commercial code signing and Apple notarization. Linux credential storage requires a desktop Secret Service; a headless server is not equivalent to a tested desktop setup.
-
-These Windows/Linux packages include the signed built-in catalog; an online catalog service must be configured separately.
-
-### Recent improvements
-
-- The `free` route removes the previous fixed route-count and four-credentials-per-route limits. It explores eligible free candidates within a five-minute pre-connection budget, with up to 60 seconds per attempt, preferring untried providers.
-- Free eligibility is checked before each dispatch. A route/credential pair is not repeatedly dispatched; one explicit parameter-limit repair retry is retained. Once useful streamed output is delivered, this pre-connection budget no longer truncates it.
-
-- Unreadable credentials are isolated so automatic routing can try eligible alternatives. Local authorization failures and provider quota failures are classified separately.
-- Structured quota errors wrapped in HTTP 200 are recognized without treating normal answers or content refusals as quota errors.
-- Complete tool results can form an executed checkpoint for another model to continue. Old tool calls are not automatically replayed; missing results and conflicting identifiers still stop continuation.
-- One-click connection offers DeepSeek Harness configuration and recent routing attempts with redacted failure categories.
-- macOS gains a shared application keychain entry, foreground authorization and read backoff to reduce repeated prompts. Windows and Linux continue to use their own secure-storage backends.
-
-The `free` route does not intentionally fall back to paid candidates. The `auto` route may use paid routes you have added. Partial streamed output, incomplete tool results, capability differences and exhausted quotas still prevent guaranteed seamless recovery. The application is free to download; provider quotas and model charges follow your own account terms.
-
-[Download 1.0.3 installers, release notes and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3)
-
-The earlier development record is retained below. Its screenshots, counts, quotas and old client examples describe those historical versions; use the update above and the release page for current installation and feature details.
-<!-- hyphenbox-current-release:end -->
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-free-api-radar/) is authoritative.
+
+<!-- hyphenbox-current-release:start -->
+## Updated October 24, 2026: Three-Platform 1.0.3
+
+HyphenBox combines the free API radar, its own key, and real model verification, and provides an OpenAI-compatible entry on your computer. Current access is based on **DeepSeek Harness, Cursor, Cline**; The dedicated access for older versions of OpenCode has been removed. Keys are securely stored on the local system, and model requests are sent directly from your computer to the chosen provider.
+
+This time, the Windows x64 EXE and MSI files, as well as Linux x64's AppImage, DEB, and RPM, are all part of **1.0.3** as the released Mac universal package. Each installer has a SHA-256 parity and a newer signature; The innovator signature is not the same as a Windows commercial code signature or Apple notarization. The Linux key safe requires desktop Secret Service; a pure command-line server cannot be considered an accepted desktop environment.
+
+This batch of Windows/Linux packages uses built-in signature directories, and the online directory service requires separate configuration.
+
+### What improvements did this version make?
+
+- `free` Remove the old fixed number of lane changes and the limit of four vouchers per route. Try to qualify free candidates within the total budget within the first five minutes before connection, with a maximum wait time of 60 seconds per pass, and prioritize platforms not yet tried.
+- Reconfirm free eligibility before each distribution; The same route and voucher combination will not be distributed repeatedly; one clear parameter limit repair retry will be retained. Once valid streaming content has been delivered, it will no longer be cut off by this pre-connection budget.
+
+- If key read fails, the corresponding credentials will be isolated, allowing automatic routing to continue attempting other qualified routes; Local authorization errors and platform quota errors are handled separately.
+- It can identify structured quota errors in HTTP 200 wrappers, reducing misjudgments such as "status code successful but no actual response"; Normal answers and content rejections will not be rerouted accordingly.
+- After the tool results are fully returned, they can be organized into checkpoints for "what has already been executed" for the replacement model to process. Old tool calls will not be automatically replayed; if results are missing or there is a numbering conflict, the call will still stop.
+- The one-click connection page provides DeepSeek Harness configuration, as well as recent route changes, number of attempts, and classification of desensitization failures, making it easy to determine where requests are stuck.
+- Mac uses a single app keychain entry, front-end authorization entry, and read avoidance to reduce repeated password prompts. This is an improvement in Mac system storage; Windows and Linux still use their respective platform backends.
+
+When selecting a model, `free` will not automatically transfer to self-paid candidates; `auto` may use the paid route you added. If half of the streaming responses have been output, there is a lack of tool results, differences in model capabilities, or all platform quotas are exhausted, seamless recovery cannot be guaranteed. The software is free to download; provider quotas and model fees are calculated according to your own account conditions.
+
+[Download 1.0.3 Installation Package, Release Notes, and Verification Files](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3)
+
+Below are early development records. Screenshots, directory quantities, quotas, and old client examples correspond to the current version; Current installation and feature descriptions are based on the 1.0.3 update and release page above.
+<!-- hyphenbox-current-release:end -->
 
 > [!note]
 > This article was first published on the HyphenTech official WeChat account

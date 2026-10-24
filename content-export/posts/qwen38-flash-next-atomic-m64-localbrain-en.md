@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: qwen38-flash-next-atomic-m64-localbrain
 translation_source: machine
-source_sha256: 9b15a67d8ad437de
+source_sha256: 037ce3ef44eb014b
 date: 2026-08-31
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "The 125B main model of Qwen3.8 Flash Next activates only about 6B parameters per token. With the help of Atomic M64 custom shards and LocalBrain, I completed text, tool calls, visual, and continuous generation tests on a 64GB M5 Pro Mac."
 categories:
   - Tech
@@ -16,10 +16,9 @@ tags:
   - Local deployment
   - LocalBrain
   - Qwen
-cover: https://hyphentech.top/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/cover-2.35x1.jpg
+cover: "https://hyphentech.top/obsidian-assets/qwen38-flash-next-atomic-m64-localbrain/cover-2.35x1.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

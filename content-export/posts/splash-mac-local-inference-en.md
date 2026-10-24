@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: splash-mac-local-inference
 translation_source: machine
-source_sha256: 1f7fa690dd52595c
+source_sha256: 12a504e625412601
 date: 2026-09-20
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Splash generated Qwen 3.8-27B code on my M5 Pro at 79.3 tok/s, 5.11 times faster than the naive MLX with the same weight; Switching to Chinese writing only reduced to 1.44 times. The difference isn't in the engine; it's in the draft model's acceptance rate—code 63.2%, Chinese 11.9%."
 categories:
   - Thoughts
@@ -15,10 +15,9 @@ tags:
   - AI
   - Local deployment
   - Model releases
-cover: https://hyphentech.top/obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg
+cover: "/obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

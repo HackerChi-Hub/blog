@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-09-reasoning
 translation_source: machine
-source_sha256: 83fc0f21ab1df70f
+source_sha256: 95a6dfa4fbb7d354
 date: 2026-10-05
-updated: 2026-10-14
+updated: 2026-10-24
 summary: "It's easy to lose middle numbers in mental arithmetic, but vertical math is more reliable. The model also learned to leave a draft first, but waiting a few seconds for the same problem means you get the correct answer or a longer incorrect explanation."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-09-reasoning/cover-22b4b5eb31.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenscreen-ai-editing-animation
 translation_source: machine
-source_sha256: b09b4201acab6e4e
+source_sha256: a2ca063cc34ed5e4
 date: 2026-10-03
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "After recording, you cut it directly, leaving it to AI in one sentence: 28 minutes of original screen recording, 8 minutes cut, pre-export checks to check for uncensored keys; 368 native animations, 17 platforms stuck in the animation for followers. Anything you didn't do is also written inside."
 categories:
   - Tech
@@ -16,10 +16,9 @@ tags:
   - HyphenScreen
   - AI editing
   - Animation
-cover: https://hyphentech.top/obsidian-assets/hyphenscreen-ai-editing-animation/cover-66656197e8.jpg
+cover: "/obsidian-assets/hyphenscreen-ai-editing-animation/cover-66656197e8.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-small-models-lowmem
 translation_source: machine
-source_sha256: b2cc62e24aa4b5a1
+source_sha256: d5fa2047273599c1
 date: 2026-09-13
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Bringing 11 low-memory local models released this year to the local machine, using LocalBrain's built-in llama.cpp unified memory, speed, and tool calls: 6 under 8K context are within the default limit of 8GB devices. Qwen3.5-9B takes up 3GB less than last year's Qwen3-8B, and 27B of 1-bit can run but only has manufacturer numbers. This batch of models has also been added to LocalBrain's discovery page."
 categories:
   - Tech
@@ -17,10 +17,9 @@ tags:
   - Self-made software
   - LocalBrain
   - Local models
-cover: https://hyphentech.top/obsidian-assets/localbrain-small-models-lowmem/cover-3b8dda75f0.jpg
+cover: "/obsidian-assets/localbrain-small-models-lowmem/cover-3b8dda75f0.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

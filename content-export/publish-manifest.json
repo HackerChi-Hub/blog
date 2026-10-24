@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "0d7885a1eb80ab7702ebc3d37564fb01f7b858f9969fa8b15b654ad91175fb73",
-  "published_post_count": 205,
+  "content_sha256": "555a96e8550bddeb2a21ff9b29b6328592347696f1df4e76aa149539316d48da",
+  "published_post_count": 206,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -11,7 +11,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-official-b31ed069464a",
       "lang": "en",
-      "sha256": "be6d69551b1f3fff14b92c9abc05f161c96d198113aaee86b0e81bbb84b73f62"
+      "sha256": "691dacf26261190157f2a8ee9ce744f52a4fc64edc3bf91b48adbb0d7170b775"
     },
     {
       "file": "posts/2026-10-07-official-b31ed069464a.md",
@@ -27,7 +27,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-80ac89e6ef58",
       "lang": "en",
-      "sha256": "5a87c52097860f0147be03150263dc72eb6ffa51a82a9fc4f72339ef0955db99"
+      "sha256": "85ef10b29b490bf75771fdc8ec8c4679038c07a0e680aabd90f4cc50225e6cfc"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58.md",
@@ -43,7 +43,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-a28a79f12713",
       "lang": "en",
-      "sha256": "8ed23524fdefeca44ba4f91779c81e64b348de99ca0f6de79ffb2654e24ac291"
+      "sha256": "f02194009742b78df6a4be48d0d8462ddff38fc33e50ce9e639de3aed845bba6"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713.md",
@@ -213,6 +213,15 @@
       "sha256": "3e22e8008dd8cefe4cdd26f3e60a9b98139f9f51de32c550c72d416aeb35e987"
     },
     {
+      "file": "posts/2026-10-23-official-3a68097e4e1d-en.md",
+      "slug": "2026-10-23-official-3a68097e4e1d-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-23-official-3a68097e4e1d",
+      "lang": "en",
+      "sha256": "d1f46d94f8ec6a66222597e7ba291a854eca268c3c67d47f4d59cca8f4d51333"
+    },
+    {
       "file": "posts/2026-10-23-official-3a68097e4e1d.md",
       "slug": "2026-10-23-official-3a68097e4e1d",
       "article_type": "model",
@@ -226,7 +235,7 @@
       "legacy_paths": [],
       "translation_of": "33a999681bdb81499014eaf312d39728",
       "lang": "en",
-      "sha256": "e95cfd65692cb801c5cb413e1b6b40c43b74c70cd86b1d966dacf97dc0cbbe95"
+      "sha256": "9161e938f6ccfc7c57a44331d26946fc4cde96a2ec4150054ed2704a6d514f2d"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
@@ -242,7 +251,7 @@
       "legacy_paths": [],
       "translation_of": "361999681bdb815b94fad9dbf028ab2c",
       "lang": "en",
-      "sha256": "b6d586000696a0f9d457ccb4dea663ab3ec1ccdbc277f5b01440b4a13451df44"
+      "sha256": "000ca370c3cc1910934d02c15d2b3b86c361c2fdeb6e960d319e0a64d3945e41"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c.md",
@@ -258,7 +267,7 @@
       "legacy_paths": [],
       "translation_of": "372999681bdb815f8c9bdd238edc09c6",
       "lang": "en",
-      "sha256": "c21aab74c06cd54983890932c4386284a1b5d99964b192eb1d21fd6736923da8"
+      "sha256": "8bd2b05a2c016f29377d6778ca4841b1324159044559b5b03d39b7f009fe2ca9"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6.md",
@@ -274,7 +283,7 @@
       "legacy_paths": [],
       "translation_of": "37a999681bdb81d6bd5def54e062aac4",
       "lang": "en",
-      "sha256": "87f8c88eaa295f9312ad461ebbc7d407df5614e7f8eb10b8f9a8bf335eaa719b"
+      "sha256": "04a91ded59195e1cf3ea8e5d86b8429af23ec347d3019787dbf7146af707f988"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4.md",
@@ -290,7 +299,7 @@
       "legacy_paths": [],
       "translation_of": "3af999681bdb8146be26ec77fb75f5b7",
       "lang": "en",
-      "sha256": "066c50e38f4e6a1936fa552ac256595b14723753c089d0d6472bdd8b2214ed8d"
+      "sha256": "8a87026e4a7a1a9312c56de97078df777df871037daf07745fc92cee458511db"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7.md",
@@ -306,7 +315,7 @@
       "legacy_paths": [],
       "translation_of": "3be999681bdb81269ddaf65518a0735a",
       "lang": "en",
-      "sha256": "d20f0033271723a2418a51fbbe77ae624f762cff4e2a45f2ca91c5e4bf34963c"
+      "sha256": "c2a50a043e98525e765ce624fd3b8d9ad262f742150b050b2e65d72dac139bba"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a.md",
@@ -322,7 +331,7 @@
       "legacy_paths": [],
       "translation_of": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "lang": "en",
-      "sha256": "5fcb37bd8ca5c2f922355a24278302377ba63ed0f26b1cbd9943f5aaff0fb012"
+      "sha256": "59935ba607ffe35223893fe41d30fcdf937a06103b7c584c532abb7b168d429e"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a.md",
@@ -338,7 +347,7 @@
       "legacy_paths": [],
       "translation_of": "3c4999681bdb81b5ac69ceb1153e2500",
       "lang": "en",
-      "sha256": "25d34701b6810ddb8473c71ec575fbc59301ff931ef795fb334e09f01e2819b5"
+      "sha256": "e6e1e5594afd1e6926ec6f97556584c871cd77e6d3246adbe98daa60d122927c"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500.md",
@@ -354,7 +363,7 @@
       "legacy_paths": [],
       "translation_of": "3c6999681bdb815f8094e4ca7339f738",
       "lang": "en",
-      "sha256": "8e0d7ea0408883939300f5b1cd5932a34fc3a7395c40c50dd4425b1820f27e5b"
+      "sha256": "e8e319a187c83dc8039cd7ef01b68ff7ffaf61441341c99085a90a366ec08e2c"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738.md",
@@ -370,7 +379,7 @@
       "legacy_paths": [],
       "translation_of": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "lang": "en",
-      "sha256": "e64d9c506e6e0c297aef014ac33f60240bcfa4eed186132bad28cb2cc59a3caf"
+      "sha256": "4b699156fcf8cd325038fd6f21d6afa54766f6702ffa7d337592df9c5125acf4"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0.md",
@@ -386,7 +395,7 @@
       "legacy_paths": [],
       "translation_of": "3c9999681bdb814ba691f8cc28ec684a",
       "lang": "en",
-      "sha256": "17a056d7fdf1110369d345b8bf8d9302ed8f2e66b5e32d128d735e0a4953f481"
+      "sha256": "8ac0a3d3a7d0bb0244b42f5c3239d4fc1c0b65148323e28bf6a931b2d83f49b1"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a.md",
@@ -402,7 +411,7 @@
       "legacy_paths": [],
       "translation_of": "ai-agent-ufo-game-prompt-template-2026",
       "lang": "en",
-      "sha256": "1c5632a035f30ffa93607575311a0009e631bcf05aba3f4411437cf44dea0359"
+      "sha256": "b8d2de3fef8659c27e1d50a466b183accd13e63ac3cf8ac7488b7761f1c7d83b"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026.md",
@@ -418,7 +427,7 @@
       "legacy_paths": [],
       "translation_of": "ai-animation-pipeline-cartoon-real-cost",
       "lang": "en",
-      "sha256": "28bb1e531d263d71daf93af2d282e7b6f066e19837676232d6705143d51d0bbc"
+      "sha256": "d32dcfdae81d26765f365516d1897a38fe35722880a53c520a86304af653165c"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost.md",
@@ -434,7 +443,7 @@
       "legacy_paths": [],
       "translation_of": "ai-gaokao-2026-glm51",
       "lang": "en",
-      "sha256": "cc47e822a633826f1231ed06be89435d82c176e546ecff6206df3f9e43808834"
+      "sha256": "16caf3051b9eab67d413debe19ee6511dd337be9b54abe365e6a299602be3cca"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51.md",
@@ -450,7 +459,7 @@
       "legacy_paths": [],
       "translation_of": "ai-logo-brand-assets-workflow",
       "lang": "en",
-      "sha256": "f06c179c0d75ababcf85c76ee8ddfedf64bd013fc778a000f81a57f13813f420"
+      "sha256": "f921f935ab98c1475f8318369038fab1277161fc63c160b249cf6c2c5815913b"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow.md",
@@ -466,7 +475,7 @@
       "legacy_paths": [],
       "translation_of": "ai-prompt-templates-12-scenes",
       "lang": "en",
-      "sha256": "f6defed64bc466d0a237cd6c6a9bcdba9dba462610a68c054e8dd6e7f232f403"
+      "sha256": "af1946d15c88bd34ff0c0d3f1b3eedefd5452d45824766e919a55622a9cce24c"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
@@ -482,7 +491,7 @@
       "legacy_paths": [],
       "translation_of": "bonsai2-mac-deploy",
       "lang": "en",
-      "sha256": "c2d57022b5afa9e984c786261aed0efcab3e46ea66f931c1386170da05275dfd"
+      "sha256": "8376b011d15ebbdbe14d01352b4c95ba1ba345bf67b1bd244e4cca0e6850d0c5"
     },
     {
       "file": "posts/bonsai2-mac-deploy.md",
@@ -498,7 +507,7 @@
       "legacy_paths": [],
       "translation_of": "broadband-troubleshooting-guide",
       "lang": "en",
-      "sha256": "57ad804dc60af6dc0800c3237b7b97f5a07bfafe368c2aa0dbd9882577717b99"
+      "sha256": "fcb165d7cbd1afed6494df8eb0f3ebb3e7a135a3df7a3833d5288583cd57b166"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
@@ -514,7 +523,7 @@
       "legacy_paths": [],
       "translation_of": "deepseek-harness-mobile-remote",
       "lang": "en",
-      "sha256": "41eab2f42dff598a7c86a669d6be786849fb8e34f973cb7e35c8e1d061ec9354"
+      "sha256": "aa63a246db7f55ef315b5a80bb9650c2e3e69702ee4e08c25a7215f6464a84ab"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote.md",
@@ -523,7 +532,7 @@
       "legacy_paths": [
         "/hyphen-assistant/"
       ],
-      "sha256": "c7905bfe4cff2b567b77f95404c930270da619317ae7107dabb44c9680e9169c"
+      "sha256": "2855b32b8780ae91ca8fef05a6a0322ed060067e1c498bc2b5d1ce513cf4c09e"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
@@ -532,7 +541,7 @@
       "legacy_paths": [],
       "translation_of": "deepseek-v4-vision-mac64",
       "lang": "en",
-      "sha256": "028b11a3123be5b6a4ce389f192795620551c1b57379b0ccae5b074eff5843b2"
+      "sha256": "41d5b3d89f0c810fcd762738fa160264161b52f115be3c46a2aab027cd3bfa2b"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
@@ -548,7 +557,7 @@
       "legacy_paths": [],
       "translation_of": "fable-5-1-mythos-update",
       "lang": "en",
-      "sha256": "c57bbae31f685475094bf76426c8268364f0d8640c7b74731159ea68685df5e3"
+      "sha256": "7dc67b518de85dfce58f51ce3cec40d4c59c020792314b42bfbaa33545ddc810"
     },
     {
       "file": "posts/fable-5-1-mythos-update.md",
@@ -564,7 +573,7 @@
       "legacy_paths": [],
       "translation_of": "fastmetal-qad-apple-silicon-official-guide",
       "lang": "en",
-      "sha256": "d37b3c3d10ce301f5ba2ab6d01dfec5e0cfdd7f66717cb10a9e51a4cc02cc366"
+      "sha256": "ee3c8d2b66d96e02d8d793d297d9406308bd6f108fa226801ed55ba561886dbb"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
@@ -580,7 +589,7 @@
       "legacy_paths": [],
       "translation_of": "free-ai-api-radar-2026-09-23",
       "lang": "en",
-      "sha256": "eb5403a48d8bf4d6598f9d41951f435f6d9b84c804c1c46edefee8a9894bfe47"
+      "sha256": "a078e0012ab7c9740a26549e82aa1eb0d8413976b2d142971fa6e4eae0c70564"
     },
     {
       "file": "posts/free-ai-api-radar-2026-09-23.md",
@@ -596,7 +605,7 @@
       "legacy_paths": [],
       "translation_of": "free-ai-tools-64",
       "lang": "en",
-      "sha256": "7a1bb28300de4c4edfa2b2cc344106986f72018e907bc067607edf53aca4e72f"
+      "sha256": "a589c01292101c838c92f0c692b10413e1aeeef5e2729b69c4af0b26d97fe757"
     },
     {
       "file": "posts/free-ai-tools-64.md",
@@ -612,7 +621,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-radar-2026-08-27",
       "lang": "en",
-      "sha256": "2e9b80f6588475449f6ff2f388e2bbfb327ccfeee0c554e0ef12585a5e5ce968"
+      "sha256": "ce862a9e10f82a6fa3086d6dea5d6d927f27a156322b8712878ce54d4d2526c3"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
@@ -628,7 +637,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-radar",
       "lang": "en",
-      "sha256": "8bec794dd3120c9fc245ad82ad5e5c604d91e1880d38baaad90958b87ba70623"
+      "sha256": "2ba1eed6f0c012f78d16cf65cb7662a5e236b95ec61328d1f26d25ed62945481"
     },
     {
       "file": "posts/free-api-radar.md",
@@ -644,7 +653,7 @@
       "legacy_paths": [],
       "translation_of": "free-design-resources",
       "lang": "en",
-      "sha256": "c6fe1d1e2c758919fd6610425130d979deb048541e968c5d1b9a425a1284309a"
+      "sha256": "6120b4aafd60d650bfc08f73b044a08796260949fa98c2c7a050d70a6f9bc175"
     },
     {
       "file": "posts/free-design-resources.md",
@@ -660,7 +669,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-3-8-flash-cyber",
       "lang": "en",
-      "sha256": "c9f78474ae9c5fa76887aee1542f8a5f2ba1a880456de4ad19b7e2c937f6fd5f"
+      "sha256": "1b04794c8df2b892887dd16838f7f0348e72df3dd0df08f99a3e6900e83d8030"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber.md",
@@ -676,7 +685,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-argon-google-flow-experience",
       "lang": "en",
-      "sha256": "aba84619c8f28d1c850530bec97ab7ea590270c9516dbdae3aa47710ae77a00a"
+      "sha256": "3c292118b5ddc504892a21f2dda8e0b368a423d6c25786ce79b47c4bf746b725"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience.md",
@@ -693,7 +702,7 @@
       "legacy_paths": [],
       "translation_of": "google-io-2026-gemini-agentic-era",
       "lang": "en",
-      "sha256": "824ffe46de289f3b1c3167d4a3bc5a34e4b4958b17af4050a3751548f8944790"
+      "sha256": "e4f92642d5b22cfae6879cbd4ebac094b37c9cac51eb408b030ec0283efa932a"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
@@ -709,7 +718,7 @@
       "legacy_paths": [],
       "translation_of": "gpt-6-astra-computer-use",
       "lang": "en",
-      "sha256": "e727feb9fb5d8a238bce018f9ed934ffc84cc01f1015d788dbe9af8a87bfe8a9"
+      "sha256": "6a03697c17d315f38d1e5847f6d38d25710c6fd98696ce376e82d858d09f4a23"
     },
     {
       "file": "posts/gpt-6-astra-computer-use.md",
@@ -725,7 +734,7 @@
       "legacy_paths": [],
       "translation_of": "gpt6-six-tasks-rain-mystery",
       "lang": "en",
-      "sha256": "36f3fed8b83cd026f3ec2a38e8cae6316ba1c0b0fa3f31afd3c252678ee472a1"
+      "sha256": "4c20e2eff314c27e2fe65e113fb7edf125fd5ef17c83242c5bc7bc482ba52b62"
     },
     {
       "file": "posts/gpt6-six-tasks-rain-mystery.md",
@@ -741,7 +750,7 @@
       "legacy_paths": [],
       "translation_of": "huawei-tau-law-2026",
       "lang": "en",
-      "sha256": "a3c7be0842cc9903895baa8bf8298ca1a101ce0f4819f8ee7b524ff8a449e36b"
+      "sha256": "a7697690f5def9f1103abbebeee189f05695e3f7c3b899a2847e90336bc25a56"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
@@ -757,7 +766,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenbox-free-api-radar",
       "lang": "en",
-      "sha256": "9e5acc38193cf0449dfda65403491670da0d643b34f9fe4890aed2515452b355"
+      "sha256": "da953eca0ed280dda34c78b705479bbe75b711942ed5fe36d25fbd0c18aab342"
     },
     {
       "file": "posts/hyphenbox-free-api-radar.md",
@@ -773,7 +782,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenbox-windows-linux-tri-platform",
       "lang": "en",
-      "sha256": "108685a76059d55e757dbea3dfd201a13cb25bc7b262d323dcb3c220709044be"
+      "sha256": "8c9bcc6f00db00df21f807e0384c06cdee2b1e7e74c1f664d6bf99219c0723a6"
     },
     {
       "file": "posts/hyphenbox-windows-linux-tri-platform.md",
@@ -789,7 +798,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-animation-150-preview",
       "lang": "en",
-      "sha256": "b1707559b7ae5ce1db3fd0231bfd18f0d0233b050e9731e669eca8e00acd79a2"
+      "sha256": "a198d065e96707c0febf1e2e14eecc4d06e76b4a7c3284768bee53ec80e05569"
     },
     {
       "file": "posts/hyphenscreen-ai-animation-150-preview.md",
@@ -805,7 +814,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-editing-animation",
       "lang": "en",
-      "sha256": "0aaacfd31f7e7d2eb80c445da4d9de67531ff546c7b2aaca41d8582ecd7da4f7"
+      "sha256": "55694f09790bbd6ef7481dc6e8fdc5fb20eaad27ecb43a6d5750401661dec5d0"
     },
     {
       "file": "posts/hyphenscreen-ai-editing-animation.md",
@@ -846,7 +855,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-whole-video-packaging-165",
       "lang": "en",
-      "sha256": "97e16c59896bcc45edba6e41d174a9053b6dfe2a64e2e453a77cd63835bfa959"
+      "sha256": "4f193f62ec15df28df612da29b711ac8782e4d8bf8c4b843c46ec9059290d27f"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
@@ -862,7 +871,7 @@
       "legacy_paths": [],
       "translation_of": "jev-system-one-model",
       "lang": "en",
-      "sha256": "24201d04f7081b87cce5f90d82f9661ef404dd556c90fff3fe4ae71308e72837"
+      "sha256": "bc44d2e79941750a1b0834874eb7fd202532c572cb514da6447a4c2ae3cfa7f5"
     },
     {
       "file": "posts/jev-system-one-model.md",
@@ -878,7 +887,7 @@
       "legacy_paths": [],
       "translation_of": "llama-cpp-0-4-64gb-localbrain",
       "lang": "en",
-      "sha256": "3ff00bd44d564aa36b79fad9df32abb3e866cc4d7c72f114e6223c8ee4da599c"
+      "sha256": "5e0bc737682a8ba69dfbabff012063c9a5972f85df25dcc462c1a8bfa677515b"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
@@ -894,7 +903,7 @@
       "legacy_paths": [],
       "translation_of": "local-ai-completely-decomposed",
       "lang": "en",
-      "sha256": "f243bfb08a03a7c4e33b0e0e09677014a97074cdd19bad4d18b4a5d0f6eeb10c"
+      "sha256": "f1817ab498905c9166429e93c803065bb3c3d997fe66590d9ace6fe1b0a77baf"
     },
     {
       "file": "posts/local-ai-completely-decomposed.md",
@@ -910,7 +919,7 @@
       "legacy_paths": [],
       "translation_of": "local-ai-old-laptop-business",
       "lang": "en",
-      "sha256": "d60490a3f4fe790ad56cf6d4c601c6079575f381c7c6872db0727c55eb1d93d2"
+      "sha256": "fc70820990bd1937f0c3fddabf5f26371f58b40f11317e05a6d0fa7ecdea8357"
     },
     {
       "file": "posts/local-ai-old-laptop-business.md",
@@ -926,7 +935,7 @@
       "legacy_paths": [],
       "translation_of": "local-model-blender-mcp-localbrain",
       "lang": "en",
-      "sha256": "cf077008d4f422478c5baffb34cf89f1e2109862a244e25cce42e687069b93ed"
+      "sha256": "a0fdb96920735ef64f7a2b1daa0d1a1511ec89b6a49858cac404d510ef42e554"
     },
     {
       "file": "posts/local-model-blender-mcp-localbrain.md",
@@ -942,7 +951,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-dance-paper-delivery",
       "lang": "en",
-      "sha256": "b1753b645f6925b746cdb528d6a91a39f3e93df81b389525e90f807fb34806a2"
+      "sha256": "ab2eaa0f3afa8d2266fef2844a773e4b662a6855c3fe196ca819b7416789cbb1"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery.md",
@@ -959,7 +968,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-flash-next-five-tasks",
       "lang": "en",
-      "sha256": "697d9a25a766f35d070ab6372f27ae3140307679b5ac0ce2646eff7a2a15910f"
+      "sha256": "d758d0721d6dce9ee4b9f25b3445a0df4a7506e99b86bed3aecc63ed0d4519d6"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks.md",
@@ -975,7 +984,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-h3-multi-reference",
       "lang": "en",
-      "sha256": "e9b13e56c733040ef1b5611f8923c6759fe01059dc41dfd130b865db0ffe7aea"
+      "sha256": "ef5e7cc39b6e63227b77aaaa4d596e9233a94d3fb63fa11b4099f589d0e74b08"
     },
     {
       "file": "posts/localbrain-h3-multi-reference.md",
@@ -1016,7 +1025,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-longtask-splash",
       "lang": "en",
-      "sha256": "be97d2f13f0b8774e0bbb12f51ab84850e45e4a73abd70d760fd7d12b93e0baf"
+      "sha256": "2eadce66e7e0cf79e0ec63e43475bf45bbf9b54b0bf81d405050e9ad4fe61ef9"
     },
     {
       "file": "posts/localbrain-longtask-splash.md",
@@ -1032,7 +1041,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-ltx25-video",
       "lang": "en",
-      "sha256": "a16ad94e35a5b11a894d4658a236a650f20ec3cfc1eb9475efd4b07229875888"
+      "sha256": "7e0ac0bd7018ed89ea7e34381a828879da2e3054d2a36894eafb6a35ac322ee0"
     },
     {
       "file": "posts/localbrain-ltx25-video.md",
@@ -1048,7 +1057,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-media-chat-180",
       "lang": "en",
-      "sha256": "234f1a16b7daf6891282ac9aaed64cd54cf0f71f04b604c54bfe804e25afbfb1"
+      "sha256": "48628ebb733a0a0b48605f0d37e9f4464b4afe0b2a0e0b1cc25d16a1b98863e0"
     },
     {
       "file": "posts/localbrain-media-chat-180.md",
@@ -1064,7 +1073,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "c5fa40b0044d8b5c06d7c827e5760409e39aafe9b9bc8a4ac277e3e7816290a9"
+      "sha256": "9de2888c328ce294d726930eec3169a718039773042c29254cd688757ebc8f07"
     },
     {
       "file": "posts/localbrain-network-security.md",
@@ -1080,7 +1089,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-paper-delivery-179",
       "lang": "en",
-      "sha256": "36868b76039307c14f55c9bfe4cd1012c1da0fcf205256345a76060cad740298"
+      "sha256": "8f0f67d70606e83ea39a417b02925bc4d04c0b9b33ca6a14a3cd1ece534155bb"
     },
     {
       "file": "posts/localbrain-paper-delivery-179.md",
@@ -1096,7 +1105,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-architecture",
       "lang": "en",
-      "sha256": "cc994df55d89788265bf1b87f4037e2f0ad4cc703c6ff0527fbd3ed06ab8ae03"
+      "sha256": "32918c1dd4c858bf645fefddac39ba5b86d9ab9b66288284f293f0e23b5d10c8"
     },
     {
       "file": "posts/localbrain-security-architecture.md",
@@ -1112,7 +1121,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-howto",
       "lang": "en",
-      "sha256": "fa7307f02c7d0870f087e4b76bbd97f4f1d0842d56d3e304852f703764535563"
+      "sha256": "c114a6d1c286175572ed8fbb12096606a6766a664059910b08462bbe8688dd0b"
     },
     {
       "file": "posts/localbrain-security-howto.md",
@@ -1128,7 +1137,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-small-models-lowmem",
       "lang": "en",
-      "sha256": "bfb5b1914779ee1cc1bb52a8fc8985d43ae26325a7758d78be6092101246b14b"
+      "sha256": "d35d95cad5049a8edcc8f6a49d274cb24cb890442719a9f3d69e1dde6914390e"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
@@ -1160,7 +1169,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-windows-nvidia-first-release",
       "lang": "en",
-      "sha256": "49d1a9f71d5fa00d6168048adc2d01e8eb87ab6c23edb61da9e62ff461c4578c"
+      "sha256": "149a4b68075ec3a99dec33eddd602067027366a16c26b12a14798ae828587dc1"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",
@@ -1176,7 +1185,7 @@
       "legacy_paths": [],
       "translation_of": "localhost-local-ai-security",
       "lang": "en",
-      "sha256": "ed6020f0944106568df44e77cfa5c32d40f131c7685f9728c871570d5f8b43af"
+      "sha256": "2e62d82f655bde68b488a2886693602eed876495e9f56578ab5364ff953133f3"
     },
     {
       "file": "posts/localhost-local-ai-security.md",
@@ -1192,7 +1201,7 @@
       "legacy_paths": [],
       "translation_of": "mac-local-inference-engines",
       "lang": "en",
-      "sha256": "954832f23042a73e3a38fa5b3dc2ec50a995918131b6e12e0643683336a950de"
+      "sha256": "c52782721f79ba1e0f7d24be06c6dd02c6b05f9cb4f5067028647c91a0cc4416"
     },
     {
       "file": "posts/mac-local-inference-engines.md",
@@ -1208,7 +1217,7 @@
       "legacy_paths": [],
       "translation_of": "mac-windows-linux-ai-platforms",
       "lang": "en",
-      "sha256": "059b0ae6b19921610347c3cb7abb15e27fa2ecf4ed504893c126706a1144c257"
+      "sha256": "473fd9a754830db7a68e7bde1c1df17912096755c0b2c234765d20faef6cd5f2"
     },
     {
       "file": "posts/mac-windows-linux-ai-platforms.md",
@@ -1224,7 +1233,7 @@
       "legacy_paths": [],
       "translation_of": "minicpm5-2b-localbrain",
       "lang": "en",
-      "sha256": "c9c49b8acb01ddd30f7fea843bff9476c73f85d8f6c6b72ff17452e41860cc62"
+      "sha256": "55ef6071ddc142d48444283f5a396432dcae1500bb467afb7daa7524e503ba6c"
     },
     {
       "file": "posts/minicpm5-2b-localbrain.md",
@@ -1240,7 +1249,7 @@
       "legacy_paths": [],
       "translation_of": "mlx-local-ai-test-m5pro",
       "lang": "en",
-      "sha256": "58b9364ec9f59a60dbb2689c0e0dedbe22b8a7400919fe908cff050622c71fe9"
+      "sha256": "d599dbcb2708ee53589202410c4bb57a5993728d84267f415e8208dda723f714"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
@@ -1256,7 +1265,7 @@
       "legacy_paths": [],
       "translation_of": "movie-model-benchmark",
       "lang": "en",
-      "sha256": "4879d694a1a03ffcf93634f061462545f7074836b7f3e9e8e4e6e17202671161"
+      "sha256": "f664d947a3e9efe10448a6563b5b9669b97b614fc17c323452cecd677aedd33c"
     },
     {
       "file": "posts/movie-model-benchmark.md",
@@ -1272,7 +1281,7 @@
       "legacy_paths": [],
       "translation_of": "nex-n2-5-free-mac-localbrain",
       "lang": "en",
-      "sha256": "bda2ffc1977b2d5ecc52fad412e256e4a43fa3562336d3e3c785bfe95ae9e346"
+      "sha256": "825fbd3fcd7acf1a6c56a995f9d8019b7949d4cd17fd69dbe6ca206a5cb4a29a"
     },
     {
       "file": "posts/nex-n2-5-free-mac-localbrain.md",
@@ -1288,7 +1297,7 @@
       "legacy_paths": [],
       "translation_of": "omarchy-linux-ai-getting-started",
       "lang": "en",
-      "sha256": "47fd88e19eef8179e4e756491c63d66dcb91c0ba73a585624509166a5e5e43ff"
+      "sha256": "2173d2efed5b44f422540f7a919da655b968988688157c5442e9fae180f9fb5e"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started.md",
@@ -1304,7 +1313,7 @@
       "legacy_paths": [],
       "translation_of": "ox-alpha-stealth-model",
       "lang": "en",
-      "sha256": "18756b2719e1a8c97267024b7d945e07bc4aaac9a5190d3cb1d5a2ca368e1c8e"
+      "sha256": "35e7e654e0b2d0621886846322c9c4b89a639ea00656840235f50faee829c36f"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
@@ -1320,7 +1329,7 @@
       "legacy_paths": [],
       "translation_of": "polystrata-qwen36-8gb-localbrain-test",
       "lang": "en",
-      "sha256": "a579d4e6dc6817977a0ed30fc4829d10ec6218ca8f19d445fcfb996ea160a51b"
+      "sha256": "ce9efaf0e882ebb584f04d70d22b514e7d8f8c7e5778099d245a76a3defd6319"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",
@@ -1336,7 +1345,7 @@
       "legacy_paths": [],
       "translation_of": "qwen-image-21-local",
       "lang": "en",
-      "sha256": "66acd0400aa6f1c0a03223f707424e88621779e59078d580ce4c4f62499673cf"
+      "sha256": "a2b6bc3ddaa8f840b241bf7ce3379dfa0b16dd99bcb2927451f9638ecdad0520"
     },
     {
       "file": "posts/qwen-image-21-local.md",
@@ -1352,7 +1361,7 @@
       "legacy_paths": [],
       "translation_of": "qwen-image-21-turbo-q4-local-test",
       "lang": "en",
-      "sha256": "24104088873d531763b81a6b737a0623b55c1fc17aba1f58587e1c349ed43d9b"
+      "sha256": "9fba433ffbbdc4d7c070128d0778c7b0c645d287f06213e6e0e9f72e46054145"
     },
     {
       "file": "posts/qwen-image-21-turbo-q4-local-test.md",
@@ -1368,7 +1377,7 @@
       "legacy_paths": [],
       "translation_of": "qwen3-8-27b-local-test",
       "lang": "en",
-      "sha256": "bd5eef89c766a7abd8f735a68e9da2f80073108b955bd17975dcdcb1b95300b0"
+      "sha256": "90c90c1b268178c44e7d499849245bc37b6f38851223275a4730c199ba0596b1"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
@@ -1384,7 +1393,7 @@
       "legacy_paths": [],
       "translation_of": "qwen38-flash-next-atomic-m64-localbrain",
       "lang": "en",
-      "sha256": "e24a1580183b956ae7277865e90a11eb6c603420a20988c0296dd5504319d6a0"
+      "sha256": "4a1961ea447f4727c4c5e6136a060ad3db8a6efea7c5f075ff92716fbf020a18"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
@@ -1400,7 +1409,7 @@
       "legacy_paths": [],
       "translation_of": "rea-reverse-engineering",
       "lang": "en",
-      "sha256": "2acabd35299738b346f8c57dcf4884a894f1e4136e36139ba492554a440deea3"
+      "sha256": "cfc1c5c7ab3c2045cacbb970aad6192668cfcdbbbede81f74946acbf4f57bf2d"
     },
     {
       "file": "posts/rea-reverse-engineering.md",
@@ -1416,7 +1425,7 @@
       "legacy_paths": [],
       "translation_of": "remotion-claude-code-prompt-to-video-guide",
       "lang": "en",
-      "sha256": "f6c74ab67b6f039ab8a8b5fae92f899636086e9a09fddd3882b57ba2b490a173"
+      "sha256": "4fc7d6e4803608044c8902543d367f3c70a12d04d355762066778e49e541d743"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
@@ -1432,7 +1441,7 @@
       "legacy_paths": [],
       "translation_of": "screenlex-watch-and-learn",
       "lang": "en",
-      "sha256": "3ad02d9000af9834a26a0a137cc9ce3df124abd7e3ea7b51455265d30430bfdc"
+      "sha256": "9edaf4b2c1183384989ecbc34ac3206c3678f77b46fcd55847ef2d356a9c53fb"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
@@ -1448,7 +1457,7 @@
       "legacy_paths": [],
       "translation_of": "splash-mac-local-inference",
       "lang": "en",
-      "sha256": "1eb8f798521c9be3683198d8c5555dc82bf97a482f17431dd05177faabb874f6"
+      "sha256": "d1ef82c26b4ffaeed3b13ec795062efcf9531093946dfe0faef4f8ba7225781d"
     },
     {
       "file": "posts/splash-mac-local-inference.md",
@@ -1464,7 +1473,7 @@
       "legacy_paths": [],
       "translation_of": "strata-12gb-local-ai",
       "lang": "en",
-      "sha256": "d8e5880df78ce3d529b251513b4c1d97522c1b8a10c54d2dc30b13d0459ea14f"
+      "sha256": "140ce7898b91542cbf7c1e0e4edb50b93d659f16c5e9e9709216a5abc132f156"
     },
     {
       "file": "posts/strata-12gb-local-ai.md",
@@ -1480,7 +1489,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-01-overview",
       "lang": "en",
-      "sha256": "9602288b7922ef144e9044c6563f82d784622952dd426ddec80969aad67f4e56"
+      "sha256": "108d7b02928eef59d34f3778e006435d6e5a73e9b07830f382426e410b38a1eb"
     },
     {
       "file": "posts/understand-ai-01-overview.md",
@@ -1496,7 +1505,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-02-history",
       "lang": "en",
-      "sha256": "fe22d4f24a6100f959749b154d036e67499084dc46ffbf2616d941894d062277"
+      "sha256": "dd8a21b48d43535f197220a6690a4cd0caa04e484b4b99a59c50b1254c102abf"
     },
     {
       "file": "posts/understand-ai-02-history.md",
@@ -1512,7 +1521,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-03-open-race",
       "lang": "en",
-      "sha256": "d9306e171073e5abd4bf239cc35e3934816f0e129151057b2a7c627dadac6db7"
+      "sha256": "32802b44b631d54bd3b3e3c2b6d2da6e64df8cece7bda761cb84130a06d07e78"
     },
     {
       "file": "posts/understand-ai-03-open-race.md",
@@ -1528,7 +1537,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-04-neural-networks",
       "lang": "en",
-      "sha256": "ffd2abc0eaeb1b241abeb323cb83d4a5f66fc498731dcbed04517ba8bd1025fe"
+      "sha256": "14a0194fc39daa72c629a5c6241303881e4b608ddf26717c2ecefd6902a0bc6e"
     },
     {
       "file": "posts/understand-ai-04-neural-networks.md",
@@ -1544,7 +1553,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-05-tokens",
       "lang": "en",
-      "sha256": "31fd9fe4c00450f5358fb7c8a81755279cca5f6c9f62fca6d24f52018d0279a2"
+      "sha256": "8c33c994beb5eef64467fc529b83823848615523f0814dbd35d6df0b49eb5a69"
     },
     {
       "file": "posts/understand-ai-05-tokens.md",
@@ -1560,7 +1569,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-06-embeddings",
       "lang": "en",
-      "sha256": "c1ef1de143c6f4c165f81ad57370241d9855cc7c6c13455dac96b40805c7466b"
+      "sha256": "4c7a9a6a90a19bb93078ca7f58362b51d24d0074bfd0c0ba5215376040f7f220"
     },
     {
       "file": "posts/understand-ai-06-embeddings.md",
@@ -1576,7 +1585,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-07-attention",
       "lang": "en",
-      "sha256": "264010d1d6eccc6d18af0ea638fb7d63f5841089822efa5ff078f542d54dae44"
+      "sha256": "ac0195a9121033b3e7ddec9be4f63acb6f3514af945ffcbbac54c24f86ff929c"
     },
     {
       "file": "posts/understand-ai-07-attention.md",
@@ -1592,7 +1601,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-08-training",
       "lang": "en",
-      "sha256": "e1d7dcd974f265301879c8d5e1c07a8d24b150f6dc229fca8dd40b426697f005"
+      "sha256": "da856e698c1d56209712ca9f70f5d9569984acfcd37fc9d987c4c5142d772401"
     },
     {
       "file": "posts/understand-ai-08-training.md",
@@ -1608,7 +1617,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-09-reasoning",
       "lang": "en",
-      "sha256": "554abe3beaf8a95bf875631a0624ae72d408e13241ad94c0b60133a3dd7d775d"
+      "sha256": "69cf557695275828ebc6d2ec497c8a5da939062c1158ccc562571a22e6c9bf61"
     },
     {
       "file": "posts/understand-ai-09-reasoning.md",
@@ -1624,7 +1633,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-10-conversation",
       "lang": "en",
-      "sha256": "c64fdee2f10e347a7022042e42442228952fd539a3aa5dbeea35a027a78c5af1"
+      "sha256": "9a235a22041b2f157cb7e930abe062e6566e580ae6f49302f051176202e41cd9"
     },
     {
       "file": "posts/understand-ai-10-conversation.md",
@@ -1640,7 +1649,7 @@
       "legacy_paths": [],
       "translation_of": "wifi-finder-vibe-coding",
       "lang": "en",
-      "sha256": "875f504a8b4ce8964c242a8acb6f89773597dfc0b9c3d5e574a0dccc83910b5c"
+      "sha256": "700f9e666b3a5aaddb923d4ee94f75a30ef6519723aeb18aab73c4b60876facc"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",

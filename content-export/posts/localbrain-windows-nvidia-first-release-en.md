@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-windows-nvidia-first-release
 translation_source: machine
-source_sha256: b1239179e32419a0
+source_sha256: e9689f727789204d
 date: 2026-09-04
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Instead of discussing superficial questions like \"Is there a Windows version of the software?\", let's answer two practical questions: which local models and tools can run on an 8 GB NVIDIA graphics card, and what makes the Mac's unified memory and complete multimedia chain strong."
 categories:
   - Tech
@@ -16,10 +16,9 @@ tags:
   - Local deployment
   - Self-made software
   - LocalBrain
-cover: https://hyphentech.top/obsidian-assets/localbrain-windows-nvidia-first-release/cover-2.35x1.jpg
+cover: "/obsidian-assets/localbrain-windows-nvidia-first-release/cover-2.35x1.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

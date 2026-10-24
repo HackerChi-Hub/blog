@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: qwen-image-21-local
 translation_source: machine
-source_sha256: cc549fa57c0ffed6
+source_sha256: 981e8fd46a20fc37
 date: 2026-09-21
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "31 GiB weight, 20 steps and 69 seconds on the M5 Pro; Chinese calligraphy correctly writes four characters. Connected to LocalBrain and hit three traps; In the second round, retested the official three points with portrait swaps, discovering that \"product authenticity\" is actually a size problem."
 categories:
   - Thoughts
@@ -15,10 +15,9 @@ tags:
   - AI
   - Local deployment
   - Model releases
-cover: https://hyphentech.top/obsidian-assets/qwen-image-21-local/cover-cb8f38232e.jpg
+cover: "/obsidian-assets/qwen-image-21-local/cover-cb8f38232e.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-04-neural-networks
 translation_source: machine
-source_sha256: 29de7630813dbeff
+source_sha256: b2498c083f696cef
 date: 2026-10-05
-updated: 2026-10-14
+updated: 2026-10-24
 summary: "Give the machine four sets of numbers, don't tell it patterns, yet it can turn two knobs toward the answer. Now look at the curves in the neuron melting pot: loss decreases, interfaces work, real mastery—where exactly is the gap?"
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-04-neural-networks/cover-524916554b.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

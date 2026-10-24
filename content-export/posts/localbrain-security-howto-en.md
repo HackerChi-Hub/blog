@@ -4,11 +4,10 @@ slug: localbrain-security-howto-en
 status: published
 lang: en
 translation_of: localbrain-security-howto
-article_type: "article"
 translation_source: machine
-source_sha256: d4b46b76fc57df59
+source_sha256: edd8ff9b4c3e1d24
 date: 2026-10-23
-updated: 2026-10-23
+updated: 2026-10-24
 summary: "From authorization and execution to report export, it provides a comprehensive overview of the LocalBrain local security testing process; It includes content/directory discovery, verification and checklist verification, and four real-life pitfalls encountered."
 categories:
   - Tech
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/localbrain-security-howto/cover.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

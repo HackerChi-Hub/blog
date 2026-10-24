@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-06-embeddings
 translation_source: machine
-source_sha256: 04a61f47df7b43ee
+source_sha256: 895d27be0d927648
 date: 2026-10-05
-updated: 2026-10-14
+updated: 2026-10-24
 summary: "Cats and dogs look alike, but cats and cabinets are not. Putting this intuition into numbers, words become distant; But \"allowed for commercial use\" and \"not allowed for commercial use\" can also be very close. Relevant information does not equal the correct answer."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-06-embeddings/cover-f57e46b590.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

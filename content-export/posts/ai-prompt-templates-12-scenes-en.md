@@ -5,18 +5,17 @@ status: published
 lang: en
 translation_of: ai-prompt-templates-12-scenes
 translation_source: machine
-source_sha256: b86ede2be61c0ddf
+source_sha256: 6088e49cb8d0fb27
 date: 2026-04-27
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "12 AI prompt templates for everyday scenarios, including the universal CRISPF formula, covering writing, translation, programming, analysis, and learning."
 categories:
   - Tech
 tags:
   - AI
-cover: https://hyphentech.top/obsidian-assets/ai-prompt-templates-12-scenes/image-01-382be160d7.jpg
+cover: "https://hyphentech.top/obsidian-assets/ai-prompt-templates-12-scenes/image-01-382be160d7.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

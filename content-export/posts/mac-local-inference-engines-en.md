@@ -5,19 +5,18 @@ status: published
 lang: en
 translation_of: mac-local-inference-engines
 translation_source: machine
-source_sha256: 797a2e52d78d7fd8
+source_sha256: c56202ec8c756365
 date: 2026-09-05
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "Ollama switched Mac inference to MLX kernel half a year ago, and now a bunch of challengers claiming to be faster have emerged. I didn't run the tests, just put the scores published by the four companies on one table—the result was: none of them were running the same set of problems."
 categories:
   - Tech
 tags:
   - AI
   - Local deployment
-cover: https://hyphentech.top/obsidian-assets/mac-local-inference-engines/cover-ca31df9eff.png
+cover: "/obsidian-assets/mac-local-inference-engines/cover-ca31df9eff.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

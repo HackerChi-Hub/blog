@@ -22,11 +22,11 @@ brand_slogan: 让AI成为你的超能力
 
 这篇从下载安装开始，走到手机真正收到回复。先用临时链接跑通，再按需要选择开放端口或动态域名。阿里云、腾讯云 DNSPod、Cloudflare 三家解析平台只需选自己正在使用的一家，不需要全部注册。
 
-本文对应 **黑粉助手 0.1.7 预览版，核对日期为 2026 年 10 月 24 日**。云控制台图片采用三家官方帮助文档中的真实界面示例，阿里云部分为官方旧版界面；具体入口以文中的现行路径为准。
+本文对应 **黑粉助手 0.1.8 预览版，核对日期为 2026 年 10 月 24 日**。云控制台图片采用三家官方帮助文档中的真实界面示例，阿里云部分为官方旧版界面；具体入口以文中的现行路径为准。
 
-软件表单图片来自 0.1.7 隔离演示，使用虚构域名与测试凭据，不能据此判断某个真实云账户已经配置成功。
+黑粉助手界面图片已换成 0.1.8 隔离演示，表单使用虚构域名与测试凭据，不能据此判断某个真实云账户已经配置成功。云平台图片只用于辨认入口，实际按钮位置以你打开的控制台为准。
 
-![黑粉助手连接中心｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-home-97d364a688.jpg)
+**第一次使用，先走最短路线：**电脑上的 Harness 能回答 → 在助手中接入同一配置 → 选临时链接并启动 → 手机用新二维码配对 → 在原会话发一条测试消息。后面的端口映射和三家动态域名解析，是有自己网络入口时再看的进阶部分。
 
 ## 🎯 一、先准备什么：电脑能回答，再让手机连接
 
@@ -40,7 +40,7 @@ brand_slogan: 让AI成为你的超能力
 
 ### 下载适合自己系统的安装包
 
-打开[下载与更新：黑粉助手发行页](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/latest)，在附件中选安装包，别把 Source code 源码压缩包当成安装程序。
+0.1.8 目前是**手动安装的预览版**：打开[黑粉助手 0.1.8 发行页](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8)，在附件中选安装包，别把 Source code 源码压缩包当成安装程序。自动更新仍指向 0.1.7；等更新包完成本机私钥签名后，再开放 0.1.8 自动更新。
 
 | 电脑系统 | 选择的文件 | 安装方式 |
 | --- | --- | --- |
@@ -68,29 +68,45 @@ Mac 的 Intel 芯片、Windows ARM 和 Linux ARM 不在这批安装包的覆盖�
 
 打开黑粉助手的“连接中心”。“内置运行环境”已就绪，表示助手自己的组件可用；“原 Harness 会话”已接入，才表示它接到了原来的工作区。
 
-1. 先保持官方 Harness 正常运行。
+1. 先在官方 Harness 的一个测试会话里得到真实回复，再保持它运行。助手里的“内置运行环境已就绪”只说明 Node.js 组件可用，不代表 Harness 已接入。
 
 2. 如果页面提供“接入已有 Harness”，点击它并刷新状态。这适用于已经存在可用连接器的环境。
 
-3. 第一次使用时，在“选择正在使用的配置”中选择当前 Harness 的配置，再点“挂载连接器”。多配置用户应选择自己实际工作时用的那一份。
+3. 第一次使用时，在“选择正在使用的配置”中选当前 Harness 真正使用的那一份，再点“挂载连接器”。列表里有两份时，先核对 Harness 的实际配置路径，不要靠轮流点击猜测；挂载不会把两份配置合并。
 
 4. 等待 Harness 加载连接器，再刷新。若没有自动加载，等原任务空闲后重新打开 Harness。
 
-5. 看到“原 Harness 会话：已接入”后，再启动远程入口。
+5. 点击“刷新状态”，看到“原 Harness 会话：已接入”后，再启动远程入口。若仍显示“待接入”，检查原 Harness 是否加载了连接器；等原任务空闲时重新打开 Harness，再刷新。
+
+![0.1.8 连接中心里的配置选择与启动步骤｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-harness.png)
+
+*图：先选正在使用的配置并挂载；“挂载连接器”和“启动远程连接”是两步。截图是隔离演示，按钮尚未执行。*
 
 这里只给原工作区增加入口。正在运行任务时，先等任务到合适的停顿点，不为了刷新状态强行结束原进程。没有配置可选时，回到官方 Harness 完成首次启动，再回来刷新。
 
+**0.1.8 的 Windows 修复：** Harness 装在 D 盘等非默认目录时，助手会从安装记录寻找程序。配置曾经挂载过，就会显示“连接器已挂载”，不必反复选择；另一份配置不能直接覆盖正在管理的那份。若此时“原 Harness 会话”仍待接入，先打开原 Harness，等连接器加载，再刷新状态。
+
 ## 💰 四、方式一：临时链接，第一次使用先走这条
 
-在左侧进入“远程入口”，连接方式选“临时链接 · 自动生成”，点击“保存连接方式”。返回“连接中心”，点击“启动远程连接”。入口就绪后，再点“生成配对二维码”。
+1. 左侧进入“远程入口”，连接方式选“临时链接 · 自动生成”，点击“保存连接方式”。这里不填域名，也不改路由器端口。
 
-![临时链接设置｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-temporary-28d1609c7c.jpg)
+2. 返回“连接中心”，确认原 Harness 会话已接入，再点“启动远程连接”。等待本机网关和临时入口状态更新。
+
+3. 到“检查与帮助”点“检查实际连接”；入口回读通过后，回首页生成配对二维码。用手机浏览器扫描最新二维码，别复用上一次连接生成的链接。
+
+从 0.1.8 起，**“本机网关已启动”和“手机入口能访问”分开检查**。如果首页显示“电脑已连接，手机入口待修复”，先到“检查与帮助”运行实际连接检查。我们在一台 Windows 工作机上见过 Cloudflare 返回 HTTP 530：Harness 已接入，但通道到边缘节点的 TLS 握手失败，手机此时不能用。调整本机的网络或 TUN 后刷新，再以入口回读通过和手机实际收到回复为准。
+
+![0.1.8 临时链接的唯一设置项｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-quick-link.png)
+
+*图：临时链接页只需选连接方式并保存；上图没有启动真实通道。*
 
 用本人手机的系统浏览器打开扫码得到的完整链接。链接包含一次性配对信息，十分钟内有效，只能兑换一次。不要把它当成可以公开分享的普通网址；换另一个浏览器，也要分别配对。
 
 进入手机页面，找到刚才的测试会话，发送“只回复：手机连接正常，不调用工具”。**手机出现这条新消息的真实回复，才算完成这次连接。** 电脑保持在线，模型和原 Harness 也要继续可用。
 
 ![网页消息收发｜2026 年 10 月 23 日旧版实测](/obsidian-assets/deepseek-harness-mobile-remote/image-web-message-history-74a6376fd4.jpg)
+
+*图：2026 年 10 月 23 日旧版网页收发实测，只示范应核对的新消息与回复。*
 
 这张保留的网页验收图展示了应该核对的结果：新消息发出，模型确实返回对应回复。它来自 10 月 23 日的旧版独立网页验收，不能代替你在当前版本、当前网络上的测试；模型回复速度也不代表复杂任务的执行速度。
 
@@ -100,7 +116,9 @@ Mac 的 Intel 芯片、Windows ARM 和 Linux ARM 不在这批安装包的覆盖�
 
 如果你已经能从外网访问家里的电脑，这种方式最直接。进入“远程入口”，选“开放端口 · 自行配置对接”，主要填写三个项目。
 
-![开放端口设置｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-open-port-a520a93fca.jpg)
+![0.1.8 开放端口的监听与外部地址｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-open-port.png)
+
+*图：本机 HTTP 监听地址和端口，与手机实际访问的外部地址要分开填写。截图中的 8767 只是本机默认端口。*
 
 | 项目 | 怎么填 | 示例的含义 |
 | --- | --- | --- |
@@ -154,13 +172,19 @@ A 记录填写家中实际公网 IPv4；它只存地址，不填写 https、端�
 
 在“远程入口”选“动态域名＋开放端口”。监听地址、监听端口、外部访问地址沿用上一节的实际链路；然后选择解析平台、填写根域名与主机记录，导入对应凭据。
 
-![阿里云动态域名表单｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-aliyun-53da9bd544.jpg)
+![0.1.8 阿里云动态域名表单的关键字段｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-ddns-aliyun.png)
+
+*图：先选解析平台，再填根域名与主机记录；密钥可由文件导入。示例域名和字段都是空白演示，不是实际账号。*
 
 公网地址检测可选择“国内检测源 · 双源核对”。两个来源都成功且结果一致才会更新；检测失败或结果不同，就停止本次更新。开启代理时，尤其要核对检测结果是否等于家中路由器的公网 IPv4，不能把代理服务器出口写进家里的域名。
 
 “路由器公网 IPv4（选填）”通常留空，让程序自动检测。手动填写后会固定使用该值，适合你明确知道应写哪个地址的情况；家庭公网地址变化时，它不会替你修正这个手填值。
 
 先点“保存连接方式”，再点“检查解析配置（不修改记录）”。检查会读取云端记录，显示记录是否存在、检测地址是否一致；检查按钮也会校验并保存有效的本机表单设置，**不向云端写入解析记录**。检查通过后回首页启动连接，启动时同步一次，随后每五分钟检查；地址没有变化就不重复写。
+
+![0.1.8 公网地址检测与只读检查按钮｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-ddns-check.png)
+
+*图：先确认检测来源，再做“检查解析配置”。截图只展示按钮位置，未调用真实 DNS 接口。*
 
 DDNS 能更新域名，不能穿透运营商内网。若路由器 WAN 地址属于运营商内网、存在多级 NAT，或入站端口被运营商限制，仅添加域名和映射仍可能无法从公网进入。这时可先用临时链接，或由自己另行安排能入站的网络方案。当前动态更新针对 IPv4 A 记录，不负责 AAAA 记录。
 
@@ -179,6 +203,8 @@ DDNS 能更新域名，不能穿透运营商内网。若路由器 WAN 地址属�
 5. 进入该用户的“凭证管理”中创建 AccessKey，按页面完成验证。Secret 只在创建时显示一次，立即下载 CSV 文件并妥善保存。
 
 ![阿里云子用户入口｜官方旧版示例](/obsidian-assets/deepseek-harness-mobile-remote/image-aliyun-subuser-choice-6271b13528.jpg)
+
+*图：阿里云官方旧版界面，用于识别子用户与主账号入口；请按当前 RAM 控制台的实际路径操作。*
 
 上图是阿里云官方旧版安全提示，帮助识别子用户入口。当前路径按[创建 RAM 用户](https://help.aliyun.com/zh/ram/user-guide/create-a-ram-user)和[创建 AccessKey](https://help.aliyun.com/zh/ram/user-guide/create-an-accesskey-pair)核对。
 
@@ -207,6 +233,8 @@ DDNS 能更新域名，不能穿透运营商内网。若路由器 WAN 地址属�
 若控制台校验要求调整资源写法，使用资源选择器生成的目标域名 ARN；不通过加管理员权限来掩盖资源范围填错。这个工作用户不需要额外管理其他 RAM 用户，也不需要证书权限。
 
 ![阿里云下载 CSV｜官方旧版示例](/obsidian-assets/deepseek-harness-mobile-remote/image-aliyun-download-csv-d39682ba98.jpg)
+
+*图：官方旧版下载入口。下载后先核对文件里只有当前这一组 AccessKey。*
 
 官方提供的“下载 CSV 文件”可以省掉手工抄写。软件导入用的两列是 AccessKey ID 和 AccessKey Secret。若下载内容不符合下列单组格式，整理成对应 CSV 或 JSON 后再导入；不要上传整份多账号凭据清单。
 
@@ -265,7 +293,11 @@ QcloudDNSPodFullAccess 是更宽的 DNSPod 全读写系统策略，包含更多�
 
 ![腾讯云子用户 API 密钥页｜官方示例](/obsidian-assets/deepseek-harness-mobile-remote/image-tencent-subuser-api-bcc0ea6229.jpg)
 
+*图：先进入目标子用户自己的 API 密钥页，确认不是主账号密钥。*
+
 ![腾讯云新建密钥按钮｜官方示例](/obsidian-assets/deepseek-harness-mobile-remote/image-tencent-create-key-e1f5537f3a.jpg)
+
+*图：再点新建密钥；这里不是旧版 DNSPod ID／Token 页面。*
 
 如果创建页提供下载，保存后先核对表头；也可将这对值保存成下面的一组 CSV。不是把腾讯云登录密码填进文件，也不是导入 CAM 权限策略。
 
@@ -284,7 +316,9 @@ JSON 格式同样可用：
 
 助手调用的[动态更新接口](https://cloud.tencent.com/document/api/1427/56158)不需要填写地域，界面也无需额外选择广州或上海。
 
-![腾讯云解析表单｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-tencent-d60f79a9c0.jpg)
+![0.1.8 腾讯云 DNSPod 表单的密钥字段｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-ddns-tencent.png)
+
+*图：这里填 SecretId、SecretKey 或导入同一组文件；域名与主机记录沿用前面的实际值。*
 
 ## 🎯 九、Cloudflare：创建限定区域的 API Token
 
@@ -302,6 +336,8 @@ JSON 格式同样可用：
 
 ![Cloudflare 令牌权限页｜官方示例](/obsidian-assets/deepseek-harness-mobile-remote/image-cloudflare-token-permissions-81053f21e8.jpg)
 
+*图：Cloudflare 官方页面示例，按编号核对名称、DNS 权限和区域范围；示例图中的 All zones 不能直接照搬。*
+
 **官方示例图的资源处显示 All zones，仅用来识别页面位置。实际配置应改成 Specific zone，选自己的域名。** 图片中的 Zone Read 对应自动查找区域；若希望减少这项权限，自己填写 Zone ID。
 
 点“继续到摘要”，检查授权域名与操作范围，再创建令牌。复制并安全保存令牌值，它只在创建完成时展示一次。不要复制整个 curl 测试命令，也不要使用 Global API Key。
@@ -309,6 +345,8 @@ JSON 格式同样可用：
 [官方令牌创建说明](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)提供了当前字段和完整流程。
 
 ![Cloudflare 权限确认摘要｜官方示例](/obsidian-assets/deepseek-harness-mobile-remote/image-cloudflare-token-summary-ea99672621.jpg)
+
+*图：创建前再核对令牌权限和选中的域名区域，避免给所有区域开放写入。*
 
 Zone ID 是这块域名区域的编号，通常为 32 位十六进制字符串。
 
@@ -331,7 +369,9 @@ APIToken,ZoneId
 替换为自己的APIToken,替换为自己的32位ZoneID
 ```
 
-![Cloudflare 解析表单｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-ddns-cloudflare-e265b68acb.jpg)
+![0.1.8 Cloudflare 表单的令牌与 Zone ID｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-ddns-cloudflare.png)
+
+*图：令牌必填；Zone ID 可留空，但这时令牌需要足够的区域读取权限来自动查找。*
 
 导入后保存并检查。使用 19527 这类自定义公网端口时，要注意 Cloudflare 的橙云代理并不支持任意端口。只需域名解析时，可以自行把该记录设为“仅 DNS”；若要使用代理，则自行选择[官方支持的端口与方案](https://developers.cloudflare.com/fundamentals/reference/network-ports/)。
 
@@ -342,8 +382,6 @@ APIToken,ZoneId
 三家平台统一按这个顺序操作：**选平台 → 填域名和主机记录 → 导入对应凭据文件 → 保存连接方式 → 检查解析配置 → 启动连接 → 手机验证。**
 
 导入后字段内容会隐藏，界面提示“凭据已导入”。此时只是填入当前表单；点击保存后才写入本机。页面没有明文回显，不代表文件没读进去。保存后显示“已保存，无需重复填写”，表示同平台的旧凭据仍在；把输入框留空会继续使用它。
-
-![文件导入成功提示｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/image-app-import-result-334cf64005.jpg)
 
 | 想做的事 | 正确操作 |
 | --- | --- |
@@ -361,6 +399,10 @@ APIToken,ZoneId
 ## ⚡ 十一、从“显示已启动”走到真正可用
 
 使用临时链接时，检查通道就绪后配对即可；使用自己的域名时，按下面顺序核对，哪一步不通过就先处理哪一层。
+
+![0.1.8 检查与帮助里的四层状态｜隔离演示](/obsidian-assets/deepseek-harness-mobile-remote/tutorial-018-connection-check.png)
+
+*图：“本机网关”“原 Harness 认证”“访问入口回读”分别检查；隔离演示故意显示未启动，不代表真实网络验收通过。*
 
 1. 电脑本机的原 Harness 能收到模型回复。
 
@@ -387,6 +429,8 @@ APIToken,ZoneId
 | 现象 | 优先检查 |
 | --- | --- |
 | 启动按钮不能点 | 原 Harness 是否接入；动态域名凭据是否已经保存 |
+| 选过配置又回到选择框 | 更新到 0.1.8；已挂载配置应显示“连接器已挂载”，再检查原 Harness 是否加载连接器 |
+| 原会话已接入但临时入口未连通 | 运行“检查实际连接”；若返回 HTTP 530 等外网错误，核对本机网络或 TUN，再刷新状态 |
 | 解析检查提示未授权 | 是否选对账号，策略是否绑定，域名资源范围是否正确，密钥是否有效 |
 | 找不到记录或记录不唯一 | A 记录是否预先创建、主机名是否正确、默认线路是否重复 |
 | 域名能解析，手机打不开 | 公网入站条件、路由器目标地址、外部监听端口、防火墙和代理目标 |

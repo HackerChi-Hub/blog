@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mlx-local-ai-test-m5pro
 translation_source: machine
-source_sha256: 9da31b64b1a84504
+source_sha256: dc96ba316336cb05
 date: 2026-05-21
-updated: 2026-10-13
+updated: 2026-10-24
 summary: "MacBook Pro M5 Pro+ 64GB runs 6 AI models locally in real-world tests. Multi-turn conversations + tool calls: file verification completed in as fast as 1.9 seconds, and 125 seconds as fastest—a 66x difference. Pitfalls + fixes fully revealed."
 categories:
   - Thoughts
@@ -15,10 +15,9 @@ tags:
   - AI
   - MLX
   - Hands-on
-cover: https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png
+cover: "https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

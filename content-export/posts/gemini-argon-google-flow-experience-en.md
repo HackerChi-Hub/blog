@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gemini-argon-google-flow-experience
 translation_source: machine
-source_sha256: 1d113e0b52c840c3
+source_sha256: ea947a1c3b920872
 date: 2026-10-17
-updated: 2026-10-18
+updated: 2026-10-24
 summary: "From three real game projects to Google Flow's materials, modifications, and creative tools: not just the models, but also how ordinary people can turn ideas into works."
 categories:
   - Tech
