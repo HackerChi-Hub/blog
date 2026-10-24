@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-24
-summary: Mac 2.1.3 is published. Windows/Linux 2.1.3 candidates are built and installed locally; public links retain 2.1.2. DSH 8K overflow and pending image/tool acceptance are documented; the current 2B endpoint is text-only.
+summary: Mac, Windows and Linux now offer 2.1.3 downloads. Windows and WSL2 Debian are installed; package resources and signatures passed. DSH 8K overflow remains unresolved; text-only 2B and pending image/tool acceptance are documented.
 categories:
   - Resources
 tags:
@@ -16,8 +16,11 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
-Windows/Linux 2.1.3 candidates are ready locally: Windows is installed; Linux Debian and AppImage were built separately under Ubuntu 22.04 WSL2. Both Linux packages passed resource checks, packaged DSH initialization, 20-second startup and 53 DSH tests; Debian is installed, and all three updater signatures were verified. Bare-metal Linux GPU inference and full DSH image/tool tasks remain unverified. Source CI did not start due account limits; current-batch public package publication still requires confirmation. Public Windows/Linux links retain 2.1.2.
+Windows/Linux 2.1.3 are publicly released, with Windows and virtual-machine Debian installed. Linux Debian and AppImage were built separately under Ubuntu 22.04 WSL2; both passed resource checks, packaged DSH initialization, 20-second startup and 53 DSH tests. All three packages were downloaded again and verified against SHA-256 hashes and updater signatures. Bare-metal Linux GPU inference and full DSH image/tool tasks remain unverified. Source CI did not start due account payment/spending limits; the author explicitly approved this batch as an exception. Local passing checks are not presented as online source CI success. Existing Mac packages remain unchanged.
 
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_amd64.AppImage)
+
+[Acceptance record](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.3-WIN-LINUX.md). Initial Mac and 2.1.2 sections below retain their historical records; this section lists current downloads.
 
 ## Windows local fixes and DSH integration limits (2026-10-24)
 

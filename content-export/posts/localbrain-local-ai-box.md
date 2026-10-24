@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-10-24
-summary: Mac 2.1.3 已发布；Windows/Linux 2.1.3 候选包已构建并本地安装验收，公开下载暂保留2.1.2。记录DSH 8K超窗、2B纯文本及图片/工具待验收边界。
+summary: Mac、Windows、Linux 现均提供2.1.3下载。Windows和WSL2 Debian已安装，安装包签名与资源核对通过；DSH 8K超限仍未解决，2B纯文本及图片/工具验收边界已记录。
 categories:
   - 资源分享
 tags:
@@ -14,8 +14,11 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
-Windows/Linux 2.1.3 候选包已在本机准备好：Windows修复版已安装；Linux Debian、AppImage在Ubuntu22.04 WSL2独立构建，两包资源、DSH初始化、20秒启动和53条DSH测试通过，Debian已安装，三个安装包更新签名已验证。Linux裸机GPU、完整DSH图片及工具任务尚未验收。源码CI因账户限制未启动，本批公开下载更新仍待明确确认；当前公开Windows/Linux链接保留2.1.2。
+Windows/Linux 2.1.3 已公开发布，Windows 修复版和虚拟机中的 Debian 已安装。Linux Debian、AppImage 在 Ubuntu22.04 WSL2 独立构建，两包资源、DSH初始化、20秒启动和53条DSH测试通过；三个安装包已重新下载核对SHA-256及更新签名。Linux裸机GPU、完整DSH图片及工具任务尚未验收。源码CI因账户付款／额度限制未启动，作者已明确批准本批例外发布，不将本地通过写成线上CI通过。Mac已有包保持不变。
 
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_amd64.AppImage)
+
+[本批验收记录](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.3-WIN-LINUX.md)。下方Mac初次发布及2.1.2等段落保留当时的记录，当前下载以本节为准。
 
 ## Windows 本机修复与 DSH 接入边界（2026-10-24）
 
