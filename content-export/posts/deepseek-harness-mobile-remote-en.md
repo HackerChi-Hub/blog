@@ -116,7 +116,7 @@ If you can already access your home computer from an external network, this meth
 
 Full configuration example (replace the domain with your own):
 
-```text
+```url
 https://ai.example.com:19527
 ```
 
@@ -128,7 +128,7 @@ Assuming the computer's LAN address is 192.168.1.100 and the assistant listens a
 
 This connection goes directly to the HTTP service. Use HTTP and your actual external port:
 
-```text
+```url
 http://YOUR_PUBLIC_IP_OR_DOMAIN:19527
 ```
 
@@ -138,7 +138,7 @@ http://YOUR_PUBLIC_IP_OR_DOMAIN:19527
 
 Suppose the same computer already has HTTPS service listening for 19527 and forwarding the request to `http://127.0.0.1:8767`. The assistant can listen on 127.0.0.1:8767. Enter the HTTPS example below as the external access address; the router mapping target is the **HTTPS listening port 19527** on the computer.
 
-```text
+```url
 https://ai.example.com:19527
 ```
 
