@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Oct 2026 05:21:40 GMT</lastBuildDate>
-    <pubDate>Sat, 24 Oct 2026 05:21:40 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2026 06:28:45 GMT</lastBuildDate>
+    <pubDate>Sat, 24 Oct 2026 06:28:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -14,7 +14,7 @@
       <title>方寸智匣本地安全测试：简明教程</title>
       <link>https://hyphentech.top/localbrain-security-howto/</link>
       <guid isPermaLink="true">https://hyphentech.top/localbrain-security-howto/</guid>
-      <description>从授权、执行到导出报告，把方寸智匣本地安全测试的完整流程走一遍；含内容/目录发现、核验与清单校验，以及四个真实踩过的坑。</description>
+      <description>授权、隔离执行、证据与报告怎么衔接；新增Windows本机2B小模型18次台架尝试，保留不调用工具、SQL误报与证据解读边界。</description>
       <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>

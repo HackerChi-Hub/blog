@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="840" viewBox="0 0 1500 840" role="img" aria-labelledby="title desc">
+<title id="title">本地安全测试：模型、权限和执行环境分别验收</title><desc id="desc">机制示意图，不是软件截图。聊天可用后还需验真实工具调用，隔离网络执行还依赖Docker就绪。当前Windows测试仅覆盖兼容接口台架。</desc>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L8 3Z" fill="#64748b"/></marker></defs>
+<rect width="1500" height="840" fill="#f1f5f9"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#172033">
+<text x="65" y="70" font-size="20" fill="#1d4ed8">黑粉科技 · LocalBrain · 2026-10-24</text>
+<text x="65" y="125" font-size="36" font-weight="700">聊天能回复，还要继续验三件事</text>
+<text x="65" y="170" font-size="22" fill="#475569">机制示意，非软件截图；每一步都以实际回执为准。</text>
+<g fill="#fff" stroke="#cbd5e1" stroke-width="2"><rect x="65" y="220" width="400" height="210" rx="18"/><rect x="550" y="220" width="400" height="210" rx="18"/><rect x="1035" y="220" width="400" height="210" rx="18"/></g>
+<g font-size="25" font-weight="700"><text x="95" y="270">1 · 模型会不会调用</text><text x="580" y="270">2 · 执行环境是否就绪</text><text x="1065" y="270">3 · 证据是否支持结论</text></g>
+<g font-size="21"><text x="95" y="315">真正读文件、核查、提交</text><text x="95" y="350">不能拿“它说查了”代替</text><text x="95" y="395" fill="#991b1b">本轮2B：自主闭环 0/9</text><text x="580" y="315">目标授权 / 受限连接 / Docker</text><text x="580" y="350">本机缺环境就停在这里</text><text x="580" y="395" fill="#991b1b">本轮Windows：未跑网络扫描</text><text x="1065" y="315">原文、去重读取、复核与导出</text><text x="1065" y="350">保留误报、失败和未知</text><text x="1065" y="395" fill="#92400e">参数化SQL：3/3被误报</text></g>
+<g stroke="#64748b" stroke-width="3" marker-end="url(#a)"><path d="M475 325H535"/><path d="M960 325H1020"/></g>
+<rect x="65" y="485" width="1370" height="210" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="95" y="535" font-size="25" font-weight="700">网络工作台的完整流程，另做真实界面验收</text>
+<text x="95" y="585" font-size="25">创建授权 → 绑定连接 → 人工确认 → 受限执行 → 读原始证据 → 核验并导出</text>
+<text x="95" y="635" font-size="21" fill="#475569">本轮使用已运行的2B模型做18次兼容API台架尝试；没有把台架算成原生安全功能通过。</text>
+<text x="65" y="765" font-size="21" fill="#475569">各结论只对应本轮模型、量化、任务与环境；不能外推成所有小模型的准确率或通用安全认证。</text>
+</g></svg>
