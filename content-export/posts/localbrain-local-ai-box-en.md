@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-24
-summary: Local models, speech, images, video and tools in one workbench. Version 2.1.2 adds current Windows/Linux packages, fixes bundled-resource registration and Windows Unicode-path encoding, and updates the security layout, with platform-specific verification limits.
+summary: Local models, media and tools in one workbench. Mac 2.1.3 restores one-click Codex and Claude Code MCP integration alongside DeepSeek Harness, without changing client models. A real Codex call passed; Claude Code model-call acceptance was not completed. Windows/Linux remain on 2.1.2.
 categories:
   - Resources
 tags:
@@ -15,6 +15,28 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.3: connect Codex and Claude Code to local tools
+
+One-click MCP integration is restored for Codex and Claude Code alongside DeepSeek Harness. MCP is the tool interface: your existing client can use LocalBrain documents, search, transcription, speech, image and video tools while keeping its chosen model. The required local runtime and weights must be ready; web search still needs a network connection.
+
+Open Integrations, find the client and choose the MCP write button. Confirm the user-level scope, then use a new client session. Tool processes start with client sessions; media models load when called. Configuration previews are collapsed until needed. If the desktop client is running, LocalBrain asks you to close it after current work finishes, avoiding a later cached configuration overwrite; it does not terminate the client.
+
+**Writing and undo affect only LocalBrain tool entries.** Models, providers, other MCP entries and project settings are preserved. Repeated writes retain the original restore point. Conflicting external changes are kept and reported. Harness tool undo touches only the tool block, separately from model integration. OpenCode is not restored.
+
+I tested Codex with an isolated configuration copy and a temporary DOCX containing a random verification code absent from the prompt. The record contains one successful `document_read`, the final code matches, and formal client configuration hashes stayed unchanged. Only that read-only tool was preapproved for the test; the product does not disable client approvals. **Claude Code configuration merging and protocol discovery were checked, but its model-call test stopped because the existing login credential was invalid. It is not reported as a passed real-call test.**
+
+[Download Mac 2.1.3 Apple Silicon DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_aarch64.dmg) · [Mac verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.3-MAC.md) · [Latest release and platform downloads](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest). Windows/Linux retain their published 2.1.2 packages; this does not announce 2.1.3 for those platforms. The Mac app is ad-hoc signed and not Apple-notarized.
+
+Mac 2.1.3 has been installed locally. All 12,995 files and links match across the app, DMG and updater archive; app-signature checks and independent updater verification passed. The installed MCP protocol and tool-discovery self-check passed 26/26. This does not mean every media model's generation quality was retested. DMG SHA-256: `023934d617c93cb50cd3dd41f55bd7ad672d29983548000cfb78d1f7985417b8`.
+
+The source GitHub documentation-sync job could not start because of account payment/spending restrictions. After local checks and installed-app acceptance passed, I explicitly approved this Mac 2.1.3-only release exception. This is not passing remote CI or acceptance for other platforms.
+
+![Installed Mac 2.1.3: separate copy, write and undo actions for three clients, with configuration collapsed; the interface shown is Simplified Chinese](/obsidian-assets/localbrain-local-ai-box/v213-mcp-clients.png)
+
+![Installed Mac 2.1.3 MCP self-check: protocol and tool discovery passed 26/26; the interface shown is Simplified Chinese](/obsidian-assets/localbrain-local-ai-box/v213-mcp-selfcheck.png)
+
+These screenshots come from the final installed app. Only the system automation control title bar was cropped; originals and crop records remain local. The 2.1.2 and earlier sections below retain their historical versions, tests and screenshots.
 
 ## 2.1.2: three-platform downloads and tool installation fixes
 

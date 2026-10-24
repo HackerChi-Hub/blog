@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-24
-summary: 本機模型、語音、圖像、影片與工具集中管理。2.1.2 補齊 Windows/Linux 下載，修正唯讀資源註冊及 Windows 中文路徑編碼，調整安全工作台；各平台實測範圍與特殊執行環境分別說明。
+summary: 本機模型、語音、圖像、影片與工具集中管理。Mac 2.1.3 恢復 Codex、Claude Code 的 MCP 一鍵接入，保留 DeepSeek Harness，僅新增工具、不變更模型；Codex 實際呼叫通過，Claude Code 本輪未做實際呼叫驗收。Windows/Linux 保留 2.1.2。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,28 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.3：讓 Codex、Claude Code 使用本機工具
+
+這次恢復 Codex 與 Claude Code 的 MCP 一鍵接入，DeepSeek Harness 繼續保留。MCP 是工具介面：現有用戶端可以呼叫方寸智匣的文件、搜尋、轉寫、配音、影像及影片工具，原本使用的模型保持不變。工具所需的本機環境與權重仍須備妥，網路搜尋仍需要網路。
+
+打開「接入」，找到對應用戶端，點選「一鍵寫入 MCP」，確認使用者級作用範圍後，在用戶端新會話使用。工具程序隨用戶端會話啟動，媒體模型按實際呼叫載入。各用戶端設定預設收起，需要時再展開或複製；桌面用戶端正在執行時，軟體會要求你在工作結束後先退出，避免設定快取覆蓋寫入，不會代為結束程序。
+
+**寫入與撤銷僅處理方寸智匣工具項目。** 模型、提供方、其他 MCP 與專案設定保留；再次寫入也保留首次接入前的恢復點。外部變更衝突時保留目前設定並提示處理。Harness 工具撤銷僅處理工具區塊，模型接入另行管理；OpenCode 沒有恢復。
+
+我以獨立設定副本進行 Codex 實際呼叫：核驗碼只放在臨時 DOCX，提示詞僅要求透過方寸智匣文件工具讀取。紀錄是一筆成功的 `document_read`，最終完整核驗碼正確，正式用戶端設定雜湊未變。測試只預先批准這一項唯讀工具，產品不會替你關閉用戶端審批。**Claude Code 的介面、設定合併及協議檢查已核對，本輪模型呼叫因原有登入憑據失效而停止，未列為實際呼叫通過。**
+
+[下載 Mac 2.1.3 安裝包（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.3/LocalBrain_2.1.3_aarch64.dmg) · [Mac 驗收紀錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.3-MAC.md) · [最新發行與各平台下載](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)。Windows/Linux 保留已發布的 2.1.2，本次不宣稱兩平台已更新至 2.1.3。Mac 使用臨時簽章，尚未 Apple 公證。
+
+Mac 2.1.3 已完成本機安裝：應用程式、DMG 及更新套件中的 12,995 個檔案與連結一致，應用簽章檢查及獨立更新驗章通過。安裝版 MCP 協定與工具發現自檢為 26/26；這不等於全部媒體模型生成品質都已重測。DMG 的 SHA-256 為 `023934d617c93cb50cd3dd41f55bd7ad672d29983548000cfb78d1f7985417b8`。
+
+原始碼倉庫的 GitHub 說明同步檢查因帳戶付款／支出限制未啟動。本機檢查與安裝驗收通過後，我已明確批准本次僅 Mac 2.1.3 例外發布；這不等於遠端 CI 通過，也不代替其他平台驗收。
+
+![Mac 2.1.3 安裝版：三個用戶端可個別複製、寫入及撤銷工具，設定預設收起；圖中介面為簡體中文](/obsidian-assets/localbrain-local-ai-box/v213-mcp-clients.png)
+
+![Mac 2.1.3 安裝版 MCP 自檢，協定與工具發現 26/26；圖中介面為簡體中文](/obsidian-assets/localbrain-local-ai-box/v213-mcp-selfcheck.png)
+
+兩張圖取自最終安裝版，僅裁除頂端系統自動操作控制列，原圖與裁切紀錄保留本機。以下 2.1.2 及更早部分保留當時版本、測試與截圖。
 
 ## 2.1.2：三平台下載與工具安裝修正
 
