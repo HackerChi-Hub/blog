@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 translation_source: machine
-source_sha256: 4c60166d2792abca
+source_sha256: c4ff083700dc0022
 date: 2026-10-23
 updated: 2026-10-24
 summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
@@ -28,7 +28,7 @@ The AI on the computer is still processing tasks, but the person has already lef
 
 This article starts with downloading and installing, and when you get a real reply on your phone. First, use a temporary link to run the game, then choose an open port or dynamic domain name as needed. Alibaba Cloud, Tencent Cloud DNSPod, and Cloudflare—all three resolution platforms—just choose the one you're currently using—you don't need to register for all of them.
 
-The download links in this article have been checked against **the Windows/Linux 1.0.1 stable installers and the Mac 1.0.0 installer, as of October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
+The download links in this article have been checked against **the three-platform Heifen Assistant 1.0.1 stable release, as of October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
 
 The Heifen Assistant interface screenshots remain from the 0.1.8 isolated demo and illustrate the steps. The forms use a fictitious domain name and test credentials, so they do not prove that a real cloud account has been configured. The cloud platform images only help identify the entry point; button positions depend on the console you open.
 
@@ -46,7 +46,7 @@ On the computer, select an unimportant test session and send "Reply only: comput
 
 ### Download the installation package suitable for your system
 
-Windows and Linux 1.0.1 installers are now available on the [Heifen Assistant 1.0.1 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1). Choose an installer, not a Source code archive. Mac users should use the [1.0.0 installer](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0) until the Mac 1.0.1 build is verified. In-app automatic updates still point to the complete three-platform 1.0.0 release; Windows and Linux users who need this QR-code fix can install 1.0.1 manually.
+Version 1.0.1 is now available for all three platforms on the [Heifen Assistant 1.0.1 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1). Choose the installer for your system, not a Source code archive. Existing versions can also check for updates in the app; the live update manifest now points to 1.0.1 on all three platforms.
 
 | Computer system | Selected files | Installation method |
 | --- | --- | --- |
@@ -441,7 +441,7 @@ The current version has passed the build and installation startup checks for the
 | The start button cannot be pressed | Whether the original Harness is accessed; Whether dynamic domain credentials have been saved |
 | After selecting the configuration, you return to the selection box | Update to the current release; the mounted configuration should display "Connector Mounted", then check whether the original Harness has loaded the connector |
 | The original session was connected, but the temporary entrance was not connected | Run "Check Actual Connection"; If an HTTP 530 or other external network error is returned, check the local network or TUN and refresh the status |
-| DNS works but the QR-code button is disabled in open-port or dynamic-domain mode | Install 1.0.1 manually on Windows/Linux, then generate the QR code locally and test the public address over your phone's mobile network |
+| DNS works but the QR-code button is disabled in open-port or dynamic-domain mode | Update to 1.0.1, then generate the QR code locally and test the public address over your phone's mobile network |
 | Parsing check prompts 'unauthorized not authorized.' | Whether the account is selected, whether the policy is bound, whether the domain resource scope is correct, and whether the key is valid |
 | Records cannot be found or records are not unique | A Whether records are pre-created, whether hostnames are correct, and whether default lines are duplicated |
 | Domain name resolution works, but phone won't open the phone | Public network inbound conditions, router target address, external listening port, firewall, and proxy target |
