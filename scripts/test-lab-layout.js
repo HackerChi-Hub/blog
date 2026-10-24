@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const postcss = require('postcss');
+const sharp = require('sharp');
 const { AI_LAB_TOOLS } = require('../lib/home-content.cjs');
 
 const root = path.resolve(__dirname, '..');
@@ -25,11 +26,16 @@ assert.ok(rules['.lab-tool__diagram']['aspect-ratio']);
 
 assert.equal(AI_LAB_TOOLS.length, 4);
 assert.ok(AI_LAB_TOOLS.every((tool) => tool.image), '四个实验台入口必须都有正式封面，不能退回符号占位');
-for (const tool of AI_LAB_TOOLS) {
-  const bytes = fs.readFileSync(path.join(root, 'public', tool.image));
-  assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
-  assert.equal(bytes.readUInt32BE(16), tool.imageWidth, `${tool.title} 宽度必须等于真实图片`);
-  assert.equal(bytes.readUInt32BE(20), tool.imageHeight, `${tool.title} 高度必须等于真实图片`);
+async function checkCoverImages() {
+  for (const tool of AI_LAB_TOOLS) {
+    const bytes = fs.readFileSync(path.join(root, 'public', tool.image));
+    const metadata = await sharp(bytes).metadata();
+    assert.ok(['png', 'webp'].includes(metadata.format), '封面必须是可解码的 PNG 或 WebP');
+    assert.equal(metadata.width, tool.imageWidth, `${tool.title} 宽度必须等于真实图片`);
+    assert.equal(metadata.height, tool.imageHeight, `${tool.title} 高度必须等于真实图片`);
+    assert.ok(Math.abs(metadata.width / metadata.height - 16 / 9) < .01, '四张栏目封面统一为横版16:9');
+    assert.ok(bytes.length < 500000, `${tool.title} 卡片图应小于500KB，不把生成正本直接发给浏览器`);
+  }
 }
 
 const home = fs.readFileSync(path.join(root, 'components/HomePage.js'), 'utf8');
@@ -40,4 +46,4 @@ assert.match(lab, /fallback=\{diagram\}/, '加载失败必须有非空替代展�
 const cover = fs.readFileSync(path.join(root, 'components/ContainedCover.js'), 'utf8');
 assert.match(cover, /if \(!source \|\| failed\) return fallback;/);
 assert.match(cover, /image\?\.complete && !image\.naturalWidth/, '图片在页面接管前失败也要显示替代内容');
-console.log('✅ 实验台布局回归通过：共用封面比例、原图完整、图示铺满、按需加载与失败替代');
+checkCoverImages().then(() => console.log('✅ 实验台布局回归通过：共用封面比例、原图完整、轻量WebP、按需加载与失败替代')).catch((error) => { console.error(error); process.exitCode = 1; });
