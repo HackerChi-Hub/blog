@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Oct 2026 01:24:32 GMT</lastBuildDate>
-    <pubDate>Sat, 24 Oct 2026 01:24:32 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2026 01:32:01 GMT</lastBuildDate>
+    <pubDate>Sat, 24 Oct 2026 01:32:01 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -24,10 +24,10 @@
     <category>网络安全</category>
     </item>
     <item>
-      <title>黑粉助手 HyphenAssistant：手机操作电脑Agent会话</title>
+      <title>黑粉助手：用手机接回 DeepSeek Harness，三种连接方式完整教程</title>
       <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
       <guid isPermaLink="true">https://hyphentech.top/deepseek-harness-mobile-remote/</guid>
-      <description>手机浏览器接续电脑上的 DeepSeek Harness 会话。三平台桌面预览版内置运行组件，支持临时通道、开放端口和阿里云动态域名；附下载入口、配对步骤与使用边界。</description>
+      <description>三种手机连接方式，三家解析平台配置与密钥文件导入，一篇上手。</description>
       <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
