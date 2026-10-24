@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-24
+updated: 2026-10-25
 summary: Mac 2.1.4 candidate adds one-click setup for missing runtimes, tools and offline data, hides bundled resources, limits removal to installed managed components and resumes pinned archives. The Mac 2.1.4 package remains unpublished; public downloads stay on 2.1.3.
 categories:
   - Resources
@@ -32,11 +32,21 @@ These previews use the production component and a read-only inventory, with expl
 
 ADB, Trivy and Splash use pinned official managed copies. The shared archive downloader preserves interrupted chunks, validates range responses before resuming and checks SHA-256 before extraction. Verified archives work offline. Python packages and container images keep their own cache mechanisms. Environments live in dedicated app data, outside the signed app bundle. Where a supported official package manager exists, missing Docker/Colima dependencies join the setup plan; system licensing, administrator and restart requirements remain. Ready services no longer show a redundant installation-guide button.
 
+### Separate pause, continuation and cache cleanup
+
+Runtime downloads now have a pause action that preserves partial files and pending components. Reloading or reopening restores a paused queue for explicit continuation. Extraction, dependency installation and container preparation finish the current component before later items pause. Splash also gains a pause action that preserves the original weights for its installer to resume.
+
+Missing components without cache show “Download and install”; partial archives show “Resume download”; complete archives show “Install from cache”. Only installed managed copies offer removal, and cache cleanup appears only when cached files exist. Cleanup rereads the state immediately. Small files use KB/MB, paused tasks discard old speeds, and background status remains visible.
+
+![Download-control interaction preview](/obsidian-assets/localbrain-local-ai-box/v214-download-clean-preview.png)
+
+This is an independent UI preview with simulated installation and removal. A separate real-network test used the official approximately 25 MB Python archive: pause at 1,011,849 bytes, continuation at the same offset, verified completion at 25,159,977 bytes, offline reuse and matching cleanup accounting. Pip and container engines retain their own caches; not every third-party installation step can pause immediately. No large model was downloaded again, and interruption of a real large Splash model download remains untested.
+
 Splash remains on 1.3.1, Sushi on its compatible build and the embedded Harness core on 0.2.0-rc.2. Upstream 0.2.1-rc.3 was reviewed but needs separate compatibility testing. Installing tools or databases neither authorizes a target nor starts a check; existing authorization and isolation gates remain.
 
-The Mac 2.1.4 candidate has been rebuilt and installed but is not public. [Current public platform releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest). Candidate DMG SHA-256: `f302f0b13e49f2fdc2649ed871022c90d6a38eff9bc135392595cb655dac2f24`. Mac is ad-hoc signed, not Apple-notarized. Windows/Linux retain published 2.1.3 packages.
+The Mac 2.1.4 candidate has been rebuilt and installed but is not public. [Current public platform releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest). Candidate DMG SHA-256: `5f47d998cddf8b88de85b7094d4ca75a9af2b9e5d894b89bc58a18977b1ca904`. Mac is ad-hoc signed, not Apple-notarized. Windows/Linux retain published 2.1.3 packages.
 
-Frontend: 1,624 passed and 2 skipped; adapters: 14 passed; Rust: 431 passed and 32 ignored. Eight archive tests cover resumption, interrupted transfers, wrong ranges, corrupt caches, offline reuse and path protection. UI checks cover cancellation without execution, cross-page queues, reuse after reconnection and failure/retry. The three official Mac archives previously passed checksum, extraction and relocation probes. Full container provisioning, the new Binwalk build and actual removal remain unverified. Historical sections keep their original tests and screenshots.
+Frontend: 1,627 passed and 2 skipped; adapters: 14 passed; Rust: 436 passed and 33 ignored. Ten archive tests cover resumption, interrupted transfers, wrong ranges, corrupt caches, offline reuse and path protection. UI checks cover cancellation without execution, cross-page queues, reuse after reconnection and failure/retry. The three official Mac archives previously passed checksum, extraction and relocation probes. Full container provisioning, the new Binwalk build and actual removal remain unverified. Historical sections keep their original tests and screenshots.
 
 Windows/Linux 2.1.3 are publicly released, with Windows and virtual-machine Debian installed. Linux Debian and AppImage were built separately under Ubuntu 22.04 WSL2; both passed resource checks, packaged DSH initialization, 20-second startup and 53 DSH tests. All three packages were downloaded again and verified against SHA-256 hashes and updater signatures. Bare-metal Linux GPU inference and full DSH image/tool tasks remain unverified. Source CI did not start due account payment/spending limits; the author explicitly approved this batch as an exception. Local passing checks are not presented as online source CI success. Existing Mac packages remain unchanged.
 
