@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 translation_source: machine
-source_sha256: 88dc6101741b8b15
+source_sha256: 277054b0bdf84f5c
 date: 2026-10-23
 updated: 2026-10-24
 summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
@@ -15,7 +15,7 @@ tags:
   - AI
   - Remote access
   - Self-made software
-cover: "/obsidian-assets/deepseek-harness-mobile-remote/cover-959d9a32e5.jpg"
+cover: "/obsidian-assets/deepseek-harness-mobile-remote/cover-018-direct-fusion-858b6c023b.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 article_type: "article"
@@ -28,7 +28,7 @@ The AI on the computer is still processing tasks, but the person has already lef
 
 This article starts with downloading and installing, and when you get a real reply on your phone. First, use a temporary link to run the game, then choose an open port or dynamic domain name as needed. Alibaba Cloud, Tencent Cloud DNSPod, and Cloudflare—all three resolution platforms—just choose the one you're currently using—you don't need to register for all of them.
 
-This article corresponds to the preview version of **Heifen Assistant 0.1.8, with a verification date of October 24, 2026**. The cloud console images use real interface examples from the official help documents of the three companies; the Alibaba Cloud section is the official older version; The specific entry point is subject to the current path mentioned in the article.
+This article covers **Heifen Assistant 0.1.8, the stable release verified on October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
 
 The Heifen Assistant interface image has been replaced with the 0.1.8 isolation demo. The form uses a fictitious domain name and test credentials, so it cannot be used to determine that a real cloud account has been successfully configured. The cloud platform image is only for identifying the entry point; the actual button position depends on the console you open.
 
@@ -46,7 +46,7 @@ On the computer, select an unimportant test session and send "Reply only: comput
 
 ### Download the installation package suitable for your system
 
-0.1.8 is currently a **manually installed preview version**: Open [Heifen Assistant 0.1.8 distribution page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8), select the installation package from the attachments, and do not treat the Source Code compressed package as the installer. Automatic updates still point to 0.1.7; wait until the update package completes the local private key signing, then enable 0.1.8 automatic updates.
+0.1.8 is now a stable release. Open the [Heifen Assistant 0.1.8 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8) and choose the installer for your system; the Source code archives are not installers. Existing versions can also check for updates in the app. The live update manifest now points to 0.1.8.
 
 | Computer system | Selected files | Installation method |
 | --- | --- | --- |

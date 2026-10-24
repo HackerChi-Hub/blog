@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "7010dc64c07967aa040b9044260169fbdf9d9bbd2d6cc97815c81d73208b85f1",
+  "content_sha256": "9ce0df8bfde744788d5a8837a376f053b94b389acd32a3d8440cbf1335014043",
   "published_post_count": 206,
   "posts": [
     {
@@ -523,7 +523,7 @@
       "legacy_paths": [],
       "translation_of": "deepseek-harness-mobile-remote",
       "lang": "en",
-      "sha256": "7428b4f6522a887aa5a3c9e764baed18e4a5acf0aa1c91bd0a2925618e6a4777"
+      "sha256": "9d0fd26ae538e9c459a4ce68408050c2cc672078afa59167c644036bdf9b9acc"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote.md",
