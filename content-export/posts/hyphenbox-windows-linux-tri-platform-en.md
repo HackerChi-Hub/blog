@@ -1,5 +1,5 @@
 ---
-title: "No need to try every free API one by one: Windows and Mac automatically switch models"
+title: "HyphenBox on three platforms: API checks, automatic routing and tool continuation"
 slug: hyphenbox-windows-linux-tri-platform-en
 status: published
 lang: en
@@ -7,8 +7,8 @@ translation_of: hyphenbox-windows-linux-tri-platform
 translation_source: machine
 source_sha256: 3893b94b25f12fc0
 date: 2026-09-04
-updated: 2026-10-13
-summary: "Turn the decentralized free API into a local entry point: first check official evidence, then use your own Key to test the route, and finally let Cursor, Cline, and OpenCode automatically switch to a usable model. Windows and Mac are now available, and platform differences are clearly stated."
+updated: 2026-10-24
+summary: "Windows, Linux and macOS at version 1.0.2, with a free API radar, local compatible endpoint, DeepSeek Harness integration and conditional tool-checkpoint continuation."
 categories:
   - Resources
 tags:
@@ -20,6 +20,29 @@ brand_slogan:
 legacy_paths: []
 
 ---
+
+
+<!-- hyphenbox-current-release:start -->
+## October 24, 2026 update: version 1.0.2 on three desktop platforms
+
+HyphenBox combines a free API radar, your own credentials and real model checks behind a local OpenAI-compatible endpoint. Current integrations are **DeepSeek Harness, Cursor and Cline**; the old dedicated OpenCode integration has been removed. Provider keys remain in system secure storage, and model requests go directly from your computer to the provider you select.
+
+This update adds Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers to the existing macOS universal release, all at **1.0.2**. Installers include SHA-256 checksums and updater signatures. These signatures are separate from Windows commercial code signing and Apple notarization. Linux credential storage requires a desktop Secret Service; a headless server is not equivalent to a tested desktop setup.
+
+### Recent improvements
+
+- Unreadable credentials are isolated so automatic routing can try eligible alternatives. Local authorization failures and provider quota failures are classified separately.
+- Structured quota errors wrapped in HTTP 200 are recognized without treating normal answers or content refusals as quota errors.
+- Complete tool results can form an executed checkpoint for another model to continue. Old tool calls are not automatically replayed; missing results and conflicting identifiers still stop continuation.
+- One-click connection offers DeepSeek Harness configuration and recent routing attempts with redacted failure categories.
+- macOS gains a shared application keychain entry, foreground authorization and read backoff to reduce repeated prompts. Windows and Linux continue to use their own secure-storage backends.
+
+The `free` route does not intentionally fall back to paid candidates. The `auto` route may use paid routes you have added. Partial streamed output, incomplete tool results, capability differences and exhausted quotas still prevent guaranteed seamless recovery. The application is free to download; provider quotas and model charges follow your own account terms.
+
+[Download 1.0.2 installers, release notes and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2)
+
+The earlier development record is retained below. Its screenshots, counts, quotas and old client examples describe those historical versions; use the update above and the release page for current installation and feature details.
+<!-- hyphenbox-current-release:end -->
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-windows-linux-tri-platform/) is authoritative.

@@ -1,10 +1,10 @@
 ---
-title: 完全免费：白嫖 103 家大模型 API｜黑粉盒子
+title: "黑粉盒子 HyphenBox：免费 API 雷达、本地路由与 DeepSeek Harness 接入"
 slug: hyphenbox-free-api-radar
 status: published
 date: 2026-08-29
-updated: 2026-10-02
-summary: 黑粉盒子已正式推出，从 1.0.0 开始正式迭代，提供 Mac、Windows、Linux 安装包。文中早期截图与探测数字保留为开发记录，不代表当前免费额度。
+updated: 2026-10-24
+summary: "1.0.2 补齐 Mac、Windows、Linux：管理自己的 API Key，真实核验模型，识别额度错误，并在完整工具结果下换路接续。"
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,29 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/hyphenbox-free-api-radar/cover-8db465d484.jpg
 legacy_paths: []
 ---
+
+
+<!-- hyphenbox-current-release:start -->
+## 2026 年 10 月 24 日更新：三平台 1.0.2
+
+黑粉盒子把免费 API 雷达、自己的密钥和真实模型核验放到一起，再在电脑上提供一个 OpenAI 兼容入口。当前接入以 **DeepSeek Harness、Cursor、Cline** 为准；旧版 OpenCode 的专用接入已移除。密钥保存在本机系统安全存储，模型请求由你的电脑直接发给所选提供商。
+
+这次补齐 Windows x64 的 EXE、MSI，以及 Linux x64 的 AppImage、DEB、RPM，与已发布的 Mac 通用包同为 **1.0.2**。各安装件都有 SHA-256 校验值及更新器签名；更新器签名不等于 Windows 商业代码签名或 Apple 公证。Linux 密钥保险箱需要桌面 Secret Service，纯命令行服务器不能据此当成已验收的桌面环境。
+
+### 这版改进了什么
+
+- 密钥读取失败会隔离对应凭据，让自动路由继续尝试其他合格路线；本机授权错误和平台额度错误分别处理。
+- 能识别 HTTP 200 包装的结构化额度错误，减少“状态码成功、实际没有回答”的误判；正常回答和内容拒绝不会据此换路。
+- 工具结果完整返回后，可以整理成“已经执行过什么”的检查点，供替代模型接着处理。不会自动重放旧工具调用，缺少结果或编号冲突时仍会停止。
+- 一键连接页提供 DeepSeek Harness 配置，以及最近换路、尝试次数和脱敏失败分类，便于判断请求卡在哪一步。
+- Mac 使用单一应用钥匙串条目、前台授权入口和读取退避，减少重复密码提示。这是 Mac 的系统存储改进，Windows/Linux 仍使用各自的平台后端。
+
+选模型时，`free` 不会主动转入自费候选；`auto` 可能使用你添加的付费路线。已经输出一半的流式回答、缺少工具结果、模型能力差异或所有平台额度用尽，都不能保证无缝恢复。软件免费下载，提供商额度与模型费用按你自己的账户条件计算。
+
+[下载 1.0.2 安装包、发行说明与校验文件](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2)
+
+下面保留早期开发记录。截图、目录数量、额度和旧客户端示例对应当时版本；当前安装与功能说明以上面的 1.0.2 更新和发行页为准。
+<!-- hyphenbox-current-release:end -->
 
 > [!note]
 > 本文首发于黑粉科技公众号
@@ -137,9 +160,9 @@ $0.21 不好看，我也没把它放在主位——我用的都是便宜模型�
 
 ### ▍下载：正式版，三个桌面平台
 
-- macOS 13 及以上：`HyphenBox_1.0.0_universal.dmg`，Apple Silicon 与 Intel 通用。
+- macOS 13 及以上：`HyphenBox_1.0.2_universal.dmg`，Apple Silicon 与 Intel 通用。
 
-- Windows x64：`HyphenBox_1.0.0_x64-setup.exe`；需要 MSI 部署时用 `.msi`。
+- Windows x64：`HyphenBox_1.0.2_x64-setup.exe`；需要 MSI 部署时用 `.msi`。
 
 - Linux x64 桌面：提供 `.AppImage`、`.deb` 和 `.rpm`。密钥保险箱需要桌面密钥环服务。
 
@@ -151,7 +174,7 @@ $0.21 不好看，我也没把它放在主位——我用的都是便宜模型�
 
 ```plaintext
 下载：https://github.com/HackerChi-Hub/hyphenbox-release/releases/latest
-当前正式版本：1.0.0
+当前正式版本：1.0.2
 文件校验：使用对应发行版本附带的 SHA-256 文件
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: "Completely free: Get 103 large model APIs for free | HyphenBox"
+title: "HyphenBox: free API radar, local routing and DeepSeek Harness integration"
 slug: hyphenbox-free-api-radar-en
 status: published
 lang: en
@@ -7,8 +7,8 @@ translation_of: hyphenbox-free-api-radar
 translation_source: machine
 source_sha256: b24cabb68ca7a0e0
 date: 2026-08-29
-updated: 2026-10-13
-summary: "HyphenBox has officially launched, starting from version 1.0.0, and offers installation packages for Mac, Windows, and Linux. Early screenshots and detection numbers in this article are retained as development records and do not represent the current free quota."
+updated: 2026-10-24
+summary: "Version 1.0.2 for macOS, Windows and Linux: manage your own API keys, verify models, recognize quota errors and continue eligible requests from complete tool checkpoints."
 categories:
   - Resources
 tags:
@@ -20,6 +20,29 @@ brand_slogan:
 legacy_paths: []
 
 ---
+
+
+<!-- hyphenbox-current-release:start -->
+## October 24, 2026 update: version 1.0.2 on three desktop platforms
+
+HyphenBox combines a free API radar, your own credentials and real model checks behind a local OpenAI-compatible endpoint. Current integrations are **DeepSeek Harness, Cursor and Cline**; the old dedicated OpenCode integration has been removed. Provider keys remain in system secure storage, and model requests go directly from your computer to the provider you select.
+
+This update adds Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers to the existing macOS universal release, all at **1.0.2**. Installers include SHA-256 checksums and updater signatures. These signatures are separate from Windows commercial code signing and Apple notarization. Linux credential storage requires a desktop Secret Service; a headless server is not equivalent to a tested desktop setup.
+
+### Recent improvements
+
+- Unreadable credentials are isolated so automatic routing can try eligible alternatives. Local authorization failures and provider quota failures are classified separately.
+- Structured quota errors wrapped in HTTP 200 are recognized without treating normal answers or content refusals as quota errors.
+- Complete tool results can form an executed checkpoint for another model to continue. Old tool calls are not automatically replayed; missing results and conflicting identifiers still stop continuation.
+- One-click connection offers DeepSeek Harness configuration and recent routing attempts with redacted failure categories.
+- macOS gains a shared application keychain entry, foreground authorization and read backoff to reduce repeated prompts. Windows and Linux continue to use their own secure-storage backends.
+
+The `free` route does not intentionally fall back to paid candidates. The `auto` route may use paid routes you have added. Partial streamed output, incomplete tool results, capability differences and exhausted quotas still prevent guaranteed seamless recovery. The application is free to download; provider quotas and model charges follow your own account terms.
+
+[Download 1.0.2 installers, release notes and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2)
+
+The earlier development record is retained below. Its screenshots, counts, quotas and old client examples describe those historical versions; use the update above and the release page for current installation and feature details.
+<!-- hyphenbox-current-release:end -->
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-free-api-radar/) is authoritative.
@@ -146,9 +169,9 @@ $0.21 doesn't look good, so I didn't put it as the main point—I use cheap mode
 
 ### ▍Download: Official version, three desktop platforms
 
-- macOS 13 and above: `HyphenBox_1.0.0_universal.dmg`, compatible with Apple Silicon and Intel.
+- macOS 13 and above: `HyphenBox_1.0.2_universal.dmg`, compatible with Apple Silicon and Intel.
 
-- Windows x64: `HyphenBox_1.0.0_x64-setup.exe`; Use `.msi` when MSI is needed.
+- Windows x64: `HyphenBox_1.0.2_x64-setup.exe`; Use `.msi` when MSI is needed.
 
 - Linux x64 desktop: provides `.AppImage`, `.deb`, and `.rpm`. The key safe requires desktop key ring services.
 
@@ -160,7 +183,7 @@ $0.21 doesn't look good, so I didn't put it as the main point—I use cheap mode
 
 ```plaintext
 下载：https://github.com/HackerChi-Hub/hyphenbox-release/releases/latest
-当前正式版本：1.0.0
+当前正式版本：1.0.2
 文件校验：使用对应发行版本附带的 SHA-256 文件
 ```
 
