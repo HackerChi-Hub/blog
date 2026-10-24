@@ -4,7 +4,7 @@ slug: hyphenbox-windows-linux-tri-platform
 status: published
 date: 2026-09-04
 updated: 2026-10-24
-summary: "Windows、Linux 与 Mac 同步到 1.0.2，提供免费 API 雷达、本地兼容接口、DeepSeek Harness 接入和有条件的工具检查点接续。"
+summary: "Windows、Linux 与 Mac 同步到 1.0.3，提供免费 API 雷达、本地兼容接口、DeepSeek Harness 接入和有条件的工具检查点接续。"
 categories:
   - 资源分享
 tags:
@@ -17,13 +17,18 @@ legacy_paths: []
 
 
 <!-- hyphenbox-current-release:start -->
-## 2026 年 10 月 24 日更新：三平台 1.0.2
+## 2026 年 10 月 24 日更新：三平台 1.0.3
 
 黑粉盒子把免费 API 雷达、自己的密钥和真实模型核验放到一起，再在电脑上提供一个 OpenAI 兼容入口。当前接入以 **DeepSeek Harness、Cursor、Cline** 为准；旧版 OpenCode 的专用接入已移除。密钥保存在本机系统安全存储，模型请求由你的电脑直接发给所选提供商。
 
-这次补齐 Windows x64 的 EXE、MSI，以及 Linux x64 的 AppImage、DEB、RPM，与已发布的 Mac 通用包同为 **1.0.2**。各安装件都有 SHA-256 校验值及更新器签名；更新器签名不等于 Windows 商业代码签名或 Apple 公证。Linux 密钥保险箱需要桌面 Secret Service，纯命令行服务器不能据此当成已验收的桌面环境。
+这次补齐 Windows x64 的 EXE、MSI，以及 Linux x64 的 AppImage、DEB、RPM，与已发布的 Mac 通用包同为 **1.0.3**。各安装件都有 SHA-256 校验值及更新器签名；更新器签名不等于 Windows 商业代码签名或 Apple 公证。Linux 密钥保险箱需要桌面 Secret Service，纯命令行服务器不能据此当成已验收的桌面环境。
+
+这批 Windows/Linux 包使用内置签名目录，在线目录服务需另行配置。
 
 ### 这版改进了什么
+
+- `free` 取消旧的固定换路次数和每路线四把凭据上限，在接通前五分钟总预算内尽量尝试合格免费候选，单次最多等待 60 秒，优先未尝试的平台。
+- 每次派发前重新确认免费资格；同一路线和凭据组合不重复派发，保留一次明确参数上限修复重试。有效流式内容已经交付后，不再被这项接通前预算截断。
 
 - 密钥读取失败会隔离对应凭据，让自动路由继续尝试其他合格路线；本机授权错误和平台额度错误分别处理。
 - 能识别 HTTP 200 包装的结构化额度错误，减少“状态码成功、实际没有回答”的误判；正常回答和内容拒绝不会据此换路。
@@ -33,9 +38,9 @@ legacy_paths: []
 
 选模型时，`free` 不会主动转入自费候选；`auto` 可能使用你添加的付费路线。已经输出一半的流式回答、缺少工具结果、模型能力差异或所有平台额度用尽，都不能保证无缝恢复。软件免费下载，提供商额度与模型费用按你自己的账户条件计算。
 
-[下载 1.0.2 安装包、发行说明与校验文件](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2)
+[下载 1.0.3 安装包、发行说明与校验文件](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3)
 
-下面保留早期开发记录。截图、目录数量、额度和旧客户端示例对应当时版本；当前安装与功能说明以上面的 1.0.2 更新和发行页为准。
+下面保留早期开发记录。截图、目录数量、额度和旧客户端示例对应当时版本；当前安装与功能说明以上面的 1.0.3 更新和发行页为准。
 <!-- hyphenbox-current-release:end -->
 
 # 免费 API 不用挨个试：Windows 与 Mac 自动换模型
