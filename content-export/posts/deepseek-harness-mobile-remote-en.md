@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 translation_source: machine
-source_sha256: 45e7a1393147c56e
+source_sha256: 4c60166d2792abca
 date: 2026-10-23
 updated: 2026-10-24
 summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
@@ -28,7 +28,7 @@ The AI on the computer is still processing tasks, but the person has already lef
 
 This article starts with downloading and installing, and when you get a real reply on your phone. First, use a temporary link to run the game, then choose an open port or dynamic domain name as needed. Alibaba Cloud, Tencent Cloud DNSPod, and Cloudflare—all three resolution platforms—just choose the one you're currently using—you don't need to register for all of them.
 
-The download links in this article have been checked against **Heifen Assistant 1.0.0, the stable release on October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
+The download links in this article have been checked against **the Windows/Linux 1.0.1 stable installers and the Mac 1.0.0 installer, as of October 24, 2026**. The cloud console images use examples from the three providers' official help pages. The Alibaba Cloud images show an older interface; follow the current paths described below.
 
 The Heifen Assistant interface screenshots remain from the 0.1.8 isolated demo and illustrate the steps. The forms use a fictitious domain name and test credentials, so they do not prove that a real cloud account has been configured. The cloud platform images only help identify the entry point; button positions depend on the console you open.
 
@@ -46,7 +46,7 @@ On the computer, select an unimportant test session and send "Reply only: comput
 
 ### Download the installation package suitable for your system
 
-1.0.0 is now the stable release. Open the [Heifen Assistant 1.0.0 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0) and choose the installer for your system; the Source code archives are not installers. Existing versions can also check for updates in the app. The live update manifest now points to 1.0.0.
+Windows and Linux 1.0.1 installers are now available on the [Heifen Assistant 1.0.1 release page](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.1). Choose an installer, not a Source code archive. Mac users should use the [1.0.0 installer](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v1.0.0) until the Mac 1.0.1 build is verified. In-app automatic updates still point to the complete three-platform 1.0.0 release; Windows and Linux users who need this QR-code fix can install 1.0.1 manually.
 
 | Computer system | Selected files | Installation method |
 | --- | --- | --- |
@@ -167,6 +167,8 @@ The complete order is: mobile phone → public address corresponding to the doma
 The proxy needs to retain the webpage and WebSocket connection. The certificate must cover the domain name accessed by the phone and be properly trusted by the browser; Application, private key storage, proxy configuration, and auto-renewal are all handled by your original external solution. Heifen Assistant does not import certificates or take over renewals.
 
 Save the settings, return to "Connection Center" to launch it, and generate the QR code again. When verifying the public network, turn off Wi-Fi on your phone and access it via mobile network; This can eliminate the misjudgment that "only works on home Wi-Fi." If you can't open a public domain name on the same Wi-Fi connection, it may be related to the router's backflow access capability, so you need to verify both internal and external networks.
+
+**Version 1.0.1 fixes the QR-code button for open-port and dynamic-domain modes.** The QR image and one-time pairing token are generated on the computer; they do not require an online QR service. Even if the computer cannot read back its own public address, you can generate a QR code. The app will say that external access is unverified. Scan it using your phone's mobile network and confirm that the page opens and reaches the original session. If it does not, check port mapping, DNS, the HTTPS proxy, and the firewall. Temporary links still require a working tunnel before a QR code can be generated.
 
 ## 🚀 6. Method 3: Dynamic domain name + open ports to update the address book on your computer
 
@@ -439,6 +441,7 @@ The current version has passed the build and installation startup checks for the
 | The start button cannot be pressed | Whether the original Harness is accessed; Whether dynamic domain credentials have been saved |
 | After selecting the configuration, you return to the selection box | Update to the current release; the mounted configuration should display "Connector Mounted", then check whether the original Harness has loaded the connector |
 | The original session was connected, but the temporary entrance was not connected | Run "Check Actual Connection"; If an HTTP 530 or other external network error is returned, check the local network or TUN and refresh the status |
+| DNS works but the QR-code button is disabled in open-port or dynamic-domain mode | Install 1.0.1 manually on Windows/Linux, then generate the QR code locally and test the public address over your phone's mobile network |
 | Parsing check prompts 'unauthorized not authorized.' | Whether the account is selected, whether the policy is bound, whether the domain resource scope is correct, and whether the key is valid |
 | Records cannot be found or records are not unique | A Whether records are pre-created, whether hostnames are correct, and whether default lines are duplicated |
 | Domain name resolution works, but phone won't open the phone | Public network inbound conditions, router target address, external listening port, firewall, and proxy target |
