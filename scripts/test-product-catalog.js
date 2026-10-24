@@ -5,11 +5,19 @@ const {
   publishedReleases,
   platformReleases,
   selectRelease,
+  PRODUCT_DEFINITIONS,
+  PUBLISHED_PRODUCTS,
 } = require('../lib/product-catalog.cjs');
 const { splitProductFooter } = require('../lib/product-footer.cjs');
 const { auditProductVersions } = require('./verify-product-versions.js');
 
 async function main() {
+  const assistant = PRODUCT_DEFINITIONS.find((item) => item.releaseRepo === 'HackerChi-Hub/hyphen-assistant-releases');
+  assert.strictEqual(assistant.name, '黑粉助手 HyphenAssistant');
+  assert.strictEqual(assistant.releaseRepo, 'HackerChi-Hub/hyphen-assistant-releases');
+  assert.match(assistant.fallbackDescription, /原服务、电脑和网络保持在线/);
+  assert.strictEqual(assistant.slug, 'deepseek-harness-mobile-remote', '升级原产品教程，保留已发布网址');
+  assert.ok(PUBLISHED_PRODUCTS.includes(assistant));
   const history = publishedReleases([
     { tag_name: 'v2.0.0', draft: true, published_at: '2026-10-14T00:00:00Z' },
     { tag_name: 'v1.8.0', published_at: '2026-10-13T00:00:00Z', html_url: 'https://example.test/1.8.0', assets: [{ name: 'App_arm64.dmg' }, { name: 'App_x64.exe.sig' }] },
@@ -37,6 +45,12 @@ async function main() {
   assert.strictEqual(auditProductVersions(cardHtml.replace('1.8.0', '1.4.8'), expected).length, 1);
   assert.strictEqual(auditProductVersions('', expected).length, 1);
   const releases = {
+    'hyphen-assistant-releases': {
+      tag_name: 'v0.1.5', published_at: '2026-10-23T23:52:27Z',
+      html_url: 'https://example.test/assistant/v0.1.5',
+      body: '精简侧栏，保留首页赞助入口。',
+      assets: [{ name: 'HyphenAssistant.dmg' }, { name: 'HyphenAssistant.exe' }, { name: 'HyphenAssistant.deb' }],
+    },
     'localbrain-releases': {
       tag_name: 'v1.2.28',
       published_at: '2026-09-01T06:28:08Z',
@@ -94,7 +108,12 @@ async function main() {
     },
   ];
 
-  const cards = await buildProductCards(posts, { fetchImpl, token: '' });
+  const allCards = await buildProductCards(posts, { fetchImpl, token: '' });
+  const assistantCard = allCards.find((item) => item.releaseRepo === assistant.releaseRepo);
+  assert.strictEqual(assistantCard.version, '0.1.5');
+  assert.strictEqual(assistantCard.platforms.length, 3);
+  assert.match(assistantCard.updateSummary, /精简侧栏/);
+  const cards = allCards.filter((item) => item.releaseRepo !== assistant.releaseRepo);
   assert.deepStrictEqual(cards.map((card) => card.name), [
     '方寸智匣 LocalBrain',
     '黑粉盒子 HyphenBox',
@@ -120,10 +139,11 @@ async function main() {
   assert.match(cards[3].updateSummary, /Windows 和 Linux 安装包/);
   assert.doesNotMatch(cards[3].description, /草稿/);
 
-  const fallbackCards = await buildProductCards(posts, {
+  const allFallbackCards = await buildProductCards(posts, {
     fetchImpl: async () => ({ ok: false, status: 503, json: async () => ({}) }),
     token: '',
   });
+  const fallbackCards = allFallbackCards.filter((item) => item.releaseRepo !== assistant.releaseRepo);
   assert.strictEqual(fallbackCards[0].updateSummary, '文章摘要兜底。');
   assert.match(fallbackCards[0].description, /本地 AI 工具箱/);
   assert.strictEqual(fallbackCards[0].source, 'article');

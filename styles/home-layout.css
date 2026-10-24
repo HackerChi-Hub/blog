@@ -261,6 +261,15 @@
   will-change: transform;
 }
 .product-card:hover { border-color: rgba(105, 240, 174, .45); }
+/* 奇数款产品时，末卡保持同宽居中，不拉伸成另一种卡片。 */
+@media (min-width: 1001px) {
+  .product-grid > .product-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc((100% - 18px) / 2);
+    justify-self: center;
+    box-sizing: border-box;
+  }
+}
 .product-card__badge {
   position: relative;
   min-height: 1.25rem;

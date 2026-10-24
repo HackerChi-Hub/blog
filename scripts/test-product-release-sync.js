@@ -56,7 +56,7 @@ async function main() {
     assert.equal(fs.existsSync(filePath), false, '首次检查也不能写盘');
     const first = await syncProducts(baseOptions);
     assert.equal(first.changed, true);
-    assert.equal(first.snapshot.products.length, 4);
+    assert.equal(first.snapshot.products.length, PRODUCT_DEFINITIONS.filter((item) => !item.pending).length);
     validateProductSnapshot(first.snapshot);
     const bytes = fs.readFileSync(filePath, 'utf8');
     const mtime = fs.statSync(filePath).mtimeMs;
