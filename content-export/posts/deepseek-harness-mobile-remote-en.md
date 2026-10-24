@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
 translation_source: machine
-source_sha256: c4ff083700dc0022
+source_sha256: 6b05a8e50885ab79
 date: 2026-10-23
 updated: 2026-10-24
 summary: "Three phone connection methods, three parsing platforms, configuration and key file import—get started in one article."
@@ -434,6 +434,35 @@ The current version has passed the build and installation startup checks for the
 
 ** Tencent Cloud and Cloudflare completed official interface and signature verification, isolated simulated interface, and import interface acceptance, without using real cloud accounts for DNS writes. ** Account permissions, plans, networks, and final resolution results should still be verified in the above order in your own environment.
 
+### Windows field check: port forwarding exists, but the public page still fails
+
+In this Windows test, the original Harness was connected and the local gateway was healthy, yet the phone could not open the entry. Three problems were present at once: Windows Firewall blocked the bundled Node executable, the access URL used a different `www` record, and an HTTP port had been entered as HTTPS. The examples below replace the actual domain and paths.
+
+**First, allow the assistant's bundled Node executable on the actual port.** The gateway runs through `runtime\node.exe` inside the assistant's installation directory. Allowing only the desktop executable, or a different system installation of Node, may not cover it. Windows can classify home Wi-Fi as a Public network; a rule enabled only for Private networks may therefore miss the active profile.
+
+Open Windows Defender Firewall with Advanced Security and inspect Inbound Rules named "Node.js JavaScript Runtime." Check the full executable path under Programs and Services and confirm that it points to the assistant's `runtime\node.exe`.
+
+If an enabled TCP block rule targets that executable, record its name and original state, then disable that specific rule. Create a Custom inbound rule for the same program, TCP, and the actual listening port, for example `18767`, on the active network profile. There is no need to allow UDP when it is not used. Disable this dedicated rule when you stop offering the port entry.
+
+**Keep the firewall enabled and avoid opening every port for every Node executable.** Adding an allow rule alone may not work: an explicit block rule overrides a conflicting allow rule. Microsoft's [Windows Firewall rules documentation](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/rules) explains this precedence and how rejecting or cancelling an initial prompt can leave block rules behind.
+
+**Second, match the DDNS hostname to the external access URL exactly.** A record named `@` updates `example.com`; a record named `www` updates `www.example.com`. Updating the root domain does not update every subdomain.
+
+Query both names separately and compare them with the router's current public IPv4 address:
+
+```powershell
+nslookup example.com
+nslookup www.example.com
+```
+
+If DDNS maintains `@`, use `example.com` in the external URL. If you need `www`, configure DDNS to maintain that record after checking that it will not disrupt an existing website. Do not update only the root domain while the QR code continues to point to an old `www` address.
+
+**Third, use the protocol that the receiving service actually provides.** If the router forwards public TCP `18767` directly to the assistant's HTTP port `18767`, the diagnostic URL is `http://example.com:18767`. Without an HTTPS proxy in front of that port, changing the prefix to `https://` causes a TLS/SSL failure; it does not create a certificate or encryption service.
+
+If HTTPS is configured, forward the router to the real HTTPS listener, then proxy from there to the assistant's HTTP port. Follow the two separate connection paths in section 5. Direct HTTP can help locate a connection failure; use HTTPS for a persistent public entry.
+
+**After fixing the configuration, refresh the status and generate a new QR code.** An old QR code can retain the previous hostname, protocol, or port. Turn off phone Wi-Fi, use mobile data, and test the new entry and original session. After this repair, an independent external check returned HTTP 200 with Harness connected; unauthenticated access still returned 401, and the phone user confirmed that access worked.
+
 ### When encountering problems, first look at which layer it is
 
 | Phenomenon | Priority checks |
@@ -445,6 +474,10 @@ The current version has passed the build and installation startup checks for the
 | Parsing check prompts 'unauthorized not authorized.' | Whether the account is selected, whether the policy is bound, whether the domain resource scope is correct, and whether the key is valid |
 | Records cannot be found or records are not unique | A Whether records are pre-created, whether hostnames are correct, and whether default lines are duplicated |
 | Domain name resolution works, but phone won't open the phone | Public network inbound conditions, router target address, external listening port, firewall, and proxy target |
+| Local access works but external access times out | Check whether the active network profile blocks TCP inbound traffic for the assistant's bundled `runtime\node.exe`; allow only the actual port |
+| The root domain resolves correctly but www does not work | `@` and `www` are separate records; match the DDNS hostname to the hostname in the QR code |
+| HTTP works but HTTPS produces a TLS/SSL error | Port forwarding does not add HTTPS; verify that a real HTTPS listener, certificate, and proxy target exist |
+| Scanning still fails after changing the hostname or port | Refresh the status and generate a new QR code instead of reusing the old entry |
 | HTTPS certificate error | Domain name, validity period, certificate chain, and renewal of external certificates; No certificate repair entry within the app |
 | Only the same Wi-Fi is available | Check if the LAN address has been misused; Then verify the public network entry point with the mobile network |
 | The phone was open, but there was no conversation | Check whether the original configuration was correctly selected, whether connectors are loaded, and whether the original session authentication is normal |
