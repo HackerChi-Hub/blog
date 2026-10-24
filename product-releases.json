@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T01:31:32.660Z",
-  "contentHash": "27eb00263058b136c8381c213aabaf648c58c9b77010509e36b2c69eefe1054b",
+  "checkedAt": "2026-10-24T01:40:51.732Z",
+  "contentHash": "f885e368dac40e0f40e55e61ba2487236f0c217acffa8075d44e09e978498093",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:31:32.660Z",
+      "checkedAt": "2026-10-24T01:40:51.732Z",
       "prerelease": false,
       "releaseNotesHash": "82e91d0641fc38a7828aa2b71b968ccd40c710af66a91fc97ca0f04d4d695cf6",
       "revision": "0747450d21702472b1a2e31ca01fad24be0cc2be105876100830ac9cc78ffe54"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:31:32.660Z",
+      "checkedAt": "2026-10-24T01:40:51.732Z",
       "prerelease": false,
       "releaseNotesHash": "65bf85bc7895a1e485b6453cc76888e8a5217b5aeccf8e812216ab9848eb3615",
       "revision": "c30eb5bccc054aa7475f549445815f78bcbb3e8d5d4d066b4a5252f445a78ec3"
@@ -193,7 +193,7 @@
       "description": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
       "updateSummary": "普通请求不再主动弹系统密码框；密钥读取合并并发、失败退避，超时后不会继续创建授权队列；Mac 新增与迁移后的密钥集中到一个应用钥匙串条目。提供前台授权入口；旧独立条目首次迁移仍可能逐项询问，原条目保留，取消后停止。没有改用明文文件，也没有放宽其他应用权限。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T01:24:54Z",
+      "activityAt": "2026-10-24T01:40:25Z",
       "version": "1.0.2",
       "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2",
       "source": "release",
@@ -271,10 +271,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:31:32.660Z",
+      "checkedAt": "2026-10-24T01:40:51.732Z",
       "prerelease": false,
-      "releaseNotesHash": "076270238a2202a0c8265e5b30197d2899d25936ceb5f3d31033c2f9d113756e",
-      "revision": "5ad339ab8d4cf032413b80c9ff78821147516d7f0726b5d169cac7030fbc215e"
+      "releaseNotesHash": "480b2fe0f0742452fed537e7cdd0cb070e3ec9c055242f4c719935e8cdb9fc99",
+      "revision": "e4a490a6959bdac791c8f3d3119d26b4e48e3d7c5e432bd1a69787a9e2f0b839"
     },
     {
       "slug": "screenlex-watch-and-learn",
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:31:32.660Z",
+      "checkedAt": "2026-10-24T01:40:51.732Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:31:32.660Z",
+      "checkedAt": "2026-10-24T01:40:51.732Z",
       "prerelease": false,
       "releaseNotesHash": "88fe5ce8d0dd6b1143533eb3f82a5b27f450fb3e363a371ebee11e737416b63b",
       "revision": "19a46267559342511942bf0487c569a3e27ad0eae1e0e92ee149b9955ed93f1e"
