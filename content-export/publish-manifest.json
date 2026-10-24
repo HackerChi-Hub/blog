@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "9ce0df8bfde744788d5a8837a376f053b94b389acd32a3d8440cbf1335014043",
+  "content_sha256": "7b4b07a8c85d25e8e91ef7c9d8a44e583f3042ea5695f476d9f24a5f53b55804",
   "published_post_count": 206,
   "posts": [
     {
@@ -532,7 +532,7 @@
       "legacy_paths": [
         "/hyphen-assistant/"
       ],
-      "sha256": "b9b515513dda48edaaab84189be6b511057c2f3a9557d92d0927348f393943be"
+      "sha256": "91296fdd1b9ccf4fd82d9bfc39e4d6751821c9c4f41b95792099b7ef8c0214bd"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
