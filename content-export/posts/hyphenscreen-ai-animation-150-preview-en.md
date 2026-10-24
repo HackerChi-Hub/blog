@@ -239,7 +239,7 @@ This project readback, actual model response, native export report, complete dec
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
 > [!info] HyphenAssistant
-> **Status:** Early build · Preview
+> **Status:** Official releases
 >
 > Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
 >

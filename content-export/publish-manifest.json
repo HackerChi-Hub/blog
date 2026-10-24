@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "d076c19c7f4728fb0430514a93582369496b7eebcd3dc7641bd53c49bd14111b",
+  "content_sha256": "7010dc64c07967aa040b9044260169fbdf9d9bbd2d6cc97815c81d73208b85f1",
   "published_post_count": 206,
   "posts": [
     {
@@ -11,14 +11,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-official-b31ed069464a",
       "lang": "en",
-      "sha256": "3ffbf5d1f832f07c5bfa0a47ed7c5c0cfd34c4bf9d664a432b61b7222ff76c39"
+      "sha256": "57420ec03a307b2cb36336ed05508e81f8359c96e5c4df7020187b8bae5d548e"
     },
     {
       "file": "posts/2026-10-07-official-b31ed069464a.md",
       "slug": "2026-10-07-official-b31ed069464a",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "db5cfa5fb66ac107051486632c6acb75f2548c7c151443dd15725aa6f9ea0b82"
+      "sha256": "58b25be68599064fd65a15e7fc2976b11b731e8d4db9a30e9a03137c1aa941b0"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58-en.md",
@@ -27,14 +27,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-80ac89e6ef58",
       "lang": "en",
-      "sha256": "231b45ed447e60970913bb3a08b5cc5f122428ea85fc20c7850327f29cdc68fe"
+      "sha256": "16d503a39bdc581bcbf741861593816d8709b866fc5d8d24ee91155d558f81d4"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58.md",
       "slug": "2026-10-07-skill-80ac89e6ef58",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "33da76578a03dec30c9e9c5568d126de897cc1449273512ecf2f6839416757c5"
+      "sha256": "cb0d8af4942488ee15f23e678bfc959950580d8a183aac9a35c9954713c23103"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713-en.md",
@@ -43,14 +43,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-a28a79f12713",
       "lang": "en",
-      "sha256": "d87cf548f97e0e77a3e6c6cb5620d1f75418fae137c91d11c2b906249c180800"
+      "sha256": "384fea2473cf75b58686a7ee62831faf60a3202f076132cad2ac10c7648cc4b2"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713.md",
       "slug": "2026-10-07-skill-a28a79f12713",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "9756872de8f6c4b2097d7e3171ff94c78cf3dc5f35931268cf75d083cfa865c2"
+      "sha256": "acbc3287a487778624d05c7595911101186ddd5f0e687796597bfa5c6e712ec3"
     },
     {
       "file": "posts/2026-10-08-skill-7ad7eec5fddf-en.md",
@@ -59,7 +59,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-7ad7eec5fddf",
       "lang": "en",
-      "sha256": "9091930a4091ce3d9c0781417f4b2605de1c445ff01e18c3a83af61202f9e880"
+      "sha256": "229fbbf03717866c0957814889f4ae6d5eb39d1a6a724b6436a042666d684889"
     },
     {
       "file": "posts/2026-10-08-skill-7ad7eec5fddf.md",
@@ -75,7 +75,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-bd9fe092bca4",
       "lang": "en",
-      "sha256": "4534ff6642f4e2e035ae81d2bcff9263651c9db1f14588df9b0ab4445329cd02"
+      "sha256": "950a0a42865076b7d8bdd4e514cd767caed392f2c8a13d4658b50055a46af720"
     },
     {
       "file": "posts/2026-10-08-skill-bd9fe092bca4.md",
@@ -91,7 +91,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-08f7362ddd33",
       "lang": "en",
-      "sha256": "2e8b795b064506957b29fba385712962d2fb08c987ea75b8deffbdfd24da3703"
+      "sha256": "be8a260b50dfc10269ceba5cf0b79d30159cb033fb88d44b7fcb0fe2cc97a8d8"
     },
     {
       "file": "posts/2026-10-09-skill-08f7362ddd33.md",
@@ -107,7 +107,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-1d146792bdd7",
       "lang": "en",
-      "sha256": "f3a0d9a7f13fc81caabc0f2a6e2a596cadf1f2104e5bb6ea3ff5f4c6d86a2630"
+      "sha256": "a47a71af689f167b438eddf4cfa0e3d23cff87b18d4accb6b5d81a7bbb118a4d"
     },
     {
       "file": "posts/2026-10-09-skill-1d146792bdd7.md",
@@ -123,7 +123,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-10-official-74c72ca9b7d8",
       "lang": "en",
-      "sha256": "6246c6ba3198cb2054da367be0f0e63ab336b705d90cb8aadf1f2a755c687330"
+      "sha256": "1df087728529d73659f8911444fee90a13bba83292e89467bfc38d26c05008ad"
     },
     {
       "file": "posts/2026-10-10-official-74c72ca9b7d8.md",
@@ -139,7 +139,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-15-official-1dd915a82f3f",
       "lang": "en",
-      "sha256": "e587e71bd1b73041e8c42e293985904e0de4c13f5203b54c40117b1fe19b99a9"
+      "sha256": "181f76f15e4b6b6a08cee54b2b3095047fce9b410eab1376c694b850c284691f"
     },
     {
       "file": "posts/2026-10-15-official-1dd915a82f3f.md",
@@ -155,7 +155,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-16-official-6b1fdcbd2e4f",
       "lang": "en",
-      "sha256": "7922d81845225f5bb381dfb57b4a7a1f1a534f908693a308fb34c96d0af17870"
+      "sha256": "b3c70f814c6bde651365a339820a3ef4f1c4a0b59bcd2606d026c0ca4f418681"
     },
     {
       "file": "posts/2026-10-16-official-6b1fdcbd2e4f.md",
@@ -171,7 +171,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-17-official-621d1cb6bd14",
       "lang": "en",
-      "sha256": "6eb2dffe136c30440b102dda10268750d15392a3d8b60941dbd3c3242e471c5e"
+      "sha256": "3f3f5071c008a9b5deebb6f438b805a9fc6cf51fdab690ecee03d2b8d0c18aca"
     },
     {
       "file": "posts/2026-10-17-official-621d1cb6bd14.md",
@@ -187,7 +187,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-18-official-39d610a807a3",
       "lang": "en",
-      "sha256": "45581ccdb194853d6ce00aeadde995681260340aad1992d7e7820bc263b12903"
+      "sha256": "1f79ffd24ff8ef53b61e0c4e94e8489e629a0864418db9348d0cd583bc17863b"
     },
     {
       "file": "posts/2026-10-18-official-39d610a807a3.md",
@@ -203,7 +203,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-19-official-40b84d6dd7e4",
       "lang": "en",
-      "sha256": "94b636062f7ce08d02582a6536d55d48c5ec8ddf69e750f2d02a52d9be4f9fb0"
+      "sha256": "b806669e09e133d970e0990c8d07d4349d39bb80893d790c07a47e66028affbf"
     },
     {
       "file": "posts/2026-10-19-official-40b84d6dd7e4.md",
@@ -219,7 +219,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-23-official-3a68097e4e1d",
       "lang": "en",
-      "sha256": "d1f46d94f8ec6a66222597e7ba291a854eca268c3c67d47f4d59cca8f4d51333"
+      "sha256": "9b4184afb6f49391a568d77ec39e76762f926c7ed6edb0b6ea44c9d8535898d8"
     },
     {
       "file": "posts/2026-10-23-official-3a68097e4e1d.md",
@@ -235,14 +235,14 @@
       "legacy_paths": [],
       "translation_of": "33a999681bdb81499014eaf312d39728",
       "lang": "en",
-      "sha256": "deef540e126f93602da25503ee760e00a44c4fe3cd23c6a39b2dce52796780b3"
+      "sha256": "2687f77c8482449bfcae948dd5c0f3db4760e256da1162fa3db446936cfecd21"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728.md",
       "slug": "33a999681bdb81499014eaf312d39728",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "33febc6399eb1f1118f1332c04537c14a0d438ae816892332ab6a4eb782b626d"
+      "sha256": "6af42617fa88a664ae6f4708a7893bd505e56d8763c37d36d1cda09938b995ed"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c-en.md",
@@ -251,14 +251,14 @@
       "legacy_paths": [],
       "translation_of": "361999681bdb815b94fad9dbf028ab2c",
       "lang": "en",
-      "sha256": "a981c6eb077899b4abe4b9346501827bdbe59192edbff12d35290eeaff44f702"
+      "sha256": "1c1fd15db35d9a5875fad663db4f56754be66a4dd737099fdd818edd2697312b"
     },
     {
       "file": "posts/361999681bdb815b94fad9dbf028ab2c.md",
       "slug": "361999681bdb815b94fad9dbf028ab2c",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "76fa77af86fbc84398a8c294c86bea088919011b8920e2afc6f5a53f287229f5"
+      "sha256": "a06a86b5f50123923c0d05029a658c17f2878e711b73079a264f4c3b47b9fc1e"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6-en.md",
@@ -267,14 +267,14 @@
       "legacy_paths": [],
       "translation_of": "372999681bdb815f8c9bdd238edc09c6",
       "lang": "en",
-      "sha256": "24d5638bb5a191b85333d02ac2202b8e9195e7fed733bb1bdefc5394bbc298a3"
+      "sha256": "21c46d092d5d14971b530a5c3be281360afd65165c00e0165a463c7296f560da"
     },
     {
       "file": "posts/372999681bdb815f8c9bdd238edc09c6.md",
       "slug": "372999681bdb815f8c9bdd238edc09c6",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "52edd6f0821d9a7e5fb120f7ca7a16c80aad2309580ca320d51d672ab8c1d569"
+      "sha256": "56c7f37e7198c8c4ae49242b7f85fb677005bb1c74f7c1f95aab267c3a3d63d3"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4-en.md",
@@ -283,14 +283,14 @@
       "legacy_paths": [],
       "translation_of": "37a999681bdb81d6bd5def54e062aac4",
       "lang": "en",
-      "sha256": "08744de99ed052554ce7693c650bb1bdf5a60d2dfa1e6148168eff19b2d4fe3b"
+      "sha256": "23d6d69900f9c32fcb98359a8b16eac087de8c181f7db8576d8b5a437563dea6"
     },
     {
       "file": "posts/37a999681bdb81d6bd5def54e062aac4.md",
       "slug": "37a999681bdb81d6bd5def54e062aac4",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1bc88db56cf2ad0576e3689a1d67bdc574347c816a94f022810e58099f52fb02"
+      "sha256": "418a9a92735a25414fcc7d88806b2b652d543370e3e292ece77558c64545c9ad"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7-en.md",
@@ -299,14 +299,14 @@
       "legacy_paths": [],
       "translation_of": "3af999681bdb8146be26ec77fb75f5b7",
       "lang": "en",
-      "sha256": "51f00820b73f53d01617901ff2f4e7f6ea98380383d992c19387c5fc724d4ef2"
+      "sha256": "9495d395e73486b383e48335d267e1882e69a48917aa2fbab8b64e7e1393aaf2"
     },
     {
       "file": "posts/3af999681bdb8146be26ec77fb75f5b7.md",
       "slug": "3af999681bdb8146be26ec77fb75f5b7",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d173cfd5b975aa4fda437f44468f74b00913cb92cc2e733a6ecb1a49d90ef447"
+      "sha256": "4b0163857618865fd675c7abd7978c450b1810044fe1ded6bd15fd5dc24d5ecc"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a-en.md",
@@ -315,14 +315,14 @@
       "legacy_paths": [],
       "translation_of": "3be999681bdb81269ddaf65518a0735a",
       "lang": "en",
-      "sha256": "2870159406655e50cfab6e3f856b488363e3da7939afb40a12a747ce0cc02974"
+      "sha256": "a6b2af4bf0cfb8e8b83cbfaeae4ef53ae6426fe09d975eff27356c8681adcbf0"
     },
     {
       "file": "posts/3be999681bdb81269ddaf65518a0735a.md",
       "slug": "3be999681bdb81269ddaf65518a0735a",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "8bd223666e6a1ccf0ebd36acf5201c45c285dc6efed0274e48b67a092ebd5957"
+      "sha256": "9c42113dc40994fc473f2341ae79b95d7139a7051ad2893148b6bfe126f212a7"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a-en.md",
@@ -331,14 +331,14 @@
       "legacy_paths": [],
       "translation_of": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "lang": "en",
-      "sha256": "592cfeeb9eed1396e8df126ab6c74a9e75c767471c5ec76d37283f65302a0e78"
+      "sha256": "4ed66b280348ddc734ee0395a32b7f4147b4e54f3c81068f8181e30e9d7af3b1"
     },
     {
       "file": "posts/3be999681bdb81e1ad77fc17c2b9dd6a.md",
       "slug": "3be999681bdb81e1ad77fc17c2b9dd6a",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "688a85b41c5e73c4fb66c986fb5f12f5d9bd921547fd4d7f72f49cb8d6de0abf"
+      "sha256": "74eaf804a26332684350b4387abaf969b62540f20b7a17963bfcfb913d6e558b"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500-en.md",
@@ -347,14 +347,14 @@
       "legacy_paths": [],
       "translation_of": "3c4999681bdb81b5ac69ceb1153e2500",
       "lang": "en",
-      "sha256": "c7ee6d33845516d41e71390ca2d3446ab8ba083f1b160c19cee5c3e58ef29db6"
+      "sha256": "80db79d770d054f171ac25f88b12ceae97abf8c3a33540f18d5df8a95d5903cc"
     },
     {
       "file": "posts/3c4999681bdb81b5ac69ceb1153e2500.md",
       "slug": "3c4999681bdb81b5ac69ceb1153e2500",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "ec6e743d8e0ea0e840bd4393b698af07b1a2ca34c30f7aeca06efc09375ce90b"
+      "sha256": "0a7247d6f5f7a9321343ad9c345230f22aecb9cbb8867ae8a4de4f74cf7e4ad6"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738-en.md",
@@ -363,14 +363,14 @@
       "legacy_paths": [],
       "translation_of": "3c6999681bdb815f8094e4ca7339f738",
       "lang": "en",
-      "sha256": "eb52cd847cd95d87fc123d2e60453afe283a247fc05a13a1eebf527b287cb213"
+      "sha256": "80e8aaaee5a9982743c188572429aa7a23f97d556d285a1eb4f24ec6d885f248"
     },
     {
       "file": "posts/3c6999681bdb815f8094e4ca7339f738.md",
       "slug": "3c6999681bdb815f8094e4ca7339f738",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "51bdd7b874485a47d58acdcdd4406912e373faec9be6c0090f659a43100fe0b6"
+      "sha256": "7c8eda5524676430a3e22af9540c92d6f127bb5c9c6147bbffa561a18d0861b7"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0-en.md",
@@ -379,14 +379,14 @@
       "legacy_paths": [],
       "translation_of": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "lang": "en",
-      "sha256": "0cf4f437bea51f566ec7e64c40a7a3b317b4ac2cd92ba62e1122849950e58660"
+      "sha256": "b74716619b1cba3973a0f7d318e62b03bfee2c85afb0eec311d2c56fcfb326ce"
     },
     {
       "file": "posts/3c8999681bdb81c8b8c8ef9d3473d6f0.md",
       "slug": "3c8999681bdb81c8b8c8ef9d3473d6f0",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1969d0218acbd74cac0c43df77b11a8db99475d31919a2d47307476f2bfb02c8"
+      "sha256": "6e22bbc3d9ad9f2194dde2d949f6a19cf55957f76c98980d6f9db5c5d35b286c"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a-en.md",
@@ -395,14 +395,14 @@
       "legacy_paths": [],
       "translation_of": "3c9999681bdb814ba691f8cc28ec684a",
       "lang": "en",
-      "sha256": "c8efa83be07cb36fb1f03b944ef52b524bc656762e128e3752573cf84f10d6f8"
+      "sha256": "b43d86f2e7874ef8587292565ff7a105458b9287cff70751bb7877be186387fc"
     },
     {
       "file": "posts/3c9999681bdb814ba691f8cc28ec684a.md",
       "slug": "3c9999681bdb814ba691f8cc28ec684a",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "14b1cff833275b071347409d934502432dba772c9853b35e8d33e083b3aaa0f4"
+      "sha256": "b2de4ef6a15c02047107d8e058450394cef0e816e521cd6640bf3c664e152cfd"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026-en.md",
@@ -411,14 +411,14 @@
       "legacy_paths": [],
       "translation_of": "ai-agent-ufo-game-prompt-template-2026",
       "lang": "en",
-      "sha256": "db778dacdb7ab8c1dfb294bcaa859bc062d6af646dc22a7d779ae05985a279cb"
+      "sha256": "9bb41298f6f1b73b424348fca05bfbfaffc7da0b1b2ff1840672098c047651ff"
     },
     {
       "file": "posts/ai-agent-ufo-game-prompt-template-2026.md",
       "slug": "ai-agent-ufo-game-prompt-template-2026",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "5b06d824c9621f6a8dffc632c59450c2451486eff741295c8adfef43e1b07ccf"
+      "sha256": "7ef793c95f982eb8998bae3374d0a6a2e372f642b6484492ffa8856c8a2fe4ca"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost-en.md",
@@ -427,14 +427,14 @@
       "legacy_paths": [],
       "translation_of": "ai-animation-pipeline-cartoon-real-cost",
       "lang": "en",
-      "sha256": "0953ef1efd447c72d2764f8173cdb05eb05e98dd06f3e32375408cda89e2c5b1"
+      "sha256": "644ec3e9efb8f691485b3cf7f1a15f4c87e95216c00835dadd3512a3d28c7faa"
     },
     {
       "file": "posts/ai-animation-pipeline-cartoon-real-cost.md",
       "slug": "ai-animation-pipeline-cartoon-real-cost",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d3ec918956a11030f72a27ec8f782c1368a331396e1cbb93507456edf8838097"
+      "sha256": "e1c77396bb230e59547fbfede09bb3c54d792e25366c2f92277499fb80a5a71c"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51-en.md",
@@ -443,14 +443,14 @@
       "legacy_paths": [],
       "translation_of": "ai-gaokao-2026-glm51",
       "lang": "en",
-      "sha256": "55a98134daafd92cfca72643bf0ef86b96c02dbd4628212c916c09cd79bfd862"
+      "sha256": "20a61230f662820453720a39a6e5a7989bda7e5d744e2f30ff84c7359405acac"
     },
     {
       "file": "posts/ai-gaokao-2026-glm51.md",
       "slug": "ai-gaokao-2026-glm51",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "15610235ec2d68a7252687b9002485952ab8e37b756cd969ae582c54aedb9916"
+      "sha256": "b387f3fb2e143fb8b0e5ba9d5da36231272080953b3392526db834c24745af17"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow-en.md",
@@ -459,14 +459,14 @@
       "legacy_paths": [],
       "translation_of": "ai-logo-brand-assets-workflow",
       "lang": "en",
-      "sha256": "5628c155ceeb128a077e3585abbf84901b07a0dcb6b120ec14870c9ca2971490"
+      "sha256": "105f2d8c8bb1b54db9baa39a8ca9cc9ff81a642e6e25f49ab920396c709655f8"
     },
     {
       "file": "posts/ai-logo-brand-assets-workflow.md",
       "slug": "ai-logo-brand-assets-workflow",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "84c4b2f2598c4f4bcb78a486ba33a28bab0e830f2faa97820cea22e26a2f8b23"
+      "sha256": "2afec668093d97ccbfbaf0bb82dec9490ac98be7a47560f494c44c08a2b2b640"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes-en.md",
@@ -475,14 +475,14 @@
       "legacy_paths": [],
       "translation_of": "ai-prompt-templates-12-scenes",
       "lang": "en",
-      "sha256": "b64e6383e1c756faf6333488b1a5c7f95cbe909f3201c7b21b25c4644d666c37"
+      "sha256": "0b3b40335be8c9f9e6c43d986706d77ab7e7e0e366a4e41088e6dd63d4b0d1cf"
     },
     {
       "file": "posts/ai-prompt-templates-12-scenes.md",
       "slug": "ai-prompt-templates-12-scenes",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "b11e8afa243186541f67f8b02fc65838b4350a94e942dd739969a22c6380db8d"
+      "sha256": "d54de5d79fb50a9feaf8b722aba8058f306770d107098e5fadca13b20b8582fa"
     },
     {
       "file": "posts/bonsai2-mac-deploy-en.md",
@@ -491,14 +491,14 @@
       "legacy_paths": [],
       "translation_of": "bonsai2-mac-deploy",
       "lang": "en",
-      "sha256": "1177cfe79c5ce8bb8a4c666514a955598040526199ac43ff58625815665ea0f3"
+      "sha256": "e53e8f91025d844902aca5c26a92105175534aef56ea71d8bf56ba726210d559"
     },
     {
       "file": "posts/bonsai2-mac-deploy.md",
       "slug": "bonsai2-mac-deploy",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "10b6485c2ded932a1879fea7713484f2a67f2439bb8c7005ed1963f7b4583ace"
+      "sha256": "0a8f8d01e4f26e89471ab772d447f7e551a790baf68e41ded73a4e7c05aa9754"
     },
     {
       "file": "posts/broadband-troubleshooting-guide-en.md",
@@ -507,14 +507,14 @@
       "legacy_paths": [],
       "translation_of": "broadband-troubleshooting-guide",
       "lang": "en",
-      "sha256": "29f0b54262849da1d202631576227a23f5e2030a23627b91a7f2fb4caad61bb4"
+      "sha256": "5d22b4051299b66c3c48700ac78f939e06dd7488395d233dce40a17d0e865093"
     },
     {
       "file": "posts/broadband-troubleshooting-guide.md",
       "slug": "broadband-troubleshooting-guide",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "8659b21ca74e9fb9fe016684ed828ed4575a0429796bba6548bdb0910ff90818"
+      "sha256": "62dae1885c955ec7d53607bdb4ebe358c299c7d5567c8e6a092f743b38d78567"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote-en.md",
@@ -523,7 +523,7 @@
       "legacy_paths": [],
       "translation_of": "deepseek-harness-mobile-remote",
       "lang": "en",
-      "sha256": "8e0ab033c898a2cedafe8d4f649af27d66d0731e7d98b4ecc10d6fe735e417ab"
+      "sha256": "7428b4f6522a887aa5a3c9e764baed18e4a5acf0aa1c91bd0a2925618e6a4777"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote.md",
@@ -532,7 +532,7 @@
       "legacy_paths": [
         "/hyphen-assistant/"
       ],
-      "sha256": "fcefa1627321c0e059829a42df8213a15d9fa9dc8ce7960bc090f14509706fa9"
+      "sha256": "b9b515513dda48edaaab84189be6b511057c2f3a9557d92d0927348f393943be"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
@@ -541,14 +541,14 @@
       "legacy_paths": [],
       "translation_of": "deepseek-v4-vision-mac64",
       "lang": "en",
-      "sha256": "ef23dd1e0664da7072a4496301ddb37af83a7b31d35ae1de8f9a003013639ff6"
+      "sha256": "8b7f82c5657a2c01b9ea1d091c67a88f449e0d13c94e696dedbb8dc4846d38e2"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64.md",
       "slug": "deepseek-v4-vision-mac64",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "c685407de0632524723e56cdbd46614fc516e0928996619615e7d6282026c04d"
+      "sha256": "c5b593328d89ce781e9ac4abb78e45e7b24543fa3de99fe48c829d96abc1edd9"
     },
     {
       "file": "posts/fable-5-1-mythos-update-en.md",
@@ -557,14 +557,14 @@
       "legacy_paths": [],
       "translation_of": "fable-5-1-mythos-update",
       "lang": "en",
-      "sha256": "86e5a863076c99260b9a0934a66232848d6a1def9f9ff5b0ee0ca78359973648"
+      "sha256": "673ca7f5c66cf7ddcbbd1febc3a987231bee91767b0e4f74193c29d6889fd1f3"
     },
     {
       "file": "posts/fable-5-1-mythos-update.md",
       "slug": "fable-5-1-mythos-update",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "0243b7855aba3346ca11efa3fdd262c84b1959dffa618ecc65137bc5e5c9868d"
+      "sha256": "7bf6e245521ebae673b0a97d6611b7b78771c72e288987cce70658bfd405f378"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide-en.md",
@@ -573,14 +573,14 @@
       "legacy_paths": [],
       "translation_of": "fastmetal-qad-apple-silicon-official-guide",
       "lang": "en",
-      "sha256": "9f240c2761733083c2a6429870a55b6625bfd8c74dbd4edbc26fe1e276b94d2c"
+      "sha256": "6fc4eded13873e8f702fd86c94b294a0d0eb185eacc6bb69dca3b78fc1dfefab"
     },
     {
       "file": "posts/fastmetal-qad-apple-silicon-official-guide.md",
       "slug": "fastmetal-qad-apple-silicon-official-guide",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "6c95233010097aa0b499f53e473e3667e3e4d9334bfb65ac7a183cf76f2f9519"
+      "sha256": "a734556db107af062e890f791b0f81500485b1b22acb6ccdd9121ae9e56cbc2a"
     },
     {
       "file": "posts/free-ai-api-radar-2026-09-23-en.md",
@@ -589,14 +589,14 @@
       "legacy_paths": [],
       "translation_of": "free-ai-api-radar-2026-09-23",
       "lang": "en",
-      "sha256": "64623ba0442ab3f9dc4a2b80288cc2eddde18403ed12a5bbfc6b2e1e7d89a16a"
+      "sha256": "943f75e6dcd4f49b3e65e49654a13894bad398cbe1ac968e16782a319b1a3582"
     },
     {
       "file": "posts/free-ai-api-radar-2026-09-23.md",
       "slug": "free-ai-api-radar-2026-09-23",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1711adcbef329b5ed351acc0dbebabb4bae7e52f298c18d15c4ded2f806f3611"
+      "sha256": "a02eaf75089506adee58ba0df634facbb7ae36260dd6202d1a5c569443924f5e"
     },
     {
       "file": "posts/free-ai-tools-64-en.md",
@@ -605,14 +605,14 @@
       "legacy_paths": [],
       "translation_of": "free-ai-tools-64",
       "lang": "en",
-      "sha256": "cc44e84870a5d2a357b04adf346455cfd5566f58b09a133a715b94167bc1e20a"
+      "sha256": "2314a37a88c975a01ad967acc75d7ee3c042e6feb261c56de9e9ee7fafc24374"
     },
     {
       "file": "posts/free-ai-tools-64.md",
       "slug": "free-ai-tools-64",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "0d115fd254f61ed28825455e45d5d2affae53186cbf902d10cb0cfcd8ad60a6d"
+      "sha256": "2144693d8f64863d0c7b289399b38ff612bdea894aa69f6fa78b6a956a6041e7"
     },
     {
       "file": "posts/free-api-radar-2026-08-27-en.md",
@@ -621,14 +621,14 @@
       "legacy_paths": [],
       "translation_of": "free-api-radar-2026-08-27",
       "lang": "en",
-      "sha256": "445af65e657bab5804acbfe2be5120ff0f22838f68f6f2237354c8522c9482f1"
+      "sha256": "33a6d692c42c97e23a3d9c58fe56602733c4d96a87ac4b3809119fa0c8c652d8"
     },
     {
       "file": "posts/free-api-radar-2026-08-27.md",
       "slug": "free-api-radar-2026-08-27",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "c936fe62c20db84e08dc0743d7143d880c020f11c1e11d1c1f08b1dc579c9c7d"
+      "sha256": "bc12d4a79af409fd5288193b6f0c8fdb4d2e470edf69ad44f5666d077778c804"
     },
     {
       "file": "posts/free-api-radar-en.md",
@@ -637,14 +637,14 @@
       "legacy_paths": [],
       "translation_of": "free-api-radar",
       "lang": "en",
-      "sha256": "5ca7446fa1ed098525024f6d904fa351da180520353dd74cce8b4dd2fa5985f2"
+      "sha256": "c99c787388c46792cd68e1decbcf4f3e6d1ff974371b1fe23dde684d819fbf45"
     },
     {
       "file": "posts/free-api-radar.md",
       "slug": "free-api-radar",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "63e18c5088b436395519198ebd8313030cff10f8898afd7988d12f3b786568bd"
+      "sha256": "bc29e0028ea2b88e79437f426945d3786bd6721d42e61e9285ea783529ecc2e3"
     },
     {
       "file": "posts/free-design-resources-en.md",
@@ -653,14 +653,14 @@
       "legacy_paths": [],
       "translation_of": "free-design-resources",
       "lang": "en",
-      "sha256": "63919560556ba6f86783655d781b79f549d1c5de8f4d0f7ff126f1b60ca77785"
+      "sha256": "c321335dc4be66b2ba36eeaf885a34992e851b680e22536371984eabd853091c"
     },
     {
       "file": "posts/free-design-resources.md",
       "slug": "free-design-resources",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "058d2bddf64375e1cd7a5d3bbeb9bb44c1c466e8eb63729851d4f715b6f5aa23"
+      "sha256": "16ffb41fe12cd8b577c352403de1c79d8996f80f1bd029f4364064bdde0e9d91"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber-en.md",
@@ -669,14 +669,14 @@
       "legacy_paths": [],
       "translation_of": "gemini-3-8-flash-cyber",
       "lang": "en",
-      "sha256": "e2114fddd4245cca6b5957c6cb18eee7fb53072f5a8b56a153c5e0c6c0bfcca2"
+      "sha256": "3463e050c3027c525fd0aeca7a1c8b4cbe44e7704f62542102942b5b5c9bb360"
     },
     {
       "file": "posts/gemini-3-8-flash-cyber.md",
       "slug": "gemini-3-8-flash-cyber",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "0f3a64c8811abe5ebaac8b5ab5e5d2d95cdede2f9f9cacf910c9c38c7e266216"
+      "sha256": "bf4fa97185c1e70a79750c573f7ae79e019df7177173c33a61e198749b37d485"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience-en.md",
@@ -685,7 +685,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-argon-google-flow-experience",
       "lang": "en",
-      "sha256": "3c292118b5ddc504892a21f2dda8e0b368a423d6c25786ce79b47c4bf746b725"
+      "sha256": "9042dfeee7142f2c04209e43e79123fa4212c23c59fc6fc0007d96010fbc79db"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience.md",
@@ -693,7 +693,7 @@
       "article_type": "article",
       "legacy_paths": [],
       "lang": "zh-CN",
-      "sha256": "a54748029a764805b11bf0c82b1b8c8f92f4ca15ef77f5ac8685f289e7a319ae"
+      "sha256": "423919fef623187d0912765effe8ae983775e5ca4d8cb32d15cbb491161ef14e"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era-en.md",
@@ -702,14 +702,14 @@
       "legacy_paths": [],
       "translation_of": "google-io-2026-gemini-agentic-era",
       "lang": "en",
-      "sha256": "38245b99d025c6220ec4effb517a709dc1d4cd8fc4ebf26b1319ac5637dd0634"
+      "sha256": "29c3322d897d6c916b0c7da089451285e7be08ef7910ab65a7a2d6c632a6531b"
     },
     {
       "file": "posts/google-io-2026-gemini-agentic-era.md",
       "slug": "google-io-2026-gemini-agentic-era",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f347fa8ee20018e4720272afaaa43d47e373c043a597cb0a802aa46ee5a4e60e"
+      "sha256": "bb5ff23c8834c76e7724660440e1e8b808915effbc2269c9fa36debf1821054d"
     },
     {
       "file": "posts/gpt-6-astra-computer-use-en.md",
@@ -718,14 +718,14 @@
       "legacy_paths": [],
       "translation_of": "gpt-6-astra-computer-use",
       "lang": "en",
-      "sha256": "14f7361370d53373060c99a654f3c2679086db4b2b4fa0e28dc5e654c799df81"
+      "sha256": "d5b947f71a90da46eea0d368b7c926fd041012620a8077cc721dd7e1d343ed77"
     },
     {
       "file": "posts/gpt-6-astra-computer-use.md",
       "slug": "gpt-6-astra-computer-use",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "7a17c2599924ba5972d71b03f6dba8f9550e57468046884b47e4f9ebb51b82e4"
+      "sha256": "be1ef8ac2be9291c77e2faf8e80df778702434ab2a88e5e760735a57c834ef09"
     },
     {
       "file": "posts/gpt6-six-tasks-rain-mystery-en.md",
@@ -734,14 +734,14 @@
       "legacy_paths": [],
       "translation_of": "gpt6-six-tasks-rain-mystery",
       "lang": "en",
-      "sha256": "07974f776ec13c155b1e94c5aff3f84e3b09e828af461f408a26f35a80b058d0"
+      "sha256": "e7bbbc7641b6516f9ff931b5f18404217668c85b89f5c895b77ecad4379ca009"
     },
     {
       "file": "posts/gpt6-six-tasks-rain-mystery.md",
       "slug": "gpt6-six-tasks-rain-mystery",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a46c60eb0e996dac411d61eb81f2c6eda1bc9b2777a6ceff69117d57abd1d102"
+      "sha256": "767ed6abeaafe2df02487deaeb70cb1fa88286c54b4507b8f3b70eb6f9cd3608"
     },
     {
       "file": "posts/huawei-tau-law-2026-en.md",
@@ -750,14 +750,14 @@
       "legacy_paths": [],
       "translation_of": "huawei-tau-law-2026",
       "lang": "en",
-      "sha256": "759200f80f80297ab9f5a1dea8007950e992f9daee11e4c82cdf761ab3c1dc6e"
+      "sha256": "ba250439f8e922597f2cf852f84d7fbb006f1e10d6d93e1f46e9aee757d8237b"
     },
     {
       "file": "posts/huawei-tau-law-2026.md",
       "slug": "huawei-tau-law-2026",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "660b8f30f89969d06b0f6666c712e05b8619681206de7f20bc1fc4ee02728258"
+      "sha256": "2ff1ecf16a153329414cac717eaab30598ab461912f5bf091be55be8f221b07e"
     },
     {
       "file": "posts/hyphenbox-free-api-radar-en.md",
@@ -766,14 +766,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenbox-free-api-radar",
       "lang": "en",
-      "sha256": "848daadca5c1f81d10808e305895a02197bb6df424c43652528734f4f43a4e4d"
+      "sha256": "01484ba3161866d9d5d6c86cb938f9e959bf26a2b6edec1ce17cd54b2ed0608e"
     },
     {
       "file": "posts/hyphenbox-free-api-radar.md",
       "slug": "hyphenbox-free-api-radar",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "13d446bb437abf3cc0ac2cde077e7ad06ce9d103522bb5cbcb177605456f6f54"
+      "sha256": "42297b32a2197ccb847e2e2c20a9304437b8afaa129404abd1e6b446ee37a8ef"
     },
     {
       "file": "posts/hyphenbox-windows-linux-tri-platform-en.md",
@@ -782,14 +782,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenbox-windows-linux-tri-platform",
       "lang": "en",
-      "sha256": "abb709edc480f9cde601d70e5715dfeb6fb54207c5da3de64d809ec051e154f3"
+      "sha256": "45fcf0bcd81cf8ac9540235a1cb82cd4ecb139f24386b8bb2fa0022720944e2d"
     },
     {
       "file": "posts/hyphenbox-windows-linux-tri-platform.md",
       "slug": "hyphenbox-windows-linux-tri-platform",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "16076388afa596a07b453d5d50ace9856514ee8a9545971ee9e5d41fc04f2e15"
+      "sha256": "b795fece49029cc2356539b7db516bd2b113f40e76786a38c72d7e41d8189396"
     },
     {
       "file": "posts/hyphenscreen-ai-animation-150-preview-en.md",
@@ -798,14 +798,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-animation-150-preview",
       "lang": "en",
-      "sha256": "89e9375f3dd99e981636d78ab46e943ad6d4a296c6f16bf67f5de29abdffe0db"
+      "sha256": "866417be591cd81b14eb88865d2275558f0460d7d9789f502f68af5051c52916"
     },
     {
       "file": "posts/hyphenscreen-ai-animation-150-preview.md",
       "slug": "hyphenscreen-ai-animation-150-preview",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "dd3d66a997fb89f75dd6b75c597c6830dbf6ae64adafc89e4ff0cf2c173b3b9b"
+      "sha256": "c772d512a78c7811f76f588696059b1633993668c3a224731a16438a54f0a08a"
     },
     {
       "file": "posts/hyphenscreen-ai-editing-animation-en.md",
@@ -814,14 +814,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-editing-animation",
       "lang": "en",
-      "sha256": "01a5287f62a6454c93822b4591789ba07857304eaefcd6b3dd154cec5bd961ed"
+      "sha256": "8a28512ca420d181f6faf93684968bd4dbc8ab64c867bf49e89fbff82306863c"
     },
     {
       "file": "posts/hyphenscreen-ai-editing-animation.md",
       "slug": "hyphenscreen-ai-editing-animation",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "35eafece354a1b9b9bc8a8fb78f6d6905f10f702cb2650eb17e57c571432efe3"
+      "sha256": "fae0a3c750ebb55f49e1614daf54f94fc55ca6b01dfd3ac8551fb781cede1c94"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-en.md",
@@ -830,7 +830,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "605ba2f6c6e026fde4554cf20b354cca911aa289ff3b2e4768a7300184ab7f91"
+      "sha256": "5062bf8e56ad32a44a900bb7d57a9dfcb46e1a8b1f194f00e1e66c8f48fe521d"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -839,14 +839,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "13de3691fae5eed11451b468c786aa23ccb9a7f15c21b85d1280d49e2cde1148"
+      "sha256": "c0f416a14a0c946fac3e70f45d5883da82da0220b8e4d25e92359f04ccd16bdc"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "fc450769e73f76f30de4c8b90faf7dd2936725822cdd9e257d4d7b9f27c3bd92"
+      "sha256": "5f9c8956ecae2b761a71335c6113d33c5a6fe227ace6e95349598ea64a5d8bbd"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
@@ -855,14 +855,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-whole-video-packaging-165",
       "lang": "en",
-      "sha256": "4f193f62ec15df28df612da29b711ac8782e4d8bf8c4b843c46ec9059290d27f"
+      "sha256": "8d8cba317d3ae53829c3c96c158287c2e47f48fc115bd2712f23fdc0b971c83c"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
       "slug": "hyphenscreen-whole-video-packaging-165",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "b087afe0254ab3bab0148cafc5aea1612c56c248028853624171fb7b42c01435"
+      "sha256": "a18785e22528b63d83776e8b3498d6877d9b94949bdacdf78dca9dcc4557b19a"
     },
     {
       "file": "posts/jev-system-one-model-en.md",
@@ -871,14 +871,14 @@
       "legacy_paths": [],
       "translation_of": "jev-system-one-model",
       "lang": "en",
-      "sha256": "ec2e3ed8d07aeb3e8b8dd3350a9426ff6cfeb28a40b3d03ae0415456b8c05d50"
+      "sha256": "510cd5f2b2834df145a791a548c783d03695ad3b5f4bbc1c5c0a32aa869f31d5"
     },
     {
       "file": "posts/jev-system-one-model.md",
       "slug": "jev-system-one-model",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "5e63b5b8fff3cf21fb888b558e7a9c5abb0772a682e2b5148797c05e349bced1"
+      "sha256": "d7412da896152b449a81d6597d94f3b5528aa6f7b7c646a201e5f9a85d1a56c4"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain-en.md",
@@ -887,14 +887,14 @@
       "legacy_paths": [],
       "translation_of": "llama-cpp-0-4-64gb-localbrain",
       "lang": "en",
-      "sha256": "7f324d3404a3f41478087330608d24e1e865eee1ae0142c796e88031d57330dc"
+      "sha256": "2fc01039c513c106ccb2e6352962bebde708453510c8260754f5c40c486f5476"
     },
     {
       "file": "posts/llama-cpp-0-4-64gb-localbrain.md",
       "slug": "llama-cpp-0-4-64gb-localbrain",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a602e03ce26253db3736c92f43323e4fccbdc2bc8275d07207b9d14c9e66c050"
+      "sha256": "afb8b1128d098735b05d81fd24d1b050a0e8a0ddc0f5af596ab5d67193fe8ec1"
     },
     {
       "file": "posts/local-ai-completely-decomposed-en.md",
@@ -903,14 +903,14 @@
       "legacy_paths": [],
       "translation_of": "local-ai-completely-decomposed",
       "lang": "en",
-      "sha256": "7c4f1880eee0152b083c7078daa60bc1609829f658998444e73d44c8b2f4ac5e"
+      "sha256": "08ca8da874d44e96b00c8e89a471b1a65b0b6217a3b15880cf8904f9c38e0de4"
     },
     {
       "file": "posts/local-ai-completely-decomposed.md",
       "slug": "local-ai-completely-decomposed",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f926bbf8877931cb73bbc97f6a6eca4c6210f24040a36542d47397f61e078338"
+      "sha256": "b01d3b889fe198f0918db68e8d8a6e6d8623465d0a8a4d7ff641bbd802c860b6"
     },
     {
       "file": "posts/local-ai-old-laptop-business-en.md",
@@ -919,14 +919,14 @@
       "legacy_paths": [],
       "translation_of": "local-ai-old-laptop-business",
       "lang": "en",
-      "sha256": "53b10e306a680f6a763084df52ad7e629328471e73fc5554d57f83f22367371b"
+      "sha256": "460b79a2e939fb77ec198d656aa91d66c469cfe9a2d244a1963d8f2b9fa1d3e9"
     },
     {
       "file": "posts/local-ai-old-laptop-business.md",
       "slug": "local-ai-old-laptop-business",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "8255726c1968f26045a37c4cebf8f185d71c8e6235c3e93a42f0ec76a7522fe8"
+      "sha256": "14e45f21ec986a1672bec271d5cfc251ea78d2e3571ff32c6cc84675308e76bf"
     },
     {
       "file": "posts/local-model-blender-mcp-localbrain-en.md",
@@ -935,14 +935,14 @@
       "legacy_paths": [],
       "translation_of": "local-model-blender-mcp-localbrain",
       "lang": "en",
-      "sha256": "bb7e87073979b6e24ba0747844b27fc43f3501501e6ca0e02ab8531726f6538f"
+      "sha256": "9e2fae3039fecaab1203b011e334e633f88696676782b798afd91515b4ab2c39"
     },
     {
       "file": "posts/local-model-blender-mcp-localbrain.md",
       "slug": "local-model-blender-mcp-localbrain",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "55573dcce39830c7d314d63670d109ebda8470c2a7a8e4743e9e20fe9a02b2e7"
+      "sha256": "562381f6d850cd98f1bb160e5c9c271a49b24d7ce13b53688f71fe6f1756944c"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery-en.md",
@@ -951,7 +951,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-dance-paper-delivery",
       "lang": "en",
-      "sha256": "ab2eaa0f3afa8d2266fef2844a773e4b662a6855c3fe196ca819b7416789cbb1"
+      "sha256": "2770702d1704f0591a9e605747adeee0a20e404d20b468903d57f8e2ca82f59e"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery.md",
@@ -959,7 +959,7 @@
       "article_type": "article",
       "legacy_paths": [],
       "lang": "zh-CN",
-      "sha256": "6e5b8f2965eb9fe26c6520462596fe82a1d31f8ceefe307ee1f73949aca52e3e"
+      "sha256": "83283fad30f4c32b75ffeb26505caa7909842be53deb9ea0ad46ad134cf8aff5"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks-en.md",
@@ -968,14 +968,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-flash-next-five-tasks",
       "lang": "en",
-      "sha256": "882afd2fa30e0fe34cd5225f6350f6e25f173f8abd4abbd5063e802056ba027f"
+      "sha256": "1d0c66a55591c487a973b87e71269836300fc123df64ff0ff804ef863ee95a5d"
     },
     {
       "file": "posts/localbrain-flash-next-five-tasks.md",
       "slug": "localbrain-flash-next-five-tasks",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "2cac5979bf722886187cb9ad5981b3bba0da902533284b7bb82f18be2f06666a"
+      "sha256": "f7f16a6a928f13dd6072c23951bba7359d22d620974fc0df7e17adb4018718de"
     },
     {
       "file": "posts/localbrain-h3-multi-reference-en.md",
@@ -984,14 +984,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-h3-multi-reference",
       "lang": "en",
-      "sha256": "3983f93ceb9200557e5e4f4135f3fa1ba5fd2a89fff6a5cbd166151fb10868c9"
+      "sha256": "889bd8701b36d057d37ff7ca88ec0f76151602a5e551912e16155885df2743ab"
     },
     {
       "file": "posts/localbrain-h3-multi-reference.md",
       "slug": "localbrain-h3-multi-reference",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "63c63823235a5dca31b8b09cfc9e5e675b6389b870ddd252ea7fdc7891142e2f"
+      "sha256": "c691965c3e2f33a92241538cf227e0f9bce0756afd4d3ccaa322fbf3ef2abab4"
     },
     {
       "file": "posts/localbrain-local-ai-box-en.md",
@@ -1000,7 +1000,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "628b82b7121bb1a5ec0dece747ea61a532491c53bbd047538aac9769fdcfd0e3"
+      "sha256": "97846c2fd55a8cad474294a5407a7bd4a5920bc283ae3f9ca5e4393f425a7745"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1009,14 +1009,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "ef6b8c83f73bf0411c601322a6c630f98b7d9a1112f721acd1b19688358385af"
+      "sha256": "f56ae9bb37a0fd5908495fe45a5ec6954bd73bbf6d93abd4d1b64bea36f055c4"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "c9cc0739dcea91c2afa105f38a93ce826ae002470e19e69a59ba78455246a10a"
+      "sha256": "840001e0b6e4e1a64ba3670e7dfdadd0a2cb9f64066b4c0cf403bc07d5b8fe1e"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",
@@ -1025,14 +1025,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-longtask-splash",
       "lang": "en",
-      "sha256": "26f8151045c870634615c10952882a08fb72869e9d2f8fdbe55fd92b146325c5"
+      "sha256": "a4bec26dd3c20a8830d1767c3c315825ebdeab80e222658053e1e151c7c3f0f9"
     },
     {
       "file": "posts/localbrain-longtask-splash.md",
       "slug": "localbrain-longtask-splash",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "72927eba1356fa1363ce7b01b4abf7d2c60d79abb9b5add9165e8419d0f07b1e"
+      "sha256": "4c3d9be571f5e6a0b69c5e23279a6e30155d90c7b026edefcc5a2f7b85a24b94"
     },
     {
       "file": "posts/localbrain-ltx25-video-en.md",
@@ -1041,14 +1041,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-ltx25-video",
       "lang": "en",
-      "sha256": "1fb5d82ed55328f730405af4742108c6447a2d59f8d89259ccf51158aa5e521a"
+      "sha256": "7f32ef7082cee55b0f93c146e47b1e1b81d9ccc320fc7261255d4c78a5f3a338"
     },
     {
       "file": "posts/localbrain-ltx25-video.md",
       "slug": "localbrain-ltx25-video",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "5df4e262b32594b9f822d8e17b08e811cc22fbdd75ba9a31ac8dfeff5db062bc"
+      "sha256": "0fa2765c99788193e131ae8637c67115301a149618a040ebe905acc880446666"
     },
     {
       "file": "posts/localbrain-media-chat-180-en.md",
@@ -1057,14 +1057,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-media-chat-180",
       "lang": "en",
-      "sha256": "48628ebb733a0a0b48605f0d37e9f4464b4afe0b2a0e0b1cc25d16a1b98863e0"
+      "sha256": "6faf6f210be0bba06373e96aa63a270e2117ac2fe0a886591d937b923fb6678f"
     },
     {
       "file": "posts/localbrain-media-chat-180.md",
       "slug": "localbrain-media-chat-180",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "6e6256ee7fea5a95d91a4b909321bbe236e5cc92c2042e90c0d9e9e3aeeafbf9"
+      "sha256": "50cad5cbcf19b497e38b4ab79952afbb201768e9586f9a0b39d8c9e43be329a3"
     },
     {
       "file": "posts/localbrain-network-security-en.md",
@@ -1073,14 +1073,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "ba5aec24339081b9b2465a878db7d4fa1d79285501d9a3f8937a3e8be5e44df9"
+      "sha256": "e2130eef884798b48eb6dfb32d2e194d184a990ef36a5608d59da8a9ca763221"
     },
     {
       "file": "posts/localbrain-network-security.md",
       "slug": "localbrain-network-security",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "56501ece45e0f3c424f596055decb891fa15d8b47c14153aee5773aedda5ef7a"
+      "sha256": "448376e0ebc69ea12bbc9d87cc4415555ee0514640f3623844104c6842cd036f"
     },
     {
       "file": "posts/localbrain-paper-delivery-179-en.md",
@@ -1089,14 +1089,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-paper-delivery-179",
       "lang": "en",
-      "sha256": "e5949179ea1abc815d45e60df5e4fee20b2c7169fc13654ee883f925fc504a57"
+      "sha256": "5934b24a76417719a948deccf5031e891eeadf4f3dcd581e94dc298d2007d225"
     },
     {
       "file": "posts/localbrain-paper-delivery-179.md",
       "slug": "localbrain-paper-delivery-179",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "7cbfc28afb2e0ce9b7dc9a3aa8481e9b4c214458f8bc612ac9cb29c05653316a"
+      "sha256": "a8330fa5fde33d96f8845b579d089851f6d47fa958e2645f2a40711261a07819"
     },
     {
       "file": "posts/localbrain-security-architecture-en.md",
@@ -1105,14 +1105,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-architecture",
       "lang": "en",
-      "sha256": "32918c1dd4c858bf645fefddac39ba5b86d9ab9b66288284f293f0e23b5d10c8"
+      "sha256": "55e47c5941b433e45529e90ed20e8859087ab17906b24879a4219401a2986f2b"
     },
     {
       "file": "posts/localbrain-security-architecture.md",
       "slug": "localbrain-security-architecture",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "72d71651adb6e9d753803afd92a50a20f602433bf8297a51861ce69f77349016"
+      "sha256": "eadd69256047880b1cea59918c28ae474121e37d1c6a29c8e43bbdc659ad2973"
     },
     {
       "file": "posts/localbrain-security-howto-en.md",
@@ -1121,14 +1121,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-howto",
       "lang": "en",
-      "sha256": "c114a6d1c286175572ed8fbb12096606a6766a664059910b08462bbe8688dd0b"
+      "sha256": "df2978725b3072bc562e629412e7cfb50da25bb970bfff25a04bf216f5c38f7d"
     },
     {
       "file": "posts/localbrain-security-howto.md",
       "slug": "localbrain-security-howto",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "75264c6a422920575d60d5aaaf1d2f653356a9b391aae514698d8f31c9a4514e"
+      "sha256": "b6e5b487e9d68eacb548833a7ce46339dc0c65e5bf5bb57dc446109944b7bb8f"
     },
     {
       "file": "posts/localbrain-small-models-lowmem-en.md",
@@ -1137,14 +1137,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-small-models-lowmem",
       "lang": "en",
-      "sha256": "4f3b9b7d53572e9eacc179c19970f74a70f2d4b5ec62223a70e77a0eea4dbb7e"
+      "sha256": "193409feb0afbf46fd18c64790146ee287f40c35bb81ba4b0f45f1a828e72a02"
     },
     {
       "file": "posts/localbrain-small-models-lowmem.md",
       "slug": "localbrain-small-models-lowmem",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "05d1e55a525cf3544b30756db25174ef4fd43a9a425be85e626de7c2d058dcdb"
+      "sha256": "c670ee27947cef4cf7cd64940d1568ee9bb248542c81eb2e6edcf4db9e4209b7"
     },
     {
       "file": "posts/localbrain-sushi-resident-ssd-en.md",
@@ -1153,14 +1153,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-sushi-resident-ssd",
       "lang": "en",
-      "sha256": "9bd1af08f5e21a8fa0cab431ee5e274c0e4d11dfd2e561adab8b1bbec807f0d2"
+      "sha256": "258359e14f5afbc991ca2cb179b289a91d29fcbaa810118f3410e3f5ead79130"
     },
     {
       "file": "posts/localbrain-sushi-resident-ssd.md",
       "slug": "localbrain-sushi-resident-ssd",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "4d49478c58f967ca59cccb9228286be3dc9e378cc0a153fe98f53cdd023e349f"
+      "sha256": "43e49cb0e0b19c9873ed50b9e2098e4c681590b0234c20f1560408fc2b4c0cdb"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release-en.md",
@@ -1169,14 +1169,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-windows-nvidia-first-release",
       "lang": "en",
-      "sha256": "e4caf71dc09baf01b6eb8ef4dc91ff73689f54c0115266595cab1dfbc1d53e9e"
+      "sha256": "9bd3e725a9dc2451770be65f347f420fecefbdbcde656b4c0a2dcb35c904a08c"
     },
     {
       "file": "posts/localbrain-windows-nvidia-first-release.md",
       "slug": "localbrain-windows-nvidia-first-release",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "6b33c10a3470225543274d84ecc3712c513e69fe081133c85710e6c5f72324a5"
+      "sha256": "bfc802b921dc847bc6aa3fa657b0a220e391a6728c14200a6c34e1cfc53f12b8"
     },
     {
       "file": "posts/localhost-local-ai-security-en.md",
@@ -1185,14 +1185,14 @@
       "legacy_paths": [],
       "translation_of": "localhost-local-ai-security",
       "lang": "en",
-      "sha256": "453d422e84982ff24a152fc3d79ff7e4c575154e2a171ca16de922ca6b4fa5fa"
+      "sha256": "397fbef2d8599a8189b7fd085e38af8b80884dc56d62fea7e6c89030af46b414"
     },
     {
       "file": "posts/localhost-local-ai-security.md",
       "slug": "localhost-local-ai-security",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "84040d7bb6b6c16e646e257e7a71c56b69b8a47c270d1a6652689a6e69205046"
+      "sha256": "701444338ec11ed103cb9ddbfc4d7c4280ef68cbec21c0d1031930d4569bc624"
     },
     {
       "file": "posts/mac-local-inference-engines-en.md",
@@ -1201,14 +1201,14 @@
       "legacy_paths": [],
       "translation_of": "mac-local-inference-engines",
       "lang": "en",
-      "sha256": "f10580e654ca68907097226a29754ad0963e829db470eff0421ef6ae7d7eab3f"
+      "sha256": "c391d6890518dfd325ea571db57cff976c5405ba6221bfdb68e1a735d967a7c0"
     },
     {
       "file": "posts/mac-local-inference-engines.md",
       "slug": "mac-local-inference-engines",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "034725e32cc098383984b3694bf5bd5eb22baba74eb9c592bca3be1b636c6be3"
+      "sha256": "d7de8c54b25c4003cca44595c8a6bcea2d47c0bb539bb35460344a755d31f3e3"
     },
     {
       "file": "posts/mac-windows-linux-ai-platforms-en.md",
@@ -1217,14 +1217,14 @@
       "legacy_paths": [],
       "translation_of": "mac-windows-linux-ai-platforms",
       "lang": "en",
-      "sha256": "64e2cec68e3e653e83210b3413a4bf4687a08a3c7a7cd8a09f82b6d1204da850"
+      "sha256": "838ca87b9169016c499cee2538327ed235da52ed0f239c147ae22808761e4485"
     },
     {
       "file": "posts/mac-windows-linux-ai-platforms.md",
       "slug": "mac-windows-linux-ai-platforms",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a30ff8ea9b76399d5c5bd7439b58f423423e7849873042036791b8f986c07152"
+      "sha256": "32282c10ce53e841341900411a8c9097abdd5a634715e8a1e0aa003a14460c02"
     },
     {
       "file": "posts/minicpm5-2b-localbrain-en.md",
@@ -1233,14 +1233,14 @@
       "legacy_paths": [],
       "translation_of": "minicpm5-2b-localbrain",
       "lang": "en",
-      "sha256": "3aae5dacd417e2abeb1d21aee36d5ba9a0edc7fc5694dfda3ccb13e6e5fa4f67"
+      "sha256": "c090de73ba4e82c19a10483575e25cfe3e4de58d43ce02cacf0c15209b5894fc"
     },
     {
       "file": "posts/minicpm5-2b-localbrain.md",
       "slug": "minicpm5-2b-localbrain",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "c5ad6ef13e5aeef2598b7f452f9e9493a96c48729182a9bb518bff48a11b7fb4"
+      "sha256": "6d68e78fc28268ae781df88a4a15d73cd919cd294631b6734bea52f3dca19431"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro-en.md",
@@ -1249,14 +1249,14 @@
       "legacy_paths": [],
       "translation_of": "mlx-local-ai-test-m5pro",
       "lang": "en",
-      "sha256": "01adebedc0271694e4deef095a52244587d2dc17dd14672a72ad9218d08a4724"
+      "sha256": "a2115a560cd3f8ee8684aea9bfbc851de15e0c3260186b19353db004f6289902"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro.md",
       "slug": "mlx-local-ai-test-m5pro",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "ba5bb93de93b3f3e1db737a4851a910a54e1f09b5373d3474a1344f0cd73fa0c"
+      "sha256": "561a77dd607bb2c7653381c946196657d75b97d286dfa92d3450ab7dcba9d7c4"
     },
     {
       "file": "posts/movie-model-benchmark-en.md",
@@ -1265,14 +1265,14 @@
       "legacy_paths": [],
       "translation_of": "movie-model-benchmark",
       "lang": "en",
-      "sha256": "77243b98a85e0e2168934335477deb6205daff9596a7e23ec133130c77b6e661"
+      "sha256": "d65ecd0f7148ae252622f90f0b92f0d6590eaada89167a051a684477bf249098"
     },
     {
       "file": "posts/movie-model-benchmark.md",
       "slug": "movie-model-benchmark",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "3d1a00c3d55cde00ca3481ed3b22338ae7fbf65ffb84278dcfb6c1c36a136bb7"
+      "sha256": "c8eb5cd2f7ae42822e07835ff3f8b04e47c2c368d2d28e7297dbd5869f7d36ab"
     },
     {
       "file": "posts/nex-n2-5-free-mac-localbrain-en.md",
@@ -1281,14 +1281,14 @@
       "legacy_paths": [],
       "translation_of": "nex-n2-5-free-mac-localbrain",
       "lang": "en",
-      "sha256": "fb8828373719f97ee826151f91516130a5a054ab7652a479173d2c0c8cda276a"
+      "sha256": "e8ff3a3dcd37097de1444746fe9c7053cb57b117969a5747e034bbaf05a0ff61"
     },
     {
       "file": "posts/nex-n2-5-free-mac-localbrain.md",
       "slug": "nex-n2-5-free-mac-localbrain",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "63fd771961f39e64407d00e5dd7c8aecf54d48283e65c8b10fb618b6f6a8fd82"
+      "sha256": "51c7731c9fee60e5e69a2365b1b6d0a00bfbc6ee1e6c5b1f3458660e9b511cf7"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started-en.md",
@@ -1297,14 +1297,14 @@
       "legacy_paths": [],
       "translation_of": "omarchy-linux-ai-getting-started",
       "lang": "en",
-      "sha256": "7d11cd46be5f6825f08f95eaa655da994ea7a5c31a8c82811f9069b42059f2d5"
+      "sha256": "961aad65c9ccd8a815e8011a2ea6e84c8bcd3aab468dbac6e8e856ac3525d9b6"
     },
     {
       "file": "posts/omarchy-linux-ai-getting-started.md",
       "slug": "omarchy-linux-ai-getting-started",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "bcd3e3263f20171a6cc357ec01cd40ac15d420ab6a239017b5e46b860d02955f"
+      "sha256": "0354d996d05b429160f6e50563d5c5f9ef65d39cd245f93172e23e389bf12bcc"
     },
     {
       "file": "posts/ox-alpha-stealth-model-en.md",
@@ -1313,14 +1313,14 @@
       "legacy_paths": [],
       "translation_of": "ox-alpha-stealth-model",
       "lang": "en",
-      "sha256": "ecb8a8c1ff8cbe0ae4e5a2b2feb46e5fe9cd6b38d5ea704722d4ca2bca80fb1a"
+      "sha256": "cb9954659ccc6ad3828e419bf6e3af48d8fb4e2312291203289e9e458cccefcb"
     },
     {
       "file": "posts/ox-alpha-stealth-model.md",
       "slug": "ox-alpha-stealth-model",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "df02532970809875c31c780caf91545e776d44b2b2da316a84fb499690027823"
+      "sha256": "7acc63f12c60caa9d94101bbd9f5992d103f323af33f06d25446618214c1c602"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test-en.md",
@@ -1329,14 +1329,14 @@
       "legacy_paths": [],
       "translation_of": "polystrata-qwen36-8gb-localbrain-test",
       "lang": "en",
-      "sha256": "ce9efaf0e882ebb584f04d70d22b514e7d8f8c7e5778099d245a76a3defd6319"
+      "sha256": "d77c6f6f54a6e62d05969595b91a4b57209e7a8083b125f939ab2c8c44a70864"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",
       "slug": "polystrata-qwen36-8gb-localbrain-test",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a88602a8a83c98630241b2ead6a0ec752bbd142a31e1b8b1b311ec976394cb25"
+      "sha256": "e8def50b48b4123a746ba84b8725e4a84a141cb615c3119c0e2e40f8cbb6724f"
     },
     {
       "file": "posts/qwen-image-21-local-en.md",
@@ -1345,14 +1345,14 @@
       "legacy_paths": [],
       "translation_of": "qwen-image-21-local",
       "lang": "en",
-      "sha256": "cb11dd3d98132480586f74821c2147a0c8391db0ec3104c0956353d509e50b75"
+      "sha256": "5ada7187f00a744eca3e1a41114ffbd439be50f792c99e89ca0d4515be5893e0"
     },
     {
       "file": "posts/qwen-image-21-local.md",
       "slug": "qwen-image-21-local",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f0de4310d4617a553e5c3e0b1aff15fcd5f2e5ba5a7bc44ecd976b06c7b54f20"
+      "sha256": "222d47a905d65c20bb35377a7403e28a41b52be4abb590b08d97e376ae0d4150"
     },
     {
       "file": "posts/qwen-image-21-turbo-q4-local-test-en.md",
@@ -1361,14 +1361,14 @@
       "legacy_paths": [],
       "translation_of": "qwen-image-21-turbo-q4-local-test",
       "lang": "en",
-      "sha256": "9fba433ffbbdc4d7c070128d0778c7b0c645d287f06213e6e0e9f72e46054145"
+      "sha256": "c54ead4e34018d3ba2601b529d36cb983c068f7e1122c832467bfe1e50a86da3"
     },
     {
       "file": "posts/qwen-image-21-turbo-q4-local-test.md",
       "slug": "qwen-image-21-turbo-q4-local-test",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d7aa3aa7aff615a4d9e84129fc6751d5280925ee80440dbe5c1f1483845d5f53"
+      "sha256": "c0285e32a5a2d857ac6d8a40fd5dd18f6b2287d2186dfb98bb305e9e155d95e1"
     },
     {
       "file": "posts/qwen3-8-27b-local-test-en.md",
@@ -1377,14 +1377,14 @@
       "legacy_paths": [],
       "translation_of": "qwen3-8-27b-local-test",
       "lang": "en",
-      "sha256": "f352c7c3e4c1bfdc40fee875e7577ffdf0a53a63ac1173bec59756b5446c2361"
+      "sha256": "5812939416db4360151db967c430f1959c499a43c1ba179c054c3e2fc563e6af"
     },
     {
       "file": "posts/qwen3-8-27b-local-test.md",
       "slug": "qwen3-8-27b-local-test",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "4e44897466545708d107a30e5b5dc19acbfe3790b03f0d8ed26c0028a1c8cae0"
+      "sha256": "4a1deb6f3e3e244b2e5ad2a4326a7044b02217af11c4cc709c7275f57609e953"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain-en.md",
@@ -1393,14 +1393,14 @@
       "legacy_paths": [],
       "translation_of": "qwen38-flash-next-atomic-m64-localbrain",
       "lang": "en",
-      "sha256": "543f0fc5ccb5ba5d3d601356492798949871d46bcb4728e3a4fa31fdc8206713"
+      "sha256": "8842d1fdd4825e929b06ce6e97bcf2c16da0caf54c188e95eaf5f2d4402c6f7e"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain.md",
       "slug": "qwen38-flash-next-atomic-m64-localbrain",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "770888cbbdba306b9a988099988ffae297d31f3dfb286371baa3fbfcf0a6a055"
+      "sha256": "a60b9477cac0bd7b57d79783d54094d5ae49c5f0bf2946ac6b359e06ebc2f1d9"
     },
     {
       "file": "posts/rea-reverse-engineering-en.md",
@@ -1409,14 +1409,14 @@
       "legacy_paths": [],
       "translation_of": "rea-reverse-engineering",
       "lang": "en",
-      "sha256": "cfc1c5c7ab3c2045cacbb970aad6192668cfcdbbbede81f74946acbf4f57bf2d"
+      "sha256": "d60de38b8c243a387904cf835d52eacb8e6ac5c16aa53cebc2e548ba2527e9bd"
     },
     {
       "file": "posts/rea-reverse-engineering.md",
       "slug": "rea-reverse-engineering",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "8f307dcd283a99b672279666cf60845f19481c80540c6b90635e8040a6b956a4"
+      "sha256": "93d18df7852cfc7149e1826c18f6904c624e6fc0f060c29471e8e18317fad43e"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide-en.md",
@@ -1425,14 +1425,14 @@
       "legacy_paths": [],
       "translation_of": "remotion-claude-code-prompt-to-video-guide",
       "lang": "en",
-      "sha256": "937f09a68288990977402341a680fb4c408e97ce0968124cb240545ea487fbcd"
+      "sha256": "f08ee99e1b3754ac7ae7c2a57e0247befd5270eb64b3ef597d4bdead0389d921"
     },
     {
       "file": "posts/remotion-claude-code-prompt-to-video-guide.md",
       "slug": "remotion-claude-code-prompt-to-video-guide",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "7aa01a91c4f883aed0014e4bbb271311925ed79a1a2263ee8ec7b1e48f113b64"
+      "sha256": "59fd5a3d5e57229634bed16c75dbf760b801a7b56231ece530b6698cd3b06470"
     },
     {
       "file": "posts/screenlex-watch-and-learn-en.md",
@@ -1441,14 +1441,14 @@
       "legacy_paths": [],
       "translation_of": "screenlex-watch-and-learn",
       "lang": "en",
-      "sha256": "bfebba296729bfb64bde7aa191e8c7eaf4e1d635b743cefda4e9c1009239008c"
+      "sha256": "b25da0639dd2e2fed0a904d7b725f5e4782139645c84ea10697026f0cb11df85"
     },
     {
       "file": "posts/screenlex-watch-and-learn.md",
       "slug": "screenlex-watch-and-learn",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "ac428d329211a55071eebe2d7d31df5accd7ec418cbf1439714bb00c80aebcf5"
+      "sha256": "c8982d9f464f5d0feec068ba78ce2854799dd74ee87e75ebccc6c7f9f736571e"
     },
     {
       "file": "posts/splash-mac-local-inference-en.md",
@@ -1457,14 +1457,14 @@
       "legacy_paths": [],
       "translation_of": "splash-mac-local-inference",
       "lang": "en",
-      "sha256": "e1485e4ca90bc1ef62f44036055136c6881a490f9a800ea18f8dc042921bd9c3"
+      "sha256": "a4745a1741d06361ea6e780c51e3b67eefb4e263806a836a7b4974886cb8e583"
     },
     {
       "file": "posts/splash-mac-local-inference.md",
       "slug": "splash-mac-local-inference",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "040794b9c9e288eb8cad61b03346fd96ce39826c4e5db6d0844cddbdc519c60b"
+      "sha256": "5deeacf19f0dfdbf6201b83e41ed52261234afeffbf78e65e4b34b66a95ca1a3"
     },
     {
       "file": "posts/strata-12gb-local-ai-en.md",
@@ -1473,14 +1473,14 @@
       "legacy_paths": [],
       "translation_of": "strata-12gb-local-ai",
       "lang": "en",
-      "sha256": "ca00c046ae0ee88d96b188a9cb014a1e97e0fe281a44feb85df8f2e10202955c"
+      "sha256": "64cfccb94863f25f4cde5c30334ea3c87ecfe656bd91f10821d0f331248bffd7"
     },
     {
       "file": "posts/strata-12gb-local-ai.md",
       "slug": "strata-12gb-local-ai",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "33600d40a43a19b1f738d492a80cb46cb2de30def0e0d07d476a6e40d115e7ee"
+      "sha256": "f5097499233bc47e818b06ce04cfae09729bfab215a442abf5e8961a4c831a6e"
     },
     {
       "file": "posts/understand-ai-01-overview-en.md",
@@ -1489,14 +1489,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-01-overview",
       "lang": "en",
-      "sha256": "9e38c9105a009f3b54006b78ee825ac60190f9d0139fc20a742d9d7abe35a28e"
+      "sha256": "066a9f8367160329be739f0e4c731916c54db9f976ec1fbb68c463192bfe9d06"
     },
     {
       "file": "posts/understand-ai-01-overview.md",
       "slug": "understand-ai-01-overview",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f5d473b0b137ccadbdd91663a17ae2daccbcd54eea01b578132d04edef96be35"
+      "sha256": "ae3de4c1392845a77cd09c41d2995743d4647f452b587056887dc05936918f74"
     },
     {
       "file": "posts/understand-ai-02-history-en.md",
@@ -1505,14 +1505,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-02-history",
       "lang": "en",
-      "sha256": "ee35622f5ed46b7fe0ae78ad02f025e3a3c56133fbcaa0a6a752a3a4fd0986b9"
+      "sha256": "4d8d3506124f0e20ce8a245257a28893b9c0aee879085cb615a9b0e1ba1fee10"
     },
     {
       "file": "posts/understand-ai-02-history.md",
       "slug": "understand-ai-02-history",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "ef3c110f31933b944a7c7c43987e0324d62e75eb00a9778767544efc0f449d6d"
+      "sha256": "5f767d8e6f8638dd9c83eae54d87479aff771228c3e01e7cd8ad2d60b4fc430d"
     },
     {
       "file": "posts/understand-ai-03-open-race-en.md",
@@ -1521,14 +1521,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-03-open-race",
       "lang": "en",
-      "sha256": "5617722bd0a7d17653e9cdfdbfd532ca70de8614f2a733881b282b333944395e"
+      "sha256": "f9048f18f0e8323ce2fa8274bd90667f63a882ffa0f143e1743c51493d03646f"
     },
     {
       "file": "posts/understand-ai-03-open-race.md",
       "slug": "understand-ai-03-open-race",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "8717ce067be1b6e8b649af2a6706f6f2f8edff70385e9e0fc96ba1942bc30643"
+      "sha256": "2ddcc82963990e753eeb29d0e5028f5e20f2943a60101634b0d20ba2c123e65a"
     },
     {
       "file": "posts/understand-ai-04-neural-networks-en.md",
@@ -1537,14 +1537,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-04-neural-networks",
       "lang": "en",
-      "sha256": "da30910d4d69867e19260c100c5cf370fca73a21e4d79e0a56b4ca363cee90e7"
+      "sha256": "4dec04c3239a2f48f76e770ddbc6fc596c1b5539b6c789b02177373ed87bdeab"
     },
     {
       "file": "posts/understand-ai-04-neural-networks.md",
       "slug": "understand-ai-04-neural-networks",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "34eb62eff1e1e58721f0ee2c1329f1be7d6576f22153667ff78b23093ac4c67c"
+      "sha256": "e902b2e0caef6f96bea89644292a16d5a4770d76afb113c6003bedc5ad9f482e"
     },
     {
       "file": "posts/understand-ai-05-tokens-en.md",
@@ -1553,14 +1553,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-05-tokens",
       "lang": "en",
-      "sha256": "b52c598a8263021f88ca4e34c1e0000619b7410695ea914da82fd1d260845897"
+      "sha256": "1e6fdeb7b6ff1900c1f32170b59139c07779f54eddf9def4a4947bf700396566"
     },
     {
       "file": "posts/understand-ai-05-tokens.md",
       "slug": "understand-ai-05-tokens",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f9cea3437635d2f3758396b06b52680a995b897cd25803b76fe49a84c4446efb"
+      "sha256": "b675dcd85cd3a2e2a088dd7965a46334c8ed0e61752e624864d298940a90695d"
     },
     {
       "file": "posts/understand-ai-06-embeddings-en.md",
@@ -1569,14 +1569,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-06-embeddings",
       "lang": "en",
-      "sha256": "6796232c4784f5152c1c7a0f165f4a0889a4e76ca778935084d5ef3e3ff85861"
+      "sha256": "a0347a98ee984a46b85baf2dd2e0381d93b69093554ebc21d7b9629fdf49a34a"
     },
     {
       "file": "posts/understand-ai-06-embeddings.md",
       "slug": "understand-ai-06-embeddings",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a00358bd2861d276e5e02475d5ff05710dc56a0c00a7646159eef55c436f073c"
+      "sha256": "13db8bfa1fae16292d56793dbe2fa17799aa0e208983b543beacebb6ba888ac0"
     },
     {
       "file": "posts/understand-ai-07-attention-en.md",
@@ -1585,14 +1585,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-07-attention",
       "lang": "en",
-      "sha256": "7c9c7121b120bf01b85aa10e419e22a83db601aabb10075ee6b4f913619ce27c"
+      "sha256": "a547247e78caff254187d1491e1505b10792fb02005e24598374ab56b51fdf39"
     },
     {
       "file": "posts/understand-ai-07-attention.md",
       "slug": "understand-ai-07-attention",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "fa5e853abeb1ee482cef746c3c5941958bba3186c4b193a81965edabefc0c4f3"
+      "sha256": "4171eac7017893074da661363db4ac50a5bda7c4665df56b22bb9143d6e55a2b"
     },
     {
       "file": "posts/understand-ai-08-training-en.md",
@@ -1601,14 +1601,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-08-training",
       "lang": "en",
-      "sha256": "a42214aa33148062eb80eee7e340622de5390a1f0aa6f7be1c52c16de897c0b5"
+      "sha256": "54992709d21d47afce081ee10423427b3aa7f661d71d7fc91ec7e26e77c74122"
     },
     {
       "file": "posts/understand-ai-08-training.md",
       "slug": "understand-ai-08-training",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "5168478fe9653c8b14a2be27ba4c66be4236a9fa54c9e8ea7724b07bd542568e"
+      "sha256": "83ecd71f457eae4bbc94ef998c5273e67adc582e1d7b24b4277b62b92dbd7183"
     },
     {
       "file": "posts/understand-ai-09-reasoning-en.md",
@@ -1617,14 +1617,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-09-reasoning",
       "lang": "en",
-      "sha256": "097fe5acc864be44cf243348907f2bdf39b0766cee7e5d1be0e8edf0e02c28bc"
+      "sha256": "cce4fd33038522dd7d3142ba6a2827bce4da4cbdc9f9fd7a403e63169d60fed5"
     },
     {
       "file": "posts/understand-ai-09-reasoning.md",
       "slug": "understand-ai-09-reasoning",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1469388b1497c1985c102213728fdcbbc64b2eaeae38087ec8a5527a0d6d07c2"
+      "sha256": "f8a6f75a3c444512ae3e4b42c0d6102e078090fe67dacc3c876a44e7c0296f38"
     },
     {
       "file": "posts/understand-ai-10-conversation-en.md",
@@ -1633,14 +1633,14 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-10-conversation",
       "lang": "en",
-      "sha256": "f8879d951fc450d797d8adc3b861fffb4811accc43e955905ad65c2f1e15e20d"
+      "sha256": "d946f2b315e97526f96c00f4b8c1aaed33d3063409ac027a4afcb090cfa369ca"
     },
     {
       "file": "posts/understand-ai-10-conversation.md",
       "slug": "understand-ai-10-conversation",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "9a2fe8b4018e6efd8dd4117f43dee96fb6b441e7305d77be069991982a0db487"
+      "sha256": "39460cd2cda0dbf4fc2630ce4712f93f8d69d60aaa097cc15507fe30acb67a4e"
     },
     {
       "file": "posts/wifi-finder-vibe-coding-en.md",
@@ -1649,14 +1649,14 @@
       "legacy_paths": [],
       "translation_of": "wifi-finder-vibe-coding",
       "lang": "en",
-      "sha256": "2cc7b8227bac5bf453c89277dc4e855f701c91d25e5aaf3fa77cb075dec309d4"
+      "sha256": "23973f02199f842b4716f3b6707060f52d530bc8ceb900395ca66fd372c4b755"
     },
     {
       "file": "posts/wifi-finder-vibe-coding.md",
       "slug": "wifi-finder-vibe-coding",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "099d80a0f94959038fe1eac5de6b84c61b6259c9ff1e3e47b3fd97138be788fe"
+      "sha256": "e65708f843c01263302950c56fe1e1fccc8524210badea4dee0711a78cf6d60e"
     }
   ],
   "config": [
