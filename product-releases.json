@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T01:40:51.732Z",
-  "contentHash": "f885e368dac40e0f40e55e61ba2487236f0c217acffa8075d44e09e978498093",
+  "checkedAt": "2026-10-24T01:47:27.560Z",
+  "contentHash": "7668248440dab349d150daef99affc9f16a81323ea41f19753ad47ccbc531c16",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:40:51.732Z",
+      "checkedAt": "2026-10-24T01:47:27.560Z",
       "prerelease": false,
       "releaseNotesHash": "82e91d0641fc38a7828aa2b71b968ccd40c710af66a91fc97ca0f04d4d695cf6",
       "revision": "0747450d21702472b1a2e31ca01fad24be0cc2be105876100830ac9cc78ffe54"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:40:51.732Z",
+      "checkedAt": "2026-10-24T01:47:27.560Z",
       "prerelease": false,
       "releaseNotesHash": "65bf85bc7895a1e485b6453cc76888e8a5217b5aeccf8e812216ab9848eb3615",
       "revision": "c30eb5bccc054aa7475f549445815f78bcbb3e8d5d4d066b4a5252f445a78ec3"
@@ -191,26 +191,26 @@
       "fallbackDescription": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
       "action": "查看产品与下载",
       "description": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
-      "updateSummary": "普通请求不再主动弹系统密码框；密钥读取合并并发、失败退避，超时后不会继续创建授权队列；Mac 新增与迁移后的密钥集中到一个应用钥匙串条目。提供前台授权入口；旧独立条目首次迁移仍可能逐项询问，原条目保留，取消后停止。没有改用明文文件，也没有放宽其他应用权限。",
+      "updateSummary": "free 取消旧的固定换路次数和每路线四把凭据上限，在等待预算内尽量遍历本次合格免费候选；换路线时优先尚未尝试的平台；接通前总预算 5 分钟，单次尝试最多 60 秒；有效流式输出交付后，不再受这项换路预算截断。同一路线与凭据组合不重复派发，保留一次明确参数上限自愈重试。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T01:40:25Z",
-      "version": "1.0.2",
-      "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2",
+      "activityAt": "2026-10-24T01:43:31Z",
+      "version": "1.0.3",
+      "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.0.2",
+          "version": "1.0.3",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.2",
+          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3",
           "assets": [
             {
-              "name": "HyphenBox_1.0.2_universal.dmg",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.2/HyphenBox_1.0.2_universal.dmg",
-              "id": 670872250,
-              "size": 10623344,
-              "updatedAt": "2026-10-24T00:56:22Z",
-              "digest": "sha256:e14bbad8669957ad662f57e48c7eeb24b171093c23b90bc4f39cde940874346c"
+              "name": "HyphenBox_1.0.3_universal.dmg",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.3/HyphenBox_1.0.3_universal.dmg",
+              "id": 670963189,
+              "size": 10632428,
+              "updatedAt": "2026-10-24T01:43:30Z",
+              "digest": "sha256:3a3afa25dfb8901ead1d055813a9762540f4c54a1ed19ff824d02294477715fe"
             }
           ]
         },
@@ -271,10 +271,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:40:51.732Z",
+      "checkedAt": "2026-10-24T01:47:27.560Z",
       "prerelease": false,
-      "releaseNotesHash": "480b2fe0f0742452fed537e7cdd0cb070e3ec9c055242f4c719935e8cdb9fc99",
-      "revision": "e4a490a6959bdac791c8f3d3119d26b4e48e3d7c5e432bd1a69787a9e2f0b839"
+      "releaseNotesHash": "36332891a569c23f3f5a90a436fb5bdff91de5f15cc3c4b169124231f0acfba8",
+      "revision": "6faa69a9842222feb210c62005f43c01f6a4d27bdd5a6ce3194c046086118c63"
     },
     {
       "slug": "screenlex-watch-and-learn",
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:40:51.732Z",
+      "checkedAt": "2026-10-24T01:47:27.560Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T01:40:51.732Z",
+      "checkedAt": "2026-10-24T01:47:27.560Z",
       "prerelease": false,
       "releaseNotesHash": "88fe5ce8d0dd6b1143533eb3f82a5b27f450fb3e363a371ebee11e737416b63b",
       "revision": "19a46267559342511942bf0487c569a3e27ad0eae1e0e92ee149b9955ed93f1e"
