@@ -1,8 +1,99 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-23T23:36:05.781Z",
-  "contentHash": "55c0f6a08718934592780f3cfc74d755a2efb1c73820346c3fb97b1f9297326a",
+  "checkedAt": "2026-10-24T00:06:36.722Z",
+  "contentHash": "692c55055279fe5738dfb24d18b064ef974486272823fc02562a8407d1604111",
   "products": [
+    {
+      "slug": "deepseek-harness-mobile-remote",
+      "name": "黑粉助手 HyphenAssistant",
+      "label": "手机接续 AI 会话",
+      "badge": "我做的 · 预览版",
+      "facts": [
+        "本人配对",
+        "macOS / Windows / Linux",
+        "需电脑在线"
+      ],
+      "releaseRepo": "HackerChi-Hub/hyphen-assistant-releases",
+      "fallbackDescription": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
+      "action": "查看产品与下载",
+      "description": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
+      "updateSummary": "黑粉助手0.1.5精简侧栏底部：移除重复的“支持开发”和赞助提醒，首页保留明确的赞助入口。侧栏的本机保存提示、版本和官网链接通过统一间距与细分隔线整理层级。",
+      "updated": "2026-10-23",
+      "activityAt": "2026-10-23T23:52:27Z",
+      "version": "0.1.5",
+      "releaseUrl": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.5",
+      "source": "release",
+      "platforms": [
+        {
+          "platform": "macOS",
+          "version": "0.1.5",
+          "prerelease": false,
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.5",
+          "assets": [
+            {
+              "name": "HyphenAssistant-0.1.5-macos-arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.5/HyphenAssistant-0.1.5-macos-arm64.dmg",
+              "id": 670734218,
+              "size": 61704975,
+              "updatedAt": "2026-10-23T23:46:22Z",
+              "digest": "sha256:6a5484b41e01a49bffd7ab29e9afac895261aef22e895202e86f07819e691789"
+            }
+          ]
+        },
+        {
+          "platform": "Windows",
+          "version": "0.1.5",
+          "prerelease": false,
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.5",
+          "assets": [
+            {
+              "name": "HyphenAssistant-0.1.5-windows-x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.5/HyphenAssistant-0.1.5-windows-x64-setup.exe",
+              "id": 670746199,
+              "size": 257185276,
+              "updatedAt": "2026-10-23T23:52:21Z",
+              "digest": "sha256:465739294d9d9f7ed18947cf1ec93c4b2f9c9b4ba81dfb3b251f05560d10a019"
+            }
+          ]
+        },
+        {
+          "platform": "Linux",
+          "version": "0.1.5",
+          "prerelease": false,
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.5",
+          "assets": [
+            {
+              "name": "HyphenAssistant-0.1.5-linux-x64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.5/HyphenAssistant-0.1.5-linux-x64.AppImage",
+              "id": 670740146,
+              "size": 144017912,
+              "updatedAt": "2026-10-23T23:50:50Z",
+              "digest": "sha256:0b975c1f6f8fb1dc6a5b26915fb4f6105037915bd4fcdf799e31fe1746fa65d1"
+            },
+            {
+              "name": "HyphenAssistant-0.1.5-linux-x64.deb",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.5/HyphenAssistant-0.1.5-linux-x64.deb",
+              "id": 670740144,
+              "size": 71853126,
+              "updatedAt": "2026-10-23T23:50:24Z",
+              "digest": "sha256:de6556afc374b1d163ff668fee8cb58456fa58dcaf4e31cb39f6d59ada3e6923"
+            },
+            {
+              "name": "HyphenAssistant-0.1.5-linux-x64.rpm",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.5/HyphenAssistant-0.1.5-linux-x64.rpm",
+              "id": 670740128,
+              "size": 71865897,
+              "updatedAt": "2026-10-23T23:50:22Z",
+              "digest": "sha256:e1ce3be8b037f2b7fbab78318aa8fe176c7ee02c26afa8a18518a512adc67429"
+            }
+          ]
+        }
+      ],
+      "checkedAt": "2026-10-24T00:06:36.722Z",
+      "prerelease": false,
+      "releaseNotesHash": "64f6269748b7fce2c48bc13d7c146d9bcf7b1c8ecfb9d2c86b7ee8fab2fd4578",
+      "revision": "a8fcc7fb6b66443a6c8580b671d76594ae43fd4ff0265cb3b1631d9c34e9818c"
+    },
     {
       "slug": "localbrain-local-ai-box",
       "name": "方寸智匣 LocalBrain",
@@ -81,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:36:05.781Z",
+      "checkedAt": "2026-10-24T00:06:36.722Z",
       "prerelease": false,
       "releaseNotesHash": "7f8b70309b87d17bc9c9efed348cd5b1825d1e6bc34c361d6c2f57c09ebfb8f2",
       "revision": "fc7703cea0a201c0a36e272f88fe0dd5b39c6d9d60f9b1a0271ac987cc048545"
@@ -180,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:36:05.781Z",
+      "checkedAt": "2026-10-24T00:06:36.722Z",
       "prerelease": false,
       "releaseNotesHash": "38d8527764236d276a2434869f425789327cc74e03f914d54ce23855fae475a2",
       "revision": "ed1059d94eaf019791b6c81a26ff464c08cd51659db1f794a31d34d1261270fe"
@@ -279,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:36:05.781Z",
+      "checkedAt": "2026-10-24T00:06:36.722Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -362,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-23T23:36:05.781Z",
+      "checkedAt": "2026-10-24T00:06:36.722Z",
       "prerelease": false,
       "releaseNotesHash": "88fe5ce8d0dd6b1143533eb3f82a5b27f450fb3e363a371ebee11e737416b63b",
       "revision": "19a46267559342511942bf0487c569a3e27ad0eae1e0e92ee149b9955ed93f1e"

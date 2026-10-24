@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 23:36:26 GMT</lastBuildDate>
-    <pubDate>Fri, 23 Oct 2026 23:36:26 GMT</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2026 00:07:02 GMT</lastBuildDate>
+    <pubDate>Sat, 24 Oct 2026 00:07:02 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -24,6 +24,17 @@
     <category>网络安全</category>
     </item>
     <item>
+      <title>黑粉助手 HyphenAssistant：手机操作电脑Agent会话</title>
+      <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
+      <guid isPermaLink="true">https://hyphentech.top/deepseek-harness-mobile-remote/</guid>
+      <description>手机浏览器接续电脑上的 DeepSeek Harness 会话。三平台桌面预览版内置运行组件，支持临时通道、开放端口和阿里云动态域名；附下载入口、配对步骤与使用边界。</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>远程访问</category>
+    <category>自制软件</category>
+    </item>
+    <item>
       <title>腾讯 Hy-Nomas 开放权重：一张 RTX 4090 能跑怎样的交互式视频世界？</title>
       <link>https://hyphentech.top/2026-10-23-official-3a68097e4e1d/</link>
       <guid isPermaLink="true">https://hyphentech.top/2026-10-23-official-3a68097e4e1d/</guid>
@@ -32,16 +43,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>DeepSeek Harness 手机遥控工具：下载、安装与外网使用实测</title>
-      <link>https://hyphentech.top/deepseek-harness-mobile-remote/</link>
-      <guid isPermaLink="true">https://hyphentech.top/deepseek-harness-mobile-remote/</guid>
-      <description>电脑继续跑，手机接着看。下载、安装、配对、外网配置与实测结果，一篇讲清。</description>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>远程访问</category>
     </item>
     <item>
       <title>方寸智匣 2.0.7 能自己做安全测试了？本地大模型10分2秒挖出越权漏洞</title>
