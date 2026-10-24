@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T07:11:57.051Z",
-  "contentHash": "b2ec97e011460d7aa3fae72b48e225a53b96e9f830db2e3b90facd13a59eeb71",
+  "checkedAt": "2026-10-24T09:05:43.877Z",
+  "contentHash": "3cbdc537dfe3dcade108951f81ae18ec8cb77c7a81e321d3e81359df9a30c334",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -17,82 +17,82 @@
       "fallbackDescription": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
       "action": "查看产品与下载",
       "description": "用手机浏览器接着操作电脑上的 DeepSeek Harness 会话；需原服务、电脑和网络保持在线，模型费用沿用原配置。",
-      "updateSummary": "黑粉助手0.1.7支持阿里云、腾讯云DNSPod和Cloudflare动态域名解析，用户可在“动态域名＋开放端口”中选择自己的解析平台。 阿里云导入AccessKey ID/Secret，腾讯云导入SecretId/SecretKey，均支持CSV或JSON。Cloudflare支持API Token及可选区域ID，可从CSV、JSO…",
+      "updateSummary": "本版改进 DeepSeek Harness 配置挂载后的状态识别、连接检查和手机入口说明；提供临时链接、开放端口、动态域名三种连接方式。阿里云、腾讯云 DNSPod、Cloudflare 的解析设置和密钥文件导入详见完整教程。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T00:45:29Z",
-      "version": "0.1.7",
-      "releaseUrl": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.7",
+      "activityAt": "2026-10-24T08:56:19Z",
+      "version": "0.1.8",
+      "releaseUrl": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "0.1.7",
+          "version": "0.1.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.7",
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8",
           "assets": [
             {
-              "name": "HyphenAssistant-0.1.7-macos-arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.7/HyphenAssistant-0.1.7-macos-arm64.dmg",
-              "id": 670841992,
-              "size": 61713498,
-              "updatedAt": "2026-10-24T00:42:22Z",
-              "digest": "sha256:a6388e7eb58d6bf916b68bcae6ccadbea5c3e3f4386f5c7c5c3d329ba8b18181"
+              "name": "HyphenAssistant-0.1.8-macos-arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-macos-arm64.dmg",
+              "id": 671760566,
+              "size": 61724458,
+              "updatedAt": "2026-10-24T08:54:16Z",
+              "digest": "sha256:82064aa9c48fade21eb506a59e640aa4b03803b7850fee7a26744d76510c7016"
             }
           ]
         },
         {
           "platform": "Windows",
-          "version": "0.1.7",
+          "version": "0.1.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.7",
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8",
           "assets": [
             {
-              "name": "HyphenAssistant-0.1.7-windows-x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.7/HyphenAssistant-0.1.7-windows-x64-setup.exe",
-              "id": 670841995,
-              "size": 257190927,
-              "updatedAt": "2026-10-24T00:44:15Z",
-              "digest": "sha256:f425a5874ab44e5d85e7476b2920d0656a0f68f15ba479e53d6c0e145db53ed7"
+              "name": "HyphenAssistant-0.1.8-windows-x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-windows-x64-setup.exe",
+              "id": 671761852,
+              "size": 257191348,
+              "updatedAt": "2026-10-24T08:55:24Z",
+              "digest": "sha256:b1587abcea752d347eea9feea6386de05e5ffff8d8b46e65829953282838d812"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "0.1.7",
+          "version": "0.1.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.7",
+          "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/tag/v0.1.8",
           "assets": [
             {
-              "name": "HyphenAssistant-0.1.7-linux-x64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.7/HyphenAssistant-0.1.7-linux-x64.AppImage",
-              "id": 670842007,
-              "size": 144022008,
-              "updatedAt": "2026-10-24T00:42:41Z",
-              "digest": "sha256:da27b7e75f2b18e75f5e678f552a9d57dcc8a188304c2eb5f0119d551dff9227"
+              "name": "HyphenAssistant-0.1.8-linux-x64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.AppImage",
+              "id": 671760378,
+              "size": 143993336,
+              "updatedAt": "2026-10-24T08:55:29Z",
+              "digest": "sha256:ccf87894bf057db89428c4719e98ad7121bed79aafe8c99a64dc509c91288a73"
             },
             {
-              "name": "HyphenAssistant-0.1.7-linux-x64.deb",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.7/HyphenAssistant-0.1.7-linux-x64.deb",
-              "id": 670842066,
-              "size": 71857498,
-              "updatedAt": "2026-10-24T00:42:03Z",
-              "digest": "sha256:ec7bd50106af12b174ccecc888c0e259bcd05c89d2751f2f7235399898f4ff44"
+              "name": "HyphenAssistant-0.1.8-linux-x64.deb",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.deb",
+              "id": 671760377,
+              "size": 71864378,
+              "updatedAt": "2026-10-24T08:55:03Z",
+              "digest": "sha256:a67779095f737d09abb3a2b060033d61a9d62a55aed3cbdfd9e69a32a2b3bf2f"
             },
             {
-              "name": "HyphenAssistant-0.1.7-linux-x64.rpm",
-              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.7/HyphenAssistant-0.1.7-linux-x64.rpm",
-              "id": 670842152,
-              "size": 71871197,
-              "updatedAt": "2026-10-24T00:42:03Z",
-              "digest": "sha256:1aba53b2aab25fc9147d9cef1821d46779fbb2c2d3091b9c8aac80cf987a8b6a"
+              "name": "HyphenAssistant-0.1.8-linux-x64.rpm",
+              "url": "https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases/download/v0.1.8/HyphenAssistant-0.1.8-linux-x64.rpm",
+              "id": 671760438,
+              "size": 71879329,
+              "updatedAt": "2026-10-24T08:54:18Z",
+              "digest": "sha256:10b63c0c1e08e79985a3b109f66b7352bb43f17ac0ac97763d02854b0cbed3a0"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-24T07:11:57.051Z",
+      "checkedAt": "2026-10-24T09:05:43.877Z",
       "prerelease": false,
-      "releaseNotesHash": "82e91d0641fc38a7828aa2b71b968ccd40c710af66a91fc97ca0f04d4d695cf6",
-      "revision": "0747450d21702472b1a2e31ca01fad24be0cc2be105876100830ac9cc78ffe54"
+      "releaseNotesHash": "28310391e62a6ce23d43eacbedf399c670664ad560259f0e05ef1ace01da3c58",
+      "revision": "8c5e26bf181af946498288c2e649485a97ca2a1e9714e000feb43080ee7ac7f3"
     },
     {
       "slug": "localbrain-local-ai-box",
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T07:11:57.051Z",
+      "checkedAt": "2026-10-24T09:05:43.877Z",
       "prerelease": false,
       "releaseNotesHash": "aa0b9d9ecd3379be7006586d620905ca241a5828f602c0ba5836232e3f5996ac",
       "revision": "be97d298990d32373d48121b1012bc57a45e285504eb6c894abe2209416f8821"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T07:11:57.051Z",
+      "checkedAt": "2026-10-24T09:05:43.877Z",
       "prerelease": false,
       "releaseNotesHash": "482e76548363163209ecddde9d38dfca90a3487ad8c0e6b7143dab12446f27ea",
       "revision": "77fcf73d68a2f5d09687cef97bc2b917e2cd50437edf2e2ea753275b7d9d7434"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T07:11:57.051Z",
+      "checkedAt": "2026-10-24T09:05:43.877Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T07:11:57.051Z",
+      "checkedAt": "2026-10-24T09:05:43.877Z",
       "prerelease": false,
       "releaseNotesHash": "41ad38252f142b65b93f21674827f98e28c831f6f8102090fe1c6e917d197437",
       "revision": "b8dd7c581ae28d569cd9e3f3be5cc1c479c26112b4d7e3e2bdb07b9eb95d8934"
