@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T02:54:52.461Z",
-  "contentHash": "5d4de8263d2ce459e191599f7323dd9dec0cc18a9a9e9f8ba4fbead3786bbbb0",
+  "checkedAt": "2026-10-24T03:00:55.839Z",
+  "contentHash": "f22ec2b0274fac84dccb566bb82409d41840132ca649f5a0180512409c7c05f3",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:54:52.461Z",
+      "checkedAt": "2026-10-24T03:00:55.839Z",
       "prerelease": false,
       "releaseNotesHash": "82e91d0641fc38a7828aa2b71b968ccd40c710af66a91fc97ca0f04d4d695cf6",
       "revision": "0747450d21702472b1a2e31ca01fad24be0cc2be105876100830ac9cc78ffe54"
@@ -110,7 +110,7 @@
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "updateSummary": "恢复 Codex、Claude Code 的 MCP 工具接入，保留 DeepSeek Harness，不恢复 OpenCode。只添加工具，不更换客户端模型、提供方、其它 MCP 或项目设置。",
       "updated": "2026-10-24",
-      "activityAt": "2026-10-24T02:53:54Z",
+      "activityAt": "2026-10-24T03:00:54Z",
       "version": "2.1.3",
       "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.1.3",
       "source": "release",
@@ -172,10 +172,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:54:52.461Z",
+      "checkedAt": "2026-10-24T03:00:55.839Z",
       "prerelease": false,
       "releaseNotesHash": "b9bcced4130a56bb7afad05c9ef4d8ce4973f1153aff9064c7ece05f84a66146",
-      "revision": "5f16ee3ab8ec32962e7660b05c07f152fe047af03e551408c16cd6244b94acaa"
+      "revision": "441136a133b7641239bc989d4ecb08d6c93ac700479ab3863addf85cc0662b5e"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:54:52.461Z",
+      "checkedAt": "2026-10-24T03:00:55.839Z",
       "prerelease": false,
       "releaseNotesHash": "482e76548363163209ecddde9d38dfca90a3487ad8c0e6b7143dab12446f27ea",
       "revision": "77fcf73d68a2f5d09687cef97bc2b917e2cd50437edf2e2ea753275b7d9d7434"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:54:52.461Z",
+      "checkedAt": "2026-10-24T03:00:55.839Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-24T02:54:52.461Z",
+      "checkedAt": "2026-10-24T03:00:55.839Z",
       "prerelease": false,
       "releaseNotesHash": "41ad38252f142b65b93f21674827f98e28c831f6f8102090fe1c6e917d197437",
       "revision": "b8dd7c581ae28d569cd9e3f3be5cc1c479c26112b4d7e3e2bdb07b9eb95d8934"
