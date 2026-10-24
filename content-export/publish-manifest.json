@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "0664c90f17520e0aa461b8e88fa8c9693a1e33f30cbf62b04df98eb444bc3b51",
+  "content_sha256": "d076c19c7f4728fb0430514a93582369496b7eebcd3dc7641bd53c49bd14111b",
   "published_post_count": 206,
   "posts": [
     {
@@ -1128,7 +1128,7 @@
       "slug": "localbrain-security-howto",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "54258a02b39ba985fe5c76e40a18431fcfacf27eca1ae3d270e65b84bf2601a1"
+      "sha256": "75264c6a422920575d60d5aaaf1d2f653356a9b391aae514698d8f31c9a4514e"
     },
     {
       "file": "posts/localbrain-small-models-lowmem-en.md",
@@ -1224,7 +1224,7 @@
       "slug": "mac-windows-linux-ai-platforms",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "c9a68e2c65b42a988cedadb361ceec08f5254d8ab0be89d567829944b044025b"
+      "sha256": "a30ff8ea9b76399d5c5bd7439b58f423423e7849873042036791b8f986c07152"
     },
     {
       "file": "posts/minicpm5-2b-localbrain-en.md",
@@ -1256,7 +1256,7 @@
       "slug": "mlx-local-ai-test-m5pro",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "abe2780e71509d88c86e9c081e1da7a586f87fadf1829efb3e2e44653433ea05"
+      "sha256": "ba5bb93de93b3f3e1db737a4851a910a54e1f09b5373d3474a1344f0cd73fa0c"
     },
     {
       "file": "posts/movie-model-benchmark-en.md",
