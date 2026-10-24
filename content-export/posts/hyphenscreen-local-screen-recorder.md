@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.8 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.6.9 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-10-24
-summary: Mac1.6.8新增本地编排，来源证据、原理过程与角色讲解无需模型；文字、图片和节拍可改。附实际界面、下载与验证边界。Windows与Linux仍为1.6.6。
+summary: Mac1.6.9提供八类本地编排、两套配色和16个真实范例，无需模型即可生成可编辑动画；同一人物支持六阶段配图，窄侧栏排版修复。附完整静音合辑与实际界面。Windows与Linux仍为1.6.6。
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,28 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.6.9：先看成片，再改成自己的讲解
+
+本地编排扩成八类：来源证据、原理过程、角色讲解、前后对比、数据对比、重点清单、时间脉络、结构拆解。打开“制作动画 → 本地编排”，先播放当前类型的实际范例，再填本期文字、数据、图片和节拍，生成后仍能在时间线里改图层与关键帧。这部分使用本机固定框架，不需要请求大模型。
+
+![八类编排实际输出，数据为示例](/obsidian-assets/hyphenscreen-local-screen-recorder/local-explanation-eight-169.jpg)
+
+八类共用纸白信号与黑粉深色两套配色，每种组合都有12秒动态范例，共16个。下面是纸白信号八类的96秒完整静音合辑；它展示可复用的结构和动作，内容仍要按本期讲解修改。
+
+![八类本地编排完整静音合辑](/obsidian-assets/hyphenscreen-local-screen-recorder/local-composition-169.mp4)
+
+[单独打开八类动画完整静音合辑](/obsidian-assets/hyphenscreen-local-screen-recorder/local-composition-169.mp4)
+
+角色讲解改用同一人物的六张完整插画姿态，身份、服装和比例保持一致。统一讲解图作为默认，每个阶段也能单独选图；未设置的阶段沿用统一图，图片按原比例显示。“恢复沿用”只清除当前阶段的绑定。它采用完整图片切换，适合讲解中的观察、指向和回应，不是自由人物表演。
+
+![阶段配图与保存反馈，实际工作室](/obsidian-assets/hyphenscreen-local-screen-recorder/presenter-content-169.jpg)
+
+右侧窄面板现在按自身宽度排列阶段卡，通常为两列，文字不再挤成竖排，应用按钮也不悬浮遮住设置。原生输出补齐WebP解码，避免浏览器缩略图能看、导出却缺图。
+
+这轮16份1920×1080、30帧、12秒输出完成完整解码；人物六阶段的换图已逐处抽帧检查。独立工作室中，系统选图、第四阶段应用、磁盘回读和约6.3秒定位均通过，只改变选中阶段，撤销后原编排恢复。4650项测试通过、2项跳过。范例静音，没有主观声音听审；物理录制、所有跳转位置和其他系统没有在这轮重新验收。Windows与Linux的新版由作者另行构建，目前下载仍为1.6.6。
+
+Mac 1.6.9已完成镜像完整性、严格签名及609个文件和链接的一致性核对，并从正式安装目录的原生合成器重新导出阶段配图、数据对比两份1080p30样片，完整解码通过。安装版工作室已启动，但系统取屏工具随后连续错误，最后的界面点击与连续播放验收尚未完成；前述界面检查来自独立开发工作室。
 
 ## 1.6.8：改内容、调节拍，本地生成讲解动画
 
@@ -43,7 +65,7 @@ Mac更新到1.6.7。片段选择只保留一组，卡片同时显示缩略图、
 
 ## 1.6.6：Windows 与 Linux 补齐整片包装
 
-Windows、Linux 本地打包至 1.6.6，包含十套整片包装、四十种布局。修复生成时调用未附带的 libx264 的问题，改用随包 OpenH264，不需要额外安装编码器。Mac现提供1.6.8。
+Windows、Linux 本地打包至 1.6.6，包含十套整片包装、四十种布局。修复生成时调用未附带的 libx264 的问题，改用随包 OpenH264，不需要额外安装编码器。Mac现提供1.6.9。
 
 Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 秒、480 帧，画面与主题声音完整解码通过。Windows 包内 331 个包装资源与源码逐一核对；Ubuntu deb 安装及文件校验通过。此项不替代完整桌面录制或所有设备验证。
 
@@ -105,11 +127,11 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.6.8，Windows与Linux提供1.6.6。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.6.9，Windows与Linux提供1.6.6。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.6.8；Windows／Linux 1.6.6
+> 黑粉录屏 HyphenScreen · Mac 1.6.9；Windows／Linux 1.6.6
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-24
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -154,18 +176,18 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.6.8，DMG 共 416,144,191 字节，约 416 MB |
+| Mac 苹果芯片 | 1.6.9，DMG 共 425,503,925 字节，约 426 MB |
 | Windows 10/11 x64 | 1.6.6，安装程序 399,421,712 字节，未签名 |
 | Linux x86_64 | 1.6.6，AppImage 598,231,509 字节；deb 511,176,604 字节；pacman 472,292,440 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.8/HyphenScreen_1.6.8_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.9/HyphenScreen_1.6.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-Mac 安装包上传后已重新下载核对，SHA-256 为：
+Mac 安装包的 SHA-256：
 
 ```text
-afacc7b4ac426b1820e31e47c69f28a497816c6cf8f74b3eb7c23479e28b1808
+d8a60cc3138a248596d29917eff929acde82822f0daa26877b0374e00fd2697e
 ```
 
 Windows 与 Linux 1.6.6 的 SHA-256：
@@ -206,7 +228,7 @@ Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.6.8，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.6.9，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -353,7 +375,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.6.8，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.6.9，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断

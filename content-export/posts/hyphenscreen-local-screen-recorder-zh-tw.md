@@ -1,12 +1,12 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.8 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.6.9 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-24
-summary: Mac1.6.8新增本機編排，來源證據、原理過程與角色講解無需模型；文字、圖片和節拍可改。附實際介面、下載與驗證邊界。Windows與Linux維持1.6.6。
+summary: Mac1.6.9提供八類本機編排、兩套配色與16個真實範例，無需模型即可產生可編輯動畫；同一人物支援六階段配圖，窄面板排版修復。附完整靜音合輯與實際介面。Windows與Linux維持1.6.6。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,28 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.6.9：先看成片，再改成自己的講解
+
+本機編排擴為八類：來源證據、原理過程、角色講解、前後對比、數據對比、重點清單、時間脈絡、結構拆解。在「製作動畫 → 本機編排」先播放真實範例，再填本期文字、數據、圖片與節拍，產生後仍能編輯圖層與關鍵影格。固定框架在本機執行，無需請求大型模型。
+
+![八類編排實際輸出，數據為範例](/obsidian-assets/hyphenscreen-local-screen-recorder/local-explanation-eight-169.jpg)
+
+紙白信號與黑粉深色兩套配色共16個12秒動態範例。以下是紙白信號八類的96秒完整靜音合輯，展示可重用的結構及動作。
+
+![八類本機編排完整靜音合輯](/obsidian-assets/hyphenscreen-local-screen-recorder/local-composition-169.mp4)
+
+[單獨開啟完整靜音合輯](/obsidian-assets/hyphenscreen-local-screen-recorder/local-composition-169.mp4)
+
+角色使用同一人物的六張完整姿態插畫，身分、服裝和比例一致。統一講解圖作為預設，各階段可單獨配圖；未設定時沿用統一圖，保留原始縱橫比例。「恢復沿用」只清除目前階段的綁定。完整圖片切換適合觀察、指向與回應，不是自由人物表演。
+
+![階段配圖與儲存回饋，實際工作室](/obsidian-assets/hyphenscreen-local-screen-recorder/presenter-content-169.jpg)
+
+窄檢查器按自身寬度排列，通常顯示兩列階段卡，文字不擠成直排，套用按鈕不懸浮遮住設定。原生輸出補齊WebP解碼，避免瀏覽器可見、匯出缺圖。
+
+16份1920×1080、30幀、12秒輸出完整解碼，六階段已逐處抽幀。獨立工作室的系統選圖、第四階段套用、磁碟讀回及約6.3秒跳轉通過，只修改選中階段，復原後回到原編排。4650項測試通過、2項略過。範例靜音，未完成主觀聽審；實體錄製、所有跳轉位置與其他系統未在本輪重測。Windows與Linux新包另行建置，目前仍下載1.6.6。
+
+Mac 1.6.9已完成映像完整性、嚴格簽署及609個檔案與連結的一致性核對，並從正式安裝目錄的原生合成器重新匯出階段配圖、數據對比兩份1080p30樣片，完整解碼通過。安裝版工作室已啟動，但系統擷取畫面的工具隨後連續錯誤，最後的介面點擊與連續播放驗收尚未完成；前述介面檢查來自獨立開發工作室。
 
 ## 1.6.8：改內容、調節拍，本機產生講解動畫
 
@@ -45,7 +67,7 @@ Mac更新至1.6.7。片段選擇合為一組，卡片顯示縮圖、標題、版
 
 ## 1.6.6：Windows 與 Linux 補齊整片包裝
 
-Windows、Linux 本機建置至 1.6.6，包含十套整片包裝、四十種版面。修復產生時呼叫未附帶的 libx264 的問題，改用隨包 OpenH264，不需要額外安裝編碼器。Mac現提供1.6.8。
+Windows、Linux 本機建置至 1.6.6，包含十套整片包裝、四十種版面。修復產生時呼叫未附帶的 libx264 的問題，改用隨包 OpenH264，不需要額外安裝編碼器。Mac現提供1.6.9。
 
 Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒、480 幀，畫面與主題聲音完整解碼通過。Windows 包內 331 個包裝資源與原始碼逐一核對；Ubuntu deb 安裝及檔案校驗通過。此項不替代完整桌面錄製或所有裝置驗證。
 
@@ -91,7 +113,7 @@ Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒�
 
 開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
 
-包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.6.8，Windows與Linux提供1.6.6；大小及校驗值依下方發行資料為準。
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.6.9，Windows與Linux提供1.6.6；大小及校驗值依下方發行資料為準。
 
 正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
 
@@ -123,17 +145,17 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.6.8**，DMG **416,144,191 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Mac 蘋果晶片目前為 **1.6.9**，DMG **425,503,925 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
 - Windows 10/11 x64 目前為 **1.6.6**，安裝程式 **399,421,712 位元組**，未簽署。
 - Linux x86_64 目前為 **1.6.6**：AppImage **598,231,509 位元組**、deb **511,176,604 位元組**、pacman **472,292,440 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.8/HyphenScreen_1.6.8_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.9/HyphenScreen_1.6.9_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-Mac 安裝包上傳後已重新下載比對，SHA-256 為：
+Mac 安裝包的 SHA-256：
 
 ```text
-afacc7b4ac426b1820e31e47c69f28a497816c6cf8f74b3eb7c23479e28b1808
+d8a60cc3138a248596d29917eff929acde82822f0daa26877b0374e00fd2697e
 ```
 
 Windows 與 Linux 1.6.6 的 SHA-256：
@@ -179,7 +201,7 @@ Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 這是 1.0.2 時期的版本記錄。目前Mac為1.6.8，Windows與Linux為1.6.6；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
+> 這是 1.0.2 時期的版本記錄。目前Mac為1.6.9，Windows與Linux為1.6.6；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -326,7 +348,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **平台能力不同**：Mac為1.6.8，Windows與Linux為1.6.6；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
+- **平台能力不同**：Mac為1.6.9，Windows與Linux為1.6.6；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷

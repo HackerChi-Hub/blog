@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "7e4066911fedbdd92ffd1f1d48cadb8056314b79e5bdf20e73303c901fc0c9f9",
+  "content_sha256": "6cc5439389fae636440c7fd0ba7879689a11b6fc1bc7d9eeaf6978951db2cfb4",
   "published_post_count": 205,
   "posts": [
     {
@@ -821,7 +821,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "adfdb8119609144e88317efacfe162d126696799b5c23163bc1c2d0b2641a6b9"
+      "sha256": "605ba2f6c6e026fde4554cf20b354cca911aa289ff3b2e4768a7300184ab7f91"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -830,14 +830,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "822761e9100491ff36f1c25559c349739c0a3ebd970181ec0c71ba36867e221e"
+      "sha256": "13de3691fae5eed11451b468c786aa23ccb9a7f15c21b85d1280d49e2cde1148"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a6f10632ba1713cb4435dc979ac6f2cdafa900d3f48eab9d0a14bca312e881da"
+      "sha256": "fc450769e73f76f30de4c8b90faf7dd2936725822cdd9e257d4d7b9f27c3bd92"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
