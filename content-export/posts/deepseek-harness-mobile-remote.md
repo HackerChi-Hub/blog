@@ -11,7 +11,7 @@ tags:
   - AI
   - 远程访问
   - 自制软件
-cover: /obsidian-assets/deepseek-harness-mobile-remote/cover-959d9a32e5.jpg
+cover: /obsidian-assets/deepseek-harness-mobile-remote/cover-018-direct-fusion-858b6c023b.jpg
 legacy_paths:
   - /hyphen-assistant/
 article_type: article

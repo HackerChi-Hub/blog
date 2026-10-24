@@ -18,6 +18,7 @@ tags:
 cover: "/obsidian-assets/hyphenscreen-ai-animation-150-preview/cover-fb1e213b1a.jpg"
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

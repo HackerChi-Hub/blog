@@ -4,7 +4,6 @@ slug: deepseek-harness-mobile-remote-en
 status: published
 lang: en
 translation_of: deepseek-harness-mobile-remote
-article_type: "article"
 translation_source: machine
 source_sha256: 88dc6101741b8b15
 date: 2026-10-23
@@ -19,6 +18,7 @@ tags:
 cover: "/obsidian-assets/deepseek-harness-mobile-remote/cover-959d9a32e5.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

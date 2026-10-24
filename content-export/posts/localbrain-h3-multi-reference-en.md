@@ -20,6 +20,7 @@ tags:
 cover: "/obsidian-assets/localbrain-h3-multi-reference/cover-ee30fcef58.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation
