@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-24
-summary: 本機模型、語音、圖像、影片與工具集中管理。Mac 2.1.3 恢復 Codex、Claude Code 的 MCP 一鍵接入，保留 DeepSeek Harness，僅新增工具、不變更模型；Codex 實際呼叫通過，Claude Code 本輪未做實際呼叫驗收。Windows/Linux 保留 2.1.2。
+summary: Mac 2.1.3 已發布；Windows/Linux 2.1.3 候選包已建置並本機安裝驗收，公開下載暫保留2.1.2。記錄DSH 8K超窗、2B純文字及圖片/工具待驗收邊界。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,19 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+Windows/Linux 2.1.3 候選包已於本機備妥：Windows修復版已安裝；Linux Debian、AppImage於Ubuntu22.04 WSL2獨立建置，兩包資源、DSH初始化、20秒啟動及53條DSH測試通過，Debian已安裝，三個安裝包更新簽章已驗證。Linux裸機GPU、完整DSH圖片及工具任務尚未驗收。原始碼CI因帳戶限制未啟動，本批公開下載更新仍待明確確認；目前公開Windows/Linux連結保留2.1.2。
+
+
+## Windows 本機修復與 DSH 接入邊界（2026-10-24）
+
+接入頁頂部已補回「一鍵恢復接入」，可集中撤銷 Harness 完整接入及 Codex、Claude Code 的受管 MCP；各用戶端分別回報鎖定、衝突及無恢復點，保留原有設定。Windows 2.1.3 修復包已於本機安裝，公開下載狀態以下方分平台下載為準。Linux 新包獨立建置及驗收，不沿用 Windows 結果。
+
+使用者已確認 **Qwen3.8-2B-Distill Q4_K_M 在 DSH 的基本文字使用可用**。本機服務實際回報262144 token視窗，與匯出設定一致；不代表已驗證填滿後的速度、記憶體及長文品質，也不等於工具呼叫、多輪任務全部通過。目前2B端點不支援看圖；圖片理解、MCP圖片顯示與視覺模型接入須分別驗收。
+
+**PolyStrata 35B 的完整 DSH 桌面請求在8K視窗仍會超限。** 截圖顯示系統提示約1.5K、工具定義約7.4K，兩項已超過8K，另一次請求輸入12728 token。只壓縮對話或降低輸出上限不足以解決固定開銷；需要按任務精簡工具，或另測較大視窗。這是上下文預算問題，不能據此判定顯示記憶體不足。先前介面卡短請求通過，只證明連線與模型路由，並非完整桌面代理驗收。
+
+[待解問題與驗收邊界](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/KNOWN-ISSUES-DSH-LOCAL-MODELS.md)。GitHub 原始碼 CI 仍受帳戶限制，本機檢查不冒稱線上通過。
 
 ## Mac 2.1.3：讓 Codex、Claude Code 使用本機工具
 

@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-24
-summary: Local models, media and tools in one workbench. Mac 2.1.3 restores one-click Codex and Claude Code MCP integration alongside DeepSeek Harness, without changing client models. A real Codex call passed; Claude Code model-call acceptance was not completed. Windows/Linux remain on 2.1.2.
+summary: Mac 2.1.3 is published. Windows/Linux 2.1.3 candidates are built and installed locally; public links retain 2.1.2. DSH 8K overflow and pending image/tool acceptance are documented; the current 2B endpoint is text-only.
 categories:
   - Resources
 tags:
@@ -15,6 +15,19 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+Windows/Linux 2.1.3 candidates are ready locally: Windows is installed; Linux Debian and AppImage were built separately under Ubuntu 22.04 WSL2. Both Linux packages passed resource checks, packaged DSH initialization, 20-second startup and 53 DSH tests; Debian is installed, and all three updater signatures were verified. Bare-metal Linux GPU inference and full DSH image/tool tasks remain unverified. Source CI did not start due account limits; current-batch public package publication still requires confirmation. Public Windows/Linux links retain 2.1.2.
+
+
+## Windows local fixes and DSH integration limits (2026-10-24)
+
+The integration page again has a top-level one-click restore for full Harness integration and managed Codex/Claude Code MCP entries. Each client reports locks, conflicts and missing restore points separately while retaining existing settings. The Windows 2.1.3 fix is installed locally; public download versions are shown in the platform download section. Linux packages are built and verified separately.
+
+The user has confirmed **basic DSH text usage with Qwen3.8-2B-Distill Q4_K_M**. The live service reports a 262144-token window matching the exported configuration. Full-window speed, memory consumption and quality have not been tested, nor does this establish complete tool or multi-turn task compatibility. The current 2B endpoint has no vision. Image understanding, MCP image rendering and visual-model integration require separate acceptance.
+
+**The full DSH desktop agent still overflows PolyStrata 35B's 8K window.** Screenshots show about 1.5K system-prompt tokens plus 7.4K tool-definition tokens; another request had 12728 input tokens. Compressing history or reducing output alone cannot fix an oversized fixed prefix. Reduce task-specific tool overhead or separately test a larger window. Context occupancy does not establish GPU memory exhaustion. The previous short adapter request proved connectivity and routing, not full desktop-agent compatibility.
+
+[Known issues and acceptance scope](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/KNOWN-ISSUES-DSH-LOCAL-MODELS.md). Source GitHub CI remains blocked by account limits; local checks are not represented as online CI success.
 
 ## Mac 2.1.3: connect Codex and Claude Code to local tools
 
