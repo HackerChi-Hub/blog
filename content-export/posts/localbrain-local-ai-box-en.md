@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-25
-summary: Mac 2.1.4 candidate adds one-click setup for missing runtimes, tools and offline data, hides bundled resources, limits removal to installed managed components and resumes pinned archives. The Mac 2.1.4 package remains unpublished; public downloads stay on 2.1.3.
+summary: Mac 2.1.5 is released with prerequisite setup, container startup, existing-environment reuse and resumable downloads. Native UI checks passed; Windows/Linux remain 2.1.3.
 categories:
   - Resources
 tags:
@@ -15,6 +15,33 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.5: prepare prerequisites and container services together
+
+Mac 2.1.5 is publicly released following packaging, installation and targeted native-interface checks. Windows and Linux retain their published 2.1.3 packages, with new builds handled separately by the author.
+
+Open Settings → Runtime and diagnostics → Install missing components, review the scope and confirm. Missing package managers, build tools and container services are prepared before dependent environments. A failure stops subsequent components; retry fills what is still missing and skips ready items. Containers count as ready only after a successful connection; installed but offline services offer a start action.
+
+![Installed 2.1.5 runtime management](/obsidian-assets/localbrain-local-ai-box/v215-runtime-overview.png)
+
+Existing local Docker Desktop or Colima services are reused, preserving the default connection, VM resources and running containers. Shared system components have no removal control; Python, FFmpeg, engines and tools retain separate managed environments. On Macs without Homebrew, the app downloads and verifies the official package before handing it to the system installer. Licensing, administrator approval and restarts still require user action.
+
+![Shared system prerequisites retain existing versions](/obsidian-assets/localbrain-local-ai-box/v215-system-services.png)
+
+Downloads can pause with partial files retained and resume explicitly. Extraction, pip and container steps finish the current component before later steps pause. Controls distinguish downloading, resuming and installing a complete cached archive; removal appears only for confirmed installed managed components and cleanup only when cache exists. Built-in document/web tools and the Harness core update with the app without separate maintenance rows.
+
+![Filtering, batch selection and conditional controls](/obsidian-assets/localbrain-local-ai-box/v215-filter-selection.png)
+
+Native checks covered five component groups, zero missing items, no removal for the three shared dependencies, filtering, selection, installation-scope confirmation and cancellation. Cancellation did not start installation. The build, disk image, updater archive and installed application matched across 12,995 files and links; application and updater signatures passed. Existing-environment reuse and official-installer download/signature/offline-cache checks passed. First-time setup on a Mac without Homebrew and native Windows/Linux system installation remain untested. Existing environments were not removed to simulate a new machine; no models were downloaded or containers stopped.
+
+![Review installation scope before execution](/obsidian-assets/localbrain-local-ai-box/v215-install-confirmation.png)
+
+The Mac app retains local signing and is not Apple-notarized. The GitHub source documentation job did not start because of account billing/spending limits; the author explicitly approved a Mac 2.1.5 release exception. Local checks are not a remote CI pass. See [verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.5-MAC.md) and [prerequisite setup](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/SYSTEM_PREREQUISITES_2.1.5.md).
+
+Mac 2.1.5 DMG SHA-256：`35323326f50b065abc1e9c089b44b5cc9fe6cdf07625472452e1a6470175f407`。
+
+[Download Mac 2.1.5 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.5/LocalBrain_2.1.5_aarch64.dmg)
+
 
 ## Mac 2.1.4 candidate: fill missing runtimes in one click
 

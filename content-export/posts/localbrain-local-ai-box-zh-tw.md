@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-25
-summary: Mac 2.1.4 候選新增一鍵補齊環境、工具與離線資料，內建資源不再列入維護清單；僅已安裝受管元件顯示解除安裝，固定封存可續傳。Mac 2.1.4 安裝包仍待公開發布，正式下載為 2.1.3。
+summary: Mac 2.1.5 已發布：統一準備系統相依項目與容器服務，保留既有環境，下載支援暫停續傳；安裝版原生介面驗收通過，Windows/Linux 保留 2.1.3。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,33 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.5：統一準備新使用者相依環境與容器服務
+
+Mac 2.1.5 已正式發布，完成封裝、安裝及本輪原生介面驗收；Windows/Linux 保留各自已發布的 2.1.3，由作者另行封裝。
+
+新使用者打開「設定 → 執行環境與診斷」，按「一鍵安裝缺少元件」，核對清單再開始。程式先準備缺少的系統套件管理器、建置工具與容器服務，再準備相依環境。一項失敗就停止後續，修正後重新補齊；已就緒項目會略過。容器連線成功才標記就緒，已安裝但離線時提供啟動入口。
+
+![2.1.5 安裝版執行環境管理](/obsidian-assets/localbrain-local-ai-box/v215-runtime-overview.png)
+
+優先重用既有本機 Docker Desktop 或 Colima，保留預設連線、虛擬機資源與現有容器。系統共用元件不提供解除安裝；Python、FFmpeg、模型引擎及工具仍使用各自受管環境。Mac 缺少 Homebrew 時下載校驗官方套件，再交給系統安裝程式；首次條款、管理員授權及重新啟動仍需使用者確認。
+
+![系統共用相依項目保留原版本](/obsidian-assets/localbrain-local-ai-box/v215-system-services.png)
+
+下載可暫停並保留分片，恢復後手動繼續；解壓縮、pip 或容器步驟完成目前元件後才暫停後續。無快取顯示下載、有分片顯示續傳、完整封存顯示使用快取安裝；僅確認已安裝的受管元件提供移除，有快取才顯示清理。內建文件、網頁工具與 Harness 核心隨軟體更新，不再個別列出。
+
+![篩選、批次選取與條件按鈕](/obsidian-assets/localbrain-local-ai-box/v215-filter-selection.png)
+
+本輪安裝版核對五類元件、缺少項 0、三項系統依賴無移除按鈕、篩選、批次選取、安裝範圍確認與取消；取消後未執行安裝。建置、映像、更新封存與安裝應用程式的 12,995 項檔案及連結一致，應用與更新簽章通過；既有環境重用、官方套件下載/簽章/快取重用通過。無 Homebrew 全新 Mac、Windows/Linux 首次系統安裝尚待實裝，未移除既有環境模擬新機，亦未下載模型或停止容器。
+
+![確認安裝範圍，取消不執行](/obsidian-assets/localbrain-local-ai-box/v215-install-confirmation.png)
+
+Mac 沿用本機簽章，未 Apple 公證。GitHub 原始碼說明檢查因帳戶付款／支出限制未啟動，作者已明確批准本次 Mac 2.1.5 例外發布；本機通過不冒稱遠端 CI 通過。詳見[本輪驗收](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.5-MAC.md)及[新使用者相依步驟](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/SYSTEM_PREREQUISITES_2.1.5.md)。
+
+本次 Mac 2.1.5 DMG SHA-256：`35323326f50b065abc1e9c089b44b5cc9fe6cdf07625472452e1a6470175f407`。
+
+[下載 Mac 2.1.5 安裝包（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.5/LocalBrain_2.1.5_aarch64.dmg)
+
 
 ## Mac 2.1.4 候選：一鍵補齊缺少環境
 
