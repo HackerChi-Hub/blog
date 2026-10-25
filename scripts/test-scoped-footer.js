@@ -10,11 +10,16 @@ const root = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-footer-scope-'));
 try {
   fs.mkdirSync(path.join(root, 'posts'));
   fs.mkdirSync(path.join(root, 'templates'));
+  const identityPath = path.join(root, 'identity.json');
+  fs.writeFileSync(identityPath, JSON.stringify({
+    products: [{ id: 'fixture', name: '测试工具', url: 'https://example.com/releases', public: true }],
+    cta_rules: { fixed_product_order: ['fixture'] },
+  }));
   fs.writeFileSync(path.join(root, 'templates', '博客文章.md'), '# 模板\n');
   const post = '---\nstatus: published\n---\n\n# 正文\n';
   for (const slug of ['selected', 'untouched']) fs.writeFileSync(path.join(root, 'posts', slug + '.md'), post);
   const run = (slugs) => spawnSync(process.execPath, [script, '--content-dir', root], {
-    encoding: 'utf8', env: { ...process.env, BLOG_PUBLISH_SLUGS: slugs },
+    encoding: 'utf8', env: { ...process.env, HFKJ_IDENTITY_PATH: identityPath, BLOG_PUBLISH_SLUGS: slugs },
   });
   let result = run('selected');
   assert.strictEqual(result.status, 0, result.stderr);
