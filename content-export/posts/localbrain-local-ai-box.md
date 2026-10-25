@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-10-25
-summary: Mac 2.1.5 已发布：统一准备系统依赖与容器服务，保留已有环境，下载支持暂停续传；安装版原生界面验收通过，Windows/Linux 保留 2.1.3。
+summary: Mac 2.1.6 已发布：Harness 0.2.1-rc.3 适配，修复重复安装与卸载依赖提示，完成真实工具调用及中文压缩检查；Windows/Linux 保留 2.1.3。
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,34 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.6：更新 Harness 内核，修正重复安装和卸载提示
+
+Mac 2.1.6 已正式发布并完成本机安装；Windows/Linux 保留已发布的 2.1.3，由作者另行打包。内嵌 DSH 从 0.2.0-rc.2 适配到官方当前候选版 **0.2.1-rc.3**，依赖与锁文件精确固定。它随方寸智匣更新，不修改独立 Harness 客户端、账户或原来的模型配置。
+
+这次修复了“已经全部安装，单独勾选后却还能安装”的矛盾。在“设置 → 运行环境与诊断”，已就绪普通组件不再有单项安装入口，勾选后也不会启用批量安装。确实缺少的组件仍可一键补齐；离线数据库保留明确的“更新并校验”。
+
+![安装版：已安装项不会启用安装](/obsidian-assets/localbrain-local-ai-box/v216-installed-selection.png)
+
+卸载也会立即交代原因。只选 Python 而没有选择依赖它的环境时，系统确认框会列出全部未选依赖，本轮实测显示四项；程序不擅自替你勾选，更不会直接删除。Docker 等系统程序继续先检测本地：已有环境复用，离线时提供启动，缺少才准备安装。系统共享组件保留原版本，不提供卸载。
+
+![安装版卸载依赖提示](/obsidian-assets/localbrain-local-ai-box/v216-uninstall-blocker.png)
+
+内核更新遇到的实际兼容差异是技能插件新增了工作目录服务。适配后只传递宿主已选的目录身份，工具调用仍回到方寸智匣的授权执行器。技能按需读取、完全关闭、中文增量摘要和旧会话恢复继续保留。
+
+安装版使用已有 Splash 模型完成两轮、一次只读安全能力查询，实际读回 phase=2、dockerInstalled=true，没有扫描目标。随后点击“立即压缩”，持久日志记录了精简中文摘要、可信用户原文与真实回执，原始日志保留。另用旧版生成的会话升级恢复，验证工具只执行一次、不完整尾记录可以恢复；53 项内核回归在随包 Node 上通过，1632 项 TypeScript 与 14 项适配器测试通过，另有 2 项跳过。
+
+![安装版：工具调用与上下文压缩](/obsidian-assets/localbrain-local-ai-box/v216-compaction-final.png)
+
+构建包、DMG、更新归档和安装应用的 13,984 个文件、权限与链接一致，应用及更新包签名通过，四处正式配置校验值未变。本轮没有下载模型，也没有卸载环境模拟新机。原生按钮、实际工具结果与压缩终态均已读回；临时验收会话和原始副本已移出正式资料库，证据只留本地。Mac 仍是本地签名、未 Apple 公证；全新 Mac、Windows/Linux 和真实 HTB 不属于本轮实测。
+
+![系统共享服务保留已有版本](/obsidian-assets/localbrain-local-ai-box/v216-system-services.png)
+
+源码 GitHub 说明检查因账户付款／支出限制未启动；作者已于 2026-10-25 明确批准本次 Mac 2.1.6 例外发布。本地检查通过，不冒称远端 CI 通过。
+
+Mac 2.1.6 DMG SHA-256：`5a52f1d0c240e3957d6b62a634267289d3e4d150309f0aa332a026c7466cb776`。
+
+[下载 Mac 2.1.6 安装包（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.6/LocalBrain_2.1.6_aarch64.dmg) · [验收记录](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.6-MAC.md)
 
 ## Mac 2.1.5：新用户依赖与容器服务统一准备
 

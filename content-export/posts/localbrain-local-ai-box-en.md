@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-25
-summary: Mac 2.1.5 is released with prerequisite setup, container startup, existing-environment reuse and resumable downloads. Native UI checks passed; Windows/Linux remain 2.1.3.
+summary: "Mac 2.1.6 is released: Harness 0.2.1-rc.3, redundant-install and removal-feedback fixes, actual tools and Chinese compaction checked. Windows/Linux remain 2.1.3."
 categories:
   - Resources
 tags:
@@ -15,6 +15,34 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.1.6: updated Harness core and clearer runtime maintenance
+
+Mac 2.1.6 is publicly released and installed. Windows/Linux retain published 2.1.3 builds and will be packaged separately by the author. The embedded DSH SDK moves from 0.2.0-rc.2 to the current official prerelease **0.2.1-rc.3**, with exact dependencies and a lockfile. It updates with LocalBrain without changing the standalone Harness client, accounts or existing model configuration.
+
+Ready ordinary components no longer offer an individual install action in Settings → Runtime and diagnostics. Selecting them does not enable batch installation. Missing components can still be prepared together, while offline databases retain explicit update-and-verify actions.
+
+![Installed selection does not enable installation](/obsidian-assets/localbrain-local-ai-box/v216-installed-selection.png)
+
+Dependency-blocked Python removal now immediately shows a native explanation listing every unselected dependent; this installed check listed four. The app neither selects extra components nor deletes them automatically. Shared Docker services are detected locally, reused when available, started when offline and installed only when missing. Shared system components retain their existing versions and have no removal action.
+
+![Native dependency-blocked removal](/obsidian-assets/localbrain-local-ai-box/v216-uninstall-blocker.png)
+
+The updated skill plugin introduced a working-directory service dependency. The adapter supplies only the host-owned directory identity; tools still return to LocalBrain’s authorized executor. On-demand skills, full opt-out, incremental Chinese summaries and old-session recovery remain available.
+
+The installed app used an existing Splash model for two rounds and one actual read-only security-capability query, returning phase=2 and dockerInstalled=true without scanning a target. Clicking Compact now produced a durable Chinese summary containing trusted user originals and actual receipts while preserving original records. A separate old-SDK session upgrade verified exactly-once tool execution and incomplete-tail recovery. All 53 core tests passed on the bundled Node runtime; 1632 TypeScript and 14 adapter tests passed, with 2 additional tests skipped.
+
+![Installed tool call and context compaction](/obsidian-assets/localbrain-local-ai-box/v216-compaction-final.png)
+
+All 13,984 files, permissions and links matched across the build, DMG, updater archive and installed app; application/updater signatures passed and four existing configuration hashes remained unchanged. No models were downloaded and no environments were removed to simulate a new machine. Native button, actual tool-result and compaction terminal-state readback passed. Temporary verification sessions and originals were removed from the regular stores, with evidence retained locally. The Mac app remains locally signed and not Apple-notarized. First-time Mac setup, Windows/Linux and real HTB are outside this round.
+
+![Existing shared system services retained](/obsidian-assets/localbrain-local-ai-box/v216-system-services.png)
+
+The GitHub source documentation job did not start because of account billing/spending restrictions. On 2026-10-25 the author explicitly authorized a Mac 2.1.6 exception based on local checks and the stated verification limits; this is not a remote CI pass.
+
+Mac 2.1.6 DMG SHA-256:`5a52f1d0c240e3957d6b62a634267289d3e4d150309f0aa332a026c7466cb776`.
+
+[Download Mac 2.1.6 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.6/LocalBrain_2.1.6_aarch64.dmg) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.6-MAC.md)
 
 ## Mac 2.1.5: prepare prerequisites and container services together
 
