@@ -285,6 +285,8 @@ props 与改造前逐字段一致——改动后用基线快照比对过，可�
 
 ## 文章底部赞助卡片
 
+局部更新已确认文章时，可设置 `BLOG_PUBLISH_SLUGS` 为逗号分隔的完整 slug，页尾刷新只处理这些已发布文章，并保留其他文章与模板。不存在、未发布或含路径字符的 slug 会拒绝执行。默认不设置时仍刷新全库；配合独立的 `BLOG_CONTENT_REPO` 和 `BLOG_CONTENT_DIR` 使用，发布前核对实际差异，避免夹带其他未完成稿件。已有人工译文可保留，本次不需要的全库自动翻译应从进程环境移除翻译凭据。
+
 组件 `components/SponsorCard.js` + `styles/sponsor.css`，二维码在
 `public/images/site/sponsor-wechat.png`。排在「分享」之后、「相关文章」之前——
 后者是引导离开的入口，过了它注意力就转移了。

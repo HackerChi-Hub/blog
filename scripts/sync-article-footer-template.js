@@ -19,6 +19,7 @@ function parseArgs(argv) {
   const args = {
     identity: process.env.HFKJ_IDENTITY_PATH || defaultIdentity,
     contentDir: process.env.BLOG_CONTENT_DIR || defaultContentDir,
+    slugs: process.env.BLOG_PUBLISH_SLUGS || '',
   };
   for (let index = 0; index < argv.length; index += 2) {
     const option = argv[index];
@@ -26,6 +27,7 @@ function parseArgs(argv) {
     if (!value) throw new Error(`${option} 缺少值`);
     if (option === '--identity') args.identity = value;
     else if (option === '--content-dir') args.contentDir = value;
+    else if (option === '--slugs') args.slugs = value;
     else throw new Error(`未知参数：${option}`);
   }
   return args;
@@ -156,12 +158,13 @@ function stripLegacyFooter(source, productNames) {
   return next;
 }
 
-function syncPublishedPosts(contentDir, renderFor, productNames) {
+function syncPublishedPosts(contentDir, renderFor, productNames, slugs = null) {
   const postsDir = path.resolve(contentDir, 'posts');
   if (!fs.existsSync(postsDir)) return 0;
   let changed = 0;
   for (const name of fs.readdirSync(postsDir)) {
     if (!/\.md(?:own)?$/i.test(name) || /\.(?:bak|backup)\.md(?:own)?$/i.test(name)) continue;
+    if (slugs && !slugs.has(name.replace(/\.md(?:own)?$/i, ''))) continue;
     const postPath = path.join(postsDir, name);
     if (!fs.statSync(postPath).isFile()) continue;
     const source = fs.readFileSync(postPath, 'utf8');
@@ -185,6 +188,19 @@ function syncPublishedPosts(contentDir, renderFor, productNames) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  const selected = args.slugs ? args.slugs.split(',').map((slug) => slug.trim()) : null;
+  if (selected && selected.some((slug) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))) {
+    throw new Error('文章范围必须是逗号分隔的完整 slug');
+  }
+  const slugs = selected ? new Set(selected) : null;
+  if (slugs) {
+    for (const slug of slugs) {
+      const file = path.resolve(args.contentDir, 'posts', `${slug}.md`);
+      if (!fs.existsSync(file) || !/^status:\s*published\s*$/m.test(fs.readFileSync(file, 'utf8'))) {
+        throw new Error(`限定文章不存在或尚未发布：${slug}`);
+      }
+    }
+  }
   const identity = JSON.parse(fs.readFileSync(path.resolve(args.identity), 'utf8'));
   const templatePath = path.resolve(args.contentDir, 'templates', '博客文章.md');
   const source = fs.readFileSync(templatePath, 'utf8');
@@ -195,7 +211,7 @@ function main() {
   } else {
     next = `${source.trimEnd()}\n\n${replacement}\n`;
   }
-  if (next !== source) {
+  if (!slugs && next !== source) {
     fs.writeFileSync(templatePath, next, 'utf8');
     console.log(`✅ 已从统一身份名录更新 Obsidian 文章尾部模板：${templatePath}`);
   } else {
@@ -208,7 +224,7 @@ function main() {
     if (!rendered.has(lang)) rendered.set(lang, renderFooter(identity, lang));
     return rendered.get(lang);
   };
-  const changedPosts = syncPublishedPosts(args.contentDir, renderFor, productNames);
+  const changedPosts = syncPublishedPosts(args.contentDir, renderFor, productNames, slugs);
   console.log(`✅ 已刷新 ${changedPosts} 篇已发布 Obsidian 文章的固定尾部`);
 }
 
