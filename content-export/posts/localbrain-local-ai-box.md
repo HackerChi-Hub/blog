@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-10-25
-summary: Mac 2.1.6 已发布：Harness 0.2.1-rc.3 适配，修复重复安装与卸载依赖提示，完成真实工具调用及中文压缩检查；Windows/Linux 保留 2.1.3。
+summary: Windows/Linux 2.1.7 修复 Windows 图像环境安装成功却显示待修复的问题；已有环境保留，Mac 维持 2.1.6。真实出图及外部 Harness 长任务边界继续记录。
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,22 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.1.7：装好了，就别再提示重装
+
+图像生成环境已经显示“操作已完成”，回到列表却还是“部分安装 · 待修复”，再次一键安装又回到同一个位置。这次定位到的是 Windows 状态检测：程序只找 Linux/macOS 的 lib/python*/site-packages，漏了 Windows 的 Lib/site-packages。
+
+本机已有 Torch、Diffusers、Torchvision 及 Z-Image、Qwen-Image-2.1 两个流水线均可导入，CUDA 可用。新版补上 Windows 路径，保留 Linux/macOS 识别方式。安装包的原生环境页面已确认显示“已安装”，不再提供重复安装入口；不会因为这个误报重新下载环境，也不升级模型、CUDA 或显卡驱动。
+
+Windows 与 WSL2 Ubuntu22.04 的 Debian 已安装为 2.1.7；Linux AppImage 同步提供。Windows Rust 428 项通过、34 项忽略，TypeScript 1632 项通过、2 项跳过，适配器 14 项通过；Windows/Linux 随包 Harness 各 53 项通过。Linux 两包完成资源和 Xvfb 启动检查，保留 Unix 目录布局回归。Mac 继续使用已发布的 2.1.6。
+
+导入成功只证明环境可以加载，真实出图尚未验收；Linux WSL2 结果也不代表裸机 GPU 推理通过。独立 Harness 桌面向 PolyStrata 8K 窗口发送过长提示的既有问题仍未解决。本批源码 CI 受账户付款/额度限制，发布状态和例外批准范围见验收记录。本次没有重跑完整 Python 或原 12 题模型评测，不借用旧版结果充当本批测试。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_amd64.AppImage)
+
+[Verification / 验收记录](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.7-WIN-LINUX.md)
+
+下方各版本段落和截图保留当时的记录；当前下载以本节及 GitHub 分平台下载表为准。
 
 ## Mac 2.1.6：更新 Harness 内核，修正重复安装和卸载提示
 

@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-25
-summary: "Mac 2.1.6 is released: Harness 0.2.1-rc.3, redundant-install and removal-feedback fixes, actual tools and Chinese compaction checked. Windows/Linux remain 2.1.3."
+summary: Windows/Linux 2.1.7 fixes false partially-installed image runtime status on Windows while preserving existing environments. Mac retains 2.1.6; actual image generation and standalone Harness limits remain documented.
 categories:
   - Resources
 tags:
@@ -15,6 +15,22 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.1.7: stop asking to reinstall a working image runtime
+
+The image runtime reported a successful installation but still appeared partially installed. Detection searched Linux/macOS lib/python*/site-packages and missed Windows Lib/site-packages.
+
+Existing Torch, Diffusers, Torchvision, Z-Image and Qwen-Image-2.1 pipelines import successfully and CUDA is available. The new native Windows package recognizes the existing environment as installed and offers no reinstall action. Unix layouts remain supported. The fix does not redownload the environment or upgrade models, CUDA or drivers.
+
+Windows and Debian under Ubuntu22.04 WSL2 are installed at 2.1.7; AppImage is also provided. Windows Rust: 428 passed, 34 ignored; TypeScript: 1632 passed, 2 skipped; adapters: 14 passed; packaged Harness: 53 passed on each platform. Both Linux packages passed resource and Xvfb startup checks; Unix directory detection remains covered. Mac retains published 2.1.6.
+
+Successful imports do not establish actual image generation acceptance. WSL2 results do not establish bare-metal GPU inference. Standalone Harness desktop requests exceeding the PolyStrata 8K window remain unresolved. Source CI is restricted by account billing/spending limits; publication status and batch exception scope are recorded in verification. The full Python suite and original 12-task model benchmark were not rerun for this patch; older results are not claimed as current tests.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.1.7/LocalBrain_2.1.7_amd64.AppImage)
+
+[Verification / 验收记录](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.1.7-WIN-LINUX.md)
+
+Version sections and screenshots below retain their historical scope; use this section and the GitHub platform table for current downloads.
 
 ## Mac 2.1.6: updated Harness core and clearer runtime maintenance
 
