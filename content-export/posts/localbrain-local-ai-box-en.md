@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-25
-summary: Windows/Linux 2.1.7 fixes false partially-installed image runtime status on Windows while preserving existing environments. Mac retains 2.1.6; actual image generation and standalone Harness limits remain documented.
+updated: 2026-10-26
+summary: Windows/Linux2.2.0 adds internal module upgrades while custom plugin installation stays closed. Five modules,35 tool schemas and real document calls passed; Mac retains2.2.0. Platform and model limits remain explicit.
 categories:
   - Resources
 tags:
@@ -15,6 +15,24 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.0: internal modules, familiar entry points
+
+Windows and Linux2.2.0 downloads are ready; Windows and Debian under Ubuntu22.04 WSL2 are installed. Existing Mac2.2.0 packages remain available. Tools, engine adapters, pages and runtime dependencies share registration. Internal modules update with the application; custom plugin installation UI and commands remain closed. Existing models, user data and runtime maintenance entry points are preserved.
+
+Eight module packages ship with the application. Five apply on Windows/Linux: documents, web research, image tools, local workspace and authorized network tools. The MLX speech, transcription and video modules are not counted as supported there. Compaction now uses consistent kernel measurements including summary framing, preserves original messages and avoids replaying completed tools. Windows image runtime status detection remains fixed.
+
+The final Windows installation prepared all five supported modules. An existing Qwen3.8-2B-Distill Q4_K_M model completed a real request and returned acceptance number4276.35 tool names, schemas and descriptions matched compatibility entry points. Real DOCX creation/readback, independent paragraph verification, unchanged source hashes and Markdown export passed. Model requests and MCP calls were tested separately, not as an autonomous end-to-end task.
+
+The first real document test failed because stale Windows packaging inputs did not implement the advertised Markdown interface. Both final platforms were rebuilt from the document implementation verified from the committed2.2.0 package; real document tests then passed. The independent user DocFactory installation was not modified.
+
+Windows Rust435 tests passed with36 ignored; two live module tests passed separately. TypeScript1638 passed with2 skipped;14 adapters passed. Packaged Harness passed53 tests per platform;45 Python test files,7 security tests and2 packaging tests passed. Both Linux packages passed resource and Xvfb startup checks; Debian is installed. WSL2 does not establish bare-metal GPU or Linux media acceptance. Windows speech/video/image generation, standalone Harness8K tasks and real HTB retain separate limits; Mac media results are not reused as Windows results. Source CI account limits and batch approval scope are recorded in verification.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.AppImage) · [Mac 2.2.0](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.0)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.0-WIN-LINUX.md)
+
+Version sections and screenshots below retain their historical scope; this section and the GitHub table list current platform downloads.
 
 ## Windows / Linux 2.1.7: stop asking to reinstall a working image runtime
 

@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-10-25
-summary: Windows/Linux 2.1.7 修复 Windows 图像环境安装成功却显示待修复的问题；已有环境保留，Mac 维持 2.1.6。真实出图及外部 Harness 长任务边界继续记录。
+updated: 2026-10-26
+summary: Windows/Linux补齐2.2.0，内部模块随软件升级，自定义插件安装仍关闭；五类工具35项清单及真实文档读写通过，Mac保留同版。平台与模型验收边界单独记录。
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,24 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.0：内部模块升级，保留原来的使用入口
+
+Windows和Linux已补齐2.2.0下载，Windows与WSL2 Ubuntu22.04中的Debian已安装，Mac已有同版安装包继续保留。这次把工具、模型后端、页面和运行环境的能力登记统一起来。内部模块随软件升级维护，用户不用额外找插件安装；自定义安装界面和命令仍关闭，原有模型、资料和运行环境维护入口保留。
+
+八类是软件交付的模块包总数，Windows/Linux当前适用五类：文档、联网检索、图像、本地工作区与授权网络工具。语音合成、转写和视频的MLX模块不计入这两平台可用数。压缩前后改用同一内核计量，包含摘要包装；保留原文，恢复时不重复执行已完成工具。Windows图像环境已安装却显示待修复的问题也继续修正。
+
+Windows最终安装版确认五个模块全部就绪，已有Qwen3.8-2B-Distill Q4_K_M完成实际请求，返回验收编号4276。五类随包MCP与兼容入口的35个工具名、参数和描述一致；真实创建并读取DOCX，独立文档库读到标题，读取后原文件散列不变，Markdown导出也通过。这些模型请求和工具调用是分别验收，不能写成完整自主任务链已经通过。
+
+初次文档实测确实失败：Windows打包输入保留了旧文档实现，与2.2.0声明的Markdown接口不一致。最终两平台采用2.2.0源码随附、逐文件校验的文档实现重新构建，重新通过真实读写；没有改写用户独立安装的DocFactory。
+
+本批Windows Rust435项通过、36项忽略，两项真实模块测试另行通过；TypeScript1638项通过、2项跳过，适配器14项通过。两平台随包Harness各53项通过，完整Python45文件、安全7项及打包2项通过。Linux两包资源与Xvfb启动检查通过，Debian已安装；WSL2结果不代表裸机GPU或Linux真实媒体生成验收。Windows语音、视频、真实出图、完整外部Harness8K任务和真实HTB仍有独立验收边界，不挪用Mac的媒体结果。源码CI的账户限制与本批批准范围见验收记录。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.AppImage) · [Mac 2.2.0](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.0)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.0-WIN-LINUX.md)
+
+下方版本段落和截图保留当时的测试范围，当前平台下载以本节和GitHub下载表为准。
 
 ## Windows / Linux 2.1.7：装好了，就别再提示重装
 

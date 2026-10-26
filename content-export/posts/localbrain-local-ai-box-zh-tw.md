@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-25
-summary: Windows/Linux 2.1.7 修正 Windows 圖像環境安裝成功卻顯示待修復的問題；保留既有環境，Mac 維持 2.1.6。真實出圖與外部 Harness 長任務邊界持續記錄。
+updated: 2026-10-26
+summary: Windows/Linux補齊2.2.0，內部模組隨軟體升級，自訂外掛安裝仍關閉；五類工具35項清單與真實文件讀寫通過，Mac保留同版。平台與模型驗收邊界分別記錄。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,24 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.0：內部模組升級，保留原來入口
+
+Windows及Linux補齊2.2.0下載，Windows與WSL2 Ubuntu22.04中的Debian已安裝，保留既有Mac同版安裝包。工具、模型後端、頁面與執行環境共用能力登錄。內部模組隨軟體升級維護，使用者無需另找外掛安裝；自訂安裝介面及命令仍關閉，原有模型、資料與執行環境維護入口保留。
+
+八類是隨軟體交付的模組總數，Windows/Linux目前適用文件、聯網檢索、圖像、本地工作區及授權網路五類。語音合成、轉寫及影片的MLX模組不計入這兩平台可用數。壓縮前後統一核心計量並包含摘要包裝，保留原文，恢復不重複執行已完成工具。Windows圖像環境誤報修正保留。
+
+Windows最終安裝版確認五個模組就緒，既有Qwen3.8-2B-Distill Q4_K_M真實請求回覆編號4276。五類隨包MCP與相容入口的35個工具名稱、參數和描述一致；真實建立及讀取DOCX，獨立文件庫核對標題與原件散列不變，Markdown匯出通過。模型請求與MCP呼叫分別驗收，不冒稱完整自主任務鏈通過。
+
+首次文件實測失敗，原因是Windows打包輸入仍為舊文件實作，與2.2.0宣告的Markdown介面不符。最終兩平台改用2.2.0原始碼附帶且逐檔驗證的文件實作重新建置，真實讀寫重測通過；未改寫使用者獨立DocFactory安裝。
+
+Windows Rust435項通過、36項略過，另兩項真實模組測試通過；TypeScript1638項通過、2項略過，介面卡14項通過。兩平台Harness各53項通過，完整Python45檔、安全7項、打包2項通過。Linux兩包資源與Xvfb啟動檢查通過，Debian已安裝；WSL2不代表裸機GPU或Linux真實媒體生成驗收。Windows語音、影片、真實出圖、外部Harness8K任務及真實HTB仍有獨立邊界，不挪用Mac媒體結果。原始碼CI帳戶限制及本批批准範圍見驗收記錄。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.AppImage) · [Mac 2.2.0](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.0)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.0-WIN-LINUX.md)
+
+下方版本段落與截圖保留當時測試範圍，目前平台下載以本節與GitHub下載表為準。
 
 ## Windows / Linux 2.1.7：裝好了，就別再提示重裝
 
