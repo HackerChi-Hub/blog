@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-29T10:37:39.912Z",
-  "contentHash": "7c7ef9e8a3169b52e599cf665d2335646db49743d8516769b26cb476e01e9751",
+  "checkedAt": "2026-10-29T11:10:05.485Z",
+  "contentHash": "7b31312b1a979d1ce415bcc2bdf4b9d601b40911e3c90c956c48e297516b8ed9",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T10:37:39.912Z",
+      "checkedAt": "2026-10-29T11:10:05.485Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T10:37:39.912Z",
+      "checkedAt": "2026-10-29T11:10:05.485Z",
       "prerelease": false,
       "releaseNotesHash": "5c199deed3e393bbb18fef3e65e540cddb15af3a9979077e40e124c915d9dec9",
       "revision": "135169a862d790c0ddcdba32192346d8c06dd137801cac67c4cf10e1af16ee70"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T10:37:39.912Z",
+      "checkedAt": "2026-10-29T11:10:05.485Z",
       "prerelease": false,
       "releaseNotesHash": "5552d1d3efeaab60641fc85bce3e63e84819c80b11c0fdcd125038f08e4a8458",
       "revision": "1dbfd8b1d0bce008fc636c8589372c6a463475116ec7ce22a537f8c019827d74"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T10:37:39.912Z",
+      "checkedAt": "2026-10-29T11:10:05.485Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,9 +389,9 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "本轮更新Mac。Windows、Linux的公开包仍为1.6.6，由作者另行构建；不能将本轮源码变更等同于各平台新包已经交付。",
+      "updateSummary": "Mac已公开：下载1.7.0 Apple芯片DMG。实际大小426,722,449字节（约427 MB），SHA-256：e1a87c6e76da1cfb301f26add3e31af4a2964a4defeaaf037800bc181a323963。上传后重新下载校验一致，四语主页及新图回读通过。",
       "updated": "2026-10-29",
-      "activityAt": "2026-10-29T03:55:55Z",
+      "activityAt": "2026-10-29T11:09:31Z",
       "version": "1.7.0",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
       "source": "release",
@@ -414,49 +414,49 @@
         },
         {
           "platform": "Windows",
-          "version": "1.6.6",
+          "version": "1.7.0",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.6",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.6_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe",
-              "id": 660767808,
-              "size": 399421712,
-              "updatedAt": "2026-10-20T23:27:49Z",
-              "digest": "sha256:8cb544f34e17253e92192368278bdaaa0918ba899cc10c90605884731d7fd185"
+              "name": "HyphenScreen_1.7.0_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64-setup.exe",
+              "id": 688270911,
+              "size": 409519274,
+              "updatedAt": "2026-10-29T11:08:18Z",
+              "digest": "sha256:097c26bcfd919c306216d291f214b23761f98dd5d837a21870141eda035b79f6"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.6.6",
+          "version": "1.7.0",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.6.6",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
           "assets": [
             {
-              "name": "HyphenScreen_1.6.6_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb",
-              "id": 660767809,
-              "size": 511176604,
-              "updatedAt": "2026-10-20T23:28:42Z",
-              "digest": "sha256:a66d0b2066e33af37e1c50020257913f533024359714521418cd662497101c3f"
+              "name": "HyphenScreen_1.7.0_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_amd64.deb",
+              "id": 688270907,
+              "size": 521198960,
+              "updatedAt": "2026-10-29T11:09:12Z",
+              "digest": "sha256:7e75be0fe1a2484f5fc5ac372b43c04ebde1d5004dbd0021e560fca544b095c4"
             },
             {
-              "name": "HyphenScreen_1.6.6_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage",
-              "id": 660767806,
-              "size": 598231509,
-              "updatedAt": "2026-10-20T23:28:56Z",
-              "digest": "sha256:7cb71e48cc310ac915de37d3c9105e992d09093ea0ae329f3dda7a9d510b4009"
+              "name": "HyphenScreen_1.7.0_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x86_64.AppImage",
+              "id": 688270909,
+              "size": 608581424,
+              "updatedAt": "2026-10-29T11:09:25Z",
+              "digest": "sha256:c878a554f06cfa531d06822fe4dea6dc0f3e3510768abc6635e17379e7c8cfae"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-29T10:37:39.912Z",
+      "checkedAt": "2026-10-29T11:10:05.485Z",
       "prerelease": false,
-      "releaseNotesHash": "ef966891a28d883fcb01b230f0b601c9d70bd1d44b7397dd9dc547a6da7f0da7",
-      "revision": "7f25f76733f482404588cfe7534bc4d869370b69cdce7152d6fc9208a48e4867"
+      "releaseNotesHash": "95aab127afc087f9253be530f205f7497eda428846d0e75f1fa6c2e413cbc77f",
+      "revision": "1cace1a899625c296579ef0ac5aff5c8ef03b330381d2e16cd04fa258baa05d5"
     }
   ]
 }
