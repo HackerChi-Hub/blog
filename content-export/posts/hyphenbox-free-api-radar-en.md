@@ -7,8 +7,8 @@ translation_of: hyphenbox-free-api-radar
 translation_source: machine
 source_sha256: f05519a25a94b7d2
 date: 2026-08-29
-updated: 2026-10-24
-summary: "1.0.3 Supplementing Mac, Windows, and Linux: Manage your own API key, verify models realistically, identify quota errors, and switch routes under complete tool results."
+updated: 2026-10-29
+summary: "HyphenBox 1.0.4 for Windows, Linux and Mac: corrected usage estimates, an updated signed catalog and DeepSeek Harness integration."
 categories:
   - Resources
 tags:
@@ -25,30 +25,29 @@ legacy_paths: []
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-free-api-radar/) is authoritative.
 
 <!-- hyphenbox-current-release:start -->
-## Updated October 24, 2026: Three-Platform 1.0.3
+## Updated October 29, 2026: Version 1.0.4 for all three platforms
 
-HyphenBox combines the free API radar, its own key, and real model verification, and provides an OpenAI-compatible entry on your computer. Current access is based on **DeepSeek Harness, Cursor, Cline**; The dedicated access for older versions of OpenCode has been removed. Keys are securely stored on the local system, and model requests are sent directly from your computer to the chosen provider.
+HyphenBox combines free API discovery, your own provider credentials and real model verification with a local OpenAI-compatible endpoint. Current client guidance covers **DeepSeek Harness, Cursor and Cline**. The former dedicated OpenCode integration has been removed. Credentials stay in local system storage; model requests go directly from your computer to the selected provider.
 
-This time, the Windows x64 EXE and MSI files, as well as Linux x64's AppImage, DEB, and RPM, are all part of **1.0.3** as the released Mac universal package. Each installer has a SHA-256 parity and a newer signature; The innovator signature is not the same as a Windows commercial code signature or Apple notarization. The Linux key safe requires desktop Secret Service; a pure command-line server cannot be considered an accepted desktop environment.
+Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers now join the Mac universal package at **1.0.4**. The updater selects assets by operating system and package format; existing Mac update entries are preserved.
 
-This batch of Windows/Linux packages uses built-in signature directories, and the online directory service requires separate configuration.
+### What changed
 
-### What improvements did this version make?
+- Invalid negative prices, nonnumeric values and overflow no longer produce misleading estimates. Historical invalid prices are excluded while usage records are retained.
+- Usage is classified by each credential's current declaration: free allowance, paid or undeclared. Fixed zero-payment and savings claims are replaced by estimates at currently known unit prices, with missing input and output prices reported separately.
+- The bundled signed catalog is updated to **2026.10.29.2**. Official free conditions, account-level successful requests and model listings remain separate evidence. Specialized safety classifiers are excluded from conversational candidates.
+- DeepSeek Harness configuration supports backup, managed writes and removal. Choose Harness on the connection page, then restart Harness and create a new session. Select `free` for eligible verified free routes; `auto` may use paid routes you added.
+- Free routing retains its five-minute pre-connection budget and 60-second attempt limit, isolates unreadable credentials and can resume from complete tool-result checkpoints without replaying previous tool calls.
 
-- `free` Remove the old fixed number of lane changes and the limit of four vouchers per route. Try to qualify free candidates within the total budget within the first five minutes before connection, with a maximum wait time of 60 seconds per pass, and prioritize platforms not yet tried.
-- Reconfirm free eligibility before each distribution; The same route and voucher combination will not be distributed repeatedly; one clear parameter limit repair retry will be retained. Once valid streaming content has been delivered, it will no longer be cut off by this pre-connection budget.
+Usage records are not provider bills. Changing current credential declarations or prices can change historical totals. Partial streamed responses, missing tool results, model capability differences and exhausted quotas still limit recovery.
 
-- If key read fails, the corresponding credentials will be isolated, allowing automatic routing to continue attempting other qualified routes; Local authorization errors and platform quota errors are handled separately.
-- It can identify structured quota errors in HTTP 200 wrappers, reducing misjudgments such as "status code successful but no actual response"; Normal answers and content rejections will not be rerouted accordingly.
-- After the tool results are fully returned, they can be organized into checkpoints for "what has already been executed" for the replacement model to process. Old tool calls will not be automatically replayed; if results are missing or there is a numbering conflict, the call will still stop.
-- The one-click connection page provides DeepSeek Harness configuration, as well as recent route changes, number of attempts, and classification of desensitization failures, making it easy to determine where requests are stuck.
-- Mac uses a single app keychain entry, front-end authorization entry, and read avoidance to reduce repeated password prompts. This is an improvement in Mac system storage; Windows and Linux still use their respective platform backends.
+Windows was built locally with MSVC and Linux with WSL Ubuntu 22.04. Both passed core and desktop regression tests. The AppImage passed isolated startup, signed-catalog and local API authentication checks. Real upstream Harness validation in the release attachments applies to Mac and is not presented as Windows/Linux validation.
 
-When selecting a model, `free` will not automatically transfer to self-paid candidates; `auto` may use the paid route you added. If half of the streaming responses have been output, there is a lack of tool results, differences in model capabilities, or all platform quotas are exhausted, seamless recovery cannot be guaranteed. The software is free to download; provider quotas and model fees are calculated according to your own account conditions.
+Windows/Linux installers include a signed built-in catalog; online refresh needs a separately configured service. The Linux vault requires desktop Secret Service. SHA-256 checksums and updater signatures are supplied; updater signatures are distinct from Windows commercial code signing and Apple notarization. The application is free to download; provider quotas and account conditions still apply.
 
-[Download 1.0.3 Installation Package, Release Notes, and Verification Files](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.3)
+[Download 1.0.4 installers, release notes and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.4).
 
-Below are early development records. Screenshots, directory quantities, quotas, and old client examples correspond to the current version; Current installation and feature descriptions are based on the 1.0.3 update and release page above.
+Earlier development records remain below. Their screenshots, counts, quota conditions and old client examples describe those historical versions. Use this update and the release page for current capabilities.
 <!-- hyphenbox-current-release:end -->
 
 > [!note]
