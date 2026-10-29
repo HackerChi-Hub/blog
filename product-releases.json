@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-29T19:01:27.938Z",
-  "contentHash": "1a7d2a9c8e73af951c0e1137d63e0909494a97a005d869e54e6005f6ae0c63be",
+  "checkedAt": "2026-10-29T22:49:03.019Z",
+  "contentHash": "2a4b6c25b0026b06ed43d9655d2151cb24067054dbfa36743831259d0e7dea6a",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T19:01:27.938Z",
+      "checkedAt": "2026-10-29T22:49:03.019Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T19:01:27.938Z",
+      "checkedAt": "2026-10-29T22:49:03.019Z",
       "prerelease": false,
       "releaseNotesHash": "5c199deed3e393bbb18fef3e65e540cddb15af3a9979077e40e124c915d9dec9",
       "revision": "135169a862d790c0ddcdba32192346d8c06dd137801cac67c4cf10e1af16ee70"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T19:01:27.938Z",
+      "checkedAt": "2026-10-29T22:49:03.019Z",
       "prerelease": false,
       "releaseNotesHash": "5552d1d3efeaab60641fc85bce3e63e84819c80b11c0fdcd125038f08e4a8458",
       "revision": "1dbfd8b1d0bce008fc636c8589372c6a463475116ec7ce22a537f8c019827d74"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T19:01:27.938Z",
+      "checkedAt": "2026-10-29T22:49:03.019Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -391,7 +391,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "本版更新Apple芯片Mac，修复部分摄像头录制切换抠图、模糊或自定义背景后整个人物消失的问题。原始摄像头视频、既有剪辑和人物分割模型继续使用，无需重录。",
       "updated": "2026-10-29",
-      "activityAt": "2026-10-29T16:19:42Z",
+      "activityAt": "2026-10-29T22:48:41Z",
       "version": "1.7.1",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.1",
       "source": "release",
@@ -414,49 +414,49 @@
         },
         {
           "platform": "Windows",
-          "version": "1.7.0",
+          "version": "1.7.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.1",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.0_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64-setup.exe",
-              "id": 688270911,
-              "size": 409519274,
-              "updatedAt": "2026-10-29T11:08:18Z",
-              "digest": "sha256:097c26bcfd919c306216d291f214b23761f98dd5d837a21870141eda035b79f6"
+              "name": "HyphenScreen_1.7.1_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.1/HyphenScreen_1.7.1_x64-setup.exe",
+              "id": 690133336,
+              "size": 409519145,
+              "updatedAt": "2026-10-29T22:41:40Z",
+              "digest": "sha256:747985ce8d46188c730ef9b5f7057693e1adc676e6b01b641f7852a086b8715f"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.7.0",
+          "version": "1.7.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.1",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.0_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_amd64.deb",
-              "id": 688270907,
-              "size": 521198960,
-              "updatedAt": "2026-10-29T11:09:12Z",
-              "digest": "sha256:7e75be0fe1a2484f5fc5ac372b43c04ebde1d5004dbd0021e560fca544b095c4"
+              "name": "HyphenScreen_1.7.1_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.1/HyphenScreen_1.7.1_amd64.deb",
+              "id": 690141076,
+              "size": 521199168,
+              "updatedAt": "2026-10-29T22:48:16Z",
+              "digest": "sha256:263ebe788026f7cea733f1fa05f5f2ed407f992179b40583a7387aa26c6b87c4"
             },
             {
-              "name": "HyphenScreen_1.7.0_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x86_64.AppImage",
-              "id": 688270909,
-              "size": 608581424,
-              "updatedAt": "2026-10-29T11:09:25Z",
-              "digest": "sha256:c878a554f06cfa531d06822fe4dea6dc0f3e3510768abc6635e17379e7c8cfae"
+              "name": "HyphenScreen_1.7.1_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.1/HyphenScreen_1.7.1_x86_64.AppImage",
+              "id": 690141079,
+              "size": 608581444,
+              "updatedAt": "2026-10-29T22:48:36Z",
+              "digest": "sha256:38ff038029fbe8af9a7ebbdec7bbed673fb6bb0ad6efb522f1c0def5e467d43f"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-29T19:01:27.938Z",
+      "checkedAt": "2026-10-29T22:49:03.019Z",
       "prerelease": false,
-      "releaseNotesHash": "1680c5eecfbf907809549d8598566a2adeef7530d220692446cf097831de7e08",
-      "revision": "c77c6838a5495bf5789d4da60fa37e1b61e25baa90063a9a5d4440be0f6c3123"
+      "releaseNotesHash": "674435acf33a8a5157096336026a5a1fef6694a180977710daa738d5c88c487e",
+      "revision": "191f9df2168b62c3e163d312ff905fd7918f9c7a68132dfba274c72247d49c91"
     }
   ]
 }
