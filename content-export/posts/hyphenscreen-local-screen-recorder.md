@@ -4,7 +4,7 @@ slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-10-29
-summary: Mac1.7.0支持关闭或自定义导出水印：文字、本机图片、四种署名范例及位置／大小／不透明度设置。保留八类本地编排、16个动画范例和历史成片；Windows与Linux仍为1.6.6。
+summary: Mac、Windows与Linux1.7.0支持关闭或自定义导出水印：文字、本机图片、四种署名范例及位置／大小／不透明度设置。保留八类本地编排、16个动画范例和历史成片；三平台下载及核验范围见正文。
 categories:
   - 资源分享
 tags:
@@ -34,9 +34,11 @@ legacy_paths: []
 
 这组是实际文件抽帧，频道样片特意放在左上以核对位置，界面中的频道预设仍在右下。横屏、竖屏、浅底、中文及图片组合都做了原生输出检查。当前开关与自定义没有收费门槛，还没有接入支付、账号或许可证；以后是否收费，需要另外确定规则。
 
-发行前完整回归4660项通过、2项跳过，另有原生水印专项及12份实际输出的解码与抽帧记录。桌面取屏工具仍有系统错误，因此鼠标导出、系统保存对话框和重开没有记为通过。GIF既有厘秒计时偏差未在本轮修正；水印样例静音，不涉及新的声音听审。Mac更新至1.7.0，Windows／Linux保留1.6.6及原有水印行为。
+发行前完整回归4660项通过、2项跳过，另有原生水印专项及12份实际输出的解码与抽帧记录。桌面取屏工具仍有系统错误，因此鼠标导出、系统保存对话框和重开没有记为通过。GIF既有厘秒计时偏差未在本轮修正；水印样例静音，不涉及新的声音听审。Mac、Windows与Linux现均提供1.7.0，可关闭或自定义导出水印。
 
 本轮DMG为426,722,449字节，约427 MB，比1.6.9增加约1.22 MB。镜像完整性、严格签名和609个文件／链接的逐项一致性检查通过；本机证书签名仍不等于苹果公证。包内原生模块重新导出八份MP4与两份GIF，完整解码通过，默认与关闭的角落差异为2189像素，关闭区域没有水印残留，联系图与开发阶段逐字节一致。本轮没有替换本机已安装应用。
+
+Windows与Linux补包时同时补齐纯动画工程的画布源读取，避免把内部画布标识当作视频路径。两平台各完成十份包内原生输出核验；这是合成工程导出专项，不代表桌面录制、鼠标导出或全部设备已通过实测。
 
 ## 1.6.9：先看成片，再改成自己的讲解
 
@@ -56,7 +58,7 @@ legacy_paths: []
 
 右侧窄面板现在按自身宽度排列阶段卡，通常为两列，文字不再挤成竖排，应用按钮也不悬浮遮住设置。原生输出补齐WebP解码，避免浏览器缩略图能看、导出却缺图。
 
-这轮16份1920×1080、30帧、12秒输出完成完整解码；人物六阶段的换图已逐处抽帧检查。独立工作室中，系统选图、第四阶段应用、磁盘回读和约6.3秒定位均通过，只改变选中阶段，撤销后原编排恢复。4650项测试通过、2项跳过。范例静音，没有主观声音听审；物理录制、所有跳转位置和其他系统没有在这轮重新验收。Windows与Linux的新版由作者另行构建，目前下载仍为1.6.6。
+这轮16份1920×1080、30帧、12秒输出完成完整解码；人物六阶段的换图已逐处抽帧检查。独立工作室中，系统选图、第四阶段应用、磁盘回读和约6.3秒定位均通过，只改变选中阶段，撤销后原编排恢复。4650项测试通过、2项跳过。范例静音，没有主观声音听审；物理录制、所有跳转位置和其他系统没有在这轮重新验收。Windows与Linux现已通过本地构建补齐1.7.0，包含上述本地编排与阶段配图；桌面操作不从Mac实测推断通过。
 
 Mac 1.6.9已完成镜像完整性、严格签名及609个文件和链接的一致性核对，并从正式安装目录的原生合成器重新导出阶段配图、数据对比两份1080p30样片，完整解码通过。安装版工作室已启动，但系统取屏工具随后连续错误，最后的界面点击与连续播放验收尚未完成；前述界面检查来自独立开发工作室。
 
@@ -74,7 +76,7 @@ Mac新增“本地编排”：打开工程，在“制作动画”里选择来�
 
 先定内容和节拍，再到图层与关键帧页精调：重新应用编排会重算受控图层，保留人工新增图层，锁定受控层则拒绝覆盖。它还不是通用角色骨骼或任意长故事生成器，独立旁白与辅助视频的来源绑定也未纳入本轮。
 
-开发版已实际点击生成，修改标题与4.25秒节拍，保存、切换工程后重新打开，修改保留。两份不同内容的24秒工程和12秒角色工程完成跳转及连续播放，三部1920×1080、30帧原生导出完整解码通过。全量4637项测试通过、2项跳过。声音电平检查通过，主观听审未完成；其他系统及物理录制没有在本轮重测。Windows与Linux继续提供1.6.6。
+开发版已实际点击生成，修改标题与4.25秒节拍，保存、切换工程后重新打开，修改保留。两份不同内容的24秒工程和12秒角色工程完成跳转及连续播放，三部1920×1080、30帧原生导出完整解码通过。全量4637项测试通过、2项跳过。声音电平检查通过，主观听审未完成；其他系统及物理录制没有在本轮重测。Windows与Linux1.7.0已包含上述功能。
 
 ## 1.6.7：整片包装，选片段和改版式更直接
 
@@ -82,7 +84,7 @@ Mac更新到1.6.7。片段选择只保留一组，卡片同时显示缩略图、
 
 ![1.6.7紧凑界面，实际组件截图](/obsidian-assets/hyphenscreen-local-screen-recorder/packaging-167.jpg)
 
-十套显示名统一四字：纸白橙调、贴纸波普、黑白薄荷、暖雾光影、便签复盘、孔版印刷、红色海报、复古旭日、彩卡拼贴、几何构成。旧工程主题ID不变，改名不改配色、动效和声音。Windows与Linux继续提供1.6.6，不含本轮紧凑界面。
+十套显示名统一四字：纸白橙调、贴纸波普、黑白薄荷、暖雾光影、便签复盘、孔版印刷、红色海报、复古旭日、彩卡拼贴、几何构成。旧工程主题ID不变，改名不改配色、动效和声音。Windows与Linux1.7.0已包含上述紧凑界面。
 
 本轮4615项测试通过、2项跳过，应用与测试类型检查通过。Mac安装目录570个文件与链接和安装镜像逐一一致，严格签名通过。安装版读取独立四段工程，重新导出27.4秒、1920×1080、30帧、822帧视频，音画完整解码通过；素材沿用已有成果，不冒充本轮重新生成。正式应用启动及工作室打开正常，后续取屏出现系统错误，作者明确改为手动测试后继续发行；因此本轮桌面点击生成、跳转等交互不记为代理验收通过。
 
@@ -150,11 +152,11 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.7.0，Windows与Linux提供1.6.6。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.7.0，Windows与Linux提供1.7.0。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.7.0；Windows／Linux 1.6.6
+> 黑粉录屏 HyphenScreen · Mac 1.7.0；Windows／Linux 1.7.0
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-29
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -200,12 +202,12 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
 | Mac 苹果芯片 | 1.7.0，DMG 共 426,722,449 字节，约 427 MB |
-| Windows 10/11 x64 | 1.6.6，安装程序 399,421,712 字节，未签名 |
-| Linux x86_64 | 1.6.6，AppImage 598,231,509 字节；deb 511,176,604 字节；pacman 472,292,440 字节 |
+| Windows 10/11 x64 | 1.7.0，安装程序 409,519,274 字节，未签名 |
+| Linux x86_64 | 1.7.0，AppImage 608,581,424 字节；deb 521,198,960 字节；pacman 482,234,008 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
@@ -213,16 +215,16 @@ Mac 安装包的 SHA-256：
 e1a87c6e76da1cfb301f26add3e31af4a2964a4defeaaf037800bc181a323963
 ```
 
-Windows 与 Linux 1.6.6 的 SHA-256：
+Windows 与 Linux 1.7.0 的 SHA-256：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Windows 安装程序 | `8cb544f34e17253e92192368278bdaaa0918ba899cc10c90605884731d7fd185` |
-| Linux AppImage | `7cb71e48cc310ac915de37d3c9105e992d09093ea0ae329f3dda7a9d510b4009` |
-| Ubuntu／Debian deb | `a66d0b2066e33af37e1c50020257913f533024359714521418cd662497101c3f` |
-| Arch pacman | `27dab06253ef42b48790013c8dbe09f166330f93048451ebdb9bf50e9f44aea2` |
+| Windows 安装程序 | `097c26bcfd919c306216d291f214b23761f98dd5d837a21870141eda035b79f6` |
+| Linux AppImage | `c878a554f06cfa531d06822fe4dea6dc0f3e3510768abc6635e17379e7c8cfae` |
+| Ubuntu／Debian deb | `7e75be0fe1a2484f5fc5ac372b43c04ebde1d5004dbd0021e560fca544b095c4` |
+| Arch pacman | `87d98daba51dc893d621028aa61acf35612a8c5e1c87a82f8d9ae9f15f8bb52f` |
 
-Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
+Windows／Linux1.7.0本地包均通过原生部件、字体及包内资源检查；包内组件各实际导出八份MP4与两份GIF并完整解码，关闭区域无水印残留。本轮未覆盖本机安装版。Linux 录屏仍需在有桌面门户的实机环境验证。
 
 ## 原有能力与制作经历
 
@@ -251,7 +253,7 @@ Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.7.0，Windows与Linux为1.6.6；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.7.0，Windows与Linux为1.7.0；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -398,7 +400,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.7.0，Windows与Linux为1.6.6；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.7.0，Windows与Linux为1.7.0；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断

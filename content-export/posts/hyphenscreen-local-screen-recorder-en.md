@@ -6,7 +6,7 @@ lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-29
-summary: Mac 1.7.0 adds optional export watermarks with custom text, local images, four examples, position, size and opacity controls. Eight local composition types, 16 animation examples and previous films remain available. Windows and Linux stay at 1.6.6.
+summary: Mac, Windows and Linux 1.7.0 add optional export watermarks with custom text, local images, four examples, position, size and opacity controls. Eight local composition types, 16 animation examples and previous films remain available. Platform downloads and verification scopes are listed below.
 categories:
   - Resources
 tags:
@@ -36,9 +36,11 @@ Use text, a local PNG/JPEG/WebP image, or both. Images retain their aspect ratio
 
 These are frames from actual files. The channel test deliberately uses top left to check positioning; its UI preset remains bottom right. Landscape, portrait, light backgrounds, Chinese text and image combinations were checked. No payment, account or license entitlement is active; future commercial terms remain undecided.
 
-The release candidate passed 4,660 tests with two skipped, plus native watermark checks and decoding/frame inspection of 12 outputs. macOS screen capture errors prevented desktop mouse-driven export, the system save dialog and reopening from being marked as passed. The existing GIF centisecond timing deviation was not fixed. The fixtures are silent, with no new subjective sound review. Mac advances to 1.7.0; Windows/Linux remain at 1.6.6 with their earlier watermark behavior.
+The release candidate passed 4,660 tests with two skipped, plus native watermark checks and decoding/frame inspection of 12 outputs. macOS screen capture errors prevented desktop mouse-driven export, the system save dialog and reopening from being marked as passed. The existing GIF centisecond timing deviation was not fixed. The fixtures are silent, with no new subjective sound review. Mac, Windows and Linux now offer 1.7.0 with optional, customizable export watermarks.
 
 The DMG is 426,722,449 bytes, approximately 427 MB, about 1.22 MB larger than 1.6.9. Image integrity, strict signing and comparison of 609 files/links passed; the local certificate is still not Apple notarization. The native module inside the package exported eight MP4s and two GIFs, all fully decoded. Default versus disabled changed 2,189 corner pixels, with no residual mark in the disabled corner; the contact sheet matches the development result byte for byte. This task did not replace the locally installed application.
+
+The Windows/Linux supplement also implements canvas-source reading for pure-animation projects instead of treating the internal canvas identifier as a video path. Each platform passed ten packaged native outputs. These synthetic export checks do not establish desktop recording, mouse-driven export or device coverage.
 
 ## 1.6.9: watch the result before editing your explanation
 
@@ -58,7 +60,7 @@ Presenter scenes use six complete illustrations of one character with consistent
 
 The inspector responds to its own width, normally placing stage cards in two columns. Image buttons no longer collapse and the Apply area does not cover settings. Native output now decodes WebP, avoiding images that appear in the browser but disappear from export.
 
-All 16 native 1920×1080, 30 fps, 12-second outputs fully decoded; the six presenter stages were frame-checked. Desktop checks covered the system file chooser, applying a fourth-stage image, disk readback and a seek to about 6.3 seconds. Only the chosen stage changed, and undo restored its original composition. There were 4,650 passing tests and 2 skipped. Examples are silent; subjective listening, physical recording, every seek position and other systems were not retested. Windows and Linux builds are prepared separately; their current public packages remain 1.6.6.
+All 16 native 1920×1080, 30 fps, 12-second outputs fully decoded; the six presenter stages were frame-checked. Desktop checks covered the system file chooser, applying a fourth-stage image, disk readback and a seek to about 6.3 seconds. Only the chosen stage changed, and undo restored its original composition. There were 4,650 passing tests and 2 skipped. Examples are silent; subjective listening, physical recording, every seek position and other systems were not retested. Windows and Linux 1.7.0 are now locally built with these composition and stage-image features; Mac desktop checks are not presented as tests of those systems.
 
 Mac 1.6.9 passed image integrity, strict signature verification and a comparison of all 609 files and links. The native compositor in the installed application exported two new 1080p30 examples for stage images and metrics; both fully decoded. The installed studio launched, but system capture errors prevented the final interface-click and continuous-playback checks. The interface checks described above were performed in the independent development studio.
 
@@ -76,7 +78,7 @@ The Content tab edits ordinary text and local images, plus sources, steps, color
 
 Finalize content and timing before manual layer refinement. Recomposition rebuilds controlled layers, retains manually added layers and refuses to overwrite locked controlled layers. This is not a general character skeleton or arbitrary long-story generator. Independent narration and auxiliary-video source binding are outside this revision.
 
-Desktop development checks covered generation, title and 4.25-second timing edits, saving, switching projects and reopening with edits retained. Two different 24-second projects and a 12-second presenter project passed seeking and continuous playback. All three native 1920×1080, 30 fps exports fully decoded. There were 4,637 passing tests and 2 skipped. Objective audio checks passed; subjective listening remains incomplete. Other systems and physical recording were not retested. Windows and Linux remain at 1.6.6.
+Desktop development checks covered generation, title and 4.25-second timing edits, saving, switching projects and reopening with edits retained. Two different 24-second projects and a 12-second presenter project passed seeking and continuous playback. All three native 1920×1080, 30 fps exports fully decoded. There were 4,637 passing tests and 2 skipped. Objective audio checks passed; subjective listening remains incomplete. Other systems and physical recording were not retested. Windows and Linux 1.7.0 include these features.
 
 ## 1.6.7: compact packaging controls on Mac
 
@@ -84,7 +86,7 @@ Mac is updated to 1.6.7. A single segment list combines thumbnails, titles, layo
 
 ![1.6.7紧凑界面，实际组件截图](/obsidian-assets/hyphenscreen-local-screen-recorder/packaging-167.jpg)
 
-Ten Chinese display names now have four characters, including Red Poster. Existing theme IDs, project compatibility, palettes, animation and sound are retained. Windows and Linux remain at 1.6.6 without this interface update.
+Ten Chinese display names now have four characters, including Red Poster. Existing theme IDs, project compatibility, palettes, animation and sound are retained. Windows and Linux 1.7.0 include this compact interface.
 
 This revision passed 4,615 tests with 2 skipped, plus application and test type checks. All 570 installed files and links match the Mac installation image and strict signature checks passed. The installed app re-exported an independent four-segment project: 27.4 seconds, 1920×1080, 30 fps and 822 frames, with complete video and audio decoding. It reused existing media and is not a new generation run. App startup and opening the studio passed. A system screen-capture error blocked further desktop interaction; the author explicitly chose to test manually and continue release. Desktop generation and seeking are therefore not reported as agent-verified in this round.
 
@@ -134,7 +136,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.7.0; Windows and Linux offer 1.6.6. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.7.0; Windows and Linux offer 1.7.0. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -167,11 +169,11 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
 - Apple Silicon Mac: **1.7.0**, DMG **426,722,449 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.6.6**, installer **399,421,712 bytes**, unsigned.
-- Linux x86_64: **1.6.6** in AppImage (**598,231,509 bytes**), deb (**511,176,604 bytes**) and pacman (**472,292,440 bytes**) formats.
+- Windows 10/11 x64: **1.7.0**, installer **409,519,274 bytes**, unsigned.
+- Linux x86_64: **1.7.0** in AppImage (**608,581,424 bytes**), deb (**521,198,960 bytes**) and pacman (**482,234,008 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.6.6/HyphenScreen_1.6.6_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.0/HyphenScreen_1.7.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
@@ -179,16 +181,16 @@ Mac package SHA-256:
 e1a87c6e76da1cfb301f26add3e31af4a2964a4defeaaf037800bc181a323963
 ```
 
-SHA-256 checksums for Windows and Linux 1.6.6:
+SHA-256 checksums for Windows and Linux 1.7.0:
 
 | Package | SHA-256 |
 | --- | --- |
-| Windows installer | `8cb544f34e17253e92192368278bdaaa0918ba899cc10c90605884731d7fd185` |
-| Linux AppImage | `7cb71e48cc310ac915de37d3c9105e992d09093ea0ae329f3dda7a9d510b4009` |
-| Ubuntu/Debian deb | `a66d0b2066e33af37e1c50020257913f533024359714521418cd662497101c3f` |
-| Arch pacman | `27dab06253ef42b48790013c8dbe09f166330f93048451ebdb9bf50e9f44aea2` |
+| Windows installer | `097c26bcfd919c306216d291f214b23761f98dd5d837a21870141eda035b79f6` |
+| Linux AppImage | `c878a554f06cfa531d06822fe4dea6dc0f3e3510768abc6635e17379e7c8cfae` |
+| Ubuntu/Debian deb | `7e75be0fe1a2484f5fc5ac372b43c04ebde1d5004dbd0021e560fca544b095c4` |
+| Arch pacman | `87d98daba51dc893d621028aa61acf35612a8c5e1c87a82f8d9ae9f15f8bb52f` |
 
-The Windows package passed native component checks and byte checks for 331 packaging resources. Windows and Linux each generated all four layouts from synthetic material, with complete video and audio decoding. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
+Locally built Windows/Linux 1.7.0 packages passed native component, font and packaged resource checks. Each packaged addon exported eight MP4s and two GIFs with full decoding and no residual watermark in the disabled corner. Installed applications were not replaced in this task. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 
 ## Earlier feature tour and development history
 
@@ -222,7 +224,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac now offers 1.7.0; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac now offers 1.7.0; Windows and Linux offer 1.7.0. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -369,7 +371,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.7.0; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.7.0; Windows and Linux offer 1.7.0. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
