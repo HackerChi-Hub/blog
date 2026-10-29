@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "c36132d57f3566d7c19f1b5c178e80facf97ec363d4b9359e280b0f1c1f5ec0a",
-  "published_post_count": 206,
+  "content_sha256": "d44af33cb5f0adda9e23b609e5fb7f1e2d433e2f3fe593b81274e3a80a366395",
+  "published_post_count": 207,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -677,6 +677,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "bf4fa97185c1e70a79750c573f7ae79e019df7177173c33a61e198749b37d485"
+    },
+    {
+      "file": "posts/gemini-4-carbon-release-analysis.md",
+      "slug": "gemini-4-carbon-release-analysis",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "b0f247ddd20e35bc69336b25b4324a707f9a11a3f156d0dccb4de670fc6784e1"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience-en.md",
