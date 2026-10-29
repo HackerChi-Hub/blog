@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2026 05:57:34 GMT</lastBuildDate>
-    <pubDate>Thu, 29 Oct 2026 05:57:34 GMT</pubDate>
+    <lastBuildDate>Thu, 29 Oct 2026 07:36:45 GMT</lastBuildDate>
+    <pubDate>Thu, 29 Oct 2026 07:36:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Gemini 4 Carbon发布：漏洞评测88.2%，为何暂不向所有人开放？</title>
+      <link>https://hyphentech.top/gemini-4-carbon-release-analysis/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-4-carbon-release-analysis/</guid>
+      <description>漏洞发现88.2%究竟意味着什么？核实三项安全评测、首发优惠与后续价格，以及64GB Mac的使用边界。</description>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>方寸智匣本地安全测试：简明教程</title>
       <link>https://hyphentech.top/localbrain-security-howto/</link>
@@ -210,16 +220,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Cangjie Skill 能把长内容变成可执行技能吗？</title>
-      <link>https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-09-skill-1d146792bdd7/</guid>
-      <description>它把书、长视频和播客拆成可调用技能，但代码免费不等于整套流程零成本。</description>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
