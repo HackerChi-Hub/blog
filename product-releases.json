@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-29T11:10:05.485Z",
-  "contentHash": "7b31312b1a979d1ce415bcc2bdf4b9d601b40911e3c90c956c48e297516b8ed9",
+  "checkedAt": "2026-10-29T11:19:23.152Z",
+  "contentHash": "ba1ba328575e41d2d6880b47e5aa343e4c30304cbc63db33b2239cefe154ff4e",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T11:10:05.485Z",
+      "checkedAt": "2026-10-29T11:19:23.152Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T11:10:05.485Z",
+      "checkedAt": "2026-10-29T11:19:23.152Z",
       "prerelease": false,
       "releaseNotesHash": "5c199deed3e393bbb18fef3e65e540cddb15af3a9979077e40e124c915d9dec9",
       "revision": "135169a862d790c0ddcdba32192346d8c06dd137801cac67c4cf10e1af16ee70"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T11:10:05.485Z",
+      "checkedAt": "2026-10-29T11:19:23.152Z",
       "prerelease": false,
       "releaseNotesHash": "5552d1d3efeaab60641fc85bce3e63e84819c80b11c0fdcd125038f08e4a8458",
       "revision": "1dbfd8b1d0bce008fc636c8589372c6a463475116ec7ce22a537f8c019827d74"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T11:10:05.485Z",
+      "checkedAt": "2026-10-29T11:19:23.152Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,9 +389,9 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "Mac已公开：下载1.7.0 Apple芯片DMG。实际大小426,722,449字节（约427 MB），SHA-256：e1a87c6e76da1cfb301f26add3e31af4a2964a4defeaaf037800bc181a323963。上传后重新下载校验一致，四语主页及新图回读通过。",
+      "updateSummary": "Mac、Windows与Linux均提供1.7.0：导出水印可以关闭，也可使用自定义文字与图片；包含八类本地编排、16个真实动画范例和紧凑的整片包装界面。Windows与Linux安装包已在本地编译、公开上传并回读校验。",
       "updated": "2026-10-29",
-      "activityAt": "2026-10-29T11:09:31Z",
+      "activityAt": "2026-10-29T11:17:29Z",
       "version": "1.7.0",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.0",
       "source": "release",
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-29T11:10:05.485Z",
+      "checkedAt": "2026-10-29T11:19:23.152Z",
       "prerelease": false,
-      "releaseNotesHash": "95aab127afc087f9253be530f205f7497eda428846d0e75f1fa6c2e413cbc77f",
-      "revision": "1cace1a899625c296579ef0ac5aff5c8ef03b330381d2e16cd04fa258baa05d5"
+      "releaseNotesHash": "38c5fc55f481045da60d8225652eda21172580383d0c16410294e8e3d28a7498",
+      "revision": "f53ffde3ae3d5d16922e1c97408641ccca29b6845aaf085562e8f8740a1bb765"
     }
   ]
 }
