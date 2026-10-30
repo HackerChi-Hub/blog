@@ -6,7 +6,7 @@ lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-30
-summary: Windows/Linux 1.7.2 fixes projects reappearing after deletion. Existing watermark controls, local composition and demos remain; see downloads for the actual Mac version and verification scope.
+summary: Mac, Windows and Linux offer 1.7.2, fixing deleted projects reappearing and late saves recreating them. Existing films, illustrations, custom watermarks and local composition remain available.
 categories:
   - Resources
 tags:
@@ -16,6 +16,12 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Mac 1.7.2: deleted projects stay deleted
+
+The project list recognized title-named files by their contents, while deletion reconstructed filenames from project IDs. It could report success without removing the actual file. Version 1.7.2 resolves the actual project file and serializes deletion with saves, preventing late autosaves from recreating it. Project files go to the system Trash; recordings are preserved. Explicitly restoring and reopening a file permits editing again.
+
+An isolated Mac workspace tested title-named, currently open and external projects. Reopening the list and restarting the entire application did not restore deleted entries; the control project remained. The full suite passed 4,664 tests with two skipped, plus both type checks and the development build. The release package passed signing, image-integrity and upload/download checksum checks. The user installs manually; development verification is not represented as installed-build testing.
 
 ## Windows/Linux 1.7.2: deleted projects stay deleted
 

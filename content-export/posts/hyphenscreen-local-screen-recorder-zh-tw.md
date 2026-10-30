@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-10-30
-summary: Windows／Linux1.7.2修復專案刪除後重新出現；保留自訂浮水印、本機編排與歷史示範，Mac版本與驗證範圍見下載表。
+summary: Mac、Windows與Linux均提供1.7.2，修復工程刪除後重現及延遲儲存重建；保留既有動畫成片、圖片、自訂浮水印與本機編排。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,12 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Mac 1.7.2：刪除的工程不再重新出現
+
+舊版清單依內容識別標題命名工程，刪除時卻依編號拼檔名，實際檔案未刪除便回報成功。1.7.2改用實際檔案位置，並將刪除與儲存依序執行，防止延遲自動儲存重建工程。工程檔案移至系統垃圾桶，錄製素材保留；明確還原檔案並重新開啟後仍可繼續編輯。
+
+獨立Mac工作室實際刪除標題命名、目前開啟及外部路徑工程，重開清單與完整重啟後皆未重現，保留對照工程仍在。全量4664項通過、2項略過，兩套型別檢查及開發建置通過。正式安裝包完成簽署、映像完整性及上傳後重新下載校驗；本輪由使用者手動安裝，未將開發版驗收寫成安裝版實測。
 
 ## Windows／Linux 1.7.2：刪除的專案不再重現
 
