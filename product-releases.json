@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-30T13:29:16.263Z",
-  "contentHash": "4cd0f39cc3068bb882678a5d3937c843319a54d0958f59190a4984df8825d166",
+  "checkedAt": "2026-10-30T13:36:57.588Z",
+  "contentHash": "707aa8e4bf7c80a72975c40a5fac925afdb9eb24ed49983556b6e83a33c0245e",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T13:29:16.263Z",
+      "checkedAt": "2026-10-30T13:36:57.588Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T13:29:16.263Z",
+      "checkedAt": "2026-10-30T13:36:57.588Z",
       "prerelease": false,
       "releaseNotesHash": "f020bac9e3b773436f32a7a7b1227f7657a9d6749cecd41a4a3f20744c21ff90",
       "revision": "004e165199008c62b182bdc89375bb5441dce16b96440bcbb7f2dd641b202fac"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T13:29:16.263Z",
+      "checkedAt": "2026-10-30T13:36:57.588Z",
       "prerelease": false,
       "releaseNotesHash": "5552d1d3efeaab60641fc85bce3e63e84819c80b11c0fdcd125038f08e4a8458",
       "revision": "1dbfd8b1d0bce008fc636c8589372c6a463475116ec7ce22a537f8c019827d74"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T13:29:16.263Z",
+      "checkedAt": "2026-10-30T13:36:57.588Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -391,7 +391,7 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "1.7.2修复按标题命名的工程在列表删除后重新出现。删除按实际工程文件定位，并与保存顺序执行，避免迟到保存重新写回。工程文件使用系统废纸篓，录制素材保留；恢复文件并明确重新打开后仍可继续编辑。",
       "updated": "2026-10-30",
-      "activityAt": "2026-10-30T13:29:08Z",
+      "activityAt": "2026-10-30T13:29:34Z",
       "version": "1.7.2",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.2",
       "source": "release",
@@ -441,14 +441,22 @@
               "size": 523201016,
               "updatedAt": "2026-10-30T13:29:08Z",
               "digest": "sha256:97d155b5f50a0530fe244269e6194870bf3ac55b624f9ba6811323513edf50ea"
+            },
+            {
+              "name": "HyphenScreen_1.7.2_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x86_64.AppImage",
+              "id": 692198347,
+              "size": 608577814,
+              "updatedAt": "2026-10-30T13:29:28Z",
+              "digest": "sha256:384603d76d2220014d9bf099db1dbafa922cb7837977ff89e55471d6970417a4"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-30T13:29:16.263Z",
+      "checkedAt": "2026-10-30T13:36:57.588Z",
       "prerelease": false,
-      "releaseNotesHash": "b71597fb3233bedea3c200581ce45b5b53f19d80fe4d68d2ca1a85c3f6444bc2",
-      "revision": "5f7e696d2838a7369c29e3ce7e58969d9f5b5a074d06d7f71da177298cfe0481"
+      "releaseNotesHash": "0ec41133a4515d0be9c449a5ef3466a9a33d7f168449bac71a19f7603fa8c2f3",
+      "revision": "fdaf85569772f1875684e5b6015bd5426e5b22d05c0019ec8ba72e2aa983eff6"
     }
   ]
 }
