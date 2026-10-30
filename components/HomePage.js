@@ -11,6 +11,8 @@ import Search from './Search';
 import ContainedCover from './ContainedCover';
 import LangToggle from './LangToggle';
 import HomeHero from './HomeHero';
+import CommunityEntry from './CommunityEntry';
+import { communityHref } from '../lib/community.cjs';
 import { SITE_CONFIG } from '../lib/seo';
 import { makeT } from '../lib/blog-i18n.cjs';
 import { homeHref, listHref } from '../lib/site-lang.cjs';
@@ -218,6 +220,7 @@ const SiteNavigation = () => {
         <a href="#resources">{t('资源雷达')}</a>
         <a href="#all-content">{t('实测文章')}</a>
         <a href="#media">{t('我的频道')}</a>
+        <a className="home-nav__community" href={communityHref(lang)}>{t('黑粉茶馆')}</a>
       </div>
       <details className="home-mobile-menu">
         <summary>{t('目录')}</summary>
@@ -229,6 +232,7 @@ const SiteNavigation = () => {
           <a href="#resources">{t('资源雷达')}</a>
           <a href="#all-content">{t('实测文章')}</a>
           <a href="#media">{t('我的频道')}</a>
+          <a href={communityHref(lang)}>{t('黑粉茶馆')}</a>
         </div>
       </details>
       <div className="home-nav__meta">
@@ -495,6 +499,7 @@ export default function Home({
               articlesHref={listHref(lang, 1)}
             />
             <MediaSection subMenus={subMenus} />
+            <CommunityEntry lang={lang} compact />
             <LabSection />
             <ProductSection products={products} />
             <ResourceSection posts={radarPosts} />

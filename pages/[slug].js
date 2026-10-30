@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import ShareButtons from '../components/ShareButtons';
 import RelatedPosts from '../components/RelatedPosts';
 import Comments from '../components/Comments';
+import CommunityEntry from '../components/CommunityEntry';
 import SponsorCard from '../components/SponsorCard';
 import MarkdownContent from '../components/MarkdownContent';
 import ArticleCover from '../components/ArticleCover';
@@ -275,6 +276,7 @@ export default function PostPage({
             </div>
             <SponsorCard lang={t.lang} />
             <RelatedPosts posts={relatedPosts} lang={t.lang} />
+            <CommunityEntry lang={t.lang} slug={meta.slug || slug} compact />
             <Comments slug={meta.slug || slug} lang={t.lang} />
           </section>
 

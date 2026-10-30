@@ -14,6 +14,8 @@
  * 所以这里没有任何重计算，单次请求最多 2 条 SQL。
  */
 
+import { BOARD_SLUG, decodeBoardMessage } from '../../../lib/community.cjs';
+
 const MAX_NICKNAME = 24;
 const MAX_CONTENT = 1000;
 const LIST_LIMIT = 200;
@@ -111,18 +113,22 @@ async function verifyTurnstile(token, secret, ip) {
 }
 
 async function handleList(request, env) {
-  const slug = new URL(request.url).searchParams.get('slug') || '';
+  const params = new URL(request.url).searchParams;
+  const slug = params.get('slug') || '';
+  const recent = params.get('recent') === '1';
   if (!SLUG_PATTERN.test(slug)) return json({ error: '文章标识不合法' }, 400);
 
+  // 顺序只来自布尔分支，不拼接用户输入；旧文章保持原顺序。
   const { results } = await env.DB.prepare(
     `SELECT id, nickname, content, parent_id, created_at, author_verified
        FROM comments
       WHERE slug = ?1 AND status = 'visible'
-      ORDER BY created_at ASC
+      ORDER BY created_at ${recent ? 'DESC' : 'ASC'}, id ${recent ? 'DESC' : 'ASC'}
       LIMIT ?2`
-  ).bind(slug, LIST_LIMIT).all();
+  ).bind(slug, LIST_LIMIT + 1).all();
 
-  return json({ slug, count: results.length, comments: results });
+  const comments = results.slice(0, LIST_LIMIT);
+  return json({ slug, count: comments.length, comments, hasMore: results.length > LIST_LIMIT });
 }
 
 async function handleCreate(request, env, owner = false) {
@@ -138,7 +144,8 @@ async function handleCreate(request, env, owner = false) {
   const slug = String(payload.slug || '');
   // 只有经过管理路由鉴权的调用能决定身份；忽略正文中伪造的身份字段。
   const nickname = owner ? OWNER_NAME : String(payload.nickname || '').trim();
-  const content = String(payload.content || '').trim();
+  const rawContent = String(payload.content || '');
+  const content = rawContent.trim();
   const parentId = payload.parentId ? Number(payload.parentId) : null;
 
   if (!SLUG_PATTERN.test(slug)) return json({ error: '文章标识不合法' }, 400);
@@ -147,7 +154,7 @@ async function handleCreate(request, env, owner = false) {
   if (!owner && isReservedNickname(nickname)) {
     return json({ error: '此昵称为站长专用，请换一个昵称' }, 403);
   }
-  if (!content) return json({ error: '留言内容是空的' }, 400);
+  if (!content || (slug === BOARD_SLUG && !decodeBoardMessage(rawContent).text.trim())) return json({ error: '留言内容是空的' }, 400);
   if (content.length > MAX_CONTENT) return json({ error: `留言最多 ${MAX_CONTENT} 个字` }, 400);
   if (parentId !== null && (!Number.isSafeInteger(parentId) || parentId < 1)) return json({ error: '回复目标不合法' }, 400);
   if (parentId !== null) {

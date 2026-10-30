@@ -7,6 +7,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { makeT } from '../lib/blog-i18n.cjs';
+import { TOPICS, encodeBoardMessage, decodeBoardMessage, groupComments } from '../lib/community.cjs';
 
 // 默认关闭，必须显式开启。
 //
@@ -30,23 +31,6 @@ function formatTime(milliseconds, t) {
   const date = new Date(milliseconds);
   const pad = (n) => String(n).padStart(2, '0');
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-}
-
-/** 把扁平列表整理成「顶层留言 + 它的回复」两层。再深的嵌套在手机上没法读。 */
-function groupComments(list) {
-  const byId = new Map(list.map((item) => [item.id, item]));
-  const roots = [];
-  const replies = new Map();
-  for (const item of list) {
-    const parentId = item.parent_id;
-    if (parentId && byId.has(parentId)) {
-      if (!replies.has(parentId)) replies.set(parentId, []);
-      replies.get(parentId).push(item);
-    } else {
-      roots.push(item);
-    }
-  }
-  return roots.map((root) => ({ ...root, replies: replies.get(root.id) || [] }));
 }
 
 function useTurnstile(containerRef, enabled) {
@@ -83,6 +67,12 @@ function useTurnstile(containerRef, enabled) {
 
     return () => {
       cancelled = true;
+      const script = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
+      script?.removeEventListener('load', render);
+      if (widgetIdRef.current !== null && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
     };
   }, [containerRef, enabled]);
 
@@ -102,9 +92,11 @@ function useTurnstile(containerRef, enabled) {
   return { ready, getToken, reset };
 }
 
-function CommentItem({ comment, onReply, replyingTo, t }) {
+function CommentItem({ comment, onReply, replyingTo, t, board = false, articles = [] }) {
+  const decoded = board ? decodeBoardMessage(comment.content) : { text: comment.content };
+  const source = articles.find(item => item.slug === decoded.sourceSlug || item.originalSlug === decoded.sourceSlug);
   return (
-    <li className="comment-item">
+    <li className="comment-item" id={`comment-${comment.id}`}>
       <div className="comment-head">
         <span className="comment-nickname">{comment.nickname}</span>
         {comment.author_verified === 1 && comment.nickname === '黑粉科技' && (
@@ -114,7 +106,9 @@ function CommentItem({ comment, onReply, replyingTo, t }) {
           {formatTime(comment.created_at, t)}
         </time>
       </div>
-      <p className="comment-content">{comment.content}</p>
+      {decoded.category && <span className="tea-topic-label">{t(TOPICS.find(item => item.id === decoded.category).label)}</span>}
+      {source && <a className="tea-source" href={`/${source.slug}/`}>{t('来自文章')}：{source.title}</a>}
+      <p className="comment-content">{decoded.text}</p>
       {onReply && (
         <button
           type="button"
@@ -127,7 +121,7 @@ function CommentItem({ comment, onReply, replyingTo, t }) {
       {comment.replies?.length > 0 && (
         <ul className="comment-replies">
           {comment.replies.map((reply) => (
-            <CommentItem key={reply.id} comment={reply} t={t} />
+            <CommentItem key={reply.id} comment={reply} t={t} board={board} articles={articles} />
           ))}
         </ul>
       )}
@@ -135,7 +129,7 @@ function CommentItem({ comment, onReply, replyingTo, t }) {
   );
 }
 
-function CommentsPanel({ slug, lang }) {
+function CommentsPanel({ slug, lang, board = false, context = null, articles = [] }) {
   const t = makeT(lang);
   const [comments, setComments] = useState([]);
   const [loadState, setLoadState] = useState('loading'); // loading | ready | failed
@@ -144,9 +138,24 @@ function CommentsPanel({ slug, lang }) {
   const [replyTo, setReplyTo] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null); // { kind: 'error' | 'ok', text }
+  const [category, setCategory] = useState('deploy');
+  const [filter, setFilter] = useState('all');
+  const [hasMore, setHasMore] = useState(false);
+  const panelRef = useRef(null);
+  const [activated, setActivated] = useState(false);
+  const contextSlug = context?.originalSlug || context?.slug;
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) { setActivated(true); return undefined; }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { setActivated(true); observer.disconnect(); }
+    }, { rootMargin: '240px' });
+    if (panelRef.current) observer.observe(panelRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const turnstileRef = useRef(null);
-  const turnstile = useTurnstile(turnstileRef, true);
+  const turnstile = useTurnstile(turnstileRef, activated);
 
   useEffect(() => {
     try {
@@ -162,27 +171,38 @@ function CommentsPanel({ slug, lang }) {
     // 这时候请求出去只会换回一个 400，安静等下一轮即可。
     if (!slug) return;
     try {
-      const response = await fetch(`${API_BASE}?slug=${encodeURIComponent(slug)}`, {
+      const response = await fetch(`${API_BASE}?slug=${encodeURIComponent(slug)}${board ? '&recent=1' : ''}`, {
         headers: { accept: 'application/json' },
+        signal: AbortSignal.timeout(12000),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       setComments(groupComments(data.comments || []));
+      setHasMore(Boolean(data.hasMore));
       setLoadState('ready');
     } catch {
       setLoadState('failed');
     }
-  }, [slug]);
+  }, [slug, board]);
 
   useEffect(() => {
-    load();
-  }, [load]);
+    if (activated) load();
+  }, [load, activated]);
 
   async function handleSubmit(event) {
     event.preventDefault();
     if (submitting || !slug) return;
     setMessage(null);
 
+    if (!content.trim()) {
+      setMessage({ kind: 'error', text: t('留言内容是空的') });
+      return;
+    }
+    const body = board && !replyTo ? encodeBoardMessage(content, category, contextSlug) : content.trim();
+    if (body.length > MAX_CONTENT) {
+      setMessage({ kind: 'error', text: t('内容加上话题信息超过1000字，请缩短后重试。') });
+      return;
+    }
     const token = turnstile.getToken();
     if (TURNSTILE_SITE_KEY && !token) {
       setMessage({ kind: 'error', text: t('人机校验还没完成，稍等一下再发') });
@@ -197,7 +217,7 @@ function CommentsPanel({ slug, lang }) {
         body: JSON.stringify({
           slug,
           nickname: nickname.trim(),
-          content: content.trim(),
+          content: body,
           parentId: replyTo,
           turnstileToken: token,
         }),
@@ -228,14 +248,25 @@ function CommentsPanel({ slug, lang }) {
   }
 
   const total = comments.reduce((sum, item) => sum + 1 + (item.replies?.length || 0), 0);
+  const shown = board ? [...comments].reverse().filter(item => filter === 'all' || decodeBoardMessage(item.content).category === filter) : comments;
+  // 系统话题与来源前缀预留预算，读者计数仍从零开始；最终提交继续校验完整正文。
+  const metadataLength = board && !replyTo ? encodeBoardMessage('', category, contextSlug).length : 0;
+  const maxInputLength = MAX_CONTENT - metadataLength;
 
   return (
-    <section className="comments-section" aria-labelledby="comments-heading">
+    <section ref={panelRef} className="comments-section" aria-labelledby="comments-heading">
       <h2 id="comments-heading" className="comments-heading">
-        {t('留言')}{loadState === 'ready' && total > 0 ? ` · ${total}` : ''}
+        {board ? t('聊两句') : t('留言')}{loadState === 'ready' && total > 0 ? ` · ${total}` : ''}
       </h2>
 
       <form className="comment-form" onSubmit={handleSubmit}>
+        {board && !replyTo && <>
+          <label className="comment-label" htmlFor="comment-category">{t('选择话题')}</label>
+          <select id="comment-category" className="comment-input" value={category} onChange={event => setCategory(event.target.value)}>
+            {TOPICS.map(topic => <option key={topic.id} value={topic.id}>{t(topic.label)}</option>)}
+          </select>
+          {context && <p className="tea-context">{t('来自文章')}：<a href={`/${context.slug}/`}>{context.title}</a></p>}
+        </>}
         {replyTo && (
           <div className="comment-replying-hint">
             {t('正在回复 #{id}', { id: replyTo })}
@@ -259,15 +290,15 @@ function CommentsPanel({ slug, lang }) {
           className="comment-textarea"
           value={content}
           onChange={(event) => setContent(event.target.value)}
-          maxLength={MAX_CONTENT}
+          maxLength={maxInputLength}
           rows={4}
-          placeholder={t('说点什么')}
+          placeholder={board ? t('写清设备、系统、软件版本、报错和已经试过的办法。不要贴密钥或个人信息。') : t('说点什么')}
           required
         />
         <div className="comment-form-footer">
           <div ref={turnstileRef} className="comment-turnstile" />
           <div className="comment-actions">
-            <span className="comment-counter">{content.length}/{MAX_CONTENT}</span>
+            <span className="comment-counter">{content.length}/{maxInputLength}</span>
             <button type="submit" className="comment-submit" disabled={submitting}>
               {submitting ? t('发送中…') : t('发表')}
             </button>
@@ -280,6 +311,11 @@ function CommentsPanel({ slug, lang }) {
         )}
       </form>
 
+      {board && <div className="tea-filters" aria-label={t('筛选话题')}>
+        <button type="button" aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>{t('全部话题')}</button>
+        {TOPICS.map(topic => <button type="button" key={topic.id} aria-pressed={filter === topic.id} onClick={() => setFilter(topic.id)}>{t(topic.label)}</button>)}
+      </div>}
+
       {loadState === 'loading' && <p className="comment-placeholder">{t('正在加载留言…')}</p>}
       {loadState === 'failed' && (
         <p className="comment-placeholder">
@@ -291,17 +327,21 @@ function CommentsPanel({ slug, lang }) {
       )}
       {loadState === 'ready' && total > 0 && (
         <ul className="comment-list">
-          {comments.map((comment) => (
+          {shown.map((comment) => (
             <CommentItem
               key={comment.id}
               comment={comment}
               onReply={setReplyTo}
               replyingTo={replyTo}
               t={t}
+              board={board}
+              articles={articles}
             />
           ))}
         </ul>
       )}
+      {board && loadState === 'ready' && total > 0 && !shown.length && <p className="comment-placeholder">{t('这个话题还没人开聊，欢迎先提一个。')}</p>}
+      {board && hasMore && <p className="comment-placeholder">{t('当前仅显示最近200条留言，更早记录仍保留。')}</p>}
     </section>
   );
 }
@@ -311,7 +351,7 @@ function CommentsPanel({ slug, lang }) {
  * 无条件调用，在组件体里提前 return 会违反 hooks 规则；包一层则是整个子组件
  * 不被渲染，它的 hooks 自然一次都不会执行。
  */
-export default function Comments({ slug, lang }) {
+export default function Comments({ slug, lang, ...options }) {
   if (!COMMENTS_ENABLED) return null;
-  return <CommentsPanel slug={slug} lang={lang} />;
+  return <CommentsPanel key={slug} slug={slug} lang={lang} {...options} />;
 }

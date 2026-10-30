@@ -2,6 +2,7 @@ import Link from 'next/link';
 import LangToggle from './LangToggle';
 import { makeT } from '../lib/blog-i18n.cjs';
 import { homeHref } from '../lib/site-lang.cjs';
+import { communityHref } from '../lib/community.cjs';
 
 /** 列表和文章沿用首页导航语言；跨页入口指回首页对应区块。 */
 export default function BlogNavigation({ lang = 'zh-CN', alternates }) {
@@ -22,6 +23,7 @@ export default function BlogNavigation({ lang = 'zh-CN', alternates }) {
       </Link>
       <div className="home-nav__links">
         {links.map(([anchor, label]) => <Link key={anchor} href={`${home}${anchor}`}>{label}</Link>)}
+        <a className="home-nav__community" href={communityHref(lang)}>{t('黑粉茶馆')}</a>
       </div>
       <details className="home-mobile-menu">
         <summary>{t('目录')}</summary>
@@ -29,6 +31,7 @@ export default function BlogNavigation({ lang = 'zh-CN', alternates }) {
           if (event.target.closest('a')) event.currentTarget.parentElement.open = false;
         }}>
           {links.map(([anchor, label]) => <Link key={anchor} href={`${home}${anchor}`}>{label}</Link>)}
+          <a href={communityHref(lang)}>{t('黑粉茶馆')}</a>
         </div>
       </details>
       {alternates && <div className="home-nav__meta"><LangToggle lang={lang} alternates={alternates} /></div>}

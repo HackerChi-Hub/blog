@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "pretest:content": "node scripts/test-community.js",
+    "postbuild": "node scripts/audit-seo.cjs",
+    "test:community": "node scripts/test-community.js",
+    "community:intake": "node scripts/community-intake.cjs",
+    "community:preview": "node scripts/preview-community.cjs --static",
     "links:audit": "node scripts/audit-article-links.js --check",
     "test:links": "node scripts/test-article-links.js",
     "dev": "BLOG_CONTENT_DIR=../blog-content next dev",

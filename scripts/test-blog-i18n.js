@@ -26,6 +26,9 @@ const SOURCES = [
   'components/ShareButtons.js',
   'components/RelatedPosts.js',
   'components/Comments.js',
+  'components/CommunityEntry.js',
+  'components/TeahousePage.js',
+  'components/GuidesPage.js',
   'components/HomePage.js',
   'components/HomeHero.js',
   'components/Search.js',
@@ -50,6 +53,8 @@ const { PRODUCT_DEFINITIONS } = require('../lib/product-catalog.cjs');
 const { SITE_CONFIG } = require('../lib/seo.js');
 
 const INDIRECT_KEYS = [
+  ...require('../lib/community.cjs').TOPICS.map(item => item.label),
+  ...require('../lib/community.cjs').GUIDE_GROUPS.flatMap(item => [item.title, item.question]),
   ...Object.values(CALLOUT_LABELS),
   ...COMMENT_SERVER_ERRORS,
   '黑粉科技 · 官网', // SITE_CONFIG.name

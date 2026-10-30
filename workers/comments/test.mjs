@@ -117,6 +117,8 @@ console.log('\n输入校验与鉴权：');
 for (const [name, payload] of [
   ['空昵称被拒', { slug: 'a', nickname: '  ', content: 'x' }],
   ['空内容被拒', { slug: 'a', nickname: 'n', content: '   ' }],
+  ['茶馆只有话题时被拒', { slug: 'teahouse', nickname: 'n', content: '【部署求助】\n\n' }],
+  ['茶馆只有话题与来源时被拒', { slug: 'teahouse', nickname: 'n', content: '【工具反馈】\n关联文章：/sample/\n\n  ' }],
   ['超长昵称被拒', { slug: 'a', nickname: 'x'.repeat(25), content: 'x' }],
   ['超长内容被拒', { slug: 'a', nickname: 'n', content: 'x'.repeat(1001) }],
 ]) {
@@ -363,6 +365,24 @@ console.log('\n站长身份与防冒名：');
 }
 
 // ---------- 结果 ----------
+
+console.log('\n茶馆最近留言与安全字段：');
+{
+  const recentEnv = { ...env, DB:makeDB() };
+  for (let id=1;id<=203;id++) {
+    await recentEnv.DB.prepare('INSERT INTO comments (slug,nickname,content,created_at,ip_hash,author_verified) VALUES (?1,?2,?3,?4,?5,?6)')
+      .bind('teahouse','访客',`留言${id}`,id,'private-test-ip',0).first();
+  }
+  const get=async path=>(await worker.fetch(request(path),recentEnv)).json();
+  const latest=await get('/api/comments?slug=teahouse&recent=1');
+  const oldest=await get('/api/comments?slug=teahouse');
+  check('茶馆显示最新200条而不是卡在最早200条',latest.comments.length===200&&latest.comments[0].content==='留言203');
+  check('超过200条明确标记还有历史记录',latest.hasMore===true&&latest.count===200);
+  check('旧文章列表仍按时间升序',oldest.comments[0].content==='留言1');
+  check('公开列表不泄露IP和管理字段',!JSON.stringify(latest).includes('private-test-ip'));
+  const other=await get('/api/comments?slug=another-article&recent=1');
+  check('茶馆与文章留言严格隔离',other.count===0&&!other.hasMore);
+}
 
 console.log(`\n通过 ${passed} · 失败 ${failed}`);
 for (const note of pending) console.log(`⚠ ${note}`);

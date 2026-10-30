@@ -1,0 +1,72 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const c = require('../lib/community.cjs');
+const { summarize } = require('./community-intake.cjs');
+const { auditHtml } = require('./audit-seo.cjs');
+const { normalizeArticleHeadings } = require('../lib/article-headings.cjs');
+const markdown = new (require('markdown-it'))();
+const render = (source,title) => markdown.renderer.render(normalizeArticleHeadings(markdown.parse(source,{}),title),markdown.options,{});
+assert.equal(render('# 标题\n\n内容\n\n## 章节','标题'),'<p>内容</p>\n<h2>章节</h2>\n');
+assert.equal(render('# 不同章节\n\n## 子节','文章标题'),'<h2>不同章节</h2>\n<h3>子节</h3>\n');
+assert(render('```text\n# 标题\n```','标题').includes('# 标题'));
+const goodHtml='<title>真实标题</title><meta name="description" content="真实摘要"><link rel="canonical" href="https://hyphentech.top/teahouse/"><h1>标题</h1><script type="application/ld+json">{"@type":"WebSite"}</script>';
+assert.equal(auditHtml(goodHtml,'/teahouse/',()=>true).errors.length,0);
+assert(auditHtml(goodHtml.replace('https://hyphentech.top/teahouse/','bad'),'/teahouse/',()=>true).errors.length>0);
+assert(auditHtml(goodHtml.replace('"WebSite"','"SearchAction","target":"/search?q=x"'),'/teahouse/').errors.length>0);
+assert.equal(c.BOARD_SLUG, 'teahouse');
+assert.equal(c.TOPICS.length, 4);
+assert(c.TOPICS.every(t=>t.label.length===4));
+for(const topic of c.TOPICS) {
+  const raw=c.encodeBoardMessage('真实问题', topic.id, 'published-post');
+  assert.deepEqual(c.decodeBoardMessage(raw),{text:'真实问题',category:topic.id,sourceSlug:'published-post'});
+}
+assert.equal(c.decodeBoardMessage('历史普通留言').text,'历史普通留言');
+assert.equal(c.decodeBoardMessage('【不存在】\n\n留言').category,null);
+assert(!c.encodeBoardMessage('a','deploy','https://evil.test').includes('关联文章'));
+assert(!c.discussionHref('//evil.test').includes('from='));
+assert.equal(c.discussionHref('abc','en'),'/en/teahouse/?from=abc');
+for (const topic of c.TOPICS) {
+  const overhead=c.encodeBoardMessage('',topic.id,'sample').length;
+  assert.equal(c.encodeBoardMessage('x'.repeat(1000-overhead),topic.id,'sample').length,1000);
+}
+const grouped=c.groupComments([{id:3,parent_id:2,created_at:3},{id:1,created_at:1},{id:2,parent_id:1,created_at:2}]);
+assert.equal(grouped.length,1);
+assert.deepEqual(grouped[0].replies.map(x=>x.id),[2,3]);
+assert.equal(c.groupComments([{id:4,parent_id:99}])[0].id,4);
+assert.equal(c.groupComments([{id:1,parent_id:2},{id:2,parent_id:1}]).length,2);
+const src=fs.readFileSync('components/Comments.js','utf8');
+assert(src.includes('AbortSignal.timeout(12000)'));
+assert(src.includes('body.length > MAX_CONTENT'));
+assert(src.includes('if (!content.trim())'));
+assert(!src.includes('dangerouslySetInnerHTML'));
+assert(src.includes('turnstile.remove(widgetIdRef.current)'));
+assert(src.includes("rootMargin: '240px'"));
+assert(src.includes('if (activated) load()'));
+assert(src.includes('maxLength={maxInputLength}'));
+assert(src.includes('context?.originalSlug || context?.slug'));
+assert(src.includes('item.originalSlug === decoded.sourceSlug'));
+const teahouse=fs.readFileSync('components/TeahousePage.js','utf8');
+assert(teahouse.includes("discussionHref(sourceSlug, 'en')"));
+assert(teahouse.includes('context?.originalSlug || context?.slug'));
+const fixture=[{id:2,slug:'post',content:'希望支持intel',status:'visible',ip_hash:'private-ip',nickname:'reader'}, {id:3,slug:'post',content:'希望支持intel',status:'visible'}, {id:4,slug:'post',content:'希望支持intel',status:'hidden'}, {id:5,slug:'post',content:'希望支持intel',author_verified:1}];
+const report=summarize(fixture);
+assert.equal(report.topics[0].distinctMessages,1);
+assert.equal(report.topics[0].status,'单次问题，非高频');
+assert(!JSON.stringify(report).includes('private-ip'));
+assert(!JSON.stringify(report).includes('reader'));
+// 加载纯SEO/站点地图模块，不依赖Next的扩展名补全，执行真实函数而非复制逻辑。
+function esmSource(file) {return fs.readFileSync(file,'utf8').replace(/^import .*;\n/gm,'').replace(/export /g,'');}
+const { makeT, OG_LOCALES }=require('../lib/blog-i18n.cjs');
+const scope={makeT,OG_LOCALES,process:{env:{}}};
+vm.createContext(scope);
+vm.runInContext(esmSource('lib/seo.js')+'\nthis.seo={SITE_CONFIG,generateSEOMeta,generateStructuredData};',scope);
+assert(!scope.seo.generateStructuredData({}).potentialAction,'不得声明不存在的/search地址');
+assert(!/[\u4e00-\u9fff]/.test(scope.seo.generateSEOMeta({lang:'en'}).description));
+vm.runInContext(esmSource('lib/sitemap.js')+'\nthis.xml=generateSitemap([{slug:"sample",date:"2026-01-01",updated:"2026-10-30"}]);',scope);
+assert(scope.xml.includes('<lastmod>2026-10-30</lastmod>'));
+for(const route of ['/teahouse/','/en/teahouse/','/guides/','/en/guides/','/radar/','/page/1/','/en/page/1/'])assert(scope.xml.includes(route));
+const {alternatesFor}=require('../lib/site-lang.cjs');
+assert.equal(alternatesFor({page:'/en/teahouse'}).en,'/en/teahouse/');
+assert.equal(alternatesFor({page:'/guides'})['zh-CN'],'/guides/');
+console.log('✅ 茶馆与搜索回归通过：分类、来源白名单、深层回复、长度、防注入、隐私、样本去重、多语言、失效搜索与更新时间');
