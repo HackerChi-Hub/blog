@@ -53,6 +53,12 @@ const { PRODUCT_DEFINITIONS } = require('../lib/product-catalog.cjs');
 const { SITE_CONFIG } = require('../lib/seo.js');
 
 const INDIRECT_KEYS = [
+  '请先在验证框中完成真人验证，再发表。',
+  '正在进行人机验证，通常只需几秒…',
+  '人机验证失败，请重新验证；仍失败时可刷新页面或更换网络。',
+  '人机验证已过期，请重新验证。',
+  '人机验证已通过',
+  '人机校验还没完成，稍等一下再发',
   ...require('../lib/community.cjs').TOPICS.map(item => item.label),
   ...require('../lib/community.cjs').GUIDE_GROUPS.flatMap(item => [item.title, item.question]),
   ...Object.values(CALLOUT_LABELS),

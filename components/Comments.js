@@ -35,27 +35,68 @@ function formatTime(milliseconds, t) {
 
 function useTurnstile(containerRef, enabled) {
   const widgetIdRef = useRef(null);
-  const [ready, setReady] = useState(false);
+  const [status, setStatus] = useState('loading');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!enabled || !TURNSTILE_SITE_KEY) return undefined;
 
     let cancelled = false;
+    let timer;
+    let script;
+    const fail = () => {
+      if (!cancelled) {
+        clearTimeout(timer);
+        setStatus('failed');
+      }
+      return true;
+    };
     function render() {
       if (cancelled || !containerRef.current || widgetIdRef.current !== null) return;
-      widgetIdRef.current = window.turnstile.render(containerRef.current, {
-        sitekey: TURNSTILE_SITE_KEY,
-        theme: 'dark',
-        size: 'flexible',
-      });
-      setReady(true);
+      try {
+        widgetIdRef.current = window.turnstile.render(containerRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: 'dark',
+          size: window.matchMedia('(max-width: 480px)').matches ? 'compact' : 'flexible',
+          callback: () => {
+            if (!cancelled) {
+              clearTimeout(timer);
+              setStatus('ready');
+            }
+          },
+          'error-callback': fail,
+          'timeout-callback': fail,
+          'unsupported-callback': fail,
+          'before-interactive-callback': () => {
+            if (!cancelled) {
+              clearTimeout(timer);
+              setStatus('interaction');
+            }
+          },
+          'expired-callback': () => {
+            if (!cancelled) {
+              clearTimeout(timer);
+              setStatus('expired');
+            }
+          },
+        });
+      } catch {
+        fail();
+      }
     }
 
+    setStatus('loading');
+    // 包括脚本、iframe被网络拦截的情况，不让访客无限等待。
+    timer = setTimeout(fail, 20000);
     if (window.turnstile) {
       render();
     } else {
       // 脚本只注入一次：同一页面可能有多个实例，重复注入会让 turnstile 报重复渲染。
-      let script = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
+      script = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
+      if (script && (script.dataset.loadFailed === 'true' || attempt > 0)) {
+        script.remove();
+        script = null;
+      }
       if (!script) {
         script = document.createElement('script');
         script.src = TURNSTILE_SCRIPT;
@@ -63,18 +104,25 @@ function useTurnstile(containerRef, enabled) {
         document.head.appendChild(script);
       }
       script.addEventListener('load', render);
+      script.addEventListener('error', scriptFailed);
+    }
+
+    function scriptFailed() {
+      script.dataset.loadFailed = 'true';
+      fail();
     }
 
     return () => {
       cancelled = true;
-      const script = document.querySelector(`script[src="${TURNSTILE_SCRIPT}"]`);
+      clearTimeout(timer);
       script?.removeEventListener('load', render);
+      script?.removeEventListener('error', scriptFailed);
       if (widgetIdRef.current !== null && window.turnstile) {
         window.turnstile.remove(widgetIdRef.current);
         widgetIdRef.current = null;
       }
     };
-  }, [containerRef, enabled]);
+  }, [containerRef, enabled, attempt]);
 
   const getToken = useCallback(() => {
     if (!TURNSTILE_SITE_KEY) return '';
@@ -82,14 +130,12 @@ function useTurnstile(containerRef, enabled) {
     return window.turnstile.getResponse(widgetIdRef.current) || '';
   }, []);
 
-  // token 是一次性的，提交后必须重置，否则第二条留言会被判成重放。
+  // 只重新开始官方验证，不生成令牌、不绕过服务端校验；不清空留言。
   const reset = useCallback(() => {
-    if (widgetIdRef.current !== null && window.turnstile) {
-      window.turnstile.reset(widgetIdRef.current);
-    }
+    setAttempt(value => value + 1);
   }, []);
 
-  return { ready, getToken, reset };
+  return { status, getToken, reset };
 }
 
 function CommentItem({ comment, onReply, replyingTo, t, board = false, articles = [] }) {
@@ -205,7 +251,7 @@ function CommentsPanel({ slug, lang, board = false, context = null, articles = [
     }
     const token = turnstile.getToken();
     if (TURNSTILE_SITE_KEY && !token) {
-      setMessage({ kind: 'error', text: t('人机校验还没完成，稍等一下再发') });
+      setMessage({ kind: 'error', text: t(turnstile.status === 'failed' ? '人机验证失败，请重新验证；仍失败时可刷新页面或更换网络。' : '人机校验还没完成，稍等一下再发') });
       return;
     }
 
@@ -304,6 +350,10 @@ function CommentsPanel({ slug, lang, board = false, context = null, articles = [
             </button>
           </div>
         </div>
+        {activated && TURNSTILE_SITE_KEY && <div className={`comment-verification comment-verification-${turnstile.status}`} role="status">
+          <span>{t(turnstile.status === 'ready' ? '人机验证已通过' : turnstile.status === 'failed' ? '人机验证失败，请重新验证；仍失败时可刷新页面或更换网络。' : turnstile.status === 'expired' ? '人机验证已过期，请重新验证。' : turnstile.status === 'interaction' ? '请先在验证框中完成真人验证，再发表。' : '正在进行人机验证，通常只需几秒…')}</span>
+          {(turnstile.status === 'failed' || turnstile.status === 'expired') && <button type="button" className="comment-submit" onClick={() => { setMessage(null); turnstile.reset(); }}>{t('重新验证')}</button>}
+        </div>}
         {message && (
           <p className={`comment-message comment-message-${message.kind}`} role="status">
             {message.text}

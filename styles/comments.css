@@ -68,6 +68,24 @@
   min-height: 0;
 }
 
+.comment-verification {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.comment-verification-failed,
+.comment-verification-expired {
+  color: #f1bc7d;
+}
+
+.comment-verification-ready {
+  color: var(--accent-cyan);
+}
+
 .comment-actions {
   display: flex;
   align-items: center;
