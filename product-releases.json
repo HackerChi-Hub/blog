@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-30T12:46:44.854Z",
-  "contentHash": "c5d58dc563b95aaaf7b2b81a568e019bd23a1109bcd86bec630063488c6682d9",
+  "checkedAt": "2026-10-30T13:07:09.727Z",
+  "contentHash": "cbe2b51b8e49b5d032c8976908e671009062a846cb79f0bb6761c1541e4677bd",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T12:46:44.854Z",
+      "checkedAt": "2026-10-30T13:07:09.727Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -108,9 +108,9 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "修复运行环境维护长期显示0%的问题。只有取得有效下载字节与总量时才计算百分比；准备、依赖安装、解压、校验、卸载和缓存复用显示具体阶段。阶段改变时清除上一阶段的百分比，不用初始化0/100冒充实际进展。",
+      "updateSummary": "2026-10-30；运行源码 f0543fd9ef970ed1aa724e4595b6149c96fff0d9。Windows NSIS、Linux Debian与AppImage同源构建，Mac2.2.1已发布资产及独立清单保持不变。",
       "updated": "2026-10-30",
-      "activityAt": "2026-10-30T11:34:05Z",
+      "activityAt": "2026-10-30T13:03:50Z",
       "version": "2.2.1",
       "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1",
       "source": "release",
@@ -133,49 +133,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.2.0",
+          "version": "2.2.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.0",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1",
           "assets": [
             {
-              "name": "LocalBrain_2.2.0_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_x64-setup.exe",
-              "id": 678473738,
-              "size": 40634175,
-              "updatedAt": "2026-10-26T14:50:41Z",
-              "digest": "sha256:9d6baddcacebc4d56bc7bdc8db1f4f15171b0f25c38cd4df8d732993d86c2e73"
+              "name": "LocalBrain_2.2.1_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_x64-setup.exe",
+              "id": 692142087,
+              "size": 40926304,
+              "updatedAt": "2026-10-30T13:02:40Z",
+              "digest": "sha256:96b74a0bf7a9e632a54c1906c596e4d492f1407c6154c0f72defe7a1fba9c60b"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.2.0",
+          "version": "2.2.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.0",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1",
           "assets": [
             {
-              "name": "LocalBrain_2.2.0_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.AppImage",
-              "id": 678473696,
-              "size": 159476216,
-              "updatedAt": "2026-10-26T14:51:18Z",
-              "digest": "sha256:9835fda37e88f8b168e053bf3120a594460caaf614194ce3bb41d0c4e4b4d78e"
+              "name": "LocalBrain_2.2.1_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.AppImage",
+              "id": 692142045,
+              "size": 159480312,
+              "updatedAt": "2026-10-30T13:03:19Z",
+              "digest": "sha256:1eff314ba5a80dedfd5b5be3ebcc4f4133a010e660a8d64e2cf0b88598e37dc1"
             },
             {
-              "name": "LocalBrain_2.2.0_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.0/LocalBrain_2.2.0_amd64.deb",
-              "id": 678473698,
-              "size": 81270446,
-              "updatedAt": "2026-10-26T14:51:05Z",
-              "digest": "sha256:9181709955ed9d9bb6dd49c4b34e5e29c550a60ef71150b56318a24bc7af799d"
+              "name": "LocalBrain_2.2.1_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.deb",
+              "id": 692142051,
+              "size": 81266678,
+              "updatedAt": "2026-10-30T13:03:04Z",
+              "digest": "sha256:55639806039c39ccee7996832428b7c70b99e58c802df4c83b865bbeac9a1f8f"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-30T12:46:44.854Z",
+      "checkedAt": "2026-10-30T13:07:09.727Z",
       "prerelease": false,
-      "releaseNotesHash": "b2fa2763dd26344e4d50cd96f15943a032dc86e55a1f4b4f793511e3a78a1e2f",
-      "revision": "eb53e89fe7d5b8e0c1a2c4349459477965229b2460d2058f141b973871574e00"
+      "releaseNotesHash": "f020bac9e3b773436f32a7a7b1227f7657a9d6749cecd41a4a3f20744c21ff90",
+      "revision": "004e165199008c62b182bdc89375bb5441dce16b96440bcbb7f2dd641b202fac"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T12:46:44.854Z",
+      "checkedAt": "2026-10-30T13:07:09.727Z",
       "prerelease": false,
       "releaseNotesHash": "5552d1d3efeaab60641fc85bce3e63e84819c80b11c0fdcd125038f08e4a8458",
       "revision": "1dbfd8b1d0bce008fc636c8589372c6a463475116ec7ce22a537f8c019827d74"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T12:46:44.854Z",
+      "checkedAt": "2026-10-30T13:07:09.727Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-30T12:46:44.854Z",
+      "checkedAt": "2026-10-30T13:07:09.727Z",
       "prerelease": false,
       "releaseNotesHash": "674435acf33a8a5157096336026a5a1fef6694a180977710daa738d5c88c487e",
       "revision": "191f9df2168b62c3e163d312ff905fd7918f9c7a68132dfba274c72247d49c91"
