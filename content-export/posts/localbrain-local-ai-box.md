@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-10-26
-summary: Windows/Linux补齐2.2.0，内部模块随软件升级，自定义插件安装仍关闭；五类工具35项清单及真实文档读写通过，Mac保留同版。平台与模型验收边界单独记录。
+updated: 2026-10-30
+summary: Windows/Linux补齐2.2.1维护阶段与完成刷新修复；已有模型、文档及配置验收通过，Linux限WSL2。
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.1：维护到哪一步，现在说清楚
+
+Windows/Linux2.2.1已构建并安装，作者已批准本批记录源码CI账户付款／额度限制后例外发布。Mac今天发布的同版安装包继续保留。这次处理的是之前反复遇到的现象：维护长期挂在0%，或者结果已经完成，左下角却还在转。
+
+在“设置→运行环境与诊断”里，有实际下载字节和总量才显示百分比；准备、安装依赖、解压、校验和卸载显示具体阶段。进入下一阶段会撤下旧比例。容器主漏洞库和Java索引库分别交代正在检查缓存、从哪下载、校验到哪；操作结束先撤下维护占用，再重新读取组件状态，慢刷新不再把完成任务拖成“还在维护”。
+
+本机Windows最终安装包已安装，原来六份配置散列保持不变。原生Torch校验返回完成终态，已有2B模型正常返回验收编号4276；35项MCP工具清单、真实DOCX创建/读取与Markdown导出通过。另用受控界面确认3MB/8MB显示37.5%，解压、校验不残留旧数字，清单还没返回时维护徽标已结束。这段是受控IPC证据，不把它说成Windows真实下载；Mac的49MB实际下载也单独记录。
+
+Windows Rust435项通过、36项忽略；前端1641项通过、2项跳过，适配器14项、维护队列3项通过；两平台随包Harness各53项，完整Python45个文件和额外安全7项通过。Linux Debian和AppImage已在Ubuntu22.04 WSL2完成资源与Xvfb启动检查，Debian已安装；这不代表裸机GPU或Linux媒体生成也通过。完整独立Harness的8K固定工具提示超限仍保留为已知问题，不能把进度显示修复算成模型能力升级。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.AppImage) · [Mac 2.2.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.1-WIN-LINUX.md)
 
 ## Windows / Linux 2.2.0：内部模块升级，保留原来的使用入口
 

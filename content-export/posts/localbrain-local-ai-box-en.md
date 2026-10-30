@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-26
-summary: Windows/Linux2.2.0 adds internal module upgrades while custom plugin installation stays closed. Five modules,35 tool schemas and real document calls passed; Mac retains2.2.0. Platform and model limits remain explicit.
+updated: 2026-10-30
+summary: Windows/Linux2.2.1 fixes maintenance stages and completion refresh; existing model, documents and configs verified, Linux scoped to WSL2.
 categories:
   - Resources
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.1: show the maintenance stage and settle completion
+
+Windows/Linux 2.2.1 is built and installed; the author approved this batch exception with the source CI payment/spending restriction recorded. Existing Mac 2.2.1 assets are retained. This update addresses maintenance stuck at 0% and a lingering activity indicator after an operation has finished.
+
+Settings→Runtime and diagnostics shows a percentage only with measured bytes and a valid total. Preparation, dependency installation, extraction, verification and removal show specific stages; stage changes clear stale percentages. The main vulnerability database and Java index report cache checks, source and verification separately. Operations settle their terminal state before refreshing inventory, so a slow read cannot keep completed maintenance busy.
+
+The final Windows installer preserves six existing configuration hashes. Native Torch verification, an existing 2B request returning 4276, 35 packaged MCP schemas, real DOCX create/read and Markdown export passed. Separate controlled UI checks confirm 3MB/8MB as 37.5%, no stale number during extraction/verification, and an indicator that ends before a delayed inventory response. Controlled IPC is not a Windows real-download test; Mac 49MB download evidence remains separate.
+
+Windows Rust 435 passed/36 ignored; frontend 1641 passed/2 skipped; 14 adapters and 3 queue tests passed; 53 Harness tests per platform; 45 Python files plus 7 security tests passed. Both Linux packages passed resource and startup checks on Ubuntu22.04 WSL2/Xvfb; Debian is installed. This is not bare-metal GPU or media-inference acceptance. The standalone full Harness 8K fixed-prefix overflow remains a known issue; this maintenance fix is not a model-capability upgrade.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.AppImage) · [Mac 2.2.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.1-WIN-LINUX.md)
 
 ## Windows / Linux 2.2.0: internal modules, familiar entry points
 

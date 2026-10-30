@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-26
-summary: Windows/Linux補齊2.2.0，內部模組隨軟體升級，自訂外掛安裝仍關閉；五類工具35項清單與真實文件讀寫通過，Mac保留同版。平台與模型驗收邊界分別記錄。
+updated: 2026-10-30
+summary: Windows/Linux補齊2.2.1維護階段與完成更新修正；既有模型、文件與設定驗收通過，Linux限WSL2。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.1：維護到哪一步，現在說清楚
+
+Windows/Linux2.2.1已建置安裝，作者已批准本批記錄原始碼CI帳戶付款／額度限制後例外發布。Mac今天發布的同版安裝包保留。這次修正維護長期停在0%，或結果已完成但左下角仍顯示維護的情況。
+
+設定→執行環境與診斷僅在實際下載位元組與總量齊全時顯示百分比；準備、安裝依賴、解壓縮、校驗與卸載顯示階段，切換時撤下舊比例。主漏洞庫與Java索引庫分別交代快取、下載來源及校驗。操作結束先清除維護占用，再重新讀取清單，慢更新不再拖住完成提示。
+
+Windows最終安裝包已安裝，六份原有設定散列不變。原生Torch校驗、既有2B模型驗收編號4276、35項MCP清單與真實DOCX建立/讀取及Markdown匯出通過。受控介面另確認3MB/8MB為37.5%，解壓與校驗清除舊數字，清單尚未返回時維護徽標已結束；這不是Windows實際下載證據，Mac的49MB實測獨立記錄。
+
+Windows Rust435通過/36略過，前端1641通過/2略過，介面卡14與佇列3項通過；兩平台Harness各53通過，完整Python45檔與安全7項通過。Linux兩包通過Ubuntu22.04 WSL2/Xvfb資源與啟動檢查，Debian已安裝，不代表裸機GPU或媒體生成通過。獨立完整Harness8K固定工具提示超限仍是已知問題，進度修正不等於模型能力升級。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_x64-setup.exe) · [Linux Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.deb) · [Linux AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.1/LocalBrain_2.2.1_amd64.AppImage) · [Mac 2.2.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.1)
+
+[Windows/Linux verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.1-WIN-LINUX.md)
 
 ## Windows / Linux 2.2.0：內部模組升級，保留原來入口
 
