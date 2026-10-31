@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.2 更新
+title: "黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.4 更新"
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-10-31
-summary: Mac、Windows与Linux均提供1.7.2，修复工程删除后重新出现及迟到保存重建；保留现有动画成片、配图、水印自定义与本地编排。
+summary: "Mac更新1.7.4，八类讲解动画与十套整片包装统一进入本地编排，无需模型即可手动制作，也支持模型与外部接口调用；Windows与Linux保留实际1.7.2。"
 categories:
   - 资源分享
 tags:
@@ -30,6 +30,18 @@ legacy_paths: []
 完整工程在黑粉录屏内导入画面、共轨编排、管理声音与章节，保存后重新打开，再从软件原生导出。三维物件、动作和相机保存在随片的三维源项目中；要调整它们，修改源项目后重新生成对应画面。黑粉录屏时间线负责整片的剪辑与编排。这套流程已完成4K60全片导出、完整解码、声音分段对照及审片网页播放检查。
 
 黏土工厂是黑粉录屏制作风格的一种。新的内容继续按自己的讲解目标设计物件、动作和镜头，对外统一署名“黑粉录屏制作、黑粉科技出品”。本期成片用于展示实际制作结果，软件版本与下载仍以下方发行记录为准。
+
+## Mac 1.7.4：讲解动画和整片包装，统一在本地编排制作
+
+聊天区现在只保留“制作动画”一个入口。进入“本地编排 · 无需模型”，选择讲解动画或整片包装：先看范例，填写自己的文字、图片、数据与时间，再加入时间线。没有配置模型，也能完成这套操作。
+
+八类讲解按来源与讲解、比较与核对、脉络与结构归类，生成原生可编辑图层。十套整片包装各保留开场、清单、聚焦、数字四种版式，沿用整套排版、配色、动效和声音；内部图层暂不可逐层编辑，修改保存的配置后可重新生成。切换两个本地分类会保留各自输入，不必重复填写。
+
+![本地编排统一入口：讲解动画和整片包装](/obsidian-assets/hyphenscreen-local-screen-recorder/local-composition-174.png)
+
+同一份目录和编排工具也开放给连接的模型与外部MCP客户端。本轮无模型配置的独立工作室实际完成包装生成、画面与声音保存、讲解动画加入，以及20秒连续播放。另用真实外部MCP进程读取目录、生成8秒包装、写入12秒38图层讲解、另存工程并原生导出20秒1080p30视频，完整解码与抽帧通过。这是直接工具调用验证，没有调用大模型，也没有把结果当成所有在线模型的生成质量保证。
+
+本版也包含对话停止修复：模型仍在运行时，可以停止本轮，保留已执行修改和输入框中的新指令；旧请求安全退出后继续同一对话。本地响应每次最多16384词元，截断时明确停止，避免执行不完整场景；总等待与连续无输出等待仍由用户设置。最终全量4680项通过、2项跳过。正式Mac安装版已核对严格签名及609个文件与链接的一致性；从正式安装路径运行的外部工具再次完成8秒包装、12秒38图层讲解、工程另存与20秒1080p30原生导出，600帧音画完整解码通过。正式工作室已打开上述工程；展开聊天时等待系统钥匙串认证，最后手动生成及安装版连续播放尚未记为通过。本轮没有重新进行声音主观听审，也未覆盖全部录制设备或在线模型。
 
 ## Mac 1.7.2：删掉的工程，不再重新出现
 
@@ -233,21 +245,21 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.7.2，DMG 共 426,730,776 字节，约 427 MB |
+| Mac 苹果芯片 | 1.7.4，DMG 共 426,759,601 字节，约 427 MB |
 | Windows 10/11 x64 | 1.7.2，安装程序 409,519,709 字节，未签名 |
 | Linux x86_64 | 1.7.2，AppImage 608,577,814 字节；deb 523,201,016 字节；pacman 484,536,504 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
 ```text
-fa1a488c6ebfab8b21403ab986e841be5ff574beededa6205f298fe8408adb3d
+8a88a46ba44b9e1f2a7e209876b91a471c581dcb37074ad13384f85a5a9e9518
 ```
 
-Windows 与 Linux 1.7.1 的 SHA-256：
+Windows 与 Linux 1.7.2 的 SHA-256：
 
 | 安装包 | SHA-256 |
 | --- | --- |
@@ -285,7 +297,7 @@ Windows／Linux1.7.2本地包均通过原生部件、字体及包内资源检查
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.7.2，Windows与Linux为1.7.2；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.7.4，Windows与Linux为1.7.2；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -432,7 +444,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.7.2，Windows与Linux为1.7.2；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.7.4，Windows与Linux为1.7.2；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
