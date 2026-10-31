@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-31
-summary: "Windows/Linux2.2.2: persistent maintenance outcomes, paste drafts and pinned DSH rc.5/Node22.23.4, with platform-specific update and acceptance limits."
+summary: "Mac 2.2.2 is released with consistent runtime controls, engine updates and rollback, pasted attachments, and actual Splash 1.5 text and vision replies. Windows/Linux 2.2.2 were published separately with platform-specific verification."
 categories:
   - Resources
 tags:
@@ -15,6 +15,36 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.2: consistent runtime controls and pasted attachments
+
+Mac 2.2.2 has passed installed-app verification and is publicly released. Windows/Linux 2.2.2 were published by a separate build; see their [platform-specific verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.2-WIN-LINUX.md). This section describes the Mac update; historical text and screenshots retain their original dates and test conditions.
+
+In Settings → Runtime and diagnostics, equivalent actions now share the same name, button style and order: Install, Update, Verify, Roll back, Uninstall and Clear cache. Current and rollback versions and check times appear in the information area, keeping long version strings out of the buttons. Ready ordinary components do not offer another installation; cache cleanup and rollback appear only when their corresponding data exists. Existing external Docker services, package managers and build tools are detected, reused and preserved.
+
+Check runtime updates only queries official version information. Updating requires confirmation, and starting a model never updates its engine automatically. The installed app updated six independent engines to these versions while preserving their previous environments:
+
+| Component | Version installed in this round |
+| --- | --- |
+| Splash | 1.5.0 |
+| Sushi | 1.4.1 |
+| Music and image editing, mlx-serve | 26.10.3 |
+| GGUF text and vision, llama.cpp | b12018, official rolling build |
+| Ternary-model engine, Prism | prism-b10831-9d9efea |
+| Offline component checks, Trivy | 0.76.1 |
+
+Updates validate the official archive and launch interface before switching to an independent directory. Failed validation preserves the old environment. Rollback also checks files and related task state. The installed app completed a real Trivy 0.76.1 → 0.75.0 → 0.76.1 round trip, ending at 0.76.1. Shared Python and Torch dependencies retain the tested combinations rather than receiving an unrestricted bulk upgrade.
+
+Maintenance results persist across reopening: before/after versions, no upgrade needed, reused cache, downloaded content, database time or a failure reason. This round reused one valid device-database cache and two container-database caches, explicitly reporting that nothing was downloaded. Web-checking rules were actually updated and verified. Unknown progress shows the processing stage; percentages require actual download byte counts. An unrelated model startup no longer blocks independent database maintenance. Related environments in use report that the operation was not executed and the current task was preserved.
+
+Splash 1.5 launch-argument detection is also fixed. Wrapped help descriptions had been misclassified as positional arguments, causing an exit before loading weights; the parser now follows actual argument declarations. Existing Qwen3.8 27B weights completed text and image-understanding requests without downloading them again. Initial startup included upstream calibration and warmup: approximately 2 minutes 14 seconds to readiness, with about 5 seconds spent loading weights. Those are separate measurements.
+
+The composer accepts pasted Finder images, text files and videos, as well as copied image pixels. Attachments wait in the draft area and are read only after sending. In the installed app, a three-file request correctly returned the text file's first line and identified an orange-yellow square and cyan circle. It also explicitly reported that the video was a local file reference with no frames or audio read. Video attachment references are supported; video understanding still needs the corresponding capability. Cancelling removes the image copy created by this paste while preserving the original files.
+
+Embedded DeepSeek Harness is adapted to 0.2.1-rc.5 and updates with the app. An actual multimodal conversation completed in the installed version. Checks passed for 458 Rust tests, 1650 TypeScript tests, 14 adapter tests and 53 core regression tests; additional skipped and ignored tests remain documented. All 15,638 files, permissions and links matched across the build, disk image and installed app, and application/updater signature checks passed. The Mac app remains locally signed and not Apple-notarized. Windows/Linux native hardware was not tested in this round. Temporary verification conversations were removed; detailed records remain local.
+
+Mac 2.2.2 DMG SHA-256: `8304011e22eda8b7e2b6947ae3ba226ceb5412233b3679880702abdc238526d4`. The GitHub source documentation job could not start because of account billing restrictions. On 2026-10-31 the author explicitly approved this Mac release exception based on local checks and installed-app verification; this is not a remote CI pass. [Download Mac 2.2.2 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2/LocalBrain_2.2.2_aarch64.dmg) · [Downloads, updates and other platforms](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.2-MAC.md).
+
 
 ## Windows / Linux 2.2.2: maintenance receipts and pasted attachments
 
