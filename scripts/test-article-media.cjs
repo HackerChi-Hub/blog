@@ -51,6 +51,7 @@ const { buildArticleMedia, mp4Atoms } = require('./build-article-media.cjs');
     assert(mp4Atoms(path.join(root,'public',web.manifest[hdSource].src)).findIndex(a=>a.type==='moov')<mp4Atoms(path.join(root,'public',web.manifest[hdSource].src)).findIndex(a=>a.type==='mdat'));
     const hdMarkdown=new Function('MarkdownIt','mediaFor',section+'\nreturn markdown;')(MarkdownIt,src=>web.manifest[src]);
     assert(hdMarkdown.render('![高清样片]('+hdSource+')').includes('高清原片 ↗'),'网页播放版须保留高清原片入口');
+    assert(hdMarkdown.render('![高清样片]('+hdSource+')').includes('当前播放：720p 网页版'),'明确实际播放清晰度，不把网页衍生版冒充高清原片');
     console.log('✅ 正文媒体回归：原件不变、响应式完整图片、原图入口、视频无损索引前置、轻量播放版与高清入口、海报、路径隔离与幂等');
   } finally { fs.rmSync(root,{recursive:true,force:true}); }
 })().catch(error=>{console.error(error);process.exitCode=1;});
