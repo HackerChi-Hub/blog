@@ -54,7 +54,7 @@ async function buildArticleMedia({ root = path.resolve(__dirname, '..'), sources
   }
   const manifest = {};
   const used = new Set();
-  const stats = { images: 0, videos: 0, faststart: 0, originalImageBytes: 0, mobileImageBytes: 0, desktopImageBytes: 0 };
+  const stats = { images: 0, videos: 0, faststart: 0, webVideos: 0, originalImageBytes: 0, mobileImageBytes: 0, desktopImageBytes: 0 };
   for (const candidate of [...selected].sort()) {
     const source = localMedia(candidate);
     if (!source || manifest[source] || !/\.(?:png|jpe?g|webp|mp4)$/i.test(source)) continue;
@@ -64,10 +64,26 @@ async function buildArticleMedia({ root = path.resolve(__dirname, '..'), sources
     const key = crypto.createHash('sha256').update('article-media-v1').update(bytes).digest('hex').slice(0, 24);
     if (/\.mp4$/i.test(source)) {
       const atoms = mp4Atoms(input);
-      const probe = JSON.parse(execFileSync('ffprobe', ['-v','error','-select_streams','v:0','-show_entries','stream=codec_name,pix_fmt,width,height','-of','json', input], { encoding:'utf8' })).streams[0];
+      const info = JSON.parse(execFileSync('ffprobe', ['-v','error','-select_streams','v:0','-show_entries','stream=codec_name,pix_fmt,width,height:format=bit_rate','-of','json', input], { encoding:'utf8' }));
+      const probe = info.streams[0];
       if (probe?.codec_name !== 'h264' || probe?.pix_fmt !== 'yuv420p') throw new Error(`网页视频需要兼容H264/yuv420p：${source}`);
-      let src = source;
-      if (atoms.findIndex(a => a.type === 'moov') > atoms.findIndex(a => a.type === 'mdat')) {
+      let src = source, videoWidth = probe.width, videoHeight = probe.height;
+      // 高码率1080p素材额外生成网页720p版，原片和原下载地址保留。
+      // 已经低码率的视频不转码，避免静态录屏被反向增肥。
+      if (probe.width > 1280 && Number(info.format?.bit_rate) > 3000000) {
+        const name = `${key}-web720.mp4`;
+        const file = path.join(output, name);
+        if (!fs.existsSync(file)) {
+          const temporary = path.join(output, `${key}-${crypto.randomUUID()}.tmp.mp4`);
+          try {
+            execFileSync('ffmpeg', ['-v','error','-nostdin','-i',input,'-map','0:v:0','-map','0:a?','-vf','scale=1280:-2','-c:v','libx264','-preset','medium','-crf','23','-maxrate','2500k','-bufsize','5000k','-pix_fmt','yuv420p','-c:a','aac','-b:a','128k','-movflags','+faststart',temporary]);
+            fs.renameSync(temporary, file);
+          } finally { if (fs.existsSync(temporary)) fs.unlinkSync(temporary); }
+        }
+        const webProbe = JSON.parse(execFileSync('ffprobe', ['-v','error','-select_streams','v:0','-show_entries','stream=width,height','-of','json',file], { encoding:'utf8' })).streams[0];
+        videoWidth = webProbe.width; videoHeight = webProbe.height;
+        used.add(name); src = '/media-previews/' + name; stats.webVideos++;
+      } else if (atoms.findIndex(a => a.type === 'moov') > atoms.findIndex(a => a.type === 'mdat')) {
         const name = `${key}-stream.mp4`;
         const file = path.join(output, name);
         if (!fs.existsSync(file)) {
@@ -87,7 +103,7 @@ async function buildArticleMedia({ root = path.resolve(__dirname, '..'), sources
         await sharp(frame).webp({ quality: 78 }).toFile(path.join(output, poster));
       }
       used.add(poster); stats.videos++;
-      manifest[source] = { kind:'video', src, poster:'/media-previews/' + poster, width:probe.width, height:probe.height };
+      manifest[source] = { kind:'video', src, poster:'/media-previews/' + poster, width:videoWidth, height:videoHeight, ...(src.endsWith('-web720.mp4') ? { original: source } : {}) };
     } else {
       const metadata = await sharp(bytes, { animated:false }).metadata();
       if ((metadata.pages || 1) > 1) continue;
@@ -108,7 +124,7 @@ async function buildArticleMedia({ root = path.resolve(__dirname, '..'), sources
     }
   }
   // 仅清理本生成器哈希命名的衍生文件，不删除原件或其他素材。
-  for (const name of fs.readdirSync(output)) if (/^[a-f0-9]{24}-(?:\d+\.webp|poster\.webp|stream\.mp4)$/.test(name) && !used.has(name)) fs.unlinkSync(path.join(output,name));
+  for (const name of fs.readdirSync(output)) if (/^[a-f0-9]{24}-(?:\d+\.webp|poster\.webp|(?:stream|web720)\.mp4)$/.test(name) && !used.has(name)) fs.unlinkSync(path.join(output,name));
   const destination = path.join(root,'lib/article-media.generated.json');
   const temporary = destination + '.' + crypto.randomUUID() + '.tmp';
   fs.writeFileSync(temporary,JSON.stringify(manifest) + '\n'); fs.renameSync(temporary,destination);

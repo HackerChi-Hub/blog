@@ -40,6 +40,17 @@ const { buildArticleMedia, mp4Atoms } = require('./build-article-media.cjs');
     const videoHtml=markdown.render('![样片]('+sources[1]+')');
     assert(videoHtml.includes('playsinline preload="none"')&&videoHtml.includes('poster="'));
     assert(videoHtml.includes(video.src)&&!videoHtml.includes('autoplay'));
-    console.log('✅ 正文媒体回归：原件不变、响应式完整图片、原图入口、视频无损索引前置、海报、路径隔离与幂等');
+    const hd=path.join(dir,'high-bitrate.mp4');
+    execFileSync('ffmpeg',['-v','error','-nostdin','-f','lavfi','-i','testsrc2=s=1600x900:r=30','-t','0.6','-c:v','libx264','-crf','10','-pix_fmt','yuv420p',hd]);
+    const hdBytes=fs.readFileSync(hd);
+    const hdSource='/obsidian-assets/test/high-bitrate.mp4';
+    const web=await buildArticleMedia({root,sources:[...sources,hdSource]});
+    assert.equal(web.stats.webVideos,1,'高码率1080p另生成网页720p版');
+    assert.equal(web.manifest[hdSource].width,1280);
+    assert(fs.readFileSync(hd).equals(hdBytes),'高清原片必须保留不变');
+    assert(mp4Atoms(path.join(root,'public',web.manifest[hdSource].src)).findIndex(a=>a.type==='moov')<mp4Atoms(path.join(root,'public',web.manifest[hdSource].src)).findIndex(a=>a.type==='mdat'));
+    const hdMarkdown=new Function('MarkdownIt','mediaFor',section+'\nreturn markdown;')(MarkdownIt,src=>web.manifest[src]);
+    assert(hdMarkdown.render('![高清样片]('+hdSource+')').includes('高清原片 ↗'),'网页播放版须保留高清原片入口');
+    console.log('✅ 正文媒体回归：原件不变、响应式完整图片、原图入口、视频无损索引前置、轻量播放版与高清入口、海报、路径隔离与幂等');
   } finally { fs.rmSync(root,{recursive:true,force:true}); }
 })().catch(error=>{console.error(error);process.exitCode=1;});
