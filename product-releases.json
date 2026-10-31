@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-31T14:51:58.106Z",
-  "contentHash": "62b13c91965c8c16576e38cbb8c51378b2a5c33ff2826c80009af0908fb90476",
+  "checkedAt": "2026-10-31T15:44:31.827Z",
+  "contentHash": "6de0441709698a958b9354d73eb68e9a168133a211fa32d491d80f0e5182a1e5",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T14:51:58.106Z",
+      "checkedAt": "2026-10-31T15:44:31.827Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T14:51:58.106Z",
+      "checkedAt": "2026-10-31T15:44:31.827Z",
       "prerelease": false,
       "releaseNotesHash": "5a4a90b5eecf7c351ae1405e5d4dd97bf3e1ee352a4d830e8c4f3ee7502cdf75",
       "revision": "110d86bcf7c20cc7fee303089c560bc80b9ac109406d1a49de9843c1ceb4ee9e"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T14:51:58.106Z",
+      "checkedAt": "2026-10-31T15:44:31.827Z",
       "prerelease": false,
       "releaseNotesHash": "9243cc20193999583c72a9e6bbda4e38aea8cfba9eb531768936ca70cca338a5",
       "revision": "57cc8f640f147f5e29d7920f41346bd00b1614cb8663e8963e327b62b1387b77"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T14:51:58.106Z",
+      "checkedAt": "2026-10-31T15:44:31.827Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,26 +389,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "1.7.2修复按标题命名的工程在列表删除后重新出现。删除按实际工程文件定位，并与保存顺序执行，避免迟到保存重新写回。工程文件使用系统废纸篓，录制素材保留；恢复文件并明确重新打开后仍可继续编辑。",
-      "updated": "2026-10-30",
-      "activityAt": "2026-10-30T13:29:34Z",
-      "version": "1.7.2",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.2",
+      "updateSummary": "Mac将整片包装融合进“制作动画→本地编排 · 无需模型”，聊天区只保留一个制作入口。讲解动画按来源与讲解、比较与核对、脉络与结构归类；十套包装保留原有四种版式、配色、动效与声音。两个本地分类切换保留输入，无需模型配置即可直接手动生成、加入时间线。",
+      "updated": "2026-10-31",
+      "activityAt": "2026-10-31T15:40:48Z",
+      "version": "1.7.4",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.4",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.7.2",
+          "version": "1.7.4",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.2",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.4",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.2_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_arm64.dmg",
-              "id": 692176800,
-              "size": 426730776,
-              "updatedAt": "2026-10-30T13:17:04Z",
-              "digest": "sha256:fa1a488c6ebfab8b21403ab986e841be5ff574beededa6205f298fe8408adb3d"
+              "name": "HyphenScreen_1.7.4_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_arm64.dmg",
+              "id": 695756871,
+              "size": 426759601,
+              "updatedAt": "2026-10-31T15:40:46Z",
+              "digest": "sha256:8a88a46ba44b9e1f2a7e209876b91a471c581dcb37074ad13384f85a5a9e9518"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T14:51:58.106Z",
+      "checkedAt": "2026-10-31T15:44:31.827Z",
       "prerelease": false,
-      "releaseNotesHash": "0ec41133a4515d0be9c449a5ef3466a9a33d7f168449bac71a19f7603fa8c2f3",
-      "revision": "fdaf85569772f1875684e5b6015bd5426e5b22d05c0019ec8ba72e2aa983eff6"
+      "releaseNotesHash": "0f917c86942315e69a4b51102de1b4cd09fe301d352e1471e1c97d1eddf86a41",
+      "revision": "be668e85166a43b77748f9444c09e01a112be044c3ab8276597c0d906e3ff1e2"
     }
   ]
 }
