@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-10-31
-summary: "Mac 2.2.3修复模型启动错误提示，显示真实内存预检查原因，保留权重与参数；Windows/Linux保持2.2.2。"
+summary: "Mac 2.2.4 接入 Pika H3 Flex，支持文字和单张首帧生成约 5.17 秒有声视频，复用已有权重并独立管理环境；Windows/Linux 保持 2.2.2。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,33 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.4：Pika H3 Flex 文字与首帧有声视频
+
+Pika H3 Flex 已合并到方寸智匣主项目：可以用文字描述生成短视频，也可以用一张本地图片作为首帧。当前管线固定六步、124 帧、24 帧/秒，输出约 5.17 秒的有声视频；尾帧、多参考图和自动续段暂未接入。它使用 Pika 的专用适配器，不会把 Wuli 或普通 H3 权重当成 Pika 运行。
+
+使用 Apple Silicon Mac、macOS 26 或更新系统，建议 64 GB 统一内存。原始文件约 78.2 GB，Q8 转换与适配器另需约 23 GB；下载前请预留足够磁盘空间。已有完整文件和有效下载片段会复用。模型原件、转换文件、缓存和回执留在软件的受管目录，Pika 使用独立运行环境，其他模型和环境保留。准备生成前，请先确认其他大型模型任务结束并释放相应内存。
+
+使用步骤：
+
+1. 在“发现”中准备 Pika H3 Flex；已有文件可直接复用。
+2. 在“设置 → 运行环境与诊断”安装或校验 Pika 专用环境。
+3. 在“设置 → 多媒体后端 → 视频生成”选择已有 Pika 模型并保存。
+4. 在对话页选择视频工具，使用“纯文字生成”或“首帧参考（图生视频）”。先用 256×256 或 448×256、六步、124 帧测试。
+
+同一天此前的开发验收，在 M5 Pro、64 GB、256×256、六步及固定种子条件下，文字生成耗时 63.71 秒，首帧生成 64.12 秒；引擎观测峰值分别为 25.658 GiB 和 26.540 GiB。此前安装版的真实 MCP 调用生成 448×256 样片耗时 102.90 秒。三份样片均有 124 帧和 32 kHz 双声道音轨，完成解码与非静音检查；这些是本机小样，不是跨设备速度承诺，音轨检查也没有代替人耳听感评测。
+
+![此前 Pika 文字生成样片：首、中、末帧](/obsidian-assets/localbrain-local-ai-box/pika-text-contact.jpg)
+
+![此前 Pika 首帧生成样片：首、中、末帧](/obsidian-assets/localbrain-local-ai-box/pika-first-frame-contact.jpg)
+
+本次从合并后的主项目重新打包安装，15,401 项文件、权限和链接与镜像及更新包一致，应用和更新包签名通过，尚未 Apple 公证。Pika 与媒体接口的 13 项针对性测试通过；合并阶段另有 Rust 467 项和前端 1,650 项通过的记录。本次重打包没有重新下载模型，没有运行视频生成，文字与首帧效果按作者要求留待本人验收。内部工具包随宿主版本更新，活动任务占用时延后切换；修正旧工具包被同版号跳过，以及未设为默认的媒体模型被过滤的问题。
+
+本次只提供 Mac 新包。Windows/Linux 继续使用独立发布的 2.2.2，Mac 的 Pika 结果不代表其他平台已适配。[查看本轮核对与实际验收范围](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.4-MAC.md)。
+
+[Mac 2.2.4 发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.4) · [下载 Mac 2.2.4（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4/LocalBrain_2.2.4_aarch64.dmg)
+
+Mac DMG SHA-256：`63f040f7ea65df5afe4a28b8e7d9b64c4686db0ed2772ee81b6b70dd3a8495a0`。
 
 ## Mac 2.2.3：启动失败显示实际原因
 
