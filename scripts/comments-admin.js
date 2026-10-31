@@ -109,9 +109,12 @@ function requireToken() {
 }
 
 async function api(pathSuffix, options = {}) {
-  const response = await fetch(`${API_BASE}${pathSuffix}`, {
+  const attempts = !options.method || options.method === 'GET' ? 2 : 1;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+   try {
+    const response = await fetch(`${API_BASE}${pathSuffix}`, {
     ...options,
-    signal: AbortSignal.timeout(12000),
+    signal: AbortSignal.timeout(6000),
     headers: {
       authorization: `Bearer ${TOKEN}`,
       ...(options.body ? { 'content-type': 'application/json' } : {}),
@@ -120,9 +123,16 @@ async function api(pathSuffix, options = {}) {
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(data.error || `HTTP ${response.status}`);
+    const error = new Error(data.error || `HTTP ${response.status}`);
+    error.status = response.status;
+    throw error;
   }
   return data;
+   } catch (error) {
+    // 只有只读查询的瞬时连接故障可重试；发表和隐藏不自动重发。
+    if (attempt + 1 === attempts || error.status || !['TypeError', 'TimeoutError'].includes(error.name)) throw error;
+   }
+  }
 }
 
 // ---------- 命令 ----------
@@ -332,7 +342,7 @@ async function main() {
 }
 
 main().catch((error) => {
-  const reason = error.name === 'TimeoutError' ? '留言服务请求超过12秒，请检查网络后重试。' :
+  const reason = error.name === 'TimeoutError' ? '留言服务连接超时；只读查询已有限重试，请检查网络后重试。' :
     error.message === 'fetch failed' ? `连接留言服务失败（${error.cause?.code || '网络连接异常'}）。请检查终端代理与官网是否可访问。` : error.message;
   console.error(red(`失败：${reason}`));
   process.exit(1);
