@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-10-31
-summary: "Mac 2.2.2 is released with consistent runtime controls, engine updates and rollback, pasted attachments, and actual Splash 1.5 text and vision replies. Windows/Linux 2.2.2 were published separately with platform-specific verification."
+summary: "Mac 2.2.3 fixes startup diagnostics with actual memory preflight errors while preserving weights and settings. Windows/Linux remain at 2.2.2."
 categories:
   - Resources
 tags:
@@ -15,6 +15,17 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.3: show actual startup failures
+
+Mac 2.2.3 fixes a misleading backend-removed error during model startup. Each attempt retains its exit status and bounded log even when status polling reaps the process first. Sushi residency-budget and context-cache errors show the engine’s actual figures. Models and runtimes are retained. The app does not silently change parameters, raise system memory limits or download weights again. If the requested budget exceeds the limit, reduce the budget or context manually in Settings → Runtime and diagnostics before retrying.
+
+The installed Mac app verified the actual preflight error from Home, restored controls and retained model cards. All 15,639 entries, permissions and links match, and the configuration hash is unchanged. Rust results are 462 passed and 39 ignored; app signing, updater signature verification and DMG validation passed. The app is not Apple-notarized. On 2026-10-31 the author approved a batch-specific exception for the source documentation CI billing restriction; local checks are not a remote CI pass. Windows/Linux remain at independently released 2.2.2.
+
+[Mac 2.2.3](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.3) · [Mac 2.2.3 DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.3/LocalBrain_2.2.3_aarch64.dmg)
+
+SHA-256：`ad556e3ef043c5e592e27a642eb876b3c4a635ccc68d6b8470c04cf02442efc3`
+
 
 ## Mac 2.2.2: consistent runtime controls and pasted attachments
 

@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-10-31
-summary: "Mac 2.2.2 已发布：统一环境维护按钮与结果、独立引擎升级和回滚、对话直接粘贴附件，Splash 1.5 实际问答与识图通过；Windows/Linux 2.2.2 独立发布，实测分平台说明。"
+summary: "Mac 2.2.3修复模型启动错误提示，显示真实内存预检查原因，保留权重与参数；Windows/Linux保持2.2.2。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,17 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.3：启动失败显示实际原因
+
+Mac 2.2.3修复模型启动时误报“后端已被移除”的问题。状态刷新先回收退出进程后，启动调用仍保留本次退出状态和日志；Sushi驻留预算与上下文缓存超限时显示引擎报告的实际数值。模型和运行环境保留，不自动修改参数、不提高系统内存上限，也不重新下载权重。参数超限时，请到设置→运行环境与诊断手动降低驻留预算或上下文后重试。
+
+本机安装版已从主页点击启动并读回真实预检查失败原因，失败后按钮恢复，模型卡仍在；15,639项文件、权限与链接一致，配置校验值未变。Rust回归462通过、39忽略，应用签名、更新归档验签和镜像校验通过，未做Apple公证。作者于2026-10-31明确批准本次源码说明CI计费限制例外，本地检查通过不冒称远端CI通过。Windows/Linux保持独立发布的2.2.2。
+
+[Mac 2.2.3 下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.3) · [Mac 2.2.3 DMG](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.3/LocalBrain_2.2.3_aarch64.dmg)
+
+SHA-256：`ad556e3ef043c5e592e27a642eb876b3c4a635ccc68d6b8470c04cf02442efc3`
+
 
 ## Mac 2.2.2：环境维护说清结果，图片和文件直接粘贴
 
