@@ -7,8 +7,8 @@ translation_of: hyphenbox-free-api-radar
 translation_source: machine
 source_sha256: f05519a25a94b7d2
 date: 2026-08-29
-updated: 2026-10-29
-summary: "HyphenBox 1.0.4 for Windows, Linux and Mac: corrected usage estimates, an updated signed catalog and DeepSeek Harness integration."
+updated: 2026-10-31
+summary: "HyphenBox 1.0.5 for Windows, Linux and Mac: clearer steps, a compact interface and updated Agent connection instructions."
 categories:
   - Resources
 tags:
@@ -25,29 +25,23 @@ legacy_paths: []
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-free-api-radar/) is authoritative.
 
 <!-- hyphenbox-current-release:start -->
-## Updated October 29, 2026: Version 1.0.4 for all three platforms
+## Updated October 31, 2026: Version 1.0.5 on all three platforms
 
-HyphenBox combines free API discovery, your own provider credentials and real model verification with a local OpenAI-compatible endpoint. Current client guidance covers **DeepSeek Harness, Cursor and Cline**. The former dedicated OpenCode integration has been removed. Credentials stay in local system storage; model requests go directly from your computer to the selected provider.
+Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers join the universal Mac package at **1.0.5**. HyphenBox combines free API discovery, local credential storage, model verification and a local compatible endpoint.
 
-Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers now join the Mac universal package at **1.0.4**. The updater selects assets by operating system and package format; existing Mac update entries are preserved.
+The fixed bottom step bar has been removed to avoid covering content. Navigation and action buttons retain step numbers. Model actions follow fetch, add free candidates and verify; connection instructions and usage diagnostics expand when needed.
 
-### What changed
+**DeepSeek Harness remains the preferred integration**, with backup, preservation of existing configuration and removal of the managed layer. Restart Harness and create a new session after connecting. OpenCode, Cline, Roo Code, Continue, Codex CLI and generic compatible clients have selectable manual examples defaulting to free. Their configuration is not automatically rewritten. The old Cursor instructions claiming that a local address alone is sufficient have been removed.
 
-- Invalid negative prices, nonnumeric values and overflow no longer produce misleading estimates. Historical invalid prices are excluded while usage records are retained.
-- Usage is classified by each credential's current declaration: free allowance, paid or undeclared. Fixed zero-payment and savings claims are replaced by estimates at currently known unit prices, with missing input and output prices reported separately.
-- The bundled signed catalog is updated to **2026.10.29.2**. Official free conditions, account-level successful requests and model listings remain separate evidence. Specialized safety classifiers are excluded from conversational candidates.
-- DeepSeek Harness configuration supports backup, managed writes and removal. Choose Harness on the connection page, then restart Harness and create a new session. Select `free` for eligible verified free routes; `auto` may use paid routes you added.
-- Free routing retains its five-minute pre-connection budget and 60-second attempt limit, isolates unreadable credentials and can resume from complete tool-result checkpoints without replaying previous tool calls.
+Manual configuration previews mask the local token and read it only when copying. Polling snapshots no longer carry that token in manual examples. Provider credentials remain in local system storage, with requests sent directly to the selected provider.
 
-Usage records are not provider bills. Changing current credential declarations or prices can change historical totals. Partial streamed responses, missing tool results, model capability differences and exhausted quotas still limit recovery.
+Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Both passed core and desktop regression tests; the AppImage passed isolated startup, signed-catalog and API authentication checks. Public screenshots retain their actual Mac version and capture dates. No new live model, Agent tool-task or failover result is claimed; historical 1.0.4 validation is not relabelled.
 
-Windows was built locally with MSVC and Linux with WSL Ubuntu 22.04. Both passed core and desktop regression tests. The AppImage passed isolated startup, signed-catalog and local API authentication checks. Real upstream Harness validation in the release attachments applies to Mac and is not presented as Windows/Linux validation.
+Free routing uses eligible verified free routes; auto may use paid routes you added. Windows/Linux include a signed built-in catalog without a preconfigured online refresh service. The Linux vault requires desktop Secret Service. Updater signatures are distinct from commercial code signing or Apple notarization. Local usage estimates are not provider bills; provider quotas and account conditions apply.
 
-Windows/Linux installers include a signed built-in catalog; online refresh needs a separately configured service. The Linux vault requires desktop Secret Service. SHA-256 checksums and updater signatures are supplied; updater signatures are distinct from Windows commercial code signing and Apple notarization. The application is free to download; provider quotas and account conditions still apply.
+[Download 1.0.5 installers and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.5).
 
-[Download 1.0.4 installers, release notes and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.4).
-
-Earlier development records remain below. Their screenshots, counts, quota conditions and old client examples describe those historical versions. Use this update and the release page for current capabilities.
+Earlier records below retain their historical screenshots, counts and client examples. Use this update and the release page for current capabilities.
 <!-- hyphenbox-current-release:end -->
 
 > [!note]
