@@ -5,11 +5,31 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 31 Oct 2026 02:27:30 GMT</lastBuildDate>
-    <pubDate>Sat, 31 Oct 2026 02:27:30 GMT</pubDate>
+    <lastBuildDate>Sat, 31 Oct 2026 04:41:15 GMT</lastBuildDate>
+    <pubDate>Sat, 31 Oct 2026 04:41:15 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>零基础当黑客？Qwen3.8 27B本地安全实测，184条提示该怎么看</title>
+      <link>https://hyphentech.top/qwen38-27b-local-security-video/</link>
+      <guid isPermaLink="true">https://hyphentech.top/qwen38-27b-local-security-video/</guid>
+      <description>方寸智匣2.2.1配合本地Qwen3.8 27B，从目标授权、容器工具到靶场和自家设备报告，讲清怎样看待184条组件问题提示。</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>网络安全</category>
+    </item>
+    <item>
+      <title>为Qwen4提前选设备？Qwen3.8 27B、Flash-Next本地部署选购指南</title>
+      <link>https://hyphentech.top/local-llm-hardware-guide-20261031/</link>
+      <guid isPermaLink="true">https://hyphentech.top/local-llm-hardware-guide-20261031/</guid>
+      <description>从27B、Flash-Next到9B与4B，按容量、带宽、引擎和整机成本比较设备。附本期33项候选及2026年10月30日报价快照。</description>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    </item>
     <item>
       <title>Gemini 4 Carbon发布：漏洞评测88.2%，为何暂不向所有人开放？</title>
       <link>https://hyphentech.top/gemini-4-carbon-release-analysis/</link>
@@ -199,27 +219,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>本地模型</category>
-    </item>
-    <item>
-      <title>方寸智匣写论文升级：本地生成双格式文档，长任务和交付检查更可靠了</title>
-      <link>https://hyphentech.top/localbrain-paper-delivery-179/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-paper-delivery-179/</guid>
-      <description>双格式文档、时间刷新、长任务等待和分项检查已实测；完整论文仍需核对事实与引用。</description>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>方寸智匣</category>
-    <category>本地人工智能</category>
-    <category>文档写作</category>
-    </item>
-    <item>
-      <title>Qwen-Image-2.1-Turbo 已可下载，8 步生图适合谁？</title>
-      <link>https://hyphentech.top/2026-10-10-official-74c72ca9b7d8/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-10-official-74c72ca9b7d8/</guid>
-      <description>Qwen-Image-2.1-Turbo 已提供权重与官方用法，但硬件、许可和服务边界仍需逐项验收。</description>
-      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
