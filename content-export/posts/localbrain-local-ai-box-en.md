@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-30
-summary: Windows/Linux2.2.1 fixes maintenance stages and completion refresh; existing model, documents and configs verified, Linux scoped to WSL2.
+updated: 2026-10-31
+summary: "Windows/Linux2.2.2: persistent maintenance outcomes, paste drafts and pinned DSH rc.5/Node22.23.4, with platform-specific update and acceptance limits."
 categories:
   - Resources
 tags:
@@ -15,6 +15,12 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.2: maintenance receipts and pasted attachments
+
+Settings → Runtime and diagnostics unifies maintenance controls and saves outcomes per component. Official update checks are explicit; model startup never upgrades engines. The independent Windows/Linux update channel currently supports Trivy only; llama.cpp and Prism retain verified multi-resource installers. Mac six-engine results are separate. Pasting creates file/image drafts for manual sending; video and unknown binaries remain references without comprehension claims. DSH is pinned to 0.2.1-rc.5 with officially hashed Node 22.23.4. Native Windows checks cover source references, owned paste copies and removal, real Torch verification receipts, an existing 2B request and real DOCX/Markdown. Linux acceptance is WSL2/Xvfb startup and host initialization, not bare-metal GPU, media inference or real OS clipboard gestures. Windows Rust 445 passed/37 ignored; frontend 1650 passed/2 skipped; 14 adapters, 7 queue tests and 53 DSH checks per platform passed. Python 43 files/371 cases and two scripts passed separately; 7 security tests passed. The browser canvas check initially failed and passed an isolated rerun; its instability remains recorded. The author approved this batch CI exception; the account restriction and local acceptance are recorded in verification.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.AppImage)
 
 ## Windows / Linux 2.2.1: show the maintenance stage and settle completion
 

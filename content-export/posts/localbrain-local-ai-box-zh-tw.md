@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-30
-summary: Windows/Linux補齊2.2.1維護階段與完成更新修正；既有模型、文件與設定驗收通過，Linux限WSL2。
+updated: 2026-10-31
+summary: Windows/Linux2.2.2：持久維護回執、貼上附件草稿、固定DSH rc.5與Node22.23.4；各平台更新與驗收邊界分列。
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,12 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.2：環境維護回執與貼上附件
+
+設定→執行環境與診斷統一安裝、更新、校驗、回滾、卸載與快取操作，維護結果按元件保存。明確檢查官方更新，模型啟動不更新引擎；Windows/Linux獨立更新通道目前僅支援Trivy，llama.cpp與Prism保留已驗證多資源安裝器，不借用Mac六引擎成績。貼上建立檔案或圖片草稿，手動傳送後讀取；影片與未知二進位僅引用，不宣稱已理解。DSH固定0.2.1-rc.5，Node22.23.4依官方散列準備。Windows安裝版驗證原檔引用、貼上副本建立及刪除、Torch實際校驗回執、既有2B請求及DOCX/Markdown。Linux限WSL2/Xvfb啟動和宿主初始化，不代表裸機GPU、媒體生成或系統剪貼簿實際手勢驗收。Windows Rust445通過/37略過，前端1650通過/2略過，介面卡14、佇列7、兩平台DSH各53通過；Python43檔371用例與兩個腳本分別通過，安全7通過。瀏覽器畫布首輪失敗，單獨重跑通過，保留不穩定性記錄。本批CI帳戶限制及作者例外批准見驗收。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.AppImage)
 
 ## Windows / Linux 2.2.1：維護到哪一步，現在說清楚
 
