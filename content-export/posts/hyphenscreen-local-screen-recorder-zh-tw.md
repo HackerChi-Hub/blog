@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-10-30
-summary: "Mac更新1.7.4，八類講解動畫與十套整片包裝統一進入本機編排，無需模型即可手動製作，也支援模型與外部介面呼叫；Windows與Linux保留實際1.7.2。"
+updated: 2026-11-01
+summary: "Mac、Windows與Linux均提供1.7.4，統一八類講解與十套整片包裝的本機製作入口，支援停止本輪對話並保留成果；平台下載及驗證範圍見正文。"
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows／Linux 1.7.4：本機編排與停止對話已同步
+
+Windows與Linux也已在本機建置至1.7.4，包含統一製作動畫入口、八類講解、十套整片包裝及停止本輪對話並保留成果的修復。Windows全量測試4661項通過、21項依環境跳過；兩平台包內資源與原生匯出分別驗證，Linux限WSL軟體渲染。本輪未替換安裝版，未重新驗證桌面錄製或模型產生品質，不將Mac桌面及介面專項當成其他系統實測。
 
 ## Mac 1.7.4：講解動畫與整片包裝，統一使用本機編排
 
@@ -199,11 +203,11 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
 - Mac 蘋果晶片目前為 **1.7.4**，DMG **426,759,601 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows 10/11 x64 目前為 **1.7.2**，安裝程式 **409,519,709 位元組**，未簽署。
-- Linux x86_64 目前為 **1.7.2**：AppImage **608,577,814 位元組**、deb **523,201,016 位元組**、pacman **484,536,504 位元組**。
+- Windows 10/11 x64 目前為 **1.7.4**，安裝程式 **409,506,740 位元組**，未簽署。
+- Linux x86_64 目前為 **1.7.4**：AppImage **608,585,410 位元組**、deb **523,207,412 位元組**、pacman **484,518,888 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.2/HyphenScreen_1.7.2_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包的 SHA-256：
 
@@ -211,16 +215,16 @@ Mac 安裝包的 SHA-256：
 8a88a46ba44b9e1f2a7e209876b91a471c581dcb37074ad13384f85a5a9e9518
 ```
 
-Windows 與 Linux 1.7.2 的 SHA-256：
+Windows 與 Linux 1.7.4 的 SHA-256：
 
 | 安裝包 | SHA-256 |
 | --- | --- |
-| Windows 安裝程式 | `84ae067376c105ac25645dd8bd3e7c76d161da069a2d34124acd09577199919f` |
-| Linux AppImage | `384603d76d2220014d9bf099db1dbafa922cb7837977ff89e55471d6970417a4` |
-| Ubuntu／Debian deb | `97d155b5f50a0530fe244269e6194870bf3ac55b624f9ba6811323513edf50ea` |
-| Arch pacman | `440f2f5cd809c07d6002cb854efcf95c8ca15e223213524ddd78fab5409efdb2` |
+| Windows 安裝程式 | `8eb8dd4800010dff65cb129c9c6afb911b632ca21ea7f9d235930e5c53b6b79d` |
+| Linux AppImage | `a11d7cd04cf2640a1946e02ba64772933a2c57833d6375b1c3ec96b9df61d590` |
+| Ubuntu／Debian deb | `1703670d0fb0d9907674360ee82370a8f015e6c007bfc334990e728f25e837bb` |
+| Arch pacman | `2d3350edb61fef5b203a203e97e558a0962aa3b4735f4c602e05ad49ad2a84ba` |
 
-Windows／Linux1.7.2本機包均通過原生部件、字型與包內資源檢查；包內元件各實際匯出八份MP4與兩份GIF並完整解碼，關閉區域無浮水印殘留。本輪未覆蓋本機安裝版。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
+Windows／Linux1.7.4本機包通過原生部件、11套字型及包內資源檢查，完整保留2204個動畫資源檔。兩平台包內元件各實際匯出八份MP4與兩份GIF並完整解碼，核對預設及關閉浮水印的輸出差異。本輪未替換本機安裝版；Linux限WSL軟體渲染，桌面入口錄製仍需實機桌面環境驗證。
 
 ## 原有功能與製作歷程
 
@@ -254,7 +258,7 @@ Windows／Linux1.7.2本機包均通過原生部件、字型與包內資源檢查
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 這是 1.0.2 時期的版本記錄。目前Mac為1.7.4，Windows與Linux為1.7.2；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
+> 這是 1.0.2 時期的版本記錄。目前Mac為1.7.4，Windows與Linux為1.7.4；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -401,7 +405,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **平台能力不同**：Mac為1.7.4，Windows與Linux為1.7.2；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
+- **平台能力不同**：Mac為1.7.4，Windows與Linux為1.7.4；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷
