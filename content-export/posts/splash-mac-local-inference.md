@@ -3,7 +3,7 @@ title: 号称快一倍的 Mac 本地引擎，我测出中文只快 44%
 slug: splash-mac-local-inference
 status: published
 date: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-31
 summary: Splash 在我的 M5 Pro 上把 Qwen3.8-27B 的代码生成跑到 79.3 tok/s，比同权重的朴素 MLX 快 5.11 倍；换成中文写稿只剩 1.44 倍。差别不在引擎，在草稿模型的接受率——代码 63.2%，中文 11.9%。
 categories:
   - 学习思考
@@ -15,6 +15,20 @@ cover: /obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 10月31日补充：把Splash放回完整的加速技术图里
+
+我把推理引擎的机制整理成了一支三维黏土工厂解说：内核少搬数据，量化缩小表示，缓存复用结果，异构安排硬件分工，投机解码提出并验证候选，调度接续多个请求。Splash把专用Metal执行、前缀复用和草稿验证等安排结合起来，速度变化需要沿着这些环节理解。
+
+[观看完整视频：推理引擎凭什么让大模型变快？Splash、Strata背后的六类加速技术](https://www.bilibili.com/video/BV1frxC6WEw7/)。约01:24讲内核与搬运，03:34讲缓存，05:59进入投机解码。
+
+![注意力计算中的分块与存储层级｜本期动画示意](/obsidian-assets/splash-mac-local-inference/attention-memory-20261031-1f486bfc2e.jpg)
+
+图中用FlashAttention说明注意力运算怎样安排分块和读写；Splash的专用Metal内核与草稿验证，仍分别按[项目文档](https://github.com/incoai/splash)介绍的模型路径理解。选择引擎时，我会一起看接受率、验证开销、上下文命中和完整任务时间。六类技术与平台关系见[机制综述](https://hyphentech.top/mac-local-inference-engines/)。
+
+下面继续保留原有的中文、代码任务实测记录与对应条件。
+
+## 2026年9月的实测记录
 
 前天 Inco AI 开源了一个只给 Apple 芯片用的推理引擎，叫 Splash。README 第一段就把数字甩在脸上：48GB 的 M5 Pro 上，Qwen3.8-27B 的解码速度是次快引擎的 2 倍，32K 上下文缓存命中时首个 token 只要 282 毫秒。我装上测了一整天，结论先给：引擎是真的，那个 2 倍也不假，但我用它写中文稿子的时候，加速只剩 44%。同一台机器，同一个模型，同一个引擎，代码 79.3 tok/s，中文 25.6 tok/s，差 3.1 倍。
 

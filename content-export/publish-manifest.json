@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f2907f8fd0a9a13d766bf2655b8031020f7096e1f826e1a8187794f4184c8daf",
+  "content_sha256": "c04a2f361cdd74adbf26989861058d8fca0cb8f1f1e34c0cc4f07b06dff95aea",
   "published_post_count": 209,
   "posts": [
     {
@@ -853,7 +853,7 @@
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d00badba1ae05974c2377619f77f239718d05b900b6503bfb107685de4b5403f"
+      "sha256": "ea7710a5e98a89334700a87d6ff0abf76deb2e953b656747d38111988e7db2e5"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
@@ -1222,7 +1222,7 @@
       "slug": "mac-local-inference-engines",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d7de8c54b25c4003cca44595c8a6bcea2d47c0bb539bb35460344a755d31f3e3"
+      "sha256": "d2b2366f7cf02a1867060af9649eb1fe0c9efe6ea31a5f45a52fb57fc942cde4"
     },
     {
       "file": "posts/mac-windows-linux-ai-platforms-en.md",
@@ -1485,7 +1485,7 @@
       "slug": "splash-mac-local-inference",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "5deeacf19f0dfdbf6201b83e41ed52261234afeffbf78e65e4b34b66a95ca1a3"
+      "sha256": "09f527005fb0f679e6910d87b4626f2b5fcc7f4bcd7ea8fa6938e0ca31ee85c1"
     },
     {
       "file": "posts/strata-12gb-local-ai-en.md",
@@ -1501,7 +1501,7 @@
       "slug": "strata-12gb-local-ai",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f5097499233bc47e818b06ce04cfae09729bfab215a442abf5e8961a4c831a6e"
+      "sha256": "2fae339701e6e43005f3a66effd71682b5cc62ad12153a239d5110c0053ffc91"
     },
     {
       "file": "posts/understand-ai-01-overview-en.md",

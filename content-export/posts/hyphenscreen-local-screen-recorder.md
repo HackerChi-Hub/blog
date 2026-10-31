@@ -3,7 +3,7 @@ title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.2 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
-updated: 2026-10-30
+updated: 2026-10-31
 summary: Mac、Windows与Linux均提供1.7.2，修复工程删除后重新出现及迟到保存重建；保留现有动画成片、配图、水印自定义与本地编排。
 categories:
   - 资源分享
@@ -14,6 +14,22 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 三维黏土工厂：一支完整的4K60解说作品
+
+![《推理引擎凭什么让大模型变快？》视频封面](/obsidian-assets/hyphenscreen-local-screen-recorder/video-poster-20261031-5ea2301426.jpg)
+
+这次我用黑粉录屏完成了一支10分41秒的技术解说，把推理引擎做成一座多彩的三维黏土工厂。模型、参数、缓存、计算设备各有自己的造型；数据真的被搬运、保留、验证，镜头沿同一个空间进入不同工位。先解释术语与关系，再依次讲内核、量化、缓存、异构、投机与调度，让画面的动作承担解释。
+
+[观看完整视频：推理引擎凭什么让大模型变快？Splash、Strata背后的六类加速技术](https://www.bilibili.com/video/BV1frxC6WEw7/)
+
+![三维黏土工厂制作片段｜约19秒｜1080P60](/obsidian-assets/hyphenscreen-local-screen-recorder/inference-factory-19s-1080p60-0ca8359687.mp4)
+
+[单独播放这段动画](/obsidian-assets/hyphenscreen-local-screen-recorder/inference-factory-19s-1080p60-0ca8359687.mp4)。网页片段为1080P、60帧；完整成片的三维正文与制作名录按3840×2160、60帧渲染，传统黑粉科技标识贯穿，本人片头片尾沿用原实录质量。解说使用本地OmniVoice本人授权克隆音色，配合无歌词器乐与功能动作音效。
+
+完整工程在黑粉录屏内导入画面、共轨编排、管理声音与章节，保存后重新打开，再从软件原生导出。三维物件、动作和相机保存在随片的三维源项目中；要调整它们，修改源项目后重新生成对应画面。黑粉录屏时间线负责整片的剪辑与编排。这套流程已完成4K60全片导出、完整解码、声音分段对照及审片网页播放检查。
+
+黏土工厂是黑粉录屏制作风格的一种。新的内容继续按自己的讲解目标设计物件、动作和镜头，对外统一署名“黑粉录屏制作、黑粉科技出品”。本期成片用于展示实际制作结果，软件版本与下载仍以下方发行记录为准。
 
 ## Mac 1.7.2：删掉的工程，不再重新出现
 
