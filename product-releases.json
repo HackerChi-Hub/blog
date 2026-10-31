@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-31T16:58:37.826Z",
-  "contentHash": "fbfcde0c9f9b8ea3e92acaa7293653f78f022bf304aa2bf13919b4f663aa8402",
+  "checkedAt": "2026-10-31T23:15:59.155Z",
+  "contentHash": "5414f1ee88e6a8c6b073014320f8c332e475c6d247e715321fd36aaf4add3ba0",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T16:58:37.826Z",
+      "checkedAt": "2026-10-31T23:15:59.155Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -108,11 +108,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "需要 Apple Silicon、macOS 26 或更新系统，建议 64 GB 统一内存；原始文件约 78.2 GB，转换与适配器另需约 23 GB。请预留空间，并在大型模型任务结束后再进行视频生成。",
+      "updateSummary": "2026-11-01，运行源码 46a96a6a3e1d5ebd73a3e7a2e0e4c3533aeca867。 模型启动失败时保留真正的错误原因，进程回收后仍可诊断。内部工具包跟随宿主版本升级，避免固定1.0.0让已有环境跳过工具更新；不开放自定义插件安装。Windows隔离安装验收从2.2.2应用的1.0.0模块迁移到2.2.4…",
       "updated": "2026-10-31",
-      "activityAt": "2026-10-31T14:44:44Z",
-      "version": "2.2.4",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.4",
+      "activityAt": "2026-10-31T23:12:52Z",
+      "version": "2.2.4-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.4-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -133,49 +133,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.2.2-win-linux",
+          "version": "2.2.4-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.2-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.4-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.2.2_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_x64-setup.exe",
-              "id": 694409469,
-              "size": 41173023,
-              "updatedAt": "2026-10-31T04:58:15Z",
-              "digest": "sha256:4e0f83afe07278f7c7d4d18c308acb858bc5c78c01bce2164dae5708591c62b2"
+              "name": "LocalBrain_2.2.4_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_x64-setup.exe",
+              "id": 695934113,
+              "size": 41202340,
+              "updatedAt": "2026-10-31T16:53:32Z",
+              "digest": "sha256:6dfcceddeb2200cb88e833b5210d8e1a715e8f62900af31120d73ae6db870721"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.2.2-win-linux",
+          "version": "2.2.4-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.2-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.4-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.2.2_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.AppImage",
-              "id": 694409449,
-              "size": 159746552,
-              "updatedAt": "2026-10-31T04:58:52Z",
-              "digest": "sha256:79444db1a25d39e679e2813616fa2a5fd05cfcf58c7f47fa0a48431b8c94db1b"
+              "name": "LocalBrain_2.2.4_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.AppImage",
+              "id": 695934084,
+              "size": 159779320,
+              "updatedAt": "2026-10-31T16:54:13Z",
+              "digest": "sha256:6fe8fb9241a6658e45364abc6713b9b8522cbcd433581d8b13511f4d4565f7a4"
             },
             {
-              "name": "LocalBrain_2.2.2_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.2-win-linux/LocalBrain_2.2.2_amd64.deb",
-              "id": 694409448,
-              "size": 81687552,
-              "updatedAt": "2026-10-31T04:58:37Z",
-              "digest": "sha256:a2b0fceabcdad6488ccc2377041e8945a77e226776c0f8d817d8f6d6eea5370d"
+              "name": "LocalBrain_2.2.4_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.deb",
+              "id": 695934083,
+              "size": 81737618,
+              "updatedAt": "2026-10-31T16:53:58Z",
+              "digest": "sha256:0f0d6f686f8921ae53bbef56f14279444e66892271836142962a1d45d228de79"
             }
           ]
         }
       ],
-      "checkedAt": "2026-10-31T16:58:37.826Z",
+      "checkedAt": "2026-10-31T23:15:59.155Z",
       "prerelease": false,
-      "releaseNotesHash": "5a4a90b5eecf7c351ae1405e5d4dd97bf3e1ee352a4d830e8c4f3ee7502cdf75",
-      "revision": "110d86bcf7c20cc7fee303089c560bc80b9ac109406d1a49de9843c1ceb4ee9e"
+      "releaseNotesHash": "847e7eef041d45ccf8b9465c65af085adf409824da52512c351d4991aa97af24",
+      "revision": "bd3adc5d8bf9b95acb572941e483c0fa9e8709d44365c4a09474a491b57a2fab"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T16:58:37.826Z",
+      "checkedAt": "2026-10-31T23:15:59.155Z",
       "prerelease": false,
       "releaseNotesHash": "9243cc20193999583c72a9e6bbda4e38aea8cfba9eb531768936ca70cca338a5",
       "revision": "57cc8f640f147f5e29d7920f41346bd00b1614cb8663e8963e327b62b1387b77"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T16:58:37.826Z",
+      "checkedAt": "2026-10-31T23:15:59.155Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T16:58:37.826Z",
+      "checkedAt": "2026-10-31T23:15:59.155Z",
       "prerelease": false,
       "releaseNotesHash": "54b24c1ce6a4f3f3af6b935c58fe215b2c461380067a33ffef80b5dd2030e594",
       "revision": "39b2e176ec0bcd4a9bd8eb726463c38802c32c587c7e575e2333c6d2b29d9840"
