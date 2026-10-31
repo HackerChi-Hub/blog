@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2de38c8ebc6b38c0f36d12bcdfa5de5ab829fc325f0c0b175b261763507b895f",
-  "published_post_count": 207,
+  "content_sha256": "27ec9fd9da8df0b012b1e4f50d9aa87f52623f46759e265bf8c89e3f5a76ac6d",
+  "published_post_count": 209,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -936,6 +936,13 @@
       "sha256": "14e45f21ec986a1672bec271d5cfc251ea78d2e3571ff32c6cc84675308e76bf"
     },
     {
+      "file": "posts/local-llm-hardware-guide-20261031.md",
+      "slug": "local-llm-hardware-guide-20261031",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "1ab8db31baa8ed83a95e328de5eae6b807d7fa655b83adca7fbb2215e15d491d"
+    },
+    {
       "file": "posts/local-model-blender-mcp-localbrain-en.md",
       "slug": "local-model-blender-mcp-localbrain-en",
       "article_type": "article",
@@ -1392,6 +1399,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "4a1deb6f3e3e244b2e5ad2a4326a7044b02217af11c4cc709c7275f57609e953"
+    },
+    {
+      "file": "posts/qwen38-27b-local-security-video.md",
+      "slug": "qwen38-27b-local-security-video",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "022d87fbf72abe0e2be110d11a890f5cfb3821b79db48477730f14f09a275db1"
     },
     {
       "file": "posts/qwen38-flash-next-atomic-m64-localbrain-en.md",
