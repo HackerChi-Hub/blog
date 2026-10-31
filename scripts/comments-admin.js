@@ -19,6 +19,17 @@
 
 const fs = require('fs');
 const path = require('path');
+const { BOARD_SLUG, TOPICS, decodeBoardMessage } = require('../lib/community.cjs');
+
+// Node默认不使用终端代理；仅本进程重启启用，不改全局网络设置。
+if (process.env.NODE_USE_ENV_PROXY === undefined &&
+    process.allowedNodeEnvironmentFlags.has('--use-env-proxy') &&
+    ['http_proxy', 'https_proxy', 'HTTP_PROXY', 'HTTPS_PROXY'].some(key => process.env[key])) {
+  const child = require('node:child_process').spawnSync(process.execPath, [__filename, ...process.argv.slice(2)], {
+    env: { ...process.env, NODE_USE_ENV_PROXY: '1' }, stdio: 'inherit',
+  });
+  process.exit(child.status ?? 1);
+}
 
 const projectRoot = path.resolve(__dirname, '..');
 const ENV_FILE = path.join(projectRoot, '.env.local');
@@ -100,6 +111,7 @@ function requireToken() {
 async function api(pathSuffix, options = {}) {
   const response = await fetch(`${API_BASE}${pathSuffix}`, {
     ...options,
+    signal: AbortSignal.timeout(12000),
     headers: {
       authorization: `Bearer ${TOKEN}`,
       ...(options.body ? { 'content-type': 'application/json' } : {}),
@@ -115,8 +127,8 @@ async function api(pathSuffix, options = {}) {
 
 // ---------- 命令 ----------
 
-async function cmdStats({ json }) {
-  const data = await api('/admin/stats');
+async function cmdStats({ json, data: supplied }) {
+  const data = supplied || await api('/admin/stats');
   if (json) return console.log(JSON.stringify(data, null, 2));
 
   console.log(bold('\n留言总览'));
@@ -132,22 +144,22 @@ async function cmdStats({ json }) {
     console.log(bold('\n按文章'));
     const width = Math.max(...data.by_post.map((p) => displayWidth(p.slug)));
     for (const post of data.by_post) {
-      console.log(`  ${padEndWide(post.slug, width)}  ${String(post.count).padStart(3)} 条` +
+    console.log(`  ${padEndWide(post.slug === BOARD_SLUG ? '黑粉茶馆' : post.slug, width)}  ${String(post.count).padStart(3)} 条` +
         `  ${dim(formatAgo(post.last_at))}`);
     }
   }
   console.log('');
 }
 
-async function cmdList({ limit, json, slug }) {
-  const data = await api(`/admin/recent?limit=${limit}`);
+async function cmdList({ limit, json, slug, data: supplied }) {
+  const data = supplied || await api(`/admin/recent?limit=${limit}${slug ? '&slug=' + encodeURIComponent(slug) : ''}`);
   let comments = data.comments;
   if (slug) comments = comments.filter((c) => c.slug === slug);
 
   if (json) return console.log(JSON.stringify(comments, null, 2));
 
   if (!comments.length) {
-    console.log(slug ? `《${slug}》下还没有留言。` : '还没有任何留言。');
+    console.log(slug ? `《${slug === BOARD_SLUG ? '黑粉茶馆' : slug}》下还没有留言。` : '还没有任何留言。');
     return;
   }
 
@@ -157,10 +169,12 @@ async function cmdList({ limit, json, slug }) {
     console.log(`${tag} ${bold('#' + item.id)}  ${bold(item.nickname)}  ` +
       `${dim(formatTime(item.created_at))} ${dim(formatAgo(item.created_at))}`);
     console.log(`        ${cyan(SITE_BASE + '/' + item.slug + '/')}`);
-    for (const line of item.content.split('\n')) {
+    const decoded = item.slug === BOARD_SLUG ? decodeBoardMessage(item.content) : { text: item.content };
+    if (item.slug === BOARD_SLUG) console.log('        黑粉茶馆' + (decoded.category ? ` · ${TOPICS.find(t => t.id === decoded.category)?.label || ''}` : ''));
+    if (decoded.sourceSlug) console.log(`        来源：${SITE_BASE}/${decoded.sourceSlug}/`);
+    for (const line of decoded.text.split('\n')) {
       console.log(`        ${line}`);
     }
-    console.log(dim(`        ip_hash=${item.ip_hash}`));
     console.log('');
   }
   console.log(dim(`共 ${comments.length} 条` + (slug ? `（已按 ${slug} 过滤）` : '')));
@@ -251,6 +265,7 @@ ${bold('blog-comments')} — 黑粉科技 Blog 留言管理
   ${bold('blog-comments')}                 总览 + 最近 10 条
   ${bold('blog-comments list')} [数量]      列出最近留言（默认 30，最多 200）
   ${bold('blog-comments list --slug')} <slug>  只看某篇文章
+  ${bold('blog-comments tea')}             单独查看黑粉茶馆（含已隐藏留言）
   ${bold('blog-comments stats')}            只看统计
   ${bold('blog-comments hide')} <id>        隐藏一条（不是删除，可恢复）
   ${bold('blog-comments show')} <id>        恢复显示
@@ -278,8 +293,19 @@ async function main() {
 
   switch (command) {
     case undefined:
-      await cmdStats({ json: false });
-      return cmdList({ limit: 10, json: false });
+      // 同时请求，按固定顺序输出，避免三次串行等待。
+      {
+        const [stats, recent, tea] = await Promise.all([
+          api('/admin/stats'), api('/admin/recent?limit=10'), api('/admin/recent?limit=30&slug=teahouse'),
+        ]);
+        await cmdStats({ json: false, data: stats });
+        await cmdList({ limit: 10, json: false, data: recent });
+        console.log(bold('\n黑粉茶馆专栏（实时读取，不另存副本）'));
+        return cmdList({ limit: 30, json: false, slug: BOARD_SLUG, data: tea });
+      }
+    case 'tea':
+    case 'teahouse':
+      return cmdList({ limit: Math.min(Number(argument) || 30, 200), json, slug: BOARD_SLUG });
     case 'stats':
       return cmdStats({ json });
     case 'post':
@@ -306,6 +332,8 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(red(`失败：${error.message}`));
+  const reason = error.name === 'TimeoutError' ? '留言服务请求超过12秒，请检查网络后重试。' :
+    error.message === 'fetch failed' ? `连接留言服务失败（${error.cause?.code || '网络连接异常'}）。请检查终端代理与官网是否可访问。` : error.message;
+  console.error(red(`失败：${reason}`));
   process.exit(1);
 });

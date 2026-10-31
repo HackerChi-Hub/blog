@@ -42,7 +42,7 @@ assert(src.includes('if (!content.trim())'));
 assert(!src.includes('dangerouslySetInnerHTML'));
 assert(src.includes('turnstile.remove(widgetIdRef.current)'));
 assert(src.includes("rootMargin: '240px'"));
-assert(src.includes('if (activated) load()'));
+assert(src.includes('if (board || activated) load()'));
 assert(src.includes('maxLength={maxInputLength}'));
 assert(src.includes('context?.originalSlug || context?.slug'));
 assert(src.includes('item.originalSlug === decoded.sourceSlug'));

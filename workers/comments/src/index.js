@@ -211,11 +211,14 @@ function isAdmin(request, env) {
 }
 
 async function handleAdminRecent(request, env) {
-  const limit = Math.min(Number(new URL(request.url).searchParams.get('limit')) || 50, 200);
+  const params = new URL(request.url).searchParams;
+  const limit = Math.max(1, Math.min(Number(params.get('limit')) || 50, 200));
+  const slug = params.get('slug') || '';
+  if (slug && !SLUG_PATTERN.test(slug)) return json({ error: '文章标识不合法' }, 400);
   const { results } = await env.DB.prepare(
     `SELECT id, slug, nickname, content, status, created_at, ip_hash, author_verified
-       FROM comments ORDER BY created_at DESC LIMIT ?1`
-  ).bind(limit).all();
+       FROM comments ${slug ? 'WHERE slug = ?2' : ''} ORDER BY created_at DESC, id DESC LIMIT ?1`
+  ).bind(...(slug ? [limit, slug] : [limit])).all();
   return json({ count: results.length, comments: results });
 }
 

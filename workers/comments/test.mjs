@@ -382,6 +382,14 @@ console.log('\n茶馆最近留言与安全字段：');
   check('公开列表不泄露IP和管理字段',!JSON.stringify(latest).includes('private-test-ip'));
   const other=await get('/api/comments?slug=another-article&recent=1');
   check('茶馆与文章留言严格隔离',other.count===0&&!other.hasMore);
+  const auth = { authorization: `Bearer ${recentEnv.ADMIN_TOKEN}` };
+  const filtered = await worker.fetch(request('/api/comments/admin/recent?slug=teahouse&limit=2', { headers: auth }), recentEnv);
+  const filteredData = await filtered.json();
+  check('管理茶馆先按板块过滤再限量', filteredData.comments.length===2&&filteredData.comments.every(c=>c.slug==='teahouse'));
+  const none = await worker.fetch(request('/api/comments/admin/recent?slug=another-article&limit=2', { headers: auth }), recentEnv);
+  check('管理板块过滤不混入其他留言', (await none.json()).count===0);
+  const invalid = await worker.fetch(request('/api/comments/admin/recent?slug=../private', { headers: auth }), recentEnv);
+  check('管理过滤拒绝非法标识', invalid.status===400);
 }
 
 console.log(`\n通过 ${passed} · 失败 ${failed}`);

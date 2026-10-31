@@ -232,8 +232,8 @@ function CommentsPanel({ slug, lang, board = false, context = null, articles = [
   }, [slug, board]);
 
   useEffect(() => {
-    if (activated) load();
-  }, [load, activated]);
+    if (board || activated) load();
+  }, [load, activated, board]);
 
   async function handleSubmit(event) {
     event.preventDefault();
