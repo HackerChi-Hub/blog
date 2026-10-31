@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-31
-summary: "Mac 2.2.4 接入 Pika H3 Flex，支援文字及單張首幀產生約 5.17 秒有聲影片，重用既有權重並獨立管理環境；Windows/Linux 保持 2.2.2。"
+updated: 2026-11-01
+summary: "Windows/Linux2.2.4保留啟動錯誤並修正內部模組升級；已驗證舊模組遷移與2B請求。Mac2.2.4與Pika獨立驗收保留，Pika目前不適用Windows/Linux。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.4：保留啟動錯誤原因，修正內部工具升級
+
+模型啟動失敗保留真實錯誤，程序回收後仍可診斷。內部工具版本跟隨宿主，避免固定1.0.0跳過更新；自訂外掛安裝仍關閉。
+
+Windows隔離驗收由2.2.2應用的1.0.0模組升到2.2.4，保留舊模組回退；貼上副本、維護回執、既有2B請求與真實文件讀寫分別驗收。
+
+Pika H3 Flex目前僅Apple Silicon/MLX適用；Windows/Linux顯示不適用，不借用Mac影片成績或下載Pika權重。
+
+兩平台DSH各53通過，Windows Rust454通過/37略過，前端1650通過/2略過、介面卡14、佇列7通過，Python46檔（44個單元檔375用例及兩個腳本）與安全7項通過。背景任務首輪400毫秒等待失敗，改為有界就緒輪詢與斷言前清理，完整重跑通過。Linux限Ubuntu22.04 WSL2/Xvfb，非裸機GPU或媒體推理。CI限制與發布狀態見驗收。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.AppImage)
+
+以下Mac段落保留首次發布時的獨立驗收範圍，Windows/Linux本批以上文為準。
 
 ## Mac 2.2.4：Pika H3 Flex 文字與首幀有聲影片
 

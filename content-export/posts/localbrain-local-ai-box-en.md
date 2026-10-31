@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-10-31
-summary: "Mac 2.2.4 adds Pika H3 Flex text and single-first-frame video with audio, reusing weights and managing a separate runtime. Windows/Linux remain at 2.2.2."
+updated: 2026-11-01
+summary: "Windows/Linux2.2.4 retains startup errors and fixes bundled tool upgrades, with old-module migration and a2B request verified. Mac2.2.4 Pika evidence stays separate; Pika is currently unsupported on Windows/Linux."
 categories:
   - Resources
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.4: retain startup errors and upgrade internal tools
+
+Startup failures retain their actual cause after process cleanup. Bundled tools follow the host version, fixing skipped updates under a permanent 1.0.0 version; custom plugin installation remains closed.
+
+Isolated native Windows acceptance migrates the 2.2.2 app's1.0.0 modules to 2.2.4 with rollback versions retained. Paste copies, maintenance receipts, an existing 2B request and real document calls are checked separately.
+
+Pika H3 Flex currently requires Apple Silicon/MLX; Windows/Linux reports unsupported, without borrowing Mac generation results or downloading Pika weights.
+
+DSH 53 passed per platform; Windows Rust 454 passed/37 ignored; frontend 1650 passed/2 skipped; 14 adapters and 7 queue tests passed; 46 Python files (44 unittest files, 375 cases and two scripts) plus 7 security tests passed. A 400ms task-start test initially failed; bounded readiness polling and cleanup before assertions passed the full rerun. Linux acceptance is Ubuntu22.04 WSL2/Xvfb resources and startup, not bare-metal GPU or media inference. See verification for source CI restrictions and this batch's publication status.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.4-win-linux/LocalBrain_2.2.4_amd64.AppImage)
+
+The Mac section below retains its original independent acceptance scope; current Windows/Linux status is described above.
 
 ## Mac 2.2.4: Pika H3 Flex text and first-frame video with audio
 
