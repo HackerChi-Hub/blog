@@ -23,6 +23,22 @@ const MAX_NICKNAME = 24;
 const MAX_CONTENT = 1000;
 const NICKNAME_STORAGE_KEY = 'hyphentech:comment-nickname';
 
+async function readComments(url) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const response = await fetch(url, { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(6000) });
+      if (!response.ok) {
+        const error = new Error(`HTTP ${response.status}`);
+        error.status = response.status;
+        throw error;
+      }
+      return await response.json();
+    } catch (error) {
+      if (attempt === 1 || (error.status && error.status < 500)) throw error;
+    }
+  }
+}
+
 function formatTime(milliseconds, t) {
   const diff = Date.now() - milliseconds;
   if (diff < 60_000) return t('刚刚');
@@ -217,12 +233,7 @@ function CommentsPanel({ slug, lang, board = false, context = null, articles = [
     // 这时候请求出去只会换回一个 400，安静等下一轮即可。
     if (!slug) return;
     try {
-      const response = await fetch(`${API_BASE}?slug=${encodeURIComponent(slug)}${board ? '&recent=1' : ''}`, {
-        headers: { accept: 'application/json' },
-        signal: AbortSignal.timeout(12000),
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
+      const data = await readComments(`${API_BASE}?slug=${encodeURIComponent(slug)}${board ? '&recent=1' : ''}`);
       setComments(groupComments(data.comments || []));
       setHasMore(Boolean(data.hasMore));
       setLoadState('ready');

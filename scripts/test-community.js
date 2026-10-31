@@ -36,7 +36,7 @@ assert.deepEqual(grouped[0].replies.map(x=>x.id),[2,3]);
 assert.equal(c.groupComments([{id:4,parent_id:99}])[0].id,4);
 assert.equal(c.groupComments([{id:1,parent_id:2},{id:2,parent_id:1}]).length,2);
 const src=fs.readFileSync('components/Comments.js','utf8');
-assert(src.includes('AbortSignal.timeout(12000)'));
+assert(src.includes('AbortSignal.timeout(6000)'));
 assert(src.includes('body.length > MAX_CONTENT'));
 assert(src.includes('if (!content.trim())'));
 assert(!src.includes('dangerouslySetInnerHTML'));
