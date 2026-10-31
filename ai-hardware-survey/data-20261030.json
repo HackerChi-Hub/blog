@@ -1,0 +1,1269 @@
+{
+  "updated": "2026-10-31",
+  "price_snapshot": "2026-10-30",
+  "entries": [
+    {
+      "id": "q27_xt",
+      "device": "rx7900xt",
+      "model": "Qwen3.8 27B",
+      "title": "RX 7900 XT 20GB",
+      "price_cny": 5599,
+      "price_kind": "裸卡",
+      "memory_gb": 20,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 800,
+      "bandwidth_basis": "原厂标称",
+      "note": "20Gbps×320位÷8",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量推算；缺同型号同模型实测",
+      "photo": "/ai-hardware-survey/assets/device-rx7900xt-9c6b162bae29.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10228216968885",
+        "url": "https://item.jd.com/10228216968885.html",
+        "captured_at": "2026-10-30T10:52:56.868Z",
+        "display_price_cny": 5599,
+        "display_base_price_cny": 5699,
+        "conditions": "二手；满500减100；同店对比",
+        "selected": [
+          "7900XT 20G蓝宝石白金"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rx7900xt-d4bd4aaea829.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rx7900xt-8bc535745a0d.png"
+      },
+      "sources": [
+        {
+          "title": "amd-7900xt",
+          "url": "https://www.amd.com/zh-cn/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xt.html"
+        },
+        {
+          "title": "rx7900xt",
+          "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xt.html"
+        }
+      ]
+    },
+    {
+      "id": "q27_xtx",
+      "device": "rx7900xtx",
+      "model": "Qwen3.8 27B",
+      "title": "RX 7900 XTX 24GB",
+      "price_cny": 6998,
+      "price_kind": "裸卡",
+      "memory_gb": 24,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 960,
+      "bandwidth_basis": "原厂标称",
+      "note": "20Gbps×384位÷8；不采用缓存折算有效带宽3500",
+      "variant": "GSQ-RCO IQ3_S-mtp；llama.cpp hip-kvmix；MTP n=3；24万词元非复制任务22.5—33.2",
+      "performance_basis": "开发者同卡实测",
+      "photo": "/ai-hardware-survey/assets/device-rx7900xtx-e4d98fd6f185.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10228216968889",
+        "url": "https://item.jd.com/10228216968889.html",
+        "captured_at": "2026-10-30T10:52:58.277Z",
+        "display_price_cny": 6998,
+        "display_base_price_cny": 7098,
+        "conditions": "二手；满500减100；同店对比",
+        "selected": [
+          "7900XTX 24G魔鹰"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rx7900xtx-ac660105c747.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rx7900xtx-0edd6b5fc5b0.png"
+      },
+      "sources": [
+        {
+          "title": "rx7900xtx",
+          "url": "https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html"
+        },
+        {
+          "title": "7900xtx-27b-开发者记录",
+          "url": "https://github.com/victoralcazardev/rx7900xtx-local-llm"
+        }
+      ]
+    },
+    {
+      "id": "q27_3090",
+      "device": "rtx3090",
+      "model": "Qwen3.8 27B",
+      "title": "RTX 3090 24GB",
+      "price_cny": 11800,
+      "price_kind": "裸卡",
+      "memory_gb": 24,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 936,
+      "bandwidth_basis": "按原厂频率及位宽计算",
+      "note": "19.5Gbps×384位÷8",
+      "variant": "Q4_K_M；llama.cpp；Q8_0 KV；约112K上下文",
+      "performance_basis": "第三方同卡同模型测试",
+      "photo": "/ai-hardware-survey/assets/device-rtx3090-24e70e06e3e7.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10096423021324",
+        "url": "https://item.jd.com/10096423021324.html",
+        "captured_at": "2026-10-30T10:52:59.822Z",
+        "display_price_cny": 11800,
+        "display_base_price_cny": null,
+        "conditions": "二手；裸卡，不含整机配件",
+        "selected": [
+          "RTX3090三风扇"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx3090-391a8fbff0f8.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx3090-1dc87bdc2a3c.png"
+      },
+      "sources": [
+        {
+          "title": "asus-3090",
+          "url": "https://www.asus.com.cn/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx3090-o24g-gaming/techspec/"
+        },
+        {
+          "title": "rtx3090",
+          "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/"
+        }
+      ]
+    },
+    {
+      "id": "q27_air",
+      "device": "macbook-air",
+      "model": "Qwen3.8 27B",
+      "title": "MacBook Air M5 32GB",
+      "price_cny": 13672.76,
+      "price_kind": "整机",
+      "memory_gb": 32,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": 153,
+      "bandwidth_basis": "原厂标称",
+      "note": "系统与CPU/GPU共享32GB",
+      "variant": "短上下文GGUF；Splash按内存规划选择较小量化，不能套用M5 Pro速度",
+      "performance_basis": "平台支持与容量候选；缺该Air实测",
+      "photo": "/ai-hardware-survey/assets/device-macbook-air-76d064c4c9d5.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100328375308",
+        "url": "https://item.jd.com/100328375308.html",
+        "captured_at": "2026-10-30T10:55:23.402Z",
+        "display_price_cny": 13672.76,
+        "display_base_price_cny": 15249,
+        "conditions": "国家补贴1500元与PLUS；到店自取条件",
+        "selected": [
+          "MacBook Air M5芯片 13英寸",
+          "天蓝色",
+          "32G+1T （10核CPU+10核GPU)",
+          "官方标配",
+          "零售版"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-macbook-air-f57790e4f251.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-macbook-air-d4d6d279a124.png"
+      },
+      "sources": [
+        {
+          "title": "macbook-air",
+          "url": "https://www.apple.com.cn/macbook-air/"
+        }
+      ]
+    },
+    {
+      "id": "q27_n5",
+      "device": "aimax64-correction",
+      "model": "Qwen3.8 27B",
+      "title": "铭凡N5 MAX AI Max 395 64GB",
+      "price_cny": 15599,
+      "price_kind": "整机",
+      "memory_gb": 64,
+      "memory_kind": "共享系统内存",
+      "bandwidth_gbytes_s": 273.056,
+      "bandwidth_basis": "厂家8533MT/s与256位理论计算",
+      "note": "64GB LPDDR5X-8533共享内存；8533×256÷8÷1000≈273GB/s；128GB为系统存储",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量与平台候选；缺该整机实测",
+      "photo": "/ai-hardware-survey/assets/device-aimax64-correction-917bf737a0a3.png",
+      "photo_crop": [
+        0.16,
+        0.43,
+        0.68,
+        0.33
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100374690754",
+        "url": "https://item.jd.com/100374690754.html",
+        "captured_at": "2026-10-30T10:45:58.632Z",
+        "display_price_cny": 15599,
+        "display_base_price_cny": 15999,
+        "conditions": "内存64GB；64G+128GB不是128GB内存整机",
+        "selected": [
+          "N5 MAX 395【64G+128GB】",
+          "自行激活\n¥0.00"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-aimax64-correction-3dd2ab5fdefc.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-aimax64-correction-cdb128b9f1f9.png"
+      },
+      "sources": []
+    },
+    {
+      "id": "q27_r9700",
+      "device": "r9700",
+      "model": "Qwen3.8 27B",
+      "title": "Radeon AI PRO R9700 32GB",
+      "price_cny": 17899.01,
+      "price_kind": "裸卡",
+      "memory_gb": 32,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 640,
+      "bandwidth_basis": "原厂标称",
+      "note": "20Gbps×256位÷8",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量与后端候选；缺该卡27B同条件速度",
+      "photo": "/ai-hardware-survey/assets/device-r9700-d64a53f32e36.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100219203225",
+        "url": "https://item.jd.com/100219203225.html",
+        "captured_at": "2026-10-30T10:48:44.892Z",
+        "display_price_cny": 17899.01,
+        "display_base_price_cny": 17999,
+        "conditions": "京东自营；PLUS与限时立减10元；单一SKU",
+        "selected": [],
+        "price_image": "/ai-hardware-survey/assets/price-r9700-8fc400bb65f3.png",
+        "sku_image": null
+      },
+      "sources": [
+        {
+          "title": "amd-r9700",
+          "url": "https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html"
+        }
+      ]
+    },
+    {
+      "id": "q27_4090",
+      "device": "rtx4090",
+      "model": "Qwen3.8 27B",
+      "title": "RTX 4090 24GB",
+      "price_cny": 27799,
+      "price_kind": "裸卡",
+      "memory_gb": 24,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 1008,
+      "bandwidth_basis": "按原厂频率及位宽计算",
+      "note": "21Gbps×384位÷8",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "2026年9月第三方测试；不宣称旧问题仍存在于最新版本",
+      "photo": "/ai-hardware-survey/assets/device-rtx4090-9c54c9212b80.png",
+      "photo_crop": null,
+      "photo_note": "NVIDIA官方参考外观；报价为风魔工包非公版，实际板型以SKU截图为准",
+      "quote": {
+        "sku": "10202342064285",
+        "url": "https://item.jd.com/10202342064285.html",
+        "captured_at": "2026-10-30T10:53:14.204Z",
+        "display_price_cny": 27799,
+        "display_base_price_cny": null,
+        "conditions": "拆机工包，一年质保；以商家页面说明为准",
+        "selected": [
+          "技嘉风魔RTX4090-24G",
+          "拆机工包/一年质保"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx4090-9924015fb527.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx4090-422bbe0c2235.png"
+      },
+      "sources": [
+        {
+          "title": "asus-4090",
+          "url": "https://www.asus.com/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx4090-o24g-gaming/techspec/"
+        },
+        {
+          "title": "rtx4090",
+          "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/"
+        }
+      ]
+    },
+    {
+      "id": "q27_yoga",
+      "device": "spark-laptop",
+      "model": "Qwen3.8 27B",
+      "title": "YOGA Pro15 RTX Spark 128GB",
+      "price_cny": 41284.01,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": null,
+      "bandwidth_basis": "该SKU内存速率未核实",
+      "note": "官方256位；不得把NVLink-C2C互联带宽当内存带宽，不套DGX Spark的273GB/s",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "具体SKU价格；缺该YOGA机型同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-spark-laptop-077136495f04.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100324866083",
+        "url": "https://item.jd.com/100324866083.html",
+        "captured_at": "2026-10-30T10:47:01.454Z",
+        "display_price_cny": 41284.01,
+        "display_base_price_cny": 42999,
+        "conditions": "国家补贴1500元与PLUS；搜索页标有预定",
+        "selected": [
+          "YOGA Pro-专业创作生产力",
+          "15.3英寸",
+          "RTX Spark N1X|128G 2T|OLED触控"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-spark-laptop-79b7939d2c4f.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-spark-laptop-6f86cdcedf66.png"
+      },
+      "sources": [
+        {
+          "title": "nvidia-spark-spec",
+          "url": "https://www.nvidia.com/en-us/products/rtx-spark/specifications/"
+        },
+        {
+          "title": "spark-laptop",
+          "url": "https://www.nvidia.cn/products/rtx-spark/"
+        }
+      ]
+    },
+    {
+      "id": "q27_dv2",
+      "device": "rtx5090dv2",
+      "model": "Qwen3.8 27B",
+      "title": "RTX 5090 D v2 24GB",
+      "price_cny": 44892,
+      "price_kind": "裸卡",
+      "memory_gb": 24,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 1344,
+      "bandwidth_basis": "原厂同GPU参考规格",
+      "note": "28Gbps×384位÷8；INNO3D原厂规格表；京东卡是技嘉板型",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "规格候选；未取得同模型实测",
+      "photo": "/ai-hardware-survey/assets/device-rtx5090dv2-ef0d90bc458c.png",
+      "photo_crop": null,
+      "photo_note": "RTX 5090系列官方参考外观；报价为技嘉5090 D v2 24GB，实际板型另见SKU",
+      "quote": {
+        "sku": "10172207920816",
+        "url": "https://item.jd.com/10172207920816.html",
+        "captured_at": "2026-10-30T10:53:10.360Z",
+        "display_price_cny": 44892,
+        "display_base_price_cny": 44999,
+        "conditions": "首购礼金100元与限时立减7元",
+        "selected": [
+          "RTX5090D/V2",
+          "5090D V2 GAMING 24G 魔鹰OC"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx5090dv2-6396cc27ffe8.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx5090dv2-acfe64b3d47d.png"
+      },
+      "sources": []
+    },
+    {
+      "id": "q27_5090",
+      "device": "rtx5090",
+      "model": "Qwen3.8 27B",
+      "title": "RTX 5090全球版32GB",
+      "price_cny": 59649.01,
+      "price_kind": "裸卡",
+      "memory_gb": 32,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 1792,
+      "bandwidth_basis": "按原厂频率及位宽计算",
+      "note": "28Gbps×512位÷8；京东选中TUF OC与原厂同系列显存规格",
+      "variant": "第三方测试：llama.cpp失败；NVFP4/vLLM单卡32K、双卡262K",
+      "performance_basis": "历史失败与修正记录，非当前全软件结论",
+      "photo": "/ai-hardware-survey/assets/device-rtx5090-ef0d90bc458c.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100200282956",
+        "url": "https://npcitem.jd.hk/100200282956.html",
+        "captured_at": "2026-10-30T10:53:08.688Z",
+        "display_price_cny": 59649.01,
+        "display_base_price_cny": 59999,
+        "conditions": "京东全球购自营；含进口税、PLUS与限时优惠",
+        "selected": [
+          "5090耐用 TUF OC"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx5090-68cf0fcf3155.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx5090-481d430426b9.png"
+      },
+      "sources": [
+        {
+          "title": "asus-5090",
+          "url": "https://www.asus.com/us/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx5090-32g-gaming/techspec/"
+        },
+        {
+          "title": "rtx5090",
+          "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/"
+        }
+      ]
+    },
+    {
+      "id": "flash_existing_pc",
+      "device": "existing-pc-128",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "已有128GB台式机",
+      "price_cny": 0,
+      "price_kind": "已有设备新增费用",
+      "memory_gb": 128,
+      "memory_kind": "系统内存",
+      "bandwidth_gbytes_s": null,
+      "bandwidth_basis": "设备未指定内存配置",
+      "note": "正文89.6是双通道DDR5-5600的算例，不是这台现有电脑的读数；每通道64位",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "有条件的已有设备路线；无统一速度",
+      "photo": null,
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": null,
+      "sources": []
+    },
+    {
+      "id": "flash_existing_mac",
+      "device": "existing-m5pro64",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "已有M5 Pro 64GB与Splash",
+      "price_cny": 0,
+      "price_kind": "已有设备新增费用",
+      "memory_gb": 64,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": 307,
+      "bandwidth_basis": "原厂标称",
+      "note": "20核GPU的M5 Pro平台；Splash95t/s对应Q2原版加DFlash2",
+      "variant": "Splash 1.0；M5 Pro 20 GPU cores /64GB；ISTA-DASLab GSQ-RCO Q2_0；DFlash2",
+      "performance_basis": "引擎开发者实测",
+      "photo": "/ai-hardware-survey/assets/device-existing-m5pro64-cd5a9a28bf7b.png",
+      "photo_crop": null,
+      "photo_note": "MacBook Pro系列外观参考；实测为M5 Pro 64GB配置",
+      "quote": null,
+      "sources": [
+        {
+          "title": "splash-说明",
+          "url": "https://github.com/incoai/splash"
+        }
+      ]
+    },
+    {
+      "id": "flash_p40",
+      "device": "p40",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "Tesla P40 24GB与Strata",
+      "price_cny": 1850,
+      "price_kind": "裸卡",
+      "memory_gb": 24,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 346,
+      "bandwidth_basis": "原厂标称",
+      "note": "24GB GDDR5；Strata记录另需98GB主机内存；PCIe3.0x16",
+      "variant": "Strata 0.1.43.1；IQ3_S；98GB RAM；CUDA12.4；短提示、热页缓存；非与3060统一横评",
+      "performance_basis": "开发者完整条件实测",
+      "photo": "/ai-hardware-survey/assets/device-p40-f3342634077d.png",
+      "photo_crop": [
+        0.39,
+        0.33,
+        0.6,
+        0.3
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10221557355954",
+        "url": "https://item.jd.com/10221557355954.html",
+        "captured_at": "2026-10-30T10:52:54.301Z",
+        "display_price_cny": 1850,
+        "display_base_price_cny": null,
+        "conditions": "95成新二手；仍需合适电源和主机",
+        "selected": [
+          "P40 24G显存 带GPU风扇 送转接头"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-p40-a2aea992f092.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-p40-7331fed0f497.png"
+      },
+      "sources": [
+        {
+          "title": "p40",
+          "url": "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/documents/nvidia-p40-datasheet.pdf"
+        },
+        {
+          "title": "strata-p40-逐项实测",
+          "url": "https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-12-p40-sm61-kernels/README.md"
+        }
+      ]
+    },
+    {
+      "id": "flash_3060",
+      "device": "rtx3060",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "RTX 3060 12GB与Strata",
+      "price_cny": 2319,
+      "price_kind": "裸卡",
+      "memory_gb": 12,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 360,
+      "bandwidth_basis": "按原厂频率及位宽计算",
+      "note": "15Gbps×192位÷8；Strata记录配64GB DDR4，原文i7-12700",
+      "variant": "Strata0.1.41；i7-12700/64GB DDR4；Q2_0 4K tg42.9 TTFT4.7s；IQ3_S 4K tg20.2；thinking off、单流、256输出",
+      "performance_basis": "同机同模型不同量化实测",
+      "photo": "/ai-hardware-survey/assets/device-rtx3060-6e6c1e4e57c8.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10222597474657",
+        "url": "https://item.jd.com/10222597474657.html",
+        "captured_at": "2026-10-30T10:50:08.999Z",
+        "display_price_cny": 2319,
+        "display_base_price_cny": 2399,
+        "conditions": "二手，品牌随机；满800减80",
+        "selected": [
+          "RTX 3060"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx3060-491a1e99a414.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx3060-cd3829e0f60b.png"
+      },
+      "sources": [
+        {
+          "title": "asus-3060",
+          "url": "https://www.asus.com.cn/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx3060-12g-gaming/techspec/"
+        },
+        {
+          "title": "rtx3060",
+          "url": "https://hoanglongcomputer.vn/vga-nvidia-geforce-jginyue-rtx-3060-12gb-black-dual-fan-12gb-gddr6-192bit"
+        },
+        {
+          "title": "strata-3060-逐项实测",
+          "url": "https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-09-community-rtx-3060-0141/README.md"
+        }
+      ]
+    },
+    {
+      "id": "flash_5060ti",
+      "device": "rtx5060ti",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "RTX 5060 Ti 16GB与Strata",
+      "price_cny": 7451.51,
+      "price_kind": "裸卡",
+      "memory_gb": 16,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 448,
+      "bandwidth_basis": "按原厂频率及位宽计算",
+      "note": "28Gbps×128位÷8；PCIe5.0x8不是显存带宽",
+      "variant": "Strata原版Q2/IQ3；主机内存和NVMe需配套；不采用实验投影单次成绩作常规速度",
+      "performance_basis": "有运行报告；本稿不引用实验速度投影结果",
+      "photo": "/ai-hardware-survey/assets/device-rtx5060ti-282d16ac4bf9.png",
+      "photo_crop": [
+        0.465,
+        0.23,
+        0.505,
+        0.57
+      ],
+      "photo_note": "技嘉RTX 5060 Ti风魔MAX 16GB，选中商品实际设备图",
+      "quote": {
+        "sku": "100253509694",
+        "url": "https://item.jd.com/100253509694.html",
+        "captured_at": "2026-10-30T10:50:11.418Z",
+        "display_price_cny": 7451.51,
+        "display_base_price_cny": 7499,
+        "conditions": "京东自营；PLUS与限时立减10元",
+        "selected": [
+          "RTX 5060 Ti 16G",
+          "【5060Ti风魔MAX-16G 】SFFready"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx5060ti-1362de18fa41.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx5060ti-0501d90b3441.png"
+      },
+      "sources": [
+        {
+          "title": "asus-5060ti",
+          "url": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx5060ti-16g/techspec/"
+        }
+      ]
+    },
+    {
+      "id": "flash_evo",
+      "device": "aimax395",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "EVO-X3 AI Max 395 128GB",
+      "price_cny": 21599,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "共享系统内存",
+      "bandwidth_gbytes_s": 256,
+      "bandwidth_basis": "按原厂速率及位宽计算",
+      "note": "LPDDR5x-8000×256位÷8；平台标称，不是EVO-X3实测带宽",
+      "variant": "395平台参考，不是EVO-X3原机测试；UD-Q4_K_XL；LM Studio约19.55；gufo+MTP32K约34—38",
+      "performance_basis": "同平台参考，具体整机速度待测",
+      "photo": "/ai-hardware-survey/assets/device-aimax395-fe8a5733a577.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100375208044",
+        "url": "https://item.jd.com/100375208044.html",
+        "captured_at": "2026-10-30T10:42:42.110Z",
+        "display_price_cny": 21599,
+        "display_base_price_cny": 21699,
+        "conditions": "整机；页面已补100元；Windows自行激活",
+        "selected": [
+          "深空灰",
+          "AMD锐龙AI Max+ 395",
+          "128G+1TB",
+          "自行激活\n¥0.00"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-aimax395-9384c4803112.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-aimax395-11c56daeea13.png"
+      },
+      "sources": [
+        {
+          "title": "amd-395",
+          "url": "https://www.amd.com/zh-cn/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html"
+        },
+        {
+          "title": "395-flash-next-复测",
+          "url": "https://www.cnblogs.com/DarkAthena/articles/23257183"
+        }
+      ]
+    },
+    {
+      "id": "flash_cre13",
+      "device": "aimax-laptop",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "ProArt创13 AI Max 395 128GB",
+      "price_cny": 23499,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "共享系统内存",
+      "bandwidth_gbytes_s": 256,
+      "bandwidth_basis": "按原厂速率及位宽计算",
+      "note": "395平台标称；持续性能需原笔记本测试",
+      "variant": "395平台Strata/gufo候选；原机实测待补",
+      "performance_basis": "平台支持候选；缺该创13实测",
+      "photo": "/ai-hardware-survey/assets/device-aimax-laptop-c6be17df3aa2.png",
+      "photo_crop": [
+        0.34,
+        0.22,
+        0.64,
+        0.44
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100353305742",
+        "url": "https://item.jd.com/100353305742.html",
+        "captured_at": "2026-10-30T10:47:38.359Z",
+        "display_price_cny": 23499,
+        "display_base_price_cny": null,
+        "conditions": "预约展示价；采集时页面显示预约提醒",
+        "selected": [
+          "ProArt创13",
+          "128G 1T"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-aimax-laptop-a25b673c785e.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-aimax-laptop-5218d8dfffbe.png"
+      },
+      "sources": [
+        {
+          "title": "amd-395",
+          "url": "https://www.amd.com/zh-cn/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html"
+        }
+      ]
+    },
+    {
+      "id": "flash_studio",
+      "device": "mac-studio",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "Mac Studio M5 Max 128GB",
+      "price_cny": 40040.26,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": 614,
+      "bandwidth_basis": "原厂标称且匹配40核GPU选项",
+      "note": "M5 Max 32核GPU为460；40核GPU为614",
+      "variant": "Splash原版Q2_0；或MTPLX Optimized Speed动态4bit；两条路线不混成绩",
+      "performance_basis": "引擎平台支持；不套用其他芯片速度",
+      "photo": "/ai-hardware-survey/assets/device-mac-studio-4c8f21298489.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100312409629",
+        "url": "https://item.jd.com/100312409629.html",
+        "captured_at": "2026-10-30T10:46:59.054Z",
+        "display_price_cny": 40040.26,
+        "display_base_price_cny": 41749,
+        "conditions": "国家补贴1500元与PLUS；具体领取资格见原页",
+        "selected": [
+          "【新品M5 Max】",
+          "(18+40核)128G",
+          "1T",
+          "标准版本"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-mac-studio-9e717ab02161.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-mac-studio-1b215980e75b.png"
+      },
+      "sources": [
+        {
+          "title": "macstudio-spec",
+          "url": "https://www.apple.com.cn/mac-studio/specs/"
+        },
+        {
+          "title": "mac-studio",
+          "url": "https://www.apple.com.cn/mac-studio/"
+        }
+      ]
+    },
+    {
+      "id": "flash_mbp",
+      "device": "macbook-pro",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "MacBook Pro M5 Max 128GB",
+      "price_cny": 51731.51,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": 614,
+      "bandwidth_basis": "原厂标称且匹配40核GPU选项",
+      "note": "18核CPU/40核GPU选项；不套32核460",
+      "variant": "MTPLX2.11.3 Optimized Speed；动态4bit/QSA8bit；9K 79.3；200K续轮50.3缓存预热；商品14英寸不能视为已测同SKU",
+      "performance_basis": "同芯片内存平台参考；原商品机型待测",
+      "photo": "/ai-hardware-survey/assets/device-macbook-pro-cd5a9a28bf7b.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100246088491",
+        "url": "https://item.jd.com/100246088491.html",
+        "captured_at": "2026-10-30T10:55:24.992Z",
+        "display_price_cny": 51731.51,
+        "display_base_price_cny": 53499,
+        "conditions": "国家补贴1500元与PLUS；到店自取条件",
+        "selected": [
+          "14/16寸 M5Max芯片",
+          "14寸-银色",
+          "(18+40核)128G+2T",
+          "标准玻璃",
+          "官方标配"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-macbook-pro-735e604fef90.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-macbook-pro-66be305a9a85.png"
+      },
+      "sources": [
+        {
+          "title": "macbook-pro",
+          "url": "https://www.apple.com.cn/macbook-pro/"
+        },
+        {
+          "title": "mac-mtplx-flash-next",
+          "url": "https://mtplx.com/zh/models/qwen3.8-flash-next/"
+        }
+      ]
+    },
+    {
+      "id": "flash_dgx",
+      "device": "dgx-spark",
+      "model": "Qwen3.8 Flash-Next",
+      "title": "DGX Spark 128GB",
+      "price_cny": 52734.01,
+      "price_kind": "整机",
+      "memory_gb": 128,
+      "memory_kind": "统一系统内存",
+      "bandwidth_gbytes_s": 273,
+      "bandwidth_basis": "原厂标称",
+      "note": "LPDDR5x-8533×256位÷8≈273；不是显存独立卡",
+      "variant": "0xBakeer vllm-longctx；NVFP4；PLE SSD mmap；写作32；128K读取56秒；与llamacpp-edit分开",
+      "performance_basis": "开发者同平台、明确任务实测",
+      "photo": "/ai-hardware-survey/assets/device-dgx-spark-44e9a475f403.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100296702712",
+        "url": "https://item.jd.com/100296702712.html",
+        "captured_at": "2026-10-30T10:53:12.941Z",
+        "display_price_cny": 52734.01,
+        "display_base_price_cny": 52999,
+        "conditions": "京东自营；PLUS；完整开发主机",
+        "selected": [
+          "128G+4TB"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-dgx-spark-5a3ea9f5d22c.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-dgx-spark-e4e0cc0b9067.png"
+      },
+      "sources": [
+        {
+          "title": "dgx-hardware",
+          "url": "https://docs.nvidia.com/dgx/dgx-spark/hardware.html"
+        },
+        {
+          "title": "dgx-spark",
+          "url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/"
+        },
+        {
+          "title": "spark-flash-next-双运行方案",
+          "url": "https://github.com/0xBakeer/qwen38-flash-next-spark"
+        }
+      ]
+    },
+    {
+      "id": "q9_p100",
+      "device": "p100",
+      "model": "Qwen3.5 9B",
+      "title": "Tesla P100 16GB",
+      "price_cny": 638,
+      "price_kind": "裸卡",
+      "memory_gb": 16,
+      "memory_kind": "HBM2独立显存",
+      "bandwidth_gbytes_s": 732,
+      "bandwidth_basis": "原厂标称",
+      "note": "PCIe16GB版；12GB版549不能混用",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量候选；该9B与旧CUDA组合仍需实机验证",
+      "photo": "/ai-hardware-survey/assets/device-p100-7cd4edce35ff.png",
+      "photo_crop": [
+        0.39,
+        0.33,
+        0.6,
+        0.3
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10221557355951",
+        "url": "https://item.jd.com/10221557355951.html",
+        "captured_at": "2026-10-30T10:55:27.706Z",
+        "display_price_cny": 638,
+        "display_base_price_cny": null,
+        "conditions": "95成新二手；散热与主机另计",
+        "selected": [
+          "P100 16G显存 送电源线"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-p100-3293d0a42585.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-p100-72fc9c633df9.png"
+      },
+      "sources": [
+        {
+          "title": "P100原厂PCIe规格",
+          "url": "https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-PCIe-datasheet.pdf"
+        }
+      ]
+    },
+    {
+      "id": "q9_n100",
+      "device": "mini-pc",
+      "model": "Qwen3.5 9B",
+      "title": "N100 16GB",
+      "price_cny": 2069,
+      "price_kind": "整机",
+      "memory_gb": 16,
+      "memory_kind": "系统内存",
+      "bandwidth_gbytes_s": 38.4,
+      "bandwidth_basis": "配置条件成立时的理论上限",
+      "note": "N100最高单通道DDR5/LPDDR5-4800；京东所售实际频率未核实；不是实测",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "CPU容量候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-mini-pc-bd594c134297.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10094923765099",
+        "url": "https://item.jd.com/10094923765099.html",
+        "captured_at": "2026-10-30T10:56:11.797Z",
+        "display_price_cny": 2069,
+        "display_base_price_cny": 2099,
+        "conditions": "整机；限时立减30元；Windows及其他配件看原页",
+        "selected": [
+          "超薄双SSD-N200/N100系列",
+          "intel 12代 N100处理器",
+          "16G内存 512G 固态"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-mini-pc-1575c5ea1f1d.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-mini-pc-fb793ac3803c.png"
+      },
+      "sources": [
+        {
+          "title": "intel-n100",
+          "url": "https://www.intel.cn/content/www/cn/zh/products/sku/231803/intel-processor-n100-6m-cache-up-to-3-40-ghz/specifications.html"
+        }
+      ]
+    },
+    {
+      "id": "q9_b580",
+      "device": "b580",
+      "model": "Qwen3.5 9B",
+      "title": "Intel Arc B580 12GB",
+      "price_cny": 3199,
+      "price_kind": "裸卡",
+      "memory_gb": 12,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 456,
+      "bandwidth_basis": "原厂标称",
+      "note": "19Gbps×192位÷8",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量与后端候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-b580-5b4acf4c01d7.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10213939026038",
+        "url": "https://item.jd.com/10213939026038.html",
+        "captured_at": "2026-10-30T10:52:55.664Z",
+        "display_price_cny": 3199,
+        "display_base_price_cny": null,
+        "conditions": "第三方专卖店；裸卡",
+        "selected": [
+          "B580 12G",
+          "B580 12G 双星 双风扇(全新2K游戏剪辑)"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-b580-0bbcf839bc4d.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-b580-7da9154091ab.png"
+      },
+      "sources": [
+        {
+          "title": "b580",
+          "url": "https://www.intel.cn/content/www/cn/zh/products/sku/241598/intel-arc-b580-graphics/specifications.html"
+        }
+      ]
+    },
+    {
+      "id": "q9_a770",
+      "device": "a770",
+      "model": "Qwen3.5 9B",
+      "title": "Intel Arc A770 16GB",
+      "price_cny": 3369,
+      "price_kind": "裸卡",
+      "memory_gb": 16,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 560,
+      "bandwidth_basis": "原厂16GB参考规格，定制卡频率待核",
+      "note": "17.5Gbps×256位÷8；TF定制板型不声称实机读数",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量与价格比较；无两卡同条件速度",
+      "photo": "/ai-hardware-survey/assets/device-a770-3b6cdeab9294.png",
+      "photo_crop": null,
+      "photo_note": "A770 Photon白卡外观参考；报价为TF定制涡轮版，板型不同",
+      "quote": {
+        "sku": "10195295152473",
+        "url": "https://item.jd.com/10195295152473.html",
+        "captured_at": "2026-10-30T10:53:11.724Z",
+        "display_price_cny": 3369,
+        "display_base_price_cny": 3399,
+        "conditions": "第三方专卖店；满2999减30",
+        "selected": [
+          "蓝戟 ARC A770 TF 16G",
+          "官方标配"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-a770-b0b7f9b5830d.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-a770-ff65de4026ae.png"
+      },
+      "sources": [
+        {
+          "title": "a770",
+          "url": "https://www.intel.cn/content/www/cn/zh/products/sku/229151/intel-arc-a770-graphics-16gb/specifications.html"
+        }
+      ]
+    },
+    {
+      "id": "q9_4060ti",
+      "device": "rtx4060ti",
+      "model": "Qwen3.5 9B",
+      "title": "RTX 4060 Ti 16GB",
+      "price_cny": 4599,
+      "price_kind": "裸卡",
+      "memory_gb": 16,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 288,
+      "bandwidth_basis": "同GPU标准规格，定制卡频率待核",
+      "note": "18Gbps×128位÷8；涡轮定制板型需核频率",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量与软件路线候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-rtx4060ti-f936282ae9a0.png",
+      "photo_crop": [
+        0.045,
+        0.26,
+        0.91,
+        0.36
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "10158758460324",
+        "url": "https://item.jd.com/10158758460324.html",
+        "captured_at": "2026-10-30T10:54:33.697Z",
+        "display_price_cny": 4599,
+        "display_base_price_cny": 4699,
+        "conditions": "第三方定制涡轮卡；首购礼金100元",
+        "selected": [
+          "全新RTX4060Ti 16G涡轮"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rtx4060ti-c9d191fde5b2.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rtx4060ti-0817aa789ab8.png"
+      },
+      "sources": [
+        {
+          "title": "asus-4060ti",
+          "url": "https://www.asus.com.cn/motherboards-components/graphics-cards/dual/dual-rtx4060ti-a16g/techspec/"
+        }
+      ]
+    },
+    {
+      "id": "q9_hp",
+      "device": "ordinary-laptop",
+      "model": "Qwen3.5 9B",
+      "title": "惠普战66 H255 16GB",
+      "price_cny": 4811.43,
+      "price_kind": "整机",
+      "memory_gb": 16,
+      "memory_kind": "系统内存",
+      "bandwidth_gbytes_s": null,
+      "bandwidth_basis": "该SKU频率及插条未核实",
+      "note": "只确定16GB，不能把其他32GB双通道评测套给它",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "CPU容量候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-ordinary-laptop-10b11e3a85d4.png",
+      "photo_crop": [
+        0.412,
+        0.277,
+        0.519,
+        0.313
+      ],
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100336472740",
+        "url": "https://item.jd.com/100336472740.html",
+        "captured_at": "2026-10-30T10:55:21.934Z",
+        "display_price_cny": 4811.43,
+        "display_base_price_cny": null,
+        "conditions": "国家补贴、PLUS与限时立减10元",
+        "selected": [
+          "战66 | 锐龙版【热销】",
+          "16英寸",
+          "【热销】锐龙7 H 255|16G 512SSD"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-ordinary-laptop-8a8b02fbb53d.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-ordinary-laptop-349df4352943.png"
+      },
+      "sources": []
+    },
+    {
+      "id": "q9_9070xt",
+      "device": "rx9070xt",
+      "model": "Qwen3.5 9B",
+      "title": "RX 9070 XT 16GB",
+      "price_cny": 7506.23,
+      "price_kind": "裸卡",
+      "memory_gb": 16,
+      "memory_kind": "独立显存",
+      "bandwidth_gbytes_s": 640,
+      "bandwidth_basis": "原厂标称",
+      "note": "20Gbps×256位÷8",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "容量候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-rx9070xt-9de479a76b8f.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100145837565",
+        "url": "https://item.jd.com/100145837565.html",
+        "captured_at": "2026-10-30T10:48:01.708Z",
+        "display_price_cny": 7506.23,
+        "display_base_price_cny": 7554,
+        "conditions": "京东自营；PLUS与限时立减10元",
+        "selected": [
+          "RX 9070 XT",
+          "RX9070XT OC海外版Ultra黑"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-rx9070xt-8f0484ad477b.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-rx9070xt-100794ff097a.png"
+      },
+      "sources": [
+        {
+          "title": "amd-9070xt",
+          "url": "https://www.amd.com/zh-cn/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9070xt.html"
+        },
+        {
+          "title": "rx9070xt",
+          "url": "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9070xt.html"
+        }
+      ]
+    },
+    {
+      "id": "q9_arm",
+      "device": "arm-laptop",
+      "model": "Qwen3.5 9B",
+      "title": "华硕灵耀14 Air X2 Elite 32GB",
+      "price_cny": 11424.01,
+      "price_kind": "整机",
+      "memory_gb": 32,
+      "memory_kind": "共享系统内存",
+      "bandwidth_gbytes_s": 152,
+      "bandwidth_basis": "普通X2 Elite平台原厂标称",
+      "note": "普通X2 Elite各子型号原厂152；Extreme228，不能混用；不是原机实测",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "运行时适配候选；该9B具体后端待测",
+      "photo": "/ai-hardware-survey/assets/device-arm-laptop-7351a6658c63.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100390329814",
+        "url": "https://item.jd.com/100390329814.html",
+        "captured_at": "2026-10-30T10:55:26.594Z",
+        "display_price_cny": 11424.01,
+        "display_base_price_cny": 12999,
+        "conditions": "国家补贴1500元、PLUS与限时立减10元；按截图时点金额",
+        "selected": [
+          "砚石灰",
+          "骁龙X2 Elite",
+          "14寸 32G 1T"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-arm-laptop-4d0638a3fc8f.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-arm-laptop-c9016bc424c1.png"
+      },
+      "sources": []
+    },
+    {
+      "id": "q9_gaming",
+      "device": "gaming-laptop",
+      "model": "Qwen3.5 9B",
+      "title": "蛟龙16 Pro RTX 5070 Ti",
+      "price_cny": 12626.53,
+      "price_kind": "整机",
+      "memory_gb": 12,
+      "memory_kind": "独立显存；另32GB系统内存",
+      "bandwidth_gbytes_s": 672,
+      "bandwidth_basis": "移动GPU原厂标称",
+      "note": "12GB GDDR7是GPU，32GB是主机；主机内存频率未核实；不得合并为44GB高速显存",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "移动显存规格与容量候选；缺原机同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-gaming-laptop-d3fed2a358a8.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100357227126",
+        "url": "https://item.jd.com/100357227126.html",
+        "captured_at": "2026-10-30T10:47:35.629Z",
+        "display_price_cny": 12626.53,
+        "display_base_price_cny": 14499,
+        "conditions": "国家补贴1500元、PLUS与限时立减10元；移动版GPU",
+        "selected": [
+          "【高性能电竞-蛟龙】",
+          "RTX5070Ti",
+          "【灰】R9-8945HX/32G/1T",
+          "自行激活\n¥0.00"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-gaming-laptop-8bf52c1acf1e.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-gaming-laptop-112e63827cba.png"
+      },
+      "sources": []
+    },
+    {
+      "id": "q9_mi50",
+      "device": "mi50",
+      "model": "Qwen3.5 9B",
+      "title": "MI50 32GB补充候选",
+      "price_cny": null,
+      "price_kind": "未采到准确价格",
+      "memory_gb": 32,
+      "memory_kind": "HBM2独立显存",
+      "bandwidth_gbytes_s": 1000,
+      "bandwidth_basis": "原厂资料约1TB/s",
+      "note": "原厂以最高1TB/s表述；不把PCIe/Infinity Fabric带宽混入",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "补充候选，不排入已知价格顺序",
+      "photo": "/ai-hardware-survey/assets/device-mi50-7952c649776b.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": null,
+      "sources": []
+    },
+    {
+      "id": "q4_phone",
+      "device": "android-phone",
+      "model": "Qwen3.5 4B",
+      "title": "已有安卓手机",
+      "price_cny": 0,
+      "price_kind": "已有设备新增费用",
+      "memory_gb": null,
+      "memory_kind": "按已有手机实际可用内存",
+      "bandwidth_gbytes_s": null,
+      "bandwidth_basis": "未指定机型，没有统一带宽",
+      "note": "不将所有安卓手机当成一个配置；需要具体芯片/内存/应用",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "按具体手机和应用验证；不保证全部安卓手机",
+      "photo": "/ai-hardware-survey/assets/device-android-phone-e36d347f44ba.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": null,
+      "sources": [
+        {
+          "title": "qt-mobile",
+          "url": "https://github.com/ggml-org/llama.cpp/blob/master/docs/android.md"
+        },
+        {
+          "title": "android-phone",
+          "url": "https://olcha.uz/ru/product/view/samsung-galaxy-s21-5g-8256gb-phantom-white/xarakteristiki"
+        }
+      ]
+    },
+    {
+      "id": "q4_pi",
+      "device": "raspberry-pi",
+      "model": "Qwen3.5 4B",
+      "title": "树莓派5 8GB",
+      "price_cny": 1839,
+      "price_kind": "开发板电源套餐",
+      "memory_gb": 8,
+      "memory_kind": "共享系统内存",
+      "bandwidth_gbytes_s": 17,
+      "bandwidth_basis": "原厂SoC标称上限",
+      "note": "32位LPDDR4X接口；不是错误的34GB/s",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "ARM CPU容量候选；缺同模型速度",
+      "photo": "/ai-hardware-survey/assets/device-raspberry-pi-4153b8362d08.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100237921712",
+        "url": "https://item.jd.com/100237921712.html",
+        "captured_at": "2026-10-30T10:54:38.764Z",
+        "display_price_cny": 1839,
+        "display_base_price_cny": 3069,
+        "conditions": "套餐，不把电源套餐当含存储、机箱的完整套装",
+        "selected": [
+          "树莓派5 8GB 电源套餐"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-raspberry-pi-285aea22200f.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-raspberry-pi-249b5c78fbde.png"
+      },
+      "sources": [
+        {
+          "title": "pi-bcm2712",
+          "url": "https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/processors/bcm2712.adoc"
+        }
+      ]
+    },
+    {
+      "id": "q4_jetson",
+      "device": "jetson",
+      "model": "Qwen3.5 4B",
+      "title": "Jetson Orin Nano Super 8GB",
+      "price_cny": 3969,
+      "price_kind": "开发套件",
+      "memory_gb": 8,
+      "memory_kind": "统一内存",
+      "bandwidth_gbytes_s": 102,
+      "bandwidth_basis": "原厂Super性能模式标称",
+      "note": "开发套件含散热器风扇，存储需配；不是旧68GB/s模式",
+      "variant": "见正文对应模型与软件路线",
+      "performance_basis": "平台与容量候选；缺该4B原机速度",
+      "photo": "/ai-hardware-survey/assets/device-jetson-a3e698810099.png",
+      "photo_crop": null,
+      "photo_note": "设备外观参考；实际品牌、板型和选中配置以SKU原图为准",
+      "quote": {
+        "sku": "100071242242",
+        "url": "https://item.jd.com/100071242242.html",
+        "captured_at": "2026-10-30T10:54:40.038Z",
+        "display_price_cny": 3969,
+        "display_base_price_cny": null,
+        "conditions": "开发套件；存储及其他配件另核对",
+        "selected": [
+          "8G Super开发套件"
+        ],
+        "price_image": "/ai-hardware-survey/assets/price-jetson-a865aa34d83e.png",
+        "sku_image": "/ai-hardware-survey/assets/sku-jetson-602d65552c3b.png"
+      },
+      "sources": []
+    }
+  ]
+}
