@@ -3,7 +3,7 @@ title: Strata让12GB显卡跑Qwen3.8？拆开94词元/秒背后的内存账
 slug: strata-12gb-local-ai
 status: published
 date: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-31
 summary: 12GB显卡之外，还要多少内存？拆解Strata的官方速度、量化取舍与Mac接入边界。
 categories:
   - 技术分享
@@ -14,6 +14,18 @@ cover: /obsidian-assets/strata-12gb-local-ai/cover-f502b3c798.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 10月31日补充：把专家怎样分工画出来
+
+我在新一期解说里，用一座三维黏土工厂画出了Strata说明的Qwen电脑端路径：显卡保留常用专家，处理器在系统内存里计算没有命中的专家，两边完成后再汇合结果。画面把参数放在哪里、谁执行计算、结果怎样回来分开呈现，便于沿着数据路线理解。
+
+[观看完整视频：推理引擎凭什么让大模型变快？Splash、Strata背后的六类加速技术](https://www.bilibili.com/video/BV1frxC6WEw7/)。约04:26进入异构协作，04:58开始讲Strata。
+
+![Strata的Qwen电脑端专家计算路径｜三维动画示意](/obsidian-assets/strata-12gb-local-ai/strata-experts-20261031-7b858dad1e.jpg)
+
+这条路线中的冷专家留在处理器一侧计算，减少每步把专家权重重新搬进显卡的需要。苹果端的Metal与硬盘流式读取路径，以及Qwen路径使用的模型词组表，是不同的执行与数据对象；它们又与保存上下文中间状态的KV缓存有区别。具体过程对应[Strata机制文档](https://github.com/Niko1221/Strata/blob/main/docs/HOW_IT_WORKS.md)。
+
+视频同时把内核、量化、缓存、异构、投机与调度放进同一套关系图。我的选择顺序是先看模型结构、参数位置与传输通道，再判断这种分工是否适合自己的电脑；完整归纳见[六类加速机制与平台选择](https://hyphentech.top/mac-local-inference-engines/)。下文保留此前的官方参数、内存账与使用条件。
 
 > [!abstract]
 > 显存不够，究竟是换显卡，还是换一种运行方式？
