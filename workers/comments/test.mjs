@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const worker = (await import(join(here, 'src', 'index.js'))).default;
+const worker = (await import(new URL('./src/index.js', import.meta.url))).default;
 
 // ---------- D1 形状的适配器 ----------
 
