@@ -34,8 +34,20 @@ function main() {
   if ('categoryBuckets' in props) errors.push('首页仍携带未使用的分类全集');
   if (!props.searchPosts?.length) errors.push('完整文章搜索索引被意外移除');
   if (covers < 10) errors.push('没有覆盖到真实页面封面');
+  for (const name of ['llm-guide/index.html', 'agent-comparison.html']) {
+    if (/fonts\.(?:googleapis|gstatic)\.com/.test(read('out/' + name))) errors.push(`${name} 仍依赖外部谷歌字体`);
+  }
+  const hardwareManifest = JSON.parse(read('out/ai-hardware-survey/preview-manifest.json'));
+  const hardwareData = JSON.parse(read('public/ai-hardware-survey/data-20261030.json'));
+  if (hardwareManifest.entries.length !== hardwareData.entries.filter((entry) => entry.photo).length) errors.push('设备预览未覆盖所有真实设备图');
+  for (const entry of hardwareManifest.entries) {
+    for (const variant of entry.variants) {
+      if (!fs.existsSync(path.join(root, 'out', variant.src))) errors.push(`设备预览缺失：${variant.src}`);
+    }
+  }
   if (errors.length) throw new Error(errors.slice(0, 10).join('\n'));
   console.log(`✅ 排版性能导出验收：${covers} 个封面实例采用完整比例展示，衍生图无缺失，首页冗余数据已移除且全站搜索保留`);
+  console.log(`✅ 设备页按屏幕选择轻量预览，${hardwareManifest.entries.length}项原图和价格证据保留；独立页面没有外部谷歌字体请求`);
 }
 
 if (require.main === module) { try { main(); } catch (error) { console.error(`❌ 排版性能验收失败：${error.message}`); process.exitCode = 1; } }

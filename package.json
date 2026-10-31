@@ -15,7 +15,7 @@
     "prebuild": "node scripts/test-turnstile-client.cjs && node scripts/test-comments-admin.cjs && node scripts/test-comment-list.cjs && node workers/comments/test.mjs && node scripts/refresh-product-releases.js && node scripts/build-cover-previews.js",
     "prebuild:obsidian-test": "node scripts/build-cover-previews.js",
     "covers:build": "node scripts/build-cover-previews.js",
-    "test:performance": "node scripts/test-layout-performance.js",
+    "test:performance": "node scripts/test-layout-performance.js && node scripts/test-hardware-page-performance.js",
     "test:cache": "node scripts/test-cloudflare-cache.js",
     "products:check": "node scripts/refresh-product-releases.js --check",
     "products:update": "node scripts/refresh-product-releases.js",

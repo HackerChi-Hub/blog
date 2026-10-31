@@ -6,6 +6,7 @@ const path = require('path');
 const { protectNextScripts } = require('../lib/runtime-script-policy.cjs');
 const { readProductSnapshot, validateProductSnapshot } = require('../lib/product-release-data.cjs');
 const { writeSnapshotAtomic } = require('./refresh-product-releases.js');
+const { optimizeHardwarePage } = require('./optimize-hardware-page.js');
 
 const outDir = path.join(process.cwd(), 'out');
 
@@ -104,4 +105,7 @@ protectRuntime(outDir);
 console.log(`[post-build] 已保护 ${protectedPages} 个页面的交互脚本，避免 CDN 延后搜索与分享`);
 console.log(`[post-build] 已为 ${linkStyledPages} 个独立页面补齐网页与下载入口样式`);
 
-console.log('[post-build] 完成！');
+optimizeHardwarePage().then((report) => {
+  if (report) console.log(`[post-build] 设备展示图按需加载：${report.entries.length}项，原图${report.originalBytes}字节，960档预览${report.preview960Bytes}字节；原图与价格证据保留`);
+  console.log('[post-build] 完成！');
+}).catch((error) => { console.error(`[post-build] 设备预览导出失败：${error.message}`); process.exitCode = 1; });
