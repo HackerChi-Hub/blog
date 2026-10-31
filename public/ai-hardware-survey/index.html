@@ -1,934 +1,336 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 装机指南 — 先看你这台能跑什么，再谈买什么</title>
-<meta name="description" content="以 M5 Pro 64GB 参考机的实测能力表为基准，按可用内存分档梳理本地 AI 设备：消费级显卡、笔记本、Mac mini 与 Mac Studio、AI 专用主机，并给出 2026-04 与 2026-10 两轮价格对比与在售状态。">
-<meta name="keywords" content="AI装机,Qwen 3.6 27B,Wan2GP,RTX 5090D,Mac Studio,DGX Spark,本地大模型,GPU选型">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-primary: #03040a;
-  --bg-secondary: #050a16;
-  --panel-primary: rgba(8, 12, 24, 0.95);
-  --panel-soft: rgba(10, 16, 32, 0.88);
-  --panel-highlight: rgba(18, 32, 64, 0.7);
-  --border-color: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(102, 255, 214, 0.55);
-  --text-primary: #f9fbff;
-  --text-secondary: rgba(230, 239, 255, 0.9);
-  --text-muted: rgba(196, 208, 233, 0.75);
-  --accent-green: #69f0ae;
-  --accent-cyan: #00e5ff;
-  --accent-blue: #6cb8ff;
-  --accent-violet: #b388ff;
-  --accent-orange: #ffb347;
-  --accent-pink: #ff7fd1;
-  --accent-red: #ff5370;
-  --accent-yellow: #ffd54f;
-  --radius-xl: 40px;
-  --radius-lg: 30px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg-primary);
-  background:
-    radial-gradient(circle at 15% 25%, rgba(105, 240, 174, 0.12), transparent 58%),
-    radial-gradient(circle at 80% 0%, rgba(0, 229, 255, 0.15), transparent 55%),
-    linear-gradient(135deg, #02040a 0%, #050913 55%, #02040a 100%);
-  background-attachment: fixed;
-  color: var(--text-primary);
-  font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
-  line-height: 1.7;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-/* ── Back Link ── */
-.back-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
-  padding: 8px 0; transition: color 0.2s;
-}
-.back-link:hover { color: var(--accent-green); }
-
-/* ── Hero ── */
-.hero { text-align: center; padding: 60px 24px 40px; position: relative; }
-.hero h1 {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 900; letter-spacing: -0.02em; margin-bottom: 12px;
-  background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan), var(--accent-blue), var(--accent-violet));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.hero-subtitle {
-  font-size: 1.1rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 28px;
-}
-.hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600;
-  border: 1px solid var(--border-color); background: var(--panel-soft);
-  transition: transform 0.2s;
-}
-.hero-badge:hover { transform: translateY(-2px); }
-.hero-badge.green { border-color: rgba(105,240,174,0.4); color: var(--accent-green); }
-.hero-badge.cyan { border-color: rgba(0,229,255,0.4); color: var(--accent-cyan); }
-.hero-badge.orange { border-color: rgba(255,179,71,0.4); color: var(--accent-orange); }
-.hero-badge .icon { font-size: 1.1rem; }
-
-/* ── TOC ── */
-.toc {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 48px;
-}
-.toc h2 { font-size: 0.9rem; color: var(--accent-cyan); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
-.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; }
-.toc a {
-  color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;
-  padding: 6px 10px; border-radius: 8px; transition: background 0.2s, color 0.2s;
-  display: flex; align-items: center; gap: 6px;
-}
-.toc a:hover { background: var(--panel-highlight); color: var(--accent-green); }
-.toc a .num { color: var(--accent-cyan); font-weight: 700; font-size: 0.78rem; min-width: 20px; }
-
-/* ── Section ── */
-.section { margin-bottom: 64px; }
-.section-title {
-  font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; margin-bottom: 6px;
-  display: flex; align-items: center; gap: 10px;
-}
-.section-title .icon { font-size: 1.5rem; }
-.section-title .num {
-  font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan);
-  background: rgba(0,229,255,0.12); padding: 3px 10px; border-radius: 100px; letter-spacing: 0.04em;
-}
-.section-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 28px; max-width: 800px; }
-
-/* ── Card ── */
-.card {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg); padding: 28px; margin-bottom: 20px;
-  transition: border-color 0.3s;
-}
-.card:hover { border-color: rgba(255,255,255,0.2); }
-.card h3 {
-  font-size: 1.15rem; font-weight: 700; margin-bottom: 14px;
-  display: flex; align-items: center; gap: 8px;
-}
-.card h3 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-
-/* ── Table ── */
-.table-wrap { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-th {
-  background: rgba(0,229,255,0.08); color: var(--accent-cyan); font-weight: 600;
-  text-align: left; padding: 12px 14px; white-space: nowrap; border-bottom: 1px solid var(--border-color);
-}
-td {
-  padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.05);
-  color: var(--text-secondary);
-}
-tr:hover td { background: rgba(255,255,255,0.02); }
-td.price { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--accent-orange); white-space: nowrap; }
-td.highlight { color: var(--accent-green); font-weight: 600; }
-td.warn { color: var(--accent-orange); font-weight: 600; }
-td.danger { color: var(--accent-red); font-weight: 600; }
-
-/* ── Callout ── */
-.callout {
-  border-radius: var(--radius-md); padding: 18px 22px; margin-bottom: 24px;
-  display: flex; gap: 12px; align-items: flex-start;
-}
-.callout-danger {
-  background: rgba(255,83,112,0.08); border: 1px solid rgba(255,83,112,0.25);
-}
-.callout-danger .callout-icon { color: var(--accent-red); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.callout-info {
-  background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.2);
-}
-.callout-info .callout-icon { color: var(--accent-cyan); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.callout-warning {
-  background: rgba(255,179,71,0.08); border: 1px solid rgba(255,179,71,0.25);
-}
-.callout-warning .callout-icon { color: var(--accent-orange); font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-.callout-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
-.callout-text strong { color: var(--text-primary); }
-
-/* ── Chart ── */
-.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
-.chart-card {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-md); padding: 20px;
-  overflow: hidden; min-width: 0;
-}
-.chart-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--text-secondary); }
-.chart-card canvas { max-height: 320px; width: 100% !important; max-width: 100%; display: block; position: relative; aspect-ratio: unset; }
-.chart-full { grid-column: 1 / -1; }
-
-@media (max-width: 768px) {
-  .chart-grid { grid-template-columns: 1fr; }
-  .chart-card { padding: 14px; }
-  .chart-card canvas { max-height: 240px; }
-}
-
-/* ── Spec Grid ── */
-.spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px; }
-.spec-card {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-md); padding: 22px; transition: border-color 0.3s, transform 0.2s;
-}
-.spec-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
-.spec-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.spec-card-icon { font-size: 1.8rem; }
-.spec-card-name { font-size: 1rem; font-weight: 700; }
-.spec-card-price {
-  font-family: 'JetBrains Mono', monospace; font-size: 1.3rem; font-weight: 800;
-  margin-bottom: 12px;
-}
-.spec-card-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.85rem; }
-.spec-card-label { color: var(--text-muted); }
-.spec-card-value { color: var(--text-secondary); font-weight: 500; }
-.spec-badge {
-  display: inline-block; padding: 2px 10px; border-radius: 100px;
-  font-size: 0.75rem; font-weight: 600; margin-left: 8px;
-}
-.spec-badge.green { background: rgba(105,240,174,0.15); color: var(--accent-green); }
-.spec-badge.yellow { background: rgba(255,213,79,0.15); color: var(--accent-yellow); }
-.spec-badge.red { background: rgba(255,83,112,0.15); color: var(--accent-red); }
-.spec-badge.cyan { background: rgba(0,229,255,0.15); color: var(--accent-cyan); }
-
-/* ── Decision Tree ── */
-.decision-tree {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg); padding: 32px; overflow-x: auto;
-}
-.tree-node {
-  padding: 10px 18px; border-radius: var(--radius-sm); margin-bottom: 6px;
-  font-size: 0.9rem; display: flex; align-items: center; gap: 10px;
-  border-left: 3px solid transparent;
-}
-.tree-node.root { background: rgba(0,229,255,0.1); border-left-color: var(--accent-cyan); font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
-.tree-node.branch { background: rgba(105,240,174,0.06); border-left-color: var(--accent-green); margin-left: 16px; font-weight: 600; }
-.tree-node.leaf { background: rgba(255,255,255,0.03); border-left-color: rgba(255,255,255,0.15); margin-left: 36px; }
-.tree-node .tree-price { font-family: 'JetBrains Mono', monospace; color: var(--accent-orange); font-weight: 600; font-size: 0.85rem; margin-left: auto; white-space: nowrap; }
-.tree-node .tree-note { color: var(--accent-yellow); font-size: 0.8rem; margin-left: 8px; }
-
-/* ── Status Grid ── */
-.status-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
-.status-item {
-  display: flex; align-items: center; gap: 12px;
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm); padding: 14px 18px;
-  transition: border-color 0.3s;
-}
-.status-item:hover { border-color: rgba(255,255,255,0.2); }
-.status-icon { font-size: 1.3rem; flex-shrink: 0; }
-.status-name { font-size: 0.9rem; font-weight: 600; }
-.status-badge {
-  margin-left: auto; padding: 3px 10px; border-radius: 100px;
-  font-size: 0.75rem; font-weight: 700; white-space: nowrap;
-}
-.status-badge.ok { background: rgba(105,240,174,0.15); color: var(--accent-green); }
-.status-badge.pre { background: rgba(255,179,71,0.15); color: var(--accent-orange); }
-.status-badge.off { background: rgba(255,83,112,0.15); color: var(--accent-red); }
-
-/* ── Source List ── */
-.source-list { list-style: none; }
-.source-list li {
-  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 0.88rem; color: var(--text-muted);
-  display: flex; gap: 8px; align-items: flex-start;
-}
-.source-list li::before { content: '•'; color: var(--accent-cyan); font-weight: 700; }
-.source-list strong { color: var(--text-secondary); }
-
-/* ── Formula ── */
-.formula-box {
-  background: var(--panel-soft); border: 1px solid var(--border-color);
-  border-radius: var(--radius-md); padding: 20px 24px;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;
-  color: var(--accent-green); text-align: center; margin: 16px 0 24px;
-}
-
-/* ── Dimension Cards ── */
-.dim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 28px; }
-.dim-card {
-  background: var(--panel-primary); border: 1px solid var(--border-color);
-  border-radius: var(--radius-md); padding: 18px; text-align: center;
-  transition: border-color 0.3s, transform 0.2s;
-}
-.dim-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
-.dim-card .dim-icon { font-size: 2rem; margin-bottom: 8px; }
-.dim-card .dim-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-.dim-card .dim-desc { font-size: 0.82rem; color: var(--text-muted); }
-
-/* ── Footer ── */
-.footer {
-  text-align: center; padding: 40px 24px 32px;
-  border-top: 1px solid var(--border-color); margin-top: 40px;
-}
-.footer p { color: var(--text-muted); font-size: 0.85rem; }
-.footer a { color: var(--accent-cyan); text-decoration: none; }
-.footer a:hover { color: var(--accent-green); }
-
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 1.6rem; }
-  .hero-badges { gap: 8px; }
-  .hero-badge { font-size: 0.78rem; padding: 4px 12px; }
-  .spec-grid { grid-template-columns: 1fr; }
-  .card { padding: 20px; }
-  th, td { padding: 8px 10px; font-size: 0.8rem; }
-}
-
-/* ── 2026-10 重写新增 ── */
-figure { margin: 1.6rem 0 2rem; }
-figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
-figcaption { color: var(--text-muted); font-size: .84rem; margin-top: .7rem; line-height: 1.7; }
-.dim { color: var(--text-muted); }
-.ok { color: var(--accent-green); }
-.section a { color: var(--accent-cyan); }
-.spec-card { margin-bottom: 14px; }
-.spec-badge.yellow { background: rgba(255,213,79,.16); color: var(--accent-yellow); border-color: rgba(255,213,79,.4); }
-.spec-badge.red { background: rgba(255,83,112,.16); color: var(--accent-red); border-color: rgba(255,83,112,.4); }
-</style>
-</head>
-<body>
-
-<div class="container">
-  <a href="/" class="back-link">&larr; 返回首页</a>
-
-  <div class="hero">
-    <h1>AI 装机指南</h1>
-    <p class="hero-subtitle">先看你这台能跑什么，再谈买什么。<br>参考机 M5 Pro 64GB 的实测能力表 + 2026-04 与 2026-10 两轮价格对比。</p>
-    <div class="hero-badges">
-      <span class="hero-badge green"><span class="icon">🧠</span> 参考机 M5 Pro 64GB</span>
-      <span class="hero-badge cyan"><span class="icon">📊</span> 11 个模型实测</span>
-      <span class="hero-badge orange"><span class="icon">📅</span> 2026.10 更新</span>
-      <span class="hero-badge green"><span class="icon">💰</span> 价格两轮对比</span>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-
-<!-- ═══════ §1 为什么重做 ═══════ -->
-<section class="section" id="s1">
-  <div class="section-title">
-    <span class="num">01</span>
-    <span class="icon">🔍</span>
-    这页为什么重做
-  </div>
-  <p class="section-desc">这一页 2026-04 写的时候是「全网设备摸底」——8 类设备、纯理论推算的 tok/s、一次性价格表。半年过去，它有三个问题已经不能忍了。</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>旧页的做法</th><th>现在的问题</th><th>这一版的做法</th></tr></thead>
-      <tbody>
-        <tr><td>按别人的卡写：5090 D v2 / 7900 XTX / Mac Studio / DGX Spark</td><td><strong>作者自己的机器一次都没出现过</strong>，而所有实测都在自己机器上跑</td><td>以 M5 Pro 64GB 为基准锚点，其它设备做横向对照</td></tr>
-        <tr><td>tok/s 全部标「理论推算，非实测 Benchmark」</td><td>推算值当横评，读者没法用来决策</td><td>能实测的写实测；测不了的老实留空</td></tr>
-        <tr><td>价格快照停在 2026-04</td><td>这半年显卡和内存都涨过一轮，6 个月的价已经是历史</td><td>两轮价格并排写，标明日期与置信度</td></tr>
-        <tr><td>「24GB 是消费级 GPU 天花板」</td><td>2026-10 已不成立（32GB 卡有两条路）</td><td>改成按<strong>可用内存</strong>分档</td></tr>
-        <tr><td>「RTX 5090 原版 32GB 已被禁售」</td><td><strong>与事实不符</strong>：被中国海关禁运的是 5090 D v2（2026-05-20 起）</td><td>更正，并写清两者的区别</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">💡</span>
-    <div class="callout-text">
-      <strong>这一页的新顺序：</strong>先量你自己这台机器的可用内存 → 再看实测能跑多快 → 最后才比价。<strong>反过来做，就会为了一个装不下的模型去调参数。</strong>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ §2 先量自己 ═══════ -->
-<section class="section" id="s2">
-  <div class="section-title">
-    <span class="num">02</span>
-    <span class="icon">📐</span>
-    先量自己：可用内存才是硬指标
-  </div>
-  <p class="section-desc">买之前先搞清楚一件事：标称内存不是你能用的内存。</p>
-
-  <div class="dim-grid">
-    <div class="dim-card">
-      <div class="dim-icon">💾</div>
-      <div class="dim-title">可用内存</div>
-      <div class="dim-desc">决定「能不能装下」</div>
-    </div>
-    <div class="dim-card">
-      <div class="dim-icon">⚡</div>
-      <div class="dim-title">内存带宽</div>
-      <div class="dim-desc">决定生成速度 (tokens/s)</div>
-    </div>
-    <div class="dim-card">
-      <div class="dim-icon">🔥</div>
-      <div class="dim-title">算力 TFLOPS</div>
-      <div class="dim-desc">决定提示词处理速度</div>
-    </div>
-    <div class="dim-card">
-      <div class="dim-icon">🛠️</div>
-      <div class="dim-title">软件生态</div>
-      <div class="dim-desc">CUDA / ROCm / Metal</div>
-    </div>
-    <div class="dim-card">
-      <div class="dim-icon">🔗</div>
-      <div class="dim-title">统一 vs 独立显存</div>
-      <div class="dim-desc">容量与速度的取舍</div>
-    </div>
-  </div>
-
-  <div class="formula-box">
-    理论 tokens/s = 内存带宽 (GB/s) &divide; 模型量化体积 (GB)
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>标称内存</th><th>实际可用于模型</th><th>差额去哪了</th><th>能跑的模型档位</th></tr></thead>
-      <tbody>
-        <tr><td>8 GB</td><td class="danger">5.73 GB</td><td>macOS 默认留给 GPU</td><td>2B–4B Q4_K_M</td></tr>
-        <tr><td>16 GB</td><td class="warn">12.71 GB</td><td>同上</td><td>4B–9B Q4_K_M</td></tr>
-        <tr><td>32 GB</td><td class="warn">约 26 GB</td><td>同上</td><td>14B–27B Q4</td></tr>
-        <tr style="background:rgba(105,240,174,.03)"><td><strong>64 GB（本机）</strong></td><td class="highlight">55.66 GB</td><td>同上（占标称 81%）</td><td>27B Q4 · 79GB 模型走 SSD 模式</td></tr>
-        <tr><td>128 GB</td><td>约 106 GB</td><td>同上</td><td>70B 级 Q4</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-warning">
-    <span class="callout-icon">⚠️</span>
-    <div class="callout-text">
-      <strong>我自己在本机反复撞出来的一条线：权重体积不超过可用内存的一半。</strong>剩下一半要留给 KV 缓存和计算缓冲。超了不是跑不动，是跑得极慢——上下文一长，生成速度直接腰斩（我实测从 54.5 掉到 28.0 词元/秒）。
-    </div>
-  </div>
-
-  <figure>
-    <img src="/obsidian-assets/localbrain-small-models-lowmem/image-memory-dumbbell-49f63daff4.png" alt="本地模型内存占用示意图：模型文件、KV 缓存与计算缓冲三段构成实际占用" loading="lazy">
-    <figcaption>实际占用是三段相加：模型文件 + KV 缓存 + 计算缓冲。买硬件按第一段算，实际用起来是三段。</figcaption>
-  </figure>
-</section>
-
-<!-- ═══════ §3 参考机能力表 ═══════ -->
-<section class="section" id="s3">
-  <div class="section-title">
-    <span class="num">03</span>
-    <span class="icon">🧪</span>
-    参考机：M5 Pro 64GB 实测能力表
-  </div>
-  <p class="section-desc">这一节全是实测。所有数字都能指回原始记录。</p>
-
-  <div class="spec-grid">
-    <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-      <div class="spec-card-header">
-        <span class="spec-card-icon">💻</span>
-        <span class="spec-card-name">MacBook Pro（我的参考机）</span>
-        <span class="spec-badge green">在用</span>
-      </div>
-      <div class="spec-card-price" style="color:var(--accent-green)">55.66 GB 可用</div>
-      <div class="spec-card-row"><span class="spec-card-label">芯片</span><span class="spec-card-value">Apple M5 Pro，18 核（6 性能 + 12 能效）</span></div>
-      <div class="spec-card-row"><span class="spec-card-label">内存</span><span class="spec-card-value">64 GB 统一内存</span></div>
-      <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">标称 307 GB/s，实测裸读 287 GB/s</span></div>
-      <div class="spec-card-row"><span class="spec-card-label">算力</span><span class="spec-card-value">FP16 约 28.2 万亿次/秒</span></div>
-      <div class="spec-card-row"><span class="spec-card-label">系统</span><span class="spec-card-value">macOS 26.7.1（25G241）</span></div>
-      <div class="spec-card-row"><span class="spec-card-label">引擎</span><span class="spec-card-value">llama.cpp b10705 · MLX 0.32.0 · Splash 1.0</span></div>
-    </div>
-  </div>
-
-  <h3 style="margin:1.8rem 0 .8rem;font-size:1.1rem">这台机器上跑出来的实测速度</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>模型</th><th>量化</th><th>文件</th><th>32K 合计占用</th><th>生成 tok/s</th><th>预填充 tok/s</th></tr></thead>
-      <tbody>
-        <tr><td>MiniCPM5-2B</td><td>Q4_K_M</td><td>1.56 GB</td><td>3.10 GB</td><td class="highlight">133.6</td><td>3218.7</td></tr>
-        <tr><td>Ling-3.0-tiny</td><td>Q4_K_M</td><td>4.92 GB</td><td>5.38 GB</td><td class="highlight">131.4</td><td>2873.0</td></tr>
-        <tr><td>Granite 4.2 3B</td><td>Q4_K_M</td><td>2.24 GB</td><td>5.10 GB</td><td>94.8</td><td>2086.5</td></tr>
-        <tr><td>Gemma 4 E4B</td><td>QAT Q4_0</td><td>5.15 GB</td><td>6.05 GB</td><td>70.2</td><td>1233.9</td></tr>
-        <tr><td>Qwen3-8B</td><td>Q4_K_M</td><td>5.03 GB</td><td>10.12 GB</td><td>51.2</td><td>1180.7</td></tr>
-        <tr><td>Qwen3.5-9B</td><td>Q4_K_M</td><td>5.68 GB</td><td>7.08 GB</td><td>43.1</td><td>677.6</td></tr>
-        <tr><td>Gemma 4 12B</td><td>QAT Q4_0</td><td>6.98 GB</td><td>8.27 GB</td><td>33.3</td><td>532.3</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">📈</span>
-    <div class="callout-text">
-      <strong>带宽达成率才是真本事。</strong>按「理论上限 = 带宽 ÷ 体积」算，4-bit 8B 模型在这台机器上理论能到约 1600 词元/秒。实测<strong>稠密模型达成 75–78%、小模型 61%、MoE 只有 36%</strong>。买机器看带宽没错，但别拿理论值当承诺。
-    </div>
-  </div>
-
-  <h3 style="margin:1.8rem 0 .8rem;font-size:1.1rem">27B 这一档怎么跑</h3>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>跑法</th><th>实测速度</th><th>说明</th></tr></thead>
-      <tbody>
-        <tr><td>Splash 投机解码（4bit 主 + DFlash2 草稿）</td><td class="highlight">53.4 tok/s</td><td>110 次请求中位；写代码接受率 63.2%，写中文只有 11.9%</td></tr>
-        <tr><td>llama.cpp 同参数量 Q8_0</td><td>9.11 tok/s</td><td>不投机解码的基线</td></tr>
-        <tr><td>llama.cpp Qwen3.8-27B Q8_0</td><td>7.4 tok/s</td><td>长任务探针里的实测，全库最慢的一组</td></tr>
-        <tr><td>Qwen3.8 Flash Next 2.6 位权重（79.21GB）</td><td>36.1–44.7 tok/s</td><td>走 Sushi 精确 SSD 模式，驻留 31.21 GiB</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>完整数据在 <a href="/mlx-model-test.html">本地模型实测报告</a>，那页有全部 9 个模型、工具场景通过率和失败实录。</p>
-</section>
-
-<!-- ═══════ §4 设备清单 ═══════ -->
-<section class="section" id="s4">
-  <div class="section-title">
-    <span class="num">04</span>
-    <span class="icon">🖥️</span>
-    设备清单：按可用内存分档
-  </div>
-  <p class="section-desc">价格写「2026-10-18 行情」这一档，其余配置与能力见备注。</p>
-
-  <div class="card">
-    <h3><span class="dot" style="background:var(--accent-cyan)"></span> A. 消费级显卡</h3>
-    <div class="spec-grid">
-      <div class="spec-card" style="border-left:3px solid var(--accent-red)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">NVIDIA RTX 5090（32GB）</span>
-          <span class="spec-badge red">断货</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-red)">¥35,000 → ¥54,000</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">32 GB GDDR7</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">1,792 GB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">状态</span><span class="spec-card-value">2026-10-15 美官方商城下架；英伟达 10-17 否认停产</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-orange)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">AMD Radeon AI PRO R9700</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">¥10,999–12,999</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">32 GB</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">定位</span><span class="spec-card-value">当前唯一买得到的 32GB 桌面卡</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">注意</span><span class="spec-card-value">ROCm 生态不如 CUDA，部分模型要适配</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-red)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">NVIDIA RTX 5090 D v2（24GB）</span>
-          <span class="spec-badge red">禁运</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-red)">指导价 ¥16,499 → 行情 ¥32,000–40,000</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">24 GB GDDR7</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">状态</span><span class="spec-card-value">2026-05-20 起被中国海关列入禁止进口清单</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">提醒</span><span class="spec-card-value">行情价含灰产溢价，不等于零售价</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">AMD RX 9070 XT</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-green)">¥5,500–6,000</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">16 GB</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">走势</span><span class="spec-card-value">这半年基本没跟涨，部分型号还回落</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">注意</span><span class="spec-card-value">16GB 跑 27B Q4 偏紧，建议 14B 以下或降上下文</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-yellow)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">NVIDIA RTX 5080</span>
-          <span class="spec-badge yellow">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">¥14,899 → ¥15,988</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">16 GB</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">走势</span><span class="spec-card-value">去年同期不到 8,000，一年翻倍</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-dim)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">AMD RX 7900 XTX（24GB）</span>
-          <span class="spec-badge yellow">价格未核实</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--text-muted)">未找到当前报价</div>
-        <div class="spec-card-row"><span class="spec-card-label">显存</span><span class="spec-card-value">24 GB GDDR6</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">历史价</span><span class="spec-card-value">首发 ¥7,999，2026-04 页面记 ~¥6,499</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">说明</span><span class="spec-card-value">AMD 侧这半年整体没怎么跟涨，但没有确切现价</span></div>
-      </div>
-    </div>
-
-    <div class="callout callout-warning">
-      <span class="callout-icon">⚠️</span>
-      <div class="callout-text">
-        <strong>「24GB 是消费级天花板」这句话在桌面端已经不成立了。</strong>32GB 现在有两条路：RTX 5090（32GB）已经涨到 ¥54,000 实质买不到；Radeon AI PRO R9700（32GB，¥10,999 起）是当下唯一能买到的 32GB 桌面卡。<strong>但在笔记本端，RTX 5090 Laptop 仍是 24GB，24GB 天花板依然成立。</strong>
-      </div>
-    </div>
-
-    <figure>
-      <img src="/obsidian-assets/polystrata-qwen36-8gb-localbrain-test/image-hardware-602481e8fe.png" alt="Windows 测试机的硬件信息与显存占用截图" loading="lazy">
-      <figcaption>Windows 侧的 8GB 显卡实测机：RTX 4070 Laptop，显存 8188 MiB，系统内存 32GB。</figcaption>
-    </figure>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot" style="background:var(--accent-green)"></span> B. 笔记本电脑</h3>
-    <div class="spec-grid">
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🎮</span>
-          <span class="spec-card-name">联想 Y9000P 2026</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">¥16,698 → 实付 ¥16,188（低配）</div>
-        <div class="spec-card-row"><span class="spec-card-label">低配</span><span class="spec-card-value">i9-14900HX / RTX 5060</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">至尊版</span><span class="spec-card-value">满血 RTX 5090 Laptop 24GB —— 当前报价未找到</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">2026-04 旧价</span><span class="spec-card-value">2025 款 ¥25,499</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🍎</span>
-          <span class="spec-card-name">MacBook Pro 16"（M5 Pro / M5 Max）</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">M5 Pro 起 ¥21,999 · M5 Max 起 ¥31,999</div>
-        <div class="spec-card-row"><span class="spec-card-label">统一内存</span><span class="spec-card-value">最高 128GB，M5 Pro 带宽 307 GB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">128GB / 2TB</span><span class="spec-card-value">京东活动 ¥43,499 → 实付 ¥41,999；另有渠道报 ¥55,999</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">2026-04 旧价</span><span class="spec-card-value">¥35,999–57,999</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot" style="background:var(--accent-green)"></span> C. 苹果台式机与迷你机</h3>
-    <div class="spec-grid">
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🍎</span>
-          <span class="spec-card-name">Mac mini M6</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">起 ¥6,999（16GB + 256GB）</div>
-        <div class="spec-card-row"><span class="spec-card-label">内存上限</span><span class="spec-card-value">32GB 统一内存</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">170 GB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">判断</span><span class="spec-card-value">最便宜的 Apple 入口，但 32GB 封顶，本地模型上限不高</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🍎</span>
-          <span class="spec-card-name">Mac mini M5 Pro</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">起 ¥12,999</div>
-        <div class="spec-card-row"><span class="spec-card-label">内存上限</span><span class="spec-card-value">64GB 统一内存</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">307 GB/s（与我的参考机同款芯片）</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">判断</span><span class="spec-card-value">性价比拐点在这：¥12,999 能拿到 64GB / 307GB/s</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🍎</span>
-          <span class="spec-card-name">Mac Studio（M5 Max / M5 Ultra）</span>
-          <span class="spec-badge green">在售</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">M5 Max 起 ¥19,999 · M5 Ultra 起 ¥46,999</div>
-        <div class="spec-card-row"><span class="spec-card-label">内存上限</span><span class="spec-card-value">M5 Max 128GB / 614GB/s；M5 Ultra 512GB / 1.2TB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">2026-04 旧价</span><span class="spec-card-value">M4 Max 起 ¥16,499（已退市）· M3 Ultra 起 ¥32,999（已退市）</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">更正</span><span class="spec-card-value">2026 款没有 M5 Pro Mac Studio</span></div>
-      </div>
-    </div>
-
-    <div class="callout callout-info">
-      <span class="callout-icon">🍎</span>
-      <div class="callout-text">
-        <strong>Mac Studio 的涨幅里混了换代溢价。</strong>旧页记的是 M4 Max 起 ¥16,499、M3 Ultra 起 ¥32,999，现在是 M5 Max 起 ¥19,999、M5 Ultra 起 ¥46,999。芯片代际、6 月官方涨价、内存成本三件事叠在一起，不能全算成「涨价」——<strong>同代对比是 M4 Max $1,999 → M5 Max $2,499（+25%）</strong>。
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot" style="background:var(--accent-cyan)"></span> D. AI 专用主机</h3>
-    <div class="spec-grid">
-      <div class="spec-card" style="border-left:3px solid var(--accent-orange)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🔺</span>
-          <span class="spec-card-name">NVIDIA DGX Spark</span>
-          <span class="spec-badge yellow">缺货</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-orange)">$3,999 → $4,699 → $6,950</div>
-        <div class="spec-card-row"><span class="spec-card-label">内存</span><span class="spec-card-value">128GB LPDDR5x（另出 64GB 版 $4,999）</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">273 GB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">中国现货</span><span class="spec-card-value">¥40,499–49,999，多数渠道缺货</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">判断</span><span class="spec-card-value">内存减半反而更贵，官方价三级跳</span></div>
-      </div>
-
-      <div class="spec-card" style="border-left:3px solid var(--accent-green)">
-        <div class="spec-card-header">
-          <span class="spec-card-icon">🔲</span>
-          <span class="spec-card-name">AMD Strix Halo 395（128GB 迷你主机）</span>
-          <span class="spec-badge green">供给充足</span>
-        </div>
-        <div class="spec-card-price" style="color:var(--accent-green)">¥11,999–28,599</div>
-        <div class="spec-card-row"><span class="spec-card-label">型号数</span><span class="spec-card-value">国内 22 款在售</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">带宽</span><span class="spec-card-value">约 256 GB/s</span></div>
-        <div class="spec-card-row"><span class="spec-card-label">判断</span><span class="spec-card-value">整机自带 128GB，相对单买内存反而显出性价比</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3><span class="dot" style="background:var(--accent-orange)"></span> E. 内存与存储：涨价还没停</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>项目</th><th>2026-04（页面旧值）</th><th>2026-10 行情</th><th>变化</th></tr></thead>
-        <tbody>
-          <tr><td>DDR5 64GB (32×2) 6000</td><td>¥4,600–5,200</td><td>约 ¥5,999–6,399</td><td class="warn">上涨约 15–30%</td></tr>
-          <tr><td>DDR5 32GB 单条</td><td>（旧页的 ¥2,299–2,879 实为 32GB 总容量套装价）</td><td>¥3,800（央视财经 2026-07 华强北实测）</td><td class="dim">口径不同，不可直接比</td></tr>
-          <tr><td>2TB PCIe 5.0 SSD</td><td>¥1,299</td><td>约 ¥2,400–2,600</td><td class="warn">接近翻倍</td></tr>
-          <tr><td>X870E 主板</td><td>¥2,599</td><td>¥1,899–2,999</td><td class="ok">持平或略降</td></tr>
-          <tr><td>Ryzen 9 9950X</td><td>¥4,299</td><td>约 ¥2,500–4,799（两源冲突）</td><td class="dim">这半年唯一没涨的件</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout callout-danger">
-      <span class="callout-icon">📈</span>
-      <div class="callout-text">
-        <strong>涨势没有反转，只是从「恐慌式跳涨」变成「持续阴涨」。</strong>2026-03 底到 4 月初有过一次短暂回调，Q2 末重新抬头。10-21 的现货数据：DDR5 16Gb 每颗 US$58.58，30 日 +5.27%、同比 +501.67%；Q4 合约价预计再涨 10–20%。<strong>旧页那句「DRAM 涨价后」得改成「涨价仍在继续」。</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ §5 价格对比 ═══════ -->
-<section class="section" id="s5">
-  <div class="section-title">
-    <span class="num">05</span>
-    <span class="icon">💰</span>
-    价格对比：2026-04 → 2026-10
-  </div>
-  <p class="section-desc">两轮并排。查价日期 2026-10-22，价格多为 2026-10-18 前后行情。</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>项目</th><th>2026-04</th><th>2026-10</th><th>变化</th><th>置信度</th></tr></thead>
-      <tbody>
-        <tr><td>RTX 5090 D v2 24GB</td><td>¥16,499–16,999</td><td>指导价不变，行情 ¥32,000–40,000（5-20 起禁运）</td><td class="warn">实际成交翻倍</td><td>禁运 ⭐⭐⭐ / 价格 ⭐⭐</td></tr>
-        <tr><td>RTX 5090 32GB</td><td>页面称「已禁售」<span class="dim">（与事实不符）</span></td><td>¥35,000 → ¥54,000（美官方商城 10-15 下架，官方否认停产）</td><td class="warn">+50%</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Radeon AI PRO R9700 32GB</td><td>页面未列</td><td>¥10,999–12,999</td><td class="ok">现售</td><td>⭐⭐</td></tr>
-        <tr><td>RTX 5080 16GB</td><td>页面未列</td><td>¥14,899 → ¥15,988</td><td class="warn">一年翻倍</td><td>⭐⭐</td></tr>
-        <tr><td>RX 9070 XT 16GB</td><td>页面未列</td><td>¥5,500–6,000</td><td class="ok">基本没跟涨</td><td>⭐⭐</td></tr>
-        <tr><td>RX 7900 XTX 24GB</td><td>¥6,499</td><td>未找到当前报价</td><td class="dim">未核实</td><td>—</td></tr>
-        <tr><td>RTX 4090D 24GB</td><td>¥20,000–40,000+</td><td>已停产 / 在华禁售，未找到报价</td><td class="dim">停产属实</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Mac Studio 起价</td><td>¥16,499（M4 Max）</td><td>¥19,999（M5 Max）</td><td class="warn">+21%</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Mac Studio Ultra 起价</td><td>¥32,999（M3 Ultra）</td><td>¥46,999（M5 Ultra）</td><td class="warn">+42%</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Mac mini</td><td>页面未列</td><td>M6 起 ¥6,999 · M5 Pro 起 ¥12,999</td><td class="ok">新机型</td><td>⭐⭐⭐</td></tr>
-        <tr><td>MacBook Pro 16"</td><td>¥35,999–57,999</td><td>M5 Max 起 ¥31,999；顶配 128GB 约 ¥49,124–58,124</td><td class="warn">官方 6 月涨约 20%</td><td>⭐⭐</td></tr>
-        <tr><td>DGX Spark 128GB</td><td>¥30,000–40,000</td><td>$6,950 / 中国 ¥40,499–49,999</td><td class="warn">$3,999 起三级跳</td><td>官方价 ⭐⭐⭐</td></tr>
-        <tr><td>Strix Halo 395 128GB 主机</td><td>¥15,000–25,000</td><td>¥11,999–28,599（22 款在售）</td><td class="ok">下限跌破旧区间</td><td>⭐⭐</td></tr>
-        <tr><td>DDR5 64GB (32×2)</td><td>¥4,600–5,200</td><td>约 ¥5,999–6,399</td><td class="warn">+15–30%</td><td>⭐⭐</td></tr>
-        <tr><td>2TB PCIe 5.0 SSD</td><td>¥1,299</td><td>约 ¥2,400–2,600</td><td class="warn">接近翻倍</td><td>⭐</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-warning">
-    <span class="callout-icon">📌</span>
-    <div class="callout-text">
-      <strong>四组不能直接比的：</strong>① Mac Studio 换代了，涨幅里混了芯片代际溢价；② DDR5 32GB 旧页是套装价、现在是单条价；③ DGX Spark 的 128GB 和 64GB 版不是同一件东西；④ RTX 5090 32GB 从未被中国禁售，被禁运的是 5090 D v2。<strong>另外：显卡价格是日更行情，文中数字请按「2026-10-18 行情」看。</strong>
-    </div>
-  </div>
-
-  <figure>
-    <img src="/obsidian-assets/mac-windows-linux-ai-platforms/image-hardware-price-snapshot-b2c0c06ea7.png" alt="2026 年 9 月底的多平台硬件价格快照图" loading="lazy">
-    <figcaption>2026-09-28 的官方价格快照：Mac mini M6 ¥6,999 起、M5 Pro ¥12,999 起、RTX 5090 与 R9700 都是 32GB 显存。</figcaption>
-  </figure>
-</section>
-
-<!-- ═══════ §6 能力矩阵 ═══════ -->
-<section class="section" id="s6">
-  <div class="section-title">
-    <span class="num">06</span>
-    <span class="icon">📊</span>
-    能力矩阵：实测的与未核实的分开写
-  </div>
-  <p class="section-desc">旧页把这两种数字混在同一张表里，读者没法判断该信哪个。这一版拆开。</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>设备</th><th>可用内存</th><th>实测速度</th><th>来源</th></tr></thead>
-      <tbody>
-        <tr><td><strong>M5 Pro 64GB（本机）</strong></td><td class="highlight">55.66 GB</td><td class="highlight">9B 43.1 / 8B 51.2 / 27B 53.4 tok/s</td><td>本机实测，2026-09 → 10</td></tr>
-        <tr><td><strong>RTX 4070 Laptop 8GB</strong></td><td class="highlight">8188 MiB 显存</td><td class="highlight">Granite 3B 73.9 / Gemma 4 E4B 60.8 / Qwen3.6-35B-A3B 75–90 tok/s</td><td>本机 Windows 侧实测，2026-09 → 10</td></tr>
-        <tr><td>Apple 8GB 机型</td><td class="warn">5.73 GB</td><td>2B 133.6 tok/s</td><td>同机 64GB 实测值，仅供参照</td></tr>
-        <tr><td>DGX Spark 128GB</td><td class="dim">未实测</td><td class="dim">未核实</td><td>官方 273 GB/s 为规格值</td></tr>
-        <tr><td>Strix Halo 395 128GB</td><td class="dim">未实测</td><td class="dim">未核实</td><td>约 256 GB/s 为规格值</td></tr>
-        <tr><td>RTX 5090 / R9700 32GB</td><td class="dim">未实测</td><td class="dim">未核实</td><td>本页不推算</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">✅</span>
-    <div class="callout-text">
-      <strong>我只给自己量过的设备下结论。</strong>DGX Spark、Strix Halo、5090 这些我没跑过，就不写它们的 tok/s。<strong>旧页那张「8 台设备速度对比表」全部是推算值，这一版把它删了。</strong>要知道它们多快，等我实测，或者看厂商口径并知道那是规格上限。
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ §7 决策树 ═══════ -->
-<section class="section" id="s7">
-  <div class="section-title">
-    <span class="num">07</span>
-    <span class="icon">🌳</span>
-    选购决策树
-  </div>
-
-  <div class="decision-tree">
-    <div class="tree-node root">🎯 先问一句：你现在这台机器的可用内存是多少？</div>
-
-    <div class="tree-node branch">💰 可用内存 < 6GB（8GB 机型）
-      <span class="tree-price">→ 别折腾大模型，先把内存升上去</span>
-    </div>
-    <div class="tree-node leaf">5.73GB 可用只能跑 2B–4B Q4。想跑 9B 以上，内存是硬门槛<span class="tree-price">内存比显卡更值钱</span></div>
-
-    <div class="tree-node branch">💰 可用内存 12–14GB（16GB 机型）
-      <span class="tree-price">→ Mac mini M5 Pro 路线最划算</span>
-    </div>
-    <div class="tree-node leaf">¥12,999 换 64GB / 307GB/s，比同价位的独显整机省心<span class="tree-price">Mac mini M5 Pro</span></div>
-
-    <div class="tree-node branch">💰 可用内存 26GB（32GB 机型）
-      <span class="tree-price">→ 27B Q4 刚好，14B Q6 也够</span>
-    </div>
-    <div class="tree-node leaf">也可以走显卡：RTX 5080 ¥15,988 / RX 9070 XT ¥5,500–6,000<span class="tree-price">注意显存只有 16GB</span></div>
-
-    <div class="tree-node branch">💰 可用内存 50GB+（64GB 机型）
-      <span class="tree-price">→ 27B 随便跑，79GB 模型走精确 SSD</span>
-    </div>
-    <div class="tree-node leaf">实测 27B 投机解码 53.4 tok/s；79GB 模型用 32GiB SSD 模式，驻留 31.21 GiB<span class="tree-price">Mac mini M5 Pro / MBP M5 Pro</span></div>
-
-    <div class="tree-node branch">🎬 要跑 70B 以上
-      <span class="tree-price">→ 128GB 统一内存，或 128GB 的 AI 主机</span>
-    </div>
-    <div class="tree-node leaf">Mac Studio M5 Max 起 ¥19,999（128GB）；Strix Halo 395 整机 ¥11,999 起自带 128GB<span class="tree-price">两者都未在本机实测</span></div>
-
-    <div class="tree-node branch">🖥️ 要 32GB 桌面显存
-      <span class="tree-price">→ Radeon AI PRO R9700</span>
-    </div>
-    <div class="tree-node leaf">¥10,999–12,999，现货；RTX 5090 32GB 已涨到 ¥54,000，不值得等<span class="tree-price">R9700</span></div>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">🧭</span>
-    <div class="callout-text">
-      <strong>如果只让我推荐一台：Mac mini M5 Pro，¥12,999 起。</strong>64GB 统一内存、307GB/s 带宽，和我所有实测同款芯片；27B 投机解码 53.4 tok/s，79GB 模型靠精确 SSD 模式也能跑。<strong>比同价位拼显卡的整机省心一个数量级</strong>——前提是你不依赖 CUDA 独占的模型或工具。
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ §8 在售状态与来源 ═══════ -->
-<section class="section" id="s8">
-  <div class="section-title">
-    <span class="num">08</span>
-    <span class="icon">📦</span>
-    在售状态与数据来源
-  </div>
-
-  <div class="status-grid">
-    <div class="status-item">
-      <span class="status-icon">🍎</span>
-      <span class="status-name">Mac mini M6 / M5 Pro</span>
-      <span class="status-badge ok">✅ 在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🍎</span>
-      <span class="status-name">Mac Studio M5 Max / M5 Ultra</span>
-      <span class="status-badge ok">✅ 在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">💻</span>
-      <span class="status-name">MacBook Pro 16" 全系</span>
-      <span class="status-badge ok">✅ 在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🔺</span>
-      <span class="status-name">Radeon AI PRO R9700 32GB</span>
-      <span class="status-badge ok">✅ 在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🔴</span>
-      <span class="status-name">RX 9070 XT / RX 7900 XTX</span>
-      <span class="status-badge ok">✅ 在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🔲</span>
-      <span class="status-name">Strix Halo 395 迷你主机</span>
-      <span class="status-badge ok">✅ 22 款在售</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🎮</span>
-      <span class="status-name">RTX 5090 32GB</span>
-      <span class="status-badge warn">⚠️ 缺货涨价</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🚫</span>
-      <span class="status-name">RTX 5090 D v2</span>
-      <span class="status-badge off">⛔ 中国禁运</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🚫</span>
-      <span class="status-name">RTX 4090D</span>
-      <span class="status-badge off">⛔ 已停产</span>
-    </div>
-    <div class="status-item">
-      <span class="status-icon">🔺</span>
-      <span class="status-name">DGX Spark</span>
-      <span class="status-badge warn">⚠️ 缺货涨价</span>
-    </div>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">🔍</span>
-    <div class="callout-text">
-      <strong>数据可信度分级</strong>：⭐⭐⭐ 官方来源（Apple 官网新闻室、NVIDIA 官方回应、厂商发布页、DRAM 现货指数）| ⭐⭐ 媒体报道与电商挂牌价（带日期与链接）| ⭐ 推导或近月价 | — 未找到当前报价
-    </div>
-  </div>
-
-  <ul class="source-list">
-    <li><strong>本机硬件与实测 ⭐⭐⭐</strong> — system_profiler / sysctl 实扫；llama.cpp b10705、M5 Pro 64GB、macOS 26.7.1；9 个 GGUF 模型的原始 JSON 与下载回执</li>
-    <li><strong>可用内存与带宽 ⭐⭐⭐</strong> — Metal <code>recommendedMaxWorkingSetSize</code>（55.66 GB）；Apple 规格页 307 GB/s；裸读实测 287 GB/s</li>
-    <li><strong>Apple 定价 ⭐⭐⭐</strong> — 苹果中国官网新闻室与选购页（2026-09-22 Mac mini / Mac Studio 发售公告）</li>
-    <li><strong>RTX 5090 状态 ⭐⭐⭐</strong> — NVIDIA 美国官方商城 2026-10-15 下架商品页；英伟达个人计算业务高级副总裁 Jeff Fisher 2026-10-17 回应</li>
-    <li><strong>5090 D v2 禁运 ⭐⭐⭐</strong> — 2026-05-20 中国海关禁止进口清单相关报道</li>
-    <li><strong>显卡行情 ⭐⭐</strong> — 2026-10-18 前后电商挂牌价与媒体报道；<strong>显卡是日更行情，数字会过期</strong></li>
-    <li><strong>DRAM 走势 ⭐⭐⭐</strong> — 2026-10-21 现货指数（DDR5 16Gb US$58.58，30 日 +5.27%、同比 +501.67%）；Q4 合约价预测 +10–20%</li>
-    <li><strong>Strix Halo 整机 ⭐⭐</strong> — 2026-09-11 国内 22 款在售机型汇总（¥11,999–28,599）</li>
-    <li><strong>RTX 4070 Laptop 8GB ⭐⭐⭐</strong> — 本机 Windows 侧实测：显存 8188 MiB、显存峰值 7850 MiB、系统内存峰值 26.39 GiB</li>
-    <li><strong>未核实项</strong> — RX 7900 XTX 现价、Ryzen 7 9700X 现价、Mac Studio 高配选配价、Y9000P 至尊版现价、RTX 4090D 现价：<strong>均写「未找到当前报价」</strong></li>
-  </ul>
-
-  <p style="margin-top:1.6rem"><a href="/">返回首页</a> · <a href="/mlx-model-test.html">本地模型实测报告</a> · <a href="/llm-guide/">本地部署</a> · <a href="/agent-comparison.html">AI Agent 实战对照</a></p>
-</section>
-
-<div class="footer">
-  <p>AI 装机指南 · 复核日期 2026-10-21 · 参考机 M5 Pro 64GB · 价格查证日期 2026-10-22</p>
-  <p style="margin-top:8px"><a href="/">返回首页</a></p>
-</div>
-
-</div>
-
-<div data-standalone-share></div>
-<script src="/shared/standalone-share.js" defer></script>
-</body>
-</html>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 装机指南 — 按模型、预算与部署路线选设备</title><meta name="description" content="33项本地模型设备与低成本候选，29组京东真实价格和配置截图。按Qwen3.8 27B、Flash-Next、Qwen3.5 9B与4B比较容量、带宽、完整成本和运行路线。价格为2026年10月30日快照。"><link rel="canonical" href="https://hyphentech.top/ai-hardware-survey/"><style>
+:root{color-scheme:dark;--bg:#071019;--panel:#101e2a;--line:#2b4050;--text:#f1f6fa;--muted:#b5c7d4;--accent:#78e5c6;--amber:#ffd08a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 system-ui,-apple-system,"PingFang SC",sans-serif}a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:4px}main{max-width:1200px;margin:auto;padding:26px 24px 80px}header{padding:48px 0 34px}h1{font-size:clamp(32px,5vw,58px);line-height:1.25;max-width:900px;letter-spacing:-.03em}h2{font-size:clamp(25px,3vw,34px);line-height:1.4}h3{font-size:21px;line-height:1.5;margin:8px 0}p{margin:12px 0}.lede{max-width:840px;color:var(--muted);font-size:19px}.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.04em;font-weight:700}.badges{display:flex;gap:10px;flex-wrap:wrap}.badges span{border:1px solid var(--line);padding:5px 13px;border-radius:40px;color:var(--muted)}nav{display:flex;gap:18px;flex-wrap:wrap;margin:28px 0}section{margin-top:56px;scroll-margin-top:20px}.overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.overview article,.notice{padding:22px;border:1px solid var(--line);background:var(--panel);border-radius:16px}.overview strong{font-size:21px}.small{font-size:13px;color:var(--muted);line-height:1.7}.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}.filters label{font-size:14px;color:var(--muted)}input,select{width:100%;padding:12px;border:1px solid #5d7483;border-radius:8px;background:#0d1924;color:var(--text);font:inherit;margin-top:6px}button{font:inherit;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:8px 16px;border-radius:8px;cursor:pointer}.device-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.device{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);align-self:start;scroll-margin-top:20px}.device[hidden]{display:none}.product-photo{height:250px;background:#fff;padding:20px;display:flex;justify-content:center}.product-photo img{height:100%;width:100%;object-fit:contain}.device-body{padding:24px}.price{color:var(--amber);font-size:27px;font-weight:750}.price span{display:inline-block;font-size:13px;color:var(--muted);font-weight:500;margin-left:12px}dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}dt{color:var(--muted);font-size:13px}dd{margin:4px 0;font-weight:650}dd small{display:block;font-weight:400;font-size:12px;color:var(--muted)}.photo-note{border-top:1px solid var(--line);padding-top:12px}.evidence{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}.evidence summary{color:var(--accent);cursor:pointer;font-weight:650}.evidence-image{display:block;margin-top:12px}.evidence-image img{display:block;max-width:100%;height:auto;background:#fff}.table-scroll{overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}th,td{padding:15px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}thead{background:var(--panel);color:var(--accent)}th[scope=row]{min-width:180px}code{padding:2px 6px;background:#152c3a;border-radius:4px}.downloads{display:flex;gap:20px;flex-wrap:wrap}.empty{padding:24px;border:1px dashed var(--line)}footer{margin-top:64px;border-top:1px solid var(--line);padding-top:24px;color:var(--muted)}@media(max-width:700px){main{padding:18px 16px 48px}header{padding-top:28px}.overview,.device-grid{grid-template-columns:1fr}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.filters .search{grid-column:1/-1}.device-body{padding:20px}.product-photo{height:220px}dl{gap:10px}nav{gap:12px}h1{font-size:36px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body><main>
+<a href="/">← 返回黑粉科技</a><header><p class="eyebrow">本地模型 · 设备选型 · 更新于2026年10月31日</p><h1>想跑哪款模型，<br>再选哪台电脑。</h1><p class="lede">从已有设备和便宜旧卡，到大内存笔记本与桌面整机。先确认模型版本，再比较容量、带宽、运行表现和整套成本。</p><div class="badges"><span>4组模型</span><span>33项设备与低成本候选</span><span>29组京东价格／配置原图</span><span>报价快照 2026-10-30</span></div></header>
+<nav aria-label="页面目录"><a href="#s1">怎样选</a><a href="#devices">按模型找设备</a><a href="#s3">公开运行记录</a><a href="#s4">特殊部署路线</a><a href="#s5">下单核对</a><a href="/llm-guide/#special-runtimes">部署指南</a></nav>
+<section id="s1"><h2>先把这三件事对上</h2><div class="overview"><article><strong>模型文件与上下文</strong><p>同名模型的普通四比特、原版Q2、裁剪分支和草稿加速包各有条件。权重之外，还要给聊天缓存、视觉模块和运行缓冲留位置。</p></article><article id="s2"><strong>容量与带宽</strong><p>容量像桌面有多大，带宽像资料搬上桌的通道。显存、系统内存与统一内存分别看；内存带宽、PCIe、芯片互联和SSD读速也分别记。</p></article><article><strong>完整成本与等待</strong><p>裸卡还缺主机、电源、散热和存储。首字等待、读取长文与持续生成分别比较；只有容量依据的候选，先用自己的任务验证。</p></article></div><p class="small">带宽是原厂规格或有条件计算，具体依据随设备列出，不直接换算为承诺速度。带宽÷权重体积只能作特定简化条件下的带宽估算，混合专家、缓存、草稿加速与计算瓶颈会改变结果。</p></section>
+<section id="devices"><h2>按模型与预算找设备</h2><p>每组按快照价格从低到高列出。价格保留所选SKU的实际金额；国补、会员、预约、二手成色和板型条件都在原图旁。它们是采集时的展示价，购买时打开商品页重新确认。</p>
+<div class="filters"><label>目标模型<select id="model"><option value="">全部模型</option><option>Qwen3.8 27B</option><option>Qwen3.8 Flash-Next</option><option>Qwen3.5 9B</option><option>Qwen3.5 4B</option></select></label><label>比较范围<select id="kind"><option value="">全部价格口径</option><option>裸卡</option><option>整机</option><option>已有设备新增费用</option><option>未采到准确价格</option><option>开发板电源套餐</option><option>开发套件</option></select></label><label>快照金额上限<select id="budget"><option value="">不限</option><option value="3000">3000元</option><option value="8000">8000元</option><option value="16000">16000元</option><option value="30000">30000元</option><option value="60000">60000元</option></select></label><label class="search">搜索型号、内存或路线<input id="search" type="search" placeholder="例如：7900、Strata、笔记本" autocomplete="off"></label></div>
+<p class="small">筛选金额针对当前条目的价格口径；比较裸卡与整机前，请先选相同范围。“已有设备¥0”仅表示新增硬件费，缺价候选不当作零元设备。</p><p><span id="result-count" role="status" aria-live="polite">显示33项候选</span>　<button id="reset" type="button">重置筛选</button></p><noscript><p>当前未启用脚本，以下仍完整展示全部设备、条件和证据原图。</p></noscript><div class="device-grid"><article class="device" id="q27_xt" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="5599" data-search="rx 7900 xt 20gb qwen3.8 27b 独立显存 见正文对应模型与软件路线 20gbps×320位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rx7900xt-9c6b162bae29.png" alt="RX 7900 XT 20GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RX 7900 XT 20GB</h3>
+      <p class="price">¥5,599<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>20 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>800 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>20Gbps×320位÷8</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量推算；缺同型号同模型实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/zh-cn/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xt.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xt.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10228216968885 · 采集 2026-10-30 · <a href="https://item.jd.com/10228216968885.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>二手；满500减100；同店对比</p><p><strong>选中配置：</strong>7900XT 20G蓝宝石白金</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rx7900xt-d4bd4aaea829.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rx7900xt-d4bd4aaea829.png" alt="RX 7900 XT 20GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rx7900xt-8bc535745a0d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rx7900xt-8bc535745a0d.png" alt="RX 7900 XT 20GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_xtx" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="6998" data-search="rx 7900 xtx 24gb qwen3.8 27b 独立显存 gsq-rco iq3_s-mtp；llama.cpp hip-kvmix；mtp n=3；24万词元非复制任务22.5—33.2 20gbps×384位÷8；不采用缓存折算有效带宽3500">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rx7900xtx-e4d98fd6f185.png" alt="RX 7900 XTX 24GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RX 7900 XTX 24GB</h3>
+      <p class="price">¥6,998<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>24 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>960 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>20Gbps×384位÷8；不采用缓存折算有效带宽3500</p><p><strong>运行与取舍：</strong>GSQ-RCO IQ3_S-mtp；llama.cpp hip-kvmix；MTP n=3；24万词元非复制任务22.5—33.2</p><p class="small"><strong>性能记录：</strong>开发者同卡实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://github.com/victoralcazardev/rx7900xtx-local-llm" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10228216968889 · 采集 2026-10-30 · <a href="https://item.jd.com/10228216968889.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>二手；满500减100；同店对比</p><p><strong>选中配置：</strong>7900XTX 24G魔鹰</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rx7900xtx-ac660105c747.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rx7900xtx-ac660105c747.png" alt="RX 7900 XTX 24GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rx7900xtx-0edd6b5fc5b0.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rx7900xtx-0edd6b5fc5b0.png" alt="RX 7900 XTX 24GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_3090" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="11800" data-search="rtx 3090 24gb qwen3.8 27b 独立显存 q4_k_m；llama.cpp；q8_0 kv；约112k上下文 19.5gbps×384位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rtx3090-24e70e06e3e7.png" alt="RTX 3090 24GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RTX 3090 24GB</h3>
+      <p class="price">¥11,800<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>24 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>936 GB/s<small>按原厂频率及位宽计算</small></dd></div></dl>
+      <p>19.5Gbps×384位÷8</p><p><strong>运行与取舍：</strong>Q4_K_M；llama.cpp；Q8_0 KV；约112K上下文</p><p class="small"><strong>性能记录：</strong>第三方同卡同模型测试</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.asus.com.cn/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx3090-o24g-gaming/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10096423021324 · 采集 2026-10-30 · <a href="https://item.jd.com/10096423021324.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>二手；裸卡，不含整机配件</p><p><strong>选中配置：</strong>RTX3090三风扇</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx3090-391a8fbff0f8.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx3090-391a8fbff0f8.png" alt="RTX 3090 24GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx3090-1dc87bdc2a3c.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx3090-1dc87bdc2a3c.png" alt="RTX 3090 24GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_air" data-model="Qwen3.8 27B" data-kind="整机" data-price="13672.76" data-search="macbook air m5 32gb qwen3.8 27b 统一内存 短上下文gguf；splash按内存规划选择较小量化，不能套用m5 pro速度 系统与cpu/gpu共享32gb 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-macbook-air-76d064c4c9d5.png" alt="MacBook Air M5 32GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>MacBook Air M5 32GB</h3>
+      <p class="price">¥13,672.76<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>32 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>153 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>系统与CPU/GPU共享32GB</p><p><strong>运行与取舍：</strong>短上下文GGUF；Splash按内存规划选择较小量化，不能套用M5 Pro速度</p><p class="small"><strong>性能记录：</strong>平台支持与容量候选；缺该Air实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.apple.com.cn/macbook-air/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100328375308 · 采集 2026-10-30 · <a href="https://item.jd.com/100328375308.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元与PLUS；到店自取条件</p><p><strong>选中配置：</strong>MacBook Air M5芯片 13英寸 / 天蓝色 / 32G+1T （10核CPU+10核GPU) / 官方标配 / 零售版</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-macbook-air-f57790e4f251.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-macbook-air-f57790e4f251.png" alt="MacBook Air M5 32GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-macbook-air-d4d6d279a124.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-macbook-air-d4d6d279a124.png" alt="MacBook Air M5 32GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_n5" data-model="Qwen3.8 27B" data-kind="整机" data-price="15599" data-search="铭凡n5 max ai max 395 64gb qwen3.8 27b 共享系统内存 见正文对应模型与软件路线 64gb lpddr5x-8533共享内存；8533×256÷8÷1000≈273gb/s；128gb为系统存储">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:1.3268841208813924;width:100%;max-width:min(100%,278.6456653850924px)"><img src="/ai-hardware-survey/assets/device-aimax64-correction-917bf737a0a3.png" alt="铭凡N5 MAX AI Max 395 64GB机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:147.05882352941177%;height:303.030303030303%;left:-23.52941176470588%;top:-130.30303030303028%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>铭凡N5 MAX AI Max 395 64GB</h3>
+      <p class="price">¥15,599<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>64 GB · 共享系统内存</dd></div><div><dt>带宽</dt><dd>273.056 GB/s<small>厂家8533MT/s与256位理论计算</small></dd></div></dl>
+      <p>64GB LPDDR5X-8533共享内存；8533×256÷8÷1000≈273GB/s；128GB为系统存储</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量与平台候选；缺该整机实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100374690754 · 采集 2026-10-30 · <a href="https://item.jd.com/100374690754.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>内存64GB；64G+128GB不是128GB内存整机</p><p><strong>选中配置：</strong>N5 MAX 395【64G+128GB】 / 自行激活
+¥0.00</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-aimax64-correction-3dd2ab5fdefc.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-aimax64-correction-3dd2ab5fdefc.png" alt="铭凡N5 MAX AI Max 395 64GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-aimax64-correction-cdb128b9f1f9.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-aimax64-correction-cdb128b9f1f9.png" alt="铭凡N5 MAX AI Max 395 64GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_r9700" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="17899.01" data-search="radeon ai pro r9700 32gb qwen3.8 27b 独立显存 见正文对应模型与软件路线 20gbps×256位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-r9700-d64a53f32e36.png" alt="Radeon AI PRO R9700 32GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>Radeon AI PRO R9700 32GB</h3>
+      <p class="price">¥17,899.01<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>32 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>640 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>20Gbps×256位÷8</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量与后端候选；缺该卡27B同条件速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100219203225 · 采集 2026-10-30 · <a href="https://item.jd.com/100219203225.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>京东自营；PLUS与限时立减10元；单一SKU</p><p><strong>选中配置：</strong>单一SKU，以原图为准</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-r9700-8fc400bb65f3.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-r9700-8fc400bb65f3.png" alt="Radeon AI PRO R9700 32GB京东价格原图" loading="lazy" decoding="async"></a>
+        <p class="small">该页为单一SKU，型号与容量见价格图中的商品标题。</p></details></div></article><article class="device" id="q27_4090" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="27799" data-search="rtx 4090 24gb qwen3.8 27b 独立显存 见正文对应模型与软件路线 21gbps×384位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rtx4090-9c54c9212b80.png" alt="RTX 4090 24GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RTX 4090 24GB</h3>
+      <p class="price">¥27,799<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>24 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>1008 GB/s<small>按原厂频率及位宽计算</small></dd></div></dl>
+      <p>21Gbps×384位÷8</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>2026年9月第三方测试；不宣称旧问题仍存在于最新版本</p>
+      <p class="small photo-note">NVIDIA官方参考外观；报价为风魔工包非公版，实际板型以SKU截图为准</p><p class="small"><a href="https://www.asus.com/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx4090-o24g-gaming/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10202342064285 · 采集 2026-10-30 · <a href="https://item.jd.com/10202342064285.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>拆机工包，一年质保；以商家页面说明为准</p><p><strong>选中配置：</strong>技嘉风魔RTX4090-24G / 拆机工包/一年质保</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx4090-9924015fb527.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx4090-9924015fb527.png" alt="RTX 4090 24GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx4090-422bbe0c2235.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx4090-422bbe0c2235.png" alt="RTX 4090 24GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_yoga" data-model="Qwen3.8 27B" data-kind="整机" data-price="41284.01" data-search="yoga pro15 rtx spark 128gb qwen3.8 27b 统一内存 见正文对应模型与软件路线 官方256位；不得把nvlink-c2c互联带宽当内存带宽，不套dgx spark的273gb/s 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-spark-laptop-077136495f04.png" alt="YOGA Pro15 RTX Spark 128GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>YOGA Pro15 RTX Spark 128GB</h3>
+      <p class="price">¥41,284.01<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>未核实／按实际配置<small>该SKU内存速率未核实</small></dd></div></dl>
+      <p>官方256位；不得把NVLink-C2C互联带宽当内存带宽，不套DGX Spark的273GB/s</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>具体SKU价格；缺该YOGA机型同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.nvidia.com/en-us/products/rtx-spark/specifications/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.nvidia.cn/products/rtx-spark/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100324866083 · 采集 2026-10-30 · <a href="https://item.jd.com/100324866083.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元与PLUS；搜索页标有预定</p><p><strong>选中配置：</strong>YOGA Pro-专业创作生产力 / 15.3英寸 / RTX Spark N1X|128G 2T|OLED触控</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-spark-laptop-79b7939d2c4f.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-spark-laptop-79b7939d2c4f.png" alt="YOGA Pro15 RTX Spark 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-spark-laptop-6f86cdcedf66.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-spark-laptop-6f86cdcedf66.png" alt="YOGA Pro15 RTX Spark 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_dv2" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="44892" data-search="rtx 5090 d v2 24gb qwen3.8 27b 独立显存 见正文对应模型与软件路线 28gbps×384位÷8；inno3d原厂规格表；京东卡是技嘉板型">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rtx5090dv2-ef0d90bc458c.png" alt="RTX 5090 D v2 24GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RTX 5090 D v2 24GB</h3>
+      <p class="price">¥44,892<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>24 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>1344 GB/s<small>原厂同GPU参考规格</small></dd></div></dl>
+      <p>28Gbps×384位÷8；INNO3D原厂规格表；京东卡是技嘉板型</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>规格候选；未取得同模型实测</p>
+      <p class="small photo-note">RTX 5090系列官方参考外观；报价为技嘉5090 D v2 24GB，实际板型另见SKU</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10172207920816 · 采集 2026-10-30 · <a href="https://item.jd.com/10172207920816.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>首购礼金100元与限时立减7元</p><p><strong>选中配置：</strong>RTX5090D/V2 / 5090D V2 GAMING 24G 魔鹰OC</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx5090dv2-6396cc27ffe8.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx5090dv2-6396cc27ffe8.png" alt="RTX 5090 D v2 24GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx5090dv2-acfe64b3d47d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx5090dv2-acfe64b3d47d.png" alt="RTX 5090 D v2 24GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q27_5090" data-model="Qwen3.8 27B" data-kind="裸卡" data-price="59649.01" data-search="rtx 5090全球版32gb qwen3.8 27b 独立显存 第三方测试：llama.cpp失败；nvfp4/vllm单卡32k、双卡262k 28gbps×512位÷8；京东选中tuf oc与原厂同系列显存规格">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rtx5090-ef0d90bc458c.png" alt="RTX 5090全球版32GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 27B</p><h3>RTX 5090全球版32GB</h3>
+      <p class="price">¥59,649.01<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>32 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>1792 GB/s<small>按原厂频率及位宽计算</small></dd></div></dl>
+      <p>28Gbps×512位÷8；京东选中TUF OC与原厂同系列显存规格</p><p><strong>运行与取舍：</strong>第三方测试：llama.cpp失败；NVFP4/vLLM单卡32K、双卡262K</p><p class="small"><strong>性能记录：</strong>历史失败与修正记录，非当前全软件结论</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.asus.com/us/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx5090-32g-gaming/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100200282956 · 采集 2026-10-30 · <a href="https://npcitem.jd.hk/100200282956.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>京东全球购自营；含进口税、PLUS与限时优惠</p><p><strong>选中配置：</strong>5090耐用 TUF OC</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx5090-68cf0fcf3155.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx5090-68cf0fcf3155.png" alt="RTX 5090全球版32GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx5090-481d430426b9.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx5090-481d430426b9.png" alt="RTX 5090全球版32GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_existing_pc" data-model="Qwen3.8 Flash-Next" data-kind="已有设备新增费用" data-price="0" data-search="已有128gb台式机 qwen3.8 flash-next 系统内存 见正文对应模型与软件路线 正文89.6是双通道ddr5-5600的算例，不是这台现有电脑的读数；每通道64位">
+      <div class="product-photo"><p class="small" style="color:#253b48;text-align:center;align-self:center">已有128GB台式机<br>以你的实际主机配置为准</p></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>已有128GB台式机</h3>
+      <p class="price">新增硬件费 ¥0<span>已有设备新增费用</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 系统内存</dd></div><div><dt>带宽</dt><dd>未核实／按实际配置<small>设备未指定内存配置</small></dd></div></dl>
+      <p>正文89.6是双通道DDR5-5600的算例，不是这台现有电脑的读数；每通道64位</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>有条件的已有设备路线；无统一速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small">已有设备路线：¥0只指新增硬件费，不是整机售价。</p></div></article><article class="device" id="flash_existing_mac" data-model="Qwen3.8 Flash-Next" data-kind="已有设备新增费用" data-price="0" data-search="已有m5 pro 64gb与splash qwen3.8 flash-next 统一内存 splash 1.0；m5 pro 20 gpu cores /64gb；ista-daslab gsq-rco q2_0；dflash2 20核gpu的m5 pro平台；splash95t/s对应q2原版加dflash2 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-existing-m5pro64-cd5a9a28bf7b.png" alt="已有M5 Pro 64GB与Splash设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>已有M5 Pro 64GB与Splash</h3>
+      <p class="price">新增硬件费 ¥0<span>已有设备新增费用</span></p>
+      <dl><div><dt>容量</dt><dd>64 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>307 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>20核GPU的M5 Pro平台；Splash95t/s对应Q2原版加DFlash2</p><p><strong>运行与取舍：</strong>Splash 1.0；M5 Pro 20 GPU cores /64GB；ISTA-DASLab GSQ-RCO Q2_0；DFlash2</p><p class="small"><strong>性能记录：</strong>引擎开发者实测</p>
+      <p class="small photo-note">MacBook Pro系列外观参考；实测为M5 Pro 64GB配置</p><p class="small"><a href="https://github.com/incoai/splash" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><p class="small">已有设备路线：¥0只指新增硬件费，不是整机售价。</p></div></article><article class="device" id="flash_p40" data-model="Qwen3.8 Flash-Next" data-kind="裸卡" data-price="1850" data-search="tesla p40 24gb与strata qwen3.8 flash-next 独立显存 strata 0.1.43.1；iq3_s；98gb ram；cuda12.4；短提示、热页缓存；非与3060统一横评 24gb gddr5；strata记录另需98gb主机内存；pcie3.0x16">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:2.0;width:100%;max-width:min(100%,420.0px)"><img src="/ai-hardware-survey/assets/device-p40-f3342634077d.png" alt="Tesla P40 24GB与Strata机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:166.66666666666669%;height:333.33333333333337%;left:-65.0%;top:-110.0%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>Tesla P40 24GB与Strata</h3>
+      <p class="price">¥1,850<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>24 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>346 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>24GB GDDR5；Strata记录另需98GB主机内存；PCIe3.0x16</p><p><strong>运行与取舍：</strong>Strata 0.1.43.1；IQ3_S；98GB RAM；CUDA12.4；短提示、热页缓存；非与3060统一横评</p><p class="small"><strong>性能记录：</strong>开发者完整条件实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/documents/nvidia-p40-datasheet.pdf" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-12-p40-sm61-kernels/README.md" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10221557355954 · 采集 2026-10-30 · <a href="https://item.jd.com/10221557355954.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>95成新二手；仍需合适电源和主机</p><p><strong>选中配置：</strong>P40 24G显存 带GPU风扇 送转接头</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-p40-a2aea992f092.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-p40-a2aea992f092.png" alt="Tesla P40 24GB与Strata京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-p40-7331fed0f497.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-p40-7331fed0f497.png" alt="Tesla P40 24GB与Strata选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_3060" data-model="Qwen3.8 Flash-Next" data-kind="裸卡" data-price="2319" data-search="rtx 3060 12gb与strata qwen3.8 flash-next 独立显存 strata0.1.41；i7-12700/64gb ddr4；q2_0 4k tg42.9 ttft4.7s；iq3_s 4k tg20.2；thinking off、单流、256输出 15gbps×192位÷8；strata记录配64gb ddr4，原文i7-12700">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rtx3060-6e6c1e4e57c8.png" alt="RTX 3060 12GB与Strata设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>RTX 3060 12GB与Strata</h3>
+      <p class="price">¥2,319<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>12 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>360 GB/s<small>按原厂频率及位宽计算</small></dd></div></dl>
+      <p>15Gbps×192位÷8；Strata记录配64GB DDR4，原文i7-12700</p><p><strong>运行与取舍：</strong>Strata0.1.41；i7-12700/64GB DDR4；Q2_0 4K tg42.9 TTFT4.7s；IQ3_S 4K tg20.2；thinking off、单流、256输出</p><p class="small"><strong>性能记录：</strong>同机同模型不同量化实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.asus.com.cn/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx3060-12g-gaming/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://hoanglongcomputer.vn/vga-nvidia-geforce-jginyue-rtx-3060-12gb-black-dual-fan-12gb-gddr6-192bit" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-09-community-rtx-3060-0141/README.md" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10222597474657 · 采集 2026-10-30 · <a href="https://item.jd.com/10222597474657.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>二手，品牌随机；满800减80</p><p><strong>选中配置：</strong>RTX 3060</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx3060-491a1e99a414.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx3060-491a1e99a414.png" alt="RTX 3060 12GB与Strata京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx3060-cd3829e0f60b.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx3060-cd3829e0f60b.png" alt="RTX 3060 12GB与Strata选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_5060ti" data-model="Qwen3.8 Flash-Next" data-kind="裸卡" data-price="7451.51" data-search="rtx 5060 ti 16gb与strata qwen3.8 flash-next 独立显存 strata原版q2/iq3；主机内存和nvme需配套；不采用实验投影单次成绩作常规速度 28gbps×128位÷8；pcie5.0x8不是显存带宽">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:0.8859649122807018;width:100%;max-width:min(100%,186.0526315789474px)"><img src="/ai-hardware-survey/assets/device-rtx5060ti-282d16ac4bf9.png" alt="RTX 5060 Ti 16GB与Strata机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:198.01980198019803%;height:175.43859649122808%;left:-92.07920792079207%;top:-40.35087719298246%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>RTX 5060 Ti 16GB与Strata</h3>
+      <p class="price">¥7,451.51<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>448 GB/s<small>按原厂频率及位宽计算</small></dd></div></dl>
+      <p>28Gbps×128位÷8；PCIe5.0x8不是显存带宽</p><p><strong>运行与取舍：</strong>Strata原版Q2/IQ3；主机内存和NVMe需配套；不采用实验投影单次成绩作常规速度</p><p class="small"><strong>性能记录：</strong>有运行报告；本稿不引用实验速度投影结果</p>
+      <p class="small photo-note">技嘉RTX 5060 Ti风魔MAX 16GB，选中商品实际设备图</p><p class="small"><a href="https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx5060ti-16g/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100253509694 · 采集 2026-10-30 · <a href="https://item.jd.com/100253509694.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>京东自营；PLUS与限时立减10元</p><p><strong>选中配置：</strong>RTX 5060 Ti 16G / 【5060Ti风魔MAX-16G 】SFFready</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx5060ti-1362de18fa41.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx5060ti-1362de18fa41.png" alt="RTX 5060 Ti 16GB与Strata京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx5060ti-0501d90b3441.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx5060ti-0501d90b3441.png" alt="RTX 5060 Ti 16GB与Strata选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_evo" data-model="Qwen3.8 Flash-Next" data-kind="整机" data-price="21599" data-search="evo-x3 ai max 395 128gb qwen3.8 flash-next 共享系统内存 395平台参考，不是evo-x3原机测试；ud-q4_k_xl；lm studio约19.55；gufo+mtp32k约34—38 lpddr5x-8000×256位÷8；平台标称，不是evo-x3实测带宽">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-aimax395-fe8a5733a577.png" alt="EVO-X3 AI Max 395 128GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>EVO-X3 AI Max 395 128GB</h3>
+      <p class="price">¥21,599<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 共享系统内存</dd></div><div><dt>带宽</dt><dd>256 GB/s<small>按原厂速率及位宽计算</small></dd></div></dl>
+      <p>LPDDR5x-8000×256位÷8；平台标称，不是EVO-X3实测带宽</p><p><strong>运行与取舍：</strong>395平台参考，不是EVO-X3原机测试；UD-Q4_K_XL；LM Studio约19.55；gufo+MTP32K约34—38</p><p class="small"><strong>性能记录：</strong>同平台参考，具体整机速度待测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/zh-cn/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.cnblogs.com/DarkAthena/articles/23257183" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100375208044 · 采集 2026-10-30 · <a href="https://item.jd.com/100375208044.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>整机；页面已补100元；Windows自行激活</p><p><strong>选中配置：</strong>深空灰 / AMD锐龙AI Max+ 395 / 128G+1TB / 自行激活
+¥0.00</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-aimax395-9384c4803112.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-aimax395-9384c4803112.png" alt="EVO-X3 AI Max 395 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-aimax395-11c56daeea13.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-aimax395-11c56daeea13.png" alt="EVO-X3 AI Max 395 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_cre13" data-model="Qwen3.8 Flash-Next" data-kind="整机" data-price="23499" data-search="proart创13 ai max 395 128gb qwen3.8 flash-next 共享系统内存 395平台strata/gufo候选；原机实测待补 395平台标称；持续性能需原笔记本测试 笔记本 便携">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:1.4545454545454546;width:100%;max-width:min(100%,305.45454545454544px)"><img src="/ai-hardware-survey/assets/device-aimax-laptop-c6be17df3aa2.png" alt="ProArt创13 AI Max 395 128GB机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:156.25%;height:227.27272727272728%;left:-53.125%;top:-50.0%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>ProArt创13 AI Max 395 128GB</h3>
+      <p class="price">¥23,499<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 共享系统内存</dd></div><div><dt>带宽</dt><dd>256 GB/s<small>按原厂速率及位宽计算</small></dd></div></dl>
+      <p>395平台标称；持续性能需原笔记本测试</p><p><strong>运行与取舍：</strong>395平台Strata/gufo候选；原机实测待补</p><p class="small"><strong>性能记录：</strong>平台支持候选；缺该创13实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/zh-cn/products/processors/laptop/ryzen/ai-300-series/amd-ryzen-ai-max-plus-395.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100353305742 · 采集 2026-10-30 · <a href="https://item.jd.com/100353305742.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>预约展示价；采集时页面显示预约提醒</p><p><strong>选中配置：</strong>ProArt创13 / 128G 1T</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-aimax-laptop-a25b673c785e.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-aimax-laptop-a25b673c785e.png" alt="ProArt创13 AI Max 395 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-aimax-laptop-5218d8dfffbe.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-aimax-laptop-5218d8dfffbe.png" alt="ProArt创13 AI Max 395 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_studio" data-model="Qwen3.8 Flash-Next" data-kind="整机" data-price="40040.26" data-search="mac studio m5 max 128gb qwen3.8 flash-next 统一内存 splash原版q2_0；或mtplx optimized speed动态4bit；两条路线不混成绩 m5 max 32核gpu为460；40核gpu为614">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-mac-studio-4c8f21298489.png" alt="Mac Studio M5 Max 128GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>Mac Studio M5 Max 128GB</h3>
+      <p class="price">¥40,040.26<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>614 GB/s<small>原厂标称且匹配40核GPU选项</small></dd></div></dl>
+      <p>M5 Max 32核GPU为460；40核GPU为614</p><p><strong>运行与取舍：</strong>Splash原版Q2_0；或MTPLX Optimized Speed动态4bit；两条路线不混成绩</p><p class="small"><strong>性能记录：</strong>引擎平台支持；不套用其他芯片速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.apple.com.cn/mac-studio/specs/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.apple.com.cn/mac-studio/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100312409629 · 采集 2026-10-30 · <a href="https://item.jd.com/100312409629.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元与PLUS；具体领取资格见原页</p><p><strong>选中配置：</strong>【新品M5 Max】 / (18+40核)128G / 1T / 标准版本</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-mac-studio-9e717ab02161.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-mac-studio-9e717ab02161.png" alt="Mac Studio M5 Max 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-mac-studio-1b215980e75b.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-mac-studio-1b215980e75b.png" alt="Mac Studio M5 Max 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_mbp" data-model="Qwen3.8 Flash-Next" data-kind="整机" data-price="51731.51" data-search="macbook pro m5 max 128gb qwen3.8 flash-next 统一内存 mtplx2.11.3 optimized speed；动态4bit/qsa8bit；9k 79.3；200k续轮50.3缓存预热；商品14英寸不能视为已测同sku 18核cpu/40核gpu选项；不套32核460 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-macbook-pro-cd5a9a28bf7b.png" alt="MacBook Pro M5 Max 128GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>MacBook Pro M5 Max 128GB</h3>
+      <p class="price">¥51,731.51<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>614 GB/s<small>原厂标称且匹配40核GPU选项</small></dd></div></dl>
+      <p>18核CPU/40核GPU选项；不套32核460</p><p><strong>运行与取舍：</strong>MTPLX2.11.3 Optimized Speed；动态4bit/QSA8bit；9K 79.3；200K续轮50.3缓存预热；商品14英寸不能视为已测同SKU</p><p class="small"><strong>性能记录：</strong>同芯片内存平台参考；原商品机型待测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.apple.com.cn/macbook-pro/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://mtplx.com/zh/models/qwen3.8-flash-next/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100246088491 · 采集 2026-10-30 · <a href="https://item.jd.com/100246088491.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元与PLUS；到店自取条件</p><p><strong>选中配置：</strong>14/16寸 M5Max芯片 / 14寸-银色 / (18+40核)128G+2T / 标准玻璃 / 官方标配</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-macbook-pro-735e604fef90.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-macbook-pro-735e604fef90.png" alt="MacBook Pro M5 Max 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-macbook-pro-66be305a9a85.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-macbook-pro-66be305a9a85.png" alt="MacBook Pro M5 Max 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="flash_dgx" data-model="Qwen3.8 Flash-Next" data-kind="整机" data-price="52734.01" data-search="dgx spark 128gb qwen3.8 flash-next 统一系统内存 0xbakeer vllm-longctx；nvfp4；ple ssd mmap；写作32；128k读取56秒；与llamacpp-edit分开 lpddr5x-8533×256位÷8≈273；不是显存独立卡">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-dgx-spark-44e9a475f403.png" alt="DGX Spark 128GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.8 Flash-Next</p><h3>DGX Spark 128GB</h3>
+      <p class="price">¥52,734.01<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>128 GB · 统一系统内存</dd></div><div><dt>带宽</dt><dd>273 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>LPDDR5x-8533×256位÷8≈273；不是显存独立卡</p><p><strong>运行与取舍：</strong>0xBakeer vllm-longctx；NVFP4；PLE SSD mmap；写作32；128K读取56秒；与llamacpp-edit分开</p><p class="small"><strong>性能记录：</strong>开发者同平台、明确任务实测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://docs.nvidia.com/dgx/dgx-spark/hardware.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.nvidia.com/en-us/products/workstations/dgx-spark/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://github.com/0xBakeer/qwen38-flash-next-spark" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100296702712 · 采集 2026-10-30 · <a href="https://item.jd.com/100296702712.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>京东自营；PLUS；完整开发主机</p><p><strong>选中配置：</strong>128G+4TB</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-dgx-spark-5a3ea9f5d22c.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-dgx-spark-5a3ea9f5d22c.png" alt="DGX Spark 128GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-dgx-spark-e4e0cc0b9067.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-dgx-spark-e4e0cc0b9067.png" alt="DGX Spark 128GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_p100" data-model="Qwen3.5 9B" data-kind="裸卡" data-price="638" data-search="tesla p100 16gb qwen3.5 9b hbm2独立显存 见正文对应模型与软件路线 pcie16gb版；12gb版549不能混用">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:2.0;width:100%;max-width:min(100%,420.0px)"><img src="/ai-hardware-survey/assets/device-p100-7cd4edce35ff.png" alt="Tesla P100 16GB机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:166.66666666666669%;height:333.33333333333337%;left:-65.0%;top:-110.0%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>Tesla P100 16GB</h3>
+      <p class="price">¥638<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · HBM2独立显存</dd></div><div><dt>带宽</dt><dd>732 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>PCIe16GB版；12GB版549不能混用</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量候选；该9B与旧CUDA组合仍需实机验证</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-PCIe-datasheet.pdf" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10221557355951 · 采集 2026-10-30 · <a href="https://item.jd.com/10221557355951.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>95成新二手；散热与主机另计</p><p><strong>选中配置：</strong>P100 16G显存 送电源线</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-p100-3293d0a42585.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-p100-3293d0a42585.png" alt="Tesla P100 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-p100-72fc9c633df9.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-p100-72fc9c633df9.png" alt="Tesla P100 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_n100" data-model="Qwen3.5 9B" data-kind="整机" data-price="2069" data-search="n100 16gb qwen3.5 9b 系统内存 见正文对应模型与软件路线 n100最高单通道ddr5/lpddr5-4800；京东所售实际频率未核实；不是实测">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-mini-pc-bd594c134297.png" alt="N100 16GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>N100 16GB</h3>
+      <p class="price">¥2,069<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 系统内存</dd></div><div><dt>带宽</dt><dd>38.4 GB/s<small>配置条件成立时的理论上限</small></dd></div></dl>
+      <p>N100最高单通道DDR5/LPDDR5-4800；京东所售实际频率未核实；不是实测</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>CPU容量候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.intel.cn/content/www/cn/zh/products/sku/231803/intel-processor-n100-6m-cache-up-to-3-40-ghz/specifications.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10094923765099 · 采集 2026-10-30 · <a href="https://item.jd.com/10094923765099.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>整机；限时立减30元；Windows及其他配件看原页</p><p><strong>选中配置：</strong>超薄双SSD-N200/N100系列 / intel 12代 N100处理器 / 16G内存 512G 固态</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-mini-pc-1575c5ea1f1d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-mini-pc-1575c5ea1f1d.png" alt="N100 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-mini-pc-fb793ac3803c.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-mini-pc-fb793ac3803c.png" alt="N100 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_b580" data-model="Qwen3.5 9B" data-kind="裸卡" data-price="3199" data-search="intel arc b580 12gb qwen3.5 9b 独立显存 见正文对应模型与软件路线 19gbps×192位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-b580-5b4acf4c01d7.png" alt="Intel Arc B580 12GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>Intel Arc B580 12GB</h3>
+      <p class="price">¥3,199<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>12 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>456 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>19Gbps×192位÷8</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量与后端候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.intel.cn/content/www/cn/zh/products/sku/241598/intel-arc-b580-graphics/specifications.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10213939026038 · 采集 2026-10-30 · <a href="https://item.jd.com/10213939026038.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>第三方专卖店；裸卡</p><p><strong>选中配置：</strong>B580 12G / B580 12G 双星 双风扇(全新2K游戏剪辑)</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-b580-0bbcf839bc4d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-b580-0bbcf839bc4d.png" alt="Intel Arc B580 12GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-b580-7da9154091ab.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-b580-7da9154091ab.png" alt="Intel Arc B580 12GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_a770" data-model="Qwen3.5 9B" data-kind="裸卡" data-price="3369" data-search="intel arc a770 16gb qwen3.5 9b 独立显存 见正文对应模型与软件路线 17.5gbps×256位÷8；tf定制板型不声称实机读数">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-a770-3b6cdeab9294.png" alt="Intel Arc A770 16GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>Intel Arc A770 16GB</h3>
+      <p class="price">¥3,369<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>560 GB/s<small>原厂16GB参考规格，定制卡频率待核</small></dd></div></dl>
+      <p>17.5Gbps×256位÷8；TF定制板型不声称实机读数</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量与价格比较；无两卡同条件速度</p>
+      <p class="small photo-note">A770 Photon白卡外观参考；报价为TF定制涡轮版，板型不同</p><p class="small"><a href="https://www.intel.cn/content/www/cn/zh/products/sku/229151/intel-arc-a770-graphics-16gb/specifications.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10195295152473 · 采集 2026-10-30 · <a href="https://item.jd.com/10195295152473.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>第三方专卖店；满2999减30</p><p><strong>选中配置：</strong>蓝戟 ARC A770 TF 16G / 官方标配</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-a770-b0b7f9b5830d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-a770-b0b7f9b5830d.png" alt="Intel Arc A770 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-a770-ff65de4026ae.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-a770-ff65de4026ae.png" alt="Intel Arc A770 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_4060ti" data-model="Qwen3.5 9B" data-kind="裸卡" data-price="4599" data-search="rtx 4060 ti 16gb qwen3.5 9b 独立显存 见正文对应模型与软件路线 18gbps×128位÷8；涡轮定制板型需核频率">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:2.527777777777778;width:100%;max-width:min(100%,530.8333333333334px)"><img src="/ai-hardware-survey/assets/device-rtx4060ti-f936282ae9a0.png" alt="RTX 4060 Ti 16GB机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:109.89010989010988%;height:277.77777777777777%;left:-4.945054945054945%;top:-72.22222222222223%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>RTX 4060 Ti 16GB</h3>
+      <p class="price">¥4,599<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>288 GB/s<small>同GPU标准规格，定制卡频率待核</small></dd></div></dl>
+      <p>18Gbps×128位÷8；涡轮定制板型需核频率</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量与软件路线候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.asus.com.cn/motherboards-components/graphics-cards/dual/dual-rtx4060ti-a16g/techspec/" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 10158758460324 · 采集 2026-10-30 · <a href="https://item.jd.com/10158758460324.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>第三方定制涡轮卡；首购礼金100元</p><p><strong>选中配置：</strong>全新RTX4060Ti 16G涡轮</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rtx4060ti-c9d191fde5b2.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rtx4060ti-c9d191fde5b2.png" alt="RTX 4060 Ti 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rtx4060ti-0817aa789ab8.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rtx4060ti-0817aa789ab8.png" alt="RTX 4060 Ti 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_hp" data-model="Qwen3.5 9B" data-kind="整机" data-price="4811.43" data-search="惠普战66 h255 16gb qwen3.5 9b 系统内存 见正文对应模型与软件路线 只确定16gb，不能把其他32gb双通道评测套给它 笔记本 便携">
+      <div class="product-photo"><div class="product-crop" style="position:relative;overflow:hidden;aspect-ratio:1.65814696485623;width:100%;max-width:min(100%,348.21086261980827px)"><img src="/ai-hardware-survey/assets/device-ordinary-laptop-10b11e3a85d4.png" alt="惠普战66 H255 16GB机身局部，原图另见配置证据" loading="lazy" decoding="async" style="position:absolute;object-fit:fill;max-width:none;width:192.67822736030828%;height:319.4888178913738%;left:-79.38342967244701%;top:-88.49840255591056%"></div></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>惠普战66 H255 16GB</h3>
+      <p class="price">¥4,811.43<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 系统内存</dd></div><div><dt>带宽</dt><dd>未核实／按实际配置<small>该SKU频率及插条未核实</small></dd></div></dl>
+      <p>只确定16GB，不能把其他32GB双通道评测套给它</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>CPU容量候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100336472740 · 采集 2026-10-30 · <a href="https://item.jd.com/100336472740.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴、PLUS与限时立减10元</p><p><strong>选中配置：</strong>战66 | 锐龙版【热销】 / 16英寸 / 【热销】锐龙7 H 255|16G 512SSD</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-ordinary-laptop-8a8b02fbb53d.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-ordinary-laptop-8a8b02fbb53d.png" alt="惠普战66 H255 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-ordinary-laptop-349df4352943.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-ordinary-laptop-349df4352943.png" alt="惠普战66 H255 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_9070xt" data-model="Qwen3.5 9B" data-kind="裸卡" data-price="7506.23" data-search="rx 9070 xt 16gb qwen3.5 9b 独立显存 见正文对应模型与软件路线 20gbps×256位÷8">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-rx9070xt-9de479a76b8f.png" alt="RX 9070 XT 16GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>RX 9070 XT 16GB</h3>
+      <p class="price">¥7,506.23<span>裸卡</span></p>
+      <dl><div><dt>容量</dt><dd>16 GB · 独立显存</dd></div><div><dt>带宽</dt><dd>640 GB/s<small>原厂标称</small></dd></div></dl>
+      <p>20Gbps×256位÷8</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>容量候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://www.amd.com/zh-cn/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9070xt.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9070xt.html" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100145837565 · 采集 2026-10-30 · <a href="https://item.jd.com/100145837565.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>京东自营；PLUS与限时立减10元</p><p><strong>选中配置：</strong>RX 9070 XT / RX9070XT OC海外版Ultra黑</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-rx9070xt-8f0484ad477b.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-rx9070xt-8f0484ad477b.png" alt="RX 9070 XT 16GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-rx9070xt-100794ff097a.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-rx9070xt-100794ff097a.png" alt="RX 9070 XT 16GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_arm" data-model="Qwen3.5 9B" data-kind="整机" data-price="11424.01" data-search="华硕灵耀14 air x2 elite 32gb qwen3.5 9b 共享系统内存 见正文对应模型与软件路线 普通x2 elite各子型号原厂152；extreme228，不能混用；不是原机实测 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-arm-laptop-7351a6658c63.png" alt="华硕灵耀14 Air X2 Elite 32GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>华硕灵耀14 Air X2 Elite 32GB</h3>
+      <p class="price">¥11,424.01<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>32 GB · 共享系统内存</dd></div><div><dt>带宽</dt><dd>152 GB/s<small>普通X2 Elite平台原厂标称</small></dd></div></dl>
+      <p>普通X2 Elite各子型号原厂152；Extreme228，不能混用；不是原机实测</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>运行时适配候选；该9B具体后端待测</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100390329814 · 采集 2026-10-30 · <a href="https://item.jd.com/100390329814.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元、PLUS与限时立减10元；按截图时点金额</p><p><strong>选中配置：</strong>砚石灰 / 骁龙X2 Elite / 14寸 32G 1T</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-arm-laptop-4d0638a3fc8f.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-arm-laptop-4d0638a3fc8f.png" alt="华硕灵耀14 Air X2 Elite 32GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-arm-laptop-c9016bc424c1.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-arm-laptop-c9016bc424c1.png" alt="华硕灵耀14 Air X2 Elite 32GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_gaming" data-model="Qwen3.5 9B" data-kind="整机" data-price="12626.53" data-search="蛟龙16 pro rtx 5070 ti qwen3.5 9b 独立显存；另32gb系统内存 见正文对应模型与软件路线 12gb gddr7是gpu，32gb是主机；主机内存频率未核实；不得合并为44gb高速显存 笔记本 便携">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-gaming-laptop-d3fed2a358a8.png" alt="蛟龙16 Pro RTX 5070 Ti设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>蛟龙16 Pro RTX 5070 Ti</h3>
+      <p class="price">¥12,626.53<span>整机</span></p>
+      <dl><div><dt>容量</dt><dd>12 GB · 独立显存；另32GB系统内存</dd></div><div><dt>带宽</dt><dd>672 GB/s<small>移动GPU原厂标称</small></dd></div></dl>
+      <p>12GB GDDR7是GPU，32GB是主机；主机内存频率未核实；不得合并为44GB高速显存</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>移动显存规格与容量候选；缺原机同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100357227126 · 采集 2026-10-30 · <a href="https://item.jd.com/100357227126.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>国家补贴1500元、PLUS与限时立减10元；移动版GPU</p><p><strong>选中配置：</strong>【高性能电竞-蛟龙】 / RTX5070Ti / 【灰】R9-8945HX/32G/1T / 自行激活
+¥0.00</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-gaming-laptop-8bf52c1acf1e.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-gaming-laptop-8bf52c1acf1e.png" alt="蛟龙16 Pro RTX 5070 Ti京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-gaming-laptop-112e63827cba.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-gaming-laptop-112e63827cba.png" alt="蛟龙16 Pro RTX 5070 Ti选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q9_mi50" data-model="Qwen3.5 9B" data-kind="未采到准确价格" data-price="" data-search="mi50 32gb补充候选 qwen3.5 9b hbm2独立显存 见正文对应模型与软件路线 原厂以最高1tb/s表述；不把pcie/infinity fabric带宽混入">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-mi50-7952c649776b.png" alt="MI50 32GB补充候选设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 9B</p><h3>MI50 32GB补充候选</h3>
+      <p class="price">待补准确报价<span>未采到准确价格</span></p>
+      <dl><div><dt>容量</dt><dd>32 GB · HBM2独立显存</dd></div><div><dt>带宽</dt><dd>1000 GB/s<small>原厂资料约1TB/s</small></dd></div></dl>
+      <p>原厂以最高1TB/s表述；不把PCIe/Infinity Fabric带宽混入</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>补充候选，不排入已知价格顺序</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small">补充候选，未采到准确报价；不排入已知价格顺序。</p></div></article><article class="device" id="q4_phone" data-model="Qwen3.5 4B" data-kind="已有设备新增费用" data-price="0" data-search="已有安卓手机 qwen3.5 4b 按已有手机实际可用内存 见正文对应模型与软件路线 不将所有安卓手机当成一个配置；需要具体芯片/内存/应用">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-android-phone-e36d347f44ba.png" alt="已有安卓手机设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 4B</p><h3>已有安卓手机</h3>
+      <p class="price">新增硬件费 ¥0<span>已有设备新增费用</span></p>
+      <dl><div><dt>容量</dt><dd>按具体机型 · 按已有手机实际可用内存</dd></div><div><dt>带宽</dt><dd>未核实／按实际配置<small>未指定机型，没有统一带宽</small></dd></div></dl>
+      <p>不将所有安卓手机当成一个配置；需要具体芯片/内存/应用</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>按具体手机和应用验证；不保证全部安卓手机</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://github.com/ggml-org/llama.cpp/blob/master/docs/android.md" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a> · <a href="https://olcha.uz/ru/product/view/samsung-galaxy-s21-5g-8256gb-phantom-white/xarakteristiki" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><p class="small">已有设备路线：¥0只指新增硬件费，不是整机售价。</p></div></article><article class="device" id="q4_pi" data-model="Qwen3.5 4B" data-kind="开发板电源套餐" data-price="1839" data-search="树莓派5 8gb qwen3.5 4b 共享系统内存 见正文对应模型与软件路线 32位lpddr4x接口；不是错误的34gb/s">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-raspberry-pi-4153b8362d08.png" alt="树莓派5 8GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 4B</p><h3>树莓派5 8GB</h3>
+      <p class="price">¥1,839<span>开发板电源套餐</span></p>
+      <dl><div><dt>容量</dt><dd>8 GB · 共享系统内存</dd></div><div><dt>带宽</dt><dd>17 GB/s<small>原厂SoC标称上限</small></dd></div></dl>
+      <p>32位LPDDR4X接口；不是错误的34GB/s</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>ARM CPU容量候选；缺同模型速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><p class="small"><a href="https://github.com/raspberrypi/documentation/blob/master/documentation/asciidoc/computers/processors/bcm2712.adoc" target="_blank" rel="noopener noreferrer">规格／测试来源 ↗</a></p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100237921712 · 采集 2026-10-30 · <a href="https://item.jd.com/100237921712.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>套餐，不把电源套餐当含存储、机箱的完整套装</p><p><strong>选中配置：</strong>树莓派5 8GB 电源套餐</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-raspberry-pi-285aea22200f.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-raspberry-pi-285aea22200f.png" alt="树莓派5 8GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-raspberry-pi-249b5c78fbde.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-raspberry-pi-249b5c78fbde.png" alt="树莓派5 8GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article><article class="device" id="q4_jetson" data-model="Qwen3.5 4B" data-kind="开发套件" data-price="3969" data-search="jetson orin nano super 8gb qwen3.5 4b 统一内存 见正文对应模型与软件路线 开发套件含散热器风扇，存储需配；不是旧68gb/s模式">
+      <div class="product-photo"><img src="/ai-hardware-survey/assets/device-jetson-a3e698810099.png" alt="Jetson Orin Nano Super 8GB设备外观参考" loading="lazy" decoding="async"></div>
+      <div class="device-body"><p class="eyebrow">Qwen3.5 4B</p><h3>Jetson Orin Nano Super 8GB</h3>
+      <p class="price">¥3,969<span>开发套件</span></p>
+      <dl><div><dt>容量</dt><dd>8 GB · 统一内存</dd></div><div><dt>带宽</dt><dd>102 GB/s<small>原厂Super性能模式标称</small></dd></div></dl>
+      <p>开发套件含散热器风扇，存储需配；不是旧68GB/s模式</p><p><strong>运行与取舍：</strong>按目标量化、操作系统及运行后端验证；先试短上下文，再增加对话长度。</p><p class="small"><strong>性能记录：</strong>平台与容量候选；缺该4B原机速度</p>
+      <p class="small photo-note">设备外观参考；实际品牌、板型和选中配置以SKU原图为准</p><details class="evidence"><summary>查看京东价格与选中配置原图</summary>
+        <p>SKU 100071242242 · 采集 2026-10-30 · <a href="https://item.jd.com/100071242242.html" target="_blank" rel="noopener noreferrer">打开对应商品页 ↗</a></p>
+        <p><strong>条件：</strong>开发套件；存储及其他配件另核对</p><p><strong>选中配置：</strong>8G Super开发套件</p>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/price-jetson-a865aa34d83e.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/price-jetson-a865aa34d83e.png" alt="Jetson Orin Nano Super 8GB京东价格原图" loading="lazy" decoding="async"></a>
+        <a class="evidence-image" href="/ai-hardware-survey/assets/sku-jetson-602d65552c3b.png" target="_blank" rel="noopener noreferrer"><img src="/ai-hardware-survey/assets/sku-jetson-602d65552c3b.png" alt="Jetson Orin Nano Super 8GB选中配置原图" loading="lazy" decoding="async"></a></details></div></article></div><p id="empty" class="empty" hidden>没有符合条件的条目。可以提高预算，或清除型号／价格范围筛选。</p></section>
+<section id="s3"><h2>有运行记录的路线，连测试条件一起看</h2><p>这里整理开发者与社区的具体记录。不同权重、任务和整机条件分别呈现，方便查证与复现；平台成绩不自动等于所选商品原机的成绩。</p><div class="table-scroll"><table><thead><tr><th>设备与模型</th><th>记录中的表现</th><th>条件与原始来源</th></tr></thead><tbody><tr><th scope="row">7900 XTX · 27B</th><td>约76词元／秒；长输入约22.5～33.2</td><td>三比特GSQ-RCO IQ3_S-mtp、ROCm、hip-kvmix、MTP n=3；短提示与24万词元任务分开。 <a href="https://github.com/victoralcazardev/rx7900xtx-local-llm" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr><tr><th scope="row">M5 Pro 64GB · Flash-Next</th><td>短提示约95词元／秒</td><td>20核GPU、Splash 1.0、原版Q2_0与DFlash2；这是开发者记录，不套到32GB Air。 <a href="https://github.com/incoai/splash" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr><tr><th scope="row">P40 · Flash-Next</th><td>短提示约37～38词元／秒</td><td>Strata 0.1.43.1、IQ3_S、约98GB主机内存、CUDA 12.4、sm61专门构建；热页缓存。 <a href="https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-12-p40-sm61-kernels/README.md" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr><tr><th scope="row">3060 · Flash-Next</th><td>Q2_0约42.9；IQ3_S约20.2词元／秒</td><td>Strata 0.1.41、i7-12700、64GB DDR4、4K提示、256输出、单流；Q2首字约4.7秒。 <a href="https://github.com/Niko1221/Strata/blob/main/bench/results/2026-10-09-community-rtx-3060-0141/README.md" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr><tr><th scope="row">M5 Max 128GB · Flash-Next</th><td>9K代码79.3；200K续问50.3词元／秒</td><td>MTPLX 2.11.3、Optimized Speed；后者缓存已预热，不是第一次读取200K文档。 <a href="https://mtplx.com/zh/models/qwen3.8-flash-next/" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr><tr><th scope="row">DGX Spark · Flash-Next</th><td>写作约32词元／秒；128K读取约56秒</td><td>vLLM专用NVFP4与PLE SSD映射；不和编辑方案约88词元／秒混为同一任务。 <a href="https://github.com/0xBakeer/qwen38-flash-next-spark" target="_blank" rel="noopener noreferrer">查看原记录 ↗</a></td></tr></tbody></table></div><p>本人的历史模型与工具任务记录仍在<a href="/mlx-model-test.html">本地模型实测报告</a>，其中使用的模型、日期和配置独立保留。</p></section>
+<section id="s4"><h2>同一模型，特殊版本可能改变设备选择</h2><p>量化主要减少参数体积，裁剪改变保留的部分，草稿加速改变生成过程，分层与映射改变参数放在哪里。先对应模型分支、运行软件与整套硬件，再决定多大的显存或内存适合你。</p><div class="table-scroll"><table><thead><tr><th>路线与文档</th><th>怎样安排计算与参数</th><th>选择时看什么</th></tr></thead><tbody><tr><th scope="row"><a href="https://github.com/incoai/splash" target="_blank" rel="noopener noreferrer">Splash + DFlash2 ↗</a></th><td>Mac；指定主权重与草稿包</td><td>27B、Flash-Next有本期记录；原版Q2与4bit分开看。低比特节省内存，草稿先猜再由主模型校验。</td></tr><tr><th scope="row"><a href="https://github.com/Niko1221/Strata" target="_blank" rel="noopener noreferrer">Strata ↗</a></th><td>GPU、主机内存与NVMe协同</td><td>Flash-Next原版量化有3060与P40记录。Coder裁专家、Swift微调、Gyro量化分别选择；旧P40还需对应构建。</td></tr><tr><th scope="row"><a href="https://mtplx.com/zh/models/qwen3.8-flash-next/" target="_blank" rel="noopener noreferrer">MTPLX ↗</a></th><td>Mac专用模型包与缓存</td><td>Flash-Next动态4bit；Optimized Speed保留8bit注意力投影。首次长文读取与预热缓存续问分开。</td></tr><tr><th scope="row"><a href="https://github.com/victoralcazardev/rx7900xtx-local-llm" target="_blank" rel="noopener noreferrer">gufo / hip-kvmix ↗</a></th><td>AMD算子与多词元预测</td><td>AI Max 395的Flash-Next及7900 XTX的27B有平台记录；具体整机与量化包对应，不能跨机型套速度。</td></tr><tr><th scope="row"><a href="https://github.com/0xBakeer/qwen38-flash-next-spark" target="_blank" rel="noopener noreferrer">vLLM / NVFP4 / PLE映射 ↗</a></th><td>DGX Spark专用方案</td><td>把大块查表参数映射至NVMe；写作与编辑是两套运行方案，维护补丁、权重和缓存条件。</td></tr><tr><th scope="row"><a href="https://github.com/lyogavin/airllm" target="_blank" rel="noopener noreferrer">AirLLM ↗</a></th><td>从磁盘逐层加载</td><td>有27B与Flash-Next低显存记录；节省显存伴随磁盘、主机内存与搬运等待，不能凭占用判断聊天速度。</td></tr><tr><th scope="row"><a href="https://github.com/ikawrakow/ik_llama.cpp" target="_blank" rel="noopener noreferrer">ik_llama.cpp ↗</a></th><td>CPU专家计算与GPU混合卸载</td><td>核对具体架构、量化内核、CPU指令与MTP配置；没有本期每台整机的统一跑分。</td></tr><tr><th scope="row"><a href="https://github.com/kvcache-ai/ktransformers" target="_blank" rel="noopener noreferrer">KTransformers ↗</a></th><td>CPU与GPU异构计算专家</td><td>已有相关Qwen-Next路线；本期资料未证实本期3.8 Flash-Next的完整适配，先核对支持清单。</td></tr><tr><th scope="row"><a href="https://github.com/exo-explore/exo" target="_blank" rel="noopener noreferrer">exo / 多卡 / 外接显卡 ↗</a></th><td>分摊容量与计算</td><td>多台容量可分担，互联不是本地内存带宽。计入雷雳、网卡、OCuLink或PCIe的实际配置及附件成本。</td></tr><tr><th scope="row"><a href="https://github.com/SJTU-IPADS/PowerInfer" target="_blank" rel="noopener noreferrer">PowerInfer / FlexGen ↗</a></th><td>专用稀疏预测或分层吞吐</td><td>对应专用模型或研究任务；未取得本期权重加速证据，不把其他模型的成绩移到这张选购表。</td></tr><tr><th scope="row"><a href="https://github.com/ggml-org/llama.cpp/blob/master/docs/android.md" target="_blank" rel="noopener noreferrer">Android / Vulkan / NPU ↗</a></th><td>手机与低功耗设备</td><td>核对芯片、可用内存及应用后端；NPU的TOPS不代表可以直接运行任意GGUF。</td></tr></tbody></table></div></section>
+<section id="s5"><h2>下单前，写完这份配置说明</h2><ol><li>目标模型的准确名称、量化包、引擎版本和需要的上下文。</li><li>显存、系统内存、统一内存与硬盘各是多少；加上系统和缓存后能否放下。</li><li>从相同任务记录判断首字等待、长文读取和持续生成；缺同配置实测时先试或找能退换的渠道。</li><li>把主机、电源、散热、存储、配套线材与维护时间计入预算；笔记本另看插电、风扇和持续负载。</li><li>核对商品选中配置、二手／拆机／定制板型、优惠资格和当前到手价。</li></ol><p>已有设备能完成目标任务，就先把它用好。需要升级时，明确多花的钱解决的是容量、等待、便携，还是你依赖的软件环境。</p></section>
+<section id="s6"><h2>带走设备表与证据</h2><div class="downloads"><a href="/ai-hardware-survey/devices-20261030.csv" download>下载33项设备对照表（CSV）</a><a href="/ai-hardware-survey/data-20261030.json" download>下载完整参数与证据索引（JSON）</a></div><p class="small">报价29项、已有设备3项、缺准确报价候选1项。设备外观参考与报价板型有差别时已单独说明；商品及SKU原图可分别打开查看。</p></section><footer id="s8"><span id="s7"></span>黑粉科技 · 让AI成为你的超能力<br><a href="/llm-guide/">继续看本地部署方法</a> · <a href="/mlx-model-test.html">查看本人模型实测</a></footer></main><script>
+const cards=[...document.querySelectorAll('.device')], grid=document.querySelector('.device-grid');
+const model=document.querySelector('#model'),kind=document.querySelector('#kind'),budget=document.querySelector('#budget'),search=document.querySelector('#search');
+function update(){let shown=0;for(const card of cards){const p=card.dataset.price;const match=(!model.value||card.dataset.model===model.value)&&(!kind.value||card.dataset.kind===kind.value)&&(!budget.value||(p!==''&&Number(p)<=Number(budget.value)))&&(!search.value||card.dataset.search.includes(search.value.trim().toLocaleLowerCase()));card.hidden=!match;if(match)shown++;}document.querySelector('#result-count').textContent=`显示 ${shown} / ${cards.length} 项候选`;document.querySelector('#empty').hidden=shown!==0;}
+for(const input of [model,kind,budget,search]){input.addEventListener('input',update);input.addEventListener('change',update);}
+document.querySelector('#reset').addEventListener('click',()=>{for(const input of [model,kind,budget,search])input.value='';update();});update();
+</script></body></html>
