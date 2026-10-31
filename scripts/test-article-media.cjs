@@ -1,0 +1,45 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { execFileSync } = require('node:child_process');
+const sharp = require('sharp');
+const MarkdownIt = require('markdown-it');
+const { buildArticleMedia, mp4Atoms } = require('./build-article-media.cjs');
+(async()=>{
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'blog-media-test-'));
+  try {
+    const dir=path.join(root,'public/obsidian-assets/test');
+    fs.mkdirSync(dir,{recursive:true});fs.mkdirSync(path.join(root,'lib'));
+    const image=path.join(dir,'sample.png');
+    await sharp({create:{width:1600,height:900,channels:3,background:'#507080'}}).png().toFile(image);
+    const original=fs.readFileSync(image);
+    const clip=path.join(dir,'sample.mp4');
+    execFileSync('ffmpeg',['-v','error','-nostdin','-f','lavfi','-i','color=c=blue:s=320x180:r=10','-t','0.3','-c:v','libx264','-pix_fmt','yuv420p',clip]);
+    const before=fs.readFileSync(clip);
+    const sources=['/obsidian-assets/test/sample.png','/obsidian-assets/test/sample.mp4'];
+    const {manifest,stats}=await buildArticleMedia({root,sources});
+    assert(fs.readFileSync(image).equals(original));assert(fs.readFileSync(clip).equals(before));
+    assert.equal(stats.faststart,1);
+    const video=manifest[sources[1]];
+    const output=path.join(root,'public',video.src);
+    assert(mp4Atoms(output).findIndex(a=>a.type==='moov')<mp4Atoms(output).findIndex(a=>a.type==='mdat'));
+    const hash=file=>execFileSync('ffmpeg',['-v','error','-i',file,'-map','0:v:0','-c','copy','-f','hash','-hash','sha256','-'],{encoding:'utf8'});
+    assert.equal(hash(clip),hash(output),'不重编码、不改变视频画面码流');
+    assert.equal((await sharp(path.join(root,'public',video.poster)).metadata()).format,'webp');
+    assert.deepEqual((await buildArticleMedia({root,sources})).manifest,manifest,'重复执行幂等');
+    await assert.rejects(()=>buildArticleMedia({root,sources:['/obsidian-assets/../../secret.png']}),/缺失或越界/);
+    const source=fs.readFileSync('lib/markdown.js','utf8');
+    const section=source.slice(source.indexOf('const markdown ='),source.indexOf('const defaultLinkOpen'));
+    const markdown=new Function('MarkdownIt','mediaFor',section+'\nreturn markdown;')(MarkdownIt,src=>manifest[src]);
+    const html=markdown.render('![截图]('+sources[0]+')');
+    assert(html.includes('<picture>')&&html.includes('640w')&&html.includes('1280w'));
+    assert(html.includes('width="1600" height="900"'));
+    assert(html.includes('href="'+sources[0]+'"'),'保留原图查看入口');
+    assert.equal((markdown.render('[![截图]('+sources[0]+')](https://example.test)').match(/<a\b/g)||[]).length,1,'不能嵌套链接');
+    const videoHtml=markdown.render('![样片]('+sources[1]+')');
+    assert(videoHtml.includes('playsinline preload="none"')&&videoHtml.includes('poster="'));
+    assert(videoHtml.includes(video.src)&&!videoHtml.includes('autoplay'));
+    console.log('✅ 正文媒体回归：原件不变、响应式完整图片、原图入口、视频无损索引前置、海报、路径隔离与幂等');
+  } finally { fs.rmSync(root,{recursive:true,force:true}); }
+})().catch(error=>{console.error(error);process.exitCode=1;});

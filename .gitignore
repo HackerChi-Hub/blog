@@ -10,6 +10,9 @@ out/
 lib/cover-variants.generated.json
 lib/cover-variants.generated.json.*.tmp
 public/cover-previews/
+public/media-previews/
+lib/article-media.generated.json
+lib/article-media.generated.json.*.tmp
 
 # 构建生成的临时附件
 public/downloads/

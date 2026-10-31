@@ -10,7 +10,7 @@ const runFile = promisify(execFile);
 const root = path.resolve(__dirname, '..', 'out');
 const staticMode = process.argv.includes('--static');
 const port = Number(process.env.PREVIEW_PORT || 4191);
-const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.xml':'application/xml' };
+const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.xml':'application/xml', '.mp4':'video/mp4' };
 function json(res, status, data) { res.writeHead(status, { 'content-type':'application/json; charset=utf-8', 'cache-control':'no-store' }); res.end(JSON.stringify(data)); }
 http.createServer(async (req, res) => {
   try {
@@ -39,7 +39,22 @@ http.createServer(async (req, res) => {
     if (file !== root && !file.startsWith(root + path.sep)) return json(res, 403, { error:'无效路径' });
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
     if (!fs.existsSync(file) || !fs.statSync(file).isFile()) { res.writeHead(404); res.end('Not found'); return; }
-    res.writeHead(200, { 'content-type':types[path.extname(file)] || 'application/octet-stream', 'cache-control':'no-store' });
+    const size = fs.statSync(file).size;
+    const headers = { 'content-type':types[path.extname(file)] || 'application/octet-stream', 'cache-control':'no-store', 'accept-ranges':'bytes', 'content-length':size };
+    if (req.headers.range) {
+      const match = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
+      let start = match && match[1] ? Number(match[1]) : 0;
+      let end = match && match[2] ? Number(match[2]) : size - 1;
+      if (match && !match[1] && match[2]) { start = Math.max(0, size - Number(match[2])); end = size - 1; }
+      if (!match || (!match[1] && !match[2]) || start >= size || start > end || !Number.isSafeInteger(start) || !Number.isSafeInteger(end)) {
+        res.writeHead(416, { 'content-range':`bytes */${size}` }); res.end(); return;
+      }
+      end = Math.min(end, size - 1);
+      res.writeHead(206, { ...headers, 'content-length':end - start + 1, 'content-range':`bytes ${start}-${end}/${size}` });
+      if (req.method === 'HEAD') res.end(); else fs.createReadStream(file, { start, end }).pipe(res);
+      return;
+    }
+    res.writeHead(200, headers);
     if (req.method === 'HEAD') res.end(); else fs.createReadStream(file).pipe(res);
   } catch { json(res, 502, { error:'公开留言暂时无法读取，请稍后重试' }); }
 }).listen(port, '127.0.0.1', () => console.log(`本地只读预览 http://localhost:${port}（${staticMode ? '正式静态导出' : '开发页面'}；禁止向官网写入）`));

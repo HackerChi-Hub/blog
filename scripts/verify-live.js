@@ -116,7 +116,9 @@ function assetUrlForFile(filePath) {
 }
 
 async function verifyAssetUrl(url) {
-  const cacheBustedUrl = expectedRunId
+  // 内容哈希URL一旦变化就是新资源；不要用部署参数制造数千个冷缓存副本。
+  const hashedAsset = /\/(?:media-previews|cover-previews)\//.test(new URL(url).pathname);
+  const cacheBustedUrl = expectedRunId && !hashedAsset
     ? `${url}${url.includes('?') ? '&' : '?'}deploy=${encodeURIComponent(expectedRunId)}`
     : url;
   const deadline = Date.now() + 90000;
@@ -200,6 +202,24 @@ async function main() {
   if (coverPreviewFiles.length) {
     await verifyAssetsInBatches(coverPreviewFiles.map(assetUrlForFile));
     console.log(`✅ 轻量封面验收：${coverPreviewFiles.length} 个响应式封面和背景衍生文件全部可读`);
+  }
+  const mediaRoot = path.resolve(__dirname, '..', 'public', 'media-previews');
+  const mediaFiles = walkFiles(mediaRoot);
+  if (fs.existsSync(path.resolve(__dirname, '../lib/article-media.generated.json')) && !mediaFiles.length) throw new Error('正文素材衍生为空');
+  if (mediaFiles.length) {
+    await verifyAssetsInBatches(mediaFiles.map(assetUrlForFile));
+    const manifest = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../lib/article-media.generated.json'),'utf8'));
+    const videos = Object.values(manifest).filter(item => item.kind === 'video');
+    for (const item of videos) {
+      const file = path.resolve(__dirname,'../public', '.' + decodeURIComponent(item.src));
+      const url = assetUrlForFile(file);
+      await withRetry(async () => {
+        const response = await fetchWithTimeout(url,15000,{headers:{range:'bytes=0-1023','accept-encoding':'identity'}});
+        const length = (await response.arrayBuffer()).byteLength;
+        if(response.status!==206 || !response.headers.get('content-range')?.startsWith('bytes 0-1023/') || length!==1024 || !response.headers.get('content-type')?.includes('video/mp4')) throw new Error('视频Range或类型不正确：'+url);
+      },{deadlineMs:30000,gapMs:2000});
+    }
+    console.log(`✅ 正文媒体线上回读：${mediaFiles.length}项衍生文件可读，${videos.length}个视频支持206分段播放`);
   }
   console.log(
     `✅ 素材验收：${assetFiles.length} 个实际被文章引用的公开文件全部可读`

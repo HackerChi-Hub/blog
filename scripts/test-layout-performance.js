@@ -64,7 +64,7 @@ async function main() {
     assert.doesNotMatch(data, /\n\s*categoryBuckets[, :]/, '首页不再输出未使用的分类全集');
     const markdown = read('lib/markdown.js');
     assert.match(markdown, /token\.attrSet\('loading', 'lazy'\)/);
-    assert.match(markdown, /preload="metadata"/, '视频仍按需读取元数据，不能预载整片');
+    assert.match(markdown, /preload="none"/, '视频点击时才读取，不能与正文图片抢下载');
     const cover = read('components/ContainedCover.js');
     assert.match(cover, /srcSet=\{sourceSet\}/);
     assert.match(cover, /sizes=\{sourceSet \? sizes : undefined\}/);

@@ -65,6 +65,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Ensure media tooling
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+
       - name: Verify product update scripts
         run: npm run test:products
 
@@ -124,7 +131,7 @@ jobs:
 
       - name: Verify live pages and assets
         # 定时软件更新也必须回读官网，不能只把构建成功当成已更新。
-        timeout-minutes: 10
+        timeout-minutes: 15
         run: |
           node scripts/verify-live.js "${{ github.run_id }}"
           node scripts/verify-product-versions.js --base https://hyphentech.top
