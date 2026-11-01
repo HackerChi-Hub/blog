@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f8d83b99a8bd7f50ea769387f3235840eb97a5003e14df93b32f468d049c5735",
-  "published_post_count": 210,
+  "content_sha256": "42bf15836cf9fb5b038c06fa37347ee59c19b9d9bdc9b5170efa0c302d9cc461",
+  "published_post_count": 211,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1342,6 +1342,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "7acc63f12c60caa9d94101bbd9f5992d103f323af33f06d25446618214c1c602"
+    },
+    {
+      "file": "posts/pika-h3-flex-localbrain-mac.md",
+      "slug": "pika-h3-flex-localbrain-mac",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "9ddeeb9d8af499582f8804e3c85332df07c356dd31a158f0cd49ac7586e2e299"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test-en.md",
