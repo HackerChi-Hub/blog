@@ -4,7 +4,7 @@ slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-11-01
-summary: "Windows与Linux更新1.8.0，统一模型统计、核验动画交付并修复重复放置；Mac实际公开版本为1.7.9，各平台下载与验证范围见正文。"
+summary: Mac1.8.0统一在线、本地和订阅模型统计，核对动画真实写入与目标时长，补齐ChatGPT用量并修正MiniMax思考传递；Windows与Linux也已公开1.8.0。
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,32 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.0：动画到底做完了没有，统计也要看得明白
+
+模型说“准备写入”，对话就结束，时间线上却只有一部分内容；换到ChatGPT订阅，动画做出来了，速度和用量又不完整。这一版把两件事一起处理：完成状态要对照工程，统计要对照实际收到的数据。
+
+打开AI面板，每轮请求从等待、接收结构、调用工具到结束，都保留过程记录。用时、首个输出、正文与公开的思考、接收均速、工具次数，以及本次输入和整轮累计词元使用同一套显示。ChatGPT订阅也能收到服务实际回传的用量、缓存命中和思考词元；没有公开的内容会写明未提供。完成后再次输入，发送按钮可用，重新打开聊天仍能看记录。
+
+![模型统计实际界面](/obsidian-assets/hyphenscreen-local-screen-recorder/model-metrics-180.png)
+
+这里的“接收均速”按通道实际到达的字符增量计算，排除了工具执行和每次首段等待，单位是字符/秒。服务可能先攒一部分再发过来，所以这个数字适合观察当前请求是否在输出，不能直接当成电脑跑模型的推理速度。“本次输入”是最近一趟请求携带的内容，“本轮累计”则把多次工具往返相加，就像单次快递重量和一天寄件总重，应该分开看。
+
+创建动画时，软件会核对真正写入的场景、片段和明确给出的时间范围，发现缺段会在原等待期限内自动补做，最多两次。工具参数出错会显示具体字段；反复失败或没有进展会明确结束，已经写入的内容保留。修正同一场景、同一位置也不会再叠出重复片段，人工裁剪仍受保护。
+
+MiniMax M3.1 Flash的思考档位现在实际传到接口，原始思考、签名与工具消息完整保留。实际验证中，ChatGPT与Poe完成了三场生成和一次收尾追加；MiniMax写完追加场景后遇到服务错误，软件保留结果，继续后完成核对。本地Sushi长任务这次只做完两场，第三场还没完成，记录保留了错误结构与超时原因。需要复杂故事时，模型本身仍要选合适。
+
+下面是相同链路验证任务的三份完整输出：读取来源、核对信息、生成动画、继续剪辑。每份16秒，采用原生图层与关键帧；它们用于展示实际写入和导出结果。
+
+![ChatGPT原生动画验证样片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-chatgpt-180.mp4)
+
+![Poe原生动画验证样片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-poe-180.mp4)
+
+![MiniMax原生动画验证样片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-minimax-180.mp4)
+
+本轮全量4,777项检查通过，2项按环境跳过。Mac已从实际DMG安装，987项文件、目录与链接逐项一致，严格签名和映像校验通过。正式工作室两轮ChatGPT只读对话分别约9.2秒、12秒自动结束，结束后可继续输入，重开面板保留统计；16秒连续播放与中段跳转通过。三份工程均由1.8.0正式安装版重新导出，480帧完整解码并逐场抽帧核对。这组样片用于验证链路，静音，不作为复杂美术范例或新的声音听审。
+
+Mac安装包426,742,409字节，约427 MB，比上版仅增加801字节。同期Windows、Linux也已通过独立构建流程公开1.8.0，下载与校验值按各自实际发行清单更新；本轮Mac验收不替代其他平台的桌面实测。原来的本地编排、整片包装、录屏剪辑和成片展示全部保留。
 
 ## Windows / Linux 1.8.0
 
@@ -219,7 +245,7 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.7.8；Windows／Linux 1.7.8
+> 黑粉录屏 HyphenScreen · Mac 1.8.0；Windows／Linux 1.8.0
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-29
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -264,18 +290,18 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.7.9，DMG 共 426,741,608 字节，约 427 MB |
+| Mac 苹果芯片 | 1.8.0，DMG 共 426,742,409 字节，约 427 MB |
 | Windows 10/11 x64 | 1.8.0，安装程序 409,554,611 字节，未签名 |
 | Linux x86_64 | 1.8.0，AppImage 608,626,644 字节；deb 523,237,668 字节；pacman 484,573,040 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载Mac 1.8.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
 ```text
-3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
+22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83
 ```
 
 Windows 与 Linux 1.8.0 的 SHA-256：

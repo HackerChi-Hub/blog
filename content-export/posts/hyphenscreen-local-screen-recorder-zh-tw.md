@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: "Windows與Linux更新1.8.0，統一模型統計、核驗動畫交付並修復重複放置；Mac實際公開版本為1.7.9，下載及驗證範圍見正文。"
+summary: Mac1.8.0統一線上、本機與訂閱模型統計，核對動畫實際寫入及目標時長，補齊ChatGPT用量並修正MiniMax思考傳遞；Windows與Linux也已公開1.8.0。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,32 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.0：核對動畫實際完成，統計也看得清楚
+
+模型說準備寫入就結束，時間線卻只有部分內容；ChatGPT訂閱能完成動畫，速度與用量又不完整。這一版將完成狀態對照專案，統計對照實際收到的資料。
+
+AI面板保留等待、接收結構、工具執行與結束的紀錄。執行中及完成後共用耗時、首個輸出、正文、公開思考、接收均速、工具次數、最近輸入和整輪累計詞元。ChatGPT訂閱也接收服務回傳的用量、快取與思考詞元；未公開資料明確標示。完成後可再次輸入，重新開啟聊天仍保留統計。
+
+![模型統計實際介面](/obsidian-assets/hyphenscreen-local-screen-recorder/model-metrics-180.png)
+
+接收均速以實際到達的字元增量計算，排除工具執行及各次首段等待，單位是字元/秒。服務緩衝會影響這個值，不能直接當作電腦的模型推理效能。最近一次輸入與多次工具往返累計，就像單件包裹重量和一天寄件總重，分開顯示才能讀懂。
+
+建立動畫會核對實際場景、片段及明確時間範圍，缺段在原期限內最多自動補做兩次。參數錯誤顯示具體欄位，反覆失敗或沒有進度會明確結束，保留既有成果。同場景同位置的修正避免重複疊片，手動裁剪仍受保護。MiniMax Flash實際傳遞思考檔位，完整原始思考、簽章與工具訊息保留。
+
+真實ChatGPT與Poe完成三場及收尾追加；MiniMax遇到服務錯誤後保留結果，繼續後核對完成。本機Sushi長任務僅完成兩場，第三場未完成，具體結構錯誤和逾時紀錄仍在。複雜故事仍需合適模型。
+
+以下是同一驗證題目的三份16秒原生動畫：讀取來源、核對資訊、產生動畫及繼續剪輯。
+
+![ChatGPT原生動畫驗證片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-chatgpt-180.mp4)
+
+![Poe原生動畫驗證片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-poe-180.mp4)
+
+![MiniMax原生動畫驗證片](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-minimax-180.mp4)
+
+完整回歸4,777項通過、2項依環境跳過。Mac已從實際DMG安裝，987項文件、目錄與連結一致，嚴格簽章和映像檢查通過。正式工作室兩輪ChatGPT唯讀對話約9.2秒、12秒自動結束，後續可輸入，重開面板保留統計；16秒連續播放及中段跳轉通過。三份專案均由1.8.0正式安裝版重新匯出，480影格完整解碼並逐場抽影格核對。這組驗證片為靜音，不當作複雜美術範例或新的聲音聽審。
+
+Mac套件426,742,409位元組，約427 MB，比上版增加801位元組。同期Windows、Linux也已透過獨立建置流程公開1.8.0，下載與校驗值依各自發行清單更新；本輪Mac驗收不取代其他平台的桌面實測。既有功能、圖片與成片全部保留。
 
 ## Windows / Linux 1.8.0
 
@@ -231,17 +257,17 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.7.9**，DMG **426,741,608 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Mac 蘋果晶片目前為 **1.8.0**，DMG **426,742,409 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
 - Windows 10/11 x64 目前為 **1.8.0**，安裝程式 **409,554,611 位元組**，未簽署。
 - Linux x86_64 目前為 **1.8.0**：AppImage **608,626,644 位元組**、deb **523,237,668 位元組**、pacman **484,573,040 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[下載Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下載Mac 1.8.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包的 SHA-256：
 
 ```text
-3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
+22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83
 ```
 
 Windows 與 Linux 1.8.0 的 SHA-256：
@@ -287,7 +313,7 @@ Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 這是 1.0.2 時期的版本記錄。目前Mac為1.7.0，Windows與Linux為1.6.6；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
+> 這是 1.0.2 時期的版本記錄。目前Mac為1.8.0，Windows與Linux為1.8.0；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -434,7 +460,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **平台能力不同**：Mac為1.7.0，Windows與Linux為1.6.6；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
+- **平台能力不同**：Mac為1.8.0，Windows與Linux為1.8.0；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷

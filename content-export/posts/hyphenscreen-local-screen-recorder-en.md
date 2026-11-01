@@ -6,7 +6,7 @@ lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: "Windows/Linux 1.8.0 unifies model metrics and verifies animation delivery while preventing duplicate clips. Mac remains at its actual published version, 1.7.9; see downloads for platform scope."
+summary: Mac 1.8.0 unifies online, local and subscription statistics, verifies actual animation writes and explicit timing, adds ChatGPT usage and corrects MiniMax reasoning settings. Windows and Linux also provide 1.8.0.
 categories:
   - Resources
 tags:
@@ -16,6 +16,32 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.0: verify completed animation work and make model statistics readable
+
+A model could announce that it was about to write a scene, then end with only part of the project created. ChatGPT subscriptions often completed the animation but lacked usage and speed information. This update checks completion against the project and statistics against actual received data.
+
+The AI panel preserves waiting, structure reception, tool execution and completion records. Live and completed turns share elapsed time, first output, visible text and reasoning, reception speed, tool count, latest input and cumulative usage. ChatGPT subscriptions now receive reported cache and reasoning tokens too. Unavailable fields are labeled. After completion, input is usable again; reopening chat retains the statistics.
+
+![Actual model-statistics interface](/obsidian-assets/hyphenscreen-local-screen-recorder/model-metrics-180.png)
+
+Reception speed measures actual character deltas, excluding tool execution and the initial wait for each call. Transport buffering affects it, so it is not hardware inference throughput. Latest input is one request's payload; cumulative usage adds the requests across tool exchanges, like one parcel's weight versus a day's shipping total.
+
+Animation creation verifies scenes, clips and explicitly requested time ranges. Missing work can be attempted twice within the original deadline. Parameter failures identify fields; repeated failures and stalls end explicitly while preserving completed edits. Rewriting the same scene at the same position avoids duplicate clips and protects manual trims. MiniMax Flash receives the selected reasoning effort, and original thinking, signatures and tool messages are retained.
+
+Real ChatGPT and Poe runs completed three scenes and an appended ending. MiniMax preserved its work after a service error and completed verification on continuation. The local Sushi long task reached two scenes, with the third unfinished; structural errors and timeout records remain visible. Complex stories still require a suitable model.
+
+These three complete 16-second native test outputs follow the same sequence: read sources, check information, generate animation and continue editing.
+
+![ChatGPT native animation test](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-chatgpt-180.mp4)
+
+![Poe native animation test](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-poe-180.mp4)
+
+![MiniMax native animation test](/obsidian-assets/hyphenscreen-local-screen-recorder/animation-minimax-180.mp4)
+
+The full suite passed 4,777 tests with two environment-related skips. Mac was installed from the actual DMG; all 987 files, directories and links matched, with strict signature and image verification. Two real read-only ChatGPT turns in the installed workspace ended automatically in about 9.2 and 12 seconds; subsequent input, retained statistics, continuous 16-second playback and a middle seek passed. All three projects were re-exported by the installed 1.8.0 build, with 480 frames fully decoded and sampled per scene. These silent fixtures verify the workflow rather than complex art quality; they add no subjective sound review.
+
+The Mac DMG is 426,742,409 bytes, about 427 MB and only 801 bytes larger than the previous release. Windows and Linux have independently published 1.8.0 too; downloads and checksums reflect their actual manifests. Mac verification does not establish desktop results on those platforms. Existing features, screenshots and demonstrations are retained.
 
 ## Windows / Linux 1.8.0
 
@@ -229,17 +255,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.7.9**, DMG **426,741,608 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.8.0**, DMG **426,742,409 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.8.0**, installer **409,554,611 bytes**, unsigned.
 - Linux x86_64: **1.8.0** in AppImage (**608,626,644 bytes**), deb (**523,237,668 bytes**) and pacman (**484,573,040 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Download Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Download Mac 1.8.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
 ```text
-3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
+22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83
 ```
 
 SHA-256 checksums for Windows and Linux 1.8.0:
@@ -432,7 +458,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.7.0; Windows and Linux offer 1.6.6. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac offers 1.8.0; Windows and Linux offer 1.8.0. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
