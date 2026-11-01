@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.7.8"
+title: "HyphenScreen: recording, editing and AI animation — version 1.7.9"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac 1.7.8 adds the production workbench, the official Poe model catalog and automatic local recovery compaction, with corrected reasoning and usage labels. Windows and Linux remain at the published 1.7.8.
+summary: Mac 1.7.9 saves validated animation edits progressively, reduces repeated context and separates request estimates, actual input and cumulative usage. The installed UI was accepted by the author; Windows and Linux remain at 1.7.8.
 categories:
   - Resources
 tags:
@@ -20,6 +20,22 @@ legacy_paths: []
 ## Windows / Linux 1.7.8
 
 Windows and Linux are now locally built as 1.7.8 with the production workbench, dynamic Poe catalog, local continuation compaction and waiting fixes. The Windows suite passed 4,723 tests with 21 environment-related skips; typechecks and production builds passed. Packaged resources and ten native MP4/GIF exports per platform passed verification and full decoding. Linux uses WSL software rendering. Apps were not installed, user projects were not modified, and desktop capture and model generation quality were not retested.
+
+## 1.7.9: save completed edits immediately and make usage clear
+
+A scene could already be written while chat kept checking, yet only appear on the timeline after Stop. Version 1.7.9 delivers each validated edit to the editor for display and saving while further checks continue. The same final snapshot is not applied twice, and manual-edit and project-switch conflict protections remain.
+
+![Actual paper-style animation exported by installed version 1.7.9](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.png)
+
+Scene catalogs now send an index rather than every existing scene's complete structure. Successful writes use compact receipts, with exact layers available on demand. Full keyframes, curves, original records and output budgets are retained. In a real Sushi read-only task, the last request used 26,294 input tokens instead of 72,593, a 63.8% reduction. Cache state and tool counts differed, so the timings are not an animation-generation speed benchmark.
+
+The header distinguishes the complete-request estimate from the latest actual input; cumulative turn usage stays separate. Automatically detected context windows refresh before a request while explicit settings are kept. Missing historical counts are not invented, and repeated edits to one scene are no longer counted as multiple scenes.
+
+![Three-second native animation export](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
+
+[Play the native 1.7.9 animation sample](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
+
+The same three-second, 45-layer scene produced 90 identical decoded frames in the old and new installed builds. The full suite passed 4,751 tests, followed by 161 targeted checks after the final catalog change. Installer files, signatures and image checks passed; I verified the installed UI and confirmed it works. Mac is now 1.7.9; Windows and Linux stay at the published 1.7.8. Existing features and historical images are retained.
 
 ## 1.7.8: inspect animation work and connect Poe directly
 
@@ -209,17 +225,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.7.8**, DMG **426,768,817 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.7.9**, DMG **426,741,608 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.7.8**, installer **409,531,045 bytes**, unsigned.
 - Linux x86_64: **1.7.8** in AppImage (**608,613,916 bytes**), deb (**523,242,780 bytes**) and pacman (**484,601,452 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Download Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
 ```text
-9ffb8491bd20842abcbda6728cc2cab4568c4d37439369f17b4733aa643f01e8
+3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
 ```
 
 SHA-256 checksums for Windows and Linux 1.7.8:
