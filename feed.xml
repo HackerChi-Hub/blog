@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Nov 2026 07:39:03 GMT</lastBuildDate>
-    <pubDate>Sun, 01 Nov 2026 07:39:03 GMT</pubDate>
+    <lastBuildDate>Sun, 01 Nov 2026 08:05:58 GMT</lastBuildDate>
+    <pubDate>Sun, 01 Nov 2026 08:05:58 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>Pika H3 Flex把50步压成6步：64GB Mac实测3段有声视频，方寸智匣怎么用？</title>
+      <link>https://hyphentech.top/pika-h3-flex-localbrain-mac/</link>
+      <guid isPermaLink="true">https://hyphentech.top/pika-h3-flex-localbrain-mac/</guid>
+      <description>50步如何压成6步？用官方动作、编辑与4K案例看懂技术，再看64GB Mac三条原片和方寸智匣2.2.4的实际用法。</description>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>Pika</category>
+    <category>本地部署</category>
+    </item>
     <item>
       <title>零基础当黑客？Qwen3.8 27B本地安全实测，184条提示该怎么看</title>
       <link>https://hyphentech.top/qwen38-27b-local-security-video/</link>
@@ -208,17 +219,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>方寸智匣1.8.0：聊天模型指挥六类本地AI，从语音到视频实测</title>
-      <link>https://hyphentech.top/localbrain-media-chat-180/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-media-chat-180/</guid>
-      <description>六类本地模型接入聊天，追加十份视觉样品；画面、编辑保持与实际问题原样展示。</description>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>方寸智匣</category>
-    <category>本地AI</category>
-    <category>实测</category>
     </item>
   </channel>
 </rss>
