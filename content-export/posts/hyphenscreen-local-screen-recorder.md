@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.8 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.9 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-11-01
-summary: Mac1.7.8新增制作工作台、Poe官方模型目录与本地续作自动整理，修正思考及用量口径；Windows与Linux保留实际公开1.7.8。
+summary: Mac1.7.9让动画写入后逐次显示与保存，减少重复上下文，区分请求估算、实际输入和累计用量；安装版已自行验收，Windows与Linux保留1.7.8。
 categories:
   - 资源分享
 tags:
@@ -18,6 +18,24 @@ legacy_paths: []
 ## Windows / Linux 1.7.8
 
 Windows／Linux也已本地构建至1.7.8，包含制作工作台、Poe动态目录、本地续作自动整理和等待修复。Windows全量4723项通过、21项按环境跳过，两套类型与生产构建通过；两平台包内资源和各10项MP4／GIF原生导出、完整解码通过。Linux限WSL软件渲染；本轮未安装应用、操作用户工程或复测桌面录屏和模型生成质量。
+
+## 1.7.9：动画做好就保存，用量也说清楚
+
+这次遇到的现象很直接：模型一直在思考，点了停止，动画却立刻出现在时间线上。查记录后发现，场景早已写入成功，后面还在反复读取、检查和重写；旧版一直等整轮请求结束，才把结果交给编辑器。1.7.9把这一步提前了：每次有效修改都会逐次显示和保存，后续核对继续进行。停止或结束再返回同一份结果，不会重复应用；手工编辑与切换工程仍有冲突保护。
+
+![1.7.9安装版实际导出的纸艺动画](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.png)
+
+重复上下文也一起处理。以前只查一次动画列表，就可能把工程里所有旧场景的完整结构又发给模型；现在先给场景索引和写入回执，需要具体细节时再按图层读取。完整关键帧、曲线和原始记录仍在，没有靠删减动画或强行缩短输出来省时间。同题Sushi只读核对中，末次请求的实际输入从72,593降到26,294词元，约减少63.8%。两轮缓存命中和工具次数不同，这个数字说明的是本次输入负担减少，不是动画生成速度的同比提升。
+
+用量显示现在分三处看：顶部是完整请求估算或最近一次服务实际输入，底部是本轮所有调用的累计；自动探测的上下文窗口会在新请求前核对，手填值保留。旧对话没有记录过的实际输入不会倒算。场景和片段也按实际ID计数，同一场景改两次不再报成两个场景。
+
+下面是安装版从同一场景副本导出的3秒样片。新旧版本的45个图层和90帧逐帧一致，用来核对这次改动没有改变原来的画面。
+
+![3秒原生动画导出样片](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
+
+[单独播放1.7.9原生动画样片](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
+
+本轮全量4,751项回归通过，最后目录补修后161项定向检查通过；Mac安装文件、签名和映像校验通过。安装版界面已由我自行验证，确认正常。Mac更新到1.7.9，Windows与Linux继续提供实际公开的1.7.8；下载和SHA-256见文末，Poe、制作工作台、本地编排和录屏剪辑等既有能力保留。
 
 ## 1.7.8：看清动画怎么做，也能直接接入Poe
 
@@ -242,18 +260,18 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.7.8，DMG 共 426,768,817 字节，约 427 MB |
+| Mac 苹果芯片 | 1.7.9，DMG 共 426,741,608 字节，约 427 MB |
 | Windows 10/11 x64 | 1.7.8，安装程序 409,531,045 字节，未签名 |
 | Linux x86_64 | 1.7.8，AppImage 608,613,916 字节；deb 523,242,780 字节；pacman 484,601,452 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
 ```text
-9ffb8491bd20842abcbda6728cc2cab4568c4d37439369f17b4733aa643f01e8
+3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
 ```
 
 Windows 与 Linux 1.7.8 的 SHA-256：
