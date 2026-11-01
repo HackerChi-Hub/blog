@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-31T23:15:59.155Z",
-  "contentHash": "5414f1ee88e6a8c6b073014320f8c332e475c6d247e715321fd36aaf4add3ba0",
+  "checkedAt": "2026-11-01T01:10:32.560Z",
+  "contentHash": "f063841d3b373284796debd9c8f56a47eb8682085660372813169279608ff733",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T23:15:59.155Z",
+      "checkedAt": "2026-11-01T01:10:32.560Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T23:15:59.155Z",
+      "checkedAt": "2026-11-01T01:10:32.560Z",
       "prerelease": false,
       "releaseNotesHash": "847e7eef041d45ccf8b9465c65af085adf409824da52512c351d4991aa97af24",
       "revision": "bd3adc5d8bf9b95acb572941e483c0fa9e8709d44365c4a09474a491b57a2fab"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T23:15:59.155Z",
+      "checkedAt": "2026-11-01T01:10:32.560Z",
       "prerelease": false,
       "releaseNotesHash": "9243cc20193999583c72a9e6bbda4e38aea8cfba9eb531768936ca70cca338a5",
       "revision": "57cc8f640f147f5e29d7920f41346bd00b1614cb8663e8963e327b62b1387b77"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T23:15:59.155Z",
+      "checkedAt": "2026-11-01T01:10:32.560Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,26 +389,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "本版将整片包装融合进“制作动画→本地编排 · 无需模型”，聊天区只保留一个制作入口。讲解动画按来源与讲解、比较与核对、脉络与结构归类；十套包装保留原有四种版式、配色、动效与声音。两个本地分类切换保留输入，无需模型配置即可直接手动生成、加入时间线。",
-      "updated": "2026-10-31",
-      "activityAt": "2026-10-31T16:50:36Z",
-      "version": "1.7.4",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.4",
+      "updateSummary": "这一版修正1.7.6实时数据的统计口径，并把单次输出上限与截断处理补到“不会再只回一句 Empty response”。 Anthropic 接口（MiniMax 等）与本地 OpenAI 兼容模型的单次输出上限从 16384 提到 20000 词元（本地模型为 32768），可用环境变量 HYPHENSCREENANTHROPICM…",
+      "updated": "2026-11-01",
+      "activityAt": "2026-11-01T01:04:57Z",
+      "version": "1.7.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.7.4",
+          "version": "1.7.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.4",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.7",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.4_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_arm64.dmg",
-              "id": 695756871,
-              "size": 426759601,
-              "updatedAt": "2026-10-31T15:40:46Z",
-              "digest": "sha256:8a88a46ba44b9e1f2a7e209876b91a471c581dcb37074ad13384f85a5a9e9518"
+              "name": "HyphenScreen_1.7.7_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg",
+              "id": 696926797,
+              "size": 426788073,
+              "updatedAt": "2026-11-01T01:04:55Z",
+              "digest": "sha256:8e8469c87985a3d1146750cb5b160b9a5ec5234f00413ea3dbf073b919a8c080"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-10-31T23:15:59.155Z",
+      "checkedAt": "2026-11-01T01:10:32.560Z",
       "prerelease": false,
-      "releaseNotesHash": "54b24c1ce6a4f3f3af6b935c58fe215b2c461380067a33ffef80b5dd2030e594",
-      "revision": "39b2e176ec0bcd4a9bd8eb726463c38802c32c587c7e575e2333c6d2b29d9840"
+      "releaseNotesHash": "cbdcebe70ad4955b98168c314d2da86945c99fcb25d678b2bb2b1735ee1d08b1",
+      "revision": "7b8b63e99e18c7dbfff27529e53017c70a89dc86de44b57187bfb301e7fdb171"
     }
   ]
 }

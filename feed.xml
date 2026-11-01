@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 31 Oct 2026 23:18:53 GMT</lastBuildDate>
-    <pubDate>Sat, 31 Oct 2026 23:18:53 GMT</pubDate>
+    <lastBuildDate>Sun, 01 Nov 2026 01:12:46 GMT</lastBuildDate>
+    <pubDate>Sun, 01 Nov 2026 01:12:46 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -39,6 +39,16 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>腾讯 Hy-Nomas 开放 Diffusers 权重：多轮交互式世界生成，本地能跑但门槛不低</title>
+      <link>https://hyphentech.top/2026-10-24-official-a3bd547a332b/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-10-24-official-a3bd547a332b/</guid>
+      <description>腾讯 Hy-Nomas 开放 Diffusers 权重：多轮交互式世界生成，本地能跑但门槛不低</description>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
     </item>
     <item>
       <title>方寸智匣本地安全测试：简明教程</title>
@@ -209,16 +219,6 @@
     <category>方寸智匣</category>
     <category>本地AI</category>
     <category>实测</category>
-    </item>
-    <item>
-      <title>Qwen-Image-2.1-Turbo本地出图快三倍：美女萌宠、闪身步与狗熊哆嗦毛实测</title>
-      <link>https://hyphentech.top/qwen-image-21-turbo-q4-local-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/qwen-image-21-turbo-q4-local-test/</guid>
-      <description>M5 Pro 64GB实测普通Turbo Q4：两项对照约快三倍，追加六张美女萌宠与舞蹈热梗图，保留完整原图、动作偏差和运行截图。</description>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地模型</category>
     </item>
   </channel>
 </rss>
