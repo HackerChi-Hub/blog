@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "2e5bfaad62241883434d80e7256aada68cbf518747fda393562ae619cc00c404",
-  "published_post_count": 209,
+  "content_sha256": "91e7213f06192190877afbc3d0f018a56771f24d88fb059f8e304039b005abbb",
+  "published_post_count": 210,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -227,6 +227,13 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "7812f2d288e7cae0f0bec9af1beeede0a4b50fe1bcb2cd3b2a50569f8466038b"
+    },
+    {
+      "file": "posts/2026-10-24-official-a3bd547a332b.md",
+      "slug": "2026-10-24-official-a3bd547a332b",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "9f12a52b1ce6f5fb1e3a63a21f3bd6b49909fcc30cf2bf792af9950dad330659"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -837,7 +844,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "b68383423782fdda876533812b359630a1d05cc2e1c17daa06d96e42bc9faca3"
+      "sha256": "b8a5d3bdad5e378101270a7124a9749475e145b34b96fd374b949c67089b5ae0"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -846,14 +853,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "3020dd8dfd38c60d9c94469e79e00329d51e3dcc5cd924b95d731fe213c183c4"
+      "sha256": "8b8576a134d0c972aabc76fb1a2b10d5e553ed40bc0696fbd74f280f4365c28f"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "0f5812335a2713bc0230a707f3f6fd4f1dd8248e048eb9214496e4ab6f839313"
+      "sha256": "0dc5c71d8011e29f4a5943d08261fa36b5eb753b2dd807881128ab2c36d83940"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
