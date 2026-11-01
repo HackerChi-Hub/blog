@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { makeT } from '../lib/blog-i18n.cjs';
 import { TOPICS, encodeBoardMessage, decodeBoardMessage, groupComments } from '../lib/community.cjs';
+import { COMMENTS_API } from '../lib/comments-config.cjs';
 
 // 默认关闭，必须显式开启。
 //
@@ -15,7 +16,7 @@ import { TOPICS, encodeBoardMessage, decodeBoardMessage, groupComments } from '.
 // 「留言没加载出来」——一个读者做什么都没用的错误。默认关比默认开安全，代价只是
 // 部署完成后要记得打开一次。构建时内联，所以关闭时整段 UI 根本不会渲染。
 const COMMENTS_ENABLED = process.env.NEXT_PUBLIC_COMMENTS_ENABLED === 'true';
-const API_BASE = process.env.NEXT_PUBLIC_COMMENTS_API || '/api/comments';
+const API_BASE = process.env.NEXT_PUBLIC_COMMENTS_API || COMMENTS_API;
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 const TURNSTILE_SCRIPT = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 

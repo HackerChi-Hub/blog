@@ -64,7 +64,7 @@ async function waitForBuildId() {
   let last = '';
   while (Date.now() < deadline) {
     try {
-      const response = await fetchWithTimeout(`${baseUrl}/.build-id`);
+      const response = await fetchWithTimeout(`${baseUrl}/.build-id${expectedRunId ? '?deploy=' + encodeURIComponent(expectedRunId) : ''}`);
       if (response.ok) {
         last = (await response.text()).trim();
         if (!expectedRunId || last.startsWith(`${expectedRunId}-`)) return last;

@@ -14,6 +14,11 @@ account_id = "ddba8d6d25a6a0af2be1af25471879d5"
 pattern = "hyphentech.top/api/comments*"
 zone_name = "hyphentech.top"
 
+# 新旧入口并行到主站直连验收完成；不新建数据库，不更换凭据。
+[[routes]]
+pattern = "comments.hyphentech.top"
+custom_domain = true
+
 # database_id 由 `wrangler d1 create hyphentech-comments` 生成后填进来。
 # 它不是密钥（没有它也调不动别人的库），可以入库。
 [[d1_databases]]

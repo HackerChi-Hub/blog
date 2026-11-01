@@ -20,6 +20,7 @@
 const fs = require('fs');
 const path = require('path');
 const { BOARD_SLUG, TOPICS, decodeBoardMessage } = require('../lib/community.cjs');
+const { COMMENTS_API } = require('../lib/comments-config.cjs');
 
 // Node默认不使用终端代理；仅本进程重启启用，不改全局网络设置。
 if (process.env.NODE_USE_ENV_PROXY === undefined &&
@@ -50,7 +51,7 @@ function readEnvFile() {
 const fileEnv = readEnvFile();
 const TOKEN = process.env.COMMENTS_ADMIN_TOKEN || fileEnv.COMMENTS_ADMIN_TOKEN || '';
 const API_BASE = process.env.COMMENTS_API || fileEnv.COMMENTS_API
-  || 'https://hyphentech.top/api/comments';
+  || COMMENTS_API;
 const SITE_BASE = 'https://hyphentech.top';
 
 // ---------- 输出 ----------

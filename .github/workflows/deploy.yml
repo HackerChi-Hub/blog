@@ -24,6 +24,9 @@ permissions:
   contents: write
   actions: read
 
+env:
+  BLOG_DELIVERY_MODE: ${{ vars.BLOG_DELIVERY_MODE || 'cloudflare' }}
+
 jobs:
   check-product-updates:
     runs-on: ubuntu-latest
@@ -82,6 +85,7 @@ jobs:
         run: npm run test:cache
 
       - name: Require cache purge credentials
+        if: vars.BLOG_DELIVERY_MODE != 'direct'
         env:
           CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
         run: |
@@ -112,6 +116,7 @@ jobs:
         run: echo "${{ github.run_id }}-$(date +%s)" > out/.build-id
 
       - name: Prepare selective cache invalidation
+        if: vars.BLOG_DELIVERY_MODE != 'direct'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/cloudflare-cache.js prepare
@@ -124,10 +129,16 @@ jobs:
           publish_branch: gh-pages
 
       - name: Wait for new site and refresh Cloudflare cache
+        if: vars.BLOG_DELIVERY_MODE != 'direct'
         timeout-minutes: 8
         env:
           CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
         run: node scripts/cloudflare-cache.js purge
+
+      - name: Wait for direct Pages deployment
+        if: vars.BLOG_DELIVERY_MODE == 'direct'
+        timeout-minutes: 5
+        run: node scripts/cloudflare-cache.js wait
 
       - name: Verify live pages and assets
         # 定时软件更新也必须回读官网，不能只把构建成功当成已更新。
@@ -136,6 +147,7 @@ jobs:
           node scripts/verify-live.js "${{ github.run_id }}"
           node scripts/verify-product-versions.js --base https://hyphentech.top
           node scripts/audit-rendered-links.js --base https://hyphentech.top
+          node scripts/verify-comments-endpoint.cjs
 
-      - name: Verify edge cache and live endpoint isolation
+      - name: Verify site delivery and live endpoint isolation
         run: node scripts/cloudflare-cache.js verify

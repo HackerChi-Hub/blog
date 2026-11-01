@@ -1,8 +1,8 @@
 /**
  * hyphentech.top 留言 API（Cloudflare Worker + D1）。
  *
- * 挂在主站同域路由 hyphentech.top/api/comments* 上，所以浏览器不会发跨域预检，
- * 也不引入第二个域名——评论区和正文走完全相同的边缘节点。
+ * 独立接口域名 comments.hyphentech.top；迁移期间保留旧同域路由。
+ * 跨域只允许官网的精确来源，不改变验证码、管理凭据或限流。
  *
  * 路由：
  *   GET    /api/comments?slug=<slug>     列出该文章的可见留言
@@ -15,6 +15,7 @@
  */
 
 import { BOARD_SLUG, decodeBoardMessage } from '../../../lib/community.cjs';
+import { COMMENTS_ALLOWED_ORIGINS } from '../../../lib/comments-config.cjs';
 
 const MAX_NICKNAME = 24;
 const MAX_CONTENT = 1000;
@@ -290,7 +291,7 @@ async function handleAdminHide(request, env) {
   return json({ comment: updated });
 }
 
-export default {
+const application = {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
     const method = request.method.toUpperCase();
@@ -322,5 +323,36 @@ export default {
     }
 
     return json({ error: '没有这个接口' }, 404);
+  },
+};
+
+export default {
+  async fetch(request, env) {
+    const origin = request.headers.get('origin');
+    if (origin && !COMMENTS_ALLOWED_ORIGINS.includes(origin)) {
+      return json({ error: '不允许的请求来源' }, 403);
+    }
+    if (request.method === 'OPTIONS') {
+      const method = request.headers.get('access-control-request-method');
+      const headers = (request.headers.get('access-control-request-headers') || '').split(',').map(value => value.trim().toLowerCase()).filter(Boolean);
+      const pathname = new URL(request.url).pathname;
+      if (!origin || !(pathname === '/api/comments' || pathname.startsWith('/api/comments/')) || !['GET', 'POST'].includes(method) || headers.some(value => !['content-type', 'authorization', 'accept'].includes(value))) {
+        return json({ error: '不允许的预检请求' }, 403);
+      }
+      return new Response(null, { status: 204, headers: {
+        'access-control-allow-origin': origin,
+        'access-control-allow-methods': 'GET, POST, OPTIONS',
+        'access-control-allow-headers': 'Content-Type, Authorization, Accept',
+        'access-control-max-age': '600',
+        'cache-control': 'no-store',
+        vary: 'Origin',
+      } });
+    }
+    const response = await application.fetch(request, env);
+    if (origin) {
+      response.headers.set('access-control-allow-origin', origin);
+      response.headers.set('vary', 'Origin');
+    }
+    return response;
   },
 };

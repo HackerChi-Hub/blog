@@ -392,6 +392,33 @@ console.log('\n茶馆最近留言与安全字段：');
   check('管理过滤拒绝非法标识', invalid.status===400);
 }
 
+console.log('\n独立接口域名与严格跨域：');
+{
+  for (const origin of ['https://hyphentech.top', 'https://www.hyphentech.top']) {
+    const response = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments?slug=teahouse', { headers: { origin } }), { ...env, DB: makeDB() });
+    check('官网精确来源可读取：' + origin, response.status === 200 && response.headers.get('access-control-allow-origin') === origin);
+    check('留言不缓存且不开放跨域Cookie', response.headers.get('cache-control') === 'no-store' && !response.headers.has('access-control-allow-credentials'));
+    const preflight = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments', { method: 'OPTIONS', headers: { origin, 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type' } }), {});
+    check('发表预检无须读取数据库', preflight.status === 204 && preflight.headers.get('access-control-allow-origin') === origin && preflight.headers.get('vary') === 'Origin');
+  }
+  for (const origin of ['https://evil.example', 'https://hyphentech.top.evil.example', 'http://hyphentech.top', 'null']) {
+    const response = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments', { method: 'POST', headers: { origin } }), {});
+    check('阻止非官网来源且不接触数据库：' + origin, response.status === 403 && !response.headers.has('access-control-allow-origin'));
+  }
+  for (const headers of [
+    { 'access-control-request-method': 'POST' },
+    { origin: 'https://hyphentech.top', 'access-control-request-method': 'DELETE' },
+    { origin: 'https://hyphentech.top', 'access-control-request-method': 'POST', 'access-control-request-headers': 'x-unapproved-header' },
+  ]) {
+    const response = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments', { method: 'OPTIONS', headers }), {});
+    check('拒绝无来源、未授权方法或请求头的预检', response.status === 403);
+  }
+  const rejected = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments', { method:'POST', headers:{ origin:'https://hyphentech.top','content-type':'application/json' }, body:JSON.stringify({ slug:'teahouse',nickname:'验收',content:'不能绕过校验' }) }), env);
+  check('新域名仍拒绝没有验证码的写入且返回正确跨域头', rejected.status === 403 && rejected.headers.get('access-control-allow-origin') === 'https://hyphentech.top');
+  const admin = await worker.fetch(new Request('https://comments.hyphentech.top/api/comments/admin/stats', { headers:{ origin:'https://hyphentech.top' } }), env);
+  check('新域名管理接口仍需原有凭据', admin.status === 401 && admin.headers.get('access-control-allow-origin') === 'https://hyphentech.top');
+}
+
 console.log(`\n通过 ${passed} · 失败 ${failed}`);
 for (const note of pending) console.log(`⚠ ${note}`);
 process.exit(failed > 0 ? 1 : 0);

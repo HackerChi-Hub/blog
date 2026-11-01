@@ -1,23 +1,29 @@
 # 留言 API（Cloudflare Worker + D1）
 
-挂在主站同域路由 `hyphentech.top/api/comments*` 上。主站仍是 GitHub Pages 静态导出，
-这条 route 只截走 `/api/comments*`，正文链路和发布流程完全不受影响。
+正式接口使用 `https://comments.hyphentech.top/api/comments`，由现有 Worker 和原 D1 数据库提供。
+迁移期间保留 `hyphentech.top/api/comments*` 旧路由，兼容尚未刷新的页面。
+主站可以直连 GitHub Pages，只有留言接口子域名保留 Cloudflare 服务。
+
+接口地址统一维护在 `lib/comments-config.cjs`；前端、`blog-comments` 和本地只读预览共用。
+浏览器只允许 `https://hyphentech.top` 和 `https://www.hyphentech.top` 两个精确来源，
+不开放任意来源或跨域 Cookie；验证码、管理凭据、防冒名、限流和历史留言均不变。
 
 ## 为什么是这套
 
-- **同域**：不引入第二个域名，浏览器不发跨域预检，评论请求和正文走同一个边缘节点。
-  第三方评论服务一旦域名被污染，会出现「正文好好的、评论区永远转圈」。
+- **正文与留言解耦**：独立接口只承担留言，官网静态内容可以退出网页代理。
+  发表前的跨域预检仅放行官网来源、明确方法和请求头，不依赖第三方评论账号。
 - **免费**：Workers 免费版 100,000 请求/天、CPU 10ms/请求；D1 免费版单库 500 MB、
   账户总计 5 GB、每次调用最多 50 次查询。博客量级大约用掉 1%。
 - **不存原始 IP**：只存加盐 SHA-256 前缀，够用来限流和认惯犯，但无法反查到人。
 
-## 当前部署状态（2026-09-21 已上线）
+## 接口部署状态（2026-11-01 独立域名已接入）
 
 | 项 | 值 |
 |---|---|
 | Cloudflare 账号 | **Judefax@163.com**（`ddba8d6d25a6a0af2be1af25471879d5`） |
 | D1 数据库 | `hyphentech-comments`（`d3dd85dd-91aa-42e8-887f-4885173e2660`） |
-| 路由 | `hyphentech.top/api/comments*` |
+| 新接口 | `comments.hyphentech.top` 自定义域名 |
+| 兼容路由 | `hyphentech.top/api/comments*`，迁移期间保留 |
 | Turnstile Site Key | `0x4AAAAAAE-oKw_xuJfqlFBQ`（公开值） |
 | GitHub Variables | `COMMENTS_ENABLED=true`、`TURNSTILE_SITE_KEY` |
 
@@ -115,7 +121,8 @@ NEXT_PUBLIC_COMMENTS_ENABLED=true
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=<第 3 步的 Site Key>
 ```
 
-`NEXT_PUBLIC_COMMENTS_API` 不用设，默认就是同域的 `/api/comments`。
+`NEXT_PUBLIC_COMMENTS_API` 不用设，默认取统一配置中的独立接口。
+有历史手工覆盖值时必须先核对，不能在主站直连后继续指向旧同域路径。
 
 设好之后 `blog-push` 发布一次，留言区就出现了。想临时关掉，把 `COMMENTS_ENABLED`
 改成 `false` 再发布一次即可，不用回滚代码。
@@ -124,16 +131,19 @@ NEXT_PUBLIC_TURNSTILE_SITE_KEY=<第 3 步的 Site Key>
 
 ```bash
 # 列表应返回空数组而不是 404
-curl -s "https://hyphentech.top/api/comments?slug=free-api-radar" | head
+curl -s "https://comments.hyphentech.top/api/comments?slug=free-api-radar" | head
 
 # 没有 Turnstile token 应被拒（403），证明校验真的在跑
-curl -s -X POST https://hyphentech.top/api/comments \
+curl -s -X POST https://comments.hyphentech.top/api/comments \
   -H 'content-type: application/json' \
   -d '{"slug":"free-api-radar","nickname":"test","content":"test"}'
 ```
 
 第二条必须返回 403。如果它成功写进去了，说明 `TURNSTILE_SECRET` 没设对，
 任何脚本都能直接灌垃圾——这一条要亲眼看到失败才算部署完成。
+
+完整只读及负向验收：`node scripts/verify-comments-endpoint.cjs`。该脚本不完成真人验证，
+不发布验收留言；检查列表、精确来源、预检、隐私字段、无管理凭据和无验证码时的拒绝。
 
 ## 限流阈值
 

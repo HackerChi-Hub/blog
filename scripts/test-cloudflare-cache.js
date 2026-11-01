@@ -56,9 +56,12 @@ async function main() {
     return ++retries === 1 ? { ok: false, status: 429, text: '' } : { ok: true, status: 200, text: '{"success":true}' };
   }, async () => {});
   assert.equal(retries, 2);
-  await verify(async (url) => ({ ok: true, text: '<html>公开网页</html>', headers: new Map([['cf-cache-status', url.includes('/.build-id') || url.includes('/api/') ? 'DYNAMIC' : 'HIT']]) }), async () => {});
-  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'DYNAMIC']]) }), async () => {}), /未命中/);
-  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'HIT']]) }), async () => {}), /实时入口/);
+  await verify(async (url) => ({ ok: true, text: '<html>公开网页</html>', headers: new Map([['cf-cache-status', url.includes('/.build-id') || url.includes('/api/') ? 'DYNAMIC' : 'HIT']]) }), async () => {}, { mode:'cloudflare' });
+  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'DYNAMIC']]) }), async () => {}, { mode:'cloudflare' }), /未命中/);
+  await assert.rejects(() => verify(async () => ({ ok: true, text: '<html></html>', headers: new Map([['cf-cache-status', 'HIT']]) }), async () => {}, { mode:'cloudflare' }), /实时入口/);
+  await verify(async url => ({ ok:true,text:'<html></html>',headers:new Map(url.includes('/api/') ? [['cf-cache-status','DYNAMIC']] : [['x-github-request-id','test-pages']]) }), async()=>{}, { mode:'direct' });
+  await assert.rejects(()=>verify(async()=>({ok:true,text:'<html></html>',headers:new Map([['x-github-request-id','test'],['cf-ray','still-proxied']])}),async()=>{}, {mode:'direct'}), /未按计划直连/);
+  await assert.rejects(()=>verify(async()=>({ok:true,text:'<html></html>',headers:new Map()}),async()=>{}, {mode:'direct'}), /未按计划直连/);
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-cache-test-'));
   try {
     fs.mkdirSync(path.join(root, 'out'));

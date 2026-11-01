@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { execFile } = require('node:child_process');
 const { promisify } = require('node:util');
+const { COMMENTS_API } = require('../lib/comments-config.cjs');
 const runFile = promisify(execFile);
 const root = path.resolve(__dirname, '..', 'out');
 const staticMode = process.argv.includes('--static');
@@ -18,7 +19,7 @@ http.createServer(async (req, res) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 409, { error:'本地预览不提交真实留言；请在正式上线后使用。' });
     if (url.pathname.startsWith('/api/')) {
       if (url.pathname !== '/api/comments' || !/^[a-z0-9][a-z0-9-]{0,120}$/.test(url.searchParams.get('slug') || '')) return json(res, 400, { error:'仅支持读取公开留言' });
-      const target = new URL('https://hyphentech.top/api/comments');
+      const target = new URL(COMMENTS_API);
       target.searchParams.set('slug', url.searchParams.get('slug'));
       if (url.searchParams.get('recent') === '1') target.searchParams.set('recent','1');
       // 使用系统curl沿用本机网络代理；Node原生fetch在部分代理环境会直连超时。

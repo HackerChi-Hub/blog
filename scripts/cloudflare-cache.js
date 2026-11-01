@@ -3,11 +3,18 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { COMMENTS_API } = require('../lib/comments-config.cjs');
 const ORIGIN = 'https://hyphentech.top';
 const ZONE = '47f9ae30305bb29ab0c3303530fa61b4';
 const MANIFEST = '.cloudflare-cache-manifest.json';
 const PLAN = '.cloudflare-purge-plan.json';
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function deliveryMode() {
+  const mode = process.env.BLOG_DELIVERY_MODE || 'cloudflare';
+  if (!['cloudflare', 'direct'].includes(mode)) throw new Error('BLOG_DELIVERY_MODE 只能为 cloudflare 或 direct');
+  return mode;
+}
 
 async function request(url, options = {}) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(20000) });
@@ -139,24 +146,29 @@ async function purge(plan, token, fetcher = request, sleep = pause) {
   console.log(`✅ Cloudflare 缓存刷新成功：${plan.bootstrap ? '首次清除本站旧缓存' : plan.urls.length + ' 个变更地址'}；已确认新版构建 ${plan.buildId}`);
 }
 
-async function verify(fetcher = request, sleep = pause) {
+async function verify(fetcher = request, sleep = pause, { mode = deliveryMode() } = {}) {
+  if (!['cloudflare', 'direct'].includes(mode)) throw new Error('未知的网站交付模式');
   for (const route of ['/', '/page/1/', '/localbrain-local-ai-box/']) {
     let status = '';
     for (let attempt = 0; attempt < 4; attempt++) {
       const response = await fetcher(ORIGIN + route);
       status = response.headers?.get('cf-cache-status') || '';
       if (!response.ok || !response.text.includes('<html')) throw new Error(`缓存样本不是正常网页：${route}`);
+      if (mode === 'direct') {
+        if (status || response.headers?.get('cf-ray') || !response.headers?.get('x-github-request-id')) throw new Error(`页面未按计划直连 GitHub Pages：${route}`);
+        break;
+      }
       if (['HIT', 'REVALIDATED'].includes(status)) break;
       if (attempt === 3) throw new Error(`网页未命中 Cloudflare 缓存：${route} (${status || '无状态头'})`);
       await sleep(1500);
     }
-    console.log(`✅ 页面边缘缓存：${route} ${status}`);
+    console.log(mode === 'direct' ? `✅ 页面直连 GitHub Pages：${route}` : `✅ 页面边缘缓存：${route} ${status}`);
   }
-  for (const route of ['/.build-id', '/api/comments?slug=localbrain-local-ai-box']) {
-    const response = await fetcher(ORIGIN + route);
+  for (const url of [ORIGIN + '/.build-id?delivery-check=' + Date.now(), COMMENTS_API + '?slug=localbrain-local-ai-box']) {
+    const response = await fetcher(url);
     const status = response.headers?.get('cf-cache-status') || '';
-    if (!response.ok || ['HIT', 'REVALIDATED', 'STALE', 'UPDATING'].includes(status)) throw new Error(`实时入口响应异常或被缓存：${route}`);
-    console.log(`✅ 实时入口不读边缘缓存：${route} ${status || '无缓存状态头'}`);
+    if (!response.ok || ['HIT', 'REVALIDATED', 'STALE', 'UPDATING'].includes(status)) throw new Error(`实时入口响应异常或被缓存：${new URL(url).pathname}`);
+    console.log(`✅ 实时入口不读边缘缓存：${new URL(url).pathname} ${status || '无缓存状态头'}`);
   }
 }
 
@@ -164,8 +176,14 @@ async function main() {
   const root = path.resolve(__dirname, '..');
   if (process.argv[2] === 'prepare') return prepare(root);
   if (process.argv[2] === 'purge') return purge(JSON.parse(fs.readFileSync(path.join(root, PLAN), 'utf8')), process.env.CLOUDFLARE_CACHE_PURGE_TOKEN);
+  if (process.argv[2] === 'wait') {
+    const buildId = fs.readFileSync(path.join(root,'out/.build-id'),'utf8').trim();
+    await waitForOrigin(buildId);
+    console.log('✅ 直连站点已切换到新版构建 ' + buildId);
+    return;
+  }
   if (process.argv[2] === 'verify') return verify();
-  throw new Error('用法：node scripts/cloudflare-cache.js prepare|purge|verify');
+  throw new Error('用法：node scripts/cloudflare-cache.js prepare|purge|wait|verify');
 }
-module.exports = { urlsForFile, validateManifest, buildManifest, makePlan, prepare, waitForOrigin, purge, verify };
+module.exports = { urlsForFile, validateManifest, buildManifest, makePlan, prepare, waitForOrigin, purge, verify, deliveryMode };
 if (require.main === module) main().catch((error) => { console.error(`❌ ${error.message}`); process.exitCode = 1; });
