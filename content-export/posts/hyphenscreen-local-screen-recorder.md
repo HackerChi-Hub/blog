@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.9 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.0 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-11-01
-summary: Mac1.7.9让动画写入后逐次显示与保存，减少重复上下文，区分请求估算、实际输入和累计用量；安装版已自行验收，Windows与Linux保留1.7.8。
+summary: "Windows与Linux更新1.8.0，统一模型统计、核验动画交付并修复重复放置；Mac实际公开版本为1.7.9，各平台下载与验证范围见正文。"
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows / Linux 1.8.0
+
+Windows／Linux 1.8.0统一运行和完成后的模型统计，并按实际场景、片段与目标时间核验动画交付；未完成时最多自动补做两次，同场景同位置修正不再重复叠片。Windows全量4758项通过、21项按环境跳过；两平台包内资源与各10项MP4／GIF导出完整解码通过。Linux限WSL软件渲染；未安装应用或复测桌面录屏与模型质量。
 
 ## Windows / Linux 1.7.8
 
@@ -35,7 +39,7 @@ Windows／Linux也已本地构建至1.7.8，包含制作工作台、Poe动态目
 
 [单独播放1.7.9原生动画样片](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
 
-本轮全量4,751项回归通过，最后目录补修后161项定向检查通过；Mac安装文件、签名和映像校验通过。安装版界面已由我自行验证，确认正常。Mac更新到1.7.9，Windows与Linux继续提供实际公开的1.7.8；下载和SHA-256见文末，Poe、制作工作台、本地编排和录屏剪辑等既有能力保留。
+本轮全量4,751项回归通过，最后目录补修后161项定向检查通过；Mac安装文件、签名和映像校验通过。安装版界面已由我自行验证，确认正常。Mac更新到1.7.9，Windows与Linux继续提供实际公开的1.8.0；下载和SHA-256见文末，Poe、制作工作台、本地编排和录屏剪辑等既有能力保留。
 
 ## 1.7.8：看清动画怎么做，也能直接接入Poe
 
@@ -45,7 +49,7 @@ Poe也成为独立平台。在AI设置中选择Poe，填写自己的官方API密
 
 本地任务超时或触及输出上限后，下一次发送或点击“继续生成”会按需自动整理早期对话，不必先手动压缩。原始聊天和已写入工程的动画保留，摘要无效时继续使用原历史。独立测试中，模型使用的历史估算从6841降到1904词元，自动整理后继续回复成功；整个过程包含后续模型请求，并不是摘要本身的耗时测试。
 
-连接状态也不再计作思考文字。本地兼容服务的思考字段能正确读取；界面区分字符平均接收速度、对话文字估算和服务实际返回的词元。对话栏只有几百词元，并不代表工具定义和系统指引也只有这么多。动画聊天续作会沿用动画等待设置，MiniMax按所选区域读取官方最新目录。源码回归4742项通过、2项跳过。Mac已安装，609个文件及链接与构建产物一致，严格签名及品牌检查通过；正式安装版接口读回场景并导出3秒1080p30动画，完整解码通过。桌面读取凭据时遇到钥匙串认证，随后取屏工具报系统错误，最后的界面点击验收尚未完成。Windows／Linux保留实际1.7.8。
+连接状态也不再计作思考文字。本地兼容服务的思考字段能正确读取；界面区分字符平均接收速度、对话文字估算和服务实际返回的词元。对话栏只有几百词元，并不代表工具定义和系统指引也只有这么多。动画聊天续作会沿用动画等待设置，MiniMax按所选区域读取官方最新目录。源码回归4742项通过、2项跳过。Mac已安装，609个文件及链接与构建产物一致，严格签名及品牌检查通过；正式安装版接口读回场景并导出3秒1080p30动画，完整解码通过。桌面读取凭据时遇到钥匙串认证，随后取屏工具报系统错误，最后的界面点击验收尚未完成。Windows／Linux保留实际1.8.0。
 
 
 ## Windows / Linux 1.7.7
@@ -74,7 +78,7 @@ Windows／Linux也已本地构建至1.7.7，包含实时数据、上下文窗口
 
 “制作动画”弹窗也一起收了尾：等待设置从整条强调色横幅收成一行可展开的设置，关闭按钮从28像素无底色改成36像素带描边，并补上“连续长卷”的作用与细节控制说明——连续长卷是让所有分镜共享同一世界、镜头沿动作推进，细节仍由口播分段、时长和“自定义要求”决定。
 
-本轮全量4722项测试通过、2项跳过。Mac包426,788,073字节，SHA-256见下方下载表。正式安装版实测了入口、弹窗、上下文设置与跨标签保留；系统钥匙串提示在验收时选择了拒绝，没有改动既有凭据，因此安装版没有实跑模型生成。窗口探测与会话重启回读由单元测试覆盖，窗口探测覆盖方寸智匣、llama.cpp、vLLM 与 LM Studio 的返回形态。Windows与Linux保留1.7.8。
+本轮全量4722项测试通过、2项跳过。Mac包426,788,073字节，SHA-256见下方下载表。正式安装版实测了入口、弹窗、上下文设置与跨标签保留；系统钥匙串提示在验收时选择了拒绝，没有改动既有凭据，因此安装版没有实跑模型生成。窗口探测与会话重启回读由单元测试覆盖，窗口探测覆盖方寸智匣、llama.cpp、vLLM 与 LM Studio 的返回形态。Windows与Linux保留1.8.0。
 
 ## 1.7.0：导出水印换成自己的署名
 
@@ -211,7 +215,7 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.7.8，Windows与Linux提供1.7.8。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac提供1.8.0，Windows与Linux提供1.8.0。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
@@ -261,12 +265,12 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
 | Mac 苹果芯片 | 1.7.9，DMG 共 426,741,608 字节，约 427 MB |
-| Windows 10/11 x64 | 1.7.8，安装程序 409,531,045 字节，未签名 |
-| Linux x86_64 | 1.7.8，AppImage 608,613,916 字节；deb 523,242,780 字节；pacman 484,601,452 字节 |
+| Windows 10/11 x64 | 1.8.0，安装程序 409,554,611 字节，未签名 |
+| Linux x86_64 | 1.8.0，AppImage 608,626,644 字节；deb 523,237,668 字节；pacman 484,573,040 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
@@ -274,14 +278,14 @@ Mac 安装包的 SHA-256：
 3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
 ```
 
-Windows 与 Linux 1.7.8 的 SHA-256：
+Windows 与 Linux 1.8.0 的 SHA-256：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Windows 安装程序 | `8cceb6469b967c74f80956849bf5dc9cfc5f22899b99b29ece535cd3b0d930b9` |
-| Linux AppImage | `46356f2bad943fffbd702ea32a0175aa5d3864cdf3352d00164acb6f5648e192` |
-| Ubuntu／Debian deb | `eb033aea0a3fa358fac6e80c87b32b73ba3523725880147ce77c74a19aa5e226` |
-| Arch pacman | `cedcdafe0c70824ba41308859d6056f08934ccc3b9751abb38116c8060e393c5` |
+| Windows 安装程序 | `792892e1c1e68bb47ea63cf0f7f990c3454eb17b8c2caf48a576b78c1c4ec450` |
+| Linux AppImage | `ec13b065229d7f84b2a53399b6b15605637671cd3ec960842dbde7e06fffad93` |
+| Ubuntu／Debian deb | `f04d8f2f33236b8906cab9adf8cc23b0821bff6bd7d7ca4b229fed84df27917b` |
+| Arch pacman | `9a34c96b7379a9466464b6e97e14b1910c527aad5ee2cf7fedd6dadb90244f71` |
 
 Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
 
@@ -312,7 +316,7 @@ Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前Mac为1.7.8，Windows与Linux为1.7.8；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前Mac为1.8.0，Windows与Linux为1.8.0；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -459,7 +463,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac为1.7.8，Windows与Linux为1.7.8；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac为1.8.0，Windows与Linux为1.8.0；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断

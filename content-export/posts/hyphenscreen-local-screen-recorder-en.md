@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.7.9"
+title: "HyphenScreen: recording, editing and AI animation — version 1.8.0"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac 1.7.9 saves validated animation edits progressively, reduces repeated context and separates request estimates, actual input and cumulative usage. The installed UI was accepted by the author; Windows and Linux remain at 1.7.8.
+summary: "Windows/Linux 1.8.0 unifies model metrics and verifies animation delivery while preventing duplicate clips. Mac remains at its actual published version, 1.7.9; see downloads for platform scope."
 categories:
   - Resources
 tags:
@@ -16,6 +16,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows / Linux 1.8.0
+
+Windows/Linux 1.8.0 unifies running and completed model metrics and checks actual scenes, clips and target timing before reporting animation delivery. Incomplete work gets at most two completion retries; corrections at the same scene position no longer duplicate clips. Windows passed 4,758 tests with 21 environment-related skips. Packaged resources and ten native MP4/GIF exports per platform passed verification and full decoding. Linux uses WSL software rendering. Apps were not installed; desktop capture and model quality were not retested.
 
 ## Windows / Linux 1.7.8
 
@@ -45,7 +49,7 @@ Poe is now a dedicated provider in AI settings. Use your official API key and ch
 
 After a local timeout or output limit, the next message or Continue action compacts earlier history as needed without a separate manual step. The transcript and authored scenes remain intact, and an ineffective summary leaves the original history in place. In an independent local test, estimated history decreased from 6,841 to 1,904 tokens and the conversation continued successfully.
 
-Connection status is no longer counted as reasoning, and compatible local reasoning fields are read correctly. Average received characters per second, conversation estimates and provider-reported token usage are distinguished. Animation follow-ups retain their wait settings, and MiniMax reads its official live catalog. Source regression passed 4,742 tests with two skipped. The Mac app is installed: all 609 files and links match the build, with strict signature and branding checks passed. Its installed API read back a scene and exported a three-second 1080p30 animation with complete decoding verified. A keychain authorization wait followed by a system screen-capture error prevented final desktop click acceptance. Windows and Linux remain at the published 1.7.8.
+Connection status is no longer counted as reasoning, and compatible local reasoning fields are read correctly. Average received characters per second, conversation estimates and provider-reported token usage are distinguished. Animation follow-ups retain their wait settings, and MiniMax reads its official live catalog. Source regression passed 4,742 tests with two skipped. The Mac app is installed: all 609 files and links match the build, with strict signature and branding checks passed. Its installed API read back a scene and exported a three-second 1080p30 animation with complete decoding verified. A keychain authorization wait followed by a system screen-capture error prevented final desktop click acceptance. Windows and Linux remain at the published 1.8.0.
 
 
 ## Windows / Linux 1.7.7
@@ -74,7 +78,7 @@ Context is no longer capped at 20 messages. When the local endpoint reports its 
 
 The Create animation dialog was tidied as well: the wait settings collapsed into one quiet row, the close button grew from 28 to 36 px with a border, and continuous scroll now explains itself — one shared world and through-line objects with the camera following the action, while detail is still set by how you split the script, the duration and your custom requirements.
 
-This round passed 4,722 tests with two skipped. The Mac package is 426,788,073 bytes (SHA-256 below). The installed build was checked for the entry, the dialog, the context settings and keeping the panel across tabs; the system keychain prompt was declined during verification, so no model generation ran in the installed app. Window detection and session reload are covered by unit tests, including the 方寸智匣, llama.cpp, vLLM and LM Studio response shapes. Windows and Linux remain at 1.7.8.
+This round passed 4,722 tests with two skipped. The Mac package is 426,788,073 bytes (SHA-256 below). The installed build was checked for the entry, the dialog, the context settings and keeping the panel across tabs; the system keychain prompt was declined during verification, so no model generation ran in the installed app. Window detection and session reload are covered by unit tests, including the 方寸智匣, llama.cpp, vLLM and LM Studio response shapes. Windows and Linux remain at 1.8.0.
 
 ## 1.7.0: put your own signature on exports
 
@@ -193,7 +197,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.7.8; Windows and Linux offer 1.7.8. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.8.0; Windows and Linux offer 1.8.0. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -226,11 +230,11 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
 - Apple Silicon Mac: **1.7.9**, DMG **426,741,608 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.7.8**, installer **409,531,045 bytes**, unsigned.
-- Linux x86_64: **1.7.8** in AppImage (**608,613,916 bytes**), deb (**523,242,780 bytes**) and pacman (**484,601,452 bytes**) formats.
+- Windows 10/11 x64: **1.8.0**, installer **409,554,611 bytes**, unsigned.
+- Linux x86_64: **1.8.0** in AppImage (**608,626,644 bytes**), deb (**523,237,668 bytes**) and pacman (**484,573,040 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Download Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Download Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
@@ -238,14 +242,14 @@ Mac package SHA-256:
 3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
 ```
 
-SHA-256 checksums for Windows and Linux 1.7.8:
+SHA-256 checksums for Windows and Linux 1.8.0:
 
 | Package | SHA-256 |
 | --- | --- |
-| Windows installer | `8cceb6469b967c74f80956849bf5dc9cfc5f22899b99b29ece535cd3b0d930b9` |
-| Linux AppImage | `46356f2bad943fffbd702ea32a0175aa5d3864cdf3352d00164acb6f5648e192` |
-| Ubuntu/Debian deb | `eb033aea0a3fa358fac6e80c87b32b73ba3523725880147ce77c74a19aa5e226` |
-| Arch pacman | `cedcdafe0c70824ba41308859d6056f08934ccc3b9751abb38116c8060e393c5` |
+| Windows installer | `792892e1c1e68bb47ea63cf0f7f990c3454eb17b8c2caf48a576b78c1c4ec450` |
+| Linux AppImage | `ec13b065229d7f84b2a53399b6b15605637671cd3ec960842dbde7e06fffad93` |
+| Ubuntu/Debian deb | `f04d8f2f33236b8906cab9adf8cc23b0821bff6bd7d7ca4b229fed84df27917b` |
+| Arch pacman | `9a34c96b7379a9466464b6e97e14b1910c527aad5ee2cf7fedd6dadb90244f71` |
 
 The Windows package passed native component checks and byte checks for 331 packaging resources. Windows and Linux each generated all four layouts from synthetic material, with complete video and audio decoding. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 

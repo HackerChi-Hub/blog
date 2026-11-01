@@ -1,12 +1,12 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.7.9 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.8.0 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac1.7.9讓動畫寫入後逐次顯示與儲存，減少重複上下文，區分請求估算、實際輸入及累計用量；安裝版已自行驗收，Windows與Linux維持1.7.8。
+summary: "Windows與Linux更新1.8.0，統一模型統計、核驗動畫交付並修復重複放置；Mac實際公開版本為1.7.9，下載及驗證範圍見正文。"
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows / Linux 1.8.0
+
+Windows／Linux 1.8.0統一執行及完成後的模型統計，依實際場景、片段及目標時間核對動畫交付；未完成最多自動補做兩次，同場景同位置不再重複疊片。Windows全量4758項通過、21項依環境跳過；兩平台包內資源及各10項MP4／GIF匯出完整解碼通過。Linux限WSL軟體渲染；未安裝應用程式或重測桌面錄製及模型品質。
 
 ## Windows / Linux 1.7.8
 
@@ -35,7 +39,7 @@ Windows／Linux已在本機建置至1.7.8，包含製作工作台、Poe動態目
 
 [單獨播放1.7.9原生動畫樣片](/obsidian-assets/hyphenscreen-local-screen-recorder/paper-animation-179.mp4)
 
-同一45圖層、3秒場景在新舊安裝版匯出的90影格逐格一致。完整回歸4,751項通過，最後目錄補修後161項定向檢查通過，安裝文件、簽章及映像核對通過；安裝版介面已由我自行驗收確認正常。Mac更新至1.7.9，Windows／Linux維持實際公開1.7.8，既有功能與舊圖保留。
+同一45圖層、3秒場景在新舊安裝版匯出的90影格逐格一致。完整回歸4,751項通過，最後目錄補修後161項定向檢查通過，安裝文件、簽章及映像核對通過；安裝版介面已由我自行驗收確認正常。Mac更新至1.7.9，Windows／Linux維持實際公開1.8.0，既有功能與舊圖保留。
 
 ## 1.7.8：看清動畫怎麼做，也能直接連接Poe
 
@@ -45,7 +49,7 @@ AI設定新增獨立Poe平台，使用官方API密鑰和即時目錄，篩選文
 
 本機任務逾時或達到輸出上限後，下一次傳送或點選「繼續產生」前按需自動整理早期對話，不必先手動壓縮。原始聊天及已寫入動畫保留，摘要無效時沿用原歷史。獨立實測的模型歷史估算由6841降至1904詞元，整理後繼續回覆成功。
 
-連線狀態不再算作思考，並支援本機思考欄位。字元平均接收速度、對話估算與服務回報詞元分開呈現。動畫續作沿用等待設定，MiniMax讀取官方即時目錄。原始碼回歸4742項通過、2項略過。Mac已安裝，609個檔案與連結均符合建置產物，嚴格簽署及品牌檢查通過；正式安裝版介面讀回場景並匯出3秒1080p30動畫，完整解碼通過。桌面讀取憑證時遇到鑰匙圈認證，隨後擷取畫面工具回報系統錯誤，最後的介面點擊驗收尚未完成。Windows／Linux保留實際1.7.8。
+連線狀態不再算作思考，並支援本機思考欄位。字元平均接收速度、對話估算與服務回報詞元分開呈現。動畫續作沿用等待設定，MiniMax讀取官方即時目錄。原始碼回歸4742項通過、2項略過。Mac已安裝，609個檔案與連結均符合建置產物，嚴格簽署及品牌檢查通過；正式安裝版介面讀回場景並匯出3秒1080p30動畫，完整解碼通過。桌面讀取憑證時遇到鑰匙圈認證，隨後擷取畫面工具回報系統錯誤，最後的介面點擊驗收尚未完成。Windows／Linux保留實際1.8.0。
 
 
 ## Windows / Linux 1.7.7
@@ -74,7 +78,7 @@ Windows／Linux已在本機建置至1.7.7，包含即時資料、上下文偵測
 
 「製作動畫」彈窗也一併收尾：等待設定從整條強調色橫幅收成一行可展開設定，關閉按鈕從28像素改為36像素並加上描邊，並補上「連續長卷」的作用與細節控制說明——連續長卷讓所有分鏡共用同一世界、鏡頭沿動作推進，細節仍由口播分段、時長與「自訂要求」決定。
 
-本輪全量4722項測試通過、2項略過。Mac 套件426,788,073位元組，SHA-256見下方下載表。正式安裝版實測入口、彈窗、上下文設定與跨分頁保留；系統鑰匙圈提示在驗收時選擇拒絕，未改動既有憑證，因此安裝版沒有實跑模型生成。視窗偵測與工作階段重啟回讀由單元測試覆蓋，涵蓋方寸智匣、llama.cpp、vLLM 與 LM Studio 的回傳形態。Windows 與 Linux 保留1.7.8。
+本輪全量4722項測試通過、2項略過。Mac 套件426,788,073位元組，SHA-256見下方下載表。正式安裝版實測入口、彈窗、上下文設定與跨分頁保留；系統鑰匙圈提示在驗收時選擇拒絕，未改動既有憑證，因此安裝版沒有實跑模型生成。視窗偵測與工作階段重啟回讀由單元測試覆蓋，涵蓋方寸智匣、llama.cpp、vLLM 與 LM Studio 的回傳形態。Windows 與 Linux 保留1.8.0。
 
 ## 1.7.0：匯出浮水印換成自己的署名
 
@@ -195,7 +199,7 @@ Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒�
 
 開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
 
-包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.7.8，Windows與Linux提供1.7.8；大小及校驗值依下方發行資料為準。
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.8.0，Windows與Linux提供1.8.0；大小及校驗值依下方發行資料為準。
 
 正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
 
@@ -228,11 +232,11 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
 - Mac 蘋果晶片目前為 **1.7.9**，DMG **426,741,608 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows 10/11 x64 目前為 **1.7.8**，安裝程式 **409,531,045 位元組**，未簽署。
-- Linux x86_64 目前為 **1.7.8**：AppImage **608,613,916 位元組**、deb **523,242,780 位元組**、pacman **484,601,452 位元組**。
+- Windows 10/11 x64 目前為 **1.8.0**，安裝程式 **409,554,611 位元組**，未簽署。
+- Linux x86_64 目前為 **1.8.0**：AppImage **608,626,644 位元組**、deb **523,237,668 位元組**、pacman **484,573,040 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[下載Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下載Mac 1.7.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包的 SHA-256：
 
@@ -240,14 +244,14 @@ Mac 安裝包的 SHA-256：
 3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51
 ```
 
-Windows 與 Linux 1.7.8 的 SHA-256：
+Windows 與 Linux 1.8.0 的 SHA-256：
 
 | 安裝包 | SHA-256 |
 | --- | --- |
-| Windows 安裝程式 | `8cceb6469b967c74f80956849bf5dc9cfc5f22899b99b29ece535cd3b0d930b9` |
-| Linux AppImage | `46356f2bad943fffbd702ea32a0175aa5d3864cdf3352d00164acb6f5648e192` |
-| Ubuntu／Debian deb | `eb033aea0a3fa358fac6e80c87b32b73ba3523725880147ce77c74a19aa5e226` |
-| Arch pacman | `cedcdafe0c70824ba41308859d6056f08934ccc3b9751abb38116c8060e393c5` |
+| Windows 安裝程式 | `792892e1c1e68bb47ea63cf0f7f990c3454eb17b8c2caf48a576b78c1c4ec450` |
+| Linux AppImage | `ec13b065229d7f84b2a53399b6b15605637671cd3ec960842dbde7e06fffad93` |
+| Ubuntu／Debian deb | `f04d8f2f33236b8906cab9adf8cc23b0821bff6bd7d7ca4b229fed84df27917b` |
+| Arch pacman | `9a34c96b7379a9466464b6e97e14b1910c527aad5ee2cf7fedd6dadb90244f71` |
 
 Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux各完成四版面合成素材產生及音畫完整解碼；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
 
