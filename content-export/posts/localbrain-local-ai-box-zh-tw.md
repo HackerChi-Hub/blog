@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-01
-summary: "Windows/Linux2.2.4保留啟動錯誤並修正內部模組升級；已驗證舊模組遷移與2B請求。Mac2.2.4與Pika獨立驗收保留，Pika目前不適用Windows/Linux。"
+updated: 2026-11-02
+summary: "Mac2.2.7將H3四步/八步、LTX Transition與Layout統一到探索頁和影片工作台，四項安裝版超短呼叫通過，支援外接磁碟、暫停續傳及檔案重用。Windows/Linux保持2.2.4，保留Pika舊實測。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,58 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.7：選好模型，再選影片功能
+
+影片增強現在共用同一流程：先於探索頁準備模型與可選功能，進入對話後選模型、生成方式、增強和參數，最後點「產生影片」。H3四步、八步加速放在MiniMax H3八位模型下；Transition首尾影格過渡、Layout預演轉成片放在LTX-2.5下。一般生成保留，H3加速預設關閉。
+
+![探索頁 H3 加速](/obsidian-assets/localbrain-local-ai-box/discover-h3.jpg)
+
+![探索頁 LTX 功能](/obsidian-assets/localbrain-local-ai-box/discover-ltx.jpg)
+
+四項功能重用兩個基礎模型。已有完整H3八位轉換檔時，可跳過約41.4GB原始骨幹。先選擇模型目錄或使用既有檔案；新使用者先核對安裝清單中缺少的共用檔案、適配器及環境。模型、轉換、快取與影片隨所選目錄保存，支援外接磁碟、暫停、續傳及固定摘要校驗；安裝不會自動生成。
+
+1. 在探索頁連接MiniMax H3八位或LTX-2.5既有目錄，安裝或啟用需要的功能。
+2. 點「前往使用」，於統一工作台先選模型；H3選一般取樣、四步或八步，LTX選一般文字、首尾影格過渡或預演轉成片。
+3. Transition提供首尾兩圖；Layout提供24影格/秒、等長預演及同構圖外觀圖，再設定畫幅、影格數與種子。
+4. 生成完成後預覽、定位檔案或引用到對話，並由回執核對實際參數、用時及日誌。
+
+Layout需要官方存取權及本機Hugging Face權杖，軟體不代為同意帳號資訊共享條款。匯入檔案只建立引用，關閉增強保留檔案；解除安裝僅處理軟體下載且登記的適配器，保留共用基模、環境、輸入與影片。既有工作占用時不自動停止其他模型。不重下載Pika，不暗自降低畫幅或解碼精度。
+
+### 四項安裝版短片實測
+
+M5 Pro、64GB，從安裝版2.2.7原生介面逐項生成，同一句玩具小車提示詞、種子22704、24影格/秒。約一秒小樣確認呼叫，不代表五秒720P速度；MLX峰值為活動配置，不是整機記憶體。
+
+|功能|實際輸出|用時|MLX活動峰值|
+|---|---|---:|---:|
+|H3四步|256×256，22影格，約0.92秒|21.56秒|25.63 GiB|
+|H3八步|256×256，22影格，約0.92秒|25.96秒|25.63 GiB|
+|Transition|384×256，25影格，約1.04秒|27.61秒|21.81 GiB|
+|Layout|384×256，25影格，約1.04秒|33.28秒|24.57 GiB|
+
+![H3 四步實測影格](/obsidian-assets/localbrain-local-ai-box/h3-4-contact.jpg)
+
+![H3 八步實測影格](/obsidian-assets/localbrain-local-ai-box/h3-8-contact.jpg)
+
+H3分別執行四次、八次真實前向計算，208層匹配，完整32位影片解碼。減少取樣計算不保證所有內容細節都等同一般取樣。
+
+![Transition 實測影格](/obsidian-assets/localbrain-local-ai-box/transition-contact.jpg)
+
+Transition採2.3適配器搭配2.5八位蒸餾基模的相容配方，576對匹配，非原生2.3全功能驗收。
+
+![Layout 實測影格](/obsidian-assets/localbrain-local-ai-box/layout-contact.jpg)
+
+Layout使用明確準備的25影格預演，保留原81影格素材；480對適配層匹配，完成兩階段控制。輸入須與請求等長，不自動截短或變速。四段影片及音訊解碼、畫幅與影格數核對通過，保留原音軌；有音軌不等於聲量、台詞和音畫同步已完成聽感驗收。高解析度、長片與複雜場景仍需另測。
+
+### 下載與安裝核對
+
+Apple Silicon Mac2.2.7 DMG為92,790,171位元組，約92.8MB。構建、映像及安裝的15,652項檔案、權限與連結一致，應用程式、更新簽章及映像校驗通過；本機簽章，未Apple公證。Rust474項、前端1660項通過，另有明確略過項；Python49檔通過。未重下載全部大型基模驗收全新機器，亦未在Windows/Linux驗收影片推論。
+
+[下載 Mac 2.2.7（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.7/LocalBrain_2.2.7_aarch64.dmg) · [完整下載與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest) · [驗收記錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.7-MAC.md)
+
+SHA-256：`a0eea9853c6f5c8f8ff142749257c6ae4e5b426bb1a75f0646c21a9f3523c89f`。
+
+本輪只更新Mac，Windows/Linux保持2.2.4。下文保留各版當時說明與舊圖，不將歷史條件當成本輪新成績。
 
 ## Windows / Linux 2.2.4：保留啟動錯誤原因，修正內部工具升級
 
