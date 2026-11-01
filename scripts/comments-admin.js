@@ -109,12 +109,12 @@ function requireToken() {
   process.exit(1);
 }
 
-// 只读重试使用系统 curl：避开 Node fetch 独立的底层连接超时。
+// 只读查询优先使用系统 curl 的 IPv4 路径：避开 Node fetch 独立的底层连接超时。
 // 口令经标准输入传入，不进入进程参数；不跟随重定向、不关闭证书校验。
 function readWithCurl(url, timeoutMs) {
   return new Promise((resolve, reject) => {
     const child = require('node:child_process').execFile('curl', [
-      '-q', '--silent', '--show-error', '--proto', '=https,http',
+      '-q', '--ipv4', '--silent', '--show-error', '--proto', '=https,http',
       '--connect-timeout', String(timeoutMs / 1000), '--max-time', String(timeoutMs / 1000),
       '--header', '@-', '--write-out', '\n%{http_code}', url,
     ], { timeout: timeoutMs + 1000, maxBuffer: 2 * 1024 * 1024 }, (error, stdout) => {
@@ -143,7 +143,7 @@ async function api(pathSuffix, options = {}) {
   for (let attempt = 0; attempt < attempts; attempt++) {
    try {
     const signal = AbortSignal.timeout(timeoutMs);
-    const response = readOnly && attempt > 0
+    const response = readOnly
       ? await readWithCurl(`${API_BASE}${pathSuffix}`, timeoutMs)
       : await fetch(`${API_BASE}${pathSuffix}`, {
     ...options,
@@ -351,15 +351,26 @@ async function main() {
 
   switch (command) {
     case undefined:
-      // 同时请求，按固定顺序输出，避免三次串行等待。
+      // 同时请求、分别显示。一个板块超时不能抹掉其它已成功返回的结果。
       {
-        const [stats, recent, tea] = await Promise.all([
+        const sections = await Promise.allSettled([
           api('/admin/stats'), api('/admin/recent?limit=10'), api('/admin/recent?limit=30&slug=teahouse'),
         ]);
-        await cmdStats({ json: false, data: stats });
-        await cmdList({ limit: 10, json: false, data: recent });
-        console.log(bold('\n黑粉茶馆专栏（实时读取，不另存副本）'));
-        return cmdList({ limit: 30, json: false, slug: BOARD_SLUG, data: tea });
+        const labels = ['留言总览', '最近留言', '黑粉茶馆'];
+        for (const [index, section] of sections.entries()) {
+          if (section.status === 'rejected') {
+            console.error(yellow(`${labels[index]}暂未读取成功：${section.reason.message}；其它已成功结果照常显示。`));
+            process.exitCode = 1;
+            continue;
+          }
+          if (index === 0) await cmdStats({ json: false, data: section.value });
+          else if (index === 1) await cmdList({ limit: 10, json: false, data: section.value });
+          else {
+            console.log(bold('\n黑粉茶馆专栏（实时读取，不另存副本）'));
+            await cmdList({ limit: 30, json: false, slug: BOARD_SLUG, data: section.value });
+          }
+        }
+        return;
       }
     case 'tea':
     case 'teahouse':

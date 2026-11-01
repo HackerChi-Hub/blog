@@ -10,11 +10,13 @@ let delayNext = 0;
 let denyNext = false;
 let malformedNext = false;
 let incompleteNext = false;
+let deniedPath = '';
 const fixture = { id: 42, slug: 'teahouse', nickname: '验收访客', content: encodeBoardMessage('测试正文', 'feedback', 'sample'), status: 'visible', created_at: Date.now(), ip_hash: 'must-not-print' };
 const server = http.createServer((req, res) => {
   requests.push(req.url);
   if (dropNext) { dropNext = false; req.socket.destroy(); return; }
   assert.equal(req.headers.authorization, 'Bearer isolated-test-token');
+  if (deniedPath && req.url.includes(deniedPath)) { res.writeHead(401, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: '未认证' })); return; }
   if (denyNext) { denyNext = false; res.writeHead(401, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: '未认证' })); return; }
   if (malformedNext) { malformedNext = false; res.end('{'); return; }
   if (incompleteNext) { incompleteNext = false; res.end('{}'); return; }
@@ -67,5 +69,12 @@ const server = http.createServer((req, res) => {
   dropNext = true;
   await assert.rejects(invoke(['hide', '42']));
   assert.equal(requests.length, 1, '写操作连接失败不自动重发');
+  deniedPath = '/admin/recent?limit=30';
+  await assert.rejects(invoke([]), error => {
+    assert(error.stdout.includes('留言总览'), '茶馆读取失败仍显示成功的统计');
+    assert(error.stdout.includes('测试正文'), '茶馆读取失败仍显示成功的最近留言');
+    assert(error.stderr.includes('黑粉茶馆暂未读取成功'), '失败板块须明确标记，不伪装全部成功');
+    return true;
+  });
   console.log('✅ 管理命令回归通过：总览、茶馆实时读取、话题解码、隐私输出、慢响应容错、只读重试及写入不重发');
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

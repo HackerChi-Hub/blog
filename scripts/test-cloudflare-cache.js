@@ -4,7 +4,7 @@ const assert = require('assert/strict');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { urlsForFile, validateManifest, buildManifest, makePlan, prepare, purge, verify } = require('./cloudflare-cache');
+const { urlsForFile, validateManifest, buildManifest, makePlan, prepare, purge, verify, waitForOrigin } = require('./cloudflare-cache');
 const origin = 'https://hyphentech.top';
 const hash = (s) => s.repeat(64);
 const manifest = (files) => ({ version: 1, origin, files });
@@ -45,8 +45,17 @@ async function main() {
   await assert.rejects(() => purge(plan, 'test-only', async (url) => {
     if (!url.includes('/.build-id?')) writes++;
     return { ok: true, status: 200, text: 'old' };
-  }, async () => {}), /尚未实际上线/);
+  }, async () => {}), /目标构建/);
   assert.equal(writes, 0);
+  let directChecks = 0;
+  await waitForOrigin(plan.buildId, async () => ({ ok:true, text:++directChecks > 40 ? plan.buildId : 'old' }), async () => {}, { timeoutMs:480000 });
+  assert.equal(directChecks, 41, '直连模式允许 Pages 排队超过原三分钟窗口，仍须匹配目标版本');
+  let wrongChecks = 0;
+  await assert.rejects(() => waitForOrigin(plan.buildId, async () => {
+    wrongChecks++;
+    return { ok:true, text:'wrong-build' };
+  }, async () => {}, { timeoutMs:10000 }), /目标构建/);
+  assert.equal(wrongChecks, 2, '等待有上限，不把其它构建当成功');
   await assert.rejects(() => purge(plan, 'test-only', async (url) => url.includes('/.build-id?')
     ? { ok: true, status: 200, text: plan.buildId }
     : { ok: true, status: 200, text: '{"success":false}' }, async () => {}), /刷新失败/);
@@ -82,6 +91,7 @@ async function main() {
   const workflow = fs.readFileSync(path.join(__dirname, '../.github/workflows/deploy.yml'), 'utf8');
   assert.ok(workflow.indexOf('cloudflare-cache.js prepare') < workflow.indexOf('name: Deploy to gh-pages'));
   assert.ok(workflow.indexOf('cloudflare-cache.js purge') < workflow.indexOf('name: Verify live pages'));
+  assert.match(workflow, /name: Wait for direct Pages deployment[\s\S]*?timeout-minutes: 10/);
   console.log('✅ 缓存发布回归通过：域名限制、新版等待、删除回收、图片热缓存保留、批次限流、缺凭据与失败关闭');
 }
 main().catch((error) => { console.error(error); process.exitCode = 1; });

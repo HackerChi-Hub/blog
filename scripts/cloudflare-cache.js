@@ -99,15 +99,16 @@ async function prepare(root = path.resolve(__dirname, '..'), fetcher = request) 
   return plan;
 }
 
-async function waitForOrigin(buildId, fetcher = request, sleep = pause) {
-  for (let attempt = 0; attempt < 36; attempt++) {
+async function waitForOrigin(buildId, fetcher = request, sleep = pause, { timeoutMs = 180000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  for (let attempt = 0; attempt < Math.ceil(timeoutMs / 5000) && Date.now() < deadline; attempt++) {
     try {
       const live = await fetcher(`${ORIGIN}/.build-id?deployment=${encodeURIComponent(buildId)}`);
       if (live.ok && live.text.trim() === buildId) return;
     } catch { /* 瞬时网络错误继续等待，绝不提前清缓存。 */ }
-    await sleep(5000);
+    await sleep(Math.min(5000, Math.max(0, deadline - Date.now())));
   }
-  throw new Error('新版尚未实际上线，拒绝提前清除缓存');
+  throw new Error('等待窗口内未读到目标构建；请核对部署状态，不要据此重复发布文章或提前清缓存');
 }
 
 async function purge(plan, token, fetcher = request, sleep = pause) {
@@ -178,7 +179,9 @@ async function main() {
   if (process.argv[2] === 'purge') return purge(JSON.parse(fs.readFileSync(path.join(root, PLAN), 'utf8')), process.env.CLOUDFLARE_CACHE_PURGE_TOKEN);
   if (process.argv[2] === 'wait') {
     const buildId = fs.readFileSync(path.join(root,'out/.build-id'),'utf8').trim();
-    await waitForOrigin(buildId);
+    // gh-pages 推送之后还有 Pages 独立部署排队，不能把三分钟未确认等同于未上线。
+    // 仅直连等待放宽到八分钟；工作流十分钟上限留给请求超时与清理。
+    await waitForOrigin(buildId, request, pause, { timeoutMs: 480000 });
     console.log('✅ 直连站点已切换到新版构建 ' + buildId);
     return;
   }
