@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.7.7"
+title: "HyphenScreen: recording, editing and AI animation — version 1.7.8"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac 1.7.7 corrects the turn metrics and raises the per-response output cap to 20,000 tokens for Anthropic-wire models and 32,768 for local ones, keeping partial work on truncation. Windows and Linux are at 1.7.7.
+summary: Mac 1.7.8 adds the production workbench, the official Poe model catalog and automatic local recovery compaction, with corrected reasoning and usage labels. Windows and Linux remain at the published 1.7.7.
 categories:
   - Resources
 tags:
@@ -16,6 +16,17 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.7.8: inspect animation work and connect Poe directly
+
+The production workbench shows the current stage first. Expand it for timestamped tool records, native scene structures, arguments and returned results, with copyable previews. Scene writes report their actual layer count and duration; writing a scene, exporting it and checking playback remain separate steps.
+
+Poe is now a dedicated provider in AI settings. Use your official API key and choose from the live catalog filtered for text output and tool calling. Reading the catalog does not issue paid generation probes; test the selected model to verify account access. A real Poe account completed tool round trips and a three-second, two-layer native scene with readback. The small test model initially guessed invalid internal style IDs; explicitly reading the catalog first resolved that attempt. Complex work still depends on the model and the request.
+
+After a local timeout or output limit, the next message or Continue action compacts earlier history as needed without a separate manual step. The transcript and authored scenes remain intact, and an ineffective summary leaves the original history in place. In an independent local test, estimated history decreased from 6,841 to 1,904 tokens and the conversation continued successfully.
+
+Connection status is no longer counted as reasoning, and compatible local reasoning fields are read correctly. Average received characters per second, conversation estimates and provider-reported token usage are distinguished. Animation follow-ups retain their wait settings, and MiniMax reads its official live catalog. Source regression passed 4,742 tests with two skipped. The Mac app is installed: all 609 files and links match the build, with strict signature and branding checks passed. Its installed API read back a scene and exported a three-second 1080p30 animation with complete decoding verified. A keychain authorization wait followed by a system screen-capture error prevented final desktop click acceptance. Windows and Linux remain at the published 1.7.7.
+
 
 ## Windows / Linux 1.7.7
 
@@ -194,17 +205,17 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.7.7**, DMG **426,788,073 bytes**, locally signed and not Apple-notarized.
+- Apple Silicon Mac: **1.7.8**, DMG **426,768,817 bytes**, locally signed and not Apple-notarized.
 - Windows 10/11 x64: **1.7.7**, installer **409,490,970 bytes**, unsigned.
 - Linux x86_64: **1.7.7** in AppImage (**608,597,408 bytes**), deb (**523,227,828 bytes**) and pacman (**484,531,796 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
 ```text
-8e8469c87985a3d1146750cb5b160b9a5ec5234f00413ea3dbf073b919a8c080
+9ffb8491bd20842abcbda6728cc2cab4568c4d37439369f17b4733aa643f01e8
 ```
 
 SHA-256 checksums for Windows and Linux 1.7.7:

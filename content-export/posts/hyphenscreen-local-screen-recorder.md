@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.7 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.7.8 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-11-01
-summary: Mac1.7.7修正实时数据口径，并把Anthropic接口与本地模型的单次输出上限提高到20000／32768词元，截断时保留已有内容；对话仍保留过程、思考与可继续的未完成回合。Windows与Linux为1.7.7。
+summary: Mac1.7.8新增制作工作台、Poe官方模型目录与本地续作自动整理，修正思考及用量口径；Windows与Linux保留实际公开1.7.7。
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,17 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.7.8：看清动画怎么做，也能直接接入Poe
+
+动画已经写进时间线，聊天里却还在等待，最容易让人以为整个任务卡住了。这一版把制作过程收成一个工作台：先看当前阶段，需要细查再展开工具记录。模型提交的原生场景结构、工具参数、返回结果都能查看和复制，场景写入后继续报告实际图层数与时长。参数预览表示模型打算做什么，工具结果才表示实际做了什么；导出与播放仍分别检查。
+
+Poe也成为独立平台。在AI设置中选择Poe，填写自己的官方API密钥，再从实时目录选择模型。软件按文字输出、工具能力和支持端点筛选，不把图片或视频机器人混进剪辑模型列表；读目录不消耗生成请求。当前账号能否使用某个型号，可以点击“测试连接与工具调用”确认。我这次用实际Poe账号完成工具往返，并做出一个3秒、2图层的原生场景。小型测试模型曾猜错内部风格编号；先明确读取目录后完成，复杂作品仍需要合适的模型和具体要求。
+
+本地任务超时或触及输出上限后，下一次发送或点击“继续生成”会按需自动整理早期对话，不必先手动压缩。原始聊天和已写入工程的动画保留，摘要无效时继续使用原历史。独立测试中，模型使用的历史估算从6841降到1904词元，自动整理后继续回复成功；整个过程包含后续模型请求，并不是摘要本身的耗时测试。
+
+连接状态也不再计作思考文字。本地兼容服务的思考字段能正确读取；界面区分字符平均接收速度、对话文字估算和服务实际返回的词元。对话栏只有几百词元，并不代表工具定义和系统指引也只有这么多。动画聊天续作会沿用动画等待设置，MiniMax按所选区域读取官方最新目录。源码回归4742项通过、2项跳过。Mac已安装，609个文件及链接与构建产物一致，严格签名及品牌检查通过；正式安装版接口读回场景并导出3秒1080p30动画，完整解码通过。桌面读取凭据时遇到钥匙串认证，随后取屏工具报系统错误，最后的界面点击验收尚未完成。Windows／Linux保留实际1.7.7。
+
 
 ## Windows / Linux 1.7.7
 
@@ -182,7 +193,7 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac 1.7.7；Windows／Linux 1.7.7
+> 黑粉录屏 HyphenScreen · Mac 1.7.8；Windows／Linux 1.7.7
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-10-29
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -227,18 +238,18 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 | 当前下载 | 实际版本与文件 |
 | --- | --- |
-| Mac 苹果芯片 | 1.7.7，DMG 共 426,788,073 字节，约 427 MB |
+| Mac 苹果芯片 | 1.7.8，DMG 共 426,768,817 字节，约 427 MB |
 | Windows 10/11 x64 | 1.7.7，安装程序 409,490,970 字节，未签名 |
 | Linux x86_64 | 1.7.7，AppImage 608,597,408 字节；deb 523,227,828 字节；pacman 484,531,796 字节 |
 | 签名 | Mac 使用本机证书签名，未经过苹果公证；其他平台以各自发行说明为准 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_arm64.dmg) · [Windows 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安装包的 SHA-256：
 
 ```text
-8e8469c87985a3d1146750cb5b160b9a5ec5234f00413ea3dbf073b919a8c080
+9ffb8491bd20842abcbda6728cc2cab4568c4d37439369f17b4733aa643f01e8
 ```
 
 Windows 与 Linux 1.7.7 的 SHA-256：
