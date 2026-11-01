@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-01T04:47:49.521Z",
-  "contentHash": "d36d287b288770c25895134316a4f3f0aae9eaf59ee746edadb11dca501de97b",
+  "checkedAt": "2026-11-01T05:26:05.291Z",
+  "contentHash": "36f9183684593bf89b3ad8b5f0121c4333d6e120365eda594c17ca718548d154",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T04:47:49.521Z",
+      "checkedAt": "2026-11-01T05:26:05.291Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T04:47:49.521Z",
+      "checkedAt": "2026-11-01T05:26:05.291Z",
       "prerelease": false,
       "releaseNotesHash": "847e7eef041d45ccf8b9465c65af085adf409824da52512c351d4991aa97af24",
       "revision": "bd3adc5d8bf9b95acb572941e483c0fa9e8709d44365c4a09474a491b57a2fab"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T04:47:49.521Z",
+      "checkedAt": "2026-11-01T05:26:05.291Z",
       "prerelease": false,
       "releaseNotesHash": "9243cc20193999583c72a9e6bbda4e38aea8cfba9eb531768936ca70cca338a5",
       "revision": "57cc8f640f147f5e29d7920f41346bd00b1614cb8663e8963e327b62b1387b77"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T04:47:49.521Z",
+      "checkedAt": "2026-11-01T05:26:05.291Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,9 +389,9 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "Mac版新增Poe平台、制作工作台和本地续作自动整理，并修复动画聊天续作的等待策略与MiniMax模型目录读取。 开发验证：4742项回归通过、2项跳过；应用与测试类型检查、多语言键核对及生产构建通过。真实Poe模型完成工具往返，以及3秒、2图层、1片段的原生动画与读回；本地模型完成同规格场景和自动摘要续作。小型模型曾猜错风格编号，明…",
+      "updateSummary": "本版新增Poe平台、制作工作台和本地续作自动整理，并修复动画聊天续作的等待策略与MiniMax模型目录读取。 开发验证：4742项回归通过、2项跳过；应用与测试类型检查、多语言键核对及生产构建通过。真实Poe模型完成工具往返，以及3秒、2图层、1片段的原生动画与读回；本地模型完成同规格场景和自动摘要续作。小型模型曾猜错风格编号，明确先…",
       "updated": "2026-11-01",
-      "activityAt": "2026-11-01T04:38:49Z",
+      "activityAt": "2026-11-01T05:18:23Z",
       "version": "1.7.8",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.8",
       "source": "release",
@@ -414,49 +414,49 @@
         },
         {
           "platform": "Windows",
-          "version": "1.7.7",
+          "version": "1.7.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.7_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe",
-              "id": 697103015,
-              "size": 409490970,
-              "updatedAt": "2026-11-01T02:34:36Z",
-              "digest": "sha256:c0dfa0c37c2dc12c73e3885d41b89e2b80ea6b89d37ba0194a238cc1247d27f6"
+              "name": "HyphenScreen_1.7.8_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x64-setup.exe",
+              "id": 697396362,
+              "size": 409531045,
+              "updatedAt": "2026-11-01T05:17:17Z",
+              "digest": "sha256:8cceb6469b967c74f80956849bf5dc9cfc5f22899b99b29ece535cd3b0d930b9"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.7.7",
+          "version": "1.7.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.7_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb",
-              "id": 697103011,
-              "size": 523227828,
-              "updatedAt": "2026-11-01T02:35:29Z",
-              "digest": "sha256:2960087f6092b52a1e94d1751963e41cdeea0f920f2738e7473afe2cf25a76ed"
+              "name": "HyphenScreen_1.7.8_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_amd64.deb",
+              "id": 697396360,
+              "size": 523242780,
+              "updatedAt": "2026-11-01T05:18:07Z",
+              "digest": "sha256:eb033aea0a3fa358fac6e80c87b32b73ba3523725880147ce77c74a19aa5e226"
             },
             {
-              "name": "HyphenScreen_1.7.7_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage",
-              "id": 697103012,
-              "size": 608597408,
-              "updatedAt": "2026-11-01T02:35:47Z",
-              "digest": "sha256:ae9e2030d6cad72ffb26710a6133ebf043e5c0b402c7e8b6b1d5264f1867b5a5"
+              "name": "HyphenScreen_1.7.8_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.8/HyphenScreen_1.7.8_x86_64.AppImage",
+              "id": 697396364,
+              "size": 608613916,
+              "updatedAt": "2026-11-01T05:18:18Z",
+              "digest": "sha256:46356f2bad943fffbd702ea32a0175aa5d3864cdf3352d00164acb6f5648e192"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-01T04:47:49.521Z",
+      "checkedAt": "2026-11-01T05:26:05.291Z",
       "prerelease": false,
-      "releaseNotesHash": "dcb28b577b13c4ef62d8e531be5ff9efa53a0f8bd0aa1465e8aeb90ae81000a7",
-      "revision": "fc7edfdb7c59aafaa984e1ffcb0ea72fc4a3894d33ee1d1ef34ae51c2d42ed0c"
+      "releaseNotesHash": "7c450a4450d00a0f78d5eb120f675253a5fef4bb35f1777f048c0df784308b1c",
+      "revision": "2dad99ad0d571879cd71aa210caf67261532bb7b27b3dd4241a06235c158fad4"
     }
   ]
 }
