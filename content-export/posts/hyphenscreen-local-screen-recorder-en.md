@@ -6,7 +6,7 @@ lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac 1.7.7 corrects the turn metrics and raises the per-response output cap to 20,000 tokens for Anthropic-wire models and 32,768 for local ones, keeping partial work on truncation. Windows and Linux are at 1.7.4.
+summary: Mac 1.7.7 corrects the turn metrics and raises the per-response output cap to 20,000 tokens for Anthropic-wire models and 32,768 for local ones, keeping partial work on truncation. Windows and Linux are at 1.7.7.
 categories:
   - Resources
 tags:
@@ -16,6 +16,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows / Linux 1.7.7
+
+Windows and Linux are now locally built as 1.7.7 with live metrics, context-window detection, persisted turns and output-truncation fixes. The Windows suite passed 4,703 tests with 21 environment-related skips; typechecks and production builds passed. Packaged resources and ten native MP4/GIF exports per platform passed verification and full decoding. Linux uses WSL software rendering. Apps were not installed, user projects were not modified, and desktop capture and model generation quality were not retested.
 
 ## 1.7.7: corrected metrics and a larger output budget
 
@@ -39,7 +43,7 @@ Context is no longer capped at 20 messages. When the local endpoint reports its 
 
 The Create animation dialog was tidied as well: the wait settings collapsed into one quiet row, the close button grew from 28 to 36 px with a border, and continuous scroll now explains itself — one shared world and through-line objects with the camera following the action, while detail is still set by how you split the script, the duration and your custom requirements.
 
-This round passed 4,722 tests with two skipped. The Mac package is 426,788,073 bytes (SHA-256 below). The installed build was checked for the entry, the dialog, the context settings and keeping the panel across tabs; the system keychain prompt was declined during verification, so no model generation ran in the installed app. Window detection and session reload are covered by unit tests, including the 方寸智匣, llama.cpp, vLLM and LM Studio response shapes. Windows and Linux remain at 1.7.4.
+This round passed 4,722 tests with two skipped. The Mac package is 426,788,073 bytes (SHA-256 below). The installed build was checked for the entry, the dialog, the context settings and keeping the panel across tabs; the system keychain prompt was declined during verification, so no model generation ran in the installed app. Window detection and session reload are covered by unit tests, including the 方寸智匣, llama.cpp, vLLM and LM Studio response shapes. Windows and Linux remain at 1.7.7.
 
 ## 1.7.0: put your own signature on exports
 
@@ -158,7 +162,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.7.7; Windows and Linux offer 1.7.4. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.7.7; Windows and Linux offer 1.7.7. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -191,11 +195,11 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
 - Apple Silicon Mac: **1.7.7**, DMG **426,788,073 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.7.4**, installer **409,506,740 bytes**, unsigned.
-- Linux x86_64: **1.7.4** in AppImage (**608,585,410 bytes**), deb (**523,207,412 bytes**) and pacman (**484,518,888 bytes**) formats.
+- Windows 10/11 x64: **1.7.7**, installer **409,490,970 bytes**, unsigned.
+- Linux x86_64: **1.7.7** in AppImage (**608,597,408 bytes**), deb (**523,227,828 bytes**) and pacman (**484,531,796 bytes**) formats.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac package SHA-256:
 
@@ -203,14 +207,14 @@ Mac package SHA-256:
 8e8469c87985a3d1146750cb5b160b9a5ec5234f00413ea3dbf073b919a8c080
 ```
 
-SHA-256 checksums for Windows and Linux 1.7.4:
+SHA-256 checksums for Windows and Linux 1.7.7:
 
 | Package | SHA-256 |
 | --- | --- |
-| Windows installer | `8eb8dd4800010dff65cb129c9c6afb911b632ca21ea7f9d235930e5c53b6b79d` |
-| Linux AppImage | `a11d7cd04cf2640a1946e02ba64772933a2c57833d6375b1c3ec96b9df61d590` |
-| Ubuntu/Debian deb | `1703670d0fb0d9907674360ee82370a8f015e6c007bfc334990e728f25e837bb` |
-| Arch pacman | `2d3350edb61fef5b203a203e97e558a0962aa3b4735f4c602e05ad49ad2a84ba` |
+| Windows installer | `c0dfa0c37c2dc12c73e3885d41b89e2b80ea6b89d37ba0194a238cc1247d27f6` |
+| Linux AppImage | `ae9e2030d6cad72ffb26710a6133ebf043e5c0b402c7e8b6b1d5264f1867b5a5` |
+| Ubuntu/Debian deb | `2960087f6092b52a1e94d1751963e41cdeea0f920f2738e7473afe2cf25a76ed` |
+| Arch pacman | `0c90413f7db7557d9b22c3c672fc474e46629a9a99867ce4a861d77201049350` |
 
 The Windows package passed native component checks and byte checks for 331 packaging resources. Windows and Linux each generated all four layouts from synthetic material, with complete video and audio decoding. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 

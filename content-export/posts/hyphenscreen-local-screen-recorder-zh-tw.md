@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-01
-summary: Mac1.7.7修正即時資料口徑，並把Anthropic介面與本機模型的單次輸出上限提高到20000／32768詞元，截斷時保留已有內容；對話仍保留過程、思考與可繼續的未完成回合。Windows與Linux為1.7.4。
+summary: Mac1.7.7修正即時資料口徑，並把Anthropic介面與本機模型的單次輸出上限提高到20000／32768詞元，截斷時保留已有內容；對話仍保留過程、思考與可繼續的未完成回合。Windows與Linux為1.7.7。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,10 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## Windows / Linux 1.7.7
+
+Windows／Linux已在本機建置至1.7.7，包含即時資料、上下文偵測、對話進度儲存與輸出截斷修復。Windows全量4703項通過、21項依環境跳過，類型檢查與生產建置通過；兩平台包內資源與各10項MP4／GIF原生匯出及完整解碼通過。Linux限WSL軟體渲染；未安裝應用程式、操作使用者專案或重測桌面錄製與模型產生品質。
 
 ## 1.7.7：把即時資料的口徑和輸出上限一起修正
 
@@ -39,7 +43,7 @@ legacy_paths: []
 
 「製作動畫」彈窗也一併收尾：等待設定從整條強調色橫幅收成一行可展開設定，關閉按鈕從28像素改為36像素並加上描邊，並補上「連續長卷」的作用與細節控制說明——連續長卷讓所有分鏡共用同一世界、鏡頭沿動作推進，細節仍由口播分段、時長與「自訂要求」決定。
 
-本輪全量4722項測試通過、2項略過。Mac 套件426,788,073位元組，SHA-256見下方下載表。正式安裝版實測入口、彈窗、上下文設定與跨分頁保留；系統鑰匙圈提示在驗收時選擇拒絕，未改動既有憑證，因此安裝版沒有實跑模型生成。視窗偵測與工作階段重啟回讀由單元測試覆蓋，涵蓋方寸智匣、llama.cpp、vLLM 與 LM Studio 的回傳形態。Windows 與 Linux 保留1.7.4。
+本輪全量4722項測試通過、2項略過。Mac 套件426,788,073位元組，SHA-256見下方下載表。正式安裝版實測入口、彈窗、上下文設定與跨分頁保留；系統鑰匙圈提示在驗收時選擇拒絕，未改動既有憑證，因此安裝版沒有實跑模型生成。視窗偵測與工作階段重啟回讀由單元測試覆蓋，涵蓋方寸智匣、llama.cpp、vLLM 與 LM Studio 的回傳形態。Windows 與 Linux 保留1.7.7。
 
 ## 1.7.0：匯出浮水印換成自己的署名
 
@@ -160,7 +164,7 @@ Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒�
 
 開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
 
-包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.7.6，Windows與Linux提供1.7.4；大小及校驗值依下方發行資料為準。
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac提供1.7.7，Windows與Linux提供1.7.7；大小及校驗值依下方發行資料為準。
 
 正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
 
@@ -193,11 +197,11 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
 - Mac 蘋果晶片目前為 **1.7.7**，DMG **426,788,073 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows 10/11 x64 目前為 **1.7.4**，安裝程式 **409,506,740 位元組**，未簽署。
-- Linux x86_64 目前為 **1.7.4**：AppImage **608,585,410 位元組**、deb **523,207,412 位元組**、pacman **484,518,888 位元組**。
+- Windows 10/11 x64 目前為 **1.7.7**，安裝程式 **409,490,970 位元組**，未簽署。
+- Linux x86_64 目前為 **1.7.7**：AppImage **608,597,408 位元組**、deb **523,227,828 位元組**、pacman **484,531,796 位元組**。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.4/HyphenScreen_1.7.4_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Mac DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_arm64.dmg) · [Windows 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x86_64.AppImage) · [Ubuntu／Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.7/HyphenScreen_1.7.7_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Mac 安裝包的 SHA-256：
 
@@ -205,14 +209,14 @@ Mac 安裝包的 SHA-256：
 8e8469c87985a3d1146750cb5b160b9a5ec5234f00413ea3dbf073b919a8c080
 ```
 
-Windows 與 Linux 1.7.4 的 SHA-256：
+Windows 與 Linux 1.7.7 的 SHA-256：
 
 | 安裝包 | SHA-256 |
 | --- | --- |
-| Windows 安裝程式 | `8eb8dd4800010dff65cb129c9c6afb911b632ca21ea7f9d235930e5c53b6b79d` |
-| Linux AppImage | `a11d7cd04cf2640a1946e02ba64772933a2c57833d6375b1c3ec96b9df61d590` |
-| Ubuntu／Debian deb | `1703670d0fb0d9907674360ee82370a8f015e6c007bfc334990e728f25e837bb` |
-| Arch pacman | `2d3350edb61fef5b203a203e97e558a0962aa3b4735f4c602e05ad49ad2a84ba` |
+| Windows 安裝程式 | `c0dfa0c37c2dc12c73e3885d41b89e2b80ea6b89d37ba0194a238cc1247d27f6` |
+| Linux AppImage | `ae9e2030d6cad72ffb26710a6133ebf043e5c0b402c7e8b6b1d5264f1867b5a5` |
+| Ubuntu／Debian deb | `2960087f6092b52a1e94d1751963e41cdeea0f920f2738e7473afe2cf25a76ed` |
+| Arch pacman | `0c90413f7db7557d9b22c3c672fc474e46629a9a99867ce4a861d77201049350` |
 
 Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux各完成四版面合成素材產生及音畫完整解碼；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
 
