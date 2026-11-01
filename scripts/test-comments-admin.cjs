@@ -6,14 +6,24 @@ const run = promisify(execFile);
 const { encodeBoardMessage } = require('../lib/community.cjs');
 const requests = [];
 let dropNext = false;
+let delayNext = 0;
+let denyNext = false;
+let malformedNext = false;
+let incompleteNext = false;
 const fixture = { id: 42, slug: 'teahouse', nickname: '验收访客', content: encodeBoardMessage('测试正文', 'feedback', 'sample'), status: 'visible', created_at: Date.now(), ip_hash: 'must-not-print' };
 const server = http.createServer((req, res) => {
   requests.push(req.url);
   if (dropNext) { dropNext = false; req.socket.destroy(); return; }
   assert.equal(req.headers.authorization, 'Bearer isolated-test-token');
+  if (denyNext) { denyNext = false; res.writeHead(401, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: '未认证' })); return; }
+  if (malformedNext) { malformedNext = false; res.end('{'); return; }
+  if (incompleteNext) { incompleteNext = false; res.end('{}'); return; }
   const body = req.url.includes('/stats') ? { total:1,visible:1,hidden:0,slugs:1,visitors:1,last_24h:1,last_7d:1,by_post:[] } : { comments:[fixture] };
   res.setHeader('content-type', 'application/json');
-  res.end(JSON.stringify(body));
+  const delay = delayNext;
+  delayNext = 0;
+  if (delay) setTimeout(() => res.end(JSON.stringify(body)), delay);
+  else res.end(JSON.stringify(body));
 });
 (async () => {
   await new Promise(resolve => server.listen(0,'127.0.0.1',resolve));
@@ -34,5 +44,28 @@ const server = http.createServer((req, res) => {
   dropNext = true;
   const recovered = await invoke(['tea']);
   assert(recovered.stdout.includes('测试正文'), '只读连接瞬断后自动恢复');
-  console.log('✅ 管理命令回归通过：总览、茶馆实时读取、服务端过滤、话题解码、JSON兼容与隐私输出');
+  requests.length = 0;
+  delayNext = 6500;
+  const slow = await invoke(['tea']);
+  assert(slow.stdout.includes('测试正文'), '超过旧6秒阈值的正常响应仍能读取');
+  assert.equal(requests.length, 1, '慢响应不应被提前取消并重发');
+  requests.length = 0;
+  malformedNext = true;
+  const complete = await invoke(['tea']);
+  assert(complete.stdout.includes('测试正文'), '不完整JSON不能被吞成空对象');
+  assert.equal(requests.length, 2, '只读响应损坏后有限重试');
+  requests.length = 0;
+  incompleteNext = true;
+  const validShape = await invoke(['tea']);
+  assert(validShape.stdout.includes('测试正文'), '缺失comments字段时有限恢复，而不是length崩溃');
+  assert.equal(requests.length, 2);
+  requests.length = 0;
+  denyNext = true;
+  await assert.rejects(invoke(['stats']), error => error.stderr.includes('未认证'));
+  assert.equal(requests.length, 1, '认证失败不重试');
+  requests.length = 0;
+  dropNext = true;
+  await assert.rejects(invoke(['hide', '42']));
+  assert.equal(requests.length, 1, '写操作连接失败不自动重发');
+  console.log('✅ 管理命令回归通过：总览、茶馆实时读取、话题解码、隐私输出、慢响应容错、只读重试及写入不重发');
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(()=>server.close());

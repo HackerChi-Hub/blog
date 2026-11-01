@@ -109,29 +109,76 @@ function requireToken() {
   process.exit(1);
 }
 
+// 只读重试使用系统 curl：避开 Node fetch 独立的底层连接超时。
+// 口令经标准输入传入，不进入进程参数；不跟随重定向、不关闭证书校验。
+function readWithCurl(url, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const child = require('node:child_process').execFile('curl', [
+      '-q', '--silent', '--show-error', '--proto', '=https,http',
+      '--connect-timeout', String(timeoutMs / 1000), '--max-time', String(timeoutMs / 1000),
+      '--header', '@-', '--write-out', '\n%{http_code}', url,
+    ], { timeout: timeoutMs + 1000, maxBuffer: 2 * 1024 * 1024 }, (error, stdout) => {
+      if (error) {
+        // 不打印第三方输出或请求头，防止凭据进入错误日志。
+        const failure = new Error(error.code === 28 || error.killed ? '留言服务连接超时' : '备用只读连接失败');
+        failure.name = error.code === 28 || error.killed ? 'TimeoutError' : 'TypeError';
+        return reject(failure);
+      }
+      const separator = stdout.lastIndexOf('\n');
+      const status = Number(stdout.slice(separator + 1));
+      resolve({ ok: status >= 200 && status < 300, status,
+        json: async () => JSON.parse(stdout.slice(0, separator)) });
+    });
+    child.stdin.on('error', () => {});
+    child.stdin.end(`Authorization: Bearer ${TOKEN}\nAccept: application/json\n`);
+  });
+}
+
 async function api(pathSuffix, options = {}) {
-  const attempts = !options.method || options.method === 'GET' ? 2 : 1;
+  const readOnly = !options.method || options.method === 'GET';
+  const attempts = readOnly ? 2 : 1;
+  // 跨境接口实测会在 8–14 秒后正常返回；6 秒会把慢响应误判为断线。
+  // 仅放宽只读查询，写操作仍只发一次，避免超时后重复发表或隐藏。
+  const timeoutMs = readOnly ? 20000 : 6000;
   for (let attempt = 0; attempt < attempts; attempt++) {
    try {
-    const response = await fetch(`${API_BASE}${pathSuffix}`, {
+    const signal = AbortSignal.timeout(timeoutMs);
+    const response = readOnly && attempt > 0
+      ? await readWithCurl(`${API_BASE}${pathSuffix}`, timeoutMs)
+      : await fetch(`${API_BASE}${pathSuffix}`, {
     ...options,
-    signal: AbortSignal.timeout(6000),
+    signal,
     headers: {
       authorization: `Bearer ${TOKEN}`,
       ...(options.body ? { 'content-type': 'application/json' } : {}),
       ...options.headers,
     },
   });
-  const data = await response.json().catch(() => ({}));
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    // 响应头到了不等于正文读完；原来的 catch({}) 会吞掉读取超时，
+    // 随后把缺失的 comments 当正常数据，出现 length 未定义的二次报错。
+    if (signal.aborted) throw signal.reason;
+    if (!response.ok) data = {};
+    else throw new TypeError('留言服务未返回完整的 JSON 数据');
+  }
   if (!response.ok) {
-    const error = new Error(data.error || `HTTP ${response.status}`);
+    const error = new Error(data?.error || `HTTP ${response.status}`);
     error.status = response.status;
     throw error;
+  }
+  if (!data || typeof data !== 'object' ||
+      (pathSuffix.startsWith('/admin/recent') && !Array.isArray(data.comments)) ||
+      (pathSuffix === '/admin/stats' && (!Number.isFinite(data.total) || !Array.isArray(data.by_post)))) {
+    throw new TypeError('留言服务返回的数据结构不完整');
   }
   return data;
    } catch (error) {
     // 只有只读查询的瞬时连接故障可重试；发表和隐藏不自动重发。
     if (attempt + 1 === attempts || error.status || !['TypeError', 'TimeoutError'].includes(error.name)) throw error;
+    await new Promise(resolve => setTimeout(resolve, 500));
    }
   }
 }
