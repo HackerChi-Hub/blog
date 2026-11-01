@@ -57,7 +57,15 @@ async function main() {
         const target = path.join(dir, decodeURIComponent(url.pathname));
         const fileExists = fs.existsSync(target) && fs.statSync(target).isFile();
         if (!fileExists && !fs.existsSync(path.join(target, 'index.html'))) missing.add(url.pathname);
-      } catch { missing.add(href); }
+      } catch {
+        // 外部国际化域名可能不被本机 WHATWG URL/IDNA 实现接受。
+        // 本检查只负责站内文件，不将无法解析的明确外站误报为缺失站内页；
+        // 相对地址及本域无效端口、编码等错误仍然失败关闭。
+        const authority = href.match(/^(?:https?:)?\/\/([^/?#]*)/i)?.[1];
+        const rawHost = authority?.split('@').pop().replace(/:\d*$/, '').toLowerCase();
+        if (authority && rawHost !== siteHost && !rawHost.startsWith(`${siteHost}:`)) continue;
+        missing.add(href);
+      }
     }
     return [...missing].map(target => `站内链接目标不存在：${target}`);
   }

@@ -14,4 +14,9 @@ result=audit('<a href="/missing/">缺失页</a><a href="http://hyphentech.top/al
 assert.equal(result.status,1);assert.equal(result.report.failures.length,3);
 write('legacy/index.html','<p>现有文章的兼容入口</p>');
 result=audit('<a href="/legacy">历史入口</a>');assert.equal(result.status,0);
+result=audit('<a href="https://xn--69f31l4t57c0mag4b613h.xn--7uh4898msjaso/🆆🆃🅵/">外部国际化域名</a>');
+assert.equal(result.status,0);assert.deepEqual(result.report.failures,[]);
+result=audit('<a href="//xn--69f31l4t57c0mag4b613h.xn--7uh4898msjaso/">外站协议相对地址</a>');assert.equal(result.status,0);
+result=audit('<a href="/%E0%A4%A">本站无效路径编码</a><a href="https://hyphentech.top:bad/">本站无效端口</a>');
+assert.equal(result.status,1);assert.equal(result.report.failures.length,2);
 console.log('✅ 站内目标回归通过：缺失页、旧协议、空目录、附件、动态接口与兼容路由');
