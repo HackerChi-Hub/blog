@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-01T10:13:20.061Z",
-  "contentHash": "2415df2b60449504939299644577d11e81640152ed22e6444d18cdef62074c30",
+  "checkedAt": "2026-11-01T10:23:05.290Z",
+  "contentHash": "9696ae6dbef9de03d767d6d237f8969af68d48c116f8d4ea8fd32d86884b86b3",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T10:13:20.061Z",
+      "checkedAt": "2026-11-01T10:23:05.290Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T10:13:20.061Z",
+      "checkedAt": "2026-11-01T10:23:05.290Z",
       "prerelease": false,
       "releaseNotesHash": "847e7eef041d45ccf8b9465c65af085adf409824da52512c351d4991aa97af24",
       "revision": "bd3adc5d8bf9b95acb572941e483c0fa9e8709d44365c4a09474a491b57a2fab"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T10:13:20.061Z",
+      "checkedAt": "2026-11-01T10:23:05.290Z",
       "prerelease": false,
       "releaseNotesHash": "9243cc20193999583c72a9e6bbda4e38aea8cfba9eb531768936ca70cca338a5",
       "revision": "57cc8f640f147f5e29d7920f41346bd00b1614cb8663e8963e327b62b1387b77"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T10:13:20.061Z",
+      "checkedAt": "2026-11-01T10:23:05.290Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -391,24 +391,24 @@
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "updateSummary": "本版统一在线、本地和订阅模型的运行与完成统计，并修复动画只说计划就结束、错误反馈不清晰和同位置重复放置的问题。",
       "updated": "2026-11-01",
-      "activityAt": "2026-11-01T10:10:37Z",
+      "activityAt": "2026-11-01T10:14:32Z",
       "version": "1.8.0",
       "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.0",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.7.9",
+          "version": "1.8.0",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.7.9",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.0",
           "assets": [
             {
-              "name": "HyphenScreen_1.7.9_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.7.9/HyphenScreen_1.7.9_arm64.dmg",
-              "id": 697649867,
-              "size": 426741608,
-              "updatedAt": "2026-11-01T07:35:04Z",
-              "digest": "sha256:3d61c809c0c7744b087445461444df981cebad07b525937dedb2bd42aee9cb51"
+              "name": "HyphenScreen_1.8.0_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg",
+              "id": 697967377,
+              "size": 426742409,
+              "updatedAt": "2026-11-01T10:14:25Z",
+              "digest": "sha256:22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-01T10:13:20.061Z",
+      "checkedAt": "2026-11-01T10:23:05.290Z",
       "prerelease": false,
-      "releaseNotesHash": "2c5593e95e64f5ab642b3071664dd37222b0225d090c2c3bba0b5d3e4971e933",
-      "revision": "6d833a5c1787ddb53c08c971ba28840394da495db48180a0930cf947a9cbef3e"
+      "releaseNotesHash": "05d2c553fc8a880cf2307e9870ddf06b4b99ae1fdd4075369337655b2ff868ed",
+      "revision": "f911e2f9db8bf8505dbb7b73dc127af639ceb4ef41622a66ad1e01e4953d5c0b"
     }
   ]
 }
