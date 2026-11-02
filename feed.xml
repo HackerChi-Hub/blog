@@ -5,11 +5,74 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 02 Nov 2026 22:47:09 GMT</lastBuildDate>
-    <pubDate>Mon, 02 Nov 2026 22:47:09 GMT</pubDate>
+    <lastBuildDate>Mon, 02 Nov 2026 23:17:19 GMT</lastBuildDate>
+    <pubDate>Mon, 02 Nov 2026 23:17:19 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>免费绘图API怎么选：免密、周期额度和新人试用资料目录</title>
+      <link>https://hyphentech.top/free-api-image-directory-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-image-directory-20261102/</guid>
+      <description>先看实际原图，再按免费来源选绘图接口。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>免费文字API试用额度能用多久？新人赠额和评估接口分类整理</title>
+      <link>https://hyphentech.top/free-api-text-trial-directory-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-text-trial-directory-20261102/</guid>
+      <description>新人赠额、评估密钥和到期条件分类整理。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>免费API文字篇：周期额度、免密入口和开发免费档分类整理</title>
+      <link>https://hyphentech.top/free-api-text-recurring-directory-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-text-recurring-directory-20261102/</guid>
+      <description>按周期额度、免密和开发用途整理文字接口。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>Agnes免费绘图API实测：15.7秒生成这张图，接法和条件说清楚</title>
+      <link>https://hyphentech.top/free-api-agnes-image-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-agnes-image-20261102/</guid>
+      <description>机器人浇水原图、接口参数与阶段免费条件。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>Gemini免费API实测：同一道题，换个型号为什么等了28秒？</title>
+      <link>https://hyphentech.top/free-api-gemini-text-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-gemini-text-20261102/</guid>
+      <description>从服务繁忙到换型号返回，展示真实等待时间。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>Groq免费文字API实测：同一份订单，有的算对，有的算出4530</title>
+      <link>https://hyphentech.top/free-api-groq-text-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-groq-text-20261102/</guid>
+      <description>同一订单的正确答案与加总错误，附接法。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
+    <item>
+      <title>OpenRouter免费API实测：12次请求后，哪些型号真正给出了答案？</title>
+      <link>https://hyphentech.top/free-api-openrouter-text-20261102/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-api-openrouter-text-20261102/</guid>
+      <description>十二次请求的成功、限流、失效与截断记录。</description>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>免费API</category>
+    </item>
     <item>
       <title>H3 与 LTX-2.5：64GB Mac 本地视频实测，加速、过渡和镜头控制怎么选？</title>
       <link>https://hyphentech.top/localbrain-h3-ltx25-video-practical-test/</link>
@@ -145,81 +208,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>完全免费，Windows下8GB显卡跑Qwen 35B</title>
-      <link>https://hyphentech.top/polystrata-qwen36-8gb-localbrain-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/polystrata-qwen36-8gb-localbrain-test/</guid>
-      <description>35B模型在8GB显卡上能跑，但能否交付？12题逐项看，成功与失败都保留。</description>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    </item>
-    <item>
-      <title>腾讯 Hy-Memory-30B-A3B-FP8 已开放权重，适合拿来做什么？</title>
-      <link>https://hyphentech.top/2026-10-18-official-39d610a807a3/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-18-official-39d610a807a3/</guid>
-      <description>它不是通用聊天模型，而是负责筛选、改写和更新长期记忆的专用模型。</description>
-      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>本地27B把“狗熊哆嗦毛”写成论文？22分9秒，方寸智匣交出了什么</title>
-      <link>https://hyphentech.top/localbrain-dance-paper-delivery/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-dance-paper-delivery/</guid>
-      <description>从“狗熊哆嗦毛”到动作捕捉与机器人：检查本地27B交出的Word、7页PDF，以及仍未完成的验收。</description>
-      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>方寸智匣</category>
-    <category>本地模型</category>
-    <category>智能体</category>
-    <category>论文生成</category>
-    <category>AI实录</category>
-    </item>
-    <item>
-      <title>DeepSeek-V4.1-Flash-1017 发布：官方说更快更省，普通人现在能用吗</title>
-      <link>https://hyphentech.top/2026-10-17-official-621d1cb6bd14/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-17-official-621d1cb6bd14/</guid>
-      <description>DeepSeek-V4.1-Flash-1017 发布：官方说更快更省，普通人现在能用吗</description>
-      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Gemini Argon做游戏，Google Flow做创作：3个项目看懂谷歌AI到底能帮你干什么</title>
-      <link>https://hyphentech.top/gemini-argon-google-flow-experience/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemini-argon-google-flow-experience/</guid>
-      <description>从三个真实游戏项目，到Google Flow的素材、修改和创作工具：不只看模型，也看普通人能怎样把想法推进成作品。</description>
-      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>Gemini Argon</category>
-    <category>Google Flow</category>
-    <category>AI创作</category>
-    <category>游戏生成</category>
-    <category>使用体验</category>
-    </item>
-    <item>
-      <title>Hy-Memory-30B-A3B 是什么：它能把长期记忆写好到什么程度？</title>
-      <link>https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-16-official-6b1fdcbd2e4f/</guid>
-      <description>腾讯混元开放长期记忆写入模型，先看它解决什么、成绩如何、怎样验收。</description>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>REA爆火，一行命令复刻任何软件</title>
-      <link>https://hyphentech.top/rea-reverse-engineering/</link>
-      <guid isPermaLink="true">https://hyphentech.top/rea-reverse-engineering/</guid>
-      <description>REA 一周卷走 10 万星：一行命令让 AI Agent 拆开任何闭源软件。它没发明反编译，拆掉的是净室那堵墙——“分析”有法条依据，“重建”没有。本地分析也不等于数据不出门。</description>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
