@@ -7,8 +7,8 @@ translation_of: hyphenbox-windows-linux-tri-platform
 translation_source: machine
 source_sha256: d57cc5edefc3c326
 date: 2026-09-04
-updated: 2026-10-31
-summary: "HyphenBox 1.0.5 for Windows, Linux and Mac: clearer steps, a compact interface and updated Agent connection instructions."
+updated: 2026-11-02
+summary: "HyphenBox 1.0.6: Harness media tools, image/video tasks and recovery, now packaged for Mac, Windows and Linux."
 categories:
   - Resources
 tags:
@@ -25,23 +25,19 @@ legacy_paths: []
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-windows-linux-tri-platform/) is authoritative.
 
 <!-- hyphenbox-current-release:start -->
-## Updated October 31, 2026: Version 1.0.5 on all three platforms
+## Updated November 2, 2026: Version 1.0.6 on all three platforms
 
-Windows x64 EXE/MSI and Linux x64 AppImage/DEB/RPM installers join the universal Mac package at **1.0.5**. HyphenBox combines free API discovery, local credential storage, model verification and a local compatible endpoint.
+Windows/Linux **1.0.6** installers are now available: Windows x64 EXE/MSI and Linux x64 AppImage/deb/rpm, including the media tabs and Harness media tools. Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Core and desktop regressions and isolated AppImage startup, catalog and authentication checks cover this build. No new Windows/Linux live media generation or Agent result is claimed.
 
-The fixed bottom step bar has been removed to avoid covering content. Navigation and action buttons retain step numbers. Model actions follow fetch, add free candidates and verify; connection instructions and usage diagnostics expand when needed.
+Harness integration now includes native image and video tools. Step 3 groups Agent connection, images and video. Provider, saved credential and model selection are recorded per task. Accepted videos are queried and downloaded by their original task ID; unknown results are not resubmitted automatically.
 
-**DeepSeek Harness remains the preferred integration**, with backup, preservation of existing configuration and removal of the managed layer. Restart Harness and create a new session after connecting. OpenCode, Cline, Roo Code, Continue, Codex CLI and generic compatible clients have selectable manual examples defaulting to free. Their configuration is not automatically rewritten. The old Cursor instructions claiming that a local address alone is sufficient have been removed.
+Real Mac image files were obtained and visually checked. Agnes video requests returned a full queue; no real generated video was obtained. A decodable file does not prove prompt adherence. Windows/Linux live media generation has not been validated in this packaging run.
 
-Manual configuration previews mask the local token and read it only when copying. Polling snapshots no longer carry that token in manual examples. Provider credentials remain in local system storage, with requests sent directly to the selected provider.
+Windows/Linux include a signed built-in catalog; online refresh needs separate configuration. Linux requires desktop Secret Service. Updater signatures are distinct from commercial code signing or Apple notarization. Free eligibility and policy review periods still apply.
 
-Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Both passed core and desktop regression tests; the AppImage passed isolated startup, signed-catalog and API authentication checks. Public screenshots retain their actual Mac version and capture dates. No new live model, Agent tool-task or failover result is claimed; historical 1.0.4 validation is not relabelled.
+[Download / 下载 1.0.6](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.6)
 
-Free routing uses eligible verified free routes; auto may use paid routes you added. Windows/Linux include a signed built-in catalog without a preconfigured online refresh service. The Linux vault requires desktop Secret Service. Updater signatures are distinct from commercial code signing or Apple notarization. Local usage estimates are not provider bills; provider quotas and account conditions apply.
-
-[Download 1.0.5 installers and checksums](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.5).
-
-Earlier records below retain their historical screenshots, counts and client examples. Use this update and the release page for current capabilities.
+Historical development records remain below with their original version context.
 <!-- hyphenbox-current-release:end -->
 
 # No need to try every free API one by one: Windows and Mac automatically switch models
