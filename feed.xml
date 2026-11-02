@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 02 Nov 2026 15:48:56 GMT</lastBuildDate>
-    <pubDate>Mon, 02 Nov 2026 15:48:56 GMT</pubDate>
+    <lastBuildDate>Mon, 02 Nov 2026 22:47:09 GMT</lastBuildDate>
+    <pubDate>Mon, 02 Nov 2026 22:47:09 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>H3 与 LTX-2.5：64GB Mac 本地视频实测，加速、过渡和镜头控制怎么选？</title>
+      <link>https://hyphentech.top/localbrain-h3-ltx25-video-practical-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/localbrain-h3-ltx25-video-practical-test/</guid>
+      <description>64GB Mac的真实短片、H3同题加速、Transition首尾帧与Layout预演控制，以及方寸智匣完整用法。原片、参数和失败记录一起保留。</description>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>本地部署</category>
+    <category>视频生成</category>
+    </item>
     <item>
       <title>Pika H3 Flex把50步压成6步：64GB Mac实测3段有声视频，方寸智匣怎么用？</title>
       <link>https://hyphentech.top/pika-h3-flex-localbrain-mac/</link>
@@ -209,16 +220,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>Gemini 4 Argon 全球上线：API 开放、每百万输入 2 美元，官方成绩与边界怎么看</title>
-      <link>https://hyphentech.top/2026-10-15-official-1dd915a82f3f/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-15-official-1dd915a82f3f/</guid>
-      <description>Gemini 4 Argon 全球上线：API 开放、每百万输入 2 美元，官方成绩与边界怎么看</description>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
