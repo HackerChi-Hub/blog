@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-02T15:20:54.899Z",
-  "contentHash": "5323e64ae927071f300928f1942cfe8586e70841c6df0eaefd0c8e3047f82e38",
+  "checkedAt": "2026-11-02T15:31:57.108Z",
+  "contentHash": "2b789180ab892a096c47ca3087c42ff3901f3e5a6a6fbe311138ac4828b6868f",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-02T15:20:54.899Z",
+      "checkedAt": "2026-11-02T15:31:57.108Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-02T15:20:54.899Z",
+      "checkedAt": "2026-11-02T15:31:57.108Z",
       "prerelease": false,
       "releaseNotesHash": "617da12caf4f8df10f47290ad635f959189fae724a9ae2e1f43fe0ff301ab1e0",
       "revision": "7a986099e3c23a136d3dd2cae6b7b703fc19184f17481e16363cd7d39191116b"
@@ -193,7 +193,7 @@
       "description": "免费大模型 API 雷达与本地统一路由：持续复测可用性，Key 只存本机。",
       "updateSummary": "图片与视频历史支持单条移除、批量清理已结束任务和撤销，默认只显示最近六条。清理状态与撤销信息在重开后保留，进行中的任务、生成文件、另存文件、原始事件与幂等键受保护；批量清理不受页面最近200条上限影响；新增可复用的平台协议配置：统一描述提交路径、类型化参数、模型列表、结果字段和异步查询。同协议新模型可沿用平台配置；协议、必填字段或输入…",
       "updated": "2026-11-02",
-      "activityAt": "2026-11-02T15:16:55Z",
+      "activityAt": "2026-11-02T15:25:18Z",
       "version": "1.0.7",
       "releaseUrl": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7",
       "source": "release",
@@ -216,65 +216,65 @@
         },
         {
           "platform": "Windows",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.6",
+          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7",
           "assets": [
             {
-              "name": "HyphenBox_1.0.6_x64_en-US.msi",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.6/HyphenBox_1.0.6_x64_en-US.msi",
-              "id": 702169408,
-              "size": 5394432,
-              "updatedAt": "2026-11-02T15:16:33Z",
-              "digest": "sha256:5eff43326bd0bdd2135f910fe4123e181cf4de5846e2e74375c502cb5244bb62"
+              "name": "HyphenBox_1.0.7_x64_en-US.msi",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.7/HyphenBox_1.0.7_x64_en-US.msi",
+              "id": 702197731,
+              "size": 5644288,
+              "updatedAt": "2026-11-02T15:24:56Z",
+              "digest": "sha256:1d8260ed6a6d0c54a92a3327462ce1b1f006633c7079f2deaa080b35b67b227f"
             },
             {
-              "name": "HyphenBox_1.0.6_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.6/HyphenBox_1.0.6_x64-setup.exe",
-              "id": 702169406,
-              "size": 4036423,
-              "updatedAt": "2026-11-02T15:16:32Z",
-              "digest": "sha256:f30d9e2b217a9b14bf52ddc69456d18c0cd2d8514105ce4729b51d0ffd8b77c4"
+              "name": "HyphenBox_1.0.7_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.7/HyphenBox_1.0.7_x64-setup.exe",
+              "id": 702197738,
+              "size": 4226099,
+              "updatedAt": "2026-11-02T15:24:55Z",
+              "digest": "sha256:1a053a6913b5e1909548889e1e245d33bddf7ee31d6c4a97c321229f0083e3d1"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.0.6",
+          "version": "1.0.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.6",
+          "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7",
           "assets": [
             {
-              "name": "HyphenBox_1.0.6_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.6/HyphenBox_1.0.6_amd64.AppImage",
-              "id": 702169417,
-              "size": 84359672,
-              "updatedAt": "2026-11-02T15:16:51Z",
-              "digest": "sha256:d49ac2c1afd4224f3d7a04ba36649064fe12b60ca63bff6ab81557f7f165dd8b"
+              "name": "HyphenBox_1.0.7_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.7/HyphenBox_1.0.7_amd64.AppImage",
+              "id": 702197737,
+              "size": 84638200,
+              "updatedAt": "2026-11-02T15:25:13Z",
+              "digest": "sha256:1f4f763e7ab89f2743978e178e43043234eac78f7c764f9cf7aa5b18256f7c20"
             },
             {
-              "name": "HyphenBox_1.0.6_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.6/HyphenBox_1.0.6_amd64.deb",
-              "id": 702169471,
-              "size": 6244554,
-              "updatedAt": "2026-11-02T15:16:32Z",
-              "digest": "sha256:362c20409918421c6bd668fd6e608853cecb806f64b05bf2f26711e48d248b36"
+              "name": "HyphenBox_1.0.7_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.7/HyphenBox_1.0.7_amd64.deb",
+              "id": 702197797,
+              "size": 6521766,
+              "updatedAt": "2026-11-02T15:24:54Z",
+              "digest": "sha256:9a697c10b70dec08f8923a67cae7c3397aa085e66566e4ab8c625cf193689eac"
             },
             {
-              "name": "HyphenBox-1.0.6-1.x86_64.rpm",
-              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.6/HyphenBox-1.0.6-1.x86_64.rpm",
-              "id": 702169562,
-              "size": 6245300,
-              "updatedAt": "2026-11-02T15:16:34Z",
-              "digest": "sha256:c5a6600b3ac015ed3a88f7b3e9721f3db9130553dd2293cd683db79a9f31ea48"
+              "name": "HyphenBox-1.0.7-1.x86_64.rpm",
+              "url": "https://github.com/HackerChi-Hub/hyphenbox-release/releases/download/v1.0.7/HyphenBox-1.0.7-1.x86_64.rpm",
+              "id": 702197928,
+              "size": 6522445,
+              "updatedAt": "2026-11-02T15:24:56Z",
+              "digest": "sha256:92510ddbe415832f925d74444b43186462aa0066b1e546ea51626faf12995a29"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-02T15:20:54.899Z",
+      "checkedAt": "2026-11-02T15:31:57.108Z",
       "prerelease": false,
-      "releaseNotesHash": "b10c2149a4e0e9943089d7e1b976f07f5433d1a6471779ec56b1c16edb982e5c",
-      "revision": "dc92d18cc12597d4d61ffd833b1804b7222974516bf8482840a3846eb5a8d48b"
+      "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
+      "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
     },
     {
       "slug": "screenlex-watch-and-learn",
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-02T15:20:54.899Z",
+      "checkedAt": "2026-11-02T15:31:57.108Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-02T15:20:54.899Z",
+      "checkedAt": "2026-11-02T15:31:57.108Z",
       "prerelease": false,
       "releaseNotesHash": "05d2c553fc8a880cf2307e9870ddf06b4b99ae1fdd4075369337655b2ff868ed",
       "revision": "f911e2f9db8bf8505dbb7b73dc127af639ceb4ef41622a66ad1e01e4953d5c0b"
