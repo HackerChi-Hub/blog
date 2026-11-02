@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "68b15be77359db2b8b2fbf00dfaf0107e33cc441c3d0a2dfa20e6007fdefca0a",
-  "published_post_count": 211,
+  "content_sha256": "220e9f220afb8da7e04279d8d426a63b9ba5fd0f4641260fc2742d2d39b6a286",
+  "published_post_count": 213,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -997,6 +997,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "f7f16a6a928f13dd6072c23951bba7359d22d620974fc0df7e17adb4018718de"
+    },
+    {
+      "file": "posts/localbrain-h3-ltx25-video-practical-test-en.md",
+      "slug": "localbrain-h3-ltx25-video-practical-test-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "localbrain-h3-ltx25-video-practical-test",
+      "lang": "en",
+      "sha256": "960775619b5aa5c6062698cbfb2cb993f17dee609a0fffee411d5b936d65110c"
+    },
+    {
+      "file": "posts/localbrain-h3-ltx25-video-practical-test.md",
+      "slug": "localbrain-h3-ltx25-video-practical-test",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "072dbf8262232611b2be528ef9d133f5749aa8647ff75209f4dbafaef7094969"
     },
     {
       "file": "posts/localbrain-h3-multi-reference-en.md",
