@@ -8,7 +8,7 @@ translation_source: machine
 source_sha256: d57cc5edefc3c326
 date: 2026-09-04
 updated: 2026-11-02
-summary: "HyphenBox 1.0.6: Harness media tools, image/video tasks and recovery, now packaged for Mac, Windows and Linux."
+summary: "HyphenBox 1.0.7: Harness media tools, image/video tasks and recovery, now packaged for Mac, Windows and Linux."
 categories:
   - Resources
 tags:
@@ -25,17 +25,17 @@ legacy_paths: []
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-windows-linux-tri-platform/) is authoritative.
 
 <!-- hyphenbox-current-release:start -->
-## Updated November 2, 2026: Version 1.0.6 on all three platforms
+## Updated November 2, 2026: Version 1.0.7 on all three platforms
 
-Windows/Linux **1.0.6** installers are now available: Windows x64 EXE/MSI and Linux x64 AppImage/deb/rpm, including the media tabs and Harness media tools. Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Core and desktop regressions and isolated AppImage startup, catalog and authentication checks cover this build. No new Windows/Linux live media generation or Agent result is claimed.
+Windows/Linux **1.0.7** installers are now available: Windows x64 EXE/MSI and Linux x64 AppImage/deb/rpm, including the media tabs and Harness media tools. Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Core and desktop regressions and isolated AppImage startup, catalog and authentication checks cover this build. No new Windows/Linux live media generation or Agent result is claimed.
 
-Harness integration now includes native image and video tools. Step 3 groups Agent connection, images and video. Provider, saved credential and model selection are recorded per task. Accepted videos are queried and downloaded by their original task ID; unknown results are not resubmitted automatically.
+Harness native media tools now share reusable provider configuration. History supports single removal, batch cleanup and undo while protecting original files and idempotency records. Step 3 groups Agent connection, images and video. Provider, saved credential and model selection are recorded per task. Accepted videos are queried and downloaded by their original task ID; unknown results are not resubmitted automatically.
 
 Real Mac image files were obtained and visually checked. Agnes video requests returned a full queue; no real generated video was obtained. A decodable file does not prove prompt adherence. Windows/Linux live media generation has not been validated in this packaging run.
 
 Windows/Linux include a signed built-in catalog; online refresh needs separate configuration. Linux requires desktop Secret Service. Updater signatures are distinct from commercial code signing or Apple notarization. Free eligibility and policy review periods still apply.
 
-[Download / 下载 1.0.6](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.6)
+[Download / 下载 1.0.7](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7)
 
 Historical development records remain below with their original version context.
 <!-- hyphenbox-current-release:end -->
