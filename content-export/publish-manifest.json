@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "220e9f220afb8da7e04279d8d426a63b9ba5fd0f4641260fc2742d2d39b6a286",
-  "published_post_count": 213,
+  "content_sha256": "a6269454c2677f9135d6d9d96f33d515dd534aac1ab414dde0744f3bac6ba8f9",
+  "published_post_count": 220,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -622,6 +622,41 @@
       "sha256": "2144693d8f64863d0c7b289399b38ff612bdea894aa69f6fa78b6a956a6041e7"
     },
     {
+      "file": "posts/free-api-agnes-image-20261102.md",
+      "slug": "free-api-agnes-image-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "6f78df766b986b2e688140107f16f2d4a06af0d7457558b2cc512e79f567ea6b"
+    },
+    {
+      "file": "posts/free-api-gemini-text-20261102.md",
+      "slug": "free-api-gemini-text-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "59dff2add0f26bc81fe18afae3b7375c0622b8b48f9eafac335cd4a17687f672"
+    },
+    {
+      "file": "posts/free-api-groq-text-20261102.md",
+      "slug": "free-api-groq-text-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "b4a3c8d8dc36046d5ce117ccf9459c6bfe968e26fae79451c79cdfc5861d7eba"
+    },
+    {
+      "file": "posts/free-api-image-directory-20261102.md",
+      "slug": "free-api-image-directory-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "fc7876fd8f83ca2010460622ac4350b15209b383de173dd86ea308889b4f931a"
+    },
+    {
+      "file": "posts/free-api-openrouter-text-20261102.md",
+      "slug": "free-api-openrouter-text-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "9b5bcf3c8ebd6a4be83075f3d38c3b29691007af2ce28c1ee94cfa5aaca96377"
+    },
+    {
       "file": "posts/free-api-radar-2026-08-27-en.md",
       "slug": "free-api-radar-2026-08-27-en",
       "article_type": "article",
@@ -652,6 +687,20 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "bc29e0028ea2b88e79437f426945d3786bd6721d42e61e9285ea783529ecc2e3"
+    },
+    {
+      "file": "posts/free-api-text-recurring-directory-20261102.md",
+      "slug": "free-api-text-recurring-directory-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "ae418e931c278a084124d3ed75c13a6948a4681abd70c9cfed99c6273f85b047"
+    },
+    {
+      "file": "posts/free-api-text-trial-directory-20261102.md",
+      "slug": "free-api-text-trial-directory-20261102",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "c07de7fec35479e0088c166aa8409c328cc928fd9583748da1e3dee48a1523b5"
     },
     {
       "file": "posts/free-design-resources-en.md",
