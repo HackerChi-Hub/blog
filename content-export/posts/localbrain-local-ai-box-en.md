@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-02
-summary: "Mac 2.2.7 unifies H3 four/eight-forward acceleration and LTX Transition/Layout in Discover and the video workspace. Four installed-app short calls passed, with external-disk support, pause/resume and file reuse. Windows/Linux remain at 2.2.4; historical Pika evidence is retained."
+summary: "Windows/Linux2.2.8 refreshes bundled tools and rejects cross-platform archive traversal. Mac stays at2.2.7; video enhancements remain Apple Silicon only and newly researched models are not integrated."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.8: current resources and cross-platform archive checks
+
+This Windows/Linux batch updates the application and bundled tool packages to 2.2.8. Source extraction checks both POSIX and Windows path conventions, rejecting absolute paths, drive paths, parent traversal and links while preserving existing sources and runtimes.
+
+Installed Windows checks cover migration of five supported modules from2.2.4 with rollback retained, an existing Qwen3.8 2B request, document read/write and maintenance state. Debian and AppImage checks cover packaged resources, host initialization and startup under WSL2/Xvfb. The model request and document tools are separate checks, not an autonomous complex-task benchmark.
+
+H3, LTX, Pika and video enhancements remain Apple Silicon Mac only; this batch adds no Windows/Linux video backend. Newly researched Bonsai, LFM3 and low-VRAM image options are not integrated. The public Mac release stays at2.2.7; six videos generated in the Mac2.2.8 candidate are separate evidence. Existing user models, drivers, special engines and configuration are preserved.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_amd64.AppImage) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.8-WIN-LINUX.md)
 
 ## Mac 2.2.7: choose a model, then its video capabilities
 

@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-02
-summary: "Mac2.2.7將H3四步/八步、LTX Transition與Layout統一到探索頁和影片工作台，四項安裝版超短呼叫通過，支援外接磁碟、暫停續傳及檔案重用。Windows/Linux保持2.2.4，保留Pika舊實測。"
+summary: "Windows/Linux更新至2.2.8，補齊跨平台封存路徑校驗並同步內部工具資源；Mac正式版保持2.2.7，影片增強仍僅Apple Silicon適用，新調查模型尚未接入。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.8：同步最新資源，補齊跨平台解壓校驗
+
+Windows與Linux本批同步至2.2.8，內部工具套件隨主程式升級。原始碼封存解壓同時檢查POSIX與Windows路徑，拒絕絕對路徑、磁碟機、上層目錄穿越與連結，保留既有原始碼及執行環境。
+
+Windows安裝版核對五個適用模組從2.2.4遷移並保留回退、既有Qwen3.8 2B請求、文件讀寫與維護狀態；Linux分別驗收Debian及AppImage的資源、宿主初始化與WSL2/Xvfb啟動。模型請求和文件工具為獨立檢查，不代表自主完成複雜任務。
+
+H3、LTX、Pika及影片增強仍僅適配Apple Silicon Mac，本批未啟用Windows/Linux影片後端。近期調查的Bonsai、LFM3與低顯示記憶體圖片方案尚未接入，不列為已可用模型。Mac正式下載保持2.2.7，Mac2.2.8六段影片屬獨立候選驗收，不借用為兩平台成績。保留使用者模型、驅動程式、特殊引擎及既有設定。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8-win-linux/LocalBrain_2.2.8_amd64.AppImage) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.8-WIN-LINUX.md)
 
 ## Mac 2.2.7：選好模型，再選影片功能
 
