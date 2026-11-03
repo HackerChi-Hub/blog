@@ -6,7 +6,7 @@
 @media (min-width: 621px) {
   .current-products:not(.current-products--focused) .current-product:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc((100% - 16px) / 2); justify-self: center; box-sizing: border-box; }
 }
-.current-product { min-width: 0; display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--hp-border, #344047); border-radius: 12px; background: var(--hp-bg, #0b1016); }
+.current-product { min-width: 0; overflow-wrap: anywhere; display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--hp-border, #344047); border-radius: 12px; background: var(--hp-bg, #0b1016); }
 .current-product h3 { margin: 0 0 10px; font-size: 1.1rem; line-height: 1.5; overflow-wrap: anywhere; }
 .current-product > p { color: var(--hp-muted, #aeb8c4); font-size: .87rem; line-height: 1.7; }
 .current-product-version { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; font-size: .88rem; }
