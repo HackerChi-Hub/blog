@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-02
-summary: "Windows/Linux2.2.8 refreshes bundled tools and rejects cross-platform archive traversal. Mac stays at2.2.7; video enhancements remain Apple Silicon only and newly researched models are not integrated."
+updated: 2026-11-03
+summary: "Mac2.2.8 adds archive safety fixes and video resolution presets with immediate custom-size validation. Installed checks preserve models, configuration and media; existing Windows/Linux2.2.8 packages remain unchanged."
 categories:
   - Resources
 tags:
@@ -15,6 +15,24 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.8: immediate video-size validation and archive safety fixes
+
+The public Mac build incorporates the later archive-safety fix and the resolution controls from the previous candidate. Select a model, then a common preset or custom dimensions. Legal sizes, alignment, side lengths and pixel-area limits are shown immediately. Invalid input remains unchanged until the user selects a correction; the app never silently resizes, trims or reduces quality.
+
+![Immediate size validation, November 2 installed-app acceptance](/obsidian-assets/localbrain-local-ai-box/2.2.8-resolution-validation.png)
+
+Memory guidance separates the engine budget from currently available memory. Unknown peaks remain advisory; execution retains the requested parameters within the runtime budget. Relative pixels and frames are not presented as a precise memory prediction.
+
+![LTX dimensions and memory guidance, November 2 acceptance](/obsidian-assets/localbrain-local-ai-box/2.2.8-ltx-resolution-memory.png)
+
+Source archives are validated against POSIX and Windows path rules before extraction. Absolute paths, drive paths, traversal, symlinks, hard links and special files are rejected. Valid archives extract normally and existing source trees are reused. Models, runtimes, configuration and recording assets are preserved.
+
+The November 3 build is installed. All15,653 entries, modes and links match; app/updater signatures, trusted comments and the disk image passed verification. Locally signed, not Apple notarized. Eight tests exercised the installed extraction code; real system-MCP file writing and reading passed. The main frontend suite passed1,668, Rust474, Python395 unit cases plus two standalone scripts, and DSH53, with explicit skipped/ignored cases. Native accessibility read back version2.2.8, existing models and zero running services. The native automation service was unavailable; this batch did not repeat all clicks or generate new videos. Six November2 clips and native resolution checks remain separate historical evidence.
+
+[Download Mac 2.2.8 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8/LocalBrain_2.2.8_aarch64.dmg) · [Release and updates](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.8) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.8-MAC.md)
+
+The DMG is75,294,743 bytes. SHA-256: `4b66333e2778a637291e069fd2bd7cd7836b3e07f3877cf4bd3795e3ca2e2481`. Existing Windows/Linux2.2.8 installers, signatures and manifests remain unchanged. Older sections retain their original version context; current downloads follow this section and the download table.
 
 ## Windows / Linux 2.2.8: current resources and cross-platform archive checks
 

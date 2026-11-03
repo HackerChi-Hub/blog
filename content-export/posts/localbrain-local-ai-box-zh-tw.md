@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-02
-summary: "Windows/Linux更新至2.2.8，補齊跨平台封存路徑校驗並同步內部工具資源；Mac正式版保持2.2.7，影片增強仍僅Apple Silicon適用，新調查模型尚未接入。"
+updated: 2026-11-03
+summary: "Mac正式更新至2.2.8，同步封存安全修復，影片支援常用解析度預設與自訂即時校驗；新套件已安裝並保留模型、設定及素材，Windows/Linux原2.2.8套件保留。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,24 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.8：影片尺寸提前校驗，同步封存安全修復
+
+Mac正式套件補齊後續安全修復，並公開先前候選的解析度設定。先選模型，再選常用解析度預設或自訂畫幅；即時顯示合法尺寸、對齊、邊長與面積限制。不合法值保留原輸入，使用者主動選取後才變更，不自動縮圖、截短或降低畫質。
+
+![自訂尺寸即時提示，11月2日安裝版驗收](/obsidian-assets/localbrain-local-ai-box/2.2.8-resolution-validation.png)
+
+記憶體提示區分引擎預算與目前可用記憶體；未知峰值只作提示，實際執行保留原參數並受引擎預算約束，像素與影格相對規模不冒充精確預測。
+
+![LTX解析度與記憶體提示，11月2日安裝版驗收](/obsidian-assets/localbrain-local-ai-box/2.2.8-ltx-resolution-memory.png)
+
+原始碼解壓前同時檢查兩套系統路徑規則，拒絕絕對路徑、磁碟機、目錄穿越、符號連結、硬連結及特殊檔案。合法原始碼正常解壓，既有原始碼直接復用；保留模型、環境、正式設定與錄製素材，不必清空模型重裝。
+
+11月3日新套件已安裝：15,653項檔案、權限及連結一致，應用程式、更新套件及可信簽註驗簽與DMG校驗通過；本機簽章、未Apple公證。安裝套件實際解壓實作8項回歸及系統MCP檔案讀寫通過；前端主測試1668、Rust474、Python395條單元用例及兩項腳本、DSH53項通過，另有明確略過項。原生輔助功能讀回2.2.8、既有模型與0項服務執行中；原生操作工具服務不可用，本輪未重做全部點選或生成新影片。11月2日六段影片與尺寸驗收保留為先前獨立記錄。
+
+[下載 Mac 2.2.8（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.8/LocalBrain_2.2.8_aarch64.dmg) · [正式發行與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.8) · [本輪驗收](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.8-MAC.md)
+
+DMG為75,294,743位元組，SHA-256：`4b66333e2778a637291e069fd2bd7cd7836b3e07f3877cf4bd3795e3ca2e2481`。Windows/Linux保留獨立發布2.2.8的原套件、簽章及清單。下方各版保留當時狀態，現行下載以本節和下載表為準。
 
 ## Windows / Linux 2.2.8：同步最新資源，補齊跨平台解壓校驗
 
