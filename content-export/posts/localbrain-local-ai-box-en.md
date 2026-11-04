@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-03
-summary: "Mac2.2.8 adds archive safety fixes and video resolution presets with immediate custom-size validation. Installed checks preserve models, configuration and media; existing Windows/Linux2.2.8 packages remain unchanged."
+updated: 2026-11-05
+summary: "Mac 2.2.9 fixes runtime-state misclassification, duplicate installation and container readiness feedback, with installed native-UI acceptance. Windows/Linux stay at 2.2.8; models, runtimes and data are retained."
 categories:
   - Resources
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.9: separate installed components from service connectivity
+
+Installed tools were incorrectly counted as 13 missing components when their container service became unreachable. The inventory now shows an unverified state, restores connectivity before reading tools, and does not treat a failed query as missing files.
+
+Open Settings → Runtime and diagnostics. The top counter includes only confirmed missing or incomplete components. Installed components do not offer duplicate installation. Existing container services, package managers and build tools are retained without per-item uninstall actions. The foreground page refreshes every 30 seconds and immediately when returning; maintenance pauses polling.
+
+Container startup waits for an actual service response. An “already running” message alone no longer establishes readiness. Historical failures remain expandable, while a recovered service reports that current detection is ready. Unavailable connections preserve disks, images and data without automatically restarting or rebuilding a VM.
+
+The November 5 installed native UI identified 27 managed components and three existing system dependencies, with zero missing and zero unverified. Selecting Sushi, system-dependency buttons, historical error details and manual refresh were exercised in the actual app. All 15,653 installed child entries, modes and links match. Model/runtime directory fingerprints, configuration and the video library are unchanged. App/updater signatures, disk-image integrity and mounted contents passed verification. Locally signed, not Apple notarized. This batch generated no new videos; earlier video tests and screenshots retain their original dates.
+
+[Download Mac 2.2.9 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9/LocalBrain_2.2.9_aarch64.dmg) · [Release and updates](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.9) · [Acceptance record](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.9-MAC.md)
+
+The DMG is 75,310,516 bytes, approximately 75.3 MB. SHA-256: `8323c521ec6d0fb39fcd838a1c38636e775381559c9211213ec24ead39dc342a`. Existing Windows/Linux 2.2.8 packages, signatures and independent update manifests remain unchanged. Older text, images and acceptance records are retained; current downloads follow this section and the download table.
 
 ## Mac 2.2.8: immediate video-size validation and archive safety fixes
 

@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-03
-summary: "Mac正式更新至2.2.8，同步封存安全修復，影片支援常用解析度預設與自訂即時校驗；新套件已安裝並保留模型、設定及素材，Windows/Linux原2.2.8套件保留。"
+updated: 2026-11-05
+summary: "Mac 2.2.9 修復環境狀態誤判、重複安裝及容器就緒提示，原生安裝版已核實；Windows/Linux維持2.2.8，保留模型、環境與資料。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.9：分開顯示安裝狀態與服務連線
+
+工具已安裝，卻被統計成「缺少13項」，本次修復這項誤判。容器服務連線失效時，軟體無法確認其中的工具；現在顯示「狀態待核實」，先恢復連線再讀取清單，不將查詢失敗計為檔案遺失。
+
+進入「設定→執行環境與診斷」，頂部只統計確認缺少或不完整的元件。已安裝元件不重複安裝；既有容器服務、套件管理器及構建工具保留原版本，單項不提供解除安裝。前景每30秒自動偵測，返回視窗立即重新整理，維護期間暫停輪詢。
+
+容器啟動會等待實際服務回應，單獨一條「已經執行」日誌不再代替就緒結果。歷史維護失敗仍可展開；目前已恢復時顯示「上次維護未完成；目前偵測已就緒」。連線失效時保留原磁碟、映像與資料，不自動重新啟動或重建虛擬機。
+
+11月5日實際安裝版識別27項受管元件及3項既有系統依賴，缺少0項、待核實0項；單選Sushi、系統依賴按鈕、舊錯誤詳細資訊與手動重新整理均已實際點選核實。15,653項安裝子項目、權限及連結一致，模型與執行環境目錄、設定及影片資料庫摘要保持。應用程式及更新套件驗簽、DMG校驗與掛載核對通過；本機簽章，未Apple公證。本輪未重新生成影片，原有影片實測與截圖保留各自日期。
+
+[下載 Mac 2.2.9（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9/LocalBrain_2.2.9_aarch64.dmg) · [發行與更新](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.9) · [完整驗收](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.9-MAC.md)
+
+套件為75,310,516位元組，約75.3MB。SHA-256：`8323c521ec6d0fb39fcd838a1c38636e775381559c9211213ec24ead39dc342a`。Windows/Linux繼續使用既有2.2.8原套件、簽章及獨立更新清單；下方舊文、舊圖與歷史驗收保留，現行下載以本節及下載表為準。
 
 ## Mac 2.2.8：影片尺寸提前校驗，同步封存安全修復
 

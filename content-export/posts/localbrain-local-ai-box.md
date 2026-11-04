@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-03
-summary: "Mac正式更新至2.2.8，同步归档安全修复，视频支持常用分辨率预设与自定义即时校验；新包已安装并保留既有模型、配置及素材，Windows/Linux原2.2.8包保留。"
+updated: 2026-11-05
+summary: "Mac 2.2.9 修复环境状态误判、重复安装与容器就绪提示，原生安装版已核实；Windows/Linux 保持 2.2.8，模型、环境和数据保留。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.2.9：环境装没装，与服务通不通分开显示
+
+已经安装的工具，却被统计成“缺少13项”，这次修复的就是这个问题。容器服务连接失效时，软件无法确认里面的工具；现在会显示“状态待核实”，先恢复连接再读清单，不再把查询失败算成文件丢失。
+
+进入“设置→运行环境与诊断”，顶部只统计确认缺少或不完整的组件。已安装组件不重复安装；已有的容器服务、包管理器和构建工具保留原版本，单项不提供卸载。前台每30秒自动检测，返回窗口立即刷新，维护期间暂停轮询。
+
+容器启动会等待真实服务响应。“已经运行”一条日志不再代替服务就绪结果。历史维护失败仍能展开查看；当前已恢复时显示“上次维护未完成；当前检测已就绪”。连接失效时保留原磁盘、镜像与数据，不自动重启或重建虚拟机。
+
+11月5日实际安装版识别27项受管组件、3项已有系统依赖，缺少0项、待核实0项；单选Sushi、系统依赖按钮、旧错误详情及手动刷新均已点选核实。15,653项安装子条目、权限和链接一致，模型与运行环境目录、配置及视频资料库摘要保持。应用和更新包验签、DMG校验与挂载核对通过；本地签名，未Apple公证。本轮不重新生成视频，原有视频测试与截图继续保留各自日期。
+
+[下载 Mac 2.2.9（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9/LocalBrain_2.2.9_aarch64.dmg) · [发行与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.2.9) · [完整验收](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.9-MAC.md)
+
+安装包为75,310,516字节，约75.3MB。SHA-256：`8323c521ec6d0fb39fcd838a1c38636e775381559c9211213ec24ead39dc342a`。Windows/Linux继续使用现有2.2.8原包、签名和独立更新清单；下方旧文、旧图与历史验收记录保留，当前下载以本节和下载表为准。
 
 ## Mac 2.2.8：视频尺寸提前校验，同步归档安全修复
 
