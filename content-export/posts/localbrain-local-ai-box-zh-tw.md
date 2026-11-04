@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-05
-summary: "Mac 2.2.9 修復環境狀態誤判、重複安裝及容器就緒提示，原生安裝版已核實；Windows/Linux維持2.2.8，保留模型、環境與資料。"
+summary: "Windows/Linux 2.2.9 修正已安裝環境與離線容器的狀態區分，避免重複安裝；Mac 端獨立發布的 2.2.9 保留。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.9：分開顯示已安裝環境與容器離線
+
+設定→執行環境與診斷現在只將確認缺少或檔案不完整的元件計入「一鍵安裝缺少元件」。容器服務尚未連接時，既有工具不再一併顯示為需要重裝；映像與資料卷標為待核實，先啟動容器服務，再重新整理狀態。查詢失敗會保留具體原因，不用空清單代替失敗。既有外部工具的受管副本仍須單獨選擇。
+
+執行環境頁面會在維護結束、重新進入及視窗恢復時重新讀取清單，減少舊狀態停留。Windows x64 提供安裝程式，Linux amd64 提供 Debian 與 AppImage；本輪 Linux 安裝與啟動驗收使用 Ubuntu 22.04 WSL2/Xvfb，不作為裸機 GPU 驗收。
+
+Mac 端已獨立發布 2.2.9，本批保留其正式安裝資產及更新清單；H3、LTX、Pika 影片後端仍限 Apple Silicon Mac。本批未接入先前調查的新模型，也未升級使用者驅動、模型權重或特殊推理引擎。
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_amd64.AppImage) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.9-WIN-LINUX.md)
 
 ## Mac 2.2.9：分開顯示安裝狀態與服務連線
 

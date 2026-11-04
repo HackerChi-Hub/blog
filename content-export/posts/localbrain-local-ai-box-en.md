@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-05
-summary: "Mac 2.2.9 fixes runtime-state misclassification, duplicate installation and container readiness feedback, with installed native-UI acceptance. Windows/Linux stay at 2.2.8; models, runtimes and data are retained."
+summary: "Windows/Linux 2.2.9 distinguishes installed runtimes from offline containers to prevent duplicate installation prompts. The independently published Mac 2.2.9 package is preserved."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.2.9: distinguish installed runtimes from offline containers
+
+Settings → Runtime and diagnostics counts only confirmed missing or incomplete components in the install-missing action. When the container service is disconnected, existing tools are no longer collectively presented as needing reinstallation. Images and volumes remain unverified: start the container service, then refresh. Failed queries retain a specific reason instead of becoming an empty inventory. Installing a managed copy of an existing external tool still requires a separate selection.
+
+The runtime page reloads inventory after maintenance, on entry and when the window becomes active, reducing stale status. Windows x64 ships an installer; Linux amd64 ships Debian and AppImage packages. This batch verifies Linux installation and startup on Ubuntu 22.04 WSL2/Xvfb, not bare-metal GPU operation.
+
+Mac 2.2.9 was published independently during this build; its installation assets and updater manifest are preserved. H3, LTX and Pika video backends remain Apple Silicon Mac only. Newly researched models are not integrated in this batch, and user drivers, model weights and special inference engines are not upgraded.
+
+[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.2.9-win-linux/LocalBrain_2.2.9_amd64.AppImage) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.2.9-WIN-LINUX.md)
 
 ## Mac 2.2.9: separate installed components from service connectivity
 
