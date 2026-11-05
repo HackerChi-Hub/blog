@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-05
-summary: "Windows/Linux 2.2.9 distinguishes installed runtimes from offline containers to prevent duplicate installation prompts. The independently published Mac 2.2.9 package is preserved."
+summary: "Mac 2.3.0 adds Drama 3 voice cloning, delivery cues, long-form speech and versioned segment editing. Windows/Linux remain on 2.2.9, with verified downloads and checksums."
 categories:
   - Resources
 tags:
@@ -15,6 +15,40 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.0: Drama 3 voice cloning, long-form speech and segment editing
+
+Fish Audio Drama 3 now follows one speech workflow: choose the model and your own reference voice, then enter the full script. To change a time, number or delivery later, select a segment in the project and regenerate it. Other audio stays intact, and the complete new version is saved alongside the original script and audio.
+
+Mac uses the [community MLX 4-bit conversion of Drama 3](https://huggingface.co/mlx-community/fish-audio-drama-3-4bit), not an official Fish Audio Mac release. The [original model and documentation](https://huggingface.co/fishaudio/drama-3) are linked separately. Import complete existing weights without downloading them again. Drama 3 has a separate speech environment, leaving existing language-model, speech and transcription environments unchanged. Read the current original-model and conversion-repository licenses before downloading or commercial use.
+
+### Use your own voice
+
+1. Find Drama 3 in Discover and download or import existing weights; only missing files need downloading. Prepare or verify its dedicated speech environment in Settings → Runtime and diagnostics.
+2. In Settings → Speech synthesis, select your reference recording and enter an accurate transcript of that recording. Check both together whenever you change the recording.
+3. Open speech synthesis from Home or Chat → Local media tools → Speech, select Drama 3, enter the script and generate. Both entries share the selected model and reference voice. Play the result or open its output file when complete.
+
+### Control delivery and emotion
+
+The delivery field can describe a light, natural voice with a hint of a smile, or a calm explanation. The app converts this into the bracketed delivery cue accepted by the model. You can also place native tags such as `[laughs]`, `[sighs]` and `[whispers]` in the script. Audition a short passage before applying a delivery to a long script; results vary with the text and reference voice.
+
+Exact speed, forced language and millisecond-accurate pauses are not supported; unsupported parameters produce a clear error. Free-form descriptions are not promised as a stable, measurable emotion-strength control.
+
+### Save a long script and edit it later
+
+Submit the full script. Native model chunking carries the first and previous chunks as context. The app saves the full text, native audio segments, complete WAV, project, settings and logs without deleting words or compressing duration. Open the resulting speech project, select a segment, change its words or delivery and choose the action to regenerate only that segment. Compare the saved new version with the original.
+
+The edit unit is **one complete segment**. Other segments remain byte-identical; the selected segment is regenerated and losslessly assembled into a new output without overwriting the original. This differs from sample-level audio infilling or the official server's historical VQ continuation interface. Audition the new segment's pacing, length and joins. New requests report an occupied generator rather than interrupting active synthesis.
+
+### What was verified in the installed app
+
+An independent HTTP test generated three native segments and 45.929 seconds of audio from a 211-character script. Editing only the middle segment saved a 36.409-second version while the other two segments remained byte-identical. The installed native UI separately generated two segments totaling 24.335 seconds; changing the first segment's time from three to four and its delivery saved a 24.102-second version with the second segment unchanged. Independent transcription read back the new time as 4 p.m. Voice similarity, emotional naturalness and join quality still require listening; transcription scores are not audio-quality ratings.
+
+All 15,655 installation entries, permissions and links match the build. App signature, updater signature and DMG integrity checks passed. The app is locally signed and not Apple-notarized. Frontend 1,671 tests, Rust 478 tests and 399 managed-Python cases passed, with separate skipped or ignored cases. Long-form execution was exercised; hours-long output and a fresh online environment installation on a new machine were not separately verified.
+
+[Download Mac 2.3.0 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.0/LocalBrain_2.3.0_aarch64.dmg) · [Release and updates](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.0) · [Full verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.3.0-MAC.md)
+
+The installer is 75,327,316 bytes, about 75.3 MB. SHA-256: `1f5140a4ce612651ac01c7c1116395044fda71e2d186e9f7bf412f804a1743fc`. This release updates only Mac to 2.3.0; Windows/Linux retain their released 2.2.9 packages, signatures and platform-specific manifests. Existing models, environments, data and active tasks are unchanged. Older text, images and release records below retain their dates and verification scopes; use this section and the download table for current downloads.
 
 ## Windows / Linux 2.2.9: distinguish installed runtimes from offline containers
 
