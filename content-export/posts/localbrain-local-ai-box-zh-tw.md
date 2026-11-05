@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-05
-summary: "Mac 2.3.0 加入 Drama 3 本人聲音複製、情緒標籤、長稿配音及分段修改，保留原版本；Windows/Linux 維持2.2.9，附實際驗收、下載與校驗值。"
+summary: "Mac 2.3.1 把自寫 PoC 擴到 python/sh/node/go 四語言與 TCP+UDP 同連接埠，PoC 證據可以 grant_id 核驗；裝置 profile 五類、Android 讀回市場名、韌體斷網 QEMU 模擬。Windows/Linux 維持 2.2.9。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.1：自寫 PoC 四種語言、UDP 與裝置覆蓋
+
+這次把「自寫 PoC」擴到能真正覆蓋裝置：python、sh、node、go 四種語言都能在隔離沙箱裡執行，同一授權連接埠同時發布 TCP 與 UDP，SNMP、SSDP、mDNS、CoAP 這些只走 UDP 的裝置協定不再被漏掉。腳本仍只能經代理到達授權位址與連接埠，破壞性操作繼續拒絕。
+
+PoC 結果也不只是「腳本自報」：可為目標單獨設定 SHA-256 核驗摘要，提交時以 `grant_id` 核驗，匯出的報告帶逐位元組清單。核驗只回答「候選在不在已讀視窗」「摘要是否相符」，不會告訴候選對錯。
+
+裝置側補了五類 profile（主機、網路設備、IoT、行動裝置、韌體）；Android 唯讀檢查加上市場名，避免模型按型號猜錯機型；韌體可以在斷網 QEMU 沙箱裡模擬，預設關閉、要單獨確認，介面能看到開機日誌。
+
+另外兩處收緊：交付時拒絕把應用內部證據路徑當成品檔案；`NO_PROXY` 裡帶方括號的 IPv6（如 `[::1]`）先正規化，避免下載器網路初始化失敗。
+
+本機驗收：四種語言各跑通一次「執行→讀報告→核驗→匯出」；Android 實機讀回 8 條唯讀屬性；韌體 QEMU 在沙箱內啟動 SeaBIOS。只發布 Mac 2.3.1，Windows/Linux 維持 2.2.9。
 
 ## Mac 2.3.0：Drama 3 本人聲音複製、長稿配音與分段修改
 

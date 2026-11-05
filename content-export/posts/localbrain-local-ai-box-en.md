@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-05
-summary: "Mac 2.3.0 adds Drama 3 voice cloning, delivery cues, long-form speech and versioned segment editing. Windows/Linux remain on 2.2.9, with verified downloads and checksums."
+summary: "Mac 2.3.1 extends self-written PoCs to python, sh, node and go with TCP+UDP on one authorised port, verifiable by grant_id; five device profiles, Android marketing name, and offline QEMU firmware simulation. Windows/Linux stay on 2.2.9."
 categories:
   - Resources
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.1: four PoC languages, UDP and wider device coverage
+
+Self-written PoCs now cover real devices: python, sh, node and go all run inside the isolated sandbox, and the same authorised port carries both TCP and UDP, so SNMP, SSDP, mDNS and CoAP are no longer skipped for being UDP-only. Scripts still reach only the authorised address and ports through the proxy, and destructive operations stay rejected.
+
+PoC results are no longer just self-reported: a target can carry its own SHA-256 verifier, submitted by `grant_id`, and exported reports ship with a byte-level manifest. Verification only answers whether the candidate sits inside the read window and whether the digest matches — never whether the candidate is right.
+
+Device coverage adds five profiles (host, network device, IoT, mobile, firmware); Android read-only checks include the marketing name so models stop guessing the model from its code; firmware can be simulated in an offline QEMU sandbox, off by default and explicitly confirmed, with the boot log visible in the UI.
+
+Two tighter rules: delivery refuses internal evidence paths as final artifacts, and bracketed IPv6 entries in `NO_PROXY` (such as `[::1]`) are normalised so the downloader's network setup no longer fails.
+
+Verified locally: all four languages complete execute → read report → verify → export; a real Android phone returns eight read-only properties; QEMU boots SeaBIOS inside the sandbox. Only Mac 2.3.1 ships; Windows and Linux stay on 2.2.9.
 
 ## Mac 2.3.0: Drama 3 voice cloning, long-form speech and segment editing
 
