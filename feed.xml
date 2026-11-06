@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2026 09:04:54 GMT</lastBuildDate>
-    <pubDate>Fri, 06 Nov 2026 09:04:54 GMT</pubDate>
+    <lastBuildDate>Fri, 06 Nov 2026 15:47:53 GMT</lastBuildDate>
+    <pubDate>Fri, 06 Nov 2026 15:47:53 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>35个网站别只收藏：办公、修图、查资料怎么用，哪些真免费？</title>
+      <link>https://hyphentech.top/useful-websites-35-work-life/</link>
+      <guid isPermaLink="true">https://hyphentech.top/useful-websites-35-work-life/</guid>
+      <description>35项网站按办公、创作、自动化、开发和生活整理：上手方式、免费限制、隐私与授权一并说明，失效与待核项单独标记。</description>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>实用网站</category>
+    <category>效率工具</category>
+    </item>
     <item>
       <title>免费绘图API怎么选：免密、周期额度和新人试用资料目录</title>
       <link>https://hyphentech.top/free-api-image-directory-20261102/</link>
@@ -198,16 +208,6 @@
     <category>技术分享</category>
     <category>本地AI</category>
     <category>自制软件</category>
-    </item>
-    <item>
-      <title>腾讯混元 Hy-Memory-30B-A3B-GGUF 上架：本地记忆写入模型怎么跑</title>
-      <link>https://hyphentech.top/2026-10-19-official-40b84d6dd7e4/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-19-official-40b84d6dd7e4/</guid>
-      <description>腾讯混元 Hy-Memory-30B-A3B-GGUF 上架：本地记忆写入模型怎么跑</description>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
