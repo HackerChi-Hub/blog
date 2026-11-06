@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "b574e09cd91e3aa86e05a747577483fef93087a34fc2688f2cc953507a1e53c4",
-  "published_post_count": 220,
+  "content_sha256": "21e65d49749545d7e09925e597d96b522c35179c7c0f93af7927efd1d733ecae",
+  "published_post_count": 221,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1741,6 +1741,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "39460cd2cda0dbf4fc2630ce4712f93f8d69d60aaa097cc15507fe30acb67a4e"
+    },
+    {
+      "file": "posts/useful-websites-35-work-life.md",
+      "slug": "useful-websites-35-work-life",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "f09eb735e50e7af4709a8f0497ee3af40cd24a2d64640f222f3a958cb230bb1c"
     },
     {
       "file": "posts/wifi-finder-vibe-coding-en.md",
