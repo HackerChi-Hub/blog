@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-05
-summary: "Mac 2.3.1 extends self-written PoCs to python, sh, node and go with TCP+UDP on one authorised port, verifiable by grant_id; five device profiles, Android marketing name, and offline QEMU firmware simulation. Windows/Linux stay on 2.2.9."
+updated: 2026-11-06
+summary: "Mac 2.3.2 adds Android fixed read-only commands and nuclei template filters; verification hits CVE-2021-41773 on httpd 2.4.49 and reproduces it with a self-written PoC."
 categories:
   - Resources
 tags:
@@ -15,6 +15,14 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.2: Android read-only commands and nuclei template filters
+
+Android device sessions gain a fixed read-only command set: SELinux, kernel, uptime, `/data` space, battery, boot completion and third-party package count. Commands are hard-coded; the model can only pick this check and cannot pass free-form commands or arguments. Device sessions stay read-only.
+
+Web checks can filter nuclei templates by tags, severity and template ID inside the selected profile. Paths, spaces and high-risk tags are rejected; template IDs or the full profile raise sandbox memory to 1024m so thousands of templates are not OOM-killed. Reports record the filter and loaded count, and at least 50 templates must load without a filter.
+
+Verified: nuclei hits CVE-2021-41773 (high) on `httpd:2.4.49`, a self-written PoC reproduces the traversal and target-level verification returns `accepted=true`; the Juice Shop login SQL injection reproduces too.
 
 ## Mac 2.3.1: four PoC languages, UDP and wider device coverage
 

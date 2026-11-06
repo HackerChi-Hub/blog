@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-05
-summary: "Mac 2.3.1 把自寫 PoC 擴到 python/sh/node/go 四語言與 TCP+UDP 同連接埠，PoC 證據可以 grant_id 核驗；裝置 profile 五類、Android 讀回市場名、韌體斷網 QEMU 模擬。Windows/Linux 維持 2.2.9。"
+updated: 2026-11-06
+summary: "Mac 2.3.2 新增 Android 固定唯讀命令集與 nuclei 範本篩選；驗收中 httpd 2.4.49 命中 CVE-2021-41773 並由自寫 PoC 重現核驗。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,14 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.2：Android 唯讀命令集與 nuclei 範本篩選
+
+Android 裝置工作階段新增固定唯讀命令集：SELinux、核心、運行時間、`/data` 空間、電量、開機完成、第三方應用數量。命令寫死在程式裡，模型只能選這個檢查項，不能傳自由命令或參數；裝置工作階段仍然唯讀。
+
+網頁檢查支援依標籤、嚴重度、範本 ID 在檔位內篩選：`nuclei_tags`、`nuclei_severity`、`nuclei_ids`。路徑、空格和高風險標籤一律拒絕；指定範本 ID 或 `full` 檔時自動把沙箱記憶體提高到 1024m，避免載入上萬條範本被 OOM。報告記錄篩選範圍與載入數量，未篩選時要求至少 50 條範本。
+
+驗收：nuclei 對 `httpd:2.4.49` 命中 CVE-2021-41773（high），自寫 PoC 重現路徑穿越並以目標級核驗取得 `accepted=true`；Juice Shop 登入 SQL 注入重現同樣通過。
 
 ## Mac 2.3.1：自寫 PoC 四種語言、UDP 與裝置覆蓋
 
