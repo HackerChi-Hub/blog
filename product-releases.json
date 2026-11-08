@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-08T07:08:45.019Z",
-  "contentHash": "d9050aef156dbfd380e1f66ca11af8192df52c53b079dc4e6a23a8bd52c035ff",
+  "checkedAt": "2026-11-08T15:21:39.468Z",
+  "contentHash": "1bb4a734c2fc23e9d718f148ba79657ad669663328186a9c30e79e2fdd3981b3",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-08T07:08:45.019Z",
+      "checkedAt": "2026-11-08T15:21:39.468Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-08T07:08:45.019Z",
+      "checkedAt": "2026-11-08T15:21:39.468Z",
       "prerelease": false,
       "releaseNotesHash": "a2d9d03ebb347febde2fb3ec37b8e61b964f2fd17b2e40b724958b9f0b4b753b",
       "revision": "6fe68eec6fc876ed9f5e4cf14bd6aa792f9b5cdb29f531b3e5c6439e08ab18be"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-08T07:08:45.019Z",
+      "checkedAt": "2026-11-08T15:21:39.468Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-08T07:08:45.019Z",
+      "checkedAt": "2026-11-08T15:21:39.468Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,26 +389,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "本版统一在线、本地和订阅模型的运行与完成统计，并修复动画只说计划就结束、错误反馈不清晰和同位置重复放置的问题。",
-      "updated": "2026-11-01",
-      "activityAt": "2026-11-01T10:14:32Z",
-      "version": "1.8.0",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.0",
+      "updateSummary": "修复正式安装版素材库「讲解图形」8 张卡片预览全部裂图的问题。预览媒体随安装包放在 Resources，卡片却按开发版的相对路径取图，导致打包版找不到文件。现按资源位置分流：Resources 媒体走应用资源地址，包内资源保持相对路径；整期方案面板的同款取图一并修复。开发版与正式版显示一致，均为对应成片的真实缩略图。",
+      "updated": "2026-11-08",
+      "activityAt": "2026-11-08T11:48:07Z",
+      "version": "1.8.2",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.2",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.8.0",
+          "version": "1.8.2",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.0",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.2",
           "assets": [
             {
-              "name": "HyphenScreen_1.8.0_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg",
-              "id": 697967377,
-              "size": 426742409,
-              "updatedAt": "2026-11-01T10:14:25Z",
-              "digest": "sha256:22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83"
+              "name": "HyphenScreen_1.8.2_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.2/HyphenScreen_1.8.2_arm64.dmg",
+              "id": 723775691,
+              "size": 481589116,
+              "updatedAt": "2026-11-08T11:48:06Z",
+              "digest": "sha256:e5eb9ddd883bb0d5c01906f7a4d08cae9a7abdbfc7739384692cd72f12f54f9a"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-08T07:08:45.019Z",
+      "checkedAt": "2026-11-08T15:21:39.468Z",
       "prerelease": false,
-      "releaseNotesHash": "05d2c553fc8a880cf2307e9870ddf06b4b99ae1fdd4075369337655b2ff868ed",
-      "revision": "f911e2f9db8bf8505dbb7b73dc127af639ceb4ef41622a66ad1e01e4953d5c0b"
+      "releaseNotesHash": "d7d96c18a789af9e03c0c6beb1d8f47750d4a894e447c8529284e0f4b765fde0",
+      "revision": "3d86d7d908e9aa87577fc89afef5c7bea7b63b6b187780d606427934259a4f26"
     }
   ]
 }
