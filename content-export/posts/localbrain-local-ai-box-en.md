@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-06
-summary: "Mac 2.3.2 adds Android fixed read-only commands and nuclei template filters; verification hits CVE-2021-41773 on httpd 2.4.49 and reproduces it with a self-written PoC."
+updated: 2026-11-08
+summary: "Mac 2.3.3 upgrades managed Splash to 1.6.0, reuses weights, and verifies Chinese chat, streaming, strict tool arguments and rollback."
 categories:
   - Resources
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.3: managed Splash 1.6.0
+
+New managed Splash installations on Mac use 1.6.0. Existing users can check for runtime updates in Settings → Runtime and Diagnostics and confirm the Splash upgrade there. LocalBrain verifies the official archive and service interface, keeps the previous release for rollback, and reuses existing model weights.
+
+The upstream release focuses on request scheduling under memory pressure, cache reclamation, engine recovery and improved support for split GGUF files. Speed depends on the model, draft compatibility and concurrent load.
+
+The installed app ran an existing Qwen3.8-27B-4bit model with a 256K serving window and passed Chinese chat, streaming and a strict tool-argument round trip. The actual engine sequence was 1.5.0 → 1.6.0 → 1.5.0 → 1.6.0. The chat checks used short prompts.
+
+The Mac DMG is 75,350,839 bytes, ad-hoc signed and not Apple-notarized. Windows and Linux remain at 2.3.2. SHA-256 `50755c412ccacccbe1350aab9026aa561b137e8d7c0d161fdce8344adc8d1983`.
+
+[Download Mac 2.3.3](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.3/LocalBrain_2.3.3_aarch64.dmg) · [Release notes](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.3) · [SHA-256 file](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.3/SHA256SUMS-2.3.3-MAC.txt) · [Verification scope](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.3.3-MAC.md) · [Upstream release notes](https://github.com/incoai/splash/releases/tag/1.6.0)
 
 ## Mac 2.3.2: Android read-only commands and nuclei template filters
 

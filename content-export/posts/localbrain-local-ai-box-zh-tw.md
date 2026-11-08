@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-06
-summary: "Mac 2.3.2 新增 Android 固定唯讀命令集與 nuclei 範本篩選；驗收中 httpd 2.4.49 命中 CVE-2021-41773 並由自寫 PoC 重現核驗。"
+updated: 2026-11-08
+summary: "Mac 2.3.3 升級受管 Splash 至 1.6.0，沿用既有權重，實測中文回覆、串流輸出、嚴格工具參數和引擎回復。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.3：受管 Splash 1.6.0
+
+Mac 受管 Splash 的新裝基準升至 1.6.0。既有使用者可到「設定 → 執行環境與診斷」檢查環境更新，確認 Splash 版本後升級。程式驗證官方封存檔與服務介面，保留上一版供回復，繼續使用既有模型權重。
+
+上游這版集中改善記憶體受限時的請求排程、快取回收和異常復原，並強化分片 GGUF 支援。速度仍受模型、草稿配對和並行負載影響。
+
+安裝版沿用 Qwen3.8-27B-4bit，在 256K 服務視窗下通過中文回覆、串流輸出和嚴格工具參數往返。實際切換過 1.5.0 → 1.6.0 → 1.5.0 → 1.6.0。256K 是服務視窗，回覆驗收使用短輸入。
+
+Mac 安裝包為 75,350,839 位元組，使用本機臨時簽章，未經 Apple 公證。Windows 和 Linux 正式版為 2.3.2。安裝包的 SHA-256 為 `50755c412ccacccbe1350aab9026aa561b137e8d7c0d161fdce8344adc8d1983`。
+
+[下載 Mac 2.3.3](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.3/LocalBrain_2.3.3_aarch64.dmg) · [發行說明](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.3) · [SHA-256 校驗檔](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.3/SHA256SUMS-2.3.3-MAC.txt) · [實測範圍](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.3.3-MAC.md) · [官方發行說明](https://github.com/incoai/splash/releases/tag/1.6.0)
 
 ## Mac 2.3.2：Android 唯讀命令集與 nuclei 範本篩選
 
