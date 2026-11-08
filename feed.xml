@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2026 15:47:53 GMT</lastBuildDate>
-    <pubDate>Fri, 06 Nov 2026 15:47:53 GMT</pubDate>
+    <lastBuildDate>Sun, 08 Nov 2026 01:33:09 GMT</lastBuildDate>
+    <pubDate>Sun, 08 Nov 2026 01:33:09 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>黑粉录屏动画库实播：从立体运镜到整片包装，144 个效果怎么看、怎么用？</title>
+      <link>https://hyphentech.top/hyphenscreen-motion-library-showcase/</link>
+      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-motion-library-showcase/</guid>
+      <description>完整长版按用途实播 144 个动画效果，正文穿插空间推进、数据聚形、成套包装和角色讲解。</description>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>黑粉录屏</category>
+    <category>动画制作</category>
+    <category>自制软件</category>
+    </item>
     <item>
       <title>35个网站别只收藏：办公、修图、查资料怎么用，哪些真免费？</title>
       <link>https://hyphentech.top/useful-websites-35-work-life/</link>
@@ -198,16 +209,6 @@
     <category>黑粉录屏</category>
     <category>视频制作</category>
     <category>整片包装</category>
-    </item>
-    <item>
-      <title>方寸智匣接入Sushi：同一份Qwen3.8 Flash Next，常驻与SSD模式差多少？</title>
-      <link>https://hyphentech.top/localbrain-sushi-resident-ssd/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-sushi-resident-ssd/</guid>
-      <description>同一份2.6位权重，完整常驻约44.20 GiB、精确SSD约31.21 GiB。对比首次与重复回答、启动耗时和实际内存，并说明手动切换方法与本轮修复。</description>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>本地AI</category>
-    <category>自制软件</category>
     </item>
   </channel>
 </rss>
