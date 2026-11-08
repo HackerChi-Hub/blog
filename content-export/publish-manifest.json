@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "f3f8edad41c6d7d741b453df98ad3ce1928bd0ca15df4d96d95be88d82c19660",
-  "published_post_count": 222,
+  "content_sha256": "22561aee4904defa751daf16859f1ca950b410adfcf6e914daa04d118202d328",
+  "published_post_count": 233,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -229,11 +229,62 @@
       "sha256": "7812f2d288e7cae0f0bec9af1beeede0a4b50fe1bcb2cd3b2a50569f8466038b"
     },
     {
+      "file": "posts/2026-10-24-official-a3bd547a332b-en.md",
+      "slug": "2026-10-24-official-a3bd547a332b-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-10-24-official-a3bd547a332b",
+      "lang": "en",
+      "sha256": "3e4c413924ca862afbdb6ac46e677ca77281f3022efd8de8432c58eb30bc7d0b"
+    },
+    {
       "file": "posts/2026-10-24-official-a3bd547a332b.md",
       "slug": "2026-10-24-official-a3bd547a332b",
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "9f12a52b1ce6f5fb1e3a63a21f3bd6b49909fcc30cf2bf792af9950dad330659"
+    },
+    {
+      "file": "posts/2026-10-29-skill-79a5fd606e65.md",
+      "slug": "2026-10-29-skill-79a5fd606e65",
+      "article_type": "skill",
+      "legacy_paths": [],
+      "sha256": "b0bb82c382d14c7bb0077b676e05ec32096790ac69d9cd34cb0671772dd5c9bf"
+    },
+    {
+      "file": "posts/2026-10-30-official-0c09b8d1f7f7.md",
+      "slug": "2026-10-30-official-0c09b8d1f7f7",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "bc95ac544eff395918c6735e1aacf365c3f9e869dc2b805274711251d393f085"
+    },
+    {
+      "file": "posts/2026-11-03-official-c0013b3edcbb.md",
+      "slug": "2026-11-03-official-c0013b3edcbb",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "b941ecfc0d9061fd3a3eddc20d53ef720970526eb2a32bc8ba24ed6928dd4ed2"
+    },
+    {
+      "file": "posts/2026-11-05-official-12db83055a26.md",
+      "slug": "2026-11-05-official-12db83055a26",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "9400040e1859bbb3254b842343f48771e87bd588a9f42727e902ca8a859fdd22"
+    },
+    {
+      "file": "posts/2026-11-05-official-49b677f36d92.md",
+      "slug": "2026-11-05-official-49b677f36d92",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "fbb2581d7ca58bb3e5910f7fa672cf947a6fd15065de2c4c3cf5c73fd28a8de3"
+    },
+    {
+      "file": "posts/2026-11-07-official-35ace897d9c3.md",
+      "slug": "2026-11-07-official-35ace897d9c3",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "ea5fa21515079266d18a1ee9ecaecc276bba6b6eed8981377444515c945789e3"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -735,6 +786,15 @@
       "sha256": "bf4fa97185c1e70a79750c573f7ae79e019df7177173c33a61e198749b37d485"
     },
     {
+      "file": "posts/gemini-4-carbon-release-analysis-en.md",
+      "slug": "gemini-4-carbon-release-analysis-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "gemini-4-carbon-release-analysis",
+      "lang": "en",
+      "sha256": "8dff8b0e8270a1f1d1b0719a56faf87430911395a51d2946bc62c73384a7d283"
+    },
+    {
       "file": "posts/gemini-4-carbon-release-analysis.md",
       "slug": "gemini-4-carbon-release-analysis",
       "article_type": "article",
@@ -893,7 +953,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "c0310da032d584c5d1b6d6f7f1b12a9cbdbd536f9ea0847b180761f08f70d793"
+      "sha256": "954f1e5130411b21a24c76e8c4654d5f017a36c97f359a3538ccdbd57a698b20"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -902,14 +962,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "82316ee8d9e992cdc44f1182dd4ff113d01b020bd773f33abb8edc496f45217a"
+      "sha256": "090f0f452e40dc71981b82c0767b6decb4150c42b53b724a6a28973215c1067d"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "f05abc8b227f5d475e77a21bb648fc859dda871bf04a046bcc96f3310654fd9b"
+      "sha256": "ada11d90c08aa935091f1469ff1679aca91b5f75f58119586f7cbc8944575da0"
     },
     {
       "file": "posts/hyphenscreen-motion-library-showcase.md",
@@ -997,6 +1057,15 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "14e45f21ec986a1672bec271d5cfc251ea78d2e3571ff32c6cc84675308e76bf"
+    },
+    {
+      "file": "posts/local-llm-hardware-guide-20261031-en.md",
+      "slug": "local-llm-hardware-guide-20261031-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "local-llm-hardware-guide-20261031",
+      "lang": "en",
+      "sha256": "52d74562fedeaef9cdb2e357123ae97b852a07d9f37cde090b2aedba1803316a"
     },
     {
       "file": "posts/local-llm-hardware-guide-20261031.md",
@@ -1416,6 +1485,15 @@
       "sha256": "7acc63f12c60caa9d94101bbd9f5992d103f323af33f06d25446618214c1c602"
     },
     {
+      "file": "posts/pika-h3-flex-localbrain-mac-en.md",
+      "slug": "pika-h3-flex-localbrain-mac-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "pika-h3-flex-localbrain-mac",
+      "lang": "en",
+      "sha256": "0c3ce5457a32cca9803a1d7686a3adb01d5c79eba86317bfb342b1719ab8a59e"
+    },
+    {
       "file": "posts/pika-h3-flex-localbrain-mac.md",
       "slug": "pika-h3-flex-localbrain-mac",
       "article_type": "article",
@@ -1485,6 +1563,15 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "4a1deb6f3e3e244b2e5ad2a4326a7044b02217af11c4cc709c7275f57609e953"
+    },
+    {
+      "file": "posts/qwen38-27b-local-security-video-en.md",
+      "slug": "qwen38-27b-local-security-video-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "qwen38-27b-local-security-video",
+      "lang": "en",
+      "sha256": "81acbcb231bb16c11709d78f0905f8309e4064e46e9302ad448dcd75cace5058"
     },
     {
       "file": "posts/qwen38-27b-local-security-video.md",

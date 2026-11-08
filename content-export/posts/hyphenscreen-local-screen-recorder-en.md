@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.8.0"
+title: "HyphenScreen: recording, editing and AI animation — version 1.8.3"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-11-01
-summary: Mac 1.8.0 unifies online, local and subscription statistics, verifies actual animation writes and explicit timing, adds ChatGPT usage and corrects MiniMax reasoning settings. Windows and Linux also provide 1.8.0.
+updated: 2026-11-09
+summary: HyphenScreen 1.8.3 is now public on Mac, Windows and Linux, adding episode-wide production contracts and professional acceptance. Public builds explain the locked professional workflow; signed local authorization enables reports, targeted repairs and re-review.
 categories:
   - Resources
 tags:
@@ -16,6 +16,28 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+
+## 1.8.3: write the episode contract, then inspect what actually changed
+
+The new Episode production and acceptance entry sits directly beside Create animation. It preserves the original outline, model assumptions, required and optional requests, explicit prohibitions, narration for every segment, exact on-screen text and acceptance criteria. A plan with an outline but no itemized requirements is rejected. A delivery note that only says “make it polished” gives nobody a usable delivery address; the same applies to an episode that must be checked later.
+
+![Actual episode production and professional acceptance interface](/obsidian-assets/hyphenscreen-local-screen-recorder/episode-acceptance-183.png)
+
+Acceptance checks the real project for missing segments, shot links, media sources, timing, visibility and planned screen text. Model-based semantic review is stored separately. The first tab lists Problems and changes; the other tabs cover segment analysis, requirement tracing and human review. Repairs can target only the affected segments, followed by a comparison of new, persistent and resolved findings. The latest 20 reports remain in the project and can be exported as JSON or Markdown.
+
+Professional execution is controlled by Ed25519-signed authorization. Public installers display the feature and its scope, but cannot generate reports, export them or run another review without authorization. Internal agents and external MCP calls use the same check; ordinary animation, recording and editing remain available. Authorization is enabled on my machine, and the private key is neither committed nor included in an installer.
+
+A structural pass does not certify factual accuracy, visual taste, listening quality or audio-video synchronization. The useful safety net is narrower and more concrete: it connects what was requested, what the model attempted and what actually reached the project, instead of letting an unfinished attempt announce completion.
+
+The final suite passed 4,857 tests with two environment-related skips. The installed Mac build passed both authorized and public-locked interface checks, plus external MCP rejection, authorized execution, saving and readback. Windows and Linux passed build, packaging and packaged-native-component checks; their desktop interfaces were not tested in this round.
+
+## 1.8.2: explanation-card previews fixed
+
+After 1.8.1 grouped the animation sidebar into shots, suites, explanation graphics and raw materials, the packaged build showed eight broken preview cards under explanation graphics while the dev build looked fine. The cause: those preview media ship inside the app's Resources folder, but the cards resolved them with the dev server's relative path, which does not exist in a packaged build. Thumbnails now resolve by where the resource actually lives, and both builds show the real film thumbnails; the same fix covers the episode-plan pane.
+
+Mac is now on 1.8.2. The installer passed strict signature verification, and the installed version and full file-tree hashes read back identical; four new asset-path unit tests pass. Windows and Linux remain on 1.8.0 and will pick up this fix with the next cross-platform build.
+
 
 ## 1.8.0: verify completed animation work and make model statistics readable
 
@@ -223,7 +245,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac now offers 1.8.0; Windows and Linux offer 1.8.0. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac, Windows and Linux now offer 1.8.3. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -255,27 +277,22 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.8.0**, DMG **426,742,409 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.8.0**, installer **409,554,611 bytes**, unsigned.
-- Linux x86_64: **1.8.0** in AppImage (**608,626,644 bytes**), deb (**523,237,668 bytes**) and pacman (**484,573,040 bytes**) formats.
+- Apple Silicon Mac: **1.8.3**, DMG **501,903,103 bytes**, locally signed and not Apple-notarized.
+- Windows 10/11 x64: **1.8.3**, installer **439,177,333 bytes**, unsigned.
+- Linux x86_64: **1.8.3** in AppImage (**639,234,738 bytes**), deb (**569,866,376 bytes**) and pacman (**527,151,884 bytes**) formats, all unsigned.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Download Mac 1.8.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_arm64.dmg) · [Windows installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64-setup.exe) · [Linux AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x86_64.AppImage) · [Ubuntu/Debian deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_amd64.deb) · [Arch pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.0/HyphenScreen_1.8.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Download Mac 1.8.3 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_arm64.dmg) · [Download Windows 1.8.3 installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64-setup.exe) · [Download Linux 1.8.3 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x86_64.AppImage) · [Download Ubuntu/Debian 1.8.3 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_amd64.deb) · [Download Arch 1.8.3 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-Mac package SHA-256:
-
-```text
-22057996b182ca89d00c927fdda95870b513eda5dd2c06a400ede0a03c0e3d83
-```
-
-SHA-256 checksums for Windows and Linux 1.8.0:
+All five installers were downloaded again from their public URLs and matched these SHA-256 values:
 
 | Package | SHA-256 |
 | --- | --- |
-| Windows installer | `792892e1c1e68bb47ea63cf0f7f990c3454eb17b8c2caf48a576b78c1c4ec450` |
-| Linux AppImage | `ec13b065229d7f84b2a53399b6b15605637671cd3ec960842dbde7e06fffad93` |
-| Ubuntu/Debian deb | `f04d8f2f33236b8906cab9adf8cc23b0821bff6bd7d7ca4b229fed84df27917b` |
-| Arch pacman | `9a34c96b7379a9466464b6e97e14b1910c527aad5ee2cf7fedd6dadb90244f71` |
+| Mac DMG | `bbc6eb6b7b5ccc193e351da448a62367e2eb245e1cfb6dc37d231401c270f45b` |
+| Windows installer | `2fe838173bac95082616bba466f008b72ed5e88938b07194afae2ca4ea939122` |
+| Linux AppImage | `0a597d4166752ef7e24b8bfebce342e9d01022651d1ac5e0077f9becc551ef3a` |
+| Ubuntu/Debian deb | `a464c0398c4d7e6d51fd64bc9608bcd506f808a1fde93c3a0fb9d98c135f9795` |
+| Arch pacman | `d1322c31d705c8e6f973c978bda0f59008f453704437b03af193cd289873e06f` |
 
 The Windows package passed native component checks and byte checks for 331 packaging resources. Windows and Linux each generated all four layouts from synthetic material, with complete video and audio decoding. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 
@@ -311,7 +328,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac now offers 1.7.0; Windows and Linux offer 1.6.6. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.8.3. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -458,7 +475,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac offers 1.8.0; Windows and Linux offer 1.8.0. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac, Windows and Linux offer 1.8.3. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take
