@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "21e65d49749545d7e09925e597d96b522c35179c7c0f93af7927efd1d733ecae",
-  "published_post_count": 221,
+  "content_sha256": "becec8883b415e929459f75573a8ff44c2ae39dfe1dca1d851af681e1cba26c6",
+  "published_post_count": 222,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -910,6 +910,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "f05abc8b227f5d475e77a21bb648fc859dda871bf04a046bcc96f3310654fd9b"
+    },
+    {
+      "file": "posts/hyphenscreen-motion-library-showcase.md",
+      "slug": "hyphenscreen-motion-library-showcase",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "c42b29e713cb8687dea270363a19aa928cac91e2c14d276fe54c1f98eaac4d94"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165-en.md",
