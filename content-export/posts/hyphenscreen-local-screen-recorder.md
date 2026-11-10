@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.3 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.7 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
-updated: 2026-11-09
-summary: 黑粉录屏1.8.3已在Mac、Windows与Linux公开，新增整期制作契约和专业验收；公开版展示专业功能，签名授权本机可执行报告、局部修复与复验。
+updated: 2026-11-10
+summary: 1.8.7 修复整片包装的配色预览，镜头候选可播放各自的实际范例。整期工作台是付费功能，目前未开放购买。
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,16 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.7：选哪一套配色，就看到哪一套
+
+以前同一个包装版式换了配色，右侧可能还显示默认封面。这次用正式渲染器重新生成 112 个包装组合的范例。选「纸白橙调 · 聚焦 · 夜间版」，看到的是夜间配色，镜头编排候选也可以直接播放对应的动态范例。
+
+整期工作台可以左右对照当前画面与待应用的风格，核对全期或单段会怎么变。它是付费功能，目前未开放购买。已有签名授权可继续使用，普通录屏、剪辑和动画素材照常使用。
+
+在左上角「黑粉录屏 → AI 设置」可以单独配置 DeepSeek。填入自己的密钥即可加载官方模型列表，选择模型，再测试对话与工具调用。密钥保存在本机的加密凭据中。
+
+[查看黑粉录屏 1.8.7 发行页与三平台下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7)
 
 ## 1.8.3：先把整期要求写清楚，再验收到底改了什么
 
@@ -261,11 +271,11 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.8.3。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.8.7。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.8.3
+> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.8.7
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-11-09
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -308,26 +318,28 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 **过程反馈表示工具正在工作，工程是否保存、是否成功导出仍要分别确认。**本次已完成自动测试、生产构建、界面组件检查和安装包回读校验；完整六场故事的前端生成、成片播放与声音效果由使用者继续实测，没有把这些尚未完成的检查写成通过。模型的工具调用能力、上下文与输出速度仍会影响结果，软件不会因为接上模型就保证一次生成完整成片。
 
-| 当前下载 | 1.8.3 实际文件 |
+| 当前下载 | 1.8.7 实际文件 |
 | --- | --- |
-| Mac 苹果芯片 | DMG 共 501,903,103 字节，约 502 MB；本机证书签名，未做苹果公证 |
-| Windows 10/11 x64 | 安装程序 439,177,333 字节，未签名 |
-| Linux x86_64 | AppImage 639,234,738 字节；deb 569,866,376 字节；pacman 527,151,884 字节，均未签名 |
+| Mac 苹果芯片 | DMG 共 479,279,204 字节，约 479 MB；本机证书签名，未做苹果公证 |
+| Windows 10/11 x64 | 安装程序 442,446,534 字节，未签名 |
+| Linux x86_64 | AppImage 642,583,955 字节；deb 573,328,496 字节；pacman 530,577,192 字节，均未签名 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载 Mac 1.8.3 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_arm64.dmg) · [下载 Windows 1.8.3 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64-setup.exe) · [下载 Linux 1.8.3 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x86_64.AppImage) · [下载 Ubuntu／Debian 1.8.3 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_amd64.deb) · [下载 Arch 1.8.3 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载 Mac 1.8.7 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_arm64.dmg) · [下载 Windows 1.8.7 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x64-setup.exe) · [下载 Linux 1.8.7 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x86_64.AppImage) · [下载 Ubuntu／Debian 1.8.7 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_amd64.deb) · [下载 Arch 1.8.7 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-五个安装包均已从公开地址重新下载并核对 SHA-256：
+下载后可用以下 SHA-256 值核对五个安装包：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Mac DMG | `bbc6eb6b7b5ccc193e351da448a62367e2eb245e1cfb6dc37d231401c270f45b` |
-| Windows 安装程序 | `2fe838173bac95082616bba466f008b72ed5e88938b07194afae2ca4ea939122` |
-| Linux AppImage | `0a597d4166752ef7e24b8bfebce342e9d01022651d1ac5e0077f9becc551ef3a` |
-| Ubuntu／Debian deb | `a464c0398c4d7e6d51fd64bc9608bcd506f808a1fde93c3a0fb9d98c135f9795` |
-| Arch pacman | `d1322c31d705c8e6f973c978bda0f59008f453704437b03af193cd289873e06f` |
+| Mac DMG | `09c5880df09b847173cc55ab83c92d81256ec573506545b496ed8731eb7a5814` |
+| Windows 安装程序 | `69998f868288146159230b5e40a4ddcd713c07f3138ac8e1ab262cb086f7002f` |
+| Linux AppImage | `5b3e5d60f3bab156fdfb32e3ec828a50dc7b3f6eeedfa1a1afd1de6a448bf958` |
+| Ubuntu／Debian deb | `150261527bed3776295e7e615d850b8920ade1a30ca327ede339805c3c640a30` |
+| Arch pacman | `34cc1d0e1c0a4486aba7b5c0f60a74f913f19f20fc4979f91e8dafa647138691` |
 
-Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
+本轮全量回归 4,899 项通过、2 项按环境跳过。Mac 已实际安装并检查 DeepSeek 独立设置和未授权的整期工作台。Windows 和 Linux 完成对应平台的构建、打包和包内资源检查，本轮未在这两个平台做实机界面验收。
+
+此前的检查：Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
 
 ## 原有能力与制作经历
 
@@ -356,7 +368,7 @@ Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.8.3；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.8.7；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -503,7 +515,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac、Windows与Linux均为1.8.3；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac、Windows与Linux均为1.8.7；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断

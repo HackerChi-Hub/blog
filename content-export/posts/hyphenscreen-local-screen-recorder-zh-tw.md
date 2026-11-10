@@ -1,12 +1,12 @@
 ---
-title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.8.3 更新
+title: 黑粉錄屏：錄製、剪輯與 AI 動畫製作，1.8.7 更新
 slug: hyphenscreen-local-screen-recorder-zh-tw
 status: published
 lang: zh-TW
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-11-09
-summary: 黑粉錄屏1.8.3已在Mac、Windows與Linux公開，新增整期製作契約和專業驗收；公開版展示專業功能，簽名授權本機可執行報告、局部修復與複驗。
+updated: 2026-11-10
+summary: 1.8.7 修正整片包裝的配色預覽，鏡頭候選可播放各自的實際範例。整期工作台是付費功能，目前未開放購買。
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,16 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.7：選哪一套配色，就看到哪一套
+
+過去替同一個包裝版式換配色，右側仍可能顯示預設封面。這次用正式渲染器重新製作 112 個包裝組合的範例。選「紙白橙調 · 聚焦 · 夜間版」時，會看到夜間配色，鏡頭編排候選也可以播放對應的動態範例。
+
+整期工作台可以並排比較目前畫面和待套用的風格，查看全期或單段的變化。這是付費功能，目前未開放購買。已有簽名授權可繼續使用，一般錄製、剪輯和動畫素材照常使用。
+
+從左上角的「黑粉錄屏 → AI 設定」可以單獨設定 DeepSeek。輸入自己的金鑰即可載入官方模型清單、選擇模型，再測試對話與工具呼叫。金鑰以加密憑證儲存在本機。
+
+[查看黑粉錄屏 1.8.7 發行頁與三平台下載](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7)
 
 ## 1.8.3：先寫清整期要求，再驗收實際改了什麼
 
@@ -245,7 +255,7 @@ Windows 與 Linux 渲染驗證各用合成素材產生四種版面，共 16 秒�
 
 開發工作室已核實分類、搜尋、插入及動畫播放；三組跨來源切換通過真實介面保存與獨立環境重開，片段起點不變。全量4596項通過、2項略過，並非全部樣式逐一人工驗收。本輪未重跑完整錄製、實體攝影機、人臉修復或線上生成。
 
-包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前Mac、Windows與Linux均提供1.8.3；大小及校驗值依下方發行資料為準。
+包含1.6.2本地候選包的多選重排、軌道整理及包體精簡。研究原始碼、參考執行環境、採樣快取及測試工程不進入安裝包。目前 Mac、Windows 與 Linux 均提供 1.8.7；大小及校驗值依下方發行資料為準。
 
 正式1.6.3安裝包已核對映像完整性、嚴格簽名及資源一致性，427個檔案和連結與映像一致。本機安裝版讀回230個用途入口，插入及切換原生素材、保存專案並匯出1920×1080、30影格影片，完整解碼通過。公開下載核驗依發行記錄為準，主觀聲音聽審未完成。
 
@@ -277,24 +287,26 @@ Mac 1.6.1 補修調整時間軸後背景音樂重疊播放：預覽切換預混�
 
 解釋與分鏡文字隨實際輸出顯示；支援工具參數串流的引擎會提示正在寫入第幾個場景的結構及收到的字元數。每個場景寫入後，會讀回實際圖層數與時長。不支援參數增量的引擎只報告真實階段。中途回饋不表示工程已存檔或影片已匯出。本次已通過自動測試、介面元件檢查、正式建置及安裝包校驗；完整故事生成、播放與聲音聽審由使用者繼續實測。
 
-- Mac 蘋果晶片目前為 **1.8.3**，DMG **501,903,103 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
-- Windows 10/11 x64 目前為 **1.8.3**，安裝程式 **439,177,333 位元組**，未簽署。
-- Linux x86_64 目前為 **1.8.3**：AppImage **639,234,738 位元組**、deb **569,866,376 位元組**、pacman **527,151,884 位元組**，均未簽署。
+- Mac 蘋果晶片目前為 **1.8.7**，DMG **479,279,204 位元組**，使用本機憑證簽署，尚未通過蘋果公證。
+- Windows 10/11 x64 目前為 **1.8.7**，安裝程式 **442,446,534 位元組**，未簽署。
+- Linux x86_64 目前為 **1.8.7**：AppImage **642,583,955 位元組**、deb **573,328,496 位元組**、pacman **530,577,192 位元組**，均未簽署。
 - 線上模型或訂閱依服務商規則計費；本機模型使用本機硬體資源。
 
-[下載 Mac 1.8.3 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_arm64.dmg) · [下載 Windows 1.8.3 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64-setup.exe) · [下載 Linux 1.8.3 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x86_64.AppImage) · [下載 Ubuntu／Debian 1.8.3 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_amd64.deb) · [下載 Arch 1.8.3 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.3/HyphenScreen_1.8.3_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下載 Mac 1.8.7 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_arm64.dmg) · [下載 Windows 1.8.7 安裝程式](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x64-setup.exe) · [下載 Linux 1.8.7 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x86_64.AppImage) · [下載 Ubuntu／Debian 1.8.7 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_amd64.deb) · [下載 Arch 1.8.7 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x64.pacman) · [全部平台下載與更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-五個安裝包均已從公開地址重新下載並核對 SHA-256：
+下載後可用以下 SHA-256 值核對五個安裝包：
 
 | 安裝包 | SHA-256 |
 | --- | --- |
-| Mac DMG | `bbc6eb6b7b5ccc193e351da448a62367e2eb245e1cfb6dc37d231401c270f45b` |
-| Windows 安裝程式 | `2fe838173bac95082616bba466f008b72ed5e88938b07194afae2ca4ea939122` |
-| Linux AppImage | `0a597d4166752ef7e24b8bfebce342e9d01022651d1ac5e0077f9becc551ef3a` |
-| Ubuntu／Debian deb | `a464c0398c4d7e6d51fd64bc9608bcd506f808a1fde93c3a0fb9d98c135f9795` |
-| Arch pacman | `d1322c31d705c8e6f973c978bda0f59008f453704437b03af193cd289873e06f` |
+| Mac DMG | `09c5880df09b847173cc55ab83c92d81256ec573506545b496ed8731eb7a5814` |
+| Windows 安裝程式 | `69998f868288146159230b5e40a4ddcd713c07f3138ac8e1ab262cb086f7002f` |
+| Linux AppImage | `5b3e5d60f3bab156fdfb32e3ec828a50dc7b3f6eeedfa1a1afd1de6a448bf958` |
+| Ubuntu／Debian deb | `150261527bed3776295e7e615d850b8920ade1a30ca327ede339805c3c640a30` |
+| Arch pacman | `34cc1d0e1c0a4486aba7b5c0f60a74f913f19f20fc4979f91e8dafa647138691` |
 
-Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux各完成四版面合成素材產生及音畫完整解碼；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
+本次共通過 4,899 項回歸檢查、2 項因環境略過。Mac 已實際安裝並檢查 DeepSeek 獨立設定及未授權的整期工作台。Windows 與 Linux 完成相應平台的建置、打包和套件內資源檢查，本次未在這兩個平台進行實機介面驗收。
+
+先前的檢查：Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux各完成四版面合成素材產生及音畫完整解碼；Ubuntu 22.04 的 deb 安裝及檔案校驗通過。Linux 錄屏仍需在有 xdg-desktop-portal 的實機桌面環境驗證。
 
 ## 原有功能與製作歷程
 
@@ -328,7 +340,7 @@ Windows 建置包通過原生部件及331個包裝資源檢查，Windows／Linux
 > 版本與安裝程式大小取自專案的版本說明和本機安裝程式庫，不是估計值
 
 > [!warning]
-> 這是 1.0.2 時期的版本記錄。目前Mac、Windows與Linux均為1.8.3；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
+> 這是 1.0.2 時期的版本記錄。目前Mac、Windows與Linux均為1.8.7；Mac 仍未經 Apple 公證，Windows 仍未做程式碼簽署。平台差異見下方限制。
 
 ## 🧩 功能全覽（實機截圖）
 
@@ -475,7 +487,7 @@ AI 這部分我的選擇是**不綁定**：不內建模型、不代收 API 費�
 ## ⚠️ 它目前的限制
 
 - **沒有正式簽署**：Mac 版用我自己的憑證簽署、未經 Apple 公證；Windows 未做程式碼簽署，第一次執行會跳出 SmartScreen；Linux 也未簽署。
-- **平台能力不同**：Mac、Windows與Linux均為1.8.3；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
+- **平台能力不同**：Mac、Windows與Linux均為1.8.7；人聲隔離、自動打碼中的敏感資訊辨識及成片文字回讀目前僅 macOS 提供。框選時「點視窗取範圍」支援 macOS 與 Windows。Windows／Linux 的桌面互動仍需在各自系統實機驗證。
 - **Linux 相依套件多**：錄屏全部經由 xdg-desktop-portal，還需要 Vulkan 驅動和對應桌面的 portal 後端。
 
 ## 🧭 我的判斷
