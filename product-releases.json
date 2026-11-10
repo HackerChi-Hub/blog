@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-10T11:02:12.737Z",
-  "contentHash": "eeedda40783db0c64a4edb7326bad62b8c3f18a6ab1cdf18d70ee71dcac71e8e",
+  "checkedAt": "2026-11-10T12:47:21.461Z",
+  "contentHash": "99c382f1a7d7f10fba384772a5943b5fe8afa3a6ada59c35d99962146978ae1a",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-10T11:02:12.737Z",
+      "checkedAt": "2026-11-10T12:47:21.461Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "fdcac2735fbb0c32e9ac36504b7343464eef7cfe809c9d135072828f966bd1ff"
@@ -172,7 +172,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-10T11:02:12.737Z",
+      "checkedAt": "2026-11-10T12:47:21.461Z",
       "prerelease": false,
       "releaseNotesHash": "a2d9d03ebb347febde2fb3ec37b8e61b964f2fd17b2e40b724958b9f0b4b753b",
       "revision": "6fe68eec6fc876ed9f5e4cf14bd6aa792f9b5cdb29f531b3e5c6439e08ab18be"
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-10T11:02:12.737Z",
+      "checkedAt": "2026-11-10T12:47:21.461Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-10T11:02:12.737Z",
+      "checkedAt": "2026-11-10T12:47:21.461Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,74 +389,74 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "Mac 安装映像与应用签名已核验，安装后实际打开了 DeepSeek 独立设置。已用真实官方接口验证模型目录、对话和工具调用。Windows 与 Linux 的安装包由各自平台的构建任务生成并校验，本轮桌面界面验收在 Mac 完成。",
+      "updateSummary": "Mac 安装版在独立工程通过 DeepSeek 官方对话与工具连接测试。测试首条响应复现了用户截图中的无效参数，后续由 DeepSeek 官方接口处理，模型纠正调用后返回两条真实候选。已有签名授权的独立工程写入两个场景与两个时间线片段，并保存两条段落绑定。公开状态下，查询素材目录可用，写入整期方案会被拒绝，工程文件保持原样。安装版验收",
       "updated": "2026-11-10",
-      "activityAt": "2026-11-10T10:53:04Z",
-      "version": "1.8.7",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7",
+      "activityAt": "2026-11-10T12:42:13Z",
+      "version": "1.8.8",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.8",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.8.7",
+          "version": "1.8.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.8.7_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_arm64.dmg",
-              "id": 731018282,
-              "size": 479279204,
-              "updatedAt": "2026-11-10T10:50:35Z",
-              "digest": "sha256:09c5880df09b847173cc55ab83c92d81256ec573506545b496ed8731eb7a5814"
+              "name": "HyphenScreen_1.8.8_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_arm64.dmg",
+              "id": 731341738,
+              "size": 479326215,
+              "updatedAt": "2026-11-10T12:40:54Z",
+              "digest": "sha256:8a6f0f60b8f3cf4beac7841c04ec8d91810e1757bf609c61743c49d580bba5ff"
             }
           ]
         },
         {
           "platform": "Windows",
-          "version": "1.8.7",
+          "version": "1.8.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.8.7_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x64-setup.exe",
-              "id": 731018304,
-              "size": 442446534,
-              "updatedAt": "2026-11-10T10:48:36Z",
-              "digest": "sha256:69998f868288146159230b5e40a4ddcd713c07f3138ac8e1ab262cb086f7002f"
+              "name": "HyphenScreen_1.8.8_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_x64-setup.exe",
+              "id": 731341707,
+              "size": 442444356,
+              "updatedAt": "2026-11-10T12:37:26Z",
+              "digest": "sha256:81ea85b3b59e9786bfb66b9aad89f45bb11b774cacb0a6d7e0ceaf5f1c4d72a8"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "1.8.7",
+          "version": "1.8.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.7",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.8",
           "assets": [
             {
-              "name": "HyphenScreen_1.8.7_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_amd64.deb",
-              "id": 731018305,
-              "size": 573328496,
-              "updatedAt": "2026-11-10T10:52:37Z",
-              "digest": "sha256:150261527bed3776295e7e615d850b8920ade1a30ca327ede339805c3c640a30"
+              "name": "HyphenScreen_1.8.8_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_amd64.deb",
+              "id": 731341757,
+              "size": 573332236,
+              "updatedAt": "2026-11-10T12:41:36Z",
+              "digest": "sha256:4c2f744132e2e4961ebe2e6a6c06d37f0f752423559e57d1338de932c914f1f5"
             },
             {
-              "name": "HyphenScreen_1.8.7_x86_64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.7/HyphenScreen_1.8.7_x86_64.AppImage",
-              "id": 731018285,
-              "size": 642583955,
-              "updatedAt": "2026-11-10T10:53:02Z",
-              "digest": "sha256:5b3e5d60f3bab156fdfb32e3ec828a50dc7b3f6eeedfa1a1afd1de6a448bf958"
+              "name": "HyphenScreen_1.8.8_x86_64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_x86_64.AppImage",
+              "id": 731341756,
+              "size": 642596011,
+              "updatedAt": "2026-11-10T12:42:11Z",
+              "digest": "sha256:006727c6508894db9814fc47c188b6d675f2a6f1cd8ccd3ea263c7f6a9bbc88c"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-10T11:02:12.737Z",
+      "checkedAt": "2026-11-10T12:47:21.461Z",
       "prerelease": false,
-      "releaseNotesHash": "959c7e8e405f6fabb7757621b041e46e35b76c7352f18ad21d1eac886fa8ad7a",
-      "revision": "433e17effd9f918b3a6df7a850f10dabaecc86aae628e8520340fe63f14f1c63"
+      "releaseNotesHash": "742e449fbb09d02fee7551d1fb61773fa7672ebe3b322d09e385914ae671fcd8",
+      "revision": "27ec7f806cad39f5db1acf3b6e6b0356c83bd5ef7a8c06597733a2040c7f534c"
     }
   ]
 }
