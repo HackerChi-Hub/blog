@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.8 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.9 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
 updated: 2026-11-10
-summary: 1.8.8 修复 DeepSeek 动画工具调用中断，模型收到参数提示后可修正并继续。整期工作台需签名授权，目前未开放购买。
+summary: 1.8.9 支持从命令行和外部代理直接导出原生动画工程，保留时间线音轨与音乐避让。整期工作台需签名授权，目前未开放购买。
 categories:
   - 资源分享
 tags:
@@ -14,6 +14,14 @@ cover: /obsidian-assets/hyphenscreen-local-screen-recorder/cover-f7bd0aaa70.jpg
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
+
+## 1.8.9：命令行和外部代理可以直接导出整期工程
+
+同一个由 DeepSeek 生成的整期工程，可以在工作室导出，也能交给命令行或外部代理输出。命令行会读取原生时间线和工作室保存的导出选项，按实际人声分析混音。使用外部代理的 `exportVideo` 时，纯动画工程也可选择工作室的画质档位。
+
+Mac 安装版用同一个 DeepSeek 工程，从工作室、命令行和外部代理分别导出 6 秒 1080p60 视频，360 帧画面和解码音轨一致。另一份 16 秒配乐与旁白工程从工作室和命令行导出，解码后的音画也一致。Windows 和 Linux 完成云端打包和包内验证。
+
+[查看 1.8.9 发行与下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.9)
 
 ## 1.8.8：DeepSeek 动画工具调用可以纠错后继续
 
@@ -25,7 +33,6 @@ Mac 安装版以一条复现截图故障的无效参数启动测试，接下来�
 
 在已有签名授权的 Mac 测试工程中，模型生成两段动画并绑定到方案。保存重开后，工作室导出 6 秒 1080p60 视频，360 帧可完整解码。
 
-[查看 1.8.8 发行与下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.8)
 
 ## 1.8.7：选哪一套配色，就看到哪一套
 
@@ -282,11 +289,11 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.8.8。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.8.9。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.8.8
+> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.8.9
 > 黑粉科技 · 首发 2026-09-16 · 更新 2026-11-09
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
@@ -329,24 +336,24 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 **过程反馈表示工具正在工作，工程是否保存、是否成功导出仍要分别确认。**本次已完成自动测试、生产构建、界面组件检查和安装包回读校验；完整六场故事的前端生成、成片播放与声音效果由使用者继续实测，没有把这些尚未完成的检查写成通过。模型的工具调用能力、上下文与输出速度仍会影响结果，软件不会因为接上模型就保证一次生成完整成片。
 
-| 当前下载 | 1.8.8 实际文件 |
+| 当前下载 | 1.8.9 实际文件 |
 | --- | --- |
-| Mac 苹果芯片 | DMG 共 479,326,215 字节，约 479 MB；本机证书签名，未做苹果公证 |
-| Windows 10/11 x64 | 安装程序 442,444,356 字节，未签名 |
-| Linux x86_64 | AppImage 642,596,011 字节；deb 573,332,236 字节；pacman 530,567,988 字节，均未签名 |
+| Mac 苹果芯片 | DMG 共 479,244,600 字节，约 479 MB；本机证书签名，未做苹果公证 |
+| Windows 10/11 x64 | 安装程序 442,449,718 字节，未签名 |
+| Linux x86_64 | AppImage 642,583,021 字节；deb 573,332,724 字节；pacman 530,574,644 字节，均未签名 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载 Mac 1.8.8 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_arm64.dmg) · [下载 Windows 1.8.8 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_x64-setup.exe) · [下载 Linux 1.8.8 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_x86_64.AppImage) · [下载 Ubuntu／Debian 1.8.8 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_amd64.deb) · [下载 Arch 1.8.8 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.8/HyphenScreen_1.8.8_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载 Mac 1.8.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_arm64.dmg) · [下载 Windows 1.8.9 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64-setup.exe) · [下载 Linux 1.8.9 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x86_64.AppImage) · [下载 Ubuntu／Debian 1.8.9 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_amd64.deb) · [下载 Arch 1.8.9 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 下载后可用以下 SHA-256 值核对五个安装包：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Mac DMG | `8a6f0f60b8f3cf4beac7841c04ec8d91810e1757bf609c61743c49d580bba5ff` |
-| Windows 安装程序 | `81ea85b3b59e9786bfb66b9aad89f45bb11b774cacb0a6d7e0ceaf5f1c4d72a8` |
-| Linux AppImage | `006727c6508894db9814fc47c188b6d675f2a6f1cd8ccd3ea263c7f6a9bbc88c` |
-| Ubuntu／Debian deb | `4c2f744132e2e4961ebe2e6a6c06d37f0f752423559e57d1338de932c914f1f5` |
-| Arch pacman | `6bc75fc91897ce2822630a530471e882016af3a3350cc76cfc5c4c720fd0912c` |
+| Mac DMG | `f5699d3c3f46687f0be77348f45c922e6c208cb16dd90a851704d2be29fc7885` |
+| Windows 安装程序 | `2932e13ff6f96d9234663e46619db51a3f1cc3fd4905f072aa9c9d15ee86f7c8` |
+| Linux AppImage | `3ae726b091b2a22b02ce4d72f7601752ae8cd4bb6ab6904eadb278f5df3991c2` |
+| Ubuntu／Debian deb | `37087859f191cfa6eb2c672456057c48feb81410b1a4959944db3e933fe5f98a` |
+| Arch pacman | `c6a84a68a0fbd62ef7867faea673d0505f0249d2a96678aa40c897459380d427` |
 
 本轮全量回归 4,899 项通过、2 项按环境跳过。Mac 已实际安装并检查 DeepSeek 独立设置和未授权的整期工作台。Windows 和 Linux 完成对应平台的构建、打包和包内资源检查，本轮未在这两个平台做实机界面验收。
 
@@ -379,7 +386,7 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.8.8；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.8.9；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -526,7 +533,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac、Windows与Linux均为1.8.8；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac、Windows与Linux均为1.8.9；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
