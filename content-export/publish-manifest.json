@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "23c9e8066cf20db0745d5e84d54258f3bd5e5dfa8d054b060daee3f46487ea7e",
-  "published_post_count": 233,
+  "content_sha256": "50c4def10a4b4aa428edd28caf26ce9533bf7d6d111890acff42a517226a6b64",
+  "published_post_count": 234,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1403,6 +1403,13 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "6d68e78fc28268ae781df88a4a15d73cd919cd294631b6734bea52f3dca19431"
+    },
+    {
+      "file": "posts/minimax-h3-image-mac-64gb-local-test.md",
+      "slug": "minimax-h3-image-mac-64gb-local-test",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "cd5cffe4b6baf0bb693eca8c80df64173d5893cd156f20ad317abdd8ac432d5a"
     },
     {
       "file": "posts/mlx-local-ai-test-m5pro-en.md",
