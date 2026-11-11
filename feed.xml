@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Nov 2026 14:29:08 GMT</lastBuildDate>
-    <pubDate>Tue, 10 Nov 2026 14:29:08 GMT</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2026 05:22:02 GMT</lastBuildDate>
+    <pubDate>Wed, 11 Nov 2026 05:22:02 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>MiniMax H3-Image 实测：64GB Mac 能原生出 4K，参考图改图要等多久？</title>
+      <link>https://hyphentech.top/minimax-h3-image-mac-64gb-local-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/minimax-h3-image-mac-64gb-local-test/</guid>
+      <description>在 M5 Pro 64GB Mac 上实跑社区四位版：2K 生图约 73 秒，原生 4K 约 6 分 17 秒。对照单图、双图编辑的原图和内存记录，看它适合什么任务。</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>新锐模型</category>
+    <category>本地部署</category>
+    <category>方寸智匣</category>
+    </item>
     <item>
       <title>黑粉录屏动画库实播：从立体运镜到整片包装，144 个效果怎么看、怎么用？</title>
       <link>https://hyphentech.top/hyphenscreen-motion-library-showcase/</link>
@@ -195,16 +205,6 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
-    </item>
-    <item>
-      <title>Impeccable 能帮编程助手把现有网页改得更好用吗？</title>
-      <link>https://hyphentech.top/2026-10-29-skill-79a5fd606e65/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-29-skill-79a5fd606e65/</guid>
-      <description>Impeccable 能帮编程助手把现有网页改得更好用吗？</description>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>资源分享</category>
     </item>
   </channel>
 </rss>
