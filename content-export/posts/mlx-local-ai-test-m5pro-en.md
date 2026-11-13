@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mlx-local-ai-test-m5pro
 translation_source: machine
-source_sha256: dc96ba316336cb05
+source_sha256: 299102888141e7e0
 date: 2026-05-21
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "MacBook Pro M5 Pro+ 64GB runs 6 AI models locally in real-world tests. Multi-turn conversations + tool calls: file verification completed in as fast as 1.9 seconds, and 125 seconds as fastest—a 66x difference. Pitfalls + fixes fully revealed."
 categories:
   - Thoughts
@@ -18,7 +18,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/mlx-local-ai-test-m5pro/image-01-7250b7dcf9.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
@@ -42,7 +41,7 @@ The data is real, the pitfalls are well known, no more nonsense, let's get to th
 
 - 64GB Unified Memory
 
-- This memory is shared between CPU and GPU, so the model can fully utilize 64GB
+- This memory is shared by the CPU, GPU, system, and other programs; 64GB is not a model-exclusive capacity; the actual allocative space is still limited by runtime and system constraints
 
 ### 🔧 Software
 
@@ -57,9 +56,15 @@ The data is real, the pitfalls are well known, no more nonsense, let's get to th
 > 
 > Ordinary computers have their own CPU and GPU memory, and transferring data in between requires "moving," which is slow and wasteful. Apple chips merge the two into one, allowing the model to live directly inside without moving, which is much faster.
 > 
-> 64GB means you can fit a 28GB model at the same time, plus 36GB for running systems and other programs.
+> 28GB is just the first factor: you also need to calculate KV cache, linear state, pre-filled temporary tensors, and program overhead. Only if the total budget is below the current allocable space can you judge whether it can fit it.
 
 ---
+
+## Capacity and Speed Reading Standards (Supplemented on 2026-10-24)
+
+The following retains the original test devices, models, and results, and does not generalize them to guarantees for all local models. The 4-bit/8-bit values in the model table refer to weight representations and do not mean the KV cache uses the same precision; Cache usage also depends on the full attention layer, KV header, and explicit head_dim. GB and GiB should also be recorded separately.
+
+The first round also includes long prefix processing costs. Subsequent rounds of hot cache eliminate repeated prefix computations, so you cannot claim the hardware's pure generation capability increases by the same multiple. When comparing engines or models, you need to separately list loading, prefilling, decoding, cache hot and cold status, and peak occupancy. [Ollama Cache and Concurrency Explanation](https://docs.ollama.com/faq)
 
 ## 🤖 6 contestants
 

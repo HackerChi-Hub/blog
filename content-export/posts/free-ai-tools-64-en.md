@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-ai-tools-64
 translation_source: machine
-source_sha256: ae30ce2a7167a7ad
+source_sha256: 6f9aeadb7298242b
 date: 2026-04-27
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "64 free AI tools tested and recommended, covering writing, images, programming, video, audio, design, office, and learning."
 categories:
   - Resources
@@ -15,7 +15,6 @@ tags: []
 cover: "https://hyphentech.top/obsidian-assets/free-ai-tools-64/image-01-a6fc9dda6e.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

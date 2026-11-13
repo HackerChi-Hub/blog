@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-api-radar
 translation_source: machine
-source_sha256: 63b17e5cfce39aad
+source_sha256: 0832de818e35c115
 date: 2026-08-23
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Free interfaces, features, and limitations that can be directly called"
 categories:
   - Resources
@@ -17,7 +17,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/free-api-radar/cover-3e17fed5b8.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

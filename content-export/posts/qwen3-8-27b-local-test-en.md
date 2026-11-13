@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: qwen3-8-27b-local-test
 translation_source: machine
-source_sha256: a81cfc27b069b8d8
+source_sha256: 2ecf1b092ec463a7
 date: 2026-08-18
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "On August 14, the open-source 27B multimodal model was fed into an M5 Pro. All six problems produced executable files, with a median of 13.4 tokens/second. By the way, I clarified where to get the review version and how much memory it needed."
 categories:
   - Tech
@@ -20,7 +20,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/qwen3-8-27b-local-test/cover-be360df2e5.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

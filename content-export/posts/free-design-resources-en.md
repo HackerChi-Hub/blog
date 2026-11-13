@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-design-resources
 translation_source: machine
-source_sha256: 90940f827b55c6aa
+source_sha256: 5b6d17d34154a2d5
 date: 2026-04-27
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "65+ free resource websites for designers and programmers, covering 7 major categories: images, icons, color schemes, fonts, 3D, and sound effects."
 categories:
   - Resources
@@ -15,7 +15,6 @@ tags: []
 cover: "https://hyphentech.top/obsidian-assets/free-design-resources/image-01-b55e78c48c.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

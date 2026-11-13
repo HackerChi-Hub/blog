@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: bonsai2-mac-deploy
 translation_source: machine
-source_sha256: 5de49e9137721863
+source_sha256: 94a29c4954ce9b5b
 date: 2026-09-19
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "PrismML reduced 27B reasoning to 5.93 GB, M5 Pro ran 27.7 tok/s, still retaining 98.2% of Qwen 3.8's raw capability. Clearly wrote down the commands, pitfalls, and plans for testing in LocalBrain on two deployment paths all at once."
 categories:
   - Tech
@@ -19,7 +19,6 @@ tags:
 cover: "/obsidian-assets/bonsai2-mac-deploy/cover-direct-fusion-02-20260919.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

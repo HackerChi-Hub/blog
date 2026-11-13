@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: splash-mac-local-inference
 translation_source: machine
-source_sha256: 12a504e625412601
+source_sha256: f62f5c1e3a66da1a
 date: 2026-09-20
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Splash generated Qwen 3.8-27B code on my M5 Pro at 79.3 tok/s, 5.11 times faster than the naive MLX with the same weight; Switching to Chinese writing only reduced to 1.44 times. The difference isn't in the engine; it's in the draft model's acceptance rate—code 63.2%, Chinese 11.9%."
 categories:
   - Thoughts
@@ -18,11 +18,24 @@ tags:
 cover: "/obsidian-assets/splash-mac-local-inference/cover-8583e365a4.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/splash-mac-local-inference/) is authoritative.
+
+## Supplement on October 31: Put Splash back into the complete acceleration technology diagram
+
+I organized the inference engine's mechanism into a 3D clay factory explanation: kernel moves less data, quantization shrinks representation, caches and reuses results, heterogeneous hardware division of labor, speculative decoding proposes and validates candidates, and scheduling multiple requests to continue. Splash combines dedicated Metal execution, prefix reuse, and draft validation, and speed changes need to be understood through these steps.
+
+[Watch the full video: Why do inference engines make large models faster? Six types of acceleration technologies behind Splash and Strata](https://www.bilibili.com/video/BV1frxC6WEw7/). Around 01:24, we talk about kernels and transfers; at 03:34, we talk about caching; at 05:59, we move into speculative decoding.
+
+![Chunking and storage hierarchy in attention computing | Animation illustration for this episode](https://hyphentech.top/obsidian-assets/splash-mac-local-inference/attention-memory-20261031-1f486bfc2e.jpg)
+
+The diagram uses FlashAttention to explain how attention operations are arranged for chunking and read/write; Splash's dedicated Metal kernel and draft validation are still understood according to the model path introduced in [Project Documentation](https://github.com/incoai/splash). When selecting an engine, I look at acceptance rate, validation overhead, context hit, and complete task time together. The relationship between the six types of technologies and platforms is shown in [Mechanism Overview](https://hyphentech.top/mac-local-inference-engines/).
+
+Below, we continue to retain the original Chinese and coding task test records and corresponding conditions.
+
+## Measured records from September 2026
 
 The day before yesterday, Inco AI open-sourced an inference engine designed exclusively for Apple chips, called Splash. The first part of the README slaps the numbers in the face: on a 48GB M5 Pro, the Qwen 3.8-27B decoding speed is twice that of the second-fastest engine, and the first token takes only 282 milliseconds when the 32K context cache hits. I installed it and tested it all day. Here's the conclusion: the engine is real, and that double speed is true, but when I wrote Chinese articles with it, the acceleration dropped to only 44%. Same machine, same model, same engine, code 79.3 tok/s, Chinese 25.6 tok/s, a difference of 3.1 times.
 

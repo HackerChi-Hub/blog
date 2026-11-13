@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ai-agent-ufo-game-prompt-template-2026
 translation_source: machine
-source_sha256: 872ff9643c5665d9
+source_sha256: 253d54882d88169c
 date: 2026-06-04
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "I used a UFO sucking baby web game to test whether AI could continuously advance according to goals, boundaries, and acceptance documents like employees, and organized reusable prompt templates."
 categories:
   - Tech
@@ -19,7 +19,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/ai-agent-ufo-game-prompt-template-2026/image-01-36329611f7.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

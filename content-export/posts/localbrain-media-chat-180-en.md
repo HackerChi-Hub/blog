@@ -4,7 +4,6 @@ slug: localbrain-media-chat-180-en
 status: published
 lang: en
 translation_of: localbrain-media-chat-180
-article_type: "article"
 translation_source: machine
 source_sha256: 07994c74ffa92283
 date: 2026-10-13
@@ -19,6 +18,7 @@ tags:
 cover: "/obsidian-assets/localbrain-media-chat-180/cover-55d4eb3c1d.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

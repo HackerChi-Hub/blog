@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mac-windows-linux-ai-platforms
 translation_source: machine
-source_sha256: 0046976bac2e89aa
+source_sha256: 137cf3c45ca75ede
 date: 2026-09-28
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "For AI computers, Mac should buy shared memory and low maintenance, Windows should be compatible with graphics card options, Linux should be the production stack; After adding the official spot price on September 28, the answer becomes more specific."
 categories:
   - Thoughts
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/mac-windows-linux-ai-platforms/cover-be7af05769.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
@@ -111,6 +110,14 @@ The most interesting thing about this table isn't who is cheaper, but that aroun
 Here's a real-world reminder: on Apple's purchase page, the M5 Pro, 64GB, and 512GB configurations showed **20,499 yuan, expected shipping in 1–2 weeks**, so I didn't include them in the "spot price" list.
 
 High-end Macs can indeed trade less overall complexity for larger shared memory, but once the budget hits 20,000 yuan, Windows/Linux self-assembled PCs, professional graphics cards, and cloud pay-as-you-go rentals all have to be compared again. Prices change daily; this article retains a dated market snapshot, not a permanent purchase list.
+
+## Run local models, then separate capacity and bandwidth for accounting (Supplemented on 2026-10-24)
+
+Here, the operating system comparison cannot replace the model budget: `驻留权重 + KV缓存/线性状态 + 预填充和视觉缓冲 + 系统余量`, which is the capacity ledger for the current task. 32GB of system memory and 8GB of dedicated video memory cannot be added to 40GB of same-speed VRAM; CPU unloading changes capacity, as well as compute and transfer paths. Linux virtual machines inside Windows must also confirm the actual available GPU and host allocation; they cannot directly inherit bare metal performance conclusions.
+
+Bandwidth is another factor: the official M5 Pro is 307GB/s; The M5 Max has 32 cores and 40-core GPUs at 460 and 614GB/s, but not all Max models have the highest bandwidth. Unified memory is also shared by the system, so you can't directly release exclusive amounts from the listed capacity. [Apple Official Technical Specifications](https://www.apple.com/macbook-pro/specs/)
+
+Single-request decoding often explains bottlenecks with "bandwidth÷ actual bytes read per token," but this is only an approximation of the condition. High concurrency, quantized unpacking, MoE routing, long context, and CPU/GPU unloading can all change results. Prices and platform data with dates in the original text retain the original observation timeline and do not use this formula to disguise the new three-platform actual tests.
 
 ## 🧩 The real cost is calculated together in hardware, software, and people
 

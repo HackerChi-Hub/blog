@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: screenlex-watch-and-learn
 translation_source: machine
-source_sha256: d62030e0594e22f8
+source_sha256: f3e2265dd5ade1c2
 date: 2026-08-17
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Local film and TV English learning tool: scan local SRT/ASS subtitles, organize offline into an advanced English vocabulary database graded by exam, accompanied by sentence-by-sentence learning player and active recall review. Supports macOS (Apple Silicon) and Windows (x64 arm)."
 categories:
   - Resources
@@ -17,7 +17,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/screenlex-watch-and-learn/image-01-66cd719d7b.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

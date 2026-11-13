@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: google-io-2026-gemini-agentic-era
 translation_source: machine
-source_sha256: 3695396971c651eb
+source_sha256: 2f4e2332c4b6bbbb
 date: 2026-06-10
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "From \"answering questions\" to \"doing things for you,\" Google is betting $180 billion on a full-stack Agent ecosystem. Managed agents, proactive workflows, Gemini Spark 24/7 backend agents—an in-depth look at I/O 2026 — all major releases."
 categories:
   - Thoughts
@@ -21,7 +21,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/google-io-2026-gemini-agentic-era/image-01-2b1b7d88a1.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

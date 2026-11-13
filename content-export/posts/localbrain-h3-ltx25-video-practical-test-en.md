@@ -4,7 +4,6 @@ slug: localbrain-h3-ltx25-video-practical-test-en
 status: published
 lang: en
 translation_of: localbrain-h3-ltx25-video-practical-test
-article_type: "article"
 translation_source: machine
 source_sha256: b9a88c43056be882
 date: 2026-11-02
@@ -19,6 +18,7 @@ tags:
 cover: "/obsidian-assets/localbrain-h3-ltx25-video-practical-test/cover-728bae0052ba.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

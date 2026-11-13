@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: ox-alpha-stealth-model
 translation_source: machine
-source_sha256: 6bd553c8708ff9da
+source_sha256: 9e5360f440e52964
 date: 2026-08-24
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Late at night on August 20, OpenRouter added a line of stealth/ox-alpha. No company, no warehouse, no name, but in two days it shot to number one in call volume. Around 1.04 million yuan, you can watch videos, completely free—the price is written at the top of the page."
 categories:
   - Thoughts
@@ -20,7 +20,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/ox-alpha-stealth-model/cover-f9bedfd334.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

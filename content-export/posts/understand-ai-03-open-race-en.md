@@ -17,6 +17,7 @@ tags:
 cover: "/obsidian-assets/understand-ai-03-open-race/cover-87b121c499.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

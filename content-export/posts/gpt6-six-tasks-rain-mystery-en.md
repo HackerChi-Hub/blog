@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gpt6-six-tasks-rain-mystery
 translation_source: machine
-source_sha256: a63c9a625e27e4de
+source_sha256: 92c2d53b4f8e2e55
 date: 2026-09-06
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Six questions are made and reviewed with public evaluation, with free rainy night reasoning mini-games, complete clues, and answers."
 categories:
   - Tech
@@ -16,7 +16,6 @@ tags:
 cover: "/obsidian-assets/gpt6-six-tasks-rain-mystery/cover-5248b3b14c.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

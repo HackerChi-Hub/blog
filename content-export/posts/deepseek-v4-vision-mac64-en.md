@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: deepseek-v4-vision-mac64
 translation_source: machine
-source_sha256: 112c0e33d0967390
+source_sha256: 8f6ea6be4cc2d7be
 date: 2026-09-02
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "DeepSeek turns vision into the Agent's perception entry point and opens up a 305B weight. The latest minimum visual GGUF is still about 67.8GiB: 64GB Mac is not suitable for stable deployment today. This article is based on official data and files, and does not use local running impersonation."
 categories:
   - Thoughts
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/deepseek-v4-vision-mac64/cover-0829cd3f52.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

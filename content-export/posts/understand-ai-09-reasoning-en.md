@@ -17,6 +17,7 @@ tags:
 cover: "/obsidian-assets/understand-ai-09-reasoning/cover-22b4b5eb31.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

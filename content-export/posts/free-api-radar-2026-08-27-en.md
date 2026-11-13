@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: free-api-radar-2026-08-27
 translation_source: machine
-source_sha256: 9d92e655e6859f1e
+source_sha256: 2fca4c55151df389
 date: 2026-08-27
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Free interface review of GLM-5.3-Flash, Qwen3.8, and Coding GLM: whether they work, how to connect, and the limits and privacy risks all at once."
 categories:
   - Resources
@@ -17,7 +17,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/free-api-radar-2026-08-27/cover-8d988a58de.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

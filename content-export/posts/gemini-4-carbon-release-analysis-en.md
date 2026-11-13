@@ -4,7 +4,6 @@ slug: gemini-4-carbon-release-analysis-en
 status: published
 lang: en
 translation_of: gemini-4-carbon-release-analysis
-article_type: "article"
 translation_source: machine
 source_sha256: 1a6e0b0c877cb4cf
 date: 2026-10-29
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/gemini-4-carbon-release-analysis/cover-d1ecf4f0f1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

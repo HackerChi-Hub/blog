@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: localbrain-h3-multi-reference
 translation_source: machine
-source_sha256: 4b3b927cb35d73f5
+source_sha256: 59df64674e29d6c0
 date: 2026-09-11
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "LocalBrain 1.2.65 can run MiniMax H3's multi-reference plates (REF2VA) locally, with up to 9 images at once. On a 64 GB M5 Pro, I used 0, 1, 2, and 4 reference images to generate a 3-second video of 960×544 each with 0, memory, copied details, and reasons why Turbo wouldn't open."
 categories:
   - Tech
@@ -20,7 +20,6 @@ tags:
 cover: "/obsidian-assets/localbrain-h3-multi-reference/cover-ee30fcef58.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -17,6 +17,7 @@ tags:
 cover: "/obsidian-assets/understand-ai-08-training/cover-084b0b60ca.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

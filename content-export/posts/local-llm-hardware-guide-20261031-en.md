@@ -4,7 +4,6 @@ slug: local-llm-hardware-guide-20261031-en
 status: published
 lang: en
 translation_of: local-llm-hardware-guide-20261031
-article_type: "article"
 translation_source: machine
 source_sha256: 86f955023fa85933
 date: 2026-10-31
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/local-llm-hardware-guide-20261031/cover-880fe11d9e.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

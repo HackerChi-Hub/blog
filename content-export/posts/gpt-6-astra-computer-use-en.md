@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gpt-6-astra-computer-use
 translation_source: machine
-source_sha256: 940b321db1fed5d5
+source_sha256: 92c37e8be4b314cd
 date: 2026-09-05
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "The real change in GPT-6 Astra isn't just a slight increase in chat score, but the simultaneous integration of computer operation, long tasks, and high-risk capabilities into the product. This article breaks down the available range, API costs, security boundaries, and how ordinary people choose based on OpenAI's official materials."
 categories:
   - Thoughts
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/gpt-6-astra-computer-use/cover-a9be2469b5.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

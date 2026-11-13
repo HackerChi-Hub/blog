@@ -5,10 +5,10 @@ status: published
 lang: en
 translation_of: hyphenbox-windows-linux-tri-platform
 translation_source: machine
-source_sha256: d57cc5edefc3c326
+source_sha256: dead73144f3db418
 date: 2026-09-04
-updated: 2026-11-02
-summary: "HyphenBox 1.0.7: Harness media tools, image/video tasks and recovery, now packaged for Mac, Windows and Linux."
+updated: 2026-11-13
+summary: "Three platforms updated to 1.0.7, adding Harness media tools, image and video tasks, and recovery; Real photo output and platform acceptance scope are marked separately."
 categories:
   - Resources
 tags:
@@ -18,26 +18,31 @@ tags:
 cover: "/obsidian-assets/hyphenbox-windows-linux-tri-platform/cover-2.35x1.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/hyphenbox-windows-linux-tri-platform/) is authoritative.
 
 <!-- hyphenbox-current-release:start -->
-## Updated November 2, 2026: Version 1.0.7 on all three platforms
+## Updated November 2, 2026: Three-Platform 1.0.7
 
-Windows/Linux **1.0.7** installers are now available: Windows x64 EXE/MSI and Linux x64 AppImage/deb/rpm, including the media tabs and Harness media tools. Windows was built with local MSVC and Linux with WSL Ubuntu 22.04. Core and desktop regressions and isolated AppImage startup, catalog and authentication checks cover this build. No new Windows/Linux live media generation or Agent result is claimed.
+Windows/Linux now includes **1.0.7**: Windows x64 EXE/MSI, Linux x64 AppImage/deb/rpm, including media tabs and Harness media tools. Windows uses native MSVC, Linux uses WSL Ubuntu 22.04; both ends perform kernel and desktop regression, AppImage checks isolated startup, directory sign-up, and local authentication. No new Windows/Linux real media generation or agent call conclusions. Historical single strip removal, batch cleanup, revocation, and reusable platform protocol configurations are provided with the package.
 
-Harness native media tools now share reusable provider configuration. History supports single removal, batch cleanup and undo while protecting original files and idempotency records. Step 3 groups Agent connection, images and video. Provider, saved credential and model selection are recorded per task. Accepted videos are queried and downloaded by their original task ID; unknown results are not resubmitted automatically.
+- Image and video history supports single item removal, batch cleaning of completed tasks, and revocation; by default, only the most recent six items are displayed. Cleanup status and undo information are retained after restarting; ongoing tasks, generated files, save files, original events, and idempotent keys are protected; Batch cleaning is not affected by the limit of 200 most recent page entries.
+- New reusable platform protocol configurations: unified description of submission paths, typified parameters, model lists, result fields, and asynchronous queries. New models with the same protocol can continue to use platform configurations; Configurations still need adjustments due to differences in protocols, required fields, or input formats.
+- Media page unified selection of platform, saved keys, and models. Configuration covers Agnes, Zhipu, Cloudflare Workers AI, AI Horde, ModelScope account benefits, Stability trial, and WaveSpeed image/video; Retains Pollinations Classic as an independent password-free entry point. Free types and trial conditions are displayed separately.
+- New keys for account conditional platforms default to "undeclared"; Only after the user marks "free quota" and confirms platform conditions will they be released. Paid, undeclared, or other platform credentials are rejected, with no recharge action, paid rebate, or automatic cross-platform regeneration. Agnes continues to verify the official zero price before each submission.
+- Harness originally had 8 native media tools that read the same platform, model, and parameter configuration, without adding tools for each new model. Old calls and tasks are retained; accepted tasks only query and download the original number; unknown submissions are not automatically resubmitted.
+- Submission, status query, result query, failure response, and download are stored separately for anonymized response, status code, time consumption, and hash. If the query temporarily fails, the original task continues; The platform is disabled to block newly generated tasks that have not yet been assigned, but already accepted tasks can still query the original result.
+- Maintain the unified entry and left-right layout of Agent/image/video in step 3, keep sponsorship codes, local free achievements, and the original overall profile.
 
-Real Mac image files were obtained and visually checked. Agnes video requests returned a full queue; no real generated video was obtained. A decodable file does not prove prompt adherence. Windows/Linux live media generation has not been validated in this packaging run.
+Mac installation and Harness have obtained real image files, completed decoding and visual verification; Valid file does not mean prompt compliance is passed. Agnes video real request return queue is full; no real generated video is obtained; simulated asynchronous process does not pretend to be real footage. Mac results are not relabeled as Windows/Linux test results here.
 
-Windows/Linux include a signed built-in catalog; online refresh needs separate configuration. Linux requires desktop Secret Service. Updater signatures are distinct from commercial code signing or Apple notarization. Free eligibility and policy review periods still apply.
+Windows/Linux use built-in signature directories; online refresh requires separate configuration; Linux Safe requires desktop Secret Service. Updater signatures differ from commercial code signatures and notarization. Media policy expires will stop new creations; Free quotas and conditions are subject to the provider's discretion.
 
-[Download / 下载 1.0.7](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7)
+[Download / Download 1.0.7](https://github.com/HackerChi-Hub/hyphenbox-release/releases/tag/v1.0.7)
 
-Historical development records remain below with their original version context.
+Below are early development records, with screenshots, numbers, and old client examples corresponding to the current version.
 <!-- hyphenbox-current-release:end -->
 
 # No need to try every free API one by one: Windows and Mac automatically switch models

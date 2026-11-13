@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: gemini-3-8-flash-cyber
 translation_source: machine
-source_sha256: 8b9af7c13ab122a4
+source_sha256: 7fe4087735573c45
 date: 2026-09-03
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "On September 2, Google released 3.8 Flash and 3.8 Flash Cyber all at once. Same core, two faces: one cheap and easy to use, accessible to everyone, the other specialized in fixing vulnerabilities but only for trusted defenders. What's interesting isn't who is stronger, but where this dividing line lies."
 categories:
   - Thoughts
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/gemini-3-8-flash-cyber/cover-1b462d9340.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

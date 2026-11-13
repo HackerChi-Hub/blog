@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: broadband-troubleshooting-guide
 translation_source: machine
-source_sha256: 14424f42f3124dca
+source_sha256: 6d9fc67e6105e706
 date: 2026-04-27
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Self-inspection guide for broadband faults by the three major operators nationwide, including customer service hotline, optical modem indicator light, and error codes."
 categories:
   - Tech
@@ -15,7 +15,6 @@ tags: []
 cover: "https://hyphentech.top/obsidian-assets/broadband-troubleshooting-guide/cover-d196f135bf.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

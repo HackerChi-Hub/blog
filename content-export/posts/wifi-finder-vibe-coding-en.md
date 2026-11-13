@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: wifi-finder-vibe-coding
 translation_source: machine
-source_sha256: a862937ae4990acd
+source_sha256: 0682d93ff300f20e
 date: 2026-03-31
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Using Vibe Coding, I spent 30 minutes creating an offline public WiFi password querier covering 15+ countries and 150+ hotspots"
 categories:
   - Tech
@@ -21,7 +21,6 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/wifi-finder-vibe-coding/image-01-cf0f87a731.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

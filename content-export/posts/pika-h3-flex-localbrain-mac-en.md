@@ -4,7 +4,6 @@ slug: pika-h3-flex-localbrain-mac-en
 status: published
 lang: en
 translation_of: pika-h3-flex-localbrain-mac
-article_type: "article"
 translation_source: machine
 source_sha256: 45ac96b58b225902
 date: 2026-11-01
@@ -19,6 +18,7 @@ tags:
 cover: "/obsidian-assets/pika-h3-flex-localbrain-mac/cover-5b2a700c8e.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

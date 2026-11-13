@@ -4,7 +4,6 @@ slug: localbrain-security-howto-en
 status: published
 lang: en
 translation_of: localbrain-security-howto
-article_type: "article"
 translation_source: machine
 source_sha256: 4dd62470a237e455
 date: 2026-10-23
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/localbrain-security-howto/cover-mask-20261024-83313003b4.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

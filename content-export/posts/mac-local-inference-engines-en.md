@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: mac-local-inference-engines
 translation_source: machine
-source_sha256: c56202ec8c756365
+source_sha256: 0ac1fba209870a55
 date: 2026-09-05
-updated: 2026-10-24
+updated: 2026-11-13
 summary: "Ollama switched Mac inference to MLX kernel half a year ago, and now a bunch of challengers claiming to be faster have emerged. I didn't run the tests, just put the scores published by the four companies on one table—the result was: none of them were running the same set of problems."
 categories:
   - Tech
@@ -17,11 +17,45 @@ tags:
 cover: "/obsidian-assets/mac-local-inference-engines/cover-ca31df9eff.png"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/mac-local-inference-engines/) is authoritative.
+
+## Supplement on October 31, 2026: Let's first look at the six types of acceleration technologies, then the engine names
+
+Why does the same model get faster when switching engines? I turned this question into a 3D clay factory video: first distinguish between applications, models, engines, computing kernels, and hardware, then follow the data path to see which step each optimization is actually saved.
+
+[Watch the full video: Why does inference engine make large models faster? Six types of acceleration technologies behind Splash and Strata](https://www.bilibili.com/video/BV1frxC6WEw7/)
+
+![The relationship between models, running engines, and hardware | This issue's 3D animation visuals](https://hyphentech.top/obsidian-assets/mac-local-inference-engines/engine-factory-20261031-ab41fe57fd.jpg)
+
+The model includes structure and weights obtained from training; The engine loads the model and organizes the generation process; The kernel performs specific operations, while the processor, graphics card, memory, and hard drive provide computation and storage. A single answer is divided into pre-filling for processing input and decoding of the output word in step. Initial word waiting, continuous word output, how large the model can be installed, multi-user throughput, and overall task time need to be evaluated separately.
+
+| Technology | Specifically, which step to change | Main functions and selection criteria |
+| --- | --- | --- |
+| Kernel optimization | Integrates adjacent processes and segmented calculations to reduce repeated results between intermediate processes | Improve data and computation arrangements; Implement to fit actual backends like Metal and CUDA |
+| Quantification | Represent weights or caches with fewer digits | Reduce usage and read load; Format, dequantization, and computational kernel must be matched, with weights and caches configured separately |
+| Cache reused | Save the KV state and reuse matching input prefixes | Eliminate completed work; Returns vary with context, hits, and cache management |
+| Heterogeneous collaboration | Processors, graphics cards, and different storage layers are handled separately | Help large models utilize overall resources; First, look at the model structure, parameter positions, and data channels |
+| Speculative decoding | Cheaper methods propose candidates and target models for batch validation | A single validation may accept multiple keywords; Returns depend on acceptance rate, draft cost, and validation overhead |
+| Service scheduling | Request timely patching and flexibly manage KV blocks of different lengths | Improving utilization and throughput when shared by multiple people; Also consider load and queuing |
+
+A single engine often combines multiple technologies. [FlashAttention Paper](https://arxiv.org/abs/2205.14135)Discusses read/write arrangements in attention computing, while PagedAttention focuses on cache and memory management; These two types of mechanisms can be integrated into the same service set. [MLX-LM](https://github.com/ml-explore/mlx-lm)Provides generation, quantization, caching, and speculative generation capabilities; [llama.cpp](https://github.com/ggml-org/llama.cpp)Supports multiple hardware backends; [vLLM](https://github.com/vllm-project/vllm) and [SGLang](https://docs.sglang.io/) Organize computation, caching, and request scheduling into a service system. Specific functions should match the selected model and platform path.
+
+### Apple computers, discrete graphics computers, and servers have different selection order
+
+Apple computers first check MLX, Metal, and unified memory routes, then look at models supported by Splash, Sushi, Strata, and other engines. For discrete graphics computers, first confirm the corresponding backends like CUDA, HIP, SYCL, Vulkan, and how to divide video memory and system memory. For multi-user services, concurrent scheduling, deployment environment, and maintenance requirements must be verified. SGLang already has Apple's MLX path, and vLLM has community-maintained Metal plugins, which can be selected according to their respective platform documentation.
+
+I start with three questions: Should I mainly handle short Q&A and long materials, or large expert models? Should the machine use unified memory, or separate video memory from system memory? Should I mainly use it by one person, or do I need to serve many requests? Explain these three things clearly, then compare the speed to know if a single acceleration is useful for your task.
+
+### Next, I will focus more on these three lines
+
+First, dedicated optimizations are integrated into everyday applications, such as [Splash entering the LM Studio runtime system](https://lmstudio.ai/blog/splash-engine), allowing users to configure fewer low-level parameters. Second, models are designed together with engines, with draft models, prediction heads, quantization formats, and computation kernels working more closely together. Third, runtime dynamically decides what to retain, reuse, and divide labor based on context, request quantity, available memory, and expert usage.
+
+This is my development judgment based on existing technology. My evaluation still focuses on task completion time, quality, and cost; several promotional multipliers do not directly multiply. The complete mechanism can be seen in this video; For specific projects, you can continue reading [Strata's memory division](https://hyphentech.top/strata-12gb-local-ai/) and [Splash's Chinese task real-world test](https://hyphentech.top/splash-mac-local-inference/).
+
+## Public benchmark score checks for September 2026
 
 > [!abstract]
 > Four native Mac inference engines, four sets of self-created questions
