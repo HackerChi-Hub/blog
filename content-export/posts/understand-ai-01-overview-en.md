@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-01-overview
 translation_source: machine
-source_sha256: e25f2db2bff7e313
+source_sha256: 46d16ac5f8bd3377
 date: 2026-10-05
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "30 sessions are not 30 lessons. From a talking program, two AI winters, to models that can truly work on your computer: following a storyline, connecting knowledge, real products, and choices."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-01-overview/cover-823817c2f8.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

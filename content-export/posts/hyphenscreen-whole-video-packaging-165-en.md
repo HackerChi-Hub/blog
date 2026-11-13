@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenscreen-whole-video-packaging-165
 translation_source: machine
-source_sha256: b9a0d82d1dcf41ef
+source_sha256: ccd4e4403a73e5a1
 date: 2026-10-21
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "Ten styles and four layouts, locally generated complete packaging. Added 1.6.7 compact interface and operation instructions, retaining complete images and ten dynamic examples."
 categories:
   - Resources
@@ -18,7 +18,6 @@ tags:
 cover: "/obsidian-assets/hyphenscreen-whole-video-packaging-165/封面－横版.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

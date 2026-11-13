@@ -4,10 +4,11 @@ slug: qwen-image-21-turbo-q4-local-test-en
 status: published
 lang: en
 translation_of: qwen-image-21-turbo-q4-local-test
+article_type: "article"
 translation_source: machine
-source_sha256: 7e85a0b8628910f0
+source_sha256: 31c39cf12fd72bd6
 date: 2026-10-12
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "M5 Pro 64GB tested standard Turbo Q4: the two comparisons are about three times faster, plus six more popular meme images of beautiful pets and dance memes, preserving the original images, motion deviations, and screenshots."
 categories:
   - Tech
@@ -17,7 +18,6 @@ tags:
 cover: "/obsidian-assets/qwen-image-21-turbo-q4-local-test/cover-898c000353.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
 ---
 
 > [!info] Machine translation

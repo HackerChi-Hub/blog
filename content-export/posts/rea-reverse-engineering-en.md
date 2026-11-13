@@ -4,10 +4,11 @@ slug: rea-reverse-engineering-en
 status: published
 lang: en
 translation_of: rea-reverse-engineering
+article_type: "article"
 translation_source: machine
-source_sha256: b14471ad989e9571
+source_sha256: aa71968ef7158654
 date: 2026-10-16
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "REA swept away 100,000 stars in a week: a single command made AI Agents dismantle any closed-source software. It didn't invent decompilation; what it tore down was the wall of the clean room—\"analysis\" has legal basis, \"reconstruction\" doesn't. Local analysis doesn't mean data can't go out."
 categories:
   - Thoughts
@@ -17,7 +18,6 @@ tags:
 cover: "/obsidian-assets/rea-reverse-engineering/cover-4aa67d53e1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
 ---
 
 > [!info] Machine translation

@@ -4,10 +4,11 @@ slug: localbrain-security-architecture-en
 status: published
 lang: en
 translation_of: localbrain-security-architecture
+article_type: "article"
 translation_source: machine
-source_sha256: 54d42fcc1d9f644e
+source_sha256: 526c5504ac38837b
 date: 2026-10-21
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "Permission in the program, investigation in the model: the local large model independently completes authorization security checks in 10 minutes and 2 seconds, with 25 rounds and 32 tool calls uncovering real overreach vulnerabilities, then fixing and retesting the loop. How is it implemented, what role does the model have, and where the boundaries of destructive power lie? This article explains everything clearly."
 categories:
   - Tech
@@ -16,7 +17,6 @@ tags:
 cover: "/obsidian-assets/localbrain-security-architecture/cover-c9ad7c7088.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
 ---
 
 > [!info] Machine translation

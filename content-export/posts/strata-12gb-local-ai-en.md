@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: strata-12gb-local-ai
 translation_source: machine
-source_sha256: 90d0e4ddaf8f31fb
+source_sha256: 4574815c7e5f0c51
 date: 2026-10-06
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "Besides the 12GB graphics card, how much more memory do you need? Breaking down Strata's official speed, quantitative trade-offs, and Mac access boundaries."
 categories:
   - Tech
@@ -17,11 +17,22 @@ tags:
 cover: "/obsidian-assets/strata-12gb-local-ai/cover-f502b3c798.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/strata-12gb-local-ai/) is authoritative.
+
+## Supplement on October 31: Draw out how experts divide up their responsibilities
+
+In my latest explanation, I used a 3D clay factory to draw the Qwen computer path described by Strata: the graphics card retains commonly used experts, the processor calculates experts that missed hits in system memory, and after both sides are completed, the results are merged. The visuals show where parameters are placed, who performs calculations, and how results are returned, making it easier to understand along the data path.
+
+[Watch the full video: Why does inference engine make large models faster? Six types of acceleration technologies behind Splash and Strata](https://www.bilibili.com/video/BV1frxC6WEw7/). Around 04:26, we started heterogeneous collaboration; at 04:58, we started talking about Strata.
+
+![Strata's Qwen Desktop Expert Calculation Path | 3D Animation Illustration](https://hyphentech.top/obsidian-assets/strata-12gb-local-ai/strata-experts-20261031-7b858dad1e.jpg)
+
+In this route, cold experts remain on the processor side for computation, reducing the need to move expert weights back into the graphics card at each step. Apple's Metal and hard drive stream read paths, as well as the Qwen path's model phrase table, are different execution and data objects; They differ from KV caches that store the in-context state. The specific process corresponds to [Strata mechanism documentation](https://github.com/Niko1221/Strata/blob/main/docs/HOW_IT_WORKS.md).
+
+The video simultaneously places kernel, quantization, cache, heterogeneous, speculative, and scheduling into the same relationship diagram. My selection order is to first look at the model structure, parameter positions, and transmission channels, then decide whether this division of labor suits my computer; For a complete summary, see [Six Types of Acceleration Mechanisms and Platform Selection](https://hyphentech.top/mac-local-inference-engines/). The following section retains the previous official parameters, memory ledger, and usage conditions.
 
 > [!abstract]
 > If the video memory is insufficient, should you replace the graphics card or switch to a different running method?

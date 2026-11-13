@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-08-training
 translation_source: machine
-source_sha256: 638b57547a01e4ae
+source_sha256: 53e01337b4b985e3
 date: 2026-10-05
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "The completion function continues to list questions, but the assistant will answer, explain, or refuse. Teaching it to act like an assistant and making every sentence truthful are two different tasks."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-08-training/cover-084b0b60ca.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-03-open-race
 translation_source: machine
-source_sha256: a04a410f902d214b
+source_sha256: bf7ab75d88ebe317
 date: 2026-10-05
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "For ordinary people, running AI on their own computers is not a blessing that falls from the sky. Phased releases, research licenses, open engines, and download links divide the same technological competition into two tracks."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-03-open-race/cover-87b121c499.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

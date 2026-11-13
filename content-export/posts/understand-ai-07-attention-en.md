@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: understand-ai-07-attention
 translation_source: machine
-source_sha256: d3cd3ba3103e85dc
+source_sha256: 577855ff77bade9b
 date: 2026-10-05
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "One-stop relaying and constantly searching for previous texts are two different organizational methods. The 2017 paper changed the language model, but it did not give the machine an unforgettable memory."
 categories:
   - AI知识
@@ -17,7 +17,6 @@ tags:
 cover: "/obsidian-assets/understand-ai-07-attention/cover-29c4bc864f.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation

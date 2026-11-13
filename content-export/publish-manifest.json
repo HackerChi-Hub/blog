@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "50c4def10a4b4aa428edd28caf26ce9533bf7d6d111890acff42a517226a6b64",
-  "published_post_count": 234,
+  "content_sha256": "4c1cb3320bfcf190a99f56f261ac46336e214ca6e6098a5a67d880c3a9232925",
+  "published_post_count": 237,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -11,7 +11,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-official-b31ed069464a",
       "lang": "en",
-      "sha256": "57420ec03a307b2cb36336ed05508e81f8359c96e5c4df7020187b8bae5d548e"
+      "sha256": "ee05f0d2f0e82adaf26b036d0832eeddc7e85eef2d93bb38888c6fec82959df4"
     },
     {
       "file": "posts/2026-10-07-official-b31ed069464a.md",
@@ -27,7 +27,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-80ac89e6ef58",
       "lang": "en",
-      "sha256": "16d503a39bdc581bcbf741861593816d8709b866fc5d8d24ee91155d558f81d4"
+      "sha256": "46b101642ad61659b647bf41eaf320c33a0b58c4497efa8914ad3879dc8b7e00"
     },
     {
       "file": "posts/2026-10-07-skill-80ac89e6ef58.md",
@@ -43,7 +43,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-skill-a28a79f12713",
       "lang": "en",
-      "sha256": "384fea2473cf75b58686a7ee62831faf60a3202f076132cad2ac10c7648cc4b2"
+      "sha256": "b9b67153331d2261abee8f3f90d5dfc0ebbbdd7d65ac21218b817ca95a2628e4"
     },
     {
       "file": "posts/2026-10-07-skill-a28a79f12713.md",
@@ -285,6 +285,27 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "ea5fa21515079266d18a1ee9ecaecc276bba6b6eed8981377444515c945789e3"
+    },
+    {
+      "file": "posts/2026-11-10-official-42548016dd24.md",
+      "slug": "2026-11-10-official-42548016dd24",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "55ab876aecc17a72302fb5e7b573468266cfa28eabc97b3da7d75949e0004161"
+    },
+    {
+      "file": "posts/2026-11-10-official-6f0d2e1f6cd9.md",
+      "slug": "2026-11-10-official-6f0d2e1f6cd9",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "cf0dc3c23fb8f2e870c504fe987855dec65c96722a9ffd8a94771c21de2eca06"
+    },
+    {
+      "file": "posts/2026-11-11-official-4412c828c967.md",
+      "slug": "2026-11-11-official-4412c828c967",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "521e2114581cbeb99b2d0f04f75486a9bd0cd17020d126b58374625dda36ee97"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -808,7 +829,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-argon-google-flow-experience",
       "lang": "en",
-      "sha256": "9042dfeee7142f2c04209e43e79123fa4212c23c59fc6fc0007d96010fbc79db"
+      "sha256": "ce8768f9cf2d47783a83e514ca4b18606d6efa2471d0fc9f939ff5f7b4169964"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience.md",
@@ -921,7 +942,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-animation-150-preview",
       "lang": "en",
-      "sha256": "866417be591cd81b14eb88865d2275558f0460d7d9789f502f68af5051c52916"
+      "sha256": "b0066d18dd4c925b169161c30ea8324603772d2053c493d473f4ca3e80180548"
     },
     {
       "file": "posts/hyphenscreen-ai-animation-150-preview.md",
@@ -937,7 +958,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-ai-editing-animation",
       "lang": "en",
-      "sha256": "8a28512ca420d181f6faf93684968bd4dbc8ab64c867bf49e89fbff82306863c"
+      "sha256": "f95cc0774509d3b597b2ac376b16a8a8ae0fcddebc70a7e47c45b39531f492cc"
     },
     {
       "file": "posts/hyphenscreen-ai-editing-animation.md",
@@ -985,7 +1006,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-whole-video-packaging-165",
       "lang": "en",
-      "sha256": "8d8cba317d3ae53829c3c96c158287c2e47f48fc115bd2712f23fdc0b971c83c"
+      "sha256": "12c32c6acd19f86c7d63417d2a7b953259c44ede235137076e0905ca3daf5f2c"
     },
     {
       "file": "posts/hyphenscreen-whole-video-packaging-165.md",
@@ -1033,7 +1054,7 @@
       "legacy_paths": [],
       "translation_of": "local-ai-completely-decomposed",
       "lang": "en",
-      "sha256": "08ca8da874d44e96b00c8e89a471b1a65b0b6217a3b15880cf8904f9c38e0de4"
+      "sha256": "e1dca4149d658f47dcb0e0bd4ba1391e103ff09f67d6e78d3a501efbdab8c42d"
     },
     {
       "file": "posts/local-ai-completely-decomposed.md",
@@ -1097,7 +1118,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-dance-paper-delivery",
       "lang": "en",
-      "sha256": "2770702d1704f0591a9e605747adeee0a20e404d20b468903d57f8e2ca82f59e"
+      "sha256": "6aefebc23ce0d486616215b9f5acb22a4639fd3b64a050027b2af0c8e16dab1e"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery.md",
@@ -1219,7 +1240,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-media-chat-180",
       "lang": "en",
-      "sha256": "6faf6f210be0bba06373e96aa63a270e2117ac2fe0a886591d937b923fb6678f"
+      "sha256": "30fdac3c3c22f6fcd24a455b55f398221e4a553b92fdc2a84989ce9dbf07a4a9"
     },
     {
       "file": "posts/localbrain-media-chat-180.md",
@@ -1235,7 +1256,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-network-security",
       "lang": "en",
-      "sha256": "e2130eef884798b48eb6dfb32d2e194d184a990ef36a5608d59da8a9ca763221"
+      "sha256": "b84b4a871dc5055bc7f5c4fa1e8c6f05b4d9b007f7030a497328dc60f4c96920"
     },
     {
       "file": "posts/localbrain-network-security.md",
@@ -1251,7 +1272,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-paper-delivery-179",
       "lang": "en",
-      "sha256": "5934b24a76417719a948deccf5031e891eeadf4f3dcd581e94dc298d2007d225"
+      "sha256": "c476bd8e598835647c3c9ecd99aaefd418ac4499f440d7ca0781b6456a49b369"
     },
     {
       "file": "posts/localbrain-paper-delivery-179.md",
@@ -1267,7 +1288,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-architecture",
       "lang": "en",
-      "sha256": "55e47c5941b433e45529e90ed20e8859087ab17906b24879a4219401a2986f2b"
+      "sha256": "556decaefcec00189a749de7998bd72fe2d5a399336cbdf4432145891e9cee00"
     },
     {
       "file": "posts/localbrain-security-architecture.md",
@@ -1283,7 +1304,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-security-howto",
       "lang": "en",
-      "sha256": "df2978725b3072bc562e629412e7cfb50da25bb970bfff25a04bf216f5c38f7d"
+      "sha256": "425e7dc16d8f2c82754952e792cdf3bb3ecf7309828371645e3e999c9e247598"
     },
     {
       "file": "posts/localbrain-security-howto.md",
@@ -1514,7 +1535,7 @@
       "legacy_paths": [],
       "translation_of": "polystrata-qwen36-8gb-localbrain-test",
       "lang": "en",
-      "sha256": "d77c6f6f54a6e62d05969595b91a4b57209e7a8083b125f939ab2c8c44a70864"
+      "sha256": "dcc5f82c025ae547f91fbcf9e349471919ab218943af62c83decb5b42a879206"
     },
     {
       "file": "posts/polystrata-qwen36-8gb-localbrain-test.md",
@@ -1546,7 +1567,7 @@
       "legacy_paths": [],
       "translation_of": "qwen-image-21-turbo-q4-local-test",
       "lang": "en",
-      "sha256": "c54ead4e34018d3ba2601b529d36cb983c068f7e1122c832467bfe1e50a86da3"
+      "sha256": "306ecab51e6534c30622856905b739fe64f16c19628d52369e28ae2c25bb83af"
     },
     {
       "file": "posts/qwen-image-21-turbo-q4-local-test.md",
@@ -1610,7 +1631,7 @@
       "legacy_paths": [],
       "translation_of": "rea-reverse-engineering",
       "lang": "en",
-      "sha256": "d60de38b8c243a387904cf835d52eacb8e6ac5c16aa53cebc2e548ba2527e9bd"
+      "sha256": "c4491ada01892f8d609c92528959cbc24d482813f4fed2b141b73b991d529c84"
     },
     {
       "file": "posts/rea-reverse-engineering.md",
@@ -1674,7 +1695,7 @@
       "legacy_paths": [],
       "translation_of": "strata-12gb-local-ai",
       "lang": "en",
-      "sha256": "64cfccb94863f25f4cde5c30334ea3c87ecfe656bd91f10821d0f331248bffd7"
+      "sha256": "626133ac4ca60860317890551d04eb011c68c5183af2ca58dd33afb34d4c53ff"
     },
     {
       "file": "posts/strata-12gb-local-ai.md",
@@ -1690,7 +1711,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-01-overview",
       "lang": "en",
-      "sha256": "066a9f8367160329be739f0e4c731916c54db9f976ec1fbb68c463192bfe9d06"
+      "sha256": "623b381ad127bae2d128e3a907b9da7396e654c31e3a08b135cc3064e226f9ec"
     },
     {
       "file": "posts/understand-ai-01-overview.md",
@@ -1706,7 +1727,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-02-history",
       "lang": "en",
-      "sha256": "4d8d3506124f0e20ce8a245257a28893b9c0aee879085cb615a9b0e1ba1fee10"
+      "sha256": "3cef905b12a3799390c5730c28e25bd6e449f7851894838f4bc40a15a7d38cd7"
     },
     {
       "file": "posts/understand-ai-02-history.md",
@@ -1722,7 +1743,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-03-open-race",
       "lang": "en",
-      "sha256": "f9048f18f0e8323ce2fa8274bd90667f63a882ffa0f143e1743c51493d03646f"
+      "sha256": "eaa88c204a9e98487647cec79e3cb344de89029a85a5f122085dbe532f475b39"
     },
     {
       "file": "posts/understand-ai-03-open-race.md",
@@ -1738,7 +1759,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-04-neural-networks",
       "lang": "en",
-      "sha256": "4dec04c3239a2f48f76e770ddbc6fc596c1b5539b6c789b02177373ed87bdeab"
+      "sha256": "0a8d36efd75f43532e3e10eb52320a1ab8202d45a7a97b63a2cdc1f5c902c25b"
     },
     {
       "file": "posts/understand-ai-04-neural-networks.md",
@@ -1754,7 +1775,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-05-tokens",
       "lang": "en",
-      "sha256": "1e6fdeb7b6ff1900c1f32170b59139c07779f54eddf9def4a4947bf700396566"
+      "sha256": "9412444f439dc0eef080490a2e47df9e8cf0ed4ac4fc1684b884135652f4c7fe"
     },
     {
       "file": "posts/understand-ai-05-tokens.md",
@@ -1770,7 +1791,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-06-embeddings",
       "lang": "en",
-      "sha256": "a0347a98ee984a46b85baf2dd2e0381d93b69093554ebc21d7b9629fdf49a34a"
+      "sha256": "f070aabf7d5f76d86bfe64fdf3b38ba37ac00f320cd7f4655e6cb227b4a9b52b"
     },
     {
       "file": "posts/understand-ai-06-embeddings.md",
@@ -1786,7 +1807,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-07-attention",
       "lang": "en",
-      "sha256": "a547247e78caff254187d1491e1505b10792fb02005e24598374ab56b51fdf39"
+      "sha256": "8cf3cd742e8bb2c0a5035e6ffd304381c75a9fa52675fd742cd9abcb37c27f35"
     },
     {
       "file": "posts/understand-ai-07-attention.md",
@@ -1802,7 +1823,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-08-training",
       "lang": "en",
-      "sha256": "54992709d21d47afce081ee10423427b3aa7f661d71d7fc91ec7e26e77c74122"
+      "sha256": "42a1643c55bce9772d1704b802d1b0d78119fee3fcf45d40f5a28d29ac1e768a"
     },
     {
       "file": "posts/understand-ai-08-training.md",
@@ -1818,7 +1839,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-09-reasoning",
       "lang": "en",
-      "sha256": "cce4fd33038522dd7d3142ba6a2827bce4da4cbdc9f9fd7a403e63169d60fed5"
+      "sha256": "81adca3f9e1086f1c92bd7bc7d57857b5174a5c7a15c8693fee73a269d38821e"
     },
     {
       "file": "posts/understand-ai-09-reasoning.md",
@@ -1834,7 +1855,7 @@
       "legacy_paths": [],
       "translation_of": "understand-ai-10-conversation",
       "lang": "en",
-      "sha256": "d946f2b315e97526f96c00f4b8c1aaed33d3063409ac027a4afcb090cfa369ca"
+      "sha256": "94440036fc03b9352eaf107b862ed1ada82ad30bb6be370ebeac05fa6b8b8c19"
     },
     {
       "file": "posts/understand-ai-10-conversation.md",

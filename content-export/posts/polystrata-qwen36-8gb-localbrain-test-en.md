@@ -4,10 +4,11 @@ slug: polystrata-qwen36-8gb-localbrain-test-en
 status: published
 lang: en
 translation_of: polystrata-qwen36-8gb-localbrain-test
+article_type: "article"
 translation_source: machine
-source_sha256: 061727fcae15b5f0
+source_sha256: 5e80fb15df515745
 date: 2026-10-19
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "The 35B model can run on an 8GB graphics card, but can it be delivered? Question 12 Look at each item item to keep both success and failure."
 categories:
   - Tech
@@ -16,7 +17,6 @@ tags:
 cover: "/obsidian-assets/polystrata-qwen36-8gb-localbrain-test/cover-4b873018e1.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
 ---
 
 > [!info] Machine translation

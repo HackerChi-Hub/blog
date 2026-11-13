@@ -4,10 +4,11 @@ slug: gemini-argon-google-flow-experience-en
 status: published
 lang: en
 translation_of: gemini-argon-google-flow-experience
+cover_status: "approved"
 translation_source: machine
-source_sha256: ea947a1c3b920872
+source_sha256: 721e5eceab0924d6
 date: 2026-10-17
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "From three real game projects to Google Flow's materials, modifications, and creative tools: not just the models, but also how ordinary people can turn ideas into works."
 categories:
   - Tech
@@ -20,7 +21,6 @@ tags:
 cover: "/obsidian-assets/gemini-argon-google-flow-experience/cover-20261017-fusion-v1.jpg"
 brand_slogan: 
 legacy_paths: []
-cover_status: "approved"
 ---
 
 > [!info] Machine translation

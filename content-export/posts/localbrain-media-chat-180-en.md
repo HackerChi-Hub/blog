@@ -4,10 +4,11 @@ slug: localbrain-media-chat-180-en
 status: published
 lang: en
 translation_of: localbrain-media-chat-180
+article_type: "article"
 translation_source: machine
-source_sha256: f685b470b310b495
+source_sha256: 07994c74ffa92283
 date: 2026-10-13
-updated: 2026-10-24
+updated: 2026-11-01
 summary: "Six types of local models are connected to chat and ten additional visual samples are added; Images, edits, and actual problems are displayed as they are."
 categories:
   - Tech
@@ -18,7 +19,6 @@ tags:
 cover: "/obsidian-assets/localbrain-media-chat-180/cover-55d4eb3c1d.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
-article_type: "article"
 ---
 
 > [!info] Machine translation
