@@ -5,11 +5,22 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Nov 2026 12:31:20 GMT</lastBuildDate>
-    <pubDate>Fri, 13 Nov 2026 12:31:20 GMT</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2026 13:12:51 GMT</lastBuildDate>
+    <pubDate>Fri, 13 Nov 2026 13:12:51 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>黄仁勋辞职：4天从力挺到换人，一篇讲清英伟达的芯片管制与政治博弈</title>
+      <link>https://hyphentech.top/jensen-huang-nvidia-governance-chips/</link>
+      <guid isPermaLink="true">https://hyphentech.top/jensen-huang-nvidia-governance-chips/</guid>
+      <description>黄仁勋33年的英伟达掌舵时代在4天内突然转弯。私人失信触发了治理危机，Megaspeed调查与出口管制放大风险，美国两党则借这一事件争夺科技政策议程。</description>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新闻深度挖掘</category>
+    <category>英伟达</category>
+    </item>
     <item>
       <title>DeepSeek Harness支持多代理协作后，现有项目该不该升级？</title>
       <link>https://hyphentech.top/2026-11-11-official-4412c828c967/</link>
@@ -195,16 +206,6 @@
     <category>AI</category>
     <category>Pika</category>
     <category>本地部署</category>
-    </item>
-    <item>
-      <title>零基础当黑客？Qwen3.8 27B本地安全实测，184条提示该怎么看</title>
-      <link>https://hyphentech.top/qwen38-27b-local-security-video/</link>
-      <guid isPermaLink="true">https://hyphentech.top/qwen38-27b-local-security-video/</guid>
-      <description>方寸智匣2.2.1配合本地Qwen3.8 27B，从目标授权、容器工具到靶场和自家设备报告，讲清怎样看待184条组件问题提示。</description>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>网络安全</category>
     </item>
   </channel>
 </rss>
