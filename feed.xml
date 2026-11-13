@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Nov 2026 05:22:02 GMT</lastBuildDate>
-    <pubDate>Wed, 11 Nov 2026 05:22:02 GMT</pubDate>
+    <lastBuildDate>Fri, 13 Nov 2026 12:31:20 GMT</lastBuildDate>
+    <pubDate>Fri, 13 Nov 2026 12:31:20 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek Harness支持多代理协作后，现有项目该不该升级？</title>
+      <link>https://hyphentech.top/2026-11-11-official-4412c828c967/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-11-official-4412c828c967/</guid>
+      <description>新预发布版补上协作与审阅功能，但工作树清理、搜索配置和工具授权更值得升级前检查。</description>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>MiniMax H3-Image 实测：64GB Mac 能原生出 4K，参考图改图要等多久？</title>
       <link>https://hyphentech.top/minimax-h3-image-mac-64gb-local-test/</link>
@@ -19,6 +29,26 @@
     <category>新锐模型</category>
     <category>本地部署</category>
     <category>方寸智匣</category>
+    </item>
+    <item>
+      <title>MiniMax-H3-Image-PE 能直接画图吗？先分清描述扩写与图像生成</title>
+      <link>https://hyphentech.top/2026-11-10-official-6f0d2e1f6cd9/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-10-official-6f0d2e1f6cd9/</guid>
+      <description>MiniMax-H3-Image-PE 能直接画图吗？先分清描述扩写与图像生成</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>MiniMax-H3-Image能在本地完成生图和改图吗？</title>
+      <link>https://hyphentech.top/2026-11-10-official-42548016dd24/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-10-official-42548016dd24/</guid>
+      <description>MiniMax-H3-Image能在本地完成生图和改图吗？</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
     </item>
     <item>
       <title>黑粉录屏动画库实播：从立体运镜到整片包装，144 个效果怎么看、怎么用？</title>
@@ -175,36 +205,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>网络安全</category>
-    </item>
-    <item>
-      <title>为Qwen4提前选设备？Qwen3.8 27B、Flash-Next本地部署选购指南</title>
-      <link>https://hyphentech.top/local-llm-hardware-guide-20261031/</link>
-      <guid isPermaLink="true">https://hyphentech.top/local-llm-hardware-guide-20261031/</guid>
-      <description>从27B、Flash-Next到9B与4B，按容量、带宽、引擎和整机成本比较设备。附本期33项候选及2026年10月30日报价快照。</description>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    </item>
-    <item>
-      <title>腾讯开源 WeVisCut：9B 编辑智能体如何把稿子变成多分钟成片</title>
-      <link>https://hyphentech.top/2026-10-30-official-0c09b8d1f7f7/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-10-30-official-0c09b8d1f7f7/</guid>
-      <description>腾讯开源 WeVisCut：9B 编辑智能体如何把稿子变成多分钟成片</description>
-      <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Gemini 4 Carbon发布：漏洞评测88.2%，为何暂不向所有人开放？</title>
-      <link>https://hyphentech.top/gemini-4-carbon-release-analysis/</link>
-      <guid isPermaLink="true">https://hyphentech.top/gemini-4-carbon-release-analysis/</guid>
-      <description>漏洞发现88.2%究竟意味着什么？核实三项安全评测、首发优惠与后续价格，以及64GB Mac的使用边界。</description>
-      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
-    <category>学习思考</category>
-    <category>AI</category>
-    <category>热点速递</category>
     </item>
   </channel>
 </rss>
