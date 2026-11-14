@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.8.9"
+title: "HyphenScreen: recording, editing and AI animation — version 1.9.0"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-11-10
-summary: Version 1.8.9 exports native animation projects from the command line and external agents, preserving timeline audio and music ducking. The Episode Workbench requires a signed license and is not yet available to purchase.
+updated: 2026-11-14
+summary: Version 1.9.0 renders independent shots in parallel and brings finished-video checks to the Episode Workbench, where timed findings can jump to the editor timeline.
 categories:
   - Resources
 tags:
@@ -18,13 +18,31 @@ legacy_paths: []
 ---
 
 
+## Version 1.9.0 renders shots in parallel and locates export issues
+
+On an Apple M5 Pro, rendering the same batch of four two-second shots took **103.81 seconds with one worker, 98.98 with two, and 78.41 with four**. Four workers cut the measured time by about 24.5% in this shot-generation test. The workers can process separate shots at the same time and place the results in their original order. Each run produced 240 frames, with minor pixel differences in some frames from the parallel runs. Macs with at least 16 available logical cores and 32 GB of memory use up to four workers by default. Other configurations and platforms default to one.
+
+In the Episode Workbench, open Finished Video Review and choose the exported file from the current project. The check reads the file for loudness, true peaks, black frames, silence and freezes. Choose Locate on a timed finding to jump to the editor timeline. The example below detected a black stretch at 5 seconds in the export and jumped to 7 seconds on the timeline because the project trims an earlier section. The Episode Workbench is a professional feature that requires a signed license and is not yet available to purchase.
+
+![Finished-video check and timeline navigation in the test workspace](/obsidian-assets/hyphenscreen-local-screen-recorder/episode-check-190.png)
+
+The built-in model tool and the external editing API both natively exported the same ten-minute mixed project at 1080p and 30 frames per second. **All 18,000 decoded video frames and the decoded audio matched across the two outputs.** Both checks flagged low overall loudness, a high true peak and two near-black stretches traced to the source footage. The excerpt keeps the exported audio and shows an authorized screen recording, editable chapter labels, an upward push and a zoom transition.
+
+The built-in tools and the external API can both find live footage, screen recordings and source images in a project, and filter shot templates for continuous video or screenshots. The benchmarks, sample and timeline navigation above were all tested in the Mac development environment. I then ran the signed Mac app from the disk image and exported the same project in **71.90 seconds**. The output contained 18,000 frames and the finished-video check returned the same four findings.
+
+![Excerpt from the actual ten-minute mixed-project export](/obsidian-assets/hyphenscreen-local-screen-recorder/mixed-export-190.mp4)
+
+[View releases and downloads for each platform](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+
+The Windows and Linux packages passed cloud builds on their respective platforms, along with package resource checks and verification of the public installer files. Desktop interaction on both platforms still needs testing on physical machines.
+
 ## 1.8.9: export an episode from the command line or an external agent
 
 The same episode project generated with DeepSeek can be exported from the Studio, the command line or an external agent. The command line reads the native timeline and the Studio's saved export settings, including speech-aware music ducking. The external `exportVideo` tool can use Studio quality presets for animation-only projects.
 
 On the installed Mac build, the Studio, command line and external agent exported the same six-second 1080p60 DeepSeek project. All 360 frames and the decoded audio matched. A separate 16-second project with music and narration also matched between the Studio and command line. The Windows and Linux installers passed cloud builds and package checks.
 
-[View the 1.8.9 release and downloads](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.9)
+[View the current public release and downloads](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 ## 1.8.8: DeepSeek can recover from invalid animation tool arguments
 
@@ -273,7 +291,7 @@ Choose a purpose, insert the material, then select a style in the animation pane
 
 The development editor passed category browsing, Chinese search, chapter insertion and animation playback. Three cross-source switches passed real API save and fresh-profile reopen checks with clip start positions preserved. The complete suite passed 4,596 tests with two skipped. This does not mean every style received a manual switching review; full recording, physical camera, face restoration and online generation were not repeated.
 
-Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac, Windows and Linux now offer 1.8.9. Package size and checksums are listed below.
+Version 1.6.3 also includes the local 1.6.2 candidate's multiselection reordering, track organization and package deduplication. Research sources, reference runtimes, sampling caches and test projects are excluded from the installer. Apple Silicon Mac, Windows and Linux now offer 1.9.0. Package size and checksums are listed below.
 
 The signed 1.6.3 installer passed disk-image and resource checks; all 427 files and links in the installed app matched the image. The installed binary returned 230 entries, inserted and switched a native material, saved the project and exported a 1920×1080, 30 fps video that decoded fully. Public-download readback is recorded separately. Subjective audio review was not completed.
 
@@ -305,24 +323,24 @@ The pink clock button opens waiting settings. Total and idle timeouts can each b
 
 Planning text appears as actual output arrives. Engines with streamed tool arguments show which scene structure is being written and the received character count. After each scene is written, the tool reads back its actual layer count and duration. Engines without argument streaming show real stages only. Intermediate feedback does not mean the project has been saved or the video exported. Automated tests, component checks, production build and package verification passed; complete story generation, playback and subjective sound review remain for user testing.
 
-- Apple Silicon Mac: **1.8.9**, DMG **479,244,600 bytes**, locally signed and not Apple-notarized.
-- Windows 10/11 x64: **1.8.9**, installer **442,449,718 bytes**, unsigned.
-- Linux x86_64: **1.8.9** in AppImage (**642,583,021 bytes**), deb (**573,332,724 bytes**) and pacman (**530,574,644 bytes**) formats, all unsigned.
+- Apple Silicon Mac: **1.9.0**, DMG **479,244,752 bytes**, locally signed and not Apple-notarized.
+- Windows 10/11 x64: **1.9.0**, installer **442,453,485 bytes**, unsigned.
+- Linux x86_64: **1.9.0** in AppImage (**642,596,147 bytes**), deb (**573,333,752 bytes**) and pacman (**530,525,736 bytes**) formats, all unsigned.
 - Online model fees are charged by the selected provider; local models consume local hardware resources.
 
-[Download Mac 1.8.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_arm64.dmg) · [Download Windows 1.8.9 installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64-setup.exe) · [Download Linux 1.8.9 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x86_64.AppImage) · [Download Ubuntu/Debian 1.8.9 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_amd64.deb) · [Download Arch 1.8.9 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[Download Mac 1.9.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_arm64.dmg) · [Download Windows 1.9.0 installer](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x64-setup.exe) · [Download Linux 1.9.0 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x86_64.AppImage) · [Download Ubuntu/Debian 1.9.0 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_amd64.deb) · [Download Arch 1.9.0 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x64.pacman) · [All platform releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 Use these SHA-256 values to verify the five downloaded installers:
 
 | Package | SHA-256 |
 | --- | --- |
-| Mac DMG | `f5699d3c3f46687f0be77348f45c922e6c208cb16dd90a851704d2be29fc7885` |
-| Windows installer | `2932e13ff6f96d9234663e46619db51a3f1cc3fd4905f072aa9c9d15ee86f7c8` |
-| Linux AppImage | `3ae726b091b2a22b02ce4d72f7601752ae8cd4bb6ab6904eadb278f5df3991c2` |
-| Ubuntu/Debian deb | `37087859f191cfa6eb2c672456057c48feb81410b1a4959944db3e933fe5f98a` |
-| Arch pacman | `c6a84a68a0fbd62ef7867faea673d0505f0249d2a96678aa40c897459380d427` |
+| Mac DMG | `1d6423ea535f0ab8d62513328b9ffae8a649c5aac360ba67adeec22dd727c68c` |
+| Windows installer | `5b548dda21efa241a13501538bdf271039788f74fe33931ad09239215790958e` |
+| Linux AppImage | `b5f8094d7b78460569bec265deb3fe1cf54c0da930b0d6343a6c92d9da2cfc4b` |
+| Ubuntu/Debian deb | `5e7d6eea9ee339427daa75daf913145040afed8497452b7ceae6cd1fd2c83fa8` |
+| Arch pacman | `705f7a40c2675cdbf6966d4c09410058f6a0f3d70f4fa04a282df3b1d232a8b6` |
 
-This release passed 4,899 tests with two environment-dependent skips. The installed Mac build was checked for the dedicated DeepSeek setup and the unlicensed Episode Workbench. Windows and Linux were built, packaged and checked for bundled resources; their desktop interfaces were not tested on physical machines in this release.
+The 1.8.9 release passed 4,899 tests with two environment-dependent skips. The installed Mac build was checked for the dedicated DeepSeek setup and the unlicensed Episode Workbench. Windows and Linux were built, packaged and checked for bundled resources; their desktop interfaces were not tested on physical machines in this release.
 
 Earlier validation: The Windows package passed native component checks and byte checks for 331 packaging resources. Windows and Linux each generated all four layouts from synthetic material, with complete video and audio decoding. The deb installed and passed file verification on Ubuntu 22.04. Linux capture still needs testing in a desktop session with a ScreenCast portal.
 
@@ -358,7 +376,7 @@ Why do I make HyphenScreen? Honestly: **I publish videos every week, screen reco
 > Versions and installer size come from the project's release notes and my local installer shelf, not estimates
 
 > [!warning]
-> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.8.9. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
+> This is a version 1.0.2 record. Mac, Windows and Linux now offer 1.9.0. The Mac build is still not Apple-notarized, and the Windows installer is still unsigned. See the limits below for platform differences.
 
 ## 🧩 The full tour (screenshots from the app)
 
@@ -505,7 +523,7 @@ The app costs nothing and shows no ads. 1.0.2 adds one place to support it: the 
 ## ⚠️ Current limits
 
 - **No proper signing yet**: the Mac version is signed with my own certificate and not Apple-notarized; Windows is not code-signed and SmartScreen will warn on first run; Linux is unsigned too.
-- **Platform features differ**: Mac, Windows and Linux offer 1.8.9. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
+- **Platform features differ**: Mac, Windows and Linux offer 1.9.0. Voice isolation, automatic sensitive-text detection and text read-back of the finished video remain macOS-only. Clicking a window to select its bounds works on macOS and Windows. Windows and Linux desktop interaction still needs testing on the respective systems.
 - **Linux has dependencies**: all capture goes through xdg-desktop-portal, and it needs Vulkan drivers and your desktop's portal backend.
 
 ## 🧭 My take

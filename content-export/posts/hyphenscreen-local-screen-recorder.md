@@ -1,10 +1,10 @@
 ---
-title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.8.9 更新
+title: 黑粉录屏：录屏、剪辑与 AI 动画制作，1.9.0 更新
 slug: hyphenscreen-local-screen-recorder
 status: published
 date: 2026-09-16
-updated: 2026-11-10
-summary: 1.8.9 支持从命令行和外部代理直接导出原生动画工程，保留时间线音轨与音乐避让。整期工作台需签名授权，目前未开放购买。
+updated: 2026-11-14
+summary: 1.9.0 支持独立镜头并行生成，并把实际成片的画面和声音检测接入整期工作台，可从问题时间跳回时间线。
 categories:
   - 资源分享
 tags:
@@ -15,13 +15,31 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
+## 1.9.0：镜头并行生成，成片问题直接定位
+
+　　同一批四个镜头，每个两秒，在苹果 M5 Pro 上分别用单路、两路和四路生成，耗时 **103.81 秒、98.98 秒和 78.41 秒**。四路的耗时比单路少约 24.5%。这轮测试的是独立镜头生成。软件可以同时处理多个镜头，完成后仍按原顺序入轨。三档均输出 240 帧，高并行度样本的个别画面有轻微的像素差异。至少有 16 个可用逻辑核心、32 GB 内存的 Mac 默认最多四路，其他配置与平台默认单路。
+
+　　在整期工作台打开「成片验收 → 成片体检」，选取当前工程导出的影片。界面读取文件的响度、真峰值、黑屏、静音和画面冻结。发现带时间的问题，点「定位」即可跳回工程时间线。下图的独立测试里，成片的黑屏从 5 秒开始，工程因前面有删剪，定位跳到尺标的 7 秒。整期工作台是专业功能，需签名授权，目前未开放购买。
+
+![成片体检与时间线定位实测](/obsidian-assets/hyphenscreen-local-screen-recorder/episode-check-190.png)
+
+　　我用同一份十分钟混合工程，从内置模型工具和外部编辑接口分别原生导出。两份成片都是 1080p、每秒 30 帧，**18,000 帧解码画面和解码后的声音一致**。成片体检在两份输出里都标出了音量偏小、真峰值偏高和两处近黑画面，两处都能追溯回原素材。节选保留了实际导出的原声，可以看见授权录屏插入、可编辑章节标记、竖向推出和缩放转场。
+
+　　内置工具和外部接口都可以从工程中找实拍、录屏和原图，也可以筛出支持连续视频或截图的镜头模板。上面的性能数据、样片及问题定位均来自 Mac 开发验收环境。随后直接运行已签名 Mac 安装包中的应用，使用同一工程复测原生导出。导出耗时 **71.90 秒**，成片有 18,000 帧，体检复现同样的四项提醒。
+
+![十分钟混合工程实际导出节选](/obsidian-assets/hyphenscreen-local-screen-recorder/mixed-export-190.mp4)
+
+[查看各平台发行与下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+
+本版 Windows 和 Linux 在对应平台完成云端打包，并核对包内资源与公开版本的安装文件。两平台的桌面交互仍待实机验证。
+
 ## 1.8.9：命令行和外部代理可以直接导出整期工程
 
 同一个由 DeepSeek 生成的整期工程，可以在工作室导出，也能交给命令行或外部代理输出。命令行会读取原生时间线和工作室保存的导出选项，按实际人声分析混音。使用外部代理的 `exportVideo` 时，纯动画工程也可选择工作室的画质档位。
 
 Mac 安装版用同一个 DeepSeek 工程，从工作室、命令行和外部代理分别导出 6 秒 1080p60 视频，360 帧画面和解码音轨一致。另一份 16 秒配乐与旁白工程从工作室和命令行导出，解码后的音画也一致。Windows 和 Linux 完成云端打包和包内验证。
 
-[查看 1.8.9 发行与下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.8.9)
+[查看当前公开版本与下载](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 ## 1.8.8：DeepSeek 动画工具调用可以纠错后继续
 
@@ -289,12 +307,12 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 开发工作室已实际核实分类、中文搜索、章节插入与动画播放；三组跨来源切换经真实接口保存，再以独立环境重开，片段起点和目标样式保留。发布前全量4596项通过、2项跳过。没有逐个人工切换全部样式，本轮也未重跑完整录制、实体摄像头、人脸修复或在线模型生成，不把目录整理说成所有生成任务都能一次完成。
 
-1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.8.9。
+1.6.3同时包含此前1.6.2本地候选包的多选重排、轨道整理和包体精简。重复资源与依赖附带测试文件按既有规则排除，研究源码、参考运行时、采样缓存和测试工程不进入安装包；实际包大小与校验值见下方下载表。当前 Mac、Windows 与 Linux 均提供 1.9.0。
 
 > [!abstract]
 > 录屏容易，录完之后才是活儿
-> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.8.9
-> 黑粉科技 · 首发 2026-09-16 · 更新 2026-11-09
+> 黑粉录屏 HyphenScreen · Mac／Windows／Linux 1.9.0
+> 黑粉科技 · 首发 2026-09-16 · 更新 2026-11-14
 
 正式1.6.3安装包已完成镜像完整性、严格签名及资源一致性核对，427个文件和链接与镜像一致。本机安装版读回230个用途入口，实际插入并切换原生素材，保存工程并导出1920×1080、30帧视频，完整解码通过。安装包上传后的下载校验与各平台状态以本次发行记录为准；主观声音听审不计通过。
 
@@ -336,26 +354,26 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 
 **过程反馈表示工具正在工作，工程是否保存、是否成功导出仍要分别确认。**本次已完成自动测试、生产构建、界面组件检查和安装包回读校验；完整六场故事的前端生成、成片播放与声音效果由使用者继续实测，没有把这些尚未完成的检查写成通过。模型的工具调用能力、上下文与输出速度仍会影响结果，软件不会因为接上模型就保证一次生成完整成片。
 
-| 当前下载 | 1.8.9 实际文件 |
+| 当前下载 | 1.9.0 实际文件 |
 | --- | --- |
-| Mac 苹果芯片 | DMG 共 479,244,600 字节，约 479 MB；本机证书签名，未做苹果公证 |
-| Windows 10/11 x64 | 安装程序 442,449,718 字节，未签名 |
-| Linux x86_64 | AppImage 642,583,021 字节；deb 573,332,724 字节；pacman 530,574,644 字节，均未签名 |
+| Mac 苹果芯片 | DMG 共 479,244,752 字节，约 479 MB；本机证书签名，未做苹果公证 |
+| Windows 10/11 x64 | 安装程序 442,453,485 字节，未签名 |
+| Linux x86_64 | AppImage 642,596,147 字节；deb 573,333,752 字节；pacman 530,525,736 字节，均未签名 |
 | 模型费用 | 软件不代收模型费用；在线接口或订阅按对应服务计费，本地模型使用本机资源 |
 
-[下载 Mac 1.8.9 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_arm64.dmg) · [下载 Windows 1.8.9 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64-setup.exe) · [下载 Linux 1.8.9 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x86_64.AppImage) · [下载 Ubuntu／Debian 1.8.9 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_amd64.deb) · [下载 Arch 1.8.9 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.8.9/HyphenScreen_1.8.9_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+[下载 Mac 1.9.0 DMG](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_arm64.dmg) · [下载 Windows 1.9.0 安装程序](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x64-setup.exe) · [下载 Linux 1.9.0 AppImage](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x86_64.AppImage) · [下载 Ubuntu／Debian 1.9.0 deb](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_amd64.deb) · [下载 Arch 1.9.0 pacman](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.0/HyphenScreen_1.9.0_x64.pacman) · [全部平台发行页](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
 下载后可用以下 SHA-256 值核对五个安装包：
 
 | 安装包 | SHA-256 |
 | --- | --- |
-| Mac DMG | `f5699d3c3f46687f0be77348f45c922e6c208cb16dd90a851704d2be29fc7885` |
-| Windows 安装程序 | `2932e13ff6f96d9234663e46619db51a3f1cc3fd4905f072aa9c9d15ee86f7c8` |
-| Linux AppImage | `3ae726b091b2a22b02ce4d72f7601752ae8cd4bb6ab6904eadb278f5df3991c2` |
-| Ubuntu／Debian deb | `37087859f191cfa6eb2c672456057c48feb81410b1a4959944db3e933fe5f98a` |
-| Arch pacman | `c6a84a68a0fbd62ef7867faea673d0505f0249d2a96678aa40c897459380d427` |
+| Mac DMG | `1d6423ea535f0ab8d62513328b9ffae8a649c5aac360ba67adeec22dd727c68c` |
+| Windows 安装程序 | `5b548dda21efa241a13501538bdf271039788f74fe33931ad09239215790958e` |
+| Linux AppImage | `b5f8094d7b78460569bec265deb3fe1cf54c0da930b0d6343a6c92d9da2cfc4b` |
+| Ubuntu／Debian deb | `5e7d6eea9ee339427daa75daf913145040afed8497452b7ceae6cd1fd2c83fa8` |
+| Arch pacman | `705f7a40c2675cdbf6966d4c09410058f6a0f3d70f4fa04a282df3b1d232a8b6` |
 
-本轮全量回归 4,899 项通过、2 项按环境跳过。Mac 已实际安装并检查 DeepSeek 独立设置和未授权的整期工作台。Windows 和 Linux 完成对应平台的构建、打包和包内资源检查，本轮未在这两个平台做实机界面验收。
+1.8.9 发版时的全量回归 4,899 项通过、2 项按环境跳过。Mac 已实际安装并检查 DeepSeek 独立设置和未授权的整期工作台。Windows 和 Linux 完成对应平台的构建、打包和包内资源检查，当时未在这两个平台做实机界面验收。
 
 此前的检查：Windows 构建包通过原生部件及331个包装资源检查，Windows／Linux各完成四布局合成素材生成及音画完整解码；Ubuntu 22.04 的 deb 安装和文件校验通过。Linux 录屏仍需在有桌面门户的实机环境验证。
 
@@ -386,7 +404,7 @@ Windows 和 Linux 的渲染验证各用合成素材生成四种布局，共 16 �
 > 版本与安装包体积取自仓库的版本说明和本机安装包货架，不是估计值
 
 > [!warning]
-> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.8.9；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
+> 这是 1.0.2 时期的版本记录。当前 Mac、Windows 与 Linux 均为 1.9.0；Mac 仍未经过苹果公证，Windows 仍未做代码签名。具体平台能力见下方限制。
 
 ## 🧩 功能全览（实机截图）
 
@@ -533,7 +551,7 @@ AI 这块我的选择是**不捆绑**：不内置模型、不代收 API 费用�
 ## ⚠️ 它现在的限制
 
 - **没有正经签名**：Mac 版用我自己的证书签名、未做苹果公证；Windows 未做代码签名，首次运行会弹 SmartScreen；Linux 也未签名。
-- **平台能力不同**：Mac、Windows与Linux均为1.8.9；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
+- **平台能力不同**：Mac、Windows与Linux均为1.9.0；人声隔离、自动打码里的敏感信息识别和成片文字回读目前仅 macOS。框选时「单击窗口取范围」支持 macOS 与 Windows。Windows／Linux 的桌面交互仍需对应系统实机核验。
 - **Linux 依赖多**：录屏全部经 xdg-desktop-portal，还要 Vulkan 驱动和对应桌面的 portal 后端。
 
 ## 🧭 我的判断
