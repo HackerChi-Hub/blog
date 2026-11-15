@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "b31cc9363488719a1d2692765f9aa3c36b162930a72fc9dc7f62be893e427419",
+  "content_sha256": "fb2b64570184e783a20703a411a011dbd2d5221f79662c1ead6b15944e8b04d3",
   "published_post_count": 257,
   "posts": [
     {
@@ -267,7 +267,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-30-official-0c09b8d1f7f7",
       "lang": "en",
-      "sha256": "4bc12b5c0a3140118749767b0c8c4d51958c8aa022ba3a202260235f75df3e1e"
+      "sha256": "f6281ff4d25613ce3131be119d5ea99fe35180e56dc289e87c35f19d89535337"
     },
     {
       "file": "posts/2026-10-30-official-0c09b8d1f7f7.md",
@@ -299,7 +299,7 @@
       "legacy_paths": [],
       "translation_of": "2026-11-05-official-12db83055a26",
       "lang": "en",
-      "sha256": "6ce14f05cbe844224832b407351886acb0ac6da8a6e9c029cf974f546cbdba60"
+      "sha256": "1e0bc7a91ff847aef8ba635939947fc6ea8beb2fc8f2a71ec6d1fbf392e1222d"
     },
     {
       "file": "posts/2026-11-05-official-12db83055a26.md",
@@ -370,7 +370,7 @@
       "legacy_paths": [],
       "translation_of": "2026-11-11-official-4412c828c967",
       "lang": "en",
-      "sha256": "136fdff955353b5d48ecbae19504af930569131351c53702cb9e1cd740b4a1e2"
+      "sha256": "8187b34a8d4eb3553bb8449c24b0ae4f1009ebf5662db7d5319df8a002a7bf16"
     },
     {
       "file": "posts/2026-11-11-official-4412c828c967.md",
@@ -964,7 +964,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-argon-google-flow-experience",
       "lang": "en",
-      "sha256": "c5d7a4a0e381607b76c44ca9fd7012d5a2fb4bf89d8761b751387831a5432059"
+      "sha256": "3d74a865e52664cbff0f5a009c242609cff801f464b24696d3d6449a6d8a6367"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience.md",
@@ -1134,7 +1134,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-motion-library-showcase",
       "lang": "en",
-      "sha256": "d811561cf277853a3929820bab3970541cb26856de84e26f75b1d03947e08e64"
+      "sha256": "6a5d75b7c12eda537479ab80fde49c66216d99f4eb175b88e11f3103192309e4"
     },
     {
       "file": "posts/hyphenscreen-motion-library-showcase.md",
@@ -1166,7 +1166,7 @@
       "legacy_paths": [],
       "translation_of": "jensen-huang-nvidia-governance-chips",
       "lang": "en",
-      "sha256": "d9bc8461fc625da5a10c903ee4e6ac4665d384b675655e4f3e2c9e63bb5730fe"
+      "sha256": "b57219d6fec5bb118dd02eb73ba5591ec9c8e775f416296194b3eb01ceb35d84"
     },
     {
       "file": "posts/jensen-huang-nvidia-governance-chips.md",
@@ -1278,7 +1278,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-dance-paper-delivery",
       "lang": "en",
-      "sha256": "9687fbe9126a921c5dca32708a44bb15b955c25ef48598a4b10641df8cbafdc8"
+      "sha256": "1ab8ef144055cc6f66c0723ecf3fc601a86b4a72d72537788b4f211557d66e2d"
     },
     {
       "file": "posts/localbrain-dance-paper-delivery.md",

@@ -18,6 +18,7 @@ tags:
 cover: "/obsidian-assets/jensen-huang-nvidia-governance-chips/cover.jpg"
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation

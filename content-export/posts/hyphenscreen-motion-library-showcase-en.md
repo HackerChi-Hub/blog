@@ -18,6 +18,7 @@ tags:
 cover: "/obsidian-assets/hyphenscreen-motion-library-showcase/cover.jpg"
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation
