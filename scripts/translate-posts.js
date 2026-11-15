@@ -69,6 +69,7 @@ const MAX_429_RETRIES = 6;
  */
 const TERMS = new Map([
   ['黑粉科技', 'HyphenTech'],
+  ['黑粉助手', 'HyphenAssistant'],
   ['黑粉录屏', 'HyphenScreen'],
   ['黑粉剪辑', 'HyphenCut'],
   ['黑粉盒子', 'HyphenBox'],

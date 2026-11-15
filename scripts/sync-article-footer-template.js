@@ -108,10 +108,32 @@ function postLang(source) {
   return match ? match[1] : 'zh-CN';
 }
 
-function replaceGeneratedFooter(source, replacement) {
+function stripTrailingUnwrappedToolsSection(text, productNames = []) {
+  const source = String(text || '');
+  const headingRe = /\n##\s+(?:🧰\s*)?(?:我做的工具|Tools I build|I make the tools)\s*\n/g;
+  let lastMatch = null;
+  let m;
+  while ((m = headingRe.exec(source)) !== null) lastMatch = m;
+  if (!lastMatch) return source;
+  const tail = source.slice(lastMatch.index + 1);
+  const restAfterHeading = tail.replace(/^##\s+[^\n]+\n/, '');
+  if (/^##\s+/m.test(restAfterHeading)) return source;
+  const repoHits = (tail.match(/https:\/\/github\.com\/HackerChi-Hub\/[A-Za-z0-9._-]+\/releases/g) || []).length;
+  const nameHits = productNames.filter((name) => name && tail.includes(name)).length;
+  if (repoHits >= 3 || nameHits >= 3) {
+    return source.slice(0, lastMatch.index).replace(/(?:\n---\s*)+$/, '').trimEnd();
+  }
+  return source;
+}
+
+function replaceGeneratedFooter(source, replacement, productNames = []) {
   if (!source.includes(START) || !source.includes(END)) return source;
-  const pattern = new RegExp(`${START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[\\s\\S]*?${END.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
-  return source.replace(pattern, replacement);
+  const startIdx = source.indexOf(START);
+  const endIdx = source.indexOf(END, startIdx);
+  if (startIdx === -1 || endIdx === -1) return source;
+  const before = stripTrailingUnwrappedToolsSection(source.slice(0, startIdx), productNames).trimEnd();
+  const after = source.slice(endIdx + END.length);
+  return `${before}\n\n${replacement}${after}`;
 }
 
 function stripLegacyFooter(source, productNames) {
@@ -153,6 +175,7 @@ function stripLegacyFooter(source, productNames) {
     index += 1;
   }
   next = kept.join('\n');
+  next = stripTrailingUnwrappedToolsSection(next, productNames);
   next = next.replace(/(?:\n[ \t]*){3,}/g, '\n\n').trimEnd();
   next = next.replace(/(?:\n---\s*)+$/, '').trimEnd();
   return next;
@@ -176,7 +199,7 @@ function syncPublishedPosts(contentDir, renderFor, productNames, slugs = null) {
       throw new Error(`${name}：${error.message}`);
     }
     const next = source.includes(START) && source.includes(END)
-      ? replaceGeneratedFooter(source, replacement)
+      ? replaceGeneratedFooter(source, replacement, productNames)
       : `${stripLegacyFooter(source, productNames)}\n\n${replacement}\n`;
     if (next !== source) {
       fs.writeFileSync(postPath, next, 'utf8');

@@ -35,7 +35,30 @@ try {
   assert.strictEqual(result.status, 0, result.stderr);
   assert(fs.readFileSync(path.join(root, 'posts/untouched.md'), 'utf8').includes('HFKJ_FIXED_FOOTER_START'));
   assert(fs.readFileSync(path.join(root, 'templates/博客文章.md'), 'utf8').includes('HFKJ_FIXED_FOOTER_START'));
-  console.log('✅ 页尾范围测试通过：只更新选定文章、保留其他正文和模板、幂等、非法或缺失范围拒绝、默认全库行为保留');
+  // 已含受管页尾时，若正文中紧贴受管页尾又出现一段裸写的固定工具列表，同步必须幂等清掉它
+  const dupPost = [
+    '---',
+    'status: published',
+    '---',
+    '',
+    '# 正文',
+    '',
+    '## 我做的工具',
+    '',
+    '- [A](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)',
+    '- [B](https://github.com/HackerChi-Hub/hyphenbox-release/releases)',
+    '- [C](https://github.com/HackerChi-Hub/localbrain-releases/releases)',
+    '',
+    '<!-- HFKJ_FIXED_FOOTER_START：由脚本生成，请勿手改 -->',
+    'old',
+    '<!-- HFKJ_FIXED_FOOTER_END -->',
+    '',
+  ].join('\n');
+  fs.writeFileSync(path.join(root, 'posts/dup.md'), dupPost);
+  assert.strictEqual(run('dup').status, 0);
+  const cleanedDup = fs.readFileSync(path.join(root, 'posts/dup.md'), 'utf8');
+  assert.strictEqual((cleanedDup.match(/我做的工具/g) || []).length, 1);
+  console.log('✅ 页尾范围测试通过：只更新选定文章、保留其他正文和模板、清理裸写重复页尾、幂等、非法或缺失范围拒绝、默认全库行为保留');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

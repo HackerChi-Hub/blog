@@ -111,6 +111,7 @@ async function main() {
   const allCards = await buildProductCards(posts, { fetchImpl, token: '' });
   const assistantCard = allCards.find((item) => item.releaseRepo === assistant.releaseRepo);
   assert.strictEqual(assistantCard.version, '0.1.5');
+  assert.strictEqual(assistantCard.badge, '我做的 · 正式迭代');
   assert.strictEqual(assistantCard.platforms.length, 3);
   assert.match(assistantCard.updateSummary, /精简侧栏/);
   const cards = allCards.filter((item) => item.releaseRepo !== assistant.releaseRepo);
