@@ -51,20 +51,6 @@ cover: /obsidian-assets/hyphenscreen-motion-library-showcase/cover.jpg
 
 做一整期时，接入的在线或本地模型也可以检索同一动画目录。可以先给它完整讲解、主风格和剪辑目标，让它给每一段选不同用途的镜头。看结果时，直接从上一个镜头的收尾开始播放，检查下一镜是否接住了讲解。
 
-## 我做的工具
-
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-- [黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
-- [黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
-
-- [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-- [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-- [黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
-
 
 ---
 

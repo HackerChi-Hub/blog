@@ -4,7 +4,6 @@ slug: useful-websites-35-work-life-en
 status: published
 lang: en
 translation_of: useful-websites-35-work-life
-article_type: "article"
 translation_source: machine
 source_sha256: a8a0a97914809a06
 date: 2026-11-06
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/useful-websites-35-work-life/cover-98db828a5b.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

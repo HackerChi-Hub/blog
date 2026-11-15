@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: jensen-huang-nvidia-governance-chips
 translation_source: machine
-source_sha256: fd835f4fd79edce3
+source_sha256: 60a1262659569761
 date: 2026-11-13
-updated: 2026-11-13
+updated: 2026-11-15
 summary: "Jensen Huang's 33-year leadership at Nvidia suddenly took a turn within four days. Private breaches triggered a governance crisis, with the Megaspeed investigation and export controls amplifying risks, and the two U.S. parties using this event to compete for the tech policy agenda."
 categories:
   - Tech
@@ -33,7 +33,7 @@ legacy_paths: []
 
 ![Official Announcement | CEO Change on November 12](https://hyphentech.top/obsidian-assets/jensen-huang-nvidia-governance-chips/02-ceo-transition-nov12.png)
 
-　　Private breach, corporate investigations, chip exports, and political pressure converged at the same time. **Jensen Huang's personal issues are the fuse; Nvidia's long-term reliance on founders' governance is its weakness, while Washington politics has amplified this crisis into an industry event. **Let's continue in this order.
+　　**Jensen Huang's personal issues are the fuse; Nvidia's long-term reliance on the founder's governance structure is its real weakness, while Washington politics has magnified this crisis into an industry event. **
 
 ## Why the Board changed its stance: Private dishonesty has crossed the company's red lines
 
@@ -130,50 +130,6 @@ legacy_paths: []
 - [Reuters: Schumer Pushes Chip Surveillance and Security Act](https://www.usnews.com/news/politics/articles/2026-11-10/schumer-says-congress-must-have-answers-on-trump-defense-of-nvidia-ceo)
 - [Politico: Jeffries pushes for chip restrictions in defense bill](https://www.politico.com/live-updates/2026/11/09/congress/momentum-builds-on-chip-exports-01157548)
 - [Warren and Coons: Original Letter Requesting Retention of Avida's Export Records to China](https://www.banking.senate.gov/imo/media/doc/20261111_warren_coons_letter_to_wh_commerce_state_re_nvidia_record_retentionpdf.pdf)
-
-## I make the tools
-
-I continuously maintain these tools. The preview is clearly marked, and downloads, updates, and known boundaries are based on the release page.
-
-### HyphenAssistant for Fans of Anti-Fans
-
-Status: Officially iterated
-
-Connect the DeepSeek Harness session on your computer via mobile browser; Requires personal pairing, computer and original service online, model fees use the original configuration
-
-[Download and Update](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
-### HyphenBox
-
-Status: Officially iterated
-
-Free Large Model API Radar: Continuous retesting of availability, local unified interface, keys stored only locally
-
-[Download and Update](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
-
-### LocalBrain
-
-Status: Officially iterated
-
-Multimodal MCP toolbox for local models: one-stop access for TTS / Whisper / video generation
-
-[Download and Update](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-### ScreenLex ScreenLex
-
-Status: Officially iterated
-
-I memorized new vocabulary while watching American TV shows, available for free on both Mac and Windows platforms
-
-[Download and Update](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-### HyphenScreen
-
-Status: Officially iterated
-
-Screen recording + intelligent editing in one: DaVinci Resolve timeline, automatic encoding, pre-export video checkup, free of charge
-
-[Download and Update](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 
 ---

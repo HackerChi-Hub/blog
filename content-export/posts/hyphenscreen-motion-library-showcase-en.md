@@ -5,9 +5,9 @@ status: published
 lang: en
 translation_of: hyphenscreen-motion-library-showcase
 translation_source: machine
-source_sha256: c4f23cf962335912
+source_sha256: 782feae8e9cae2e0
 date: 2026-11-08
-updated: 2026-11-13
+updated: 2026-11-15
 summary: "The full long version broadcasts 144 animation effects by purpose, interspersed with spatial advancement, data aggregation, complete packaging, and character explanations."
 categories:
   - Tech
@@ -62,20 +62,6 @@ HyphenScreen is a screen recording and editing software I developed. For the fir
 Open the animation library on the right side of the editing studio, first find a shot with a clear position, for example, after finishing the settings once, switch to the front and back comparison. Click the card to see the actual effect, then add it to the timeline. You can continue to modify the original title and description graphics, including text, values, layers, and keyframes. For shot templates and full film packaging, first modify the configuration before generation, and edit the generated clips as usual.
 
 When making a full episode, the online or local models you connect can also search the same animation directory. You can first provide a complete explanation, main style, and editing objectives, and have it select different shots for each segment. When reviewing the results, start playing from the end of the previous shot and check if the next shot caught the narration.
-
-## I make the tools
-
-I continuously maintain these tools. The preview is clearly marked, and downloads, updates, and known boundaries are based on the release page.
-
-- [Anti-fan Assistant HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
-- [HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
-
-- [LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-- [ScreenLex ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-- [HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 
 ---

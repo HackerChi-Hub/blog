@@ -4,11 +4,6 @@ slug: minimax-h3-image-mac-64gb-local-test-en
 status: published
 lang: en
 translation_of: minimax-h3-image-mac-64gb-local-test
-article_type: "model"
-model_name: "MiniMax H3-Image"
-model_category: "图片生成"
-model_stage: "本地实测"
-model_url: "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
 translation_source: machine
 source_sha256: a52fe501234c1eab
 date: 2026-11-11
@@ -22,6 +17,11 @@ tags:
 cover: "/obsidian-assets/minimax-h3-image-mac-64gb-local-test/cover-fe9144cf14.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "model"
+model_name: "MiniMax H3-Image"
+model_category: "图片生成"
+model_stage: "本地实测"
+model_url: "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
 ---
 
 > [!info] Machine translation

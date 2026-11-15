@@ -25,7 +25,7 @@ legacy_paths: []
 
 ![官方公告｜11月12日首席执行官更替](/obsidian-assets/jensen-huang-nvidia-governance-chips/02-ceo-transition-nov12.png)
 
-　　私人失信、公司调查、芯片出口和政治压力在同一时间汇合。**黄仁勋的私人问题是引线，英伟达长期依赖创始人的治理结构才是弱点，华盛顿政治则把这场危机放大成了产业事件。**咱们按这个顺序往下讲。
+　　**黄仁勋的私人问题是引线，英伟达长期依赖创始人的治理结构才是弱点，华盛顿政治则把这场危机放大成了产业事件。**
 
 ## 董事会为什么改变态度：私人失信已经碰到公司红线
 
@@ -122,50 +122,6 @@ legacy_paths: []
 - [路透社：Schumer推动芯片监督与安全法案](https://www.usnews.com/news/politics/articles/2026-11-10/schumer-says-congress-must-have-answers-on-trump-defense-of-nvidia-ceo)
 - [Politico：Jeffries推动国防法案中的芯片限制](https://www.politico.com/live-updates/2026/11/09/congress/momentum-builds-on-chip-exports-01157548)
 - [Warren与Coons：要求保存英伟达对华出口记录的原始信件](https://www.banking.senate.gov/imo/media/doc/20261111_warren_coons_letter_to_wh_commerce_state_re_nvidia_record_retentionpdf.pdf)
-
-## 我做的工具
-
-这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-### 黑粉助手 HyphenAssistant
-
-状态：正式迭代
-
-手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
-
-[下载与更新](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
-### 黑粉盒子 HyphenBox
-
-状态：正式迭代
-
-免费大模型 API 雷达：持续复测可用性，本地统一接口，Key 只存本机
-
-[下载与更新](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
-
-### 方寸智匣 LocalBrain
-
-状态：正式迭代
-
-本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
-
-[下载与更新](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-### ScreenLex 光影词库
-
-状态：正式迭代
-
-看美剧顺手把生词背了，Mac/Windows 双平台，免费
-
-[下载与更新](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-### 黑粉录屏 HyphenScreen
-
-状态：正式迭代
-
-录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
-
-[下载与更新](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 
 ---

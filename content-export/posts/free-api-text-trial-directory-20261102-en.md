@@ -4,7 +4,6 @@ slug: free-api-text-trial-directory-20261102-en
 status: published
 lang: en
 translation_of: free-api-text-trial-directory-20261102
-article_type: "article"
 translation_source: machine
 source_sha256: 68455552508582ed
 date: 2026-11-03
@@ -17,6 +16,7 @@ tags:
 cover: "/obsidian-assets/free-api-text-trial-directory-20261102/cover-fb57d4e283.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

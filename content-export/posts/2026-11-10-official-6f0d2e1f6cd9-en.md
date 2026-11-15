@@ -4,12 +4,6 @@ slug: 2026-11-10-official-6f0d2e1f6cd9-en
 status: published
 lang: en
 translation_of: 2026-11-10-official-6f0d2e1f6cd9
-article_type: "model"
-cover_status: "generated_user_authorized"
-model_name: "MiniMax-H3-Image-PE"
-model_category: "AI大模型"
-model_stage: "官方发布"
-model_url: "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE"
 translation_source: machine
 source_sha256: 7fbe23ad8a006ade
 date: 2026-11-10
@@ -23,6 +17,12 @@ tags:
 cover: "/obsidian-assets/2026-11-10-official-6f0d2e1f6cd9/wordmark-wide-bdb148e203f6.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "model"
+cover_status: "generated_user_authorized"
+model_name: "MiniMax-H3-Image-PE"
+model_category: "AI大模型"
+model_stage: "官方发布"
+model_url: "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE"
 ---
 
 > [!info] Machine translation

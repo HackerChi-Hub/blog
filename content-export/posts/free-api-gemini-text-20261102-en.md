@@ -4,7 +4,6 @@ slug: free-api-gemini-text-20261102-en
 status: published
 lang: en
 translation_of: free-api-gemini-text-20261102
-article_type: "article"
 translation_source: machine
 source_sha256: 31dd2998ef4c98c9
 date: 2026-11-03
@@ -17,6 +16,7 @@ tags:
 cover: "/obsidian-assets/free-api-gemini-text-20261102/cover-88fe601f15.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

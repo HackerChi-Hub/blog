@@ -17,6 +17,7 @@ tags:
 cover: "/obsidian-assets/fable-5-1-mythos-update/cover-135e02a88b.jpg"
 brand_slogan: 
 legacy_paths: []
+
 ---
 
 > [!info] Machine translation
