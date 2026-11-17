@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-08
-summary: "Mac 2.3.3 升級受管 Splash 至 1.6.0，沿用既有權重，實測中文回覆、串流輸出、嚴格工具參數和引擎回復。"
+updated: 2026-11-17
+summary: "Mac 2.3.5 升級內嵌任務核心至 0.2.2-rc.3 與 Node 24.22.3，更新受管 Splash 1.7.0 / Sushi 1.6.0 / mlx-serve 26.11.2 基線並補齊 PolyStrata 0.1.45 相容。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.5：底層相容層與受管引擎基線升級
+
+這次把方寸智匣的代理核心相容層與 Mac 受管執行環境基線一起升到最新：內嵌任務核心升至官方 `0.2.2-rc.3`（Cordis 4.1.0 與獨立原生工具執行外掛），隨包 Node 升至 `24.22.3`；67 項宿主、中文摘要、按需工具目錄及持久復原回歸通過，`0.1.5-rc.3` 至 `0.2.1-rc.5` 的歷史檢查點繼續相容讀取。原始碼同時放開 Windows / Linux PolyStrata 對上游 `0.1.45` 引擎建置記錄的相容校驗（保留 `0.1.44.1`），Torch 圖像配方收斂至正式版 `diffusers==0.43.0`。
+
+Apple Silicon Mac 的受管引擎新裝基線更新至 [Splash 1.7.0](https://github.com/incoai/splash/releases/tag/1.7.0)、[Sushi 1.6.0](https://github.com/beamivalice/sushi/releases/tag/v1.6.0)（新增 `deepseek_v41` 專用包識別）、[mlx-serve 26.11.2](https://github.com/ddalcu/mlx-serve/releases/tag/v26.11.2)、llama.cpp `b12477`、Prism `prism-b12128-d7b2896` 與 Trivy `0.76.2`。既有使用者可在「設定 → 執行環境與診斷」檢查更新並確認升級；舊基線安裝繼續識別，保留上一版回復槽與全部模型權重，啟動模型不會聯網隱式更新。本機已完成六份官方封存檔 SHA-256 與服務探針核驗，並以真實 Splash 1.7.0 通過一般 Qwen3.8-27B、去審查 27B 與 Swift 1.5 分詞器的一般及嚴格工具語法邊界校驗。同一安裝包包含 2.3.4 接入的 MiniMax H3-Image 本機生圖與參考圖編輯（需 macOS 26+）。
+
+Mac 安裝包為 80,248,232 位元組，使用本機簽章，未經 Apple 公證。Windows 和 Linux 公開安裝包保持 2.3.4。Mac 安裝包的 SHA-256 為 `61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f`。
+
+[下載 Mac 2.3.5（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.5/LocalBrain_2.3.5_aarch64.dmg) · [下載與更新：方寸智匣發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest) · [Splash 1.7.0 官方說明](https://github.com/incoai/splash/releases/tag/1.7.0) · [Sushi 1.6.0 官方說明](https://github.com/beamivalice/sushi/releases/tag/v1.6.0)
 
 ## Mac 2.3.3：受管 Splash 1.6.0
 
@@ -642,18 +652,18 @@ Codex 和 Claude Code 更穩的用法，是保留它們的雲端推理模型，�
 
 - **個人裝置唯讀檢查（Mac 1.9.4）**：手機、電腦、嵌入式與韌體分開登記，先批次加入名單，再到對話補充要求並手動傳送。Android僅擷取已授權的系統／修補資訊，電腦查詢本機安全狀態，網路裝置限制少量授權連接埠；韌體只做指紋、單執行緒識別或離線元件比對。模型不能自選任意路徑或借其他工具擴大範圍。缺少依賴與漏洞庫會明確提示，不將失敗當成零漏洞；本機與離線樣例已驗證，真實手機及嵌入式硬體仍待實測。
 
-#### LocalBrain 1.9.4
+#### LocalBrain 2.3.5
 
 方寸智匣：把 Mac 上的本機模型、多媒體、文件和 MCP 工具收進同一個工作台。
 
 > [!note]
-> 平台 macOS 13.0+ / Apple Silicon · Windows 為 1.9.2 · 安裝包 LocalBrain\_1.9.4\_aarch64.dmg
+> 平台 macOS 13.0+ / Apple Silicon · Windows / Linux 為 2.3.4 · 安裝包 LocalBrain\_2.3.5\_aarch64.dmg
 
 [LocalBrain 下載與更新（發行頁）](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 [LocalBrain 產品介紹](https://hyphentech.top/localbrain)
 
-目前安裝包的 SHA-256 是 **f2542209eb8000bf77aacb2bd9b24abaa57613c125bd5a46f44c9bc64475c929**。它使用開發簽章，尚未完成 Apple 公證；第一次打開被 Gatekeeper 攔下時，先確認下載來源和雜湊，再用下面的命令移除隔離屬性。
+目前安裝包的 SHA-256 是 **61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f**。它使用開發簽章，尚未完成 Apple 公證；第一次打開被 Gatekeeper 攔下時，先確認下載來源和雜湊，再用下面的命令移除隔離屬性。
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app

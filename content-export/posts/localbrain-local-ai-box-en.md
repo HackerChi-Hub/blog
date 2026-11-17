@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-08
-summary: "Mac 2.3.3 upgrades managed Splash to 1.6.0, reuses weights, and verifies Chinese chat, streaming, strict tool arguments and rollback."
+updated: 2026-11-17
+summary: "Mac 2.3.5 upgrades the embedded task kernel to 0.2.2-rc.3 on Node 24.22.3, advances Splash 1.7.0 / Sushi 1.6.0 / mlx-serve 26.11.2 baselines and adds PolyStrata 0.1.45 compatibility."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.5: underlying compatibility layers and managed runtime baselines
+
+Version 2.3.5 upgrades both LocalBrain's embedded agent compatibility layer and its Mac managed runtime baselines. The embedded task kernel moves to official `0.2.2-rc.3` (Cordis 4.1.0 with the standalone native tool executor plugin) paired with bundled Node `24.22.3`; all 67 host, Chinese compaction, on-demand tool catalog and durable recovery regressions pass while keeping checkpoints from `0.1.5-rc.3` through `0.2.1-rc.5` readable. Source compatibility on Windows and Linux now accepts PolyStrata `0.1.45` engine build stamps alongside `0.1.44.1`, and the Torch image environment recipe converges to official `diffusers==0.43.0`.
+
+On Apple Silicon Mac, managed installation baselines advance to [Splash 1.7.0](https://github.com/incoai/splash/releases/tag/1.7.0), [Sushi 1.6.0](https://github.com/beamivalice/sushi/releases/tag/v1.6.0) (adding `deepseek_v41` pack recognition), [mlx-serve 26.11.2](https://github.com/ddalcu/mlx-serve/releases/tag/v26.11.2), llama.cpp `b12477`, Prism `prism-b12128-d7b2896` and Trivy `0.76.2`. Existing users can check and apply upgrades in Settings → Runtime and Diagnostics; prior baseline installs stay recognized, rollback slots and model weights are preserved, and launching a model never triggers implicit network updates. Six official Mac archives passed SHA-256 and CLI probes locally, and Splash 1.7.0 passed regular and strict LLGuidance tool-grammar boundary checks across standard Qwen3.8-27B, uncensored 27B and Swift 1.5 tokenizers. This installer also includes the MiniMax H3-Image native text-to-image and reference editing workflow introduced in 2.3.4 (macOS 26+).
+
+The Mac DMG is 80,248,232 bytes, locally signed and not Apple-notarized. Public Windows and Linux packages remain at 2.3.4. Mac DMG SHA-256: `61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f`.
+
+[Download Mac 2.3.5 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.5/LocalBrain_2.3.5_aarch64.dmg) · [Downloads and updates: LocalBrain releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest) · [Splash 1.7.0 release notes](https://github.com/incoai/splash/releases/tag/1.7.0) · [Sushi 1.6.0 release notes](https://github.com/beamivalice/sushi/releases/tag/v1.6.0)
 
 ## Mac 2.3.3: managed Splash 1.6.0
 
@@ -642,18 +652,18 @@ The walkthrough and screenshots stop at 1.4.8; every later version has its own a
 
 - **Read-only personal-device checks (Mac 1.9.4)**: register phones, computers, embedded devices and firmware separately, batch-add targets, then add requirements and send manually in chat. Android collects authorized OS/patch information, computers query local security status, and network scopes use a few authorized ports. Firmware checks fingerprint files, identify signatures on one thread or match components offline. Models cannot choose arbitrary paths or bypass scope through other tools. Missing dependencies/databases fail explicitly instead of reporting zero vulnerabilities. Local-computer and offline-fixture adapters were verified; real phones and embedded hardware remain untested.
 
-#### LocalBrain 1.9.4
+#### LocalBrain 2.3.5
 
 LocalBrain gathers the local models, media, documents and MCP tools on your Mac into one workbench.
 
 > [!note]
-> Platform macOS 13.0+ / Apple Silicon · Windows is at 1.9.2 · Installer LocalBrain\_1.9.4\_aarch64.dmg
+> Platform macOS 13.0+ / Apple Silicon · Windows / Linux are at 2.3.4 · Installer LocalBrain\_2.3.5\_aarch64.dmg
 
 [LocalBrain downloads and updates (release page)](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 [LocalBrain product page](https://hyphentech.top/localbrain)
 
-The SHA-256 of the current installer is **f2542209eb8000bf77aacb2bd9b24abaa57613c125bd5a46f44c9bc64475c929**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
+The SHA-256 of the current installer is **61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f**. It carries a development signature and is not yet notarized by Apple; if Gatekeeper blocks the first launch, confirm the download source and the hash, then remove the quarantine attribute with the command below.
 
 ```shell
 xattr -dr com.apple.quarantine /Applications/LocalBrain.app
