@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-15T17:50:44.272Z",
-  "contentHash": "708aea31c194870fa03d21d84e7649490a8385eff14d9a546533de26a0bd2c65",
+  "checkedAt": "2026-11-17T16:25:25.848Z",
+  "contentHash": "e945431a8911b7426c213010acc55d18de923ca1db98d02c1edbdbbae96b1099",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-15T17:50:44.272Z",
+      "checkedAt": "2026-11-17T16:25:25.848Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "c2eebe380c79ead97834d70a19270f24dc7ecf4d3d3bbc5ce323d74793d34898"
@@ -108,26 +108,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "方寸智匣 2.3.4 提供 Apple Silicon Mac、Windows x64 和 Linux x64 安装包。 Apple Silicon Mac 在「发现」和「本地多媒体工具」加入 MiniMax H3-Image 社区 MLX 四位模型。使用 macOS 26 或更新版本，可以进行文字生图、参考图编辑，并选择分辨率、随机…",
-      "updated": "2026-11-11",
-      "activityAt": "2026-11-11T03:44:48Z",
-      "version": "2.3.4",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.4",
+      "updateSummary": "下载与更新 · Splash 1.7.0 说明 · Sushi 1.6.0 说明 DMG 为 80,248,232 字节。SHA-256：61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f。",
+      "updated": "2026-11-17",
+      "activityAt": "2026-11-17T16:02:31Z",
+      "version": "2.3.5",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.5",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.3.4",
+          "version": "2.3.5",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.4",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.5",
           "assets": [
             {
-              "name": "LocalBrain_2.3.4_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.4/LocalBrain_2.3.4_aarch64.dmg",
-              "id": 734004320,
-              "size": 75397375,
-              "updatedAt": "2026-11-11T03:43:48Z",
-              "digest": "sha256:97e1693f77fb315428151c4d330f5192eb83e143560ac36403a65e647391469b"
+              "name": "LocalBrain_2.3.5_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.5/LocalBrain_2.3.5_aarch64.dmg",
+              "id": 759693132,
+              "size": 80248232,
+              "updatedAt": "2026-11-17T16:02:30Z",
+              "digest": "sha256:61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f"
             }
           ]
         },
@@ -172,10 +172,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-15T17:50:44.272Z",
+      "checkedAt": "2026-11-17T16:25:25.848Z",
       "prerelease": false,
-      "releaseNotesHash": "7907658c1ec19b793f4402243e1afd66a8ef0c841a5493eb2a6d67391628a41d",
-      "revision": "7096338aa3611a40e20cbb4767a1e951d70c2c9bbc0f187c98c5e03dc19dd788"
+      "releaseNotesHash": "1b0ca755444ffb77c7079d379bc049759affb138c203678ea69b3facfa4cfc53",
+      "revision": "1b658a78d21253de766d589649bc461623964e42c43de9c30eb1a496ddee7979"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-15T17:50:44.272Z",
+      "checkedAt": "2026-11-17T16:25:25.848Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-15T17:50:44.272Z",
+      "checkedAt": "2026-11-17T16:25:25.848Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-15T17:50:44.272Z",
+      "checkedAt": "2026-11-17T16:25:25.848Z",
       "prerelease": false,
       "releaseNotesHash": "19a8edaf7693f78f4a95b8236ae7a86b9e4b627e602e97b2ed25e6113643dcc8",
       "revision": "7c7a1fec8a5f513528edbf6da25d0916ac8f58bfef1b40f9bf558407cfc3a9bf"
