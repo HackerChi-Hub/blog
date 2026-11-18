@@ -5,11 +5,57 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Nov 2026 14:17:33 GMT</lastBuildDate>
-    <pubDate>Wed, 18 Nov 2026 14:17:33 GMT</pubDate>
+    <lastBuildDate>Wed, 18 Nov 2026 15:08:16 GMT</lastBuildDate>
+    <pubDate>Wed, 18 Nov 2026 15:08:16 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>DeepSeek V4.1狂揽185万亿词元：省钱编程、本地内存墙与省Token陷阱</title>
+      <link>https://hyphentech.top/deepseek-v41-opencode-llamacpp-v1/</link>
+      <guid isPermaLink="true">https://hyphentech.top/deepseek-v41-opencode-llamacpp-v1/</guid>
+      <description>OpenCode 七天 185T 用量拆解、本地 500.7GB 硬件边界与 12 万星省词插件的真实回本线。</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>Qwen4-Max对决混元Hy4 flash：百万上下文省钱、3.17GB本地网页智能体与草稿加速真相</title>
+      <link>https://hyphentech.top/qwen4-max-hy4-flash-kormo-4b/</link>
+      <guid isPermaLink="true">https://hyphentech.top/qwen4-max-hy4-flash-kormo-4b/</guid>
+      <description>拆开阿里与混元官方海报底下的评分与小字，再算清 3.17GB 网页代理与 504MB 草稿模型的本机边界。</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
+    <item>
+      <title>AI入侵的108种方式：拆解八层攻防母栈与三道硬防线</title>
+      <link>https://hyphentech.top/ai-intrusion-108-ep01-overview/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-intrusion-108-ep01-overview/</guid>
+      <description>当防火墙全绿、员工没点任何钓鱼链接，只让编程助手看一眼公开仓库工单，几秒后私库核心配置为何被它主动发往外网？本文作为《拆解AI入侵》系列开篇，将近年曝光的 108 种大模型与智能体攻击手法压成一座 L1–L8 八层攻防母栈，并给出不归大模型管的三道确定性硬防线。</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>大模型安全</category>
+    <category>AI入侵108种方式</category>
+    <category>智能体安全</category>
+    <category>MCP</category>
+    <category>方寸智匣</category>
+    </item>
+    <item>
+      <title>PDF白字简历骗过AI拿99分？流清洗实测</title>
+      <link>https://hyphentech.top/ai-intrusion-108-ep08-pdf-hidden-text/</link>
+      <guid isPermaLink="true">https://hyphentech.top/ai-intrusion-108-ep08-pdf-hidden-text/</guid>
+      <description>用 macOS 预览或 Word 打开一份候选人简历，肉眼只看到 1.2 年初级 CRUD 经验，拖进大模型按首席架构师标准打分却直接拿到 99/100 保送评级！本文拆解 PDF 与 DOCX 双层 0.1pt 纯白隐形文本流解析偏差，并用 8 行 Python 字号与对比度清洗恢复 58 分客观基线。</description>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>大模型安全</category>
+    <category>AI入侵108种方式</category>
+    <category>PDF解析</category>
+    <category>提示词注入</category>
+    <category>方寸智匣</category>
+    </item>
     <item>
       <title>黄仁勋辞职：4天从力挺到换人，一篇讲清英伟达的芯片管制与政治博弈</title>
       <link>https://hyphentech.top/jensen-huang-nvidia-governance-chips/</link>
@@ -166,46 +212,6 @@
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     <category>免费API</category>
-    </item>
-    <item>
-      <title>Groq免费文字API实测：同一份订单，有的算对，有的算出4530</title>
-      <link>https://hyphentech.top/free-api-groq-text-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-groq-text-20261102/</guid>
-      <description>同一订单的正确答案与加总错误，附接法。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>OpenRouter免费API实测：12次请求后，哪些型号真正给出了答案？</title>
-      <link>https://hyphentech.top/free-api-openrouter-text-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-openrouter-text-20261102/</guid>
-      <description>十二次请求的成功、限流、失效与截断记录。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>H3 与 LTX-2.5：64GB Mac 本地视频实测，加速、过渡和镜头控制怎么选？</title>
-      <link>https://hyphentech.top/localbrain-h3-ltx25-video-practical-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/localbrain-h3-ltx25-video-practical-test/</guid>
-      <description>64GB Mac的真实短片、H3同题加速、Transition首尾帧与Layout预演控制，以及方寸智匣完整用法。原片、参数和失败记录一起保留。</description>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>本地部署</category>
-    <category>视频生成</category>
-    </item>
-    <item>
-      <title>Pika H3 Flex把50步压成6步：64GB Mac实测3段有声视频，方寸智匣怎么用？</title>
-      <link>https://hyphentech.top/pika-h3-flex-localbrain-mac/</link>
-      <guid isPermaLink="true">https://hyphentech.top/pika-h3-flex-localbrain-mac/</guid>
-      <description>50步如何压成6步？用官方动作、编辑与4K案例看懂技术，再看64GB Mac三条原片和方寸智匣2.2.4的实际用法。</description>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>Pika</category>
-    <category>本地部署</category>
     </item>
   </channel>
 </rss>
