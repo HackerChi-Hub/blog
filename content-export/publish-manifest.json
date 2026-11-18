@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "ecc1e39c28161e659e6911b2a0e800a4f59560b2b7d7e51f5b1ebdcbf0233f5d",
-  "published_post_count": 257,
+  "content_sha256": "5937a5c898eb5f224a40859381d8d45c5ebd34c700419f32efec3245a7408cde",
+  "published_post_count": 266,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -11,7 +11,7 @@
       "legacy_paths": [],
       "translation_of": "2026-10-07-official-b31ed069464a",
       "lang": "en",
-      "sha256": "165b5b41972259903321c928853b959f25d04d910c4b75f9e2417ab162edbd88"
+      "sha256": "724e24f370fb72ed9927e2144f09b2cc2b04c9e04124da1c4cdca364138b9f5b"
     },
     {
       "file": "posts/2026-10-07-official-b31ed069464a.md",
@@ -59,14 +59,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-7ad7eec5fddf",
       "lang": "en",
-      "sha256": "229fbbf03717866c0957814889f4ae6d5eb39d1a6a724b6436a042666d684889"
+      "sha256": "19d1f0c0bc08ee2d1eecfbb6b2129bdebd701316e3414419f3873fc055ffbb9e"
     },
     {
       "file": "posts/2026-10-08-skill-7ad7eec5fddf.md",
       "slug": "2026-10-08-skill-7ad7eec5fddf",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "c5857adf7b051a52289f96e35240724007e00fbe0c08ca11b56f9693a529503c"
+      "sha256": "3df9f2add3db6a21706b1e9f12fa017c230cf1442a1a0de33c9f249705f085b3"
     },
     {
       "file": "posts/2026-10-08-skill-bd9fe092bca4-en.md",
@@ -75,14 +75,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-08-skill-bd9fe092bca4",
       "lang": "en",
-      "sha256": "950a0a42865076b7d8bdd4e514cd767caed392f2c8a13d4658b50055a46af720"
+      "sha256": "b8513d43607c19f720a2fd5f66534892a890b9d452090af9aa1ff57df618b7ce"
     },
     {
       "file": "posts/2026-10-08-skill-bd9fe092bca4.md",
       "slug": "2026-10-08-skill-bd9fe092bca4",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "74e1ace544eaa62c297da2a6730e17b830947ab52ef800a2f24f39284657c971"
+      "sha256": "8836231b0a0a29cb230521324a0d5b5344ccef92e4fb9d342417bc56c2eb49f4"
     },
     {
       "file": "posts/2026-10-09-skill-08f7362ddd33-en.md",
@@ -91,14 +91,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-08f7362ddd33",
       "lang": "en",
-      "sha256": "be8a260b50dfc10269ceba5cf0b79d30159cb033fb88d44b7fcb0fe2cc97a8d8"
+      "sha256": "c46c59f9ff20325bc2f5c970b5d277664c8ff5bc58fdc732d3ff653728d58ea2"
     },
     {
       "file": "posts/2026-10-09-skill-08f7362ddd33.md",
       "slug": "2026-10-09-skill-08f7362ddd33",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "60a13682d2d245a41d977b8e8d89b04421b7533ce5c8bfd116aab5b75193339c"
+      "sha256": "34a43a65a84f84dd7f4f3d28c589ddcc8ef05ed68e6f9e34e7d0f25311a0f1c1"
     },
     {
       "file": "posts/2026-10-09-skill-1d146792bdd7-en.md",
@@ -107,14 +107,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-09-skill-1d146792bdd7",
       "lang": "en",
-      "sha256": "a47a71af689f167b438eddf4cfa0e3d23cff87b18d4accb6b5d81a7bbb118a4d"
+      "sha256": "43a21dd9a62eb81bea33cce59a84295d71b9166c4533207e9f1c6a9aa06bfede"
     },
     {
       "file": "posts/2026-10-09-skill-1d146792bdd7.md",
       "slug": "2026-10-09-skill-1d146792bdd7",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "8f9b40a7aee9fc1bdb1a2e16aec5453f52d89bcaeee0fa906edad41ba459dbb7"
+      "sha256": "7e78bc1fe6a649ad99660f7ed8d37979a7ad35780fa2251751cf213f610719c2"
     },
     {
       "file": "posts/2026-10-10-official-74c72ca9b7d8-en.md",
@@ -123,14 +123,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-10-official-74c72ca9b7d8",
       "lang": "en",
-      "sha256": "1df087728529d73659f8911444fee90a13bba83292e89467bfc38d26c05008ad"
+      "sha256": "101cc34d12141c7d7f20f192d712ce45b6bb5898708a4f3f1b8ba70aefd6fc89"
     },
     {
       "file": "posts/2026-10-10-official-74c72ca9b7d8.md",
       "slug": "2026-10-10-official-74c72ca9b7d8",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "6e2ee3c2cfec5d380255092e7e10c76b1e537f2eb5750671a5ef7655c76a2f83"
+      "sha256": "18a4c2b0df0674a57c043ab60fd50a6092ac9f9e7229829e8baaa9ab6af54c9e"
     },
     {
       "file": "posts/2026-10-15-official-1dd915a82f3f-en.md",
@@ -139,14 +139,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-15-official-1dd915a82f3f",
       "lang": "en",
-      "sha256": "181f76f15e4b6b6a08cee54b2b3095047fce9b410eab1376c694b850c284691f"
+      "sha256": "6f921745cd7f69189ebbe1239b3fe6cadfc4a3635c5ca0a326909366af6e2058"
     },
     {
       "file": "posts/2026-10-15-official-1dd915a82f3f.md",
       "slug": "2026-10-15-official-1dd915a82f3f",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "651cfdb8d2bb1156b765937617b4fefd99c0d67a51c98454ff173871551f73a0"
+      "sha256": "c992468c6a2e86ee5e1c39c94270b4490d6fadaec17c0865ae9cf2be8ceb7bbc"
     },
     {
       "file": "posts/2026-10-16-official-6b1fdcbd2e4f-en.md",
@@ -155,14 +155,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-16-official-6b1fdcbd2e4f",
       "lang": "en",
-      "sha256": "b3c70f814c6bde651365a339820a3ef4f1c4a0b59bcd2606d026c0ca4f418681"
+      "sha256": "a3a3c5659b0b6846b87edf5a4391d04d74012b54f3f3d48255a888393883d032"
     },
     {
       "file": "posts/2026-10-16-official-6b1fdcbd2e4f.md",
       "slug": "2026-10-16-official-6b1fdcbd2e4f",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "94849c00b95bccf29fbf96d368e8547f793b3bd31929f48efbefab50552af25c"
+      "sha256": "01de0a1913cfdd357c6160b8fae87f340195124b5cb71cca5babf91ff7eb8a9e"
     },
     {
       "file": "posts/2026-10-17-official-621d1cb6bd14-en.md",
@@ -171,14 +171,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-17-official-621d1cb6bd14",
       "lang": "en",
-      "sha256": "3f3f5071c008a9b5deebb6f438b805a9fc6cf51fdab690ecee03d2b8d0c18aca"
+      "sha256": "d05a459b2c3173b68e882c297f98f0bece15da1dd65e0c8e3eafa8bf4883090c"
     },
     {
       "file": "posts/2026-10-17-official-621d1cb6bd14.md",
       "slug": "2026-10-17-official-621d1cb6bd14",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "ff20ce720d75b7a795f095082ec6172e262f90dd3a1c89bdf63128c3be4618c6"
+      "sha256": "cb951252f1423288079ed2640c017613a7b2c6de96a666d5c1b1553052ea7713"
     },
     {
       "file": "posts/2026-10-18-official-39d610a807a3-en.md",
@@ -187,14 +187,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-18-official-39d610a807a3",
       "lang": "en",
-      "sha256": "1f79ffd24ff8ef53b61e0c4e94e8489e629a0864418db9348d0cd583bc17863b"
+      "sha256": "66273ff80e7d8a1ae8a96ce88e06897a7f0b91002de7134e961047c7b8f3fee1"
     },
     {
       "file": "posts/2026-10-18-official-39d610a807a3.md",
       "slug": "2026-10-18-official-39d610a807a3",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "c8aa0105d169ac95f71ac5609f799df8d4a5a715df011d81eeab2659b997ef9b"
+      "sha256": "8642870afab51567c56a65a20282c4eb680c1245a1ee4058e36b9faaabcd4070"
     },
     {
       "file": "posts/2026-10-19-official-40b84d6dd7e4-en.md",
@@ -203,14 +203,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-19-official-40b84d6dd7e4",
       "lang": "en",
-      "sha256": "b806669e09e133d970e0990c8d07d4349d39bb80893d790c07a47e66028affbf"
+      "sha256": "c8f8df7c440a4fe4b44aa39661b6bb3b9a658c7b491bf3acaa1913018ec13adf"
     },
     {
       "file": "posts/2026-10-19-official-40b84d6dd7e4.md",
       "slug": "2026-10-19-official-40b84d6dd7e4",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "3e22e8008dd8cefe4cdd26f3e60a9b98139f9f51de32c550c72d416aeb35e987"
+      "sha256": "3f7b286cb59a3b667e3f388a04a9794e1ec155455749ec9ab6e64c5357742bf2"
     },
     {
       "file": "posts/2026-10-23-official-3a68097e4e1d-en.md",
@@ -219,14 +219,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-23-official-3a68097e4e1d",
       "lang": "en",
-      "sha256": "9b4184afb6f49391a568d77ec39e76762f926c7ed6edb0b6ea44c9d8535898d8"
+      "sha256": "f20ee64b4bdee8442fe83218c648ca0c81f248298e161f5d3258e0444b5038da"
     },
     {
       "file": "posts/2026-10-23-official-3a68097e4e1d.md",
       "slug": "2026-10-23-official-3a68097e4e1d",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "7812f2d288e7cae0f0bec9af1beeede0a4b50fe1bcb2cd3b2a50569f8466038b"
+      "sha256": "6ffa1c1c1d894e821ce771421d8b909052c55a0c6ce360ebfbdd087dc7ac22c9"
     },
     {
       "file": "posts/2026-10-24-official-a3bd547a332b-en.md",
@@ -235,14 +235,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-24-official-a3bd547a332b",
       "lang": "en",
-      "sha256": "8c4a2ca6933d3cf3600fa598da751bdc3f9a949d14a3a867f4dbe77180ef164c"
+      "sha256": "75b00c4cae3b4cb121dd05978421579fbade045792061da464b56272a09dddd2"
     },
     {
       "file": "posts/2026-10-24-official-a3bd547a332b.md",
       "slug": "2026-10-24-official-a3bd547a332b",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "9f12a52b1ce6f5fb1e3a63a21f3bd6b49909fcc30cf2bf792af9950dad330659"
+      "sha256": "820812b27028e00bc21aef12e244b23a326dfac1d48bb92b6d349c34fc95dec3"
     },
     {
       "file": "posts/2026-10-29-skill-79a5fd606e65-en.md",
@@ -251,14 +251,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-29-skill-79a5fd606e65",
       "lang": "en",
-      "sha256": "a11822c9ccd5387e764213fa8d9599b24423ff28e6efe61e1c26c79bde1656af"
+      "sha256": "7ae5948c7baabb78dfd1070e000eb47f58b93d3e44a133c160a085ac6ffb239a"
     },
     {
       "file": "posts/2026-10-29-skill-79a5fd606e65.md",
       "slug": "2026-10-29-skill-79a5fd606e65",
       "article_type": "skill",
       "legacy_paths": [],
-      "sha256": "b0bb82c382d14c7bb0077b676e05ec32096790ac69d9cd34cb0671772dd5c9bf"
+      "sha256": "4c8feddf8db20ea4ffadf3c77413815bfd29848bc82b01296f80f3f320b2f9d8"
     },
     {
       "file": "posts/2026-10-30-official-0c09b8d1f7f7-en.md",
@@ -267,14 +267,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-30-official-0c09b8d1f7f7",
       "lang": "en",
-      "sha256": "f6281ff4d25613ce3131be119d5ea99fe35180e56dc289e87c35f19d89535337"
+      "sha256": "34d0c58c5f268c10dc0549e97e2cc3a5bd4b3f61367e08a6058c92bb8dbae497"
     },
     {
       "file": "posts/2026-10-30-official-0c09b8d1f7f7.md",
       "slug": "2026-10-30-official-0c09b8d1f7f7",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "b405db9a7b27503661177840570e16198c7d6a82406646dad963ccfc735235e0"
+      "sha256": "18c209540bbf93606c26348fffe93a5e30a873406907a0b1492d50cb4214b825"
     },
     {
       "file": "posts/2026-11-03-official-c0013b3edcbb-en.md",
@@ -283,14 +283,14 @@
       "legacy_paths": [],
       "translation_of": "2026-11-03-official-c0013b3edcbb",
       "lang": "en",
-      "sha256": "38cbfc2896f0b520727a257cf7d33cfcb9e5b259791ce03666d524387d56595c"
+      "sha256": "78a97a038962325d8dcc0e11dcb4ac8a045c97738af5692d3a0114bb010bfe45"
     },
     {
       "file": "posts/2026-11-03-official-c0013b3edcbb.md",
       "slug": "2026-11-03-official-c0013b3edcbb",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "b941ecfc0d9061fd3a3eddc20d53ef720970526eb2a32bc8ba24ed6928dd4ed2"
+      "sha256": "84d2c223d09adfda86e1556222bc4e5ad7f11d985501a3c5e0397cf638fa224c"
     },
     {
       "file": "posts/2026-11-05-official-12db83055a26-en.md",
@@ -299,14 +299,14 @@
       "legacy_paths": [],
       "translation_of": "2026-11-05-official-12db83055a26",
       "lang": "en",
-      "sha256": "1e0bc7a91ff847aef8ba635939947fc6ea8beb2fc8f2a71ec6d1fbf392e1222d"
+      "sha256": "2bc5809cfad045fb16bd26b983745cfb92a3c2b2c9b9f68f8d22c6283ed4ff48"
     },
     {
       "file": "posts/2026-11-05-official-12db83055a26.md",
       "slug": "2026-11-05-official-12db83055a26",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "3f0d1dda0a6de38da839368006d3527fec2350facd304f32bed84b9f494b3653"
+      "sha256": "07f9d2646450337961b43e3cadeb6c5d4d1ef1679dc918c83446ae33df85e7af"
     },
     {
       "file": "posts/2026-11-05-official-49b677f36d92-en.md",
@@ -315,14 +315,14 @@
       "legacy_paths": [],
       "translation_of": "2026-11-05-official-49b677f36d92",
       "lang": "en",
-      "sha256": "22350ecea87c2c9d5715a741aa997f9b2e0a20eeff591e64fdc521fa0c5552d8"
+      "sha256": "cb6a73d35c503082e6dca2995769a73f91691f8a42becb5f3fe748e04d27e9b7"
     },
     {
       "file": "posts/2026-11-05-official-49b677f36d92.md",
       "slug": "2026-11-05-official-49b677f36d92",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "fbb2581d7ca58bb3e5910f7fa672cf947a6fd15065de2c4c3cf5c73fd28a8de3"
+      "sha256": "7a2d55ef7f1a69f20cb900475ac252bb0c0e9a9836c9aea1bde1191ba5126ea3"
     },
     {
       "file": "posts/2026-11-07-official-35ace897d9c3-en.md",
@@ -331,21 +331,30 @@
       "legacy_paths": [],
       "translation_of": "2026-11-07-official-35ace897d9c3",
       "lang": "en",
-      "sha256": "802fbbc1b188eca192cef704aa27bbbd9776262b7c43e9c8da0dca34d2d25ecd"
+      "sha256": "2055d0593e691da5d025ea186e89c46ae410a26092eb50954f07b65ed178f776"
     },
     {
       "file": "posts/2026-11-07-official-35ace897d9c3.md",
       "slug": "2026-11-07-official-35ace897d9c3",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "ea5fa21515079266d18a1ee9ecaecc276bba6b6eed8981377444515c945789e3"
+      "sha256": "e8903c6060eef4d8ad67fdb35d6be710f6446d6087feed5776ab1e0342a3e9ca"
+    },
+    {
+      "file": "posts/2026-11-10-official-42548016dd24-en.md",
+      "slug": "2026-11-10-official-42548016dd24-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-10-official-42548016dd24",
+      "lang": "en",
+      "sha256": "9c217d0f0500222e5c919b536f7478b0d143626bb6be48d75627b474aca829ec"
     },
     {
       "file": "posts/2026-11-10-official-42548016dd24.md",
       "slug": "2026-11-10-official-42548016dd24",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "55ab876aecc17a72302fb5e7b573468266cfa28eabc97b3da7d75949e0004161"
+      "sha256": "e6a55fe411586f71e26146ec030a4610a770bc09f45256bcb5cc429209bb00d2"
     },
     {
       "file": "posts/2026-11-10-official-6f0d2e1f6cd9-en.md",
@@ -354,14 +363,14 @@
       "legacy_paths": [],
       "translation_of": "2026-11-10-official-6f0d2e1f6cd9",
       "lang": "en",
-      "sha256": "40f5226b2da0d7db25f83c5d2814124ebdae4d1faa977c9e54809992639f06f6"
+      "sha256": "616c7e03b8257d3d3b023629ec4c96980aabf44e6e20b02be828b8d8ac032ca8"
     },
     {
       "file": "posts/2026-11-10-official-6f0d2e1f6cd9.md",
       "slug": "2026-11-10-official-6f0d2e1f6cd9",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "cf0dc3c23fb8f2e870c504fe987855dec65c96722a9ffd8a94771c21de2eca06"
+      "sha256": "29a504ca099862e1456753a9d625c10c3fee254857735386b05a598fc19ad2b9"
     },
     {
       "file": "posts/2026-11-11-official-4412c828c967-en.md",
@@ -370,14 +379,14 @@
       "legacy_paths": [],
       "translation_of": "2026-11-11-official-4412c828c967",
       "lang": "en",
-      "sha256": "8187b34a8d4eb3553bb8449c24b0ae4f1009ebf5662db7d5319df8a002a7bf16"
+      "sha256": "63ae65f480469c7fe1155d5a6fc6ff5b26c782647a7a79464b01d2919852a9d4"
     },
     {
       "file": "posts/2026-11-11-official-4412c828c967.md",
       "slug": "2026-11-11-official-4412c828c967",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "c72207a00892b4126efdb8f2ab575a7cad22a4b49edebe4963b90cc4db090f70"
+      "sha256": "26874ea8a2df44b24ce70ef2a5c73618b22c5d1f3d1635996badfcf9e2184471"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -604,6 +613,38 @@
       "sha256": "b387f3fb2e143fb8b0e5ba9d5da36231272080953b3392526db834c24745af17"
     },
     {
+      "file": "posts/ai-intrusion-108-ep01-overview-en.md",
+      "slug": "ai-intrusion-108-ep01-overview-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "ai-intrusion-108-ep01-overview",
+      "lang": "en",
+      "sha256": "2fecfd7037eebfd61f9b89c4fee6392e702d0ce5df23e26fa98d8005356c458e"
+    },
+    {
+      "file": "posts/ai-intrusion-108-ep01-overview.md",
+      "slug": "ai-intrusion-108-ep01-overview",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "7a9457f7f35a98d3372db5900affb9e717e63c2b0d3ea7c2fffcd60405e0f8c0"
+    },
+    {
+      "file": "posts/ai-intrusion-108-ep08-pdf-hidden-text-en.md",
+      "slug": "ai-intrusion-108-ep08-pdf-hidden-text-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "ai-intrusion-108-ep08-pdf-hidden-text",
+      "lang": "en",
+      "sha256": "cfea085e845a047fcc96c74175569967febec6cce30672e99a4d3b26be57e501"
+    },
+    {
+      "file": "posts/ai-intrusion-108-ep08-pdf-hidden-text.md",
+      "slug": "ai-intrusion-108-ep08-pdf-hidden-text",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "068b9524c0d48e559aefcede4e8692ea96e799eef4165d2df1a1a66aa2e347e5"
+    },
+    {
       "file": "posts/ai-logo-brand-assets-workflow-en.md",
       "slug": "ai-logo-brand-assets-workflow-en",
       "article_type": "article",
@@ -700,6 +741,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "c5b593328d89ce781e9ac4abb78e45e7b24543fa3de99fe48c829d96abc1edd9"
+    },
+    {
+      "file": "posts/deepseek-v41-opencode-llamacpp-v1-en.md",
+      "slug": "deepseek-v41-opencode-llamacpp-v1-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "deepseek-v41-opencode-llamacpp-v1",
+      "lang": "en",
+      "sha256": "80c55f4e1e5a9abc5d49ba1c1a24d39b8299b3bf4b19c67617a3ec1fe09bcd0a"
+    },
+    {
+      "file": "posts/deepseek-v41-opencode-llamacpp-v1.md",
+      "slug": "deepseek-v41-opencode-llamacpp-v1",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "8105a250cded61ad20937424bc6ad4815fc93ff7765d212f2c594db726b08f5c"
     },
     {
       "file": "posts/fable-5-1-mythos-update-en.md",
@@ -1109,7 +1166,7 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "en",
-      "sha256": "fe038f62e906cb69603ffe384cbd825cabf51331ce2771f576af91875a0d13fb"
+      "sha256": "9353306834c9a76bf91afc5373a484ce829bc06994406d6014506cce0c0f30fc"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder-zh-tw.md",
@@ -1118,14 +1175,14 @@
       "legacy_paths": [],
       "translation_of": "hyphenscreen-local-screen-recorder",
       "lang": "zh-TW",
-      "sha256": "ecb0dc405026f6d7a52ad6c4790ac6ed62ecf818173e7bf2bec69d466d0256bd"
+      "sha256": "9f181b2520a3f4031c1c286857339d6d363608ee072794366c20918a575beca4"
     },
     {
       "file": "posts/hyphenscreen-local-screen-recorder.md",
       "slug": "hyphenscreen-local-screen-recorder",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "91f2cc893da3d5540e5e0cdea6856d30e9511e75ca1eca6bb12e37e0161aae73"
+      "sha256": "664c124f62858079ba2dcc85d7d9e719261d1fd87a7cb4d102f860007ceccaf8"
     },
     {
       "file": "posts/hyphenscreen-motion-library-showcase-en.md",
@@ -1792,6 +1849,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "a60b9477cac0bd7b57d79783d54094d5ae49c5f0bf2946ac6b359e06ebc2f1d9"
+    },
+    {
+      "file": "posts/qwen4-max-hy4-flash-kormo-4b-en.md",
+      "slug": "qwen4-max-hy4-flash-kormo-4b-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "qwen4-max-hy4-flash-kormo-4b",
+      "lang": "en",
+      "sha256": "b04e9b0544e399193bf5b2f3f80752b2b19bd753f60b561c96e7128e48b53022"
+    },
+    {
+      "file": "posts/qwen4-max-hy4-flash-kormo-4b.md",
+      "slug": "qwen4-max-hy4-flash-kormo-4b",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "7e65f965452aaad65e1ec9e6027e1361f5ceb586cf5c18280c61537ff88e26a4"
     },
     {
       "file": "posts/rea-reverse-engineering-en.md",

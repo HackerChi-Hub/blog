@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.9.0"
+title: "HyphenScreen: recording, editing and AI animation — version 1.9.3"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-11-14
-summary: Version 1.9.0 renders independent shots in parallel and brings finished-video checks to the Episode Workbench, where timed findings can jump to the editor timeline.
+updated: 2026-11-18
+summary: Version 1.9.3 refines compact-window layout and on-canvas dragging under 2.5D camera rigs, supports seven packaging layouts with reversible master themes, preserves Source export resolution with standalone animations and restores repeated-sentence speech cleanup.
 categories:
   - Resources
 tags:
@@ -17,6 +17,18 @@ brand_slogan: 让AI成为你的超能力
 legacy_paths: []
 ---
 
+
+## Version 1.9.3: drag layers directly under 2.5D camera motion, keep full Source resolution and clean up repeated takes
+
+　　Adding a standalone intro or outro card to a 1080p or 4K screen recording used to drop **Source** exports down to 720p because the synthetic gap canvas was hardcoded to `1280×720` and counted toward the minimum timeline resolution. Version 1.9.3 excludes synthetic gap canvases from output sizing—tested on the installed Mac app with a 1080p recording followed by a standalone title card, native Source export stays at **1920×1080**.
+
+　　Building on the **seven whole-video packaging layouts** (opener, chapter, subhead, list, focus, metric and outro) and **explicit 2.5D camera rigs** introduced in 1.9.1, on-canvas selection bounds and drag handles now project forward and backward through active camera zoom, pan and parallax depth so dragging text mid-move stays locked under the pointer. Cross-cut coaxial seams avoid double-zoom overshoot, and switching across the ten master themes snapshots original layer colors so round-tripping between dark poster palettes and light paper palettes preserves card hierarchy and semantic red/green contrast.
+
+　　Everyday editing fixes round out the release: word-level transcription keeps natural sentence segments instead of creating one segment per word, bringing automatic repeated-sentence speech cleanup back online while extending sensitive-info redaction and auto-zoom across upper video tracks. Compact `1280×800` laptop windows keep all eight right-rail icons, the `0:00` timeline ruler and empty-state hints unclipped; the right-side animation library renders a clean, equal-width two-column grid across shots, packaging and graphics without horizontal scrolling, animation editor tabs fit on a single row, and inserting a fade-in card automatically advances the playhead to a visible frame. The Episode Workbench remains a signed-license feature not yet open for purchase, while whole-video packaging, AI animation creation and explicit camera rigs are open to everyone.
+
+[Download and updates: HyphenScreen releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
+
+　　The signed Mac app was verified on desktop UI, external editing tools and native export; Windows and Linux installers were built from the same commit in cloud CI and verified by checksum, with desktop interaction still awaiting physical-machine testing.
 
 ## Version 1.9.0 renders shots in parallel and locates export issues
 
