@@ -148,6 +148,25 @@ function main() {
     assert.strictEqual(treeHash(exportDir), exportHash, '越界引用不应污染快照');
     assert.strictEqual(treeHash(publicAssets), assetHash, '越界引用不应污染素材镜像');
 
+    // 已发布文章若指向不存在的站内路由，应在内容校验阶段秒级报错拦截
+    write(
+      path.join(content, 'posts', 'live-post.md'),
+      publishedPost('published', '正文，详见[写错的路由](/totally-missing-slug/)。')
+    );
+    assert.match(run(validator, ['--content-dir', content], 1), /站内链接目标不存在：\/totally-missing-slug\//);
+
+    // 已发布文章指向同库未发布草稿（如系列连载下一期预告）：原稿保留链接，导出快照自动降级为纯文本
+    write(
+      path.join(content, 'posts', 'live-post.md'),
+      publishedPost('published', '正文，下一期（[第09期](/draft-post/)）继续拆解。\n\n![配图](../preview-assets/live-post/body.png)')
+    );
+    assert.match(run(validator, ['--content-dir', content]), /指向未发布文章 \/draft-post\/（draft）/);
+    run(synchronizer, syncArgs);
+    const exportedWithDraftLink = fs.readFileSync(path.join(exportDir, 'posts', 'live-post.md'), 'utf8');
+    assert(!exportedWithDraftLink.includes('(/draft-post/)'), '公开快照不应包含指向未发布草稿的死链');
+    assert(exportedWithDraftLink.includes('下一期（第09期）继续拆解'), '降级后应保留锚文本');
+    assert(fs.readFileSync(path.join(content, 'posts', 'live-post.md'), 'utf8').includes('[第09期](/draft-post/)'), '私有原稿必须保留原链接以便草稿转正后自动恢复');
+
     write(path.join(content, 'posts', 'live-post.md'), publishedPost('archived'));
     run(synchronizer, syncArgs);
     assert(!fs.existsSync(path.join(exportDir, 'posts', 'live-post.md')));

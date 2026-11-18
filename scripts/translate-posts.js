@@ -119,6 +119,12 @@ const TAG_MAP = new Map([
   ['提示词工程', 'Prompt engineering'],
   ['无人值守任务', 'Unattended tasks'],
   ['网络安全', 'Security'],
+  ['大模型安全', 'LLM security'],
+  ['AI入侵108种方式', '108 Ways of AI Intrusion'],
+  ['智能体安全', 'Agent security'],
+  ['PDF解析', 'PDF parsing'],
+  ['提示词注入', 'Prompt injection'],
+  ['新锐模型', 'Frontier models'],
   ['开源许可', 'Licensing'],
   ['免费额度', 'Free tier'],
   ['成本', 'Cost'],
@@ -471,7 +477,10 @@ function termsKeptInLine(source, translated) {
  */
 function needsFallback(source, translated, protector) {
   try {
-    return !termsKeptInLine(source, restore(translated, protector)) || CJK_RE.test(translated);
+    const restoredSource = restore(source, protector);
+    const restoredTranslated = restore(tidy(translated), protector);
+    assertSameStructure(restoredSource, restoredTranslated);
+    return !termsKeptInLine(source, restoredTranslated) || CJK_RE.test(translated);
   } catch {
     return true;
   }
@@ -497,8 +506,12 @@ async function translateSegmented(protectedText, opts) {
     }
   });
   const out = await translateTexts(texts, opts);
-  // 英文片段两侧补空格再合并连续空格；紧贴 `![` / `](` 的多余空格由 restore 收紧
-  at.forEach((pi, k) => { parts[pi] = ` ${out[k].trim()} `; });
+  // 英文片段两侧补空格再合并连续空格；非 dryRun 时去掉译文片段中偶发的方括号以免破坏外层链接结构
+  at.forEach((pi, k) => {
+    const rawSeg = out[k].trim();
+    const safeSeg = opts?.dryRun ? rawSeg : rawSeg.replace(/[\[\]]/g, (ch) => (ch === '[' ? '(' : ')'));
+    parts[pi] = ` ${safeSeg} `;
+  });
   return parts.join('').replace(/ {2,}/g, ' ').trim();
 }
 

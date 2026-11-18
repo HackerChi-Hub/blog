@@ -301,12 +301,78 @@ function main() {
   }
 
   const knownRoutes = new Set(routes.keys());
+  const publishedRoutes = new Set();
+  const unpublishedRoutes = new Map();
   for (const post of postRecords) {
+    for (const route of [post.slug, ...post.legacyPaths].filter(Boolean)) {
+      if (post.status === 'published') publishedRoutes.add(route);
+      else if (!publishedRoutes.has(route)) unpublishedRoutes.set(route, post.status);
+    }
+  }
+  const staticSiteRoutes = new Set([
+    '', 'en', 'teahouse', 'en/teahouse', 'guides', 'en/guides',
+    'models', 'skills', 'radar', 'games', 'feed.xml', 'sitemap.xml', 'robots.txt', '404',
+  ]);
+  const publicDir = path.resolve(__dirname, '..', 'public');
+  (function collectPublicRoutes(dir, prefix = '') {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name.startsWith('.')) continue;
+      const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) {
+        if (fs.existsSync(path.join(dir, entry.name, 'index.html'))) staticSiteRoutes.add(rel);
+        collectPublicRoutes(path.join(dir, entry.name), rel);
+      } else if (entry.isFile()) {
+        staticSiteRoutes.add(rel);
+        if (entry.name.endsWith('.html') && entry.name !== 'index.html') {
+          staticSiteRoutes.add(rel.replace(/\.html$/, ''));
+        }
+      }
+    }
+  })(publicDir);
+
+  for (const post of postRecords) {
+    const proseBody = post.body.replace(/^```[\s\S]*?^```/gm, '').replace(/`[^`\n]+`/g, '');
     const pattern = /(?<!!)\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]/g;
-    for (const match of post.body.matchAll(pattern)) {
+    for (const match of proseBody.matchAll(pattern)) {
       const target = normalizeRoute(match[1]);
-      if (target && !knownRoutes.has(target)) {
+      if (!target) continue;
+      if (!knownRoutes.has(target)) {
         failures.push(`${post.relativePath} 的双链目标不存在：${target}`);
+      } else if (post.status === 'published' && !publishedRoutes.has(target) && unpublishedRoutes.has(target)) {
+        warnings.push(`${post.relativePath} 指向未发布文章 [[${target}]]（${unpublishedRoutes.get(target)}），公开快照将自动降级为纯文本`);
+      }
+    }
+
+    if (post.status === 'published') {
+      const mdLinkRe = /(?<!!)\[([^\]]*)\]\(((?:https?:\/\/hyphentech\.top)?\/(?!\/)[^)\s]*)\)/gi;
+      for (const match of proseBody.matchAll(mdLinkRe)) {
+        const rawHref = match[2].replace(/^https?:\/\/hyphentech\.top/i, '');
+        const cleanPath = rawHref.replace(/[?#].*$/, '');
+        let decodedPath;
+        try {
+          decodedPath = decodeURIComponent(cleanPath);
+        } catch {
+          failures.push(`${post.relativePath} 的站内链接路径编码无效：${match[2]}`);
+          continue;
+        }
+        const route = normalizeRoute(decodedPath);
+        if (
+          !route ||
+          route.startsWith('obsidian-assets/') ||
+          route.startsWith('preview-assets/') ||
+          route.startsWith('api/') ||
+          route === 'cdn-cgi/l/email-protection' ||
+          /^(?:en\/)?page\/\d+$/.test(route)
+        ) {
+          continue;
+        }
+        if (publishedRoutes.has(route) || staticSiteRoutes.has(route)) continue;
+        if (unpublishedRoutes.has(route)) {
+          warnings.push(`${post.relativePath} 指向未发布文章 /${route}/（${unpublishedRoutes.get(route)}），公开快照将自动降级为纯文本`);
+        } else {
+          failures.push(`${post.relativePath} 的站内链接目标不存在：/${route}/`);
+        }
       }
     }
   }

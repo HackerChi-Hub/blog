@@ -14,7 +14,7 @@ import CurrentProducts from '../components/CurrentProducts';
 import { currentProductCards } from '../lib/product-release-data.cjs';
 import { getRelatedPosts } from '../lib/related-posts';
 import { getEnglishMap } from '../lib/home-data';
-import { homeHref, listHref, rememberLang } from '../lib/site-lang.cjs';
+import { alternatesFor, homeHref, listHref, rememberLang } from '../lib/site-lang.cjs';
 import { estimateReadingTime, formatReadingTime } from '../lib/reading-time';
 import { SITE_CONFIG } from '../lib/seo';
 import { formatDateFor, LANG_NAMES, makeT } from '../lib/blog-i18n.cjs';
@@ -222,7 +222,10 @@ export default function PostPage({
 
       <main className="page labnote-page article-page">
         <div className="labnote-shell article-shell">
-          <BlogNavigation lang={t.lang} />
+          <BlogNavigation
+            lang={t.lang}
+            alternates={alternatesFor({ page: '/[slug]', pageProps: { translations } })}
+          />
           <nav className="article-breadcrumb" aria-label={t('实测文章')}>
             <Link href={homeHref(t.lang)}>{t('返回首页')}</Link>
             <span aria-hidden="true">/</span>

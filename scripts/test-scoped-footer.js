@@ -58,7 +58,11 @@ try {
   assert.strictEqual(run('dup').status, 0);
   const cleanedDup = fs.readFileSync(path.join(root, 'posts/dup.md'), 'utf8');
   assert.strictEqual((cleanedDup.match(/我做的工具/g) || []).length, 1);
-  console.log('✅ 页尾范围测试通过：只更新选定文章、保留其他正文和模板、清理裸写重复页尾、幂等、非法或缺失范围拒绝、默认全库行为保留');
+  // 带引号的 status: "published"（官方/技能入库稿）同样能被识别并刷新固定尾部
+  fs.writeFileSync(path.join(root, 'posts/quoted.md'), '---\nstatus: "published"\n---\n\n# 引号状态\n');
+  assert.strictEqual(run('quoted').status, 0);
+  assert(fs.readFileSync(path.join(root, 'posts/quoted.md'), 'utf8').includes('HFKJ_FIXED_FOOTER_START'));
+  console.log('✅ 页尾范围测试通过：只更新选定文章、支持引号状态、保留其他正文和模板、清理裸写重复页尾、幂等、非法或缺失范围拒绝');
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

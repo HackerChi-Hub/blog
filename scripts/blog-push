@@ -72,8 +72,32 @@ git -C "$SOURCE_REPO" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "O
 require_clean_main "$REPO" "Blog 代码库"
 require_clean_main "$SOURCE_REPO" "Obsidian 内容库"
 
-if [ -n "$(git -C "$REPO" status --porcelain)" ]; then
-  fail "Blog 代码库已有未提交改动。发布器只提交受管快照，请先单独检查并提交代码改动"
+pre_dirty=""
+has_managed_leftover=0
+while IFS= read -r -d '' line; do
+  [ -n "$line" ] || continue
+  status="${line:0:2}"
+  file="${line:3}"
+  case "$file" in
+    content-export/*|public/obsidian-assets/*) has_managed_leftover=1 ;;
+    *) pre_dirty="${pre_dirty}${status} ${file}"$'\n' ;;
+  esac
+  if [[ "$status" == *R* || "$status" == *C* ]]; then
+    IFS= read -r -d '' source_file || fail "无法读取重命名或复制的来源路径"
+    case "$source_file" in
+      content-export/*|public/obsidian-assets/*) has_managed_leftover=1 ;;
+      *) pre_dirty="${pre_dirty}${status} ${source_file}"$'\n' ;;
+    esac
+  fi
+done < <(git -C "$REPO" status --porcelain=v1 -z --untracked-files=all)
+if [ -n "$pre_dirty" ]; then
+  printf "❌ Blog 代码库已有未提交改动。发布器只提交受管快照，请先单独检查并提交代码改动：\n%s" "$pre_dirty"
+  exit 1
+fi
+if [ "$has_managed_leftover" -eq 1 ]; then
+  echo "ℹ️ 清理上次未完成发布残留的受管快照改动，继续重新同步"
+  git -C "$REPO" checkout -- content-export public/obsidian-assets 2>/dev/null || true
+  git -C "$REPO" clean -fd -- content-export public/obsidian-assets >/dev/null 2>&1 || true
 fi
 
 sync_remote_main "$REPO" "Blog 代码库"

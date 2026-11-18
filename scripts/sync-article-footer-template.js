@@ -191,7 +191,7 @@ function syncPublishedPosts(contentDir, renderFor, productNames, slugs = null) {
     const postPath = path.join(postsDir, name);
     if (!fs.statSync(postPath).isFile()) continue;
     const source = fs.readFileSync(postPath, 'utf8');
-    if (!/^status:\s*published\s*$/m.test(source)) continue;
+    if (!/^status:\s*['"]?published['"]?\s*$/m.test(source)) continue;
     let replacement;
     try {
       replacement = renderFor(postLang(source));
@@ -219,7 +219,7 @@ function main() {
   if (slugs) {
     for (const slug of slugs) {
       const file = path.resolve(args.contentDir, 'posts', `${slug}.md`);
-      if (!fs.existsSync(file) || !/^status:\s*published\s*$/m.test(fs.readFileSync(file, 'utf8'))) {
+      if (!fs.existsSync(file) || !/^status:\s*['"]?published['"]?\s*$/m.test(fs.readFileSync(file, 'utf8'))) {
         throw new Error(`限定文章不存在或尚未发布：${slug}`);
       }
     }

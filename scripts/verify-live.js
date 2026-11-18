@@ -11,6 +11,84 @@ const contentManifestPath = path.resolve(__dirname, '..', 'content-export', 'pub
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const { execFile } = require('child_process');
+const os = require('os');
+const crypto = require('crypto');
+
+function parseCurlHeaderBlocks(rawHeaders) {
+  const blocks = String(rawHeaders || '')
+    .split(/\r?\n\r?\n/)
+    .map((b) => b.trim())
+    .filter((b) => /^HTTP\//i.test(b));
+  const lastBlock = blocks[blocks.length - 1] || '';
+  const lines = lastBlock.split(/\r?\n/);
+  const statusMatch = (lines[0] || '').match(/^HTTP\/\S+\s+(\d{3})/i);
+  const status = statusMatch ? Number(statusMatch[1]) : 0;
+  const headers = new Headers();
+  for (const line of lines.slice(1)) {
+    const colon = line.indexOf(':');
+    if (colon <= 0) continue;
+    const key = line.slice(0, colon).trim();
+    const val = line.slice(colon + 1).trim();
+    if (key) headers.append(key, val);
+  }
+  return { status, headers };
+}
+
+function curlFetchWithTimeout(url, timeoutMs = 15000, options = {}) {
+  return new Promise((resolve, reject) => {
+    const maxSec = Math.max(2, Math.ceil(timeoutMs / 1000));
+    const hdrFile = path.join(os.tmpdir(), `.blog-verify-hdr-${process.pid}-${crypto.randomUUID()}`);
+    const bodyFile = path.join(os.tmpdir(), `.blog-verify-body-${process.pid}-${crypto.randomUUID()}`);
+    const args = [
+      '--silent',
+      '--show-error',
+      '--location',
+      '--max-time',
+      String(maxSec),
+      '-D',
+      hdrFile,
+      '-o',
+      options.method === 'HEAD' ? '/dev/null' : bodyFile,
+      '-A',
+      'hyphentech-deploy-verify/1.0',
+    ];
+    if (options.method === 'HEAD') args.push('-I');
+    for (const [k, v] of Object.entries(options.headers || {})) {
+      args.push('-H', `${k}: ${v}`);
+    }
+    args.push(url);
+    execFile('curl', args, { timeout: timeoutMs + 3000 }, (err) => {
+      try {
+        if (err) {
+          reject(new Error(err.stderr?.trim() || err.message));
+          return;
+        }
+        const rawHdr = fs.existsSync(hdrFile) ? fs.readFileSync(hdrFile, 'utf8') : '';
+        const { status, headers } = parseCurlHeaderBlocks(rawHdr);
+        if (!status) {
+          reject(new Error(`curl 未返回有效 HTTP 状态码：${url}`));
+          return;
+        }
+        const buf = options.method === 'HEAD' || !fs.existsSync(bodyFile)
+          ? Buffer.alloc(0)
+          : fs.readFileSync(bodyFile);
+        const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+        resolve({
+          ok: status >= 200 && status < 300,
+          status,
+          headers,
+          text: async () => buf.toString('utf8'),
+          arrayBuffer: async () => ab,
+        });
+      } finally {
+        try { if (fs.existsSync(hdrFile)) fs.unlinkSync(hdrFile); } catch {}
+        try { if (fs.existsSync(bodyFile)) fs.unlinkSync(bodyFile); } catch {}
+      }
+    });
+  });
+}
+
 async function fetchWithTimeout(url, timeoutMs = 15000, options = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -33,6 +111,13 @@ async function fetchWithTimeout(url, timeoutMs = 15000, options = {}) {
       text: async () => Buffer.from(body || []).toString('utf8'),
       arrayBuffer: async () => body,
     };
+  } catch (error) {
+    // Node 原生 fetch (undici) 默认不走终端/系统代理，在代理或边缘连接池抖动下易报 fetch failed；
+    // 对远端地址回退系统 curl（保留本机回环单测的 AbortError 精确语义）。
+    if (!/^https?:\/\/(?:127\.0\.0\.1|localhost|\[::1\])(?:[:/]|$)/i.test(String(url))) {
+      return await curlFetchWithTimeout(url, timeoutMs, options);
+    }
+    throw error;
   } finally {
     clearTimeout(timer);
   }

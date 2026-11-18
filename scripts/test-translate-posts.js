@@ -322,5 +322,13 @@ check('frontmatter 里的相对 cover 也会被补全', () => {
     assert(img.startsWith('⟦0⟧') && img.endsWith('⟦1⟧'), img);
   });
 
+  check('【已知阳性】降级判定：占位符齐全但链接结构错序（11→10 故障形态）→ 自动降级', () => {
+    const p = createProtector();
+    const src = protectInline('官方列有[海螺网页应用](https://hailuoai.com/)与[接口文档](https://platform.minimax.cn/docs)', p);
+    // 模拟翻译器把两个链接的占位符嵌套成 ⟦0⟧...⟦2⟧...⟦1⟧...⟦3⟧（数量不少但结构坏了）
+    const mangled = 'Official lists ⟦0⟧Hailuo web app and ⟦2⟧API docs⟦1⟧⟦3⟧';
+    assert.strictEqual(needsFallback(src, mangled, p), true);
+  });
+
   console.log(`\n通过 ${passed} 项`);
 })();

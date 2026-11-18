@@ -109,7 +109,7 @@ function validateContent() {
   if (result.status !== 0) throw new Error('内容库校验未通过，拒绝生成公开快照');
 }
 
-function publishedPosts() {
+function allPostRecords() {
   const postsDir = path.join(sourceRoot, 'posts');
   return walkFiles(postsDir)
     .filter(
@@ -121,8 +121,32 @@ function publishedPosts() {
       const raw = fs.readFileSync(filePath, 'utf8');
       const parsed = matter(raw);
       return { filePath, raw, data: parsed.data || {} };
-    })
-    .filter((post) => String(post.data.status || '').toLowerCase() === 'published');
+    });
+}
+
+function publishedPosts() {
+  return allPostRecords().filter(
+    (post) => String(post.data.status || '').toLowerCase() === 'published'
+  );
+}
+
+function unpublishedRouteSet(allRecords) {
+  const published = new Set();
+  const unpublished = new Set();
+  const norm = (v) => String(v || '').trim().replace(/^\/+|\/+$/g, '');
+  for (const record of allRecords) {
+    const isPub = String(record.data.status || '').toLowerCase() === 'published';
+    const routes = [
+      norm(record.data.slug),
+      ...(Array.isArray(record.data.legacy_paths) ? record.data.legacy_paths.map(norm) : []),
+    ].filter(Boolean);
+    for (const route of routes) {
+      if (isPub) published.add(route);
+      else unpublished.add(route);
+    }
+  }
+  for (const route of published) unpublished.delete(route);
+  return unpublished;
 }
 
 function copyFile(sourcePath, targetPath) {
@@ -140,14 +164,54 @@ function stripInternalPublishingMarkers(raw) {
   return stripped.replace(/(?:\r?\n){2,}$/u, '\n');
 }
 
-function rewritePreviewReferences(raw) {
-  return stripInternalPublishingMarkers(raw).replace(
+function degradeUnpublishedLinks(raw, unpublishedRoutes) {
+  if (!unpublishedRoutes || unpublishedRoutes.size === 0) return raw;
+  const fmMatch = String(raw).match(/^(---\r?\n[\s\S]*?\r?\n---\r?\n?)([\s\S]*)$/);
+  const head = fmMatch ? fmMatch[1] : '';
+  const body = fmMatch ? fmMatch[2] : String(raw);
+
+  // 保护围栏代码块与行内代码，只改写正文中的站内草稿链接，不动私有原稿。
+  const stash = [];
+  const keep = (segment) => {
+    stash.push(segment);
+    return `\0CODE_SLOT_${stash.length - 1}\0`;
+  };
+  const shielded = body
+    .replace(/^```[\s\S]*?^```/gm, keep)
+    .replace(/`[^`\n]+`/g, keep);
+
+  const rewritten = shielded
+    .replace(/(?<!!)\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|([^\]]+))?\]\]/g, (full, target, label) => {
+      const route = String(target || '').trim().replace(/^\/+|\/+$/g, '');
+      return unpublishedRoutes.has(route) ? String(label || target).trim() : full;
+    })
+    .replace(
+      /(?<!!)\[([^\]]+)\]\(((?:https?:\/\/hyphentech\.top)?\/(?!\/)[^)\s]*)\)/gi,
+      (full, label, href) => {
+        const cleanPath = href.replace(/^https?:\/\/hyphentech\.top/i, '').replace(/[?#].*$/, '');
+        let route = '';
+        try {
+          route = decodeURIComponent(cleanPath).replace(/^\/+|\/+$/g, '');
+        } catch {
+          return full;
+        }
+        return unpublishedRoutes.has(route) ? label : full;
+      }
+    );
+
+  const restored = rewritten.replace(/\0CODE_SLOT_(\d+)\0/g, (_m, idx) => stash[Number(idx)]);
+  return head + restored;
+}
+
+function rewritePreviewReferences(raw, unpublishedRoutes = null) {
+  const base = stripInternalPublishingMarkers(raw).replace(
     /(?:\.\.\/)?preview-assets\/([^\s)"'<>\]]+)/g,
     (_match, relativePath) => `/obsidian-assets/${relativePath}`
   );
+  return degradeUnpublishedLinks(base, unpublishedRoutes);
 }
 
-function prepareSnapshot(posts, temporaryRoot) {
+function prepareSnapshot(posts, temporaryRoot, unpublishedRoutes = null) {
   const snapshotRoot = path.join(temporaryRoot, 'content-export');
   ensureDirectory(path.join(snapshotRoot, 'posts'));
   ensureDirectory(path.join(snapshotRoot, 'config'));
@@ -160,7 +224,7 @@ function prepareSnapshot(posts, temporaryRoot) {
       '文章源文件'
     );
     const normalizedRelative = relativePath.split(path.sep).join('/');
-    const exportedRaw = rewritePreviewReferences(post.raw);
+    const exportedRaw = rewritePreviewReferences(post.raw, unpublishedRoutes);
     const exportedPath = path.join(snapshotRoot, 'posts', relativePath);
     ensureDirectory(path.dirname(exportedPath));
     fs.writeFileSync(exportedPath, exportedRaw, 'utf8');
@@ -332,11 +396,15 @@ function main() {
   ensureManagedTarget(exportRoot);
   ensureManagedTarget(publicAssetRoot);
   validateContent();
-  const posts = publishedPosts();
+  const records = allPostRecords();
+  const posts = records.filter(
+    (post) => String(post.data.status || '').toLowerCase() === 'published'
+  );
+  const unpublishedRoutes = unpublishedRouteSet(records);
   ensureDirectory(projectRoot);
   const temporaryRoot = fs.mkdtempSync(path.join(projectRoot, '.content-sync-'));
   try {
-    const { snapshotRoot, manifest } = prepareSnapshot(posts, temporaryRoot);
+    const { snapshotRoot, manifest } = prepareSnapshot(posts, temporaryRoot, unpublishedRoutes);
     const { assetRoot, references, copied } = preparePublicAssets(posts, temporaryRoot);
     const replacements = [];
     if (!sameTree(snapshotRoot, exportRoot)) {
