@@ -338,7 +338,8 @@ function main() {
       const target = normalizeRoute(match[1]);
       if (!target) continue;
       if (!knownRoutes.has(target)) {
-        failures.push(`${post.relativePath} 的双链目标不存在：${target}`);
+        if (post.status === 'published') failures.push(`${post.relativePath} 的双链目标不存在：${target}`);
+        else warnings.push(`${post.relativePath}（${post.status}）的双链目标暂不存在：${target}`);
       } else if (post.status === 'published' && !publishedRoutes.has(target) && unpublishedRoutes.has(target)) {
         warnings.push(`${post.relativePath} 指向未发布文章 [[${target}]]（${unpublishedRoutes.get(target)}），公开快照将自动降级为纯文本`);
       }

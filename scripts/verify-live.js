@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const { auditHtmlLinks } = require('../lib/link-presentation.cjs');
 
-const expectedRunId = process.argv[2] || '';
+const cliArgs = process.argv.slice(2);
+const buildIdOnly = cliArgs.includes('--build-id-only');
+const expectedRunId = cliArgs.find((arg) => !arg.startsWith('--')) || '';
 const baseUrl = (process.env.BLOG_VERIFY_BASE_URL || 'https://hyphentech.top').replace(/\/+$/, '');
 const publicAssetRoot = path.resolve(__dirname, '..', 'public', 'obsidian-assets');
 const contentManifestPath = path.resolve(__dirname, '..', 'content-export', 'publish-manifest.json');
@@ -243,6 +245,7 @@ async function verifyAssetsInBatches(urls, size = 24) {
 async function main() {
   const buildId = await waitForBuildId();
   console.log(`✅ 线上构建版本：${buildId}`);
+  if (buildIdOnly) return;
 
   const sitemap = await withRetry(
     async () => {
