@@ -4,7 +4,6 @@ slug: ai-intrusion-108-ep08-pdf-hidden-text-en
 status: published
 lang: en
 translation_of: ai-intrusion-108-ep08-pdf-hidden-text
-article_type: "article"
 translation_source: machine
 source_sha256: c1cc4fa661ce953b
 date: 2026-11-17
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/ai-intrusion-108-ep08-pdf-hidden-text/02-topology-blueprint.png"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

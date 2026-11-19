@@ -4,12 +4,6 @@ slug: 2026-10-08-skill-bd9fe092bca4-en
 status: published
 lang: en
 translation_of: 2026-10-08-skill-bd9fe092bca4
-article_type: "skill"
-cover_status: "generated_user_authorized"
-skill_name: "career-ops"
-skill_category: "求职效率"
-skill_stage: "资料核验"
-skill_url: "https://github.com/career-ops-hq/career-ops"
 translation_source: machine
 source_sha256: b972c4655e48d29a
 date: 2026-10-08
@@ -23,6 +17,12 @@ tags:
 cover: "/obsidian-assets/2026-10-08-skill-bd9fe092bca4/wordmark-wide-908f40db1bd0.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "skill"
+cover_status: "generated_user_authorized"
+skill_name: "career-ops"
+skill_category: "求职效率"
+skill_stage: "资料核验"
+skill_url: "https://github.com/career-ops-hq/career-ops"
 ---
 
 > [!info] Machine translation

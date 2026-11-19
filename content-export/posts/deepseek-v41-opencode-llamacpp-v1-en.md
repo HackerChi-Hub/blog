@@ -4,7 +4,6 @@ slug: deepseek-v41-opencode-llamacpp-v1-en
 status: published
 lang: en
 translation_of: deepseek-v41-opencode-llamacpp-v1
-article_type: "article"
 translation_source: machine
 source_sha256: 48d2d6f63df2275a
 date: 2026-11-18
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/deepseek-v41-opencode-llamacpp-v1/cover-0dfb03d16e.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

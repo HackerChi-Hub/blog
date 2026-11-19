@@ -4,12 +4,6 @@ slug: 2026-10-08-skill-7ad7eec5fddf-en
 status: published
 lang: en
 translation_of: 2026-10-08-skill-7ad7eec5fddf
-article_type: "skill"
-cover_status: "generated_user_authorized"
-skill_name: "狗头军师 Goutoujunshi"
-skill_category: "关系沟通"
-skill_stage: "资料核验"
-skill_url: "https://github.com/shengjidaguai-china/goutoujunshi"
 translation_source: machine
 source_sha256: 5158b90d80c02e82
 date: 2026-10-08
@@ -23,6 +17,12 @@ tags:
 cover: "/obsidian-assets/2026-10-08-skill-7ad7eec5fddf/wordmark-wide-718eb29f275b.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "skill"
+cover_status: "generated_user_authorized"
+skill_name: "狗头军师 Goutoujunshi"
+skill_category: "关系沟通"
+skill_stage: "资料核验"
+skill_url: "https://github.com/shengjidaguai-china/goutoujunshi"
 ---
 
 > [!info] Machine translation

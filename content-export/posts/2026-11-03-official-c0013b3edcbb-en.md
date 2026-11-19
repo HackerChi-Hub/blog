@@ -4,12 +4,6 @@ slug: 2026-11-03-official-c0013b3edcbb-en
 status: published
 lang: en
 translation_of: 2026-11-03-official-c0013b3edcbb
-article_type: "model"
-cover_status: "generated_user_authorized"
-model_name: "GenFirst"
-model_category: "AI大模型"
-model_stage: "官方发布"
-model_url: "https://huggingface.co/ByteDance-Seed/GenFirst"
 translation_source: machine
 source_sha256: 7790a47ede7c9e69
 date: 2026-11-03
@@ -23,6 +17,12 @@ tags:
 cover: "/obsidian-assets/2026-11-03-official-c0013b3edcbb/wordmark-wide-b2ddfe83dee5.jpg"
 brand_slogan: 
 legacy_paths: []
+article_type: "model"
+cover_status: "generated_user_authorized"
+model_name: "GenFirst"
+model_category: "AI大模型"
+model_stage: "官方发布"
+model_url: "https://huggingface.co/ByteDance-Seed/GenFirst"
 ---
 
 > [!info] Machine translation
