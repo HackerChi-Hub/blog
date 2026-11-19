@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Nov 2026 15:08:16 GMT</lastBuildDate>
-    <pubDate>Wed, 18 Nov 2026 15:08:16 GMT</pubDate>
+    <lastBuildDate>Thu, 19 Nov 2026 11:19:45 GMT</lastBuildDate>
+    <pubDate>Thu, 19 Nov 2026 11:19:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -19,6 +19,20 @@
     <category>学习思考</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>Gemini 4 + Antigravity：从 0 到 1 跑通全自动出片闭环（附三通道指令）</title>
+      <link>https://hyphentech.top/gemini-4-antigravity-auto-video-pipeline/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-4-antigravity-auto-video-pipeline/</guid>
+      <description>把 Google Antigravity 与 Gemini 4 从「看片反推提示词」接通到「自动调模型出片、静音切段、配回原声、6帧并排抽帧验收」的完整闭环。详解 Google AI 会员自带的两份隐藏出片额度（Gemini API 赠金与 Google Flow 点数）及外部视频 CLI 尾帧续接法，附四段可直接复制的智能体指令与 Pro 会员真实扣费实录。</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>Gemini 4</category>
+    <category>Antigravity</category>
+    <category>Google Flow</category>
+    <category>AI视频工作流</category>
+    <category>智能体自动化</category>
+    <category>方寸智匣</category>
     </item>
     <item>
       <title>Qwen4-Max对决混元Hy4 flash：百万上下文省钱、3.17GB本地网页智能体与草稿加速真相</title>
@@ -200,15 +214,6 @@
       <link>https://hyphentech.top/free-api-agnes-image-20261102/</link>
       <guid isPermaLink="true">https://hyphentech.top/free-api-agnes-image-20261102/</guid>
       <description>机器人浇水原图、接口参数与阶段免费条件。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>Gemini免费API实测：同一道题，换个型号为什么等了28秒？</title>
-      <link>https://hyphentech.top/free-api-gemini-text-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-gemini-text-20261102/</guid>
-      <description>从服务繁忙到换型号返回，展示真实等待时间。</description>
       <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
     <category>资源分享</category>
     <category>免费API</category>
