@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.9.3"
+title: "HyphenScreen: recording, editing and AI animation — version 1.9.4"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
-updated: 2026-11-18
-summary: Version 1.9.3 refines compact-window layout and on-canvas dragging under 2.5D camera rigs, supports seven packaging layouts with reversible master themes, preserves Source export resolution with standalone animations and restores repeated-sentence speech cleanup.
+updated: 2026-11-20
+summary: Version 1.9.4 eliminates duplicate macOS Dock icons and idle helper processes alongside background MCP bridges, refines two-column animation layouts and 2.5D camera dragging, preserves Source export resolution and restores repeated-sentence speech cleanup.
 categories:
   - Resources
 tags:
@@ -18,9 +18,11 @@ legacy_paths: []
 ---
 
 
-## Version 1.9.3: drag layers directly under 2.5D camera motion, keep full Source resolution and clean up repeated takes
+## Version 1.9.4: single macOS Dock icon alongside MCP bridges, on-canvas 2.5D camera dragging and full Source exports
 
-　　Adding a standalone intro or outro card to a 1080p or 4K screen recording used to drop **Source** exports down to 720p because the synthetic gap canvas was hardcoded to `1280×720` and counted toward the minimum timeline resolution. Version 1.9.3 excludes synthetic gap canvases from output sizing—tested on the installed Mac app with a 1080p recording followed by a standalone title card, native Source export stays at **1920×1080**.
+　　When an external coding assistant or AI client kept a headless `api` MCP bridge running on macOS, clicking HyphenScreen in the Dock used to spawn a second Dock icon—even with `app.dock.hide()`, booting AppKit from the main bundle claimed the pinned LaunchServices slot and kept idle GPU and network helper processes resident. Version 1.9.4 adds a native bundle dispatcher that routes `api`, `info`, `pack` and `help` directly into a pure-Node runtime without registering in LaunchServices, keeping a single Dock icon whenever you open the desktop app.
+
+　　Adding a standalone intro or outro card to a 1080p or 4K screen recording used to drop **Source** exports down to 720p because the synthetic gap canvas was hardcoded to `1280×720` and counted toward the minimum timeline resolution. Excluding synthetic gap canvases from output sizing—tested on the installed Mac app with a 1080p recording followed by a standalone title card—keeps native Source export locked at **1920×1080**.
 
 　　Building on the **seven whole-video packaging layouts** (opener, chapter, subhead, list, focus, metric and outro) and **explicit 2.5D camera rigs** introduced in 1.9.1, on-canvas selection bounds and drag handles now project forward and backward through active camera zoom, pan and parallax depth so dragging text mid-move stays locked under the pointer. Cross-cut coaxial seams avoid double-zoom overshoot, and switching across the ten master themes snapshots original layer colors so round-tripping between dark poster palettes and light paper palettes preserves card hierarchy and semantic red/green contrast.
 
