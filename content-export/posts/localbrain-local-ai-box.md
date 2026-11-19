@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-17
-summary: "Mac 2.3.5 升级内嵌任务内核至 0.2.2-rc.3 与 Node 24.22.3，更新受管 Splash 1.7.0 / Sushi 1.6.0 / mlx-serve 26.11.2 基线并补齐 PolyStrata 0.1.45 兼容。"
+updated: 2026-11-19
+summary: "Mac 2.3.6 修复运行环境与诊断确认弹窗切回窗口的刷新撞锁与挂起队列死锁，补齐 Drama 3 / H3-Image 等受管环境配方凭据自动核验补签与并发更新检测。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.6：运行环境维护队列与配方凭据自愈
+
+这次集中修复「设置 → 运行环境与诊断」在安装组件与状态检测中的三处阻塞问题：一是消除原生确认弹窗关闭切回主窗口时，后台只读刷新抢占写队列造成的 `组件维护未完成` 误拦，并在启动首次刷新时自动核对本地存储中的挂起队列——已安装就绪的组件自动移出待办；运行中或已暂停的队列与错误提示统一移到首屏顶部，直接展示当前占用任务、已运行秒数、是否可暂停下载，并提供保留已安装环境、模型与下载缓存的无损「重置维护队列」按钮。
+
+二是补齐受管独立环境（Drama 3 语音、H3-Image、Wuli H3、Pika H3、LTX）的配方凭据自愈：当环境目录已存在但缺失内部配方印章时，页面直接开放「校验」操作，且在启动服务或点击安装前自动运行配方探针，依赖版本合规即自动补写凭据放行，依赖缺失或版本不符则分类提示具体异常而非笼统报未安装。三是官方引擎更新检测改为 6 仓并发有界超时（连接 5 秒 / 总计 12 秒），下载流加入 45 秒空闲超时保护，并统一 `mlx-serve`、`sushi` 缓存归档名与同版本摘要漂移去重。
+
+Mac 安装包为 80,252,996 字节，使用本地签名，未 Apple 公证。Windows 和 Linux 公开安装包保持 2.3.4。Mac 安装包的 SHA-256 为 `7cf3407b6e7f86341f5c18b8f2597c35887e84ccdc435e438a4fe27aba6cbf1b`。
+
+[下载 Mac 2.3.6（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.6/LocalBrain_2.3.6_aarch64.dmg) · [下载与更新：方寸智匣发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.5：底层兼容层与受管引擎基线升级
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "1542d6343d67afdd911d29e6938b835bc12dd995afc3c8c1acca4391ef9f4306",
+  "content_sha256": "d0f1ab19fef9d798231a22dd09e015f6b3957bf464c04bc89464d57cdfb6e548",
   "published_post_count": 268,
   "posts": [
     {
@@ -1005,7 +1005,7 @@
       "legacy_paths": [],
       "translation_of": "gemini-4-antigravity-auto-video-pipeline",
       "lang": "en",
-      "sha256": "fa9eeb83ea2e2c3b0d7210b83fccab423d1b4717046b0f4a985a0b3d0e7d088a"
+      "sha256": "9cf43b349b2b3355fdab35253c7cccb987f16c3f9a95bac761548ea8678ec961"
     },
     {
       "file": "posts/gemini-4-antigravity-auto-video-pipeline.md",
@@ -1416,7 +1416,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "1ab7dae4205469c1c8db9342994ba841de150206260c6f1dc1ff2dd76c429627"
+      "sha256": "69bd8eca2729fb6d01c0c51fa2a727ff98cb19703aa82fc0cee68034ee24af68"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1425,14 +1425,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "5db020a196ac8294054a07571635fea00a8dae1547dfc6133896d4825a0b8a22"
+      "sha256": "63ebe29caaeada653d458ce897c11ca813f90b8d2c0d4922c714c1473f5ad678"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "a3cce3f7be087d16c84d9e44c9854317c32c18416939f7a4c58491054213ceed"
+      "sha256": "5d08ff8ca22c47e85dae9983d201a96afdb8c5ac7b5f8e7f358e72578afd6543"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",

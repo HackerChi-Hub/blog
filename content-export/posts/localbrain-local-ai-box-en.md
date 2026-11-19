@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-17
-summary: "Mac 2.3.5 upgrades the embedded task kernel to 0.2.2-rc.3 on Node 24.22.3, advances Splash 1.7.0 / Sushi 1.6.0 / mlx-serve 26.11.2 baselines and adds PolyStrata 0.1.45 compatibility."
+updated: 2026-11-19
+summary: "Mac 2.3.6 fixes Runtime and Diagnostics dialog-focus refresh lockups and persisted paused-queue deadlocks, while adding automatic recipe-receipt healing for Drama 3 / H3-Image and parallel update checks."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.6: runtime maintenance queue and recipe-receipt self-healing
+
+Version 2.3.6 resolves three maintenance and diagnostics blockers in Settings → Runtime and Diagnostics. First, closing a native confirmation dialog and returning focus to the main window no longer lets a background read-only inventory refresh collide with the maintenance queue, and persisted paused queues are automatically reconciled on startup refresh—removing already-ready items while pinning active holders, elapsed seconds, pause controls and errors to the top of the page alongside a non-destructive "Reset maintenance queue" action that preserves installed runtimes, models and download caches.
+
+Second, managed standalone environments (Drama 3 speech, H3-Image, Wuli H3, Pika H3 and LTX) now expose verification in `partial` state and automatically run their recipe probes before backend startup or re-installation when a receipt stamp is missing: compliant environments reconstruct their receipt stamp in place, while mismatched dependencies return classified diagnostics instead of a generic "not installed" message. Third, official engine update checks now query six repositories concurrently with bounded timeouts (5s connect / 12s total), archive downloads enforce a 45s stall timeout, and `mlx-serve`/`sushi` cache filenames and same-tag archive-index digests are deduplicated.
+
+The Mac DMG is 80,252,996 bytes, locally signed and not Apple-notarized. Public Windows and Linux packages remain at 2.3.4. Mac DMG SHA-256: `7cf3407b6e7f86341f5c18b8f2597c35887e84ccdc435e438a4fe27aba6cbf1b`.
+
+[Download Mac 2.3.6 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.6/LocalBrain_2.3.6_aarch64.dmg) · [Downloads and updates: LocalBrain releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.5: underlying compatibility layers and managed runtime baselines
 
