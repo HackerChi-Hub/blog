@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-20T10:54:15.404Z",
-  "contentHash": "d42ffa2ae2152f53f3b979aed66d8fdbc4315ed9252adf61974bb4b74b9dc717",
+  "checkedAt": "2026-11-20T14:14:17.788Z",
+  "contentHash": "96559bf2114fe35321e697e2e0d9f0e4a2acd4efad2539f13051406e2ba41085",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T10:54:15.404Z",
+      "checkedAt": "2026-11-20T14:14:17.788Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "c2eebe380c79ead97834d70a19270f24dc7ecf4d3d3bbc5ce323d74793d34898"
@@ -108,9 +108,9 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "下载与更新 DMG 为 80,265,285 字节。SHA-256：27d6abbfc04dd0bb43cc543d23a6193401dedbbc816b9ba2889f4e18209e7a5a。",
+      "updateSummary": "下载与更新 DMG 为 129,793,580 字节。SHA-256：bc5c9039aeb9bc0fda3bd3175605ed0c009ffd0538c7e7146f6381e56086ff91。",
       "updated": "2026-11-20",
-      "activityAt": "2026-11-20T10:50:26Z",
+      "activityAt": "2026-11-20T14:11:33Z",
       "version": "2.3.7",
       "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7",
       "source": "release",
@@ -124,10 +124,10 @@
             {
               "name": "LocalBrain_2.3.7_aarch64.dmg",
               "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7/LocalBrain_2.3.7_aarch64.dmg",
-              "id": 771460385,
-              "size": 80265285,
-              "updatedAt": "2026-11-20T10:50:24Z",
-              "digest": "sha256:27d6abbfc04dd0bb43cc543d23a6193401dedbbc816b9ba2889f4e18209e7a5a"
+              "id": 772073357,
+              "size": 129793580,
+              "updatedAt": "2026-11-20T14:11:31Z",
+              "digest": "sha256:bc5c9039aeb9bc0fda3bd3175605ed0c009ffd0538c7e7146f6381e56086ff91"
             }
           ]
         },
@@ -172,10 +172,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T10:54:15.404Z",
+      "checkedAt": "2026-11-20T14:14:17.788Z",
       "prerelease": false,
-      "releaseNotesHash": "48d87515cd14bc243d58c9296de4dac91c256e5a22cad0664da4f97773cc3b72",
-      "revision": "863f553d4fab611bf7d0c1b95db0d46bc947d8c5a972ddc12e6100d4be7e8a38"
+      "releaseNotesHash": "9b791b6c399cfa8796ac8b3f4ad6133956f8a6c0714b723758bcfcefa34fa522",
+      "revision": "0ab014624e6760ce7e5667eaa4d72c96022aeec0bcaafd58a20383eb7385923b"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T10:54:15.404Z",
+      "checkedAt": "2026-11-20T14:14:17.788Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T10:54:15.404Z",
+      "checkedAt": "2026-11-20T14:14:17.788Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T10:54:15.404Z",
+      "checkedAt": "2026-11-20T14:14:17.788Z",
       "prerelease": false,
       "releaseNotesHash": "ce32622edfcc025b7b5db94914acace03f52eb9a45d94b96c9764036f7edef24",
       "revision": "c0d8d725dee9beaf067f7f7f123904ff0140b2510c9a0e5fcc107c3a1f972c0c"
