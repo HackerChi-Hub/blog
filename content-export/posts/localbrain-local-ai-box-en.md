@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-19
-summary: "Mac 2.3.6 fixes Runtime and Diagnostics dialog-focus refresh lockups and persisted paused-queue deadlocks, while adding automatic recipe-receipt healing for Drama 3 / H3-Image and parallel update checks."
+updated: 2026-11-20
+summary: "Mac 2.3.7 adds FLUX 3 Image Klein (UD-Q4_K_XL, 6.30 GiB total) for 16-step distilled text-to-image, up to 10-reference editing and 0–1000 bounding-box layout control on prebuilt stable-diffusion.cpp, with full Windows source adaptation."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.7 (with Windows source adaptation): FLUX 3 Image Klein generation and multi-reference editing
+
+Version 2.3.7 ships on Apple Silicon Mac with full Windows x64 (and Linux) source adaptation for Black Forest Labs' 16-step flow-matching distilled generation and editing model [FLUX 3 Image Klein (Unsloth Dynamic 2.0 GGUF)](https://huggingface.co/unsloth/flux-3-image-klein-GGUF), preserving backward compatibility with `Qwen-Image-2.1-Turbo`, `Z-Image-Turbo`, `MiniMax H3-Image` and existing image workflows. The recommended mixed-precision `UD-Q4_K_XL` quant (SSIM 0.940, 3.66 GiB DiT) pairs with `Qwen3VL-4B-Instruct-Q4_K_M.gguf` (2.33 GiB) and public non-gated `vae/ae.safetensors` (0.31 GiB) for a 6.30 GiB total package pinned by per-file SHA-256—designed for 8 GB VRAM Windows laptops and 16 GB unified-memory Macs.
+
+The managed GGUF image engine (`sd-cpp`) upgrades to official prebuilt `stable-diffusion.cpp` (`master-1106-532d2c1`): Metal on Apple Silicon, automatic CUDA 12 (with co-located `cudart` DLLs) or CPU selection with `--auto-fit` memory segmentation in the Windows runtime profile, and zero requirement for system Git/CMake build tools or the 5 GB `torch-env`—hosted on base managed Python with pure-stdlib PNG/JPEG/WebP header and alpha-channel verification. Windows source support unlocks the "Local Image Editing" Home card, the "Edit Image" Chat workbench tab and the `edit_image` MCP tool (up to 10 reference images total plus `[x1, y1, x2, y2]` 0–1000 normalized bounding-box layout prompts), while external-drive scanning recognizes multi-component GGUF image folders and skips `CACHEDIR.TAG` caches. Measured on M5 Pro 64 GiB: ~3.6 s cold start and ~6.5–7.4 GiB peak RSS across `1024×1024` generation, single-reference editing and `1248×832` two-reference bounding-box composition. Because GitHub Actions account billing/spending limits prevented the private-repository Windows CI job from starting, only Mac `2.3.7` is published in this batch while Windows and Linux retain their existing public packages (`2.3.4`) and per-platform update manifests.
+
+The Mac installer (`LocalBrain_2.3.7_aarch64.dmg`) is 80,265,285 bytes (locally signed, not Apple-notarized), SHA-256: `27d6abbfc04dd0bb43cc543d23a6193401dedbbc816b9ba2889f4e18209e7a5a`.
+
+[Download Mac 2.3.7 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7/LocalBrain_2.3.7_aarch64.dmg) · [Downloads and updates: LocalBrain releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.6: runtime maintenance queue and recipe-receipt self-healing
 

@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-19
-summary: "Mac 2.3.6 修复运行环境与诊断确认弹窗切回窗口的刷新撞锁与挂起队列死锁，补齐 Drama 3 / H3-Image 等受管环境配方凭据自动核验补签与并发更新检测。"
+updated: 2026-11-20
+summary: "Mac 2.3.7 正式接入 FLUX 3 Image Klein（UD-Q4_K_XL 整包 6.30 GiB）生图与最多十张参考图编辑、0–1000 坐标框布局控制，源码同步完成 Windows 预编译 stable-diffusion.cpp 与图片编辑入口适配。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.7（含 Windows 源码同步适配）：接入 FLUX 3 Image Klein 生图与多参考图编辑
+
+这次在 Apple Silicon Mac 正式接入并同步完成 Windows x64（及 Linux）源码适配：引入 Black Forest Labs 16 步流匹配蒸馏生图与改图一体模型 [FLUX 3 Image Klein（Unsloth Dynamic 2.0 GGUF）](https://huggingface.co/unsloth/flux-3-image-klein-GGUF)，完整兼容既有图像架构并保留 `Qwen-Image-2.1-Turbo`、`Z-Image-Turbo`、`MiniMax H3-Image` 等原有模型。默认推荐混合精度 `UD-Q4_K_XL`（SSIM 0.940，主权重 3.66 GiB），配套 `Qwen3VL-4B-Instruct-Q4_K_M.gguf`（2.33 GiB）与免门禁公开仓库 `vae/ae.safetensors`（0.31 GiB），整包仅 6.30 GiB 且三个组件全部经 SHA-256 逐文件锁死；8GB 显存 Windows 笔记本与 16GB 统一内存 Mac 均可运行。
+
+GGUF 图像引擎（`sd-cpp`）同步升级为官方预编译 `stable-diffusion.cpp`（`master-1106-532d2c1`）：Apple Silicon 走 Metal，Windows 源码已适配按显卡与驱动自动匹配 CUDA 12（含同级 `cudart` DLL）或纯 CPU 包，并开启 `--auto-fit` 显存预算自动分段卸载；同时解耦系统 Git / CMake 编译工具链与约 5GB `torch-env` 依赖，外层常驻服务补齐纯标准库 PNG / JPEG / WebP 头解析与全透明通道护栏，仅凭基础受管 Python 即可运行。源码同步对 Windows 开放主页「本地图片编辑」卡片、对话「编辑图片」选项卡与聊天 `edit_image` MCP 工具（含源图最多十张参考图，支持提示词 `[x1, y1, x2, y2]` 0–1000 归一化坐标框布局控制），外接移动硬盘模型库扫描补齐分体图像 GGUF 自动识别并跳过 `CACHEDIR.TAG` 缓存目录。M5 Pro 64GiB 实测冷启动约 3.6 秒，`1024×1024` 文生图、单图编辑与 `1248×832` 双参考图坐标框组合峰值常驻内存约 6.5–7.4 GiB。因私有源码仓 GitHub Actions 账户账单／支出限额使在线 Windows 构建作业未启动，本批先行发布 Mac `2.3.7`，Windows/Linux 保留既有公开安装包（`2.3.4`）与分平台更新清单。
+
+安装包（`LocalBrain_2.3.7_aarch64.dmg`）为 80,265,285 字节（本地签名，未 Apple 公证），SHA-256：`27d6abbfc04dd0bb43cc543d23a6193401dedbbc816b9ba2889f4e18209e7a5a`。
+
+[下载 Mac 2.3.7（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7/LocalBrain_2.3.7_aarch64.dmg) · [下载与更新：方寸智匣发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.6：运行环境维护队列与配方凭据自愈
 
