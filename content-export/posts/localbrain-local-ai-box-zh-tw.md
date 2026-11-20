@@ -22,7 +22,7 @@ legacy_paths: []
 
 GGUF 圖像引擎（`sd-cpp`）同步升級為官方預編譯 `stable-diffusion.cpp`（`master-1106-532d2c1`）：Apple Silicon 走 Metal，Windows 原始碼已適配依顯示卡與驅動自動匹配 CUDA 12（含同級 `cudart` DLL）或純 CPU 包，並開啟 `--auto-fit` 顯存預算自動分段卸載；同時解耦系統 Git / CMake 編譯工具鏈與約 5GB `torch-env` 依賴，外層常駐服務補齊純標準庫 PNG / JPEG / WebP 標頭解析與全透明通道護欄，僅憑基礎受管 Python 即可執行。原始碼同步對 Windows 開放首頁「本地圖片編輯」卡片、對話「編輯圖片」分頁與聊天 `edit_image` MCP 工具（含源圖最多十張參考圖，支援提示詞 `[x1, y1, x2, y2]` 0–1000 歸一化座標框佈局控制），外接硬碟模型庫掃描補齊分體圖像 GGUF 自動識別並略過 `CACHEDIR.TAG` 快取目錄。M5 Pro 64GiB 實測冷啟動約 3.6 秒，`1024×1024` 文生圖、單圖編輯與 `1248×832` 雙參考圖座標框組合峰值常駐記憶體約 6.5–7.4 GiB。因私有原始碼倉 GitHub Actions 帳戶帳單／支出限額使線上 Windows 建置作業未啟動，本批先行發布 Mac `2.3.7`，Windows/Linux 保留既有公開安裝包（`2.3.4`）與分平台更新清單。
 
-安裝包（`LocalBrain_2.3.7_aarch64.dmg`）為 80,265,285 位元組（本機簽章，未經 Apple 公證），SHA-256：`27d6abbfc04dd0bb43cc543d23a6193401dedbbc816b9ba2889f4e18209e7a5a`。
+安裝包（`LocalBrain_2.3.7_aarch64.dmg`）為 129,793,580 位元組（本機簽章，未經 Apple 公證），SHA-256：`bc5c9039aeb9bc0fda3bd3175605ed0c009ffd0538c7e7146f6381e56086ff91`。
 
 [下載 Mac 2.3.7（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7/LocalBrain_2.3.7_aarch64.dmg) · [下載與更新：方寸智匣發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
