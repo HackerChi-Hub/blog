@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-20T14:14:17.788Z",
-  "contentHash": "96559bf2114fe35321e697e2e0d9f0e4a2acd4efad2539f13051406e2ba41085",
+  "checkedAt": "2026-11-20T21:16:28.931Z",
+  "contentHash": "e74caa5fc354bd5aa9e52c1313cc733ec36f4ff0b1d1de411df5612df3178079",
   "products": [
     {
       "slug": "deepseek-harness-mobile-remote",
@@ -89,7 +89,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T14:14:17.788Z",
+      "checkedAt": "2026-11-20T21:16:28.931Z",
       "prerelease": false,
       "releaseNotesHash": "edc637f3575f66aa8c0970f2b73a80e0b33d9a1265f36c67ff8d71c0911e0861",
       "revision": "c2eebe380c79ead97834d70a19270f24dc7ecf4d3d3bbc5ce323d74793d34898"
@@ -108,11 +108,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "下载与更新 DMG 为 129,793,580 字节。SHA-256：bc5c9039aeb9bc0fda3bd3175605ed0c009ffd0538c7e7146f6381e56086ff91。",
+      "updateSummary": "Windows · Debian · AppImage · 完整验收 SHA-256：exe f3c4bdf65c914fee9ad49e8abe99975db771f99be0206e3d59b6efdb4e181efb · deb 9bdc2a0260e51f641347ed6aa379d5a8ed676d11c2c254031d…",
       "updated": "2026-11-20",
-      "activityAt": "2026-11-20T14:11:33Z",
-      "version": "2.3.7",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7",
+      "activityAt": "2026-11-20T15:28:42Z",
+      "version": "2.3.7-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -133,49 +133,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.3.4",
+          "version": "2.3.7-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.4",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.3.4_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.4/LocalBrain_2.3.4_x64-setup.exe",
-              "id": 734004605,
-              "size": 43898406,
-              "updatedAt": "2026-11-11T03:42:20Z",
-              "digest": "sha256:cdee8cde7c1581a6867239ffeafcf814ac8e9799a9596e5936c37774c007f1e2"
+              "name": "LocalBrain_2.3.7_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7-win-linux/LocalBrain_2.3.7_x64-setup.exe",
+              "id": 772306474,
+              "size": 43756731,
+              "updatedAt": "2026-11-20T15:24:54Z",
+              "digest": "sha256:f3c4bdf65c914fee9ad49e8abe99975db771f99be0206e3d59b6efdb4e181efb"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.3.4",
+          "version": "2.3.7-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.4",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.3.4_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.4/LocalBrain_2.3.4_amd64.AppImage",
-              "id": 734004338,
-              "size": 159910392,
-              "updatedAt": "2026-11-11T03:44:37Z",
-              "digest": "sha256:68eb2eadba7b25581b596b58cc670f611e1b76a4d32eaec10f870aefe1a3eb19"
+              "name": "LocalBrain_2.3.7_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7-win-linux/LocalBrain_2.3.7_amd64.AppImage",
+              "id": 772306470,
+              "size": 195377656,
+              "updatedAt": "2026-11-20T15:26:12Z",
+              "digest": "sha256:82a327dafd24f50f9c8530793aa36ed7a4206b0466195cff131f915df0c6402a"
             },
             {
-              "name": "LocalBrain_2.3.4_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.4/LocalBrain_2.3.4_amd64.deb",
-              "id": 734004395,
-              "size": 81927828,
-              "updatedAt": "2026-11-11T03:42:49Z",
-              "digest": "sha256:845da4660a6aad1ec627471e23278301f759b7fa87459facb38f1417436ad3bb"
+              "name": "LocalBrain_2.3.7_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7-win-linux/LocalBrain_2.3.7_amd64.deb",
+              "id": 772306464,
+              "size": 122085936,
+              "updatedAt": "2026-11-20T15:25:23Z",
+              "digest": "sha256:9bdc2a0260e51f641347ed6aa379d5a8ed676d11c2c254031d748a9582605fff"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-20T14:14:17.788Z",
+      "checkedAt": "2026-11-20T21:16:28.931Z",
       "prerelease": false,
-      "releaseNotesHash": "9b791b6c399cfa8796ac8b3f4ad6133956f8a6c0714b723758bcfcefa34fa522",
-      "revision": "0ab014624e6760ce7e5667eaa4d72c96022aeec0bcaafd58a20383eb7385923b"
+      "releaseNotesHash": "46ab745d9e74ffa08041da63988162caa41f547ed858809fa3f5a10db7279be2",
+      "revision": "83bd490ee402796c69c1d3ba8572b426b225c8abf8d8282bb28dd986d0cd1e4e"
     },
     {
       "slug": "hyphenbox-free-api-radar",
@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T14:14:17.788Z",
+      "checkedAt": "2026-11-20T21:16:28.931Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -370,7 +370,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T14:14:17.788Z",
+      "checkedAt": "2026-11-20T21:16:28.931Z",
       "prerelease": false,
       "releaseNotesHash": "1cad1fcb504b5f9613cca5080a6b2561adc87b575ba9d6847c3b945471a55b7b",
       "revision": "c513f0b7c92308dca2a8b90e514f389b4abefee77064182c42046a3befc87fae"
@@ -389,26 +389,26 @@
       "fallbackDescription": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
       "action": "查看产品与下载",
       "description": "录屏与剪辑一体：达芬奇式时间线、自动打码、导出前做成片体检。",
-      "updateSummary": "修复 macOS 后台接口与桌面应用同时运行时的程序坞（Dock）双图标问题：通过原生启动分发器将无界面 MCP 编辑接口（api）与工程查询／打包命令（info、pack、help）直接路由至纯 Node 宿主（ELECTRONRUNASNODE=1），不再向 macOS LaunchServices 注册并抢占 com.hyphe…",
-      "updated": "2026-11-19",
-      "activityAt": "2026-11-19T23:00:35Z",
-      "version": "1.9.4",
-      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.9.4",
+      "updateSummary": "修复 macOS 菜单栏右上角摄像头「视频效果」控制中心图标（人像居中 Center Stage、背景模糊、摄影室灯光）在 1.9.4 中消失的问题：将双二进制 execv 转发改为单主二进制直接链接 Electron Framework（桌面启动走 ElectronMain、无界面 api/info/pack/help 走 Elec…",
+      "updated": "2026-11-20",
+      "activityAt": "2026-11-20T15:39:29Z",
+      "version": "1.9.5",
+      "releaseUrl": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.9.5",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "1.9.4",
+          "version": "1.9.5",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.9.4",
+          "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/tag/v1.9.5",
           "assets": [
             {
-              "name": "HyphenScreen_1.9.4_arm64.dmg",
-              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.4/HyphenScreen_1.9.4_arm64.dmg",
-              "id": 769578381,
-              "size": 479324876,
-              "updatedAt": "2026-11-19T22:59:33Z",
-              "digest": "sha256:8c0e784d258419bdb8193c924f5c602c2cb9cc688238633aadae35b7e98a8411"
+              "name": "HyphenScreen_1.9.5_arm64.dmg",
+              "url": "https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/download/v1.9.5/HyphenScreen_1.9.5_arm64.dmg",
+              "id": 772350963,
+              "size": 462555604,
+              "updatedAt": "2026-11-20T15:39:27Z",
+              "digest": "sha256:ea9e86d9701fd0de1bcdf3babf80db7f6bf1e4e11d1a965b3b2dff3104d1cb6e"
             }
           ]
         },
@@ -453,10 +453,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-20T14:14:17.788Z",
+      "checkedAt": "2026-11-20T21:16:28.931Z",
       "prerelease": false,
-      "releaseNotesHash": "ce32622edfcc025b7b5db94914acace03f52eb9a45d94b96c9764036f7edef24",
-      "revision": "c0d8d725dee9beaf067f7f7f123904ff0140b2510c9a0e5fcc107c3a1f972c0c"
+      "releaseNotesHash": "f9a52defd10e02af93b604b58533c8b1dd0373f8f58585098f3018f9400a759e",
+      "revision": "271ca02c101d6414941ea73fc56aa9bd1cf7f30912f6003f638e37d5c530b760"
     }
   ]
 }
