@@ -167,6 +167,27 @@ async function main() {
     extractReleaseSummary('这是版本号晋升说明。\n\n## 本版内容\n\n- 保留本地密钥保险箱。\n- 新增候选核验。\n\n## 下载\n\n- 安装包'),
     '保留本地密钥保险箱；新增候选核验。'
   );
+  const localbrainWinLinux = [
+    '# 方寸智匣 2.3.7 · Windows / Linux（FLUX 3 Image Klein 与按显卡选后端）',
+    '',
+    '- **FLUX 3 Image Klein 在 Windows 与 Linux 可用**：Windows 按驱动自动选包，所选归档做 SHA-256 校验。',
+    '- **实测（RTX 4070 Laptop 8GB）**：16 步文生图 32–59 秒。',
+    '',
+    '[Windows](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7-win-linux/LocalBrain_2.3.7_x64-setup.exe) · [Debian](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7-win-linux/LocalBrain_2.3.7_amd64.deb)',
+    '',
+    'SHA-256：exe `f3c4bdf65c914fee9ad49e8abe99975db771f99be0206e3d59b6efdb4e181efb` · deb `9bdc2a0260e51f641347ed6aa379d5a8ed676d11c2c254031d748a9582605fff`'
+  ].join('\n');
+  const lbExtracted = extractReleaseSummary(localbrainWinLinux);
+  assert.match(lbExtracted, /FLUX 3 Image Klein 在 Windows 与 Linux 可用/);
+  assert.doesNotMatch(lbExtracted, /f3c4bdf65c914fee|80,248,232/);
+  assert.strictEqual(
+    extractReleaseSummary('# LocalBrain 2.3.5\n\n- 新增本地工作流支持。\n\nMac 安装包为 80,248,232 字节。SHA-256：61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f'),
+    '新增本地工作流支持。'
+  );
+  assert.strictEqual(
+    extractReleaseSummary('# LocalBrain 2.3.5\n\nMac DMG is 80,248,232 bytes. SHA-256: 61e3e6f35158dff35575a0ed76b00f437185d7e6a42659bf746438a5f4cbb40f', '本地 AI 工作台：一键离线生图与多模态编辑'),
+    '本地 AI 工作台：一键离线生图与多模态编辑'
+  );
 
   console.log('✅ 产品目录测试通过：正式与预览版区分、各平台真实安装包、共享发行摘要、读取失败关闭、脚本页尾去重及历史正文不改');
 }
