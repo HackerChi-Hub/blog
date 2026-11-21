@@ -1,12 +1,12 @@
 ---
-title: "HyphenScreen: recording, editing and AI animation — version 1.9.4"
+title: "HyphenScreen: recording, editing and AI animation — version 1.9.5"
 slug: hyphenscreen-local-screen-recorder-en
 status: published
 lang: en
 translation_of: hyphenscreen-local-screen-recorder
 date: 2026-09-28
 updated: 2026-11-20
-summary: Version 1.9.4 eliminates duplicate macOS Dock icons and idle helper processes alongside background MCP bridges, refines two-column animation layouts and 2.5D camera dragging, preserves Source export resolution and restores repeated-sentence speech cleanup.
+summary: Version 1.9.5 restores the macOS menu-bar Camera Video Effects controls (Center Stage and Portrait blur), persists microphone, system audio and camera switches across restarts, keeps a single Dock icon alongside background MCP bridges, and preserves 2.5D camera dragging and Source export resolution.
 categories:
   - Resources
 tags:
@@ -18,9 +18,9 @@ legacy_paths: []
 ---
 
 
-## Version 1.9.4: single macOS Dock icon alongside MCP bridges, on-canvas 2.5D camera dragging and full Source exports
+## Version 1.9.5: macOS menu-bar Camera Video Effects restored, persistent recording switches and single-icon MCP bridges
 
-　　When an external coding assistant or AI client kept a headless `api` MCP bridge running on macOS, clicking HyphenScreen in the Dock used to spawn a second Dock icon—even with `app.dock.hide()`, booting AppKit from the main bundle claimed the pinned LaunchServices slot and kept idle GPU and network helper processes resident. Version 1.9.4 adds a native bundle dispatcher that routes `api`, `info`, `pack` and `help` directly into a pure-Node runtime without registering in LaunchServices, keeping a single Dock icon whenever you open the desktop app.
+　　On macOS, opening the webcam while recording normally surfaces the green menu-bar Camera Video Effects item for **Center Stage, Portrait background blur and Studio Light**. In 1.9.4, splitting the desktop binary behind an `execv` launcher prevented macOS Control Center from attributing the active camera stream to `com.hyphentech.hyphenscreen`, hiding that menu-bar control. Version 1.9.5 consolidates the bundle executable into a single binary linked directly against `Electron Framework`: desktop launches invoke `ElectronMain` under the canonical bundle identifier so the menu-bar Video Effects icon returns immediately, while headless `api`, `info`, `pack` and `help` commands enter `ElectronInitializeICUandStartNode` directly with zero LaunchServices registration, a single Dock icon and zero idle GPU/network helpers. Microphone, system audio and camera switches—along with selected devices—now persist across app restarts so your recording setup stays ready as soon as the window opens.
 
 　　Adding a standalone intro or outro card to a 1080p or 4K screen recording used to drop **Source** exports down to 720p because the synthetic gap canvas was hardcoded to `1280×720` and counted toward the minimum timeline resolution. Excluding synthetic gap canvases from output sizing—tested on the installed Mac app with a 1080p recording followed by a standalone title card—keeps native Source export locked at **1920×1080**.
 
@@ -30,7 +30,7 @@ legacy_paths: []
 
 [Download and updates: HyphenScreen releases](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases/latest)
 
-　　The signed Mac app was verified on desktop UI, external editing tools and native export; Windows and Linux installers were built from the same commit in cloud CI and verified by checksum, with desktop interaction still awaiting physical-machine testing.
+　　The signed Mac 1.9.5 build was verified on physical hardware for Control Center camera attribution, persistent recording switches, single-icon MCP coexistence and native export; Windows and Linux currently continue to offer the verified 1.9.4 installers listed in the release download table.
 
 ## Version 1.9.0 renders shots in parallel and locates export issues
 
