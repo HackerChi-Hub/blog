@@ -5,11 +5,107 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Nov 2026 00:00:58 GMT</lastBuildDate>
-    <pubDate>Sun, 22 Nov 2026 00:00:58 GMT</pubDate>
+    <lastBuildDate>Sun, 22 Nov 2026 00:09:55 GMT</lastBuildDate>
+    <pubDate>Sun, 22 Nov 2026 00:09:55 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>腾讯WeMM-Video-9B能同时看画面、听原声，接入前要准备什么？</title>
+      <link>https://hyphentech.top/2026-11-22-official-f70f1895e086/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-22-official-f70f1895e086/</guid>
+      <description>官方已列出权重与部署方法，但视频原声需要明确接入，运行环境也有补丁要求。</description>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>腾讯WeMM-Video能连画面带声音理解视频，部署前该看哪些条件？</title>
+      <link>https://hyphentech.top/2026-11-22-official-54156d2227e5/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-22-official-54156d2227e5/</guid>
+      <description>腾讯WeMM-Video能连画面带声音理解视频，部署前该看哪些条件？</description>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>腾讯WeMM-Video-4B能结合画面与原声理解视频，部署前要确认什么？</title>
+      <link>https://hyphentech.top/2026-11-21-official-6a1fa8a670ef/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-21-official-6a1fa8a670ef/</guid>
+      <description>腾讯WeMM-Video-4B能结合画面与原声理解视频，部署前要确认什么？</description>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>FLUX 3 Klein 本地免费生图实测：6.8GB 离线跑，给猫狗各画个框真能按坐标就位？</title>
+      <link>https://hyphentech.top/flux-3-klein-local-image-test/</link>
+      <guid isPermaLink="true">https://hyphentech.top/flux-3-klein-local-image-test/</guid>
+      <description>Mac 16GB 统一内存用方寸智匣离线连跑 14 道题（附全部可复制提示词）：异瞳倒影、中文杂志大字与 0-1000 坐标框落点很稳；二轮换景残影、三图串脸与锦鲤 3 变 4 的边界一次摊开。</description>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>本地AI</category>
+    <category>FLUX3Klein</category>
+    <category>本地生图</category>
+    <category>图像编辑</category>
+    <category>方寸智匣</category>
+    </item>
+    <item>
+      <title>WeMM-Video-2B-NVFP4 能在本地看懂有声视频吗？</title>
+      <link>https://hyphentech.top/2026-11-21-official-53f2c8c25c06/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-21-official-53f2c8c25c06/</guid>
+      <description>官方已列出权重与有声视频验证记录，但4.90 GiB不是显存门槛，部署还要匹配运行环境。</description>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>腾讯 WeMM-Video-2B 开源上线：2B 音视频理解模型能做什么</title>
+      <link>https://hyphentech.top/2026-11-20-official-de3a66653cb4/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-20-official-de3a66653cb4/</guid>
+      <description>腾讯 WeMM-Video-2B 开源上线：2B 音视频理解模型能做什么</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>腾讯混元 Hy4 权重开放：770B 稀疏 MoE，普通机器跑不动</title>
+      <link>https://hyphentech.top/2026-11-20-official-fe17ae5d9094/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-20-official-fe17ae5d9094/</guid>
+      <description>腾讯混元 Hy4 权重开放：770B 稀疏 MoE，普通机器跑不动</description>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
+    <item>
+      <title>Gemini 4 Neon 优缺点全拆解：61分冲全球第三，为何换工具差3倍、账单反贵过Astra？</title>
+      <link>https://hyphentech.top/gemini-4-neon-pros-cons-review/</link>
+      <guid isPermaLink="true">https://hyphentech.top/gemini-4-neon-pros-cons-review/</guid>
+      <description>Google 正式推出由旗舰 Carbon 改造而来的中坚主力模型 Gemini 4 Neon。本文不跑主观小样，直接摊开 DeepMind 10 页模型卡、6 页评测方法白皮书与 Artificial Analysis、Zapier、CursorBench 4.1 三家独立榜单原页：拆清它如何在 60 分档拿下双冠并省下一半开销，又为何在通用工具里跌掉三倍、开满 xhigh 狂吐 2.83 亿词元导致单任务反贵过 GPT-6.2 Astra。</description>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>Gemini 4 Neon</category>
+    <category>模型评测</category>
+    <category>Google Antigravity</category>
+    <category>GPT-6.2 Astra</category>
+    <category>成本</category>
+    <category>黑粉录屏</category>
+    </item>
+    <item>
+      <title>腾讯混元开源 Hy4 flash：每 token 只激活 11.3B 参数，本地部署现在要什么门槛</title>
+      <link>https://hyphentech.top/2026-11-18-official-79bf4392ad36/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-18-official-79bf4392ad36/</guid>
+      <description>腾讯混元开源 Hy4 flash：每 token 只激活 11.3B 参数，本地部署现在要什么门槛</description>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>新锐模型</category>
+    </item>
     <item>
       <title>DeepSeek V4.1狂揽185万亿词元：省钱编程、本地内存墙与省Token陷阱</title>
       <link>https://hyphentech.top/deepseek-v41-opencode-llamacpp-v1/</link>
@@ -131,92 +227,6 @@
     <category>黑粉录屏</category>
     <category>动画制作</category>
     <category>自制软件</category>
-    </item>
-    <item>
-      <title>Qwen3.8-27B-DSpine-b16 能单独聊天，还是必须搭配目标模型？</title>
-      <link>https://hyphentech.top/2026-11-07-official-35ace897d9c3/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-07-official-35ace897d9c3/</guid>
-      <description>腾讯这份草稿权重需要搭配目标模型使用。先看清依赖和推理入口，再决定是否值得部署。</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>35个网站别只收藏：办公、修图、查资料怎么用，哪些真免费？</title>
-      <link>https://hyphentech.top/useful-websites-35-work-life/</link>
-      <guid isPermaLink="true">https://hyphentech.top/useful-websites-35-work-life/</guid>
-      <description>35项网站按办公、创作、自动化、开发和生活整理：上手方式、免费限制、隐私与授权一并说明，失效与待核项单独标记。</description>
-      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>实用网站</category>
-    <category>效率工具</category>
-    </item>
-    <item>
-      <title>字节的 Cross-Layer-TopK-CLT 能帮你看懂千问内部的计算吗？</title>
-      <link>https://hyphentech.top/2026-11-05-official-49b677f36d92/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-05-official-49b677f36d92/</guid>
-      <description>字节的 Cross-Layer-TopK-CLT 能帮你看懂千问内部的计算吗？</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Qwen3-30B-A3B-MoE-SAE 能帮你看懂模型内部吗？</title>
-      <link>https://hyphentech.top/2026-11-05-official-12db83055a26/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-05-official-12db83055a26/</guid>
-      <description>Qwen3-30B-A3B-MoE-SAE 能帮你看懂模型内部吗？</description>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>免费绘图API怎么选：免密、周期额度和新人试用资料目录</title>
-      <link>https://hyphentech.top/free-api-image-directory-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-image-directory-20261102/</guid>
-      <description>先看实际原图，再按免费来源选绘图接口。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>免费文字API试用额度能用多久？新人赠额和评估接口分类整理</title>
-      <link>https://hyphentech.top/free-api-text-trial-directory-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-text-trial-directory-20261102/</guid>
-      <description>新人赠额、评估密钥和到期条件分类整理。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>免费API文字篇：周期额度、免密入口和开发免费档分类整理</title>
-      <link>https://hyphentech.top/free-api-text-recurring-directory-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-text-recurring-directory-20261102/</guid>
-      <description>按周期额度、免密和开发用途整理文字接口。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
-    </item>
-    <item>
-      <title>字节 GenFirst 能用来本地生图吗？先看权重、运行方式与用途限制</title>
-      <link>https://hyphentech.top/2026-11-03-official-c0013b3edcbb/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-03-official-c0013b3edcbb/</guid>
-      <description>字节 GenFirst 能用来本地生图吗？先看权重、运行方式与用途限制</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Agnes免费绘图API实测：15.7秒生成这张图，接法和条件说清楚</title>
-      <link>https://hyphentech.top/free-api-agnes-image-20261102/</link>
-      <guid isPermaLink="true">https://hyphentech.top/free-api-agnes-image-20261102/</guid>
-      <description>机器人浇水原图、接口参数与阶段免费条件。</description>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
-    <category>资源分享</category>
-    <category>免费API</category>
     </item>
   </channel>
 </rss>
