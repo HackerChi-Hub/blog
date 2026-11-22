@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-22T16:23:10.962Z",
-  "contentHash": "af06067ec0d8a12ac95446246d2618c68ed2e3b4e3c649d6fe6b9739f187ffeb",
+  "checkedAt": "2026-11-22T22:31:33.641Z",
+  "contentHash": "e46abc43c44184ea87f9dd5090e5b87ba2d4ba35c8ff95cfb678f9a9008760ce",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T16:23:10.962Z",
+      "checkedAt": "2026-11-22T22:31:33.641Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -118,24 +118,24 @@
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "updateSummary": "彻底拆除大型任务隐藏超时闸门（5 分钟 / 10 分钟 / 2 分钟）：关闭原生 DSH 宿主 Node fetch（Undici）隐藏的 300 秒 headersTimeout / bodyTimeout 与本地 local-wire HTTP 超时，将 responsesbridge.py 上游推理请求统一改为无读超时（与 sp…",
       "updated": "2026-11-22",
-      "activityAt": "2026-11-22T16:13:00Z",
-      "version": "2.4.1",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.1",
+      "activityAt": "2026-11-22T16:25:13Z",
+      "version": "2.4.2",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.2",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.1",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.2",
           "assets": [
             {
-              "name": "LocalBrain_2.4.1_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.1/LocalBrain_2.4.1_aarch64.dmg",
-              "id": 779632353,
-              "size": 80257652,
-              "updatedAt": "2026-11-22T16:12:58Z",
-              "digest": "sha256:2b17facdf72a3d0be4f1906cdddac267b9193036fe1a6aca0a6dd47b3bd2275e"
+              "name": "LocalBrain_2.4.2_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.2/LocalBrain_2.4.2_aarch64.dmg",
+              "id": 779668893,
+              "size": 80259273,
+              "updatedAt": "2026-11-22T16:25:12Z",
+              "digest": "sha256:2eba9b8cbcff2159ec25f4a0ed31598715d64ea82bc89ffd0c8a4ca3c2b4f104"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T16:23:10.962Z",
+      "checkedAt": "2026-11-22T22:31:33.641Z",
       "prerelease": false,
-      "releaseNotesHash": "9c1e9191ce421c41213804d3bd33a10e8dfceb13d38bb7d466e9a940afa4ce14",
-      "revision": "6c00fd8bd41ff881ab8ce9ecd2314f72b7ad05fa101395812b49a4a511ead4c0"
+      "releaseNotesHash": "214000ae54db6ea7e2692387a9c7d8e66fea18368688466a03662f61d7f672f4",
+      "revision": "c4f54edd41c5f45a88609a15358be55fc7f1e41a4f53e058fb97dfd8a7605ac8"
     }
   ]
 }
