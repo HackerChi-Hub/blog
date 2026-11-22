@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-22
-summary: "Mac 2.3.9 依本機記憶體動態擴充 Inkling 2 Mini 上下文（64GB 升至 64K / 96GB+ 128K）並將全引擎單次輸出提至 30%，預設全場景啟用大模型自動壓縮且不中斷回答，打通 Inkling 真關思考、外部模型去雜與首頁統一刪除，並將用量明細改版為直白中文。"
+summary: "Mac 2.4.0 解除 Inkling oMLX 33GB 保守記憶體上限並開啟前綴快取（改為 balanced 護欄，64GB Mac 視窗擴至 96K），同時將全 MLX 模型 KV 可用比例提升至剩餘記憶體 70%，各模型在不爆記憶體的前提下盡可能擴大上下文。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.0：全模型最大安全上下文、Inkling 滿速護欄與前綴快取
+
+Mac 2.4.0 重點最佳化大記憶體機型下的上下文容量與持續推論速度：一是將 Inkling 2 Mini（`inkling-omlx`）的記憶體護欄由過保守的 `safe`（在 64GB Mac 上僅給約 33GB 導致反覆回收 Metal 緩衝池並掉速至 2.4 tok/s）升級為 `balanced`，同時移除 `--no-cache` 正式開啟前綴快取，消除每輪從頭預填的漫長等待，並將 64GB Mac 的 Inkling 2 Mini 視窗進一步擴至 **96K**（96GB+ 機型 **128K**）。
+
+二是將全部 MLX 語言模型在扣除權重與系統/應用安全預留後的 KV 快取預算比例由 50% 提升至 **70%**（同等記憶體下上下文擴容 40%），`llama.cpp` 繼續維持 Q8_0 KV 量化與高比例動態規劃，讓所有模型在不觸發 swap 的前提下盡可能給足上下文空間。Windows 與 Linux 正式版維持 2.3.7。
+
+安裝包（`LocalBrain_2.4.0_aarch64.dmg`）為 80,261,150 位元組（本機簽章，未經 Apple 公證），SHA-256：`d395275daf37460e32bf64c42c2730fbb2d9c3d5ce2746e1800347e796343549`。
+
+[下載 Mac 2.4.0（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.0/LocalBrain_2.4.0_aarch64.dmg) · [下載與更新：方寸智匣發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.9：動態大上下文、預設大模型自動壓縮、Inkling 真關思考與外部模型統一管理
 

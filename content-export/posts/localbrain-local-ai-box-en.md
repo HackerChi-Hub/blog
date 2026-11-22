@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-22
-summary: "Mac 2.3.9 scales Inkling 2 Mini context by unified memory (64K on 64GB, 128K on 96GB+), raises per-turn output budget to 30% across engines, enables default LLM auto-compaction without aborting replies, adds true Inkling thinking-off, unified external model deletion and clearer usage labels."
+summary: "Mac 2.4.0 lifts Inkling oMLX's conservative 33 GB cap (`--memory-guard balanced`), enables prefix caching (expanding 64GB Mac Inkling context to 96K), and raises MLX KV memory budget share to 70% of free RAM so every model gets maximum safe context."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.0: Maximum Safe Context Across Models, Balanced oMLX Memory Guard & Prefix Caching
+
+Mac 2.4.0 focuses on maximizing safe context length and sustained decode speed on Apple Silicon: Inkling 2 Mini (`inkling-omlx`) switches from `--memory-guard safe` (which capped 64 GB Macs around 33 GB and triggered repeated Metal buffer thrashing down to 2.4 tok/s) to `--memory-guard balanced`, drops `--no-cache` to enable prefix caching across multi-turn chats, and expands 64 GB Mac Inkling context to **96K** (**128K** on 96 GB+).
+
+Across all MLX language models, the KV cache budget share of remaining free unified memory (after weights and OS/app reserves) rises from 50% to **70%** (+40% context headroom), while `llama.cpp` retains Q8_0 KV quantization and high-utilization dynamic planning so every model maximizes safe context without swapping. Windows and Linux public releases remain at 2.3.7.
+
+The Mac installer (`LocalBrain_2.4.0_aarch64.dmg`) is 80,261,150 bytes (locally signed, not Apple-notarized), SHA-256: `d395275daf37460e32bf64c42c2730fbb2d9c3d5ce2746e1800347e796343549`.
+
+[Download Mac 2.4.0 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.0/LocalBrain_2.4.0_aarch64.dmg) · [Downloads & Updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.9: Adaptive Context & Output Headroom, Default LLM Auto-Compaction, True Inkling Thinking-Off & Unified External Model Management
 
