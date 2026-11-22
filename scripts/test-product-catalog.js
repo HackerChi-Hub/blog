@@ -15,9 +15,12 @@ async function main() {
   const assistant = PRODUCT_DEFINITIONS.find((item) => item.releaseRepo === 'HackerChi-Hub/hyphen-assistant-releases');
   assert.strictEqual(assistant.name, '黑粉助手 HyphenAssistant');
   assert.strictEqual(assistant.releaseRepo, 'HackerChi-Hub/hyphen-assistant-releases');
-  assert.match(assistant.fallbackDescription, /原服务、电脑和网络保持在线/);
-  assert.strictEqual(assistant.slug, 'deepseek-harness-mobile-remote', '升级原产品教程，保留已发布网址');
-  assert.ok(PUBLISHED_PRODUCTS.includes(assistant));
+  assert.strictEqual(assistant.pending, true);
+  assert.ok(!PUBLISHED_PRODUCTS.includes(assistant));
+  assert.deepStrictEqual(
+    PUBLISHED_PRODUCTS.map((item) => item.releaseRepo),
+    ['HackerChi-Hub/hyphenbox-release', 'HackerChi-Hub/localbrain-releases'],
+  );
   const history = publishedReleases([
     { tag_name: 'v2.0.0', draft: true, published_at: '2026-10-14T00:00:00Z' },
     { tag_name: 'v1.8.0', published_at: '2026-10-13T00:00:00Z', html_url: 'https://example.test/1.8.0', assets: [{ name: 'App_arm64.dmg' }, { name: 'App_x64.exe.sig' }] },
@@ -30,7 +33,7 @@ async function main() {
   ]);
   assert.strictEqual(selectRelease(history.filter((item) => item.prerelease)).tag_name, 'v1.9.0');
   const realFooter = '\n---\n\n## 🧰 Tools I build\n\n' + [
-    'hyphenbox-release', 'localbrain-releases', 'screenlex-download', 'HyphenScreen-Releases',
+    'hyphenbox-release', 'localbrain-releases',
   ].map((repo) => `> [Download](https://github.com/HackerChi-Hub/${repo}/releases)`).join('\n') + '\n\n> [!quote] HyphenTech\n> [HyphenTech](https://hyphentech.top)\n';
   const historicalBody = '## Original test\n\nTested with 1.0.2.\n';
   assert.deepStrictEqual(splitProductFooter(historicalBody + realFooter), { body: historicalBody.trimEnd(), managed: true });
@@ -109,48 +112,30 @@ async function main() {
   ];
 
   const allCards = await buildProductCards(posts, { fetchImpl, token: '' });
-  const assistantCard = allCards.find((item) => item.releaseRepo === assistant.releaseRepo);
-  assert.strictEqual(assistantCard.version, '0.1.5');
-  assert.strictEqual(assistantCard.badge, '我做的 · 正式迭代');
-  assert.strictEqual(assistantCard.platforms.length, 3);
-  assert.match(assistantCard.updateSummary, /精简侧栏/);
-  const cards = allCards.filter((item) => item.releaseRepo !== assistant.releaseRepo);
-  assert.deepStrictEqual(cards.map((card) => card.name), [
-    '方寸智匣 LocalBrain',
+  assert.deepStrictEqual(allCards.map((card) => card.name), [
     '黑粉盒子 HyphenBox',
-    '光影词库 ScreenLex',
-    '黑粉录屏 HyphenScreen',
+    '方寸智匣 LocalBrain',
   ]);
-  assert.strictEqual(cards[0].version, '1.2.28');
-  assert.strictEqual(cards[0].updated, '2026-09-01');
-  assert.match(cards[0].updateSummary, /隐藏暂存事务/);
-  assert.match(cards[0].description, /本地 AI 工具箱/);
-  assert.match(cards[1].description, /免费大模型 API 雷达/);
-  assert.doesNotMatch(cards[1].description, /macOS 安装包/);
-  assert.strictEqual(cards[1].version, '1.0.0');
-  assert.strictEqual(cards[1].badge, '我做的 · 正式迭代');
-  assert.deepStrictEqual(cards[1].facts, ['正式推出', 'macOS / Windows / Linux', '免费下载']);
-  assert.match(cards[2].updateSummary, /按钮文字被挤成竖排/);
-  assert.match(cards[2].updateSummary, /LocalBrain/);
-  assert.strictEqual(cards[2].updated, '2026-08-16');
-  // 预览版产品必须照样拿到版本与日期：用 /releases/latest 的写法会在这里退回文章兜底
-  assert.strictEqual(cards[3].version, '0.4.16');
-  assert.strictEqual(cards[3].updated, '2026-09-16');
-  assert.strictEqual(cards[3].source, 'release');
-  assert.match(cards[3].updateSummary, /Windows 和 Linux 安装包/);
-  assert.doesNotMatch(cards[3].description, /草稿/);
+  assert.match(allCards[0].description, /免费大模型 API 雷达/);
+  assert.doesNotMatch(allCards[0].description, /macOS 安装包/);
+  assert.strictEqual(allCards[0].version, '1.0.0');
+  assert.strictEqual(allCards[0].badge, '我做的 · 正式迭代');
+  assert.deepStrictEqual(allCards[0].facts, ['正式推出', 'macOS / Windows / Linux', '免费下载']);
+  assert.strictEqual(allCards[1].version, '1.2.28');
+  assert.strictEqual(allCards[1].updated, '2026-09-01');
+  assert.match(allCards[1].updateSummary, /隐藏暂存事务/);
+  assert.match(allCards[1].description, /本地 AI 工具箱/);
 
-  const allFallbackCards = await buildProductCards(posts, {
+  const fallbackCards = await buildProductCards(posts, {
     fetchImpl: async () => ({ ok: false, status: 503, json: async () => ({}) }),
     token: '',
   });
-  const fallbackCards = allFallbackCards.filter((item) => item.releaseRepo !== assistant.releaseRepo);
-  assert.strictEqual(fallbackCards[0].updateSummary, '文章摘要兜底。');
-  assert.match(fallbackCards[0].description, /本地 AI 工具箱/);
-  assert.strictEqual(fallbackCards[0].source, 'article');
-  assert.strictEqual(fallbackCards[1].source, 'fallback');
-  assert.strictEqual(fallbackCards[1].badge, '我做的 · 正式迭代');
-  assert.doesNotMatch(fallbackCards[1].badge, /预览版/);
+  assert.strictEqual(fallbackCards[0].source, 'fallback');
+  assert.strictEqual(fallbackCards[0].badge, '我做的 · 正式迭代');
+  assert.doesNotMatch(fallbackCards[0].badge, /预览版/);
+  assert.strictEqual(fallbackCards[1].updateSummary, '文章摘要兜底。');
+  assert.match(fallbackCards[1].description, /本地 AI 工具箱/);
+  assert.strictEqual(fallbackCards[1].source, 'article');
   await assert.rejects(() => buildProductCards(posts, {
     fetchImpl: async () => ({ ok: false, status: 503 }), token: '', strict: true,
   }), /无法核对当前公开发行/);

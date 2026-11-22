@@ -26,9 +26,8 @@ node scripts/comments-admin.js list 200 --json | node scripts/community-intake.c
 | 内容主题 | 优先给读者的现有文章 |
 |---|---|
 | 方寸智匣介绍与下载 | [方寸智匣产品说明](https://hyphentech.top/localbrain-local-ai-box/) |
+| 黑粉盒子介绍与下载 | [黑粉盒子产品说明](https://hyphentech.top/hyphenbox-free-api-radar/) |
 | 本地模型实测 | [M5 Pro本地模型实测](https://hyphentech.top/mlx-local-ai-test-m5pro/) |
-| 黑粉助手手机接续会话 | [黑粉助手完整教程](https://hyphentech.top/deepseek-harness-mobile-remote/) |
-| 黑粉录屏使用与下载 | [黑粉录屏产品说明](https://hyphentech.top/hyphenscreen-local-screen-recorder/) |
 | 免费接口 | [免费接口复测文章](https://hyphentech.top/free-ai-api-radar-2026-09-23/) |
 
 只在平台允许的位置使用对应文章链接，不统一导向首页。发布茶馆后可追加“交流入口”；未上线前不把预览地址当官网链接。B站、公众号和其他平台现有文案未自动修改，具体视频/文章需先选定。

@@ -110,17 +110,17 @@ function postLang(source) {
 
 function stripTrailingUnwrappedToolsSection(text, productNames = []) {
   const source = String(text || '');
-  const headingRe = /\n##\s+(?:🧰\s*)?(?:我做的工具|Tools I build|I make the tools)\s*\n/g;
+  const headingRe = /\n#{2,3}\s+(?:🧰\s*)?(?:我做的工具|我正在做的四个小工具|黑粉科技自制软件|黑粉科技的自制工具|Tools I build|I make the tools|The four gadgets I'm working on|HyphenTech self-developed software|HyphenTech's DIY tools)\s*\n/g;
   let lastMatch = null;
   let m;
   while ((m = headingRe.exec(source)) !== null) lastMatch = m;
   if (!lastMatch) return source;
   const tail = source.slice(lastMatch.index + 1);
-  const restAfterHeading = tail.replace(/^##\s+[^\n]+\n/, '');
+  const restAfterHeading = tail.replace(/^#{2,3}\s+[^\n]+\n/, '');
   if (/^##\s+/m.test(restAfterHeading)) return source;
   const repoHits = (tail.match(/https:\/\/github\.com\/HackerChi-Hub\/[A-Za-z0-9._-]+\/releases/g) || []).length;
   const nameHits = productNames.filter((name) => name && tail.includes(name)).length;
-  if (repoHits >= 3 || nameHits >= 3) {
+  if (repoHits >= 2 || nameHits >= 2) {
     return source.slice(0, lastMatch.index).replace(/(?:\n---\s*)+$/, '').trimEnd();
   }
   return source;

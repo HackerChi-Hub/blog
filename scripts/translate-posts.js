@@ -799,9 +799,16 @@ function listPosts() {
     .filter(Boolean);
 }
 
+function stripManagedFooter(body) {
+  const s = body.indexOf(FOOTER_START);
+  const e = s >= 0 ? body.indexOf(FOOTER_END, s) : -1;
+  if (s < 0 || e < 0) return body;
+  return (body.slice(0, s).trimEnd() + '\n' + body.slice(e + FOOTER_END.length).trimStart()).trimEnd();
+}
+
 function sourceHashOf(post) {
   return crypto.createHash('sha256')
-    .update(`${readScalar(post.fmText, 'title')}\n${post.body}`)
+    .update(`${readScalar(post.fmText, 'title')}\n${stripManagedFooter(post.body)}`)
     .digest('hex')
     .slice(0, 16);
 }
