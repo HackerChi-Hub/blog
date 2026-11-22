@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-22T12:53:20.935Z",
-  "contentHash": "00928d344a112e01a63eb1a8947c476b315c5eb0913d0ac7616beac1d19ae393",
+  "checkedAt": "2026-11-22T13:48:39.995Z",
+  "contentHash": "2bc66309304440389075f4c04e0029dda0ca8baebb5428eaed89149758476723",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T12:53:20.935Z",
+      "checkedAt": "2026-11-22T13:48:39.995Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "按本机内存动态扩充上下文与单次输出：Inkling 2 Mini（inkling-omlx）不再写死 16K，按统一内存自动规划（24GB → 16K / 32GB → 32K / 48–64GB → 64K / 96GB+ → 128K）；全引擎单次回复默认上限从窗口的 20% 提升至 30%（64K 窗口默认给到 16K，12GB…",
+      "updateSummary": "解除 Inkling oMLX 33GB 保守内存天花板并开启前缀缓存：inklingserver.py 改为 --memory-guard balanced 并移除 --no-cache，消除 64GB Mac 反复回收 Metal 缓冲池导致的 2.4 tok/s 掉速与每轮从零预填；64GB Mac 的 Inkling 2 Mi…",
       "updated": "2026-11-22",
-      "activityAt": "2026-11-22T12:46:10Z",
-      "version": "2.3.9",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.9",
+      "activityAt": "2026-11-22T13:26:51Z",
+      "version": "2.4.0",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.0",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.3.9",
+          "version": "2.4.0",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.9",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.0",
           "assets": [
             {
-              "name": "LocalBrain_2.3.9_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.9/LocalBrain_2.3.9_aarch64.dmg",
-              "id": 779043946,
-              "size": 80264337,
-              "updatedAt": "2026-11-22T12:46:08Z",
-              "digest": "sha256:f350a17acff699382b1d456dc8d4e01c87fc5f244427c0e1d21f164fc51b05e0"
+              "name": "LocalBrain_2.4.0_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.0/LocalBrain_2.4.0_aarch64.dmg",
+              "id": 779152118,
+              "size": 80261150,
+              "updatedAt": "2026-11-22T13:26:49Z",
+              "digest": "sha256:d395275daf37460e32bf64c42c2730fbb2d9c3d5ce2746e1800347e796343549"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T12:53:20.935Z",
+      "checkedAt": "2026-11-22T13:48:39.995Z",
       "prerelease": false,
-      "releaseNotesHash": "e5633b8d097cb508766bca9c4590dc47fb39647437936c6f33a6927db39d3a19",
-      "revision": "f21aecc159040f3effcf89cb8ba2cae83d5172b8dbc1936c3a6a8fbbbeb0724b"
+      "releaseNotesHash": "97ecc6cc3f222d313ee9be8b58584ce9dbaf4dc7827b6f7b83c76e3c3f414ec1",
+      "revision": "071d0f8a62ec519cf9d14105bd1f6601b7422f8f280c33931a5e700e3269c4db"
     }
   ]
 }
