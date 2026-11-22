@@ -86,7 +86,7 @@ This time, I didn't retest after raising the budget, so I kept "This configurati
 
 ## How do you find the free model, and how do you fill in the key and address?
 
-Apply for your own key from the OpenRouter key page [⟧](https://openrouter.ai/settings/keys), base address https://openrouter.ai/api/v1. Find the current free model in the model directory [and](https://openrouter.ai/models), verify the input and output prices, then copy the full name. Keep the 'free' at the end of the name; do not mistake the paid model with the same name as the free version.
+Apply for your own key from the OpenRouter key page [⟧](https://openrouter.ai/settings/keys), base address [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>). Find the current free model in the model directory [and](https://openrouter.ai/models), verify the input and output prices, then copy the full name. Keep the 'free' at the end of the name; do not mistake the paid model with the same name as the free version.
 
 ![OpenRouter Official Limit](https://hyphentech.top/obsidian-assets/free-api-openrouter-text-20261102/image-openrouter-limits-df244d9ee5.png)
 

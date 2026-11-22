@@ -60,7 +60,7 @@ Agnes text returns to its original form
 
 ![Agnes Default Trial Condition](https://hyphentech.top/obsidian-assets/free-api-text-recurring-directory-20261102/image-agnes-conditions-dcff4dc1de.png)
 
-The request model is agnes-2.5-flash, with the text base address https://apihub.agnes-ai.com/v1. The above order contains the full field and is calculated at 3400 yuan; The Chinese rewrite also retains four pieces of information. Another old configuration in Agnes Text 2.0 returns 500, but no answer is found.
+The request model is agnes-2.5-flash, with the text base address [https://apihub.agnes-ai.com/v1](<https://apihub.agnes-ai.com/v1>). The above order contains the full field and is calculated at 3400 yuan; The Chinese rewrite also retains four pieces of information. Another old configuration in Agnes Text 2.0 returns 500, but no answer is found.
 
 ## First, choose which free option you need
 

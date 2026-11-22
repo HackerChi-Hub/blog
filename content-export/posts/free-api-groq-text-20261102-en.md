@@ -106,7 +106,7 @@ Two old compound configurations return 404, no answer found this time; Do not ke
 
 ## Where to get the key, and which items to fill in on the client
 
-First open the [Groq console key page](https://console.groq.com/keys) and create your own key. Clients that support compatible interfaces usually fill in three fields: base address https://api.groq.com/openai/v1, key, and exact model name openai/gpt-oss-20b. The 'groq' in the model name is the local routing prefix for this round; do not copy this prefix when connecting directly to Groq.
+First open the [Groq console key page](https://console.groq.com/keys) and create your own key. Clients that support compatible interfaces usually fill in three fields: base address [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>), key, and exact model name openai/gpt-oss-20b. The 'groq' in the model name is the local routing prefix for this round; do not copy this prefix when connecting directly to Groq.
 
 ```官方SDK接法示例
 from groq import Groq

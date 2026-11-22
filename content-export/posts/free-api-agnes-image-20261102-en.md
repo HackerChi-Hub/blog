@@ -48,7 +48,7 @@ Enter from [Agnes official website](https://agnes-ai.com/), create your own acco
 
 ![Official Model Documentation](https://hyphentech.top/obsidian-assets/free-api-agnes-image-20261102/image-agnes-docs-055085b210.png)
 
-Text-to-image use POST /v1/images/generations. The interface address is https://apihub.agnes-ai.com/v1/images/generations. Below is the actual request body used in this round. For direct connection, configure your own key according to the official website; This round is forwarded by HyphenBox, with no additional repeated direct connection requests.
+Text-to-image use POST /v1/images/generations. The interface address is [https://apihub.agnes-ai.com/v1/images/generations](<https://apihub.agnes-ai.com/v1/images/generations>). Below is the actual request body used in this round. For direct connection, configure your own key according to the official website; This round is forwarded by HyphenBox, with no additional repeated direct connection requests.
 
 ```JSON
 {

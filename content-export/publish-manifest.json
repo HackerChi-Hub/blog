@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "3dc4d282f82f1e28d58399aa3637b9ed4037dd4858809f37e6314de3c2597612",
-  "published_post_count": 268,
+  "content_sha256": "cc6a56e62607fc99ae22d9488789b5d9696cda7b2658a63bfe9451bc345568b3",
+  "published_post_count": 286,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -235,14 +235,14 @@
       "legacy_paths": [],
       "translation_of": "2026-10-24-official-a3bd547a332b",
       "lang": "en",
-      "sha256": "8ababf131b4e114e5b1275ab1cfcbae8d66d41eff19dec428555db00ad703c67"
+      "sha256": "1ca59666db6713595821bc09ad15a8cd79b76a216a146bb8eb5c8abf86268692"
     },
     {
       "file": "posts/2026-10-24-official-a3bd547a332b.md",
       "slug": "2026-10-24-official-a3bd547a332b",
       "article_type": "model",
       "legacy_paths": [],
-      "sha256": "820812b27028e00bc21aef12e244b23a326dfac1d48bb92b6d349c34fc95dec3"
+      "sha256": "f758eadff5d1a780f3aa9aeb4143c720008c653a2a7a7222aa0c8b7ebd7cb7fa"
     },
     {
       "file": "posts/2026-10-29-skill-79a5fd606e65-en.md",
@@ -387,6 +387,118 @@
       "article_type": "model",
       "legacy_paths": [],
       "sha256": "26874ea8a2df44b24ce70ef2a5c73618b22c5d1f3d1635996badfcf9e2184471"
+    },
+    {
+      "file": "posts/2026-11-18-official-79bf4392ad36-en.md",
+      "slug": "2026-11-18-official-79bf4392ad36-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-18-official-79bf4392ad36",
+      "lang": "en",
+      "sha256": "125fcee13c333d62125af8acf139fd34588097bedea2a3c3fb8b02d085401cac"
+    },
+    {
+      "file": "posts/2026-11-18-official-79bf4392ad36.md",
+      "slug": "2026-11-18-official-79bf4392ad36",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "b654210f9795f80a5c38b97bba35ed9483c739ff1bf9638bfeb04e1f178f4755"
+    },
+    {
+      "file": "posts/2026-11-20-official-de3a66653cb4-en.md",
+      "slug": "2026-11-20-official-de3a66653cb4-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-20-official-de3a66653cb4",
+      "lang": "en",
+      "sha256": "b372712f5a99a8aeacf70b2e282b86432881cd5651aee0fc3befda58dea23372"
+    },
+    {
+      "file": "posts/2026-11-20-official-de3a66653cb4.md",
+      "slug": "2026-11-20-official-de3a66653cb4",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "94d96c6044a372c37d129e1199be0f6a187d3763eb8c555db175cc901d6dfda5"
+    },
+    {
+      "file": "posts/2026-11-20-official-fe17ae5d9094-en.md",
+      "slug": "2026-11-20-official-fe17ae5d9094-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-20-official-fe17ae5d9094",
+      "lang": "en",
+      "sha256": "c95f84b7d80df2ab65c7d4cd5955c01f990381e08830ec272836677d4e000439"
+    },
+    {
+      "file": "posts/2026-11-20-official-fe17ae5d9094.md",
+      "slug": "2026-11-20-official-fe17ae5d9094",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "9b54bb4f145892b8e0917dccda874c018ce54d50f326c8a51194b5f91b140a21"
+    },
+    {
+      "file": "posts/2026-11-21-official-53f2c8c25c06-en.md",
+      "slug": "2026-11-21-official-53f2c8c25c06-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-21-official-53f2c8c25c06",
+      "lang": "en",
+      "sha256": "1aff448e30e47d82c64ca6f2f18bab1e3501ae738e78454e5dfb78f1aa9ad056"
+    },
+    {
+      "file": "posts/2026-11-21-official-53f2c8c25c06.md",
+      "slug": "2026-11-21-official-53f2c8c25c06",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "4851ed4ea21d6d160df18e4b861d4c2c21adddfb3d1aeb659d8eaf59add4d5db"
+    },
+    {
+      "file": "posts/2026-11-21-official-6a1fa8a670ef-en.md",
+      "slug": "2026-11-21-official-6a1fa8a670ef-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-21-official-6a1fa8a670ef",
+      "lang": "en",
+      "sha256": "9044d28aa41ecdd64236edaba3b8b614c6b3e62043cff3337ab2d8d307150168"
+    },
+    {
+      "file": "posts/2026-11-21-official-6a1fa8a670ef.md",
+      "slug": "2026-11-21-official-6a1fa8a670ef",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "46da3e08a5a0e1d6a719d08d43efd8b4b3b898f327f604b308743236f8946aea"
+    },
+    {
+      "file": "posts/2026-11-22-official-54156d2227e5-en.md",
+      "slug": "2026-11-22-official-54156d2227e5-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-22-official-54156d2227e5",
+      "lang": "en",
+      "sha256": "1c23d0386dca3f801ec076a05700a050916fa790d65956d28953bc15242871f4"
+    },
+    {
+      "file": "posts/2026-11-22-official-54156d2227e5.md",
+      "slug": "2026-11-22-official-54156d2227e5",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "228eb1c9017dc6b491506ad35737080a5d79438616a2f51e193bb19ecd8cd6b7"
+    },
+    {
+      "file": "posts/2026-11-22-official-f70f1895e086-en.md",
+      "slug": "2026-11-22-official-f70f1895e086-en",
+      "article_type": "model",
+      "legacy_paths": [],
+      "translation_of": "2026-11-22-official-f70f1895e086",
+      "lang": "en",
+      "sha256": "75795eff8b1c824e367fa9c142d2de66c7df528ef95474077e029efbab154d32"
+    },
+    {
+      "file": "posts/2026-11-22-official-f70f1895e086.md",
+      "slug": "2026-11-22-official-f70f1895e086",
+      "article_type": "model",
+      "legacy_paths": [],
+      "sha256": "b6b6f9dcae3e4b19b06c45fb0e441c8ea001d6cc0a62bb8565ba93cfd3abea6c"
     },
     {
       "file": "posts/33a999681bdb81499014eaf312d39728-en.md",
@@ -715,7 +827,7 @@
       "legacy_paths": [],
       "translation_of": "deepseek-harness-mobile-remote",
       "lang": "en",
-      "sha256": "7568a5bacbc0c232d5e9cdb8d98d0d0bb361feeea0eff5e6917bde02184542c6"
+      "sha256": "f53bcb840e7a88bff3e8ae41cd4f5d4f0a3991aa651aeaacc381fadaa849c2b3"
     },
     {
       "file": "posts/deepseek-harness-mobile-remote.md",
@@ -724,7 +836,7 @@
       "legacy_paths": [
         "/hyphen-assistant/"
       ],
-      "sha256": "b6ed338cfe98a9c1105674ba1d54f50b38ab97bbd33e9f8d23a092fd13410a28"
+      "sha256": "0c8a7ebc33ea50accdf76784c60c86217686f72dee847b8de000fb800314ab6e"
     },
     {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
@@ -791,6 +903,22 @@
       "sha256": "a734556db107af062e890f791b0f81500485b1b22acb6ccdd9121ae9e56cbc2a"
     },
     {
+      "file": "posts/flux-3-klein-local-image-test-en.md",
+      "slug": "flux-3-klein-local-image-test-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "flux-3-klein-local-image-test",
+      "lang": "en",
+      "sha256": "cffb6fe1afddeac60d9a38b6068657e693356b99806308fd91b2c089b6d87491"
+    },
+    {
+      "file": "posts/flux-3-klein-local-image-test.md",
+      "slug": "flux-3-klein-local-image-test",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "4f8f3eb921817475b3e2676de77f343b257c69a9618082875554a43aa3d9da95"
+    },
+    {
       "file": "posts/free-ai-api-radar-2026-09-23-en.md",
       "slug": "free-ai-api-radar-2026-09-23-en",
       "article_type": "article",
@@ -829,7 +957,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-agnes-image-20261102",
       "lang": "en",
-      "sha256": "d0d8730d58413354a3803e67a007fed3a1c0c869b7df07101aef3801f93101b1"
+      "sha256": "d83eecd7fa8f567232ce505de1e9ac44a61fbe2d8e85a55b9432868ea1c690a1"
     },
     {
       "file": "posts/free-api-agnes-image-20261102.md",
@@ -861,7 +989,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-groq-text-20261102",
       "lang": "en",
-      "sha256": "a5a9e6d29b6dd760c7244984f341b6e68103f444636695ed7070cd98663c2b57"
+      "sha256": "2c4fe042cfdbaa51e3a4156bc6c6bff2145d4e43b9c1eb10e9b13874c7fb2aff"
     },
     {
       "file": "posts/free-api-groq-text-20261102.md",
@@ -893,7 +1021,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-openrouter-text-20261102",
       "lang": "en",
-      "sha256": "4ef962b64b5c1dc59dd189dcc34e002e16c530648b635dcbab941689c2cd47e7"
+      "sha256": "e4dad0d1dddf11c5827bec2e2846511d2f16abfc64b7479dd43d6056a952585d"
     },
     {
       "file": "posts/free-api-openrouter-text-20261102.md",
@@ -941,7 +1069,7 @@
       "legacy_paths": [],
       "translation_of": "free-api-text-recurring-directory-20261102",
       "lang": "en",
-      "sha256": "56f454a2d98ad144c5430719c77b31bc0168c149d0438cee43e4aade67220ec5"
+      "sha256": "91c9a3484c9e08c8802b133e9adae13738fcc88e42a876241c719c8ecb9b0244"
     },
     {
       "file": "posts/free-api-text-recurring-directory-20261102.md",
@@ -1029,6 +1157,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "b0f247ddd20e35bc69336b25b4324a707f9a11a3f156d0dccb4de670fc6784e1"
+    },
+    {
+      "file": "posts/gemini-4-neon-pros-cons-review-en.md",
+      "slug": "gemini-4-neon-pros-cons-review-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "gemini-4-neon-pros-cons-review",
+      "lang": "en",
+      "sha256": "4a230f19b6a710d05ed5155dd1fb79bb01ef09cd6291b8454dc58e81ffe4acb9"
+    },
+    {
+      "file": "posts/gemini-4-neon-pros-cons-review.md",
+      "slug": "gemini-4-neon-pros-cons-review",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "3d1e03f13cf68912c0655811406fc198e2341e19080af2cbd528d9bb90f97877"
     },
     {
       "file": "posts/gemini-argon-google-flow-experience-en.md",
