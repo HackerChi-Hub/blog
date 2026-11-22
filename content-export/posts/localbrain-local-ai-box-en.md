@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-22
-summary: "Mac 2.4.0 lifts Inkling oMLX's conservative 33 GB cap (`--memory-guard balanced`), enables prefix caching (expanding 64GB Mac Inkling context to 96K), and raises MLX KV memory budget share to 70% of free RAM so every model gets maximum safe context."
+updated: 2026-11-23
+summary: "Windows/Linux 2.4.3 adds three Inkling GGUF downloads and default DSpark, with streaming and RAM-label fixes; Windows Q2 results, WSL2 validation and untested areas are stated separately."
 categories:
   - Resources
 tags:
@@ -15,6 +15,23 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+<!-- win-linux-2.4.3:start -->
+## Windows / Linux 2.4.3: Inkling downloads, DSpark and streaming fixes
+
+Windows/Linux 2.4.3 passed local build, installation and validation, with a Windows installer, Debian package and AppImage. On 2026-11-23 the author approved publication with source CI billing/spending restrictions recorded. The existing Mac 2.4.3 package and independently maintained runtime are preserved.
+
+Search Discover for Inkling 2 Mini and choose Q2_K_XL, Q3_K_XL or Q4_K_M. Main weights are approximately 9.14, 13.63 and 16.61 GB; the DSpark draft and vision projector bring total downloads to 10.18, 14.67 and 17.65 GB. Windows/Linux x64 use a separate pinned Unsloth GGUF engine. DSpark is enabled with three draft tokens; a missing draft is reported explicitly. Starting a model does not silently upgrade third-party engines.
+
+**8 GB refers to VRAM, not total system RAM.** On my Windows RTX 4070 Laptop with 8 GB VRAM, 32 GB RAM and NVIDIA driver 621.01, Q2 passed code execution, tool round trips and simple image reading. In one matched 384-token test with the same prompt and seed, DSpark on delivered 28.37 tokens/s versus 15.34 with it off, about 1.85x. This is a decode comparison for that task, not a general speed guarantee. VRAM was nearly full; long answers can slow down and small output budgets can be consumed by reasoning. Q3/Q4 and Linux model inference remain untested.
+
+Shared streaming fixes forward available bytes promptly and insert keepalive comments only between complete SSE frames. They address buffering delays and split JSON frames, alongside changes to long-task timeouts, engine-specific thinking budgets and output continuation. Decode speed excludes time to first token. Manually specified minimum RAM requirements are now compared with system RAM rather than mislabeled as VRAM.
+
+Windows CUDA 12.8 requires a sufficiently recent driver; older drivers use Vulkan. Linux uses its own maintained Vulkan build. Linux package, startup and embedded-host checks run on WSL2 Ubuntu 22.04 and do not establish bare-metal GPU or model-inference support. Inkling currently uses f16 KV; an 8 GB GPU still relies on system RAM, with 32 GB recommended. Source CI could not run because of GitHub account billing/spending limits; local validation is recorded separately.
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_amd64.AppImage)
+
+[SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/SHA256SUMS-2.4.3-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.3-WIN-LINUX.md)
+<!-- win-linux-2.4.3:end -->
 
 ## Mac 2.4.0: Maximum Safe Context Across Models, Balanced oMLX Memory Guard & Prefix Caching
 
@@ -739,6 +756,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -752,6 +776,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

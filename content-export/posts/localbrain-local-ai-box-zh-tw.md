@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-22
-summary: "Mac 2.4.0 解除 Inkling oMLX 33GB 保守記憶體上限並開啟前綴快取（改為 balanced 護欄，64GB Mac 視窗擴至 96K），同時將全 MLX 模型 KV 可用比例提升至剩餘記憶體 70%，各模型在不爆記憶體的前提下盡可能擴大上下文。"
+updated: 2026-11-23
+summary: "Windows/Linux 2.4.3接入 Inkling 三檔 GGUF 與預設 DSpark，修復串流幀邊界與記憶體標籤；說明 Windows Q2 實測、Linux WSL2 驗收及未驗證範圍。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,23 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+<!-- win-linux-2.4.3:start -->
+## Windows / Linux 2.4.3：Inkling 三檔下載、DSpark 與串流連線修復
+
+Windows / Linux 2.4.3 已完成本機建置、安裝與驗收，提供 Windows 安裝程式、Debian 與 AppImage。作者於 2026-11-23 批准記錄原始碼 CI 帳單／額度限制後正式發布。Mac 2.4.3 原包與獨立執行環境保留。
+
+在「發現」搜尋 Inkling 2 Mini，可選 Q2_K_XL、Q3_K_XL、Q4_K_M。主權重約 9.14、13.63、16.61 GB，連同 DSpark 草稿模型與視覺投影，總下載約 10.18、14.67、17.65 GB。Windows/Linux x64 使用獨立固定版本的 Unsloth GGUF 引擎，預設啟用 DSpark（三個草稿 token）；缺少草稿會明確提示。啟動模型不會自動升級第三方引擎。
+
+**8GB 指顯示記憶體，不是整機記憶體。** 我在 RTX 4070 Laptop 8GB、32GB 系統記憶體、NVIDIA 621.01 驅動的 Windows 電腦測試 Q2，已完成程式執行、工具往返與簡單讀圖。同題、同種子、384 token 的對照中，開啟 DSpark 為 28.37 token/s，關閉為 15.34 token/s，約 1.85 倍。這只代表該題的解碼對照；顯示記憶體接近滿載，長回答可能降速，小輸出額度也可能全耗在思考上。Q3、Q4 與 Linux 模型推論尚未實測。
+
+本次同步串流連線修復：橋接收到資料後即時轉發，保活訊息只在完整 SSE 幀之間插入，減少累積文字與半行 JSON 引起的斷線；並更新長任務逾時、各引擎的思考額度與輸出續寫。速度統計扣除首字等待時間。模型卡片手填的最低記憶體要求改為與系統記憶體比較，避免誤標為顯示記憶體。
+
+Windows CUDA 12.8 路徑要求驅動達到門檻，較舊驅動使用 Vulkan；Linux 使用獨立維護的 Vulkan 包。Linux 安裝、啟動及包內宿主檢查在 WSL2 Ubuntu 22.04 進行，不代表裸機顯卡或模型推論驗收。目前 Inkling 架構固定使用 f16 KV，8GB 顯卡仍需系統記憶體參與，建議 32GB 系統記憶體。原始碼 CI 因 GitHub 帳戶帳單／額度限制未執行，本機驗收與遠端 CI 分別記錄。
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/LocalBrain_2.4.3_amd64.AppImage)
+
+[SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/SHA256SUMS-2.4.3-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.3-WIN-LINUX.md)
+<!-- win-linux-2.4.3:end -->
 
 ## Mac 2.4.0：全模型最大安全上下文、Inkling 滿速護欄與前綴快取
 
@@ -739,6 +756,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 正式迭代
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -752,6 +776,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
+>
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
+>
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
+>
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
+>
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
