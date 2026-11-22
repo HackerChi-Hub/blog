@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-22T04:16:29.060Z",
-  "contentHash": "41088b5bdaf4e6277218ee4f69cb0c51f3fbd7ef7eee727b35a46f4b1c32d644",
+  "checkedAt": "2026-11-22T06:42:02.804Z",
+  "contentHash": "1335a42101e260331f527856368e43fbb8f94fd412565c8af9067ccdeeee2cd2",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T04:16:29.060Z",
+      "checkedAt": "2026-11-22T06:42:02.804Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "FLUX 3 Image Klein 在 Windows 与 Linux 可用：Windows 按驱动自动选包——NVIDIA 驱动 ≥570.26 装 CUDA 12.8 版，低于该门槛的 NVIDIA 装同版本 Vulkan 版（仍走显卡），没有 NVIDIA 才装 CPU 版；Linux 使用同一提交在 Ubuntu 22.04…",
-      "updated": "2026-11-20",
-      "activityAt": "2026-11-20T15:28:42Z",
-      "version": "2.3.7-win-linux",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7-win-linux",
+      "updateSummary": "在「发现」搜索 Inkling 2 Mini · MLX oQ4e-mtp 或 Inkling 2 Mini Uncensored · MLX oQ4-mtp（基于 OpenUncensored 去对齐版），可下载固定版本，也可通过「使用已有」登记现有权重目录。在「主页 → 大语言模型」启动后，可在对话中输入文字、添加图片和使用工具。…",
+      "updated": "2026-11-22",
+      "activityAt": "2026-11-22T06:18:04Z",
+      "version": "2.3.8",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.8",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.3.7",
+          "version": "2.3.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.7",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.3.8",
           "assets": [
             {
-              "name": "LocalBrain_2.3.7_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.7/LocalBrain_2.3.7_aarch64.dmg",
-              "id": 772073357,
-              "size": 129793580,
-              "updatedAt": "2026-11-20T14:11:31Z",
-              "digest": "sha256:bc5c9039aeb9bc0fda3bd3175605ed0c009ffd0538c7e7146f6381e56086ff91"
+              "name": "LocalBrain_2.3.8_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.8/LocalBrain_2.3.8_aarch64.dmg",
+              "id": 778094885,
+              "size": 80255421,
+              "updatedAt": "2026-11-22T06:18:02Z",
+              "digest": "sha256:098c91c9515973b434a0142decd4c265a54eacd633e83dd7fddfebd81ab51905"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-22T04:16:29.060Z",
+      "checkedAt": "2026-11-22T06:42:02.804Z",
       "prerelease": false,
-      "releaseNotesHash": "46ab745d9e74ffa08041da63988162caa41f547ed858809fa3f5a10db7279be2",
-      "revision": "d3d53e5edba9719ac7fc3d9b6b00d2b93c44e1a090875176271ee7dfbe52d7e2"
+      "releaseNotesHash": "0c50967f3e496165e64124da449a4fcb970494bef99a1a116e208cdae31c8d71",
+      "revision": "8f62827bc0f9771ef3688a93a799d823923c360df5dbfaf6459e268e1b2085bb"
     }
   ]
 }
