@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: google-io-2026-gemini-agentic-era
 translation_source: machine
-source_sha256: 2f4e2332c4b6bbbb
+source_sha256: 3604734c952c4644
 date: 2026-06-10
 updated: 2026-11-13
 summary: "From \"answering questions\" to \"doing things for you,\" Google is betting $180 billion on a full-stack Agent ecosystem. Managed agents, proactive workflows, Gemini Spark 24/7 backend agents—an in-depth look at I/O 2026 — all major releases."
@@ -277,13 +277,6 @@ Data sources for this article: Google I/O 2026 official keynote, TechCrunch, CNE
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -297,20 +290,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

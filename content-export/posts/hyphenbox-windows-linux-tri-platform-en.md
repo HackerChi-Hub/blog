@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: hyphenbox-windows-linux-tri-platform
 translation_source: machine
-source_sha256: dead73144f3db418
+source_sha256: 6feff26cae9c976f
 date: 2026-09-04
 updated: 2026-11-13
 summary: "Three platforms updated to 1.0.7, adding Harness media tools, image and video tasks, and recovery; Real photo output and platform acceptance scope are marked separately."
@@ -196,33 +196,12 @@ The log is in these three locations. If you encounter a problem, just send the f
 
 Back to the initial "numbers don't move" problem: it does move now. But what's even more worth mentioning is that this bug only gets exposed when the software is installed on a real machine and the real key is pressed once—on my own developer, the routing table only has two or three entries, and it never hits the throttle limit.
 
----
-
-## HyphenTech self-developed software
-
-| Products | In a word | Status |
-| --- | --- | --- |
-| **HyphenBox** | Free large model API radar + local unified routing | Official Updates (from version 1.0.0) |
-| **LocalBrain** | Turn your computer into a private AI box: manage transcription/voiceover/raw images/video/MCP all in one place | Officially updated |
-| **ScreenLex ScreenLex** | Local movie subtitles become a review English vocabulary, fully offline | Officially updated |
-
-- HyphenBox: [Download and update: HyphenBox (release page)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-- LocalBrain:[Download and Update: LocalBrain (Distribution Page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-- ScreenLex ScreenLex: [Download and Update: ScreenLex (Release Page)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
-
 
 ---
 
 ## 🧰 Tools I build
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
-
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] HyphenBox
 > **Status:** Official releases
@@ -237,20 +216,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

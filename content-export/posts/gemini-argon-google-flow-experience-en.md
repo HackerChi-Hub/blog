@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: gemini-argon-google-flow-experience
 translation_source: machine
-source_sha256: 1e19e1b167461bda
+source_sha256: d5023df009d2b972
 date: 2026-10-17
 updated: 2026-11-15
 summary: "From three real game projects to Google Flow's materials, modifications, and creative tools: not just the models, but also how ordinary people can turn ideas into works."
@@ -264,13 +264,6 @@ Verification date: October 17, 2026. The game is a basic review of existing proj
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -284,20 +277,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

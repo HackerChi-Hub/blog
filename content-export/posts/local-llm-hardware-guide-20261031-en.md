@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: local-llm-hardware-guide-20261031
 translation_source: machine
-source_sha256: 86f955023fa85933
+source_sha256: 5858f99e8f0ebdd0
 date: 2026-10-31
 updated: 2026-11-01
 summary: "Comparing devices by capacity, bandwidth, engine, and overall cost, from 27B and Flash-Next to 9B and 4B. Attached are the 33 candidates for this issue and a snapshot of the quotes as of October 30, 2026."
@@ -205,13 +205,6 @@ If the main needs are just short conversations and light tasks, and the small mo
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -225,20 +218,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: free-api-text-trial-directory-20261102
 translation_source: machine
-source_sha256: 68455552508582ed
+source_sha256: 27e47b44cec2e46a
 date: 2026-11-03
 updated: 2026-11-13
 summary: "Classification and organization of new employee bonuses, evaluation keys, and expiration conditions."
@@ -128,13 +128,6 @@ A fixed document, a random question with reference answers, or a few Chinese par
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -148,20 +141,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: gpt6-six-tasks-rain-mystery
 translation_source: machine
-source_sha256: 92c2d53b4f8e2e55
+source_sha256: 253d430d483038b8
 date: 2026-09-06
 updated: 2026-11-13
 summary: "Six questions are made and reviewed with public evaluation, with free rainy night reasoning mini-games, complete clues, and answers."
@@ -738,42 +738,12 @@ Image source: [Original author's page](https://developers.openai.com/blog/archit
 
 Image source: [Original author's page](https://developers.openai.com/blog/architectural-visualization-with-astra); [View original image or chart](https://cdn.openai.com/devhub/blog/architectural-visualization/giverny-water-garden-cec7107eed5b.webp).
 
-## The four gadgets I'm working on
-
-### HyphenBox
-
-Free large model interface radar, plus local unified routing.
-
-- **Current Status**: Initial Build · Preview; For Apple chip Macs, self-signed, manual release is required for the first time
-- [Download and update: HyphenBox (release page)](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-
-### LocalBrain
-
-Turn your Mac into your private AI toolbox, integrating transcription, voiceover, raw images, video, and MCP.
-
-- **Current Status**: Continuous iteration
-- [Download and update: LocalBrain (release page)](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-
-### ScreenLex ScreenLex
-
-Turn new words from local movie subtitles into a reviewable English vocabulary, fully offline.
-
-- **Current Status**: Continuous iteration
-- [Download and update: ScreenLex (distribution page)](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
-
 
 ---
 
 ## 🧰 Tools I build
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
-
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] HyphenBox
 > **Status:** Official releases
@@ -788,20 +758,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

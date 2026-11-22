@@ -185,7 +185,7 @@ Exquisite editorial portrait on the wooden veranda of a Kyoto lakeside pavilion 
 | 0-1000 坐标框与多图（4a-1 / 4b-2） | 单图约 3–4 分钟；三图 726.92 秒 | 按 [top, left, bottom, right] 指定双宠与四人宠站位落框精准 | 多图耗时翻倍，且参考图带多余人物易串衣串发；先裁成纯单主体再喂入 |
 | 单图八维极限叠满（6C 茶室水镜） | 109.53 秒（1248×832） | 复杂刺绣、水面涟漪倒影与灯笼英文同框观感自然 | 3 条锦鲤画成 4 条，跨曲面条纹光未对齐；严格计数成片需人工清点 |
 
-　　如果你手头正好有一台 **16 GB** 以上统一内存的 Mac 或 **8 GB** 独显的 Windows 电脑，可以直接去 [查看方寸智匣 LocalBrain 功能介绍页](https://hyphentech.top/localbrain) 或 [下载与更新：方寸智匣 LocalBrain（GitHub 发行页）](https://github.com/HackerChi-Hub/localbrain-releases/releases) 免费拉下这颗约 **6.8 GB** 的 FLUX 3 Image Klein 试跑（本期同步实测视频全程由 [查看黑粉录屏 HyphenScreen 功能介绍页](https://hyphentech.top/hyphenscreen-local-screen-recorder) 录制剪辑，安装包见 [下载与更新：黑粉录屏 HyphenScreen（GitHub 发行页）](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)）。**日常拿它断网零成本出高质感底图、配合 `[上, 左, 下, 右]` 千分坐标框把关键元素摆准位置，再把细碎正文小字交给后期排版软件补齐——这就是目前本地轻量生图模型最聪明、也最省钱的打开方式。**
+　　如果你手头正好有一台 **16 GB** 以上统一内存的 Mac 或 **8 GB** 独显的 Windows 电脑，可以直接去 [查看方寸智匣 LocalBrain 功能介绍页](https://hyphentech.top/localbrain) 或 [下载与更新：方寸智匣 LocalBrain（GitHub 发行页）](https://github.com/HackerChi-Hub/localbrain-releases/releases) 免费拉下这颗约 **6.8 GB** 的 FLUX 3 Image Klein 试跑（本期同步实测视频全程由黑粉录屏 HyphenScreen 录制剪辑）。**日常拿它断网零成本出高质感底图、配合 `[上, 左, 下, 右]` 千分坐标框把关键元素摆准位置，再把细碎正文小字交给后期排版软件补齐——这就是目前本地轻量生图模型最聪明、也最省钱的打开方式。**
 
 ## 主要查证来源
 
@@ -206,13 +206,6 @@ Exquisite editorial portrait on the wooden veranda of a Kyoto lakeside pavilion 
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
@@ -226,20 +219,6 @@ Exquisite editorial portrait on the wooden veranda of a Kyoto lakeside pavilion 
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

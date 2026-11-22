@@ -439,13 +439,6 @@ brand_slogan: 让AI成为你的超能力
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
@@ -459,20 +452,6 @@ brand_slogan: 让AI成为你的超能力
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

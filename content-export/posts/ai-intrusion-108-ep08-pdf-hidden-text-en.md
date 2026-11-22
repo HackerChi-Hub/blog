@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: ai-intrusion-108-ep08-pdf-hidden-text
 translation_source: machine
-source_sha256: c1cc4fa661ce953b
+source_sha256: 33f7d3304d652253
 date: 2026-11-17
 updated: 2026-11-18
 summary: "Opening a candidate's resume in macOS preview or Word, you only see 1.2 of beginner CRUD experience to the naked eye. Dragging a large model into the chief architect standard scores it and immediately receiving a 99/100 guaranteed rating! This article breaks down the parsing bias of the PDF and DOCX dual-layer 0.1pt pure white invisible text stream, and uses 8 lines of Python font size and contrast cleansing to restore the 58-point objective baseline."
@@ -113,13 +113,6 @@ For financial document review or recruitment services with higher security requi
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -133,20 +126,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

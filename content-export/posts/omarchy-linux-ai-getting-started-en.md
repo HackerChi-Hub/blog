@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: omarchy-linux-ai-getting-started
 translation_source: machine
-source_sha256: 1fc2371a863bec78
+source_sha256: dd3be9bda1995bc3
 date: 2026-09-07
 updated: 2026-11-13
 summary: "From installation and shortcuts to programming assistants and local models, it explains Omaly's features and getting started with it."
@@ -215,29 +215,12 @@ While writing, I performed four verifiable checks: downloading screenshots of th
 
 To let readers reproduce it themselves, I compressed the process into a minimal acceptance chain: first check SHA-256 from the official ISO page, then complete a shortcut window switch; After installing Ollama, run qwen3:0.6b to run ollama list and ollama ps; Finally, create a snapshot to confirm it can be found in Limine. Each step has a visible result; if any step fails, stop fixing it and don't migrate to the real project.
 
----
-
-### HyphenTech's DIY tools
-
-Below is the tool entry for HyphenTech's maintenance; These are not pre-installed software from Omasy; please refer to their respective release pages for system compatibility.
-
-- [HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases): Free model API radar and local unified routing. **Official iteration (starting from 1.0.0)**, Mac, Windows, and Linux installation packages are now available.
-- [LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases): A local AI toolbox that centrally manages transcription, voiceover, raw images, video, and MCP.
-- [ScreenLex ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases): Organize local movie subtitles into a reviewable English vocabulary for offline use.
-
 
 ---
 
 ## 🧰 Tools I build
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
-
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] HyphenBox
 > **Status:** Official releases
@@ -252,20 +235,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: minicpm5-2b-localbrain
 translation_source: machine
-source_sha256: 197e3c4213296bee
+source_sha256: 0c2cb7b7a6768a12
 date: 2026-09-09
 updated: 2026-11-13
 summary: "MiniCPM5-2B packs 130,000 contexts, agent training, and official GGUF/MLX into 2.52B parameters; The real highlight isn't the benchmark scores, but whether it qualifies as a resident actuator in local software."
@@ -116,13 +116,6 @@ Therefore, its potential should not be described as "2B counter-killing 70B." Mo
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -136,20 +129,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

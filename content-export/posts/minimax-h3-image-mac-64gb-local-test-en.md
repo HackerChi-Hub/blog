@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: minimax-h3-image-mac-64gb-local-test
 translation_source: machine
-source_sha256: a52fe501234c1eab
+source_sha256: 4fd4edefe0719aed
 date: 2026-11-11
 updated: 2026-11-13
 summary: "Running the community 4-bit version on the M5 Pro 64GB Mac: 2K raw image takes about 73 seconds, native 4K about 6 minutes 17 seconds. Compare the original images edited with single and dual images and memory records to see which tasks are suitable for them."
@@ -97,13 +97,6 @@ The four tests in the opening table use [Community MLX 4-bit version](https://hu
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -117,20 +110,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

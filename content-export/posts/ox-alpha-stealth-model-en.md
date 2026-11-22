@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: ox-alpha-stealth-model
 translation_source: machine
-source_sha256: 9e5360f440e52964
+source_sha256: 5e4ab87926f7fca3
 date: 2026-08-24
 updated: 2026-11-13
 summary: "Late at night on August 20, OpenRouter added a line of stealth/ox-alpha. No company, no warehouse, no name, but in two days it shot to number one in call volume. Around 1.04 million yuan, you can watch videos, completely free—the price is written at the top of the page."
@@ -198,13 +198,6 @@ Finally, let's return to the contrast at the beginning. The most viral ironic li
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -218,20 +211,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

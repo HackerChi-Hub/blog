@@ -4,9 +4,8 @@ slug: flux-3-klein-local-image-test-en
 status: published
 lang: en
 translation_of: flux-3-klein-local-image-test
-article_type: "article"
 translation_source: machine
-source_sha256: 6d35dcc5b9bf39fd
+source_sha256: 68d2089fddcdcb01
 date: 2026-11-21
 updated: 2026-11-22
 summary: "Mac 16GB unified memory with LocalBrain offline running 14 problems (with all copyable prompts): heteropupil reflection, large Chinese magazine font, and 0-1000 coordinate box placement are very stable; Second, scene change blur, three-image face crossover, and koi 3-to-4 boundary spread out all at once."
@@ -20,6 +19,7 @@ tags:
 cover: "/obsidian-assets/flux-3-klein-local-image-test/cover-dc9af45cbc.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation
@@ -192,7 +192,7 @@ Exquisite editorial portrait on the wooden veranda of a Kyoto lakeside pavilion 
 | 0-1000 Coordinate Box and Multigraph (4a-1 / 4b-2) | Single image about 3–4 minutes; Three images 726.92 seconds | Press [top, left, bottom, right] to specify the positions of dual and four-person pets to place them in the frame precisely | Multiple maps take twice as long, and using extra characters in reference maps makes it easy to mix outfits and hair; Crop to a single main character first, then feed in |
 | Single image 8D limit stacking (6C tea room water mirror) | 109.53 seconds (1248×832) | Intricate embroidery, ripples on the water, and the English lanterns all appear together for a natural visual effect | Three koi are drawn into four, with stripes across curved surfaces misaligned; Strict counting of whole pieces requires manual inventory |
 
-　　If you happen to have a Mac with **16 GB** or more unified memory or a Windows computer with **8 GB** dedicated graphics, you can directly visit [to view the LocalBrain feature introduction page](https://hyphentech.top/localbrain) or [Download and update: LocalBrain (GitHub release page)](https://github.com/HackerChi-Hub/localbrain-releases/releases) Free test run of this approximately **6.8 GB** FLUX 3 Image Klein (this time's synchronized test video is done by [Check HyphenScreen feature introduction page](https://hyphentech.top/hyphenscreen-local-screen-recorder) Record clips; installation package is available in [Download and update: HyphenScreen (GitHub release page)](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)). **Everyday use of it to produce high-quality base images at zero cost without internet disconnection, combined with `[上, 左, 下, 右]` thousand-point coordinate boxes to position key elements correctly, then hand over the fine text and text to post-processing software for processing—this is currently the smartest and most cost-effective way to open local lightweight raw image models. **
+　　If you happen to have a Mac with **16 GB** or more unified memory or a Windows computer with **8 GB** dedicated graphics, you can directly visit [to view the LocalBrain feature introduction page](https://hyphentech.top/localbrain) or [Download and update: LocalBrain (GitHub release page)](https://github.com/HackerChi-Hub/localbrain-releases/releases) Free test run of this approximately **6.8 GB** FLUX 3 Image Klein (this time's synchronized test video is recorded and edited with HyphenScreen). **Everyday use of it to produce high-quality base images at zero cost without internet disconnection, combined with `[上, 左, 下, 右]` thousand-point coordinate boxes to position key elements correctly, then hand over the fine text and text to post-processing software for processing—this is currently the smartest and most cost-effective way to open local lightweight raw image models. **
 
 ## Main sources of verification
 
@@ -213,13 +213,6 @@ Exquisite editorial portrait on the wooden veranda of a Kyoto lakeside pavilion 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -233,20 +226,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

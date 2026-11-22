@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: ai-animation-pipeline-cartoon-real-cost
 translation_source: machine
-source_sha256: 2fb61ffc6bc9fd90
+source_sha256: 33ed81d76945bf4a
 date: 2026-08-21
 updated: 2026-11-13
 summary: "From character assets and storyboard binding to generation, dubbing, and editing, recalculate the cash and time costs of a 4-minute cartoon; It also provides local open-source, free cloud quotas and hybrid routes, including tools, usage, effects, and boundaries."
@@ -292,13 +292,6 @@ This is the true meaning of "one person making an episode of cartoons."
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -312,20 +305,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

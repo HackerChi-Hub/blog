@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: movie-model-benchmark
 translation_source: machine
-source_sha256: ce1d7078c260c00d
+source_sha256: ffcd5e5b9c07ebd3
 date: 2026-05-31
 updated: 2026-11-13
 summary: "I assigned the same set of film data analysis tasks to Codex, Claude, DeepSeek, GLM, and MiniMax, breaking down the real data collection experience in Excel, Word, and PPT item by item. Conclusion: Codex narrowly outperformed Claude, but DeepSeek, since it did not participate in data search tests, cannot be considered a complete end-to-end sample."
@@ -218,13 +218,6 @@ If you ask me how I actually use it: I have **Codex first do data cleaning and E
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -238,20 +231,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

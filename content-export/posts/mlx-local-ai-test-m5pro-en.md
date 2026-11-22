@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: mlx-local-ai-test-m5pro
 translation_source: machine
-source_sha256: 299102888141e7e0
+source_sha256: e9218b0c8406403c
 date: 2026-05-21
 updated: 2026-11-13
 summary: "MacBook Pro M5 Pro+ 64GB runs 6 AI models locally in real-world tests. Multi-turn conversations + tool calls: file verification completed in as fast as 1.9 seconds, and 125 seconds as fastest—a 66x difference. Pitfalls + fixes fully revealed."
@@ -382,13 +382,6 @@ Test time: 2026-05-21 | Total time: 14 minutes 52 seconds | Data file :mlx-test-
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -402,20 +395,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

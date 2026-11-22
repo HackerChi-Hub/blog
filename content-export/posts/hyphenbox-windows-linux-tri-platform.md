@@ -188,33 +188,12 @@ Windows 侧的凭据存储我这次实地验过：保存两把 Key 之后，凭�
 
 回到开头那个「数字不动」的问题：它现在会动了。但更值得说的是，这个 bug 只有把软件装到一台真机上、拿真实的 Key 点一次按钮才会暴露——在我自己的开发机上，路由表里只有两三条，永远撞不到限流。
 
----
-
-## 黑粉科技自制软件
-
-| 产品 | 一句话 | 状态 |
-| --- | --- | --- |
-| **黑粉盒子 HyphenBox** | 免费大模型 API 雷达 + 本地统一路由 | 正式迭代（1.0.0 起） |
-| **LocalBrain** | 把电脑变成私有 AI 盒子：转写／配音／生图／视频／MCP 一站管理 | 正式迭代 |
-| **ScreenLex 光影词库** | 本地电影字幕变可复习英语词库，全程离线 | 正式迭代 |
-
-- 黑粉盒子 HyphenBox：[下载与更新：黑粉盒子 HyphenBox（发行页）](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-- LocalBrain：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-- ScreenLex 光影词库：[下载与更新：光影词库 ScreenLex（发行页）](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
-
 
 ---
 
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
@@ -229,20 +208,6 @@ Windows 侧的凭据存储我这次实地验过：保存两把 Key 之后，凭�
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

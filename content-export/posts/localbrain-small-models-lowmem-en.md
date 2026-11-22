@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-small-models-lowmem
 translation_source: machine
-source_sha256: 6baf30635fbdf6e1
+source_sha256: 664db2d148d86e28
 date: 2026-09-13
 updated: 2026-11-13
 summary: "Bringing 11 low-memory local models released this year to the local machine, using LocalBrain's built-in llama.cpp unified memory, speed, and tool calls: 6 under 8K context are within the default limit of 8GB devices. Qwen3.5-9B takes up 3GB less than last year's Qwen3-8B, and 27B of 1-bit can run but only has manufacturer numbers. This batch of models has also been added to LocalBrain's discovery page."
@@ -345,13 +345,6 @@ Judgment: The answer should include four numbers: 1810, 1154, 112, and 58. Qwen3
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -365,20 +358,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

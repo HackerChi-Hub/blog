@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: ai-gaokao-2026-glm51
 translation_source: machine
-source_sha256: c57d0c605714b7c3
+source_sha256: bfa8249e6fe4c9e0
 date: 2026-06-09
 updated: 2026-11-13
 summary: "The 2026 college entrance exam just ended, with 13 AI large models competing in math papers simultaneously. GLM-5.1 personally tested Chinese composition, math, and English, with honest score reports. AI can score 130 but never gets \"sincere emotions.\" Exploring the contradiction between AI progress and human knowledge."
@@ -262,13 +262,6 @@ The exam questions are quoted from the 2026 real exam text, and copyright belong
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -282,20 +275,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

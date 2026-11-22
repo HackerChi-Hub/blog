@@ -124,31 +124,12 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 > [!summary] 8 GB 显存的 Windows 笔记本，本地文本模型加本地工具这条线已经能用了
 > 两款 8 GB 档模型分别跑到 73.9 和约 60.8 token/s，窗口 32K 到 55K，联网、文件、文档三类工具在修完那三处之后都通了。多媒体那一半短期内不会来 Windows，Linux 没有时间表，自动更新要等私钥挪过来。我的判断只覆盖 8 GB 这一档——更大显卡上的窗口和卸载路径是同一套推导，但没有实机数据，用 12、16、24 GB 显卡的人试完请把结果发给我。
 
-## 黑粉科技自制软件
-
-| 产品 | 一句话 | 状态 |
-| --- | --- | --- |
-| **黑粉盒子 HyphenBox** | 免费大模型 API 雷达 + 本地统一路由 | 正式迭代（1.0.0 起） |
-| **LocalBrain** | 把电脑变成私有 AI 盒子：转写／配音／生图／视频／MCP 一站管理 | 正式迭代 |
-| **ScreenLex 光影词库** | 本地电影字幕变可复习英语词库，全程离线 | 正式迭代 |
-
-- 黑粉盒子 HyphenBox：[下载与更新：黑粉盒子 HyphenBox（发行页）](<https://github.com/HackerChi-Hub/hyphenbox-release/releases>)
-- LocalBrain：[下载与更新：LocalBrain（发行页）](<https://github.com/HackerChi-Hub/localbrain-releases/releases>)
-- ScreenLex 光影词库：[下载与更新：光影词库 ScreenLex（发行页）](<https://github.com/HackerChi-Hub/screenlex-download/releases>)
-
 
 ---
 
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
@@ -163,20 +144,6 @@ Linux 没有包，原因和黑粉盒子不一样。黑粉盒子本质是个路�
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

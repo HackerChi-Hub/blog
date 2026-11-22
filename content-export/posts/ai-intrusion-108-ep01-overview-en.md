@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: ai-intrusion-108-ep01-overview
 translation_source: machine
-source_sha256: 0446d9631da22ad0
+source_sha256: f43315f88b4a752b
 date: 2026-11-17
 updated: 2026-11-18
 summary: "When the firewall is completely green, employees don't click any phishing links, and programming assistants only glance at public warehouse work orders, why are the core private vault configurations proactively sent to the external network seconds later? As the opening of the \"Dismantling AI Intrusions\" series, this article compresses 108 recently exposed large model and agent attack methods into an L1–L8 eight-layer attack and defense parent stack, and provides three deterministic hard defenses not managed by large models."
@@ -125,13 +125,6 @@ In our self-developed local multimodal toolbox **LocalBrain** and native **AISec
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -145,20 +138,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

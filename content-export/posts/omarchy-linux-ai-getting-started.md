@@ -206,29 +206,12 @@ omarchy-snapshot create
 
 为了让读者自己复现，我把流程压成一条最小验收链：先从官方 ISO 页核对 SHA-256，再完成一次快捷键窗口切换；安装 Ollama 后运行 qwen3:0.6b，执行 ollama list 和 ollama ps；最后创建一个快照，确认能在 Limine 里找到它。每一步都有一个可见结果，任何一步失败都停下来修，不要继续往真实项目里迁移。
 
----
-
-### 黑粉科技的自制工具
-
-下面是黑粉科技维护的工具入口；它们不是 Omarchy 的预装软件，系统兼容性请以各自发行页为准。
-
-- [黑粉盒子 HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)：免费模型 API 雷达与本地统一路由。**正式迭代（1.0.0 起）**，Mac、Windows、Linux 安装包均已公开。
-- [方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)：本地 AI 工具箱，集中管理转写、配音、生图、视频和 MCP。
-- [ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)：把本地电影字幕整理成可复习的英语词库，离线使用。
-
 
 ---
 
 ## 🧰 我做的工具
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
-
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
 
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
@@ -243,20 +226,6 @@ omarchy-snapshot create
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-ltx25-video
 translation_source: machine
-source_sha256: ac40a071ae23cf0a
+source_sha256: 19c52265b8b229cd
 date: 2026-09-30
 updated: 2026-11-13
 summary: "LocalBrain 1.4.8 connects to the second local video engine, LTX-2.5: Write a quoted line, and the person in the screen will say it. On a 64GB M5 Pro, 1024×576 in 4 seconds takes about 2 minutes, peak at 25GB; the default running parameter is originally 54GB; 43.4GB weight is directly connected to ModelScope domestically, with one-click download from the discovery page."
@@ -174,13 +174,6 @@ If you have an Apple Silicon over 64 GB, want people in your video to speak acco
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -194,20 +187,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

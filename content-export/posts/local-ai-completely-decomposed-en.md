@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: local-ai-completely-decomposed
 translation_source: machine
-source_sha256: de03040508bf8b6f
+source_sha256: df25312c296e8ebf
 date: 2026-10-07
 updated: 2026-11-01
 summary: "The era of on-device AI has arrived. Local AI is not a cheap cloud solution; it is a new deployment model where \"data goes out without leaving the door.\" I used 11 LocalBrain models—from 1.5GB LFM2.5 to 80GB Qwen3.8-Flash-Next—breaking down definitions, mental models, hardware boundaries, quantization, families, multimodals, workflows, hybrid architectures, business significance, entry paths, common pitfalls, and all aspects."
@@ -643,13 +643,6 @@ The remaining judgment—whether LTX-2.5 matches your workflow, whether to add A
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -663,20 +656,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

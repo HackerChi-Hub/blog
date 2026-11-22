@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: rea-reverse-engineering
 translation_source: machine
-source_sha256: aa71968ef7158654
+source_sha256: 8643fe14c2237702
 date: 2026-10-16
 updated: 2026-11-01
 summary: "REA swept away 100,000 stars in a week: a single command made AI Agents dismantle any closed-source software. It didn't invent decompilation; what it tore down was the wall of the clean room—\"analysis\" has legal basis, \"reconstruction\" doesn't. Local analysis doesn't mean data can't go out."
@@ -136,13 +136,6 @@ But don't be swayed by the phrase "reverse everything." Tools lower the threshol
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -156,20 +149,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

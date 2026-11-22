@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-flash-next-five-tasks
 translation_source: machine
-source_sha256: bea443a50a7fd728
+source_sha256: a6e4074dff931f84
 date: 2026-09-11
 updated: 2026-11-13
 summary: "Qwen3.8-Flash-Next on a 64GB Mac ran five offline web challenges: 1 delivered, 3 executable, 1 abandoned. Every timeout, crash, and long context stall ultimately became a universal fix for LocalBrain."
@@ -356,13 +356,6 @@ Back to the initial question: Can a 4-bit local model independently complete a w
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -376,20 +369,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

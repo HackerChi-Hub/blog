@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-h3-multi-reference
 translation_source: machine
-source_sha256: 59df64674e29d6c0
+source_sha256: 7509f766de8723f7
 date: 2026-09-11
 updated: 2026-11-13
 summary: "LocalBrain 1.2.65 can run MiniMax H3's multi-reference plates (REF2VA) locally, with up to 9 images at once. On a 64 GB M5 Pro, I used 0, 1, 2, and 4 reference images to generate a 3-second video of 960×544 each with 0, memory, copied details, and reasons why Turbo wouldn't open."
@@ -198,13 +198,6 @@ The peak memory of 38.2 GB was calculated before generation based on this reques
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -218,20 +211,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

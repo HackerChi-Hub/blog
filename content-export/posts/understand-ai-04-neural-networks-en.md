@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: understand-ai-04-neural-networks
 translation_source: machine
-source_sha256: a18b47a135b717cc
+source_sha256: 0bac81daeff808ed
 date: 2026-10-05
 updated: 2026-11-01
 summary: "Give the machine four sets of numbers, don't tell it patterns, yet it can turn two knobs toward the answer. Now look at the curves in the neuron melting pot: loss decreases, interfaces work, real mastery—where exactly is the gap?"
@@ -214,13 +214,6 @@ Next article: The strawberry is still the same strawberry, with an extra space a
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -234,20 +227,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

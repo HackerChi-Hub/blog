@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: remotion-claude-code-prompt-to-video-guide
 translation_source: machine
-source_sha256: bcd8e433b8e419f0
+source_sha256: 7a903cd43dab1956
 date: 2026-03-24
 updated: 2026-11-13
 summary: "A hands-on guide to Remotion for developers. Fully covers all technical details, including environment setup, Agent Skills installation, prompt framework design, core API explanations (useCurrentFrame/interpolate/spring/Sequence), theme injection system, rendering and exporting. Comes with multiple prompt templates that can be applied directly."
@@ -616,13 +616,6 @@ This isn't about replacing Premiere or After Effects—it's about "opening a gia
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -636,20 +629,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

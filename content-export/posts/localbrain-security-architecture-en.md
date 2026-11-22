@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: localbrain-security-architecture
 translation_source: machine
-source_sha256: 526c5504ac38837b
+source_sha256: 8e3d7fa172d7fa64
 date: 2026-10-21
 updated: 2026-11-01
 summary: "Permission in the program, investigation in the model: the local large model independently completes authorization security checks in 10 minutes and 2 seconds, with 25 rounds and 32 tool calls uncovering real overreach vulnerabilities, then fixing and retesting the loop. How is it implemented, what role does the model have, and where the boundaries of destructive power lie? This article explains everything clearly."
@@ -143,13 +143,6 @@ Environment check: LocalBrain 2.0.7 / Mac / Qwen 3.8-27B 4-bit running locally. 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -163,20 +156,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

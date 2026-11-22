@@ -5,7 +5,7 @@ status: published
 lang: en
 translation_of: gemini-4-antigravity-auto-video-pipeline
 translation_source: machine
-source_sha256: 1b2b516599674253
+source_sha256: 12ad34461bb3cdf0
 date: 2026-11-18
 updated: 2026-11-19
 summary: "Connects Google Antigravity and Gemini 4 from \"inference prompt when watching videos\" to a complete closed loop of \"automatic model output, mute segments, original audio restore, 6-frame side-by-side frame extraction acceptance.\" Detailed explanation of the two hidden video output quotas included with Google AI members (Gemini API credits and Google Flow points) and external video CLI final frame continuation methods, including four directly copyable agent commands and actual Pro member billing records."
@@ -207,13 +207,6 @@ article_type: "article"
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -227,20 +220,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
