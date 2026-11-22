@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-20
-summary: "Mac 2.3.7 正式接入 FLUX 3 Image Klein（UD-Q4_K_XL 整包 6.30 GiB）生图与最多十张参考图编辑、0–1000 坐标框布局控制，源码同步完成 Windows 预编译 stable-diffusion.cpp 与图片编辑入口适配。"
+updated: 2026-11-22
+summary: "Mac 2.3.8 正式接入独立 oMLX 0.8.2 推理环境，支持 Inkling 2 Mini 与 OpenUncensored 去对齐版（各约 16.87 GB）本地对话、原生读图与工具调用；Windows 与 Linux 正式版保持 2.3.7。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.8：接入 Inkling 2 Mini 与去对齐版（独立 oMLX 推理）
+
+Mac 2.3.8 面向 Apple Silicon（macOS 15 及以上）新增独立受管推理环境 `inkling-omlx-env`（固定 `oMLX 0.8.2` + `mlx 0.32.4`，仅监听本机回环地址并限制为推理与健康检查接口，默认 16K 上下文、关闭 DSpark）。在「发现」页可搜索并一键下载固定版本的原版 [Inkling 2 Mini · MLX oQ4e-mtp](https://huggingface.co/mlx-community/Inkling-2-Mini-oQ4e-mtp) 或基于 OpenUncensored 的去对齐版 [Inkling 2 Mini Uncensored · MLX oQ4-mtp](https://huggingface.co/TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp)（各约 16.87 GB），也可通过「使用已有」登记外接磁盘上的本地目录。
+
+在「主页 → 大语言模型」启动后，对话中的图片会直接交给已启动的 Inkling 模型处理，统一支持纯文本对话、原生读图与工具调用。M5 Pro（64 GiB）独立 oMLX 实测：原版两轮中文短题解码中位数为 39.71 词元/秒（上一轮 GGUF 四位版为 32.65）；去对齐版完成对话（35.33 词元/秒）、原生读图与工具调用三项实测，占用统一内存约 16.48 GiB。暂未验证长上下文；Windows 与 Linux 正式下载版本为 2.3.7。
+
+安装包（`LocalBrain_2.3.8_aarch64.dmg`）为 80,255,421 字节（本地签名，未 Apple 公证），SHA-256：`098c91c9515973b434a0142decd4c265a54eacd633e83dd7fddfebd81ab51905`。
+
+[下载 Mac 2.3.8（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.8/LocalBrain_2.3.8_aarch64.dmg) · [下载与更新：方寸智匣发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.7（含 Windows 源码同步适配）：接入 FLUX 3 Image Klein 生图与多参考图编辑
 

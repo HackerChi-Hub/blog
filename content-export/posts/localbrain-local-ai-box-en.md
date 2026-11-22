@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-20
-summary: "Mac 2.3.7 adds FLUX 3 Image Klein (UD-Q4_K_XL, 6.30 GiB total) for 16-step distilled text-to-image, up to 10-reference editing and 0–1000 bounding-box layout control on prebuilt stable-diffusion.cpp, with full Windows source adaptation."
+updated: 2026-11-22
+summary: "Mac 2.3.8 adds an isolated oMLX 0.8.2 runtime for Inkling 2 Mini and its OpenUncensored abliterated MLX build (~16.87 GB each) with local chat, native vision and tool calls; Windows and Linux remain at 2.3.7."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.8: Inkling 2 Mini & Uncensored on isolated oMLX
+
+Mac 2.3.8 introduces an isolated managed runtime (`inkling-omlx-env`, pinned to `oMLX 0.8.2` + `mlx 0.32.4`) for Apple Silicon Macs on macOS 15 or later, bound strictly to loopback with inference and health-check routes only, 16K context and DSpark off by default. Discover now includes both the base [Inkling 2 Mini · MLX oQ4e-mtp](https://huggingface.co/mlx-community/Inkling-2-Mini-oQ4e-mtp) and the OpenUncensored-based [Inkling 2 Mini Uncensored · MLX oQ4-mtp](https://huggingface.co/TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp) (~16.87 GB each), or you can register an existing local directory via "Use existing".
+
+Once started under Home → Language Models, images attached in chat go straight to the running Inkling model alongside text chat and tool calls. Measured on a 64 GiB M5 Pro with standalone oMLX: the base build reached a median of 39.71 tokens/s on two sets of short Chinese prompts (vs. 32.65 tokens/s on 4-bit GGUF); the uncensored build passed text chat (35.33 tokens/s), native image reading and tool-call verification using about 16.48 GiB of unified memory. Long-context performance remains untested. Windows and Linux public releases remain at 2.3.7.
+
+The Mac installer (`LocalBrain_2.3.8_aarch64.dmg`) is 80,255,421 bytes (locally signed, not Apple-notarized), SHA-256: `098c91c9515973b434a0142decd4c265a54eacd633e83dd7fddfebd81ab51905`.
+
+[Download Mac 2.3.8 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.8/LocalBrain_2.3.8_aarch64.dmg) · [Downloads & Updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.7 (with Windows source adaptation): FLUX 3 Image Klein generation and multi-reference editing
 
