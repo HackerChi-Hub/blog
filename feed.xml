@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Nov 2026 00:09:55 GMT</lastBuildDate>
-    <pubDate>Sun, 22 Nov 2026 00:09:55 GMT</pubDate>
+    <lastBuildDate>Sun, 22 Nov 2026 04:18:58 GMT</lastBuildDate>
+    <pubDate>Sun, 22 Nov 2026 04:18:58 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -218,15 +218,14 @@
     <category>新锐模型</category>
     </item>
     <item>
-      <title>黑粉录屏动画库实播：从立体运镜到整片包装，144 个效果怎么看、怎么用？</title>
-      <link>https://hyphentech.top/hyphenscreen-motion-library-showcase/</link>
-      <guid isPermaLink="true">https://hyphentech.top/hyphenscreen-motion-library-showcase/</guid>
-      <description>完整长版按用途实播 144 个动画效果，正文穿插空间推进、数据聚形、成套包装和角色讲解。</description>
-      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <title>Qwen3.8-27B-DSpine-b16 能单独聊天，还是必须搭配目标模型？</title>
+      <link>https://hyphentech.top/2026-11-07-official-35ace897d9c3/</link>
+      <guid isPermaLink="true">https://hyphentech.top/2026-11-07-official-35ace897d9c3/</guid>
+      <description>腾讯这份草稿权重需要搭配目标模型使用。先看清依赖和推理入口，再决定是否值得部署。</description>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
-    <category>黑粉录屏</category>
-    <category>动画制作</category>
-    <category>自制软件</category>
+    <category>AI</category>
+    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
