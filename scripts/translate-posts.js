@@ -860,6 +860,10 @@ async function translatePost(post, { dryRun }) {
   const mapCategory = (c) => CATEGORY_MAP.get(c) || c;
   const mapTag = (t) => TAG_MAP.get(t) || TERMS.get(t) || tagTranslations.get(t) || t;
 
+  const localDate = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const postDate = readScalar(post.fmText, 'date');
+  const updatedDate = postDate && localDate < postDate ? postDate : localDate;
+
   const lines = [
     '---',
     `title: ${yamlString(restore(tidy(translatedTitle), titleProtector))}`,
@@ -870,8 +874,8 @@ async function translatePost(post, { dryRun }) {
     ...discoveryMetadata(post.fmText),
     'translation_source: machine',
     `source_sha256: ${sourceHashOf(post)}`,
-    `date: ${readScalar(post.fmText, 'date')}`,
-    `updated: ${new Date().toISOString().slice(0, 10)}`,
+    `date: ${postDate}`,
+    `updated: ${updatedDate}`,
     `summary: ${yamlString(restore(tidy(translatedSummary), summaryProtector))}`,
     ...yamlList('categories', categories.map(mapCategory)),
     ...yamlList('tags', tags.map(mapTag)),
