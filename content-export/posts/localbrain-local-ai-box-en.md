@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-22
-summary: "Mac 2.3.8 adds an isolated oMLX 0.8.2 runtime for Inkling 2 Mini and its OpenUncensored abliterated MLX build (~16.87 GB each) with local chat, native vision and tool calls; Windows and Linux remain at 2.3.7."
+summary: "Mac 2.3.9 scales Inkling 2 Mini context by unified memory (64K on 64GB, 128K on 96GB+), raises per-turn output budget to 30% across engines, enables default LLM auto-compaction without aborting replies, adds true Inkling thinking-off, unified external model deletion and clearer usage labels."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.9: Adaptive Context & Output Headroom, Default LLM Auto-Compaction, True Inkling Thinking-Off & Unified External Model Management
+
+Mac 2.3.9 addresses mid-reply truncation, compaction interruptions and external model cleanup: Inkling 2 Mini (`inkling-omlx`) now scales context and output limits dynamically with unified memory (24GB → 16K/8K, 32GB → 32K/12K, 48–64GB → 64K/24K, 96GB+ → 128K/32K), per-turn output budget across all engines increases from 20% to 30% of the active window (16K default on 64K windows; 12GB+ quantized checkpoints are no longer downgraded to 8K), and `mlx_lm.server` default max tokens rises to 16K. Both plain chat and tool-enabled chat now use LLM auto-compaction by default, smoothly falling back to window trimming instead of aborting the reply if a summary cannot be adopted.
+
+The isolated `oMLX` runtime also translates thinking-off requests into `reasoning_effort="none"` + `thinking_budget=0` (verified `reasoning_tokens = 0`). External library scanning skips `results / isolated-profile / logs / tmp / temp`, promotes generic leaf folders (`weights / model / checkpoint`) to their parent model name, shows an `oMLX · MLX` badge, and enables verified deletion directly from Home. The chat token panel is also reworded into clearer memory capacity and token details. Windows and Linux public releases remain at 2.3.7.
+
+The Mac installer (`LocalBrain_2.3.9_aarch64.dmg`) is 80,264,337 bytes (locally signed, not Apple-notarized), SHA-256: `f350a17acff699382b1d456dc8d4e01c87fc5f244427c0e1d21f164fc51b05e0`.
+
+[Download Mac 2.3.9 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.9/LocalBrain_2.3.9_aarch64.dmg) · [Downloads & Updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.8: Inkling 2 Mini & Uncensored on isolated oMLX
 

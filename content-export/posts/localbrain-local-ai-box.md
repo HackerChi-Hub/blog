@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-11-22
-summary: "Mac 2.3.8 正式接入独立 oMLX 0.8.2 推理环境，支持 Inkling 2 Mini 与 OpenUncensored 去对齐版（各约 16.87 GB）本地对话、原生读图与工具调用；Windows 与 Linux 正式版保持 2.3.7。"
+summary: "Mac 2.3.9 按本机内存动态扩充 Inkling 2 Mini 上下文（64GB 升至 64K / 96GB+ 128K）并提高全引擎单次输出至 30%，默认全场景启用大模型自动压缩且不中断回答，打通 Inkling 真关思考、外部模型去杂与主页统一删除，并将用量明细改版为直白中文。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.3.9：动态大上下文、默认大模型自动压缩、Inkling 真关思考与外部模型统一管理
+
+Mac 2.3.9 重点解决长对话与长输出场景下的截断、自动压缩中断与外部模型管理问题：一是按统一内存动态规划 Inkling 2 Mini（`inkling-omlx`）上下文窗口与输出上限（24GB → 16K/8K、32GB → 32K/12K、48–64GB → 64K/24K、96GB+ → 128K/32K），全引擎默认单次输出比例由窗口 20% 提升至 30%（64K 窗口默认给到 16K，12GB+ 量化大模型不再被误降档为 8K），`mlx_lm.server` 服务端默认输出上限升至 16K；二是普通对话与带工具对话默认均启用大模型自动压缩，若遇到异常摘要未采纳则自动平滑回退到窗口裁剪继续回答，不再直接中止本轮生成。
+
+三是独立 `oMLX` 推理服务拦截「关闭思考」请求并改写为 `reasoning_effort="none"` + `thinking_budget=0`（实测 `reasoning_tokens = 0`）；四是外部模型扫描自动跳过 `results / isolated-profile / logs / tmp / temp` 等非模型目录，对 `weights / model / checkpoint` 子目录自动还原父目录真实模型名、补齐 `oMLX · MLX` 徽章，并在主页为外部模型库统一开放经目录与模型身份校验的「删除」入口；五是将对话页 Token 用量面板改版为更直白的中文「记忆容量与字数明细」。Windows 与 Linux 正式版保持 2.3.7。
+
+安装包（`LocalBrain_2.3.9_aarch64.dmg`）为 80,264,337 字节（本地签名，未 Apple 公证），SHA-256：`f350a17acff699382b1d456dc8d4e01c87fc5f244427c0e1d21f164fc51b05e0`。
+
+[下载 Mac 2.3.9（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.3.9/LocalBrain_2.3.9_aarch64.dmg) · [下载与更新：方寸智匣发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.3.8：接入 Inkling 2 Mini 与去对齐版（独立 oMLX 推理）
 
