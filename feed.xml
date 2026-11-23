@@ -5,11 +5,24 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Nov 2026 23:26:28 GMT</lastBuildDate>
-    <pubDate>Sun, 22 Nov 2026 23:26:28 GMT</pubDate>
+    <lastBuildDate>Mon, 23 Nov 2026 01:42:00 GMT</lastBuildDate>
+    <pubDate>Mon, 23 Nov 2026 01:42:00 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>大模型越狱怎么从“骗话术”进化到“脑科手术”？拆解 Heretic 流形消融与四大真实用途</title>
+      <link>https://hyphentech.top/llm-jailbreak-principles-and-real-uses/</link>
+      <guid isPermaLink="true">https://hyphentech.top/llm-jailbreak-principles-and-real-uses/</guid>
+      <description>Hugging Face 排名前五的去对齐模型单月下载量突破 1800 万次，安全对齐究竟是擦除了危险知识，还是只在半路装了一根刹车向量？本文按四代越狱技术演进拆透底层原理与 Heretic 2.2 ARA 流形手术，并还原这上千万次下载背后的四大工程刚需与内外防线分工。</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>大模型安全</category>
+    <category>AI入侵108种方式</category>
+    <category>模型越狱</category>
+    <category>Heretic</category>
+    <category>本地部署</category>
+    </item>
     <item>
       <title>腾讯WeMM-Video-9B能同时看画面、听原声，接入前要准备什么？</title>
       <link>https://hyphentech.top/2026-11-22-official-f70f1895e086/</link>
@@ -213,16 +226,6 @@
       <guid isPermaLink="true">https://hyphentech.top/2026-11-10-official-42548016dd24/</guid>
       <description>MiniMax-H3-Image能在本地完成生图和改图吗？</description>
       <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>Qwen3.8-27B-DSpine-b16 能单独聊天，还是必须搭配目标模型？</title>
-      <link>https://hyphentech.top/2026-11-07-official-35ace897d9c3/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-07-official-35ace897d9c3/</guid>
-      <description>腾讯这份草稿权重需要搭配目标模型使用。先看清依赖和推理入口，再决定是否值得部署。</description>
-      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
