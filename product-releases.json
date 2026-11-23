@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-23T16:00:44.862Z",
-  "contentHash": "9b241ff87d7e2ea5321341a1cc03a694e227921b4210a51fdf4f1a240fae8ae6",
+  "checkedAt": "2026-11-23T23:53:39.658Z",
+  "contentHash": "3208dbaa2ee3bf61db1415f7c6ae2cc012d37044a688e0ab9b8d902266776a1f",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T16:00:44.862Z",
+      "checkedAt": "2026-11-23T23:53:39.658Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,11 +116,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "Windows/Linux 2.4.7 已完成本地安装验收，首页模型统一展示，移除 PolyStrata 独立说明卡片，安装和接入收进「添加模型」。Windows GGUF Q2、CUDA 引擎与工具往返通过；Linux Debian/AppImage 在 WSL2 Ubuntu22.04 安装启动、宿主检查通过。Strata Win…",
+      "updateSummary": "彻底解决新上架模型下载完毕仍显示未完成、默认落到未安装量化档位、跨档虚报断点缓存与外部目录无法移除的问题：统一受管扁平目录、量化子目录（如 Q2KXL/ + 根部共享 dspark/mmproj）与外部模型库完整度识别，重开发现页自动聚焦已安装量化档位，按所选档位主权重隔离断点缓存统计，并打通 managed / library /…",
       "updated": "2026-11-23",
-      "activityAt": "2026-11-23T15:54:24Z",
-      "version": "2.4.7-win-linux",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7-win-linux",
+      "activityAt": "2026-11-23T23:41:14Z",
+      "version": "2.4.8-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -141,49 +141,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.4.7-win-linux",
+          "version": "2.4.8-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.7_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_x64-setup.exe",
-              "id": 783543414,
-              "size": 43813937,
-              "updatedAt": "2026-11-23T15:51:39Z",
-              "digest": "sha256:25d872f50465f72148786466653884c6ed0a4e225ef6df57e4ac7089ccc5a6f0"
+              "name": "LocalBrain_2.4.8_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_x64-setup.exe",
+              "id": 784968843,
+              "size": 43823738,
+              "updatedAt": "2026-11-23T23:40:31Z",
+              "digest": "sha256:7c8c5af46d9132a23dd56533c9974d1ad10961122ae2cc48166034122cd6213e"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.4.7-win-linux",
+          "version": "2.4.8-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.7_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.AppImage",
-              "id": 783543387,
-              "size": 195426808,
-              "updatedAt": "2026-11-23T15:52:19Z",
-              "digest": "sha256:348bc9085796b928adca165ddb9de5a6c4336f68fc50bdd2d0c0af0177836132"
+              "name": "LocalBrain_2.4.8_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.AppImage",
+              "id": 784968830,
+              "size": 195439096,
+              "updatedAt": "2026-11-23T23:41:12Z",
+              "digest": "sha256:132ee00849cc356968c7c7b96bfd106c2f2b75314a12fb3e04ff3d08fbdec259"
             },
             {
-              "name": "LocalBrain_2.4.7_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.deb",
-              "id": 783543416,
-              "size": 122168610,
-              "updatedAt": "2026-11-23T15:52:07Z",
-              "digest": "sha256:d819f1c9ed2c5d81edecc0bcc5f8af900735dd563f9a3d046955a876fe4b50d2"
+              "name": "LocalBrain_2.4.8_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.deb",
+              "id": 784968835,
+              "size": 122165430,
+              "updatedAt": "2026-11-23T23:40:59Z",
+              "digest": "sha256:a786efb899f275008a910863d76332544344de3f46f583aa831cfbc55dcaaba0"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-23T16:00:44.862Z",
+      "checkedAt": "2026-11-23T23:53:39.658Z",
       "prerelease": false,
-      "releaseNotesHash": "2f3fa4df9f6b69fb9b0fa5488b81491505bb40280fd5622ddab7b29774beed51",
-      "revision": "34295548de5b2a992bd19dce3360dd0f6cffad7f1aca87da4a4bfdda8ce3443e"
+      "releaseNotesHash": "cc4e1f31b7d073c35a7b2142aba24b66eade07377362d6308097262f38b48bf6",
+      "revision": "4c0933fc3a9c216c72dd902e1e5e12d3dcc968030e3db05d7a4e040c2223449f"
     }
   ]
 }
