@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-23
-summary: "Mac 2.4.7 and Windows/Linux 2.4.3: Mac adds the managed Strata v0.2.20 (`0.1.66`) engine, adds Inkling 2 Mini Strata (`SQ-10/15/20` with Vision) to Discover while fixing `inkling-omlx` shadowing local `.strata` folders, and ships native DeepSeek Harness multi-subagent parallelism (`Locals` 100.84 tok/s & `Strata` 76.26 tok/s at 4x concurrency)."
+updated: 2026-11-24
+summary: "Windows/Linux 2.4.8 and Mac 2.4.7: 2.4.8 resolves newly added models still showing incomplete after download, landing on uninstalled quant tiers, leaking sibling cache byte counts, and failing to remove external folders (Windows/Linux locally validated; shared Mac source fixed while Mac installers remain at 2.4.7); Mac 2.4.7 ships Strata v0.2.20, Inkling 2 Mini Strata (`SQ-10/15/20` + Vision) and native multi-subagent parallelism."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.4.8: Fix Model Completion Status, Installed Quant Auto-Focus, Cache Isolation & External Folder Removal
+
+Version 2.4.8 systematically addresses the recurring issue where newly added catalog models still appeared incomplete after finishing download or could not be managed/removed from external folders:
+
+- **Unified completion matching across flat folders, nested quant subdirectories & external libraries**: Combines nested quant weights (such as `Q2_K_XL/`) with shared repository-root components (`dspark`, `mmproj`, `Vision.strata`), stops failing external or pre-converted folders over optional `SHA256SUMS.txt` or raw pre-conversion filenames, auto-focuses already-installed quant tiers when reopening Discover, and isolates resumable cache byte counts by primary weight so uninstalled sibling tiers no longer report `11.2 GB cached`.
+- **End-to-end management & honest removal prompts across all origins**: Fixes empty `recordPath` lookups on external library models (`origin === "library"`), distinguishes confirmation copy across `managed`, `library` (deletes model files on disk) and `reference` (unmounts reference without deleting source files), unifies target resolution across Home, Discover cards, Installed and Cache views, tightens managed `strata`/`sushi`/`splash` `.part`/`.partial` checks and non-macOS GGUF+DSpark engine routing, and adds catalog-wide cross-layout regression tests across all `CURATED_MODELS`.
+- **Local installation validation & platform boundaries**: Windows x64 (`LocalBrain_2.4.8_x64-setup.exe`, SHA-256 `7c8c5af46d9132a23dd56533c9974d1ad10961122ae2cc48166034122cd6213e`) passed installation (`13,994` files matched), CUDA runtime verification, native GGUF Q2 tool round trips, and isolated UI checks against local `unsloth--Inkling-2-Mini-GGUF` (`Q2_K_XL`) and `strata-engine--Inkling-2-Mini-Strata` (`SQ-10`) directories plus disposable external library deletion; Linux amd64 (Debian SHA-256 `a786efb899f275008a910863d76332544344de3f46f583aa831cfbc55dcaaba0`, AppImage SHA-256 `132ee00849cc356968c7c7b96bfd106c2f2b75314a12fb3e04ff3d08fbdec259`) passed installation, startup and ext4 native DSH host checks on WSL2 Ubuntu 22.04 (not a bare-metal GPU or Linux model-inference validation; Strata inference on Windows/Linux remains untested). Shared Mac model-management code is fixed in source, while published Mac installers and `latest-darwin-aarch64.json` remain preserved at `2.4.7` pending native macOS build and validation.
+
+[Windows x64 (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_x64-setup.exe) · [Debian amd64 (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.deb) · [AppImage (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/SHA256SUMS-2.4.8-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.8-WIN-LINUX.md)
 
 ## Windows / Linux 2.4.7
 

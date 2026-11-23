@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-23
-summary: "Mac 2.4.7 與 Windows / Linux 2.4.3：Mac 新增 Strata v0.2.20（0.1.66）極速引擎、發現頁上線 Inkling 2 Mini Strata（SQ-10/15/20 含視覺）並修復本機 `.strata` 目錄被 oMLX 搶占隱藏的衝突，同步上線 DeepSeek Harness 原生多子代理並行排程（Locals 4 並行 100.84 tok/s、Strata 4 並行 76.26 tok/s）。"
+updated: 2026-11-24
+summary: "Windows / Linux 2.4.8 與 Mac 2.4.7：2.4.8 徹底解決新上架模型下載完畢仍顯示未完成、重開發現頁錯落到未安裝量化檔位、跨檔位虛報快取位元組與外部目錄無法移除的問題（Windows/Linux 已本機實裝驗收，Mac 共用原始碼已修復、安裝包保留 2.4.7）；Mac 2.4.7 提供 Strata v0.2.20 極速引擎、Inkling 2 Mini Strata（SQ-10/15/20 含視覺）與原生多子代理並行排程。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.4.8：徹底解決新模型下載完成狀態、量化檔位聚焦、快取隔離與外部目錄移除問題
+
+針對近期新加入模型容易重現的「下載完畢仍顯示未完成 / 虛報已快取位元組」與外部目錄無法正常管理移除問題，2.4.8 從前後端模型登記與目錄比對層進行了系統性修復：
+
+- **統一扁平目錄、量化子目錄與外部模型庫的完成狀態與預設選檔**：支援量化子目錄（如 `Q2_K_XL/`）與儲存庫根部共享輔助元件（`dspark`、`mmproj`、`Vision.strata`）組合辨識，排除對外部目錄選用 `SHA256SUMS.txt` 或預轉換建置原始檔名的誤判；多檔位模型卡片重新開啟時自動聚焦至本機已安裝的量化檔位，斷點快取嚴格依所選檔位主權重隔離計數，切換至未下載檔位不再誤報 `已快取 11.2 GB · 可繼續下載`。
+- **打通三類模型來源的管理移除入口與誠實提示**：修復外部模型庫（`origin === "library"`，`recordPath` 為空）點擊「管理 / 移除」無法定位真實路徑的問題，依受管目錄（`managed`）、外部模型庫（`library`）與單次引用目錄（`reference`）準確區分確認文案（「刪除目錄中的模型檔案」vs「僅移除引用、保留原始檔案」），並在首頁、發現頁卡片、已安裝與快取管理視圖共用同一筆目標紀錄；同時收緊受管 `strata`/`sushi`/`splash` 未完成 `.part`/`.partial` 過濾與非 macOS GGUF+DSpark 引擎分流，新增涵蓋全量 `CURATED_MODELS` 的跨配置自動化回歸測試。
+- **本機實裝驗收與平台邊界**：Windows x64 安裝包（`LocalBrain_2.4.8_x64-setup.exe`，SHA-256 `7c8c5af46d9132a23dd56533c9974d1ad10961122ae2cc48166034122cd6213e`）完成覆蓋安裝（13,994 項檔案一致）、CUDA 執行環境校驗、GGUF Q2 工具往返推論，以及基於本機 `unsloth--Inkling-2-Mini-GGUF`（`Q2_K_XL` 子目錄）與 `strata-engine--Inkling-2-Mini-Strata`（`SQ-10`）真實目錄及可拋棄外部庫模型的自動選檔、`已安裝` 顯示、跨檔快取隔離與移除實測；Linux amd64（Debian SHA-256 `a786efb899f275008a910863d76332544344de3f46f583aa831cfbc55dcaaba0`、AppImage SHA-256 `132ee00849cc356968c7c7b96bfd106c2f2b75314a12fb3e04ff3d08fbdec259`）於 WSL2 Ubuntu 22.04 完成安裝啟動與 ext4 包內 DSH 宿主校驗（不代表裸機 GPU 或 Linux 模型推論驗收；Strata 在 Windows/Linux 上的推論尚未實測）。Mac 共用模型管理原始碼已同步修復，線上 Mac 安裝包與更新清單保留 `2.4.7`，待 macOS 本機建置與實機驗收後單獨更新。
+
+[Windows x64 (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_x64-setup.exe) · [Debian amd64 (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.deb) · [AppImage (2.4.8)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/SHA256SUMS-2.4.8-WIN-LINUX.txt) · [驗收紀錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.8-WIN-LINUX.md)
 
 ## Windows / Linux 2.4.7
 
