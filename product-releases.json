@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-23T15:15:06.262Z",
+  "checkedAt": "2026-11-23T15:46:39.964Z",
   "contentHash": "a6061c9d32f8043b853fe3393e9ee7b2d146ec865831bdcf174336a30405d315",
   "products": [
     {
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T15:15:06.262Z",
+      "checkedAt": "2026-11-23T15:46:39.964Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -180,7 +180,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T15:15:06.262Z",
+      "checkedAt": "2026-11-23T15:46:39.964Z",
       "prerelease": false,
       "releaseNotesHash": "5619cf892f4b59b7d8e83805ac045d5ba5fa4a45df101512b19759498d7361eb",
       "revision": "e0fbbc6beabd25e019c7204ecc174e6ff657a6c0f78a7da0cc66ba4bd35a59ca"
