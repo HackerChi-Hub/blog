@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 23 Nov 2026 01:42:00 GMT</lastBuildDate>
-    <pubDate>Mon, 23 Nov 2026 01:42:00 GMT</pubDate>
+    <lastBuildDate>Mon, 23 Nov 2026 07:42:12 GMT</lastBuildDate>
+    <pubDate>Mon, 23 Nov 2026 07:42:12 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -22,6 +22,16 @@
     <category>模型越狱</category>
     <category>Heretic</category>
     <category>本地部署</category>
+    </item>
+    <item>
+      <title>Inkling 2 Mini 换上 Locals 引擎：M5 Pro 十维实测反超 Qwen3.8，唯独这一项直接撞墙</title>
+      <link>https://hyphentech.top/inkling-vs-qwen38-locals-m5-pro/</link>
+      <guid isPermaLink="true">https://hyphentech.top/inkling-vs-qwen38-locals-m5-pro/</guid>
+      <description>同台 M5 Pro 64GB 对决，oMLX 版 Inkling 连错三次输给 Qwen3.8；换装 Locals 引擎后代码排错 0 失误反超、30K 缓存 0.92 秒首字，唯独重逻辑撞满思考上限。方寸智匣 2.4.4 已双轨集成。</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>热点速递</category>
     </item>
     <item>
       <title>腾讯WeMM-Video-9B能同时看画面、听原声，接入前要准备什么？</title>
@@ -215,16 +225,6 @@
       <link>https://hyphentech.top/2026-11-10-official-6f0d2e1f6cd9/</link>
       <guid isPermaLink="true">https://hyphentech.top/2026-11-10-official-6f0d2e1f6cd9/</guid>
       <description>MiniMax-H3-Image-PE 能直接画图吗？先分清描述扩写与图像生成</description>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
-    </item>
-    <item>
-      <title>MiniMax-H3-Image能在本地完成生图和改图吗？</title>
-      <link>https://hyphentech.top/2026-11-10-official-42548016dd24/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-10-official-42548016dd24/</guid>
-      <description>MiniMax-H3-Image能在本地完成生图和改图吗？</description>
       <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
