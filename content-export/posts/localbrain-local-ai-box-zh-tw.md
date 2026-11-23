@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Mac 2.4.5 與 Windows / Linux 2.4.3：Mac 修復 Locals 大工具集 DFA 狀態超限（適配 DeepSeek Harness 等 40+ 工具並發），徹底收斂唯一外部模型入口並修正軟連結體積；Mac 2.4.4 新增隔離版 Inkling Locals NVFP4 極速引擎，Windows/Linux 接入 Inkling GGUF 與 DSpark。"
+summary: "Mac 2.4.7 與 Windows / Linux 2.4.3：Mac 新增 Strata v0.2.20（0.1.66）極速引擎、發現頁上線 Inkling 2 Mini Strata（SQ-10/15/20 含視覺）並修復本機 `.strata` 目錄被 oMLX 搶占隱藏的衝突，同步上線 DeepSeek Harness 原生多子代理並行排程（Locals 4 並行 100.84 tok/s、Strata 4 並行 76.26 tok/s）。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.7：接入 Strata v0.2.20 多模態極速引擎、發現頁上線 Inkling 2 Mini Strata 與原生多子代理並行排程
+
+Mac 2.4.7（合併並完善 `2.4.6` 引擎與並行架構更新）帶來三項核心能力：
+
+- **新增 Strata v0.2.20（`0.1.66`）受管引擎與發現頁 `Inkling 2 Mini · Strata 原生量化（含視覺）`**：在「發現」頁提供 `strata-engine/Inkling-2-Mini-Strata`（`SQ-10` 11.1 GB / `SQ-15` 15.0 GB / `SQ-20` 20.0 GB，均自帶 `636 MB` `Inkling-2-Mini-Vision.strata` 與完整分詞器），首次啟動依需自動安裝 Strata Metal 執行環境（支援 `64K` 原生上下文、持久化前綴快取及 `tauri://localhost` / `http://tauri.localhost` 雙網域 `204` 預檢）。同時修復 `inkling_runtime` 因目錄內附帶同款 `config.json`（`model_type: "inkling2_loop"`）而誤搶並隱藏本機/受管 `.strata` 目錄的衝突，補齊 `.strata` 權重校驗與更新檢查。
+- **M5 Pro 64GB `Inkling-2-Mini-SQ-15` 實測數據**：冷載入 `< 3s`，4 並行短提示總吞吐 **`76.26 tok/s`**（單路 `22.30 tok/s`，**3.42x**）；`T9` 桌面截圖（`8` 項模型與引擎標籤全對）僅 **`7.339s`**（`45.93 tok/s` 解碼），`T8` 程式碼除錯 **`16.512s`**（`50.83 tok/s`），`T5` 邏輯陷阱 `4.804s`（Q1/Q2 精準答對，Q3 燈泡機理對但收尾字母有 1 處筆誤），`T10` `45K` 詞元冷預填 `56.133s`、暖快取二輪追問僅 **`1.039s`**（TTFT **`0.236s`**）。
+- **原生多子代理（Multi-Subagent）並行排程上線**：DeepSeek Harness 宿主（`subagents.mjs`）與對話工作台整合唯讀並行子代理拆分與彙整，充分釋放 `Locals` / `Strata` 連續批處理頻寬——`Locals NVFP4` 4 並行短提示從 `38.22 tok/s` 拉升至 **`100.84 tok/s`**（**2.64x**）；4 檔案原始碼稽核對照中，`Strata SQ-15` 由單代理 `357.1s` 縮短至 **`324.5s`**（`4/4` 全成，峰值 worker `61.91 tok/s`），`Locals` 三名並行子代理於 `151.7s–182.9s` 完成（受跨讀 `dshAgent.ts` 的單名拖尾 worker `274.8s` 牽制，總計 `351.5s`，單代理 `214.7s`）。
+
+安裝包（`LocalBrain_2.4.7_aarch64.dmg`）為 `80,316,165` 位元組（本機簽章，未經 Apple 公證），SHA-256：`8a3ca09ece28855c70c2fb216326a03207e39645060a48cf2b2f8533d32023ba`。
+
+[下載 Mac 2.4.7（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7/LocalBrain_2.4.7_aarch64.dmg) · [查看 v2.4.7 發行說明](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7)
 
 ## Mac 2.4.5：修復 Locals 大工具集 DFA 超限、收斂唯一模型入口與三版本 7+3 全項實測
 

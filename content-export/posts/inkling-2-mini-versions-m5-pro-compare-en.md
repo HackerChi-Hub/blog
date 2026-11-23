@@ -1,0 +1,160 @@
+---
+title: "I tested four engines for the same Inkling 2 Mini: Strata, Locals, oMLX, and Win GGUF"
+slug: inkling-2-mini-versions-m5-pro-compare-en
+status: published
+lang: en
+translation_of: inkling-2-mini-versions-m5-pro-compare
+article_type: "article"
+translation_source: machine
+source_sha256: c64be799d73661a1
+date: 2026-11-23
+updated: 2026-11-23
+summary: "On the same M5 Pro 64GB, horizontal tests were conducted with Strata SQ-15, Locals NVFP4, and oMLX 0.8.2, with Win 4070 8GB GGUF + DSpark for comparison: concurrent 100.84 tok/s, image reading 7.34 seconds, 45K warm header 0.24 seconds, also exposing T5 typos and multi-sub-agent cross-read trails to real cold water tables."
+categories:
+  - Tech
+tags:
+  - AI
+  - News
+cover: "/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/cover-b9659dcf3c.jpg"
+brand_slogan: 让AI成为你的超能力
+legacy_paths: []
+---
+
+> [!info] Machine translation
+> This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/inkling-2-mini-versions-m5-pro-compare/) is authoritative.
+
+> [!abstract]
+> From native oMLX image viewing, Locals NVFP4 4 concurrent 100.84 tok/s, Strata SQ-15 all-around multimodal mode, to Windows 8GB graphics card GGUF + DSpark: it covers the true speeds of the Inkling 2 Mini suite, the 4-sub-agent barrel effect, and all the pitfalls each cannot fall into at once
+> HyphenTech · 2026-11-23
+
+　　The most frequently asked question in the backend and comment sections these past two days is: it's clearly the same model, **Inkling-2-Mini**, so why does LocalBrain have `oMLX` version one moment and `Locals NVFP4` the next, and today the packaged **Mac v2.4.7** is also connected to `Strata v0.2.20`(`SQ-10 / SQ-15 / SQ-20`), while Windows and Linux still have `Unsloth GGUF + DSpark` on the Windows and Linux sides—which of these four versions is faster, more accurate, and who can really read the images? How many times difference can concurrent code actually be?
+
+　　To avoid guessing size based on the spec table, today I directly tested the three Mac-side engines in the same room on the same **Apple M5 Pro 64GB unified memory Mac**, and also used the newly tested **Windows RTX 4070 Laptop 8GB / 32GB RAM** GGUF + DSpark data column for reference separately, while also using **Qwen3.8-27B (Splash + DFlash2)** as an all-around benchmark.
+
+　　The biggest impression after testing is that the small-parameter loop MoE model has entered the stage where "switching to a new run is like changing a chip**." It can extend 4 concurrent throughput to **100.84 tok/s** and accurately read images in 7.3 seconds, but in real 4-agent collaboration, a teammate flipping across files can slow down the entire team by **63.7%**. Next, let's break down the real test slices one by one with real money.
+
+## First, let's lay out the four versions of the Inkling 2 Mini: the same 26.4B base, but four completely different mounting methods
+
+　　Thinking Machines' Inkling-2-Mini (`inkling2_loop` architecture) has total parameters of about **26.4B**, with each forward activation about **3.4B**. Physically, it retains only 24 layers but loops the middle 12 layers in place three times, thus rolling out an equivalent inference depth of 48 layers within a smaller memory volume. But in different engines, its weighting format, visual module trade-offs, and batch scheduling are completely different things.
+
+![Overview of all versions of Inkling 2 Mini and Qwen 3.8-27B reference anchor selection](https://hyphentech.top/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/image-img04-6e5f25e3ed.png)
+
+- **Inkling 2 Mini · oMLX 0.8.2 (`oQ4-mtp`, about 16.87 GB)**: Starting at Macs with 32GB or more (64GB opens a 96K window), retains the original `inkling2_vision` visual and persistent prefix cache, but by default turns off drafts and does not have GPU tool syntax locks.
+- **Inkling 2 Mini · Locals NVFP4 (about 16.2 GB + 0.64 GB draft)**: locks `Generated-Computers/Locals` to align direction LoRA with AtomicChat. To achieve ultimate pure text and tool call speed, it completely strips away the visual module**, using 6 fusion Metal cores, a 0.64 GB draft model, and a `llguidance` Typed-Tools syntax lock, allowing a **24GB Mac** to smoothly run continuous batch processing.
+- **Inkling 2 Mini · Strata SQ-15 (14.3 GB + 607 MB `Vision.strata`)**: The main character of the discovery page officially launched tonight on **LocalBrain v2.4.7** (repo includes three tiers: `SQ-10` 11.1 GB / `SQ-15` 15.0 GB / `SQ-20` 20.0 GB, spanning Mac Metal and Windows/Linux CUDA). Comes with native visual components, DSpark speculative drafts, `64K` context prefix cache, and multi-slot parallelism.
+- **Inkling 2 Mini · Win/Linux Unsloth GGUF (`Q2_K_XL` about 10.18 GB and three other tiers)**: v2.4.3 is a cross-platform package for discrete graphics and medium-memory PCs, binding `dspark-Inkling-2-Mini-Q8_0.gguf` (3 draft tokens) and `mmproj` visual projection, allowing Vulkan to be switched below CUDA 12.8 threshold; Currently, I consistently use `f16` KV.
+
+　　I also had to note a real engineering episode I pulled out during tonight's packaging: the local download was complete `Inkling-2-Mini-SQ-15`, and for a while, it couldn't be found in the interface. Upon checking the source code, I found that the Strata directory included a `config.json` (declaration `"model_type": "inkling2_loop"`). The original `inkling_runtime.rs` recognized this field and snatched the entire directory as an oMLX model, then silently eliminated it because `model.safetensors.index.json` was missing.
+
+　　In the newly released **v2.4.7**, I have already moved the priority of `strata` to the front, and I also added the `strata-engine/Inkling-2-Mini-Strata` level three quantization to the discovery page.
+
+## 2. Single-channel decoding vs. 4 concurrent throughput: Locals surged to 100.84 tok/s, Strata concurrency amplified by 3.42 times
+
+　　The most common mistake in the local model community is focusing only on the speed of single generation. Slow output per channel is often not due to full computing power, but because unified memory bandwidth is wasted by single request serial scheduling—especially in the era of multiple sub-agents, where throughput is truly determined by whether the engine can serve multiple concurrent slots simultaneously.
+
+![Mac M5 Pro 64GB 1 concurrent vs 4 concurrent throughput tests, and Windows 4070 8GB GGUF+DSpark standalone comparison](https://hyphentech.top/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/image-img01-1a298ad8fc.png)
+
+　　Let's first look at a short prompt throughput test on the same **M5 Pro 64GB**:
+
+- **Locals NVFP4 (plain text port 11534)**: Single short prompt tested **38.22 tok/s** (pure decoding phase `40.37 tok/s`, TTFT `0.713s`); Four channels concurrently run at once, each channel steady at `25.21–25.23 tok/s`, and the total throughput of all four channels is directly pulled to **100.84 tok/s** (**2.64x** concurrent amplification, all first characters are stable at `0.798–0.830s`).
+- **Strata SQ-15 (Multimodal `--parallel 4 --context 65536`)**: Ready in under 3 seconds for cold loading; Short single-channel prompt **22.30 tok/s** (decoding `22.74 tok/s`, TTFT only `0.183s`); When running concurrently at 4, the single channel still maintains `19.79–20.84 tok/s`, total throughput reaches **76.26 tok/s** (amplification factor up to **3.42x**).
+
+　　Why is it that a single channel only has a little over twenty or thirty points, but with four instances, it hardly slows down and directly flips two or three times faster? The core reason is that the decoding phase is a typical **Memory-Bandwidth Bound stage**: only one word is generated at a time, and active expert weights must be moved from memory into the compute unit. Once the engine supports true continuous batch processing and multi-slot fusion kernels, the weights of four requests are merged into the same round of memory bus transfer, which is like riding four times as many passengers while fuel costs barely increase.
+
+　　As for the data listed separately in Figure B **Windows RTX 4070 Laptop 8GB (32GB system memory, driver 621.01)**, I must clarify: it is not the same device as the M5 Pro and cannot be used for absolute comparison, but it perfectly answers another key question—**Is DSpark on a low-VRAM PC really a psychological comfort? ** On the same `384` word control short question, Q2_K_XL closed draft only had **15.34 tok/s**, but opening DSpark (3 draft tokens) directly mentioned **28.37 tok/s (about 1.85x speed)**. Code execution, tool round-trip and simple image reading all worked smoothly.
+
+　　However, these machines have tight VRAM space, and the architecture currently has a fixed `f16` KV (even if manually selecting `q8`, it will drop back), so the small output budget may still be wasted on the thinking phase, and the `Q3/Q4` file and Linux inference are not yet fully completed.
+
+## 3. Four tested probes T5, T8, T9, and T10: Strata stunned by 7.34 seconds of image reading, exposing real imperfections on the table
+
+　　Running fast doesn't mean you can do the hard work. Now, let's lay out and compare the core probe data running on the M5 Pro 64GB—not just who is fastest, but also who reads the entire image, corrects the code, catches the 45K long cache, and where the probe might fail.
+
+![M5 Pro 64GB Quad-Engine Core Probe (T5 Logic / T8 Troubleshooting / T9 Diagram / T10 Long Context Cache) Test Comparison](https://hyphentech.top/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/image-img02-e7c64b698f.png)
+
+| Measured dimensions | Inkling Strata SQ-15 | Inkling Locals NVFP4 | Inkling oMLX 0.8.2 | Qwen 3.8-27B Splash (Reference) |
+| --- | --- | --- | --- | --- |
+| T9 Native Visual Recognition | **7.339s** (45.93 tok/s): 8 model names match engine badges with zero error | Image viewing is not supported (plain text route) | 53.0s (4.5/5): Spot the difference at all 5 spots and error, but mistakenly identified the character 'high line priority' | **29.8s** (5/5): Dual consoles with zero error and accurate attribution latency |
+| T8 code minimal modification error | **16.512s** (50.83 tok/s): Accurately identified and fixed all TS/Rust bugs | **63.8s** (58 tok/s): `edit_file` **0 errors** passed 3/3 of the single test on the first try | 123.7s: Error error after 3 consecutive missed transmissions `old_string` self-correction passed | 82.3s:0 error 3/3 all passed, additional warning of concurrent lock risk |
+| T5 logical trap | 4.804s (42.98 tok/s): Q1/Q2 all paired, Q3 bulb mechanism correct, but the closing is 1 letter typo | **1,500.1s Timeout (0/3)**: Two wheels hit a maximum of 28,672 thought limits | 419.5s (2/3): The symmetric deception question got stuck in a dead end | **313.0s (3/3 full score)**: Constructing symmetric matrices is a complete victory |
+| T10 long context prefix cache | **45K** Actual test: Cold pre-fill `56.133s`, Warm follow-up questions **`1.039s`(TTFT `0.236s`)** | 30K test: Cold pre-fill `69.5s`, Warm follow-up TTFT **`0.92s`** (41.46 tok/s) | 30K test: Cold pre-fill `39.7s`, whole question `98.0s` (32.43 tok/s) | 30K test: cold prefill `39.0s`, decoding **`76.32 tok/s`** (total `72.3s`) |
+
+> Note: Qwen3.8 / oMLX / Locals complete 7 non-visual + 3 visual controls are tested on the same M5 Pro; After removing the timeout T5, Locals accumulated 856.7 seconds across 6 daily tasks (44.4% faster than Qwen3.8, 49.9% faster than oMLX). Strata SQ-15 was tested using v0.2.20 Targeted probes with 8 model desktop screenshots and 45,305 tokens in long context.
+
+　　What surprised me most was **Strata SQ-15's image viewing and long text warm cache**. Take the software screenshot below containing 8 local model entries mixed with `Sushi`, `Locals`, `oMLX`, `Splash` badges, and throw it to it. The 607 MB `Inkling-2-Mini-Vision.strata` only took **7.339 seconds** (including visual + prompt prefill `5.706s`, decoding rushed to `45.93 tok/s`) to read out the "large language model," 8 table of contents, and full engine label without missing a word—in the oMLX era, it took over fifty seconds to view a fine-character screenshot and worried OCR might make one or two Chinese character errors. This time, I went straight to the generation.
+
+![T9 Visual Probe Input Original Image: Strata SQ-15 reads all 8 entries and Sushi/Locals/oMLX/Splash labels correctly within 7.34 seconds](https://hyphentech.top/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/image-img05-9240d908ef.jpg)
+
+　　By the time of the heavy file search (`T10`) of **45,305 tokens**, Strata SQ-15 used `56.133s` (`36.31 tok/s` decoded to accurately extract exit commands `【AZURE-M5PRO-64GB-STRATA-0220】` and `7749`); Then, when performing a second round of follow-up with `45,374` words, the entire request was answered in just **1.039 seconds**, with **initial word delay (TTFT) reduced to 0.236 seconds**, and port numbers `11634` and `64 词元` retold with zero error.
+
+　　Of course, if there are highlights, the negative side must also be nailed openly: **Emphasizing logical steady-state remains the domain of `Qwen3.8-27B Splash + DFlash2`**.
+
+　　`Locals NVFP4` After adding and aligning LoRA, I hit the logic trap twice in `T5` `28,672` The thinking ceiling timed out; And although `Strata SQ-15` passed the question in 4.8 seconds and answered both questions 1 (`1 小时`) and 2 (`7 次`) correctly, and in question 3, 'Three Switches to Distinguish Three Bulbs,' the complete physics of distinguishing heat from a light bulb was explained correctly, in the final closing text, the label of the previously turned off bulb was accidentally misspelled by one letter (written as 'B turns on for 1 minute, then turned off...' The light that is on is B'). This rare slip of the tongue reminds us: ** When reviewing key code and finalizing logic, don't just look at the 4.8-second speed to skip manual or large model verification. **
+
+## 4. How much can real agent speed up with multiple sub-proxies? 4. File source code auditing is a sobering cold shower
+
+　　Since on Mac `Locals` 4 concurrency spikes to **100.84 tok/s**, and `Strata` 4 concurrency amplifications **3.42 times**, many friends naturally ask: I created the new DeepSeek Harness native multi-sub-agent (`subagents.mjs`) in **LocalBrain**. Whenever I encounter large warehouse reading or auditing, I split it into 4 read-only sub-proxies to work together. End-to-end time, can it also be reduced by two or three times?
+
+　　After running the single proxy vs. 4 sub-agent duel on the M5 Pro 64GB** with the same real file source code audit task (simultaneously auditing `strata_server.py`, `strata_runtime.rs`, `subagents.mjs`, and `dshAgent.ts` and summarizing risk reports), both sets of data immediately brought everyone back to reality.
+
+![Same topic 4 File Source Code Audit Comparison: Strata 4 sub-agent outperforms single proxy, while Locals is stretched by one cross-read trailing sub-proxy](https://hyphentech.top/obsidian-assets/inkling-2-mini-versions-m5-pro-compare/image-img03-4948765ee1.png)
+
+- **Strata SQ-15**: Single agent ran 10 steps / 9 tool calls, total **357.1 seconds** (`357,145 ms`); After switching to 4 sub-agents concurrently, all 4 workers successfully delivered, **end-to-end compression to 324.5 seconds (overtaking saved 32.6 seconds, peak worker decoding reached `61.91 tok/s`)**.
+- **Locals NVFP4**: Single proxy 6 steps / 11 times tool takes only **214.7 seconds**; After switching to 4 sub-proxies, although **all 4 people run smoothly**, the total firewall clock time actually swells to **351.5 seconds (slower than single proxy +63.7%)**!
+
+　　Why is it that the faster single-lane Locals is nearly 137 seconds slower when four sub-agents are launched? I directly split the work logs of the four sub-agents (right half of Figure 03): the top three are as fast as flying — worker 1 responsible for `strata_server.py` only took **151.7 seconds** (4 rounds), worker 2 with `strata_runtime.rs` took **156.7 seconds** (3 rounds), and worker 3 with `subagents.mjs` took **182.9 seconds** (3 rounds). **All three finished writing their reports within 3 minutes! **
+
+　　The only one who kept the whole team on the ground was **worker 4**, responsible for `dshAgent.ts`. When auditing its TypeScript file, it felt it hadn't fully read the interface call relationships, so it continuously read adjacent `dshTransport.ts` and `agentLoop.ts` across files, running six rounds, inflating the context to **74,390 tokens**, and carrying **274.8 seconds** alone before handing over the paper. Finally, with the main agent and four others working on merging and summarizing, the end-to-end wall clock stopped at `351.5 秒`.
+
+> [!tip]
+> This real barrel shortcoming lesson is worth more than a hundred theories: the acceleration limit for parallel multi-sub-agent never depends on the fastest concurrent slots, but on whether you draw clear boundaries for the slowest sub-agent. When running multiple sub-agents in LocalBrain, only by splitting the target into **closed-scope, non-cross-re-read large file** read-only slices will the continuous batch processing dividend of Strata (default 4 slots) and Locals (16 slots) become true wall clock shortening.
+
+## 5. How to choose the machine you have on hand? LocalBrain v2.4.7 Direct streaming on one page
+
+　　The recently bundled and pushed **LocalBrain v2.4.7** has enabled all three Mac engines and the supporting multi-sub-agent switches, and specifically fixed the issue where the discovery page and local `.strata` directory were hidden, preemptively occupied by oMLX; On the Windows/Linux side, the independently released **v2.4.3** channel is still retained. You can simply select the machine and task type below:
+
+- **24GB–64GB Mac wants a package that balances ultra-fast image viewing, coding, and multiple sub-proxies concurrently**: prioritize installing **v2.4.7 Discover page `Inkling 2 Mini · Strata 原生量化（SQ-15）`**. `14.3 GB` Primary weight added `607 MB Vision.strata`, fast cold loading, 45K warm initials in 0.24 seconds, 4 concurrent 76.26 tok/s, daily performance is almost impossible to find obvious biases; The bundled `SQ-10` (16GB+ installable) and `SQ-20` have been added to the discovery page simultaneously, but both settings have not yet run the full set on the same device.
+- **Pure text encoding / batch writing and modifying scripts / pursuing extreme single-channel and quad-channel concurrent throughput**: choose **Inkling 2 Mini · Locals NVFP4** (`24GB Mac` can run smoothly directly). Write and modify rounds `58–60 tok/s`, `--typed-tools` zero errors and 4 concurrency exceeds 100 (`100.84 tok/s`), but remember it **can't look at images at all** and is not recommended for tough `T5` extremely long thinking paradoxes.
+- **Retain stable state compatibility for daily image viewing and simple file modifications**: Old version **oMLX 0.8.2** (64GB with 96K context) coexists with new `Strata` and `Locals`, no need to delete or reinstall downloaded files.
+- **Difficult reasoning, rigorous code final review, and fine detail-and-image spot-the-difference**: 64GB of large memory. On Mac, **`Qwen3.8-27B Splash + DFlash2`** (`T5` the only perfect score, 30K decoding `76.32 tok/s`).
+- **8GB VRAM + 32GB RAM Windows / Linux laptops**: Download **`Inkling 2 Mini GGUF Q2_K_XL`** in the corresponding version, default includes 3-token DSpark draft (tested from `15.34` to `28.37 tok/s`), remember the current architecture's `f16` KV overhead and small budget limits, don't cram too long context all at once.
+
+> [!quote] My judgment
+> With the same **Inkling 2 Mini** weights on the table, the real gap between the two generations is the backend engineering—**Locals** uses 6 fusion Metal cores and syntax locks to push plain text encoding and 4 concurrent to **100.84 tok/s**; **Strata v0.2.20** uses native `.strata` + `Vision.strata` + DSpark to deliver 7.34 seconds of precise image reading, 0.24 seconds of 45K warm header and multi-sub-agent collaboration to complete the first time in the same lightweight package; Actual tests revealed the `Locals` T5 deadloop, teammate dragging across reads, and the slip of the tongue in `Strata` Q3 also show: **On-device acceleration is not magic; choosing the right engine division and controlling the read range of concurrent sub-agents is the key to enabling small models to steadily overtake in real workflows. **
+
+## Main sources of verification and measured samples
+
+- [LocalBrain Mac v2.4.7 Official Release Page (including Strata discovery page listing and scanning fixes)](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7)
+- [LocalBrain Windows / Linux v2.4.3 release page (GGUF + DSpark acceptance notes)](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.3-win-linux)
+- [Hugging Face: strata-engine/Inkling-2-Mini-Strata (SQ-10 / SQ-15 / SQ-20 + Vision.strata)](https://huggingface.co/strata-engine/Inkling-2-Mini-Strata)
+- [GitHub: Niko1221/Strata (v0.2.20 / 0.1.66 Metal and CUDA engines)](https://github.com/Niko1221/Strata)
+- [GitHub:Generated-Computers/Locals (40be2496 fused with Metal kernels and Typed-Tools)](https://github.com/Generated-Computers/Locals)
+- [Hugging Face: TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp (oMLX version 0.8.2)](https://huggingface.co/TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp)
+- [Hugging Face: unsloth/Inkling-2-Mini-GGUF (Windows/Linux dynamic quantization and DSpark)](https://huggingface.co/unsloth/Inkling-2-Mini-GGUF)
+
+
+---
+
+## 🧰 Tools I build
+
+I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
+
+> [!info] HyphenBox
+> **Status:** Official releases
+>
+> A radar for free LLM APIs: availability is re-tested continuously, one local interface for all of them, and keys stay on your machine
+>
+> [Downloads & updates：HyphenBox](https://github.com/HackerChi-Hub/hyphenbox-release/releases)
+
+> [!info] LocalBrain
+> **Status:** Official releases
+>
+> A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
+>
+> [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+---
+
+> [!quote] HyphenTech
+> **Make AI your superpower**
+> Local deployment · Free resources · Self-made software
+> [HyphenTech](https://hyphentech.top)

@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Mac 2.4.5 and Windows/Linux 2.4.3: Mac fixes Locals large-toolset DFA overflows for DeepSeek Harness & multi-MCP agents, tightens external model discovery to a single unique entry with accurate symlink sizes, and adds complete 3-way 7+3 benchmark numbers atop 2.4.4 Locals NVFP4; Windows/Linux add Inkling GGUF + DSpark."
+summary: "Mac 2.4.7 and Windows/Linux 2.4.3: Mac adds the managed Strata v0.2.20 (`0.1.66`) engine, adds Inkling 2 Mini Strata (`SQ-10/15/20` with Vision) to Discover while fixing `inkling-omlx` shadowing local `.strata` folders, and ships native DeepSeek Harness multi-subagent parallelism (`Locals` 100.84 tok/s & `Strata` 76.26 tok/s at 4x concurrency)."
 categories:
   - Resources
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.7: Strata v0.2.20 Multimodal Engine, Inkling-2-Mini-Strata in Discover & Native Multi-Subagent Parallelism
+
+Mac 2.4.7 (folding in and completing the `2.4.6` engine and concurrency upgrades) brings three major capabilities:
+
+- **Managed Strata v0.2.20 (`0.1.66`) runtime & `Inkling 2 Mini · Strata` in Discover**: Adds `strata-engine/Inkling-2-Mini-Strata` (`SQ-10` 11.1 GB / `SQ-15` 15.0 GB / `SQ-20` 20.0 GB, all bundling the `636 MB` `Inkling-2-Mini-Vision.strata` shard and tokenizer), automatically provisioning the Strata Metal runtime on demand (`64K` native context, persistent prefix caching, and dual `204` CORS preflights for `tauri://localhost` and `http://tauri.localhost`). Also fixes `inkling_runtime` shadowing local or managed `.strata` directories that contain `config.json` (`model_type: "inkling2_loop"`), and completes `.strata` download validation and update checks.
+- **M5 Pro 64 GB `Inkling-2-Mini-SQ-15` verified probes**: `< 3 s` cold load; **`76.26 tok/s`** aggregate across 4 concurrent short prompts (`3.42x` over `22.30 tok/s` single); `T9` desktop screenshot (`8/8` model names & engine tags accurate) in **`7.339 s`** (`45.93 tok/s` decode); `T8` minimal code bugfix in **`16.512 s`** (`50.83 tok/s`); `T5` logic traps in `4.804 s` (Q1/Q2 exact; Q3 light-bulb mechanism right with a 1-letter slip); `T10` `45K` cold prefill `56.133 s` and warm follow-up in **`1.039 s`** (`0.236 s` TTFT).
+- **Native Multi-Subagent parallel orchestration**: DeepSeek Harness (`subagents.mjs`) and chat settings integrate concurrent read-only subagent splitting and synthesis to saturate continuous-batching throughput on `Locals` (`100.84 tok/s` 4x vs `38.22 tok/s` single, `2.64x`) and `Strata` (4-file source audit reduced from `357.1 s` single to **`324.5 s`** parallel with `61.91 tok/s` peak worker; on `Locals`, 3 workers finished in `151.7–182.9 s` while 1 cross-reading worker trailed at `274.8 s`, bringing total wall clock to `351.5 s` vs `214.7 s` single).
+
+The Mac installer (`LocalBrain_2.4.7_aarch64.dmg`) is `80,316,165` bytes (locally signed, not Apple-notarized), SHA-256: `8a3ca09ece28855c70c2fb216326a03207e39645060a48cf2b2f8533d32023ba`.
+
+[Download Mac 2.4.7 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7/LocalBrain_2.4.7_aarch64.dmg) · [Release Notes v2.4.7](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7)
 
 ## Mac 2.4.5: Fix Locals Large-Toolset DFA Overflow, Clean Unique Model Discovery & Complete 3-Way M5 Pro Benchmark
 

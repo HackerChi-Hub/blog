@@ -4,7 +4,6 @@ slug: inkling-vs-qwen38-locals-m5-pro-en
 status: published
 lang: en
 translation_of: inkling-vs-qwen38-locals-m5-pro
-article_type: "article"
 translation_source: machine
 source_sha256: 8f5a3639d5c3a6f8
 date: 2026-11-23
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/inkling-vs-qwen38-locals-m5-pro/cover-62ec605813.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation
