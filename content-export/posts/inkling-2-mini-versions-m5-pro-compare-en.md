@@ -6,7 +6,7 @@ lang: en
 translation_of: inkling-2-mini-versions-m5-pro-compare
 article_type: "article"
 translation_source: machine
-source_sha256: c64be799d73661a1
+source_sha256: 03a4463a513f87ee
 date: 2026-11-23
 updated: 2026-11-23
 summary: "On the same M5 Pro 64GB, horizontal tests were conducted with Strata SQ-15, Locals NVFP4, and oMLX 0.8.2, with Win 4070 8GB GGUF + DSpark for comparison: concurrent 100.84 tok/s, image reading 7.34 seconds, 45K warm header 0.24 seconds, also exposing T5 typos and multi-sub-agent cross-read trails to real cold water tables."
@@ -88,7 +88,9 @@ legacy_paths: []
 
 　　Of course, if there are highlights, the negative side must also be nailed openly: **Emphasizing logical steady-state remains the domain of `Qwen3.8-27B Splash + DFlash2`**.
 
-　　`Locals NVFP4` After adding and aligning LoRA, I hit the logic trap twice in `T5` `28,672` The thinking ceiling timed out; And although `Strata SQ-15` passed the question in 4.8 seconds and answered both questions 1 (`1 小时`) and 2 (`7 次`) correctly, and in question 3, 'Three Switches to Distinguish Three Bulbs,' the complete physics of distinguishing heat from a light bulb was explained correctly, in the final closing text, the label of the previously turned off bulb was accidentally misspelled by one letter (written as 'B turns on for 1 minute, then turned off...' The light that is on is B'). This rare slip of the tongue reminds us: ** When reviewing key code and finalizing logic, don't just look at the 4.8-second speed to skip manual or large model verification. **
+　　`Locals NVFP4` After adding alignment LoRA, I hit the logic trap `T5` twice `28,672` The thinking ceiling timed out; And although `Strata SQ-15` passed the question in 4.8 seconds and answered both questions 1 (`1 小时`) and 2 (`7 次`) correctly, and in question 3, 'Three-turn on and off to distinguish three bulbs,' I got the complete physics of how touching the bulb heats up correctly. However, in the closing text, I accidentally misspelled a letter on the label of the previously turned off bulb (written as 'B turns on for 1 minute, then turns off...' The light that is on is B').
+
+　　This low-probability slip of the tongue reminds us: **Key code review and logical finalization, don't just look at the 4.8-second speed to skip manual or large model reviews. **
 
 ## 4. How much can real agent speed up with multiple sub-proxies? 4. File source code auditing is a sobering cold shower
 
@@ -108,7 +110,157 @@ legacy_paths: []
 > [!tip]
 > This real barrel shortcoming lesson is worth more than a hundred theories: the acceleration limit for parallel multi-sub-agent never depends on the fastest concurrent slots, but on whether you draw clear boundaries for the slowest sub-agent. When running multiple sub-agents in LocalBrain, only by splitting the target into **closed-scope, non-cross-re-read large file** read-only slices will the continuous batch processing dividend of Strata (default 4 slots) and Locals (16 slots) become true wall clock shortening.
 
-## 5. How to choose the machine you have on hand? LocalBrain v2.4.7 Direct streaming on one page
+## 5. The full set of tested original questions, original code, and standard answers are compared with real responses from each engine
+
+　　After reading the cross-evaluation conclusions, many friends are most concerned about: what exactly does the same model return at different runtimes when facing **completely unchanged exam questions, code, images, and repository files**, where each went wrong, and how many sentences are missing. This section lays out all the original questions, standard answers, and engine responses from this round of Mac testing, item by item.
+
+### 1) Single and 4 concurrent throughput issues (Mac M5 Pro vs Win 4070 controlled short test aperture explanation)
+
+- **Mac Single Short Prompt Original Question** (`max_tokens=512, temperature=0.2`):`请用中文清晰写出 12 条本地 AI 部署时的性能调优工程实践，每条不超过 40 字，不要省略。`
+- **Mac 4 Concurrent Stress Test Original Problem** (4 threads sending simultaneously, `max_tokens=512`): `第{1..4}路并发测试：请用中文清晰列出 12 条代码审查与内存优化检查要点，每条约 25 字。`
+
+　　Under these two pure throughput questions, `Locals NVFP4` single channel of exhalation `512` word element time `13.395s` (`38.22 tok/s`, decoding `40.37 tok/s`), 4 channels combined and output `2,048` word element time `20.309s` (aggregated `100.84 tok/s`, with all channels extremely uniformly and stable at `25.21–25.23 tok/s`); `Strata SQ-15` Single output `212` Word usage time `9.508s` (`22.30 tok/s`, TTFT only `0.183s`), 4 channels merged and output `1,204` Word usage time `15.789s` (aggregated `76.26 tok/s`, single channel `19.79–20.84 tok/s`, achieving concurrent amplification of `3.42x`). As for the **Windows RTX 4070 Laptop 8GB** mentioned above, I tested a separately controlled `384` word short-term test to verify `Q2_K_XL` opening 3-token DSpark from `15.34` to `28.37 tok/s`, which is cross-device standalone reference without mixing absolute speed.
+
+### 2) Targeted T5 Logical Traps: Original questions, standard answers, and transcripts of Strata SQ-15 original transcripts
+
+　　First, let's clarify a key test criterion: the `Qwen3.8`, `oMLX`, and `Locals` from the previous 10D horizontal review run the high-difficulty version `T5` (five chips 2 good 3 bad symmetric deception + rare disease Bayesian `71.04%` + 22-character Chinese self-reference; the full question stem and three-model answers are included in the sister section); This round tested the newly accessed `Strata SQ-15` Targeted quick probe with the following three classic logic questions:
+
+> Strata Targeted T5 original question:
+> 1) The doctor prescribed you 3 pills and advised you to take one every half hour. How many hours does it take to finish all 3 pills from the time you take the first pill?
+> 2) The farmer brings the wolf, sheep, and cabbage to the riverbank. The small boat can only bring at most one other thing besides the farmer at a time. When the farmer is absent, the wolf eats the sheep, and the sheep eat the cabbage. How many times do you need to cross the river at minimum (counting one round trip each) to safely bring all three safely to the opposite bank?
+> 3) There are three turned off incandescent lamps in a room, and three corresponding switches A/B/C outside the door. When the door is closed, you cannot see inside the room from outside. You can only open the door once after all switches have been dialed to enter the room, and after entering, you cannot touch the external switches again. How can you determine 100% which light A, B, and C control at one time?
+
+- **Standard answer to Question 1: `1 小时` **(Chapter `0` Eat the first pill in minutes, the first `30` Eat the second pill in minutes, the first `60` Eat the third capsule in minutes, totaling only two and a half hours).
+- **Standard answer for question 2: `7 次`** (Bring sheep to → empty return → Bring wolf → Bring sheep back → Bring cabbage to → empty return → Bring sheep to go taken).
+- **Standard answer to question 3: First, turn on A and wait 10 minutes before turning it off; immediately turn on B and keep it on; C is off the entire time**; After entering, **the one that lights up is B, the one that turns off but feels hot to the touch is A, and the one that goes off and is cold is C**.
+
+```text
+1) 结论：1 小时。理由：第一颗吃下后，第二颗在 30 分钟后、第三颗在 60 分钟后，所以从第一颗到第三颗共 60 分钟。
+
+2) 结论：7 次。理由：经典河渡问题，最少需要 7 次往返（含农夫回程）才能安全完成。
+
+3) 结论：先让 A 开 10 分钟后关，B 开 1 分钟后关，C 保持关闭；进入房间后，亮着的灯是 B，热但不亮的灯是 A，冷且不亮的灯是 C。理由：A 的热量来自较长时间通电，B 的亮度来自短时间通电，C 无任何状态，三者可区分。
+```
+
+Strata SQ-15 T5 Original Answer Transcript (4.804s / TTFT 0.313s / Decoding 42.98 tok/s)
+
+　　Comparing the original answer to the original answer, you can immediately see through the true characteristics of the Strata SQ-15: the first two numbers and step reasoning are instantly correct, and the third question clearly uses the physical principle of heat generation lag when the incandescent lamp is powered on, but the closing statement casually reads: "**B turns on for 1 minute, then turns off...... The light on is B**"—since it's off, it naturally won't turn on. This real-life failed sample also directly confirms one thing: **Initial screening with high-speed small models is very satisfying, but critical finalizations require manual or strong model review**.
+
+### 3) Targeted T8 code spotting: original problem two paragraphs of source code, bug checklist, and Strata fixes
+
+　　Also marked with division of labor boundaries: `Locals`, `oMLX`, and `Qwen3.8` `T8` test using the `edit_file` tool to manually modify local `ledger.mjs` (test details are included in the sister article); This round directly tests the Targeted T8 probe for `Strata SQ-15` with a bilingual TypeScript and Rust hidden bug diagnosis. The original question and the source code for the two questions are as follows:
+
+```typescript
+async function runBatch(urls: string[], limit = 4) {
+  const results = [];
+  for (let i = 0; i < urls.length; i += limit) {
+    const chunk = urls.slice(i, i + limit);
+    chunk.forEach(async (u, idx) => {
+      const res = await fetch(u);
+      results[i + idx] = await res.json();
+    });
+  }
+  return results;
+}
+```
+
+T8 Problem Original Code 1 (TypeScript): Asynchronous concurrent batch processing function runBatch
+
+```rust
+fn safe_slots(ctx: u32, requested: u32) -> u32 {
+    let mut slots = requested;
+    while ctx / slots < 4096 {
+        slots -= 1;
+    }
+    slots
+}
+```
+
+T8 Problem Original Code 2 (Rust): Context Slot Security Allocation Function safe_slots
+
+- **TS Source Code All Bugs** :(1) `chunk.forEach(async ...)` does not **wait for asynchronous callbacks**, `runBatch` immediately returns an almost empty `results` before `fetch` returns; (2) `limit <= 0` triggers a loop at `i += limit`; (3) Lacking `try/catch` / status code checksum and not pre-allocated according to `new Array(urls.length)`.
+- **Rust Original Code All Bugs**:(1) When `requested == 0` is triggered, the first round `ctx / slots` is directly divided by zero panic; (2) When `ctx < 4096` is reached, `while` loop decreases `slots` all the way to `0`, and the next round of evaluation `ctx / 0` is also directly divided by zero panic (if changed to subtract first then check, unsigned integer `u32` will also overflow); (3) The correct approach is to start with `requested.max(1)` and set the loop guardrail to `while slots > 1 && ctx / slots < 4096`.
+
+```rust
+// TypeScript 修复核心（Strata SQ-15 实答）
+if (limit <= 0) throw new Error('limit must be > 0');
+const results: any[] = new Array(urls.length);
+for (let i = 0; i < urls.length; i += limit) {
+  const chunk = urls.slice(i, i + limit);
+  await Promise.all(chunk.map(async (u, idx) => {
+    try {
+      const res = await fetch(u);
+      results[i + idx] = await res.json();
+    } catch (e) {
+      results[i + idx] = { error: String(e) };
+    }
+  }));
+}
+
+// Rust 修复核心（Strata SQ-15 实答）
+fn safe_slots(ctx: u32, requested: u32) -> u32 {
+    let mut slots = requested.max(1);
+    while slots > 1 && ctx / slots < 4096 {
+        slots -= 1;
+    }
+    slots
+}
+```
+
+TS + Rust practical core code provided by Strata SQ-15 (16.512s / 50.83 tok/s).
+
+　　Strata SQ-15 found all four TS questions in `16.512s` at once and posted the usable versions `Promise.all` + `try/catch`; The Rust section also caught division by zero and `u32` overflowing and provided the standard safe writing of `requested.max(1)` plus `while slots > 1 && ctx / slots < 4096`—though in the second point of the textual explanation, it briefly muttered "Is reducing `slots` increasing `ctx / slots` direction?" (reducing concurrency slots is precisely to leave ≥ 4096 context for each slot), but fortunately, the final output code itself is completely correct.
+
+### 4) Targeted T9 & T10: Visual original question screen reading with 45K long log original questions and warm and cold answers
+
+```prompt
+请仔细看这张软件截图：1) 页面顶部标题是什么？2) 截图中一共列出了多少个模型条目？3) 这些条目右侧黄色标签分别写有哪些引擎名称（例如 Sushi / Locals / oMLX / Splash）？
+```
+
+T9 Visual Original Question Stem (input the original image, i.e., the original 8-model desktop list shown in Section 3)
+
+```text
+1) 页面顶部标题是“大语言模型”。
+2) 截图中列出了 8 个模型条目。
+3) 右侧黄色标签对应的引擎名称依次为：Sushi、Locals、Locals、oMLX、Locals、Splash、Splash、Splash。
+```
+
+Strata SQ-15 T9 Original Answer (7.339s / TTFT 5.706s / Decoding 45.93 tok/s · 100% consistent with the standard answer)
+
+```text
+【620 行背景日志模板（第 342 行埋入真实暗号）】
+常规行：记录条目：在本地异构计算节点 #node-{0000..0619} 上，上下文分片编号 CTX-{n}，权重缓存命中率为 94.2%，KV 页大小 64 词元，端口 11634 延迟 12.4 毫秒；
+第 342 行：核心暗号记录条目：在本地异构计算节点 #node-0342 上，秘密口令为 【AZURE-M5PRO-64GB-STRATA-0220】，校验码 7749。
+
+第一轮冷问（45,305 tok）：节点 #node-0342 的秘密口令与校验码分别是什么？直接给出精确原文。
+→ Strata 实答（56.133s，TTFT 55.251s，36.31 tok/s）：秘密口令：【AZURE-M5PRO-64GB-STRATA-0220】；校验码：7749。
+
+第二轮暖追问（45,374 tok）：基于上面同一份日志，每个分片的 KV 页大小和端口分别是什么？直接一行回答。
+→ Strata 实答（1.039s，TTFT 0.236s，32.37 tok/s）：每个分片的 KV 页大小均为 64 词元，端口均为 11634。
+```
+
+T10 45K Long-Context Needle in a Haystack Original Question Template + Cold/Warm Rounds of Real Answers (Strata SQ-15)
+
+### 5) DSH 4 File Source Code Verification: Complete task sheet, standard verification values, and actual operational differences of the four groups
+
+> AUDIT_PROMPT Original question stem (excerpt from core 4 key requirements): Please perform read-only code verification on the following 4 core files in the LocalBrain repository (only read the necessary line range; do not fabricate any unread symbols or values):
+> 1) src-tauri/src/strata_runtime.rs: Checks RELEASE_TAG, ENGINE_VERSION, StrataFamily enumeration variants, and planned_context_window return values under 64GB of memory.
+> 2) src-tauri/resources/dsh-engine/subagents.mjs: Check the number of SUBAGENT_TOOL_NAME, DEFAULT_READONLY_SUBAGENT_TOOLS lists, and the maximum scope of single-batch concurrency.
+> 3) src-tauri/resources/strata_server.py: Check the quantity of APP_ORIGINS, INKLING_TIERS, and the clamping range of the build_launch_config parallel parameter.
+> 4) src/lib/dshAgent.ts: Verify the processing branch of subagent/event and the position of the subagents field passed through to options.
+
+| Target source code file | Key symbols under test | Source code standard truth verification (with exact line numbers) |
+| --- | --- | --- |
+| `src-tauri/src/strata_runtime.rs` | `RELEASE_TAG` / `ENGINE_VERSION` / `StrataFamily` / `planned_context_window` | `"v0.2.20"`(L7)/ `"0.1.66"`(L8)/ 3 variants `Inkling`, `Hy4Flash`, `QwenMoe` (L15–19)/ All branches return **`65_536`** (L368–389) under 64GB |
+| `src-tauri/resources/dsh-engine/subagents.mjs` | `SUBAGENT_TOOL_NAME` / `DEFAULT_READONLY_SUBAGENT_TOOLS` / Concurrency limit | `'localbrain_run_subagents'`(L11)/ **`11` Item** Read-Only Tool (L13–25)/ Inline Clamping `Math.max(1, Math.min(8, ...))` i.e., upper limit **`8`**, default `4` (L27–28 & L429) |
+| `src-tauri/resources/strata_server.py` | `APP_ORIGINS` / `INKLING_TIERS` / `parallel` Clamping | **`5` Local-source (L23–29)/3-level tuple `("SQ-20", "SQ-15", "SQ-10")`(L34)/default `parallel=1`(L362), L367 clamp to **`[1, 8]`** |
+| `src/lib/dshAgent.ts` | `subagent/event` Branch / `subagents` Transparent | `onEvent` **L330–338** are handled separately for `batch-start`, `worker-done`, `batch-end` three types of notifications; **L370** is transmitted within `config` objects of `runDshTask` `...(options.subagents?{subagents:options.subagents}:{})` |
+
+- **Accuracy of all four sets of results**: Whether `Strata 单代理`, `Strata 4 子代理`, `Locals 单代理`, or `Locals 4 子代理`, the final output table **100% accuracy of all the above constants, values, and line numbers, zero fabricated illusions**.
+- **Strata Single vs. 4 Sub-Agent Differences (357.1s vs 324.5s)**: Single agent took 10 steps / 9 tool reads through four files; 4 sub-agents locked each team member into their own file (`177.0s / 182.5s / 204.2s / 223.1s`, where `subagent-1` decoded to `61.91 tok/s`). Although the original return of `subagent-4` briefly included a brief English reflection (`"A user asked to read src/lib/dshAgent.ts..."`), the key line numbers L330–338 matched with L370, and the main agent was uniformly organized back into a clean Chinese table, saving **32.6 seconds** end-to-end compared to the single agent.
+- **Locals single vs 4 sub-agent differences (214.7s vs 351.5s)**: The top three in `Locals` 4 concurrent times each used only **`151.7s / 156.7s / 182.9s`** and quickly finished the game; Only the fourth teammate responsible for `dshAgent.ts` (`dshAgent_ts`) extra-checked `dshTransport.ts` (proofreading L19 `DshConfig.subagents` and L23 `DshEvent`) and `agentLoop.ts` for 6 rounds, pushing the context up to **`74,390` lemmas, and using **`274.8s`** alone (although I provided the most detailed interface alignment explanation among the four groups, it dragged down the entire queue's clock time).
+
+## 6. How to choose the machine you have on hand? LocalBrain v2.4.7 Direct streaming on one page
 
 　　The recently bundled and pushed **LocalBrain v2.4.7** has enabled all three Mac engines and the supporting multi-sub-agent switches, and specifically fixed the issue where the discovery page and local `.strata` directory were hidden, preemptively occupied by oMLX; On the Windows/Linux side, the independently released **v2.4.3** channel is still retained. You can simply select the machine and task type below:
 

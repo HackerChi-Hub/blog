@@ -81,7 +81,9 @@ legacy_paths: []
 
 　　当然，有亮点就得把反面同样钉在明处：**重逻辑稳态依然是 `Qwen3.8-27B Splash + DFlash2` 的江山**。
 
-　　`Locals NVFP4` 加了去对齐 LoRA 之后在 `T5` 逻辑陷阱上连撞两次 `28,672` 思考天花板直接超时；而 `Strata SQ-15` 虽然 4.8 秒极速过题且第 1 问（`1 小时`）、第 2 问（`7 次`）全部答对，在第 3 问「三开关辨三灯泡」上也讲对了摸灯泡发热区分的完整物理机理，却在最后收口文字里把先关掉的灯泡标签顺手串错了一个字母（写成「B 开 1 分钟后关… 亮着的灯是 B」）。这种小概率文字口误提醒我们：**关键代码审查和逻辑定稿，不要只看 4.8 秒的速度去跳过人工或大模型的复核。**
+　　`Locals NVFP4` 加了去对齐 LoRA 之后在 `T5` 逻辑陷阱上连撞两次 `28,672` 思考天花板直接超时；而 `Strata SQ-15` 虽然 4.8 秒极速过题且第 1 问（`1 小时`）、第 2 问（`7 次`）全部答对，在第 3 问「三开关辨三灯泡」上也讲对了摸灯泡发热区分的完整物理机理，却在最后收口文字里把先关掉的灯泡标签顺手串错了一个字母（写成「B 开 1 分钟后关… 亮着的灯是 B」）。
+
+　　这种小概率文字口误提醒我们：**关键代码审查和逻辑定稿，不要只看 4.8 秒的速度去跳过人工或大模型的复核。**
 
 ## 四、真实 Agent 上多子代理能提速多少？4 文件源码审计泼来一盆清醒冷水
 
@@ -101,7 +103,157 @@ legacy_paths: []
 > [!tip]
 > 这个真实的木桶短板教训比一百句理论都值钱：多子代理并联的加速上限，**永远不取决于跑得最快的那几个并发槽位，而取决于你给最慢那一名子代理画的边界够不够清晰**。在方寸智匣里开多子代理时，只有把目标切成**范围封闭、彼此不交叉重读大文件**的只读切片，Strata（默认 4 槽）和 Locals（16 槽）的连续批处理红利才会变成真正的墙钟缩短。
 
-## 五、落在手头机器怎么选？LocalBrain v2.4.7 一页直接分流
+## 五、全套实测原题、原代码、标准答案与各引擎真实答复对照
+
+　　看完横评结论，很多朋友最关心的还是：同一套模型在不同运行时上，面对**完全原封不动的考题、问题代码、图片和仓库文件**时，到底回出了什么内容、各自错在哪里、又差了多少字句。这一节把 Mac 侧本轮实测的所有原题、标准答案和引擎原始答复逐项摊开。
+
+### 1）单路与 4 并发吞吐原题（Mac M5 Pro vs Win 4070 受控短测口径说明）
+
+- **Mac 单路短提示原题**（`max_tokens=512, temperature=0.2`）：`请用中文清晰写出 12 条本地 AI 部署时的性能调优工程实践，每条不超过 40 字，不要省略。`
+- **Mac 4 并发压测原题**（4 线程同时发送，`max_tokens=512`）：`第{1..4}路并发测试：请用中文清晰列出 12 条代码审查与内存优化检查要点，每条约 25 字。`
+
+　　在这两道纯吞吐考题下，`Locals NVFP4` 单路吐满 `512` 词元用时 `13.395s`（`38.22 tok/s`，解码 `40.37 tok/s`），4 路合并吐出 `2,048` 词元用时 `20.309s`（聚合 `100.84 tok/s`，各路极其均匀稳定在 `25.21–25.23 tok/s`）；`Strata SQ-15` 单路输出 `212` 词元用时 `9.508s`（`22.30 tok/s`，TTFT 仅 `0.183s`），4 路合并吐出 `1,204` 词元用时 `15.789s`（聚合 `76.26 tok/s`，单路 `19.79–20.84 tok/s`，实现 `3.42x` 并发放大）。至于上文提到的 **Windows RTX 4070 Laptop 8GB**，测的是单独控制的 `384` 词元短题，用来验证 `Q2_K_XL` 打开 3-token DSpark 从 `15.34` 翻到 `28.37 tok/s`，属于跨机单独参照，不混排绝对速度。
+
+### 2）Targeted T5 逻辑陷阱：原题、标准答案与 Strata SQ-15 原话笔误实录
+
+　　先说明一个关键测试口径区分：前文成绩表里的 `Qwen3.8`、`oMLX` 与 `Locals` 跑的是上一篇十维横评中的高难对抗版 `T5`（五芯片 2 良 3 坏对称欺骗 + 罕见病贝叶斯 `71.04%` + 22 字中文自指，完整题干与三模型答复已收录在姊妹篇）；而本轮针对新接入 `Strata SQ-15` 的 Targeted 快速探针，测的是下面这 3 道经典逻辑题：
+
+> Strata Targeted T5 原题干：
+> 1）医生给你开了 3 颗药丸，嘱咐你每隔半小时吃 1 颗。从吃下第一颗开始，吃完这 3 颗一共需要几小时？
+> 2）农夫带着狼、羊和白菜到河边，小船每次除了农夫外最多只能再带一样东西，且农夫不在时狼会吃羊、羊会吃白菜。最少需要过河几次（往返各算一次）把三者都安全带到对岸？
+> 3）一个房间里有三盏关闭的白炽灯，门外有三个对应的开关 A/B/C，门关着时门外看不到房间里面。你只能在开关全部拨完后打开门进入房间一次，且进入后不能再碰门外开关。请问如何一次性百分之百判断 A、B、C 分别控制哪一盏灯？
+
+- **第 1 题标准答案：`1 小时`**（第 `0` 分钟吃第 1 颗，第 `30` 分钟吃第 2 颗，第 `60` 分钟吃第 3 颗，总共只有两段半小时）。
+- **第 2 题标准答案：`7 次`**（带羊去 → 空回 → 带狼去 → 带羊回 → 带白菜去 → 空回 → 带羊去）。
+- **第 3 题标准答案：先开 A 等 10 分钟后关掉，立刻打开 B 并保持开启、C 全程关闭**；进门后**亮着的是 B，熄灭但摸着发烫的是 A，熄灭且冰冷的是 C**。
+
+```text
+1) 结论：1 小时。理由：第一颗吃下后，第二颗在 30 分钟后、第三颗在 60 分钟后，所以从第一颗到第三颗共 60 分钟。
+
+2) 结论：7 次。理由：经典河渡问题，最少需要 7 次往返（含农夫回程）才能安全完成。
+
+3) 结论：先让 A 开 10 分钟后关，B 开 1 分钟后关，C 保持关闭；进入房间后，亮着的灯是 B，热但不亮的灯是 A，冷且不亮的灯是 C。理由：A 的热量来自较长时间通电，B 的亮度来自短时间通电，C 无任何状态，三者可区分。
+```
+
+Strata SQ-15 T5 原始答复实录（4.804s / TTFT 0.313s / 解码 42.98 tok/s）
+
+　　对照原始答复一眼就能看穿 Strata SQ-15 的真实特性：前两道数字与步骤推理秒对，第 3 题也清楚利用了白炽灯通电发热滞后的物理原理，但收口表述却顺手写成了「**B 开 1 分钟后关…… 亮着的灯是 B**」——既然关掉了自然不会亮着。这个真实现场翻车样本也直观印证了一句话：**极速小模型做初筛非常爽，关键定稿必须留人工或强模型复核**。
+
+### 3）Targeted T8 代码找茬：原题两段问题源码、Bug 清单与 Strata 修复
+
+　　同样注明分工边界：`Locals`、`oMLX` 与 `Qwen3.8` 的 `T8` 考核的是用 `edit_file` 工具动手改造本地 `ledger.mjs`（实测细节已收在姊妹篇）；而本轮针对 `Strata SQ-15` 的 Targeted T8 探针直接考核 TypeScript 与 Rust 双语隐蔽 Bug 诊断，原题和两段问题源码如下：
+
+```typescript
+async function runBatch(urls: string[], limit = 4) {
+  const results = [];
+  for (let i = 0; i < urls.length; i += limit) {
+    const chunk = urls.slice(i, i + limit);
+    chunk.forEach(async (u, idx) => {
+      const res = await fetch(u);
+      results[i + idx] = await res.json();
+    });
+  }
+  return results;
+}
+```
+
+T8 问题原代码 1（TypeScript）：异步并发批处理函数 runBatch
+
+```rust
+fn safe_slots(ctx: u32, requested: u32) -> u32 {
+    let mut slots = requested;
+    while ctx / slots < 4096 {
+        slots -= 1;
+    }
+    slots
+}
+```
+
+T8 问题原代码 2（Rust）：上下文槽位安全分配函数 safe_slots
+
+- **TS 原代码全部 Bug**：① `chunk.forEach(async ...)` 根本**不会等待异步回调**，`runBatch` 在 `fetch` 尚未返回时就立刻返回一个几乎为空的 `results`；② `limit <= 0` 时 `i += limit` 触发死循环；③ 缺乏 `try/catch` / 状态码校验且未按 `new Array(urls.length)` 预分配。
+- **Rust 原代码全部 Bug**：① 当 `requested == 0` 时首轮 `ctx / slots` 直接除零 panic；② 当 `ctx < 4096` 时 `while` 循环会把 `slots` 一路减到 `0`，下一轮评估 `ctx / 0` 同样直接除零 panic（若改成先减后判断还会遭遇无符号整数 `u32` 下溢）；③ 正确做法是用 `requested.max(1)` 起步，并把循环护栏设为 `while slots > 1 && ctx / slots < 4096`。
+
+```rust
+// TypeScript 修复核心（Strata SQ-15 实答）
+if (limit <= 0) throw new Error('limit must be > 0');
+const results: any[] = new Array(urls.length);
+for (let i = 0; i < urls.length; i += limit) {
+  const chunk = urls.slice(i, i + limit);
+  await Promise.all(chunk.map(async (u, idx) => {
+    try {
+      const res = await fetch(u);
+      results[i + idx] = await res.json();
+    } catch (e) {
+      results[i + idx] = { error: String(e) };
+    }
+  }));
+}
+
+// Rust 修复核心（Strata SQ-15 实答）
+fn safe_slots(ctx: u32, requested: u32) -> u32 {
+    let mut slots = requested.max(1);
+    while slots > 1 && ctx / slots < 4096 {
+        slots -= 1;
+    }
+    slots
+}
+```
+
+Strata SQ-15（16.512s / 50.83 tok/s）给出的 TS + Rust 实修核心代码
+
+　　Strata SQ-15 在 `16.512s` 内一次性找全了 TS 的 4 项问题并贴出可直接使用的 `Promise.all` + `try/catch` 版本；Rust 部分同样抓出除零与 `u32` 下溢并交出了 `requested.max(1)` 加 `while slots > 1 && ctx / slots < 4096` 的标准安全写法——不过文字解释第 2 点里它也曾短暂嘀咕“减小 `slots` 会增大 `ctx / slots` 方向对不对”（减小并发槽数正是为了给每条槽留足 ≥ 4096 上下文），好在最终输出代码本身完全正确。
+
+### 4）Targeted T9 & T10：视觉原题读屏与 45K 长日志原题及冷暖实答
+
+```prompt
+请仔细看这张软件截图：1) 页面顶部标题是什么？2) 截图中一共列出了多少个模型条目？3) 这些条目右侧黄色标签分别写有哪些引擎名称（例如 Sushi / Locals / oMLX / Splash）？
+```
+
+T9 视觉原题干（输入原图即前面第三节展示的 8 模型桌面列表原图）
+
+```text
+1) 页面顶部标题是“大语言模型”。
+2) 截图中列出了 8 个模型条目。
+3) 右侧黄色标签对应的引擎名称依次为：Sushi、Locals、Locals、oMLX、Locals、Splash、Splash、Splash。
+```
+
+Strata SQ-15 T9 原文答复（7.339s / TTFT 5.706s / 解码 45.93 tok/s · 与标准答案 100% 一致）
+
+```text
+【620 行背景日志模板（第 342 行埋入真实暗号）】
+常规行：记录条目：在本地异构计算节点 #node-{0000..0619} 上，上下文分片编号 CTX-{n}，权重缓存命中率为 94.2%，KV 页大小 64 词元，端口 11634 延迟 12.4 毫秒；
+第 342 行：核心暗号记录条目：在本地异构计算节点 #node-0342 上，秘密口令为 【AZURE-M5PRO-64GB-STRATA-0220】，校验码 7749。
+
+第一轮冷问（45,305 tok）：节点 #node-0342 的秘密口令与校验码分别是什么？直接给出精确原文。
+→ Strata 实答（56.133s，TTFT 55.251s，36.31 tok/s）：秘密口令：【AZURE-M5PRO-64GB-STRATA-0220】；校验码：7749。
+
+第二轮暖追问（45,374 tok）：基于上面同一份日志，每个分片的 KV 页大小和端口分别是什么？直接一行回答。
+→ Strata 实答（1.039s，TTFT 0.236s，32.37 tok/s）：每个分片的 KV 页大小均为 64 词元，端口均为 11634。
+```
+
+T10 45K 长上下文大海捞针原题模板 + 冷/暖两轮实答（Strata SQ-15）
+
+### 5）DSH 4 文件源码核查：完整任务书、标准核对值与四组真实运行差异
+
+> AUDIT_PROMPT 原题干（节选核心 4 点要求）：请对 LocalBrain 仓库中的以下 4 个核心文件执行只读代码核查（只读取必要行范围即可，不要编造任何未读到的符号或数值）：
+> 1) src-tauri/src/strata_runtime.rs：核对 RELEASE_TAG、ENGINE_VERSION、StrataFamily 枚举变体、以及 64GB 内存下 planned_context_window 返回值。
+> 2) src-tauri/resources/dsh-engine/subagents.mjs：核对 SUBAGENT_TOOL_NAME、DEFAULT_READONLY_SUBAGENT_TOOLS 清单数量、以及单批并发范围上限。
+> 3) src-tauri/resources/strata_server.py：核对 APP_ORIGINS 数量、INKLING_TIERS、以及 build_launch_config 对 parallel 参数的夹紧范围。
+> 4) src/lib/dshAgent.ts：核对 subagent/event 的处理分支与向 options 透传 subagents 字段的位置。
+
+| 目标源码文件 | 被测关键符号 | 源码标准核对真值（附精确行号） |
+| --- | --- | --- |
+| `src-tauri/src/strata_runtime.rs` | `RELEASE_TAG` / `ENGINE_VERSION` / `StrataFamily` / `planned_context_window` | `"v0.2.20"`（L7）/ `"0.1.66"`（L8）/ 3 变体 `Inkling`、`Hy4Flash`、`QwenMoe`（L15–19）/ 64GB 下全分支均返回 **`65_536`**（L368–389） |
+| `src-tauri/resources/dsh-engine/subagents.mjs` | `SUBAGENT_TOOL_NAME` / `DEFAULT_READONLY_SUBAGENT_TOOLS` / 并发上限 | `'localbrain_run_subagents'`（L11）/ **`11` 项**只读工具（L13–25）/ 内联夹紧 `Math.max(1, Math.min(8, ...))` 即上限 **`8`**、默认 `4`（L27–28 & L429） |
+| `src-tauri/resources/strata_server.py` | `APP_ORIGINS` / `INKLING_TIERS` / `parallel` 夹紧 | **`5` 条**本地来源（L23–29）/ 3 档元组 `("SQ-20", "SQ-15", "SQ-10")`（L34）/ 默认 `parallel=1`（L362），L367 夹紧为 **`[1, 8]`** |
+| `src/lib/dshAgent.ts` | `subagent/event` 分支 / `subagents` 透传 | `onEvent` 内 **L330–338** 分处理 `batch-start`、`worker-done`、`batch-end` 三类通知；**L370** 在 `runDshTask` 的 `config` 对象内透传 `...(options.subagents?{subagents:options.subagents}:{})` |
+
+- **四组结果准确率**：无论是 `Strata 单代理`、`Strata 4 子代理`、`Locals 单代理` 还是 `Locals 4 子代理`，最终输出结论表均 **100% 命中上述全部常量、数值与行号，零编造幻觉**。
+- **Strata 单 vs 4 子代理差异（357.1s vs 324.5s）**：单代理花了 10 步 / 9 次工具读完四份文件；4 子代理把每名队员牢牢锁死在各自 1 份文件里（`177.0s / 182.5s / 204.2s / 223.1s`，其中 `subagent-1` 解码冲到 `61.91 tok/s`），尽管 `subagent-4` 原始回传开头短暂夹带了一段英文思考（`"A user asked to read src/lib/dshAgent.ts..."`），但关键行号 L330–338 与 L370 全对、主代理统一整理回干净中文表，端到端比单代理省下 **32.6 秒**。
+- **Locals 单 vs 4 子代理差异（214.7s vs 351.5s）**：`Locals` 4 并发前三名分别只用了 **`151.7s / 156.7s / 182.9s`** 就迅速收工；唯独负责 `dshAgent.ts` 的第 4 号队友（`dshAgent_ts`）为了做“交叉核对”，擅自多翻了 `dshTransport.ts`（校对 L19 `DshConfig.subagents` 与 L23 `DshEvent`）和 `agentLoop.ts`，跑了 6 轮、把上下文撑到 **`74,390` 词元**、独自用掉 **`274.8s`**（虽然交出四组里最详尽的一份接口对齐说明，却拖垮了整队墙钟时间）。
+
+## 六、落在手头机器怎么选？LocalBrain v2.4.7 一页直接分流
 
 　　目前刚刚打包推送的 **方寸智匣 LocalBrain v2.4.7** 已经把这三套 Mac 引擎和配套多子代理开关全部接通，并且专门修复了发现页上架与本地 `.strata` 目录被 oMLX 抢占隐藏的问题；Windows / Linux 侧则继续保留独立发布的 **v2.4.3** 通道。你按手头的机器和任务类型直接照下面挑就好：
 
