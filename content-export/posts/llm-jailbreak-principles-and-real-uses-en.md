@@ -6,7 +6,7 @@ lang: en
 translation_of: llm-jailbreak-principles-and-real-uses
 article_type: "article"
 translation_source: machine
-source_sha256: 2f82230b7af09256
+source_sha256: cd08613b0c9e0424
 date: 2026-11-23
 updated: 2026-11-23
 summary: "Hugging Face's top five dealignment models have surpassed 18 million downloads in a single month. Has Safe Alignment erased the knowledge of dangers, or is it just a brake vector installed halfway? This article breaks down the underlying principles of the evolution of four generations of jailbreak technology and the Heretic 2.2 ARA manifold surgery, reconstructing the four essential engineering needs and internal and external defense lines behind these tens of millions of downloads."

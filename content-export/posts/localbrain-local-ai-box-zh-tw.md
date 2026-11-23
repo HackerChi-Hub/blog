@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Mac、Windows 與 Linux 2.4.3 同步更新：Mac 根治大型任務斷連與 SSE 切幀並開放 32K 輸出；Windows/Linux 接入 Inkling 三檔 GGUF 與預設 DSpark 並修復串流邊界。"
+summary: "Mac 2.4.4 與 Windows / Linux 2.4.3：Mac 新增隔離版 Inkling Locals NVFP4 極速引擎（支援一鍵自動轉換官方權重與去對齊 LoRA，與 oMLX 視覺版雙軌共存）；Windows/Linux 接入 Inkling GGUF 與 DSpark。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.4：新增 Inkling 2 Mini Uncensored · Locals NVFP4 極速通道（與 oMLX 視覺版雙軌共存）
+
+Mac 2.4.4 面向 Apple Silicon（macOS 15 及以上）新增獨立受管環境 `inkling-locals-env`（鎖定 [Generated-Computers/Locals](https://github.com/Generated-Computers/Locals) `@ 40be2496`、`mlx 0.32.4`、`mlx-lm 0.32.2`、`llguidance 1.9.1`、`outlines-core 0.2.14`、`transformers 5.24.0`），與既有 `inkling-omlx-env`（`oMLX 0.8.2`）並行共存、互不取代。在「發現」頁搜尋即可下載 `thinkingmachines/Inkling-2-Mini` 並自動附帶 `AtomicChat/Inkling-2-Mini-Uncensored-LoRA.gguf`（主權重約 18.18 GiB、MTP 草稿約 0.59 GiB、LoRA 約 41.8 MiB），首次啟動由內建 `inkling_locals_server.py` 自動離線轉為約 `16.2 GB` NVFP4 權重 + `0.64 GB` 草稿模型，並寫入 `.ready` 印記避免重複轉換；同時亦支援直接掃描辨識本機已轉換的 `Locals NVFP4` 目錄，並於首頁顯示 `Locals · NVFP4` 徽章。
+
+`Locals` 後端定位為**純文字與工具呼叫加速通道**（`supports_vision: false`，啟動參數 `--thinking --walk --typed-tools --temp 1.0 --top-p 0.95`），透過融合 Metal 核、0.64 GB 草稿模型與 GPU 工具語法約束提升程式碼與檔案操作命中率；需要原生看圖讀屏時，繼續使用原有 `TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp`（`oMLX 0.8.2`）即可。M5 Pro 64GB 本機實測驗證：官方原版權重 + 去對齊 LoRA 首次自動轉換與載入耗時 `30.2s`，命中 `.ready` 印記後二次啟動 `3.0s` 就緒；預轉換包經 `responses_bridge.py` 轉發串流對話、`typed-tools` 工具呼叫與關閉思考均通過驗收，原 `oMLX` 視覺通道無回退；同機實測中，Locals 將 `T8` 排錯編輯由 `123.7s`（`edit_file` 連錯 3 次）壓至 `63.8s` 零失誤、`T2` 3D 賽車提至 `151.3s`（寫檔回合 `60 tok/s`）、`T10` 30K 檔案同前綴二輪追問命中 `99.7%` 快取（TTFT `0.92s`，首次冷預填 `69.5s`），但高難度多步對抗邏輯 `T5` 在目前 NVFP4+LoRA 建置下出現連續兩輪撞滿 `28,672` 思考上限並在 `1500.1s` 逾時失敗。
+
+安裝包（`LocalBrain_2.4.4_aarch64.dmg`）為 `80,277,789` 位元組（本機簽章，未經 Apple 公證），SHA-256：`862b37c7c5f98b24138b70a5f8378361f5e7694b59a9f76881d330feac5db157`。
+
+[下載 Mac 2.4.4（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.4/LocalBrain_2.4.4_aarch64.dmg) · [下載與更新：方寸智匣發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 <!-- win-linux-2.4.3:start -->
 ## Windows / Linux 2.4.3：Inkling 三檔下載、DSpark 與串流連線修復

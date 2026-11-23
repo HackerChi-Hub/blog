@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "c76f1b1620a051b4be4c0cedb1f63a2c9981584cab7a92d36a69c294eef73d63",
-  "published_post_count": 273,
+  "content_sha256": "0b8490f2aeca07a6bcf2c58c44deb95ce0f27bc7a57056f4640a317af4653c53",
+  "published_post_count": 275,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -1270,6 +1270,22 @@
       "sha256": "00fdc7ae6555f309225f3dd09aff14c1aeaf68317a7212b02dab086bc4a74d46"
     },
     {
+      "file": "posts/inkling-vs-qwen38-locals-m5-pro-en.md",
+      "slug": "inkling-vs-qwen38-locals-m5-pro-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "inkling-vs-qwen38-locals-m5-pro",
+      "lang": "en",
+      "sha256": "8bbf26de9898ac1bcc9cef3597d3223c5fbc0df838642d34911afd0a420319c9"
+    },
+    {
+      "file": "posts/inkling-vs-qwen38-locals-m5-pro.md",
+      "slug": "inkling-vs-qwen38-locals-m5-pro",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "d18560e8c51e4e6cf3ab9e0e4e3ada99987b630758e66ada3e1de41af87ce1ce"
+    },
+    {
       "file": "posts/jensen-huang-nvidia-governance-chips-en.md",
       "slug": "jensen-huang-nvidia-governance-chips-en",
       "article_type": "article",
@@ -1324,7 +1340,7 @@
       "legacy_paths": [],
       "translation_of": "llm-jailbreak-principles-and-real-uses",
       "lang": "en",
-      "sha256": "da50fc9e61ac61e545b98d05a631f4aa6a06f049a493186ddb18d5125c30c79b"
+      "sha256": "a9812067a29a25a2796b3d8e2554575633bb22f42c66f7402309ff4639c94ad7"
     },
     {
       "file": "posts/llm-jailbreak-principles-and-real-uses.md",
@@ -1469,7 +1485,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "538f4651ba69da177cb5f8902e7823d14802707e688038a23acf89f7b9b7e97f"
+      "sha256": "8669aec6fadc617722446e1ec951748b8b12ead8fc19ae85d5ea4989f33ab6fb"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1478,14 +1494,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "f953db6b9df9f79ddce52838f268c44ccdd1708ec575f460efa7ed2452f4ec26"
+      "sha256": "69aadbe2042d5be153958f873e8a8318ec84b6b1de3896980d15be114314f0e5"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "9d6e5ed5d159678409b2bbc69df989f6c252e90443eadacfbd516e1e9a761b7d"
+      "sha256": "3eb69e875fca2a1a53d63dbb6dfee84931cacfbfcae41e3bbce2c80b47e00a4b"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",

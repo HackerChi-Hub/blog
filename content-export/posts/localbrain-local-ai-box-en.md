@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Mac, Windows and Linux 2.4.3: Mac eliminates SSE split-frame drops with read1 passthrough, frame-safe keepalive and 32K output; Windows/Linux add Inkling GGUF downloads and default DSpark."
+summary: "Mac 2.4.4 and Windows/Linux 2.4.3: Mac adds isolated Inkling Locals NVFP4 fast path (one-click conversion of upstream weights + uncensored LoRA, coexisting with oMLX vision); Windows/Linux add Inkling GGUF + DSpark."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.4: Isolated Inkling 2 Mini Uncensored · Locals NVFP4 Fast Path (Coexisting with oMLX Vision)
+
+Mac 2.4.4 introduces an isolated managed runtime (`inkling-locals-env`, pinned to [Generated-Computers/Locals](https://github.com/Generated-Computers/Locals) `@ 40be2496`, `mlx 0.32.4`, `mlx-lm 0.32.2`, `llguidance 1.9.1`, `outlines-core 0.2.14`, `transformers 5.24.0`) for Apple Silicon (macOS 15+) that runs alongside the existing `inkling-omlx-env` (`oMLX 0.8.2`) without replacing it. From Discover, downloading `thinkingmachines/Inkling-2-Mini` automatically bundles `AtomicChat/Inkling-2-Mini-Uncensored-LoRA.gguf` (~18.18 GiB main weights, ~0.59 GiB MTP draft, ~41.8 MiB LoRA); on first start, the bundled `inkling_locals_server.py` launcher converts them offline into ~`16.2 GB` NVFP4 weights + a `0.64 GB` draft model and writes a `.ready` stamp so subsequent launches skip reconversion. External library scanning also recognizes pre-converted `Locals NVFP4` folders and displays a `Locals · NVFP4` chip on Home.
+
+The `Locals` backend is positioned as a **text-only + tool-calling fast path** (`supports_vision: false`, launched with `--thinking --walk --typed-tools --temp 1.0 --top-p 0.95`), leveraging fused Metal kernels, 0.64 GB speculative draft decoding, and GPU typed-tool grammar; when native image analysis is needed, keep using `TokenAI-zer/Inkling-2-Mini-Uncensored-oQ4-mtp` on `oMLX 0.8.2`. Verified on M5 Pro 64 GB: automatic first-run conversion + load of upstream weights plus uncensored LoRA took `30.2s` (with warm stamp reuse ready in `3.0s`); pre-converted streaming chat, typed tool calls, and `enable_thinking: false` all passed through `responses_bridge.py`, and `oMLX` health/chat showed zero regression. In matched on-device runs, Locals cut `T8` code debugging from `123.7s` (with 3 `edit_file` argument errors on oMLX) to `63.8s` with 0 errors, sped `T2` 3D racing from `231.3s` to `151.3s` (`60 tok/s` file-write turn), and achieved `99.7%` prefix-cache hit (`0.92s` warm TTFT; `69.5s` cold 30K prefill) on `T10`—while `T5` multi-step adversarial logic timed out at `1500.1s` after hitting the `28,672` thinking cap twice.
+
+The Mac installer (`LocalBrain_2.4.4_aarch64.dmg`) is `80,277,789` bytes (locally signed, not Apple-notarized), SHA-256: `862b37c7c5f98b24138b70a5f8378361f5e7694b59a9f76881d330feac5db157`.
+
+[Download Mac 2.4.4 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.4/LocalBrain_2.4.4_aarch64.dmg) · [Downloads & Updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 <!-- win-linux-2.4.3:start -->
 ## Windows / Linux 2.4.3: Inkling downloads, DSpark and streaming fixes
