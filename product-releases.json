@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-23T12:57:19.803Z",
-  "contentHash": "e24dcb7f95b4b6c35a9d3c3aea2df2d17a5755edb43bf388cd9a269ff5ae03e4",
+  "checkedAt": "2026-11-23T14:53:10.479Z",
+  "contentHash": "a6061c9d32f8043b853fe3393e9ee7b2d146ec865831bdcf174336a30405d315",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T12:57:19.803Z",
+      "checkedAt": "2026-11-23T14:53:10.479Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "修复 DeepSeek Harness / 多 MCP 大工具集触发 DFA exceeds 400000 states：inklinglocalsserver.py 对紧凑小工具集继续保留 --typed-tools GPU 强制文本加速；当外部客户端传入大量或复杂参数工具（超过 150,000 字符阈值，或 compilewalk…",
+      "updateSummary": "发现页上线 Inkling 2 Mini · Strata 原生量化（含视觉） 并修复本地 .strata 目录被 oMLX 抢占隐藏的冲突：在「发现」新增 strata-engine/Inkling-2-Mini-Strata（SQ-10 / SQ-15 / SQ-20，均自带 636 MB Vision.strata 视觉组件）…",
       "updated": "2026-11-23",
-      "activityAt": "2026-11-23T12:47:14Z",
-      "version": "2.4.5",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.5",
+      "activityAt": "2026-11-23T14:50:51Z",
+      "version": "2.4.7",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.4.5",
+          "version": "2.4.7",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.5",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7",
           "assets": [
             {
-              "name": "LocalBrain_2.4.5_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.5/LocalBrain_2.4.5_aarch64.dmg",
-              "id": 782919943,
-              "size": 80290111,
-              "updatedAt": "2026-11-23T12:47:12Z",
-              "digest": "sha256:4ad9f62a746aa81093329c8f75bdf4139f49e2fdb111a9d8b4745caca596e8a5"
+              "name": "LocalBrain_2.4.7_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7/LocalBrain_2.4.7_aarch64.dmg",
+              "id": 783332869,
+              "size": 80316165,
+              "updatedAt": "2026-11-23T14:50:49Z",
+              "digest": "sha256:8a3ca09ece28855c70c2fb216326a03207e39645060a48cf2b2f8533d32023ba"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T12:57:19.803Z",
+      "checkedAt": "2026-11-23T14:53:10.479Z",
       "prerelease": false,
-      "releaseNotesHash": "aab0abb6074e0e44c1dcb16d3834ff0a3411ed4d8dbf7785132502c0f1b8c5a9",
-      "revision": "5faf82c3308fe41dce41f6e5f70c7d8d2265e15cb1665aa9218368d33914f181"
+      "releaseNotesHash": "5619cf892f4b59b7d8e83805ac045d5ba5fa4a45df101512b19759498d7361eb",
+      "revision": "e0fbbc6beabd25e019c7204ecc174e6ff657a6c0f78a7da0cc66ba4bd35a59ca"
     }
   ]
 }
