@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-11-23
-summary: "Windows/Linux 2.4.3接入 Inkling 三档 GGUF 与默认 DSpark，修复流式帧边界与内存标签；说明 Windows Q2 实测、Linux WSL2 验收及未验证范围。"
+summary: "Mac、Windows 与 Linux 2.4.3 同步更新：Mac 根治大型任务断连与 SSE 切帧并开放 32K 输出；Windows/Linux 接入 Inkling 三档 GGUF 与默认 DSpark 并修复流式边界。"
 categories:
   - 资源分享
 tags:
@@ -30,6 +30,16 @@ Windows 的 CUDA 12.8 路径要求驱动达到门槛，较旧驱动使用 Vulkan
 
 [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/SHA256SUMS-2.4.3-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.3-WIN-LINUX.md)
 <!-- win-linux-2.4.3:end -->
+
+## Mac 2.4.3：根治大型任务中途断连、SSE 帧边界无损保活、思考预算与真实解码测速
+
+Mac 2.4.3 针对长代码、单文件 3D 小游戏与多步复杂工具任务集中修复三类问题：一是打通本机零缓冲流式透传与帧边界无损保活并拆除隐藏超时死闸——将 `responses_bridge.py` 流式透传由阻塞凑满 4096 字节的 `resp.read(4096)` 改为单次系统调用即刻透传的 `resp.read1(8192)`（与 `splash_bridge.py` 对齐），消除前 20 多个 token 的攒字延迟与半行 JSON 硬切；`local-wire` 新增帧边界守卫，仅在静默满 15 秒且字节流严格闭合于 `\n\n` 时发送 `: keep-alive`，Inkling `oMLX` 切换为标准注释模式 `--sse-keepalive-mode comment`，彻底杜绝 `malformed server-sent event JSON` 断连；同时关闭原生代理宿主 Node `fetch`（Undici）默认的 300 秒 `headersTimeout / bodyTimeout`、`local-wire` HTTP 服务超时与桥接层 600 秒读超时，前端流静默容忍度放宽至 15 分钟。
+
+二是补齐原生代理各引擎专属思考词元预算与自动分段续写：按后端精准下发思考上限（Splash `thinking_token_budget`、Inkling/oMLX `thinking_budget`、llama.cpp `reasoning_budget_tokens`）并按当步实际容量动态夹紧，杜绝复杂题目一上来思考数万字符挤爆代码额度；64GB+ 大窗口机型默认单次最大输出由 16K 提至 **32K**；当单步触及 `max-tokens` 上限时自动引导模型改为分段写文件完成任务，不再直接判整轮未完成。三是修复顶栏解码速度与字数构成统计：流式输出扣除首字前长上下文预填耗时（TTFT）计算真实解码速率（修正多步长上下文被稀释显示为 `1.6 tok/s` 的问题），补齐流式实时字数与「模型已写内容构成（思考 / 工具参数 / 正文）」环形图统计，并修正收尾落库顺序与双计问题。
+
+安装包（`LocalBrain_2.4.3_aarch64.dmg`）为 80,263,046 字节（本地签名，未 Apple 公证），SHA-256：`4477017197008f71c30de6a6c1a1ddcba101b8f9df7f32fb4b6810797e839e14`。
+
+[下载 Mac 2.4.3（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3/LocalBrain_2.4.3_aarch64.dmg) · [下载与更新：方寸智匣发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.4.0：全模型最大安全上下文、Inkling 满速护栏与前缀缓存
 
@@ -763,13 +773,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
@@ -783,20 +786,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

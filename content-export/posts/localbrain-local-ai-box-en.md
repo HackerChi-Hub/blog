@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Windows/Linux 2.4.3 adds three Inkling GGUF downloads and default DSpark, with streaming and RAM-label fixes; Windows Q2 results, WSL2 validation and untested areas are stated separately."
+summary: "Mac, Windows and Linux 2.4.3: Mac eliminates SSE split-frame drops with read1 passthrough, frame-safe keepalive and 32K output; Windows/Linux add Inkling GGUF downloads and default DSpark."
 categories:
   - Resources
 tags:
@@ -32,6 +32,16 @@ Windows CUDA 12.8 requires a sufficiently recent driver; older drivers use Vulka
 
 [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3-win-linux/SHA256SUMS-2.4.3-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.3-WIN-LINUX.md)
 <!-- win-linux-2.4.3:end -->
+
+## Mac 2.4.3: Fix Large-Task Disconnections, Frame-Safe SSE Keepalive, Thinking Budgets & True Decode Metrics
+
+Mac 2.4.3 resolves three issues affecting long single-file code generation, 3D mini-games and multi-step tool tasks. First, it eliminates SSE chunk buffering, split-frame corruption and hidden stream timeouts: switching `responses_bridge.py` event-stream relay from blocking `resp.read(4096)` to immediate `resp.read1(8192)` (matching `splash_bridge.py` to remove 20+ token buffering lag and mid-JSON 4 KB cuts), adding `createSseBoundaryTracker` in `local-wire` so `: keep-alive` is written strictly on idle complete `\n\n` frame boundaries, setting Inkling `oMLX` to `--sse-keepalive-mode comment` to prevent `malformed server-sent event JSON` drops, disabling Node `fetch` (Undici) default 300 s `headersTimeout / bodyTimeout` and `local-wire` / bridge read timeouts, and raising client stall tolerance to 15 minutes.
+
+Second, the native DSH agent now enforces engine-specific thinking token budgets (`thinking_token_budget` for Splash, `thinking_budget` for Inkling/oMLX, `reasoning_budget_tokens` for llama.cpp) dynamically clamped to per-step capacity so long reasoning cannot starve code output; default per-turn max output rises from 16K to **32K** on 64 GB+ large-window Macs; and hitting `max-tokens` automatically guides the model to continue with chunked file writes (`write_file` + `append_file / edit_file`) instead of failing the run. Third, header speed and token metrics now exclude long-context prefill TTFT when calculating streamed decode speed (fixing `1.6 tok/s` dilution), add live 250 ms token and breakdown (`reasoning / toolArgs / content`) updates, and fix usage commit ordering.4.2 Inkling 2 Mini GGUF + DSpark under validation).
+
+The Mac installer (`LocalBrain_2.4.3_aarch64.dmg`) is 80,263,046 bytes (locally signed, not Apple-notarized), SHA-256: `4477017197008f71c30de6a6c1a1ddcba101b8f9df7f32fb4b6810797e839e14`.
+
+[Download Mac 2.4.3 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.3/LocalBrain_2.4.3_aarch64.dmg) · [Downloads & Updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Mac 2.4.0: Maximum Safe Context Across Models, Balanced oMLX Memory Guard & Prefix Caching
 
@@ -756,13 +766,6 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -776,20 +779,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
