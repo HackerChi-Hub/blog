@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-23
-summary: "Mac 2.4.4 and Windows/Linux 2.4.3: Mac adds isolated Inkling Locals NVFP4 fast path (one-click conversion of upstream weights + uncensored LoRA, coexisting with oMLX vision); Windows/Linux add Inkling GGUF + DSpark."
+summary: "Mac 2.4.5 and Windows/Linux 2.4.3: Mac fixes Locals large-toolset DFA overflows for DeepSeek Harness & multi-MCP agents, tightens external model discovery to a single unique entry with accurate symlink sizes, and adds complete 3-way 7+3 benchmark numbers atop 2.4.4 Locals NVFP4; Windows/Linux add Inkling GGUF + DSpark."
 categories:
   - Resources
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.5: Fix Locals Large-Toolset DFA Overflow, Clean Unique Model Discovery & Complete 3-Way M5 Pro Benchmark
+
+Building on Mac 2.4.4's `Locals NVFP4` channel, Mac 2.4.5 fixes two real-world integration bottlenecks and completes all 7 non-vision matched benchmarks across three model versions:
+
+- **Automatic DFA fallback for DeepSeek Harness & large MCP toolsets**: `inkling_locals_server.py` keeps GPU-forced `--typed-tools` constraints for compact toolsets, and transparently falls back to untyped tool grammar when large or complex schemas exceed `150,000` regex chars or hit `400,000` DFA states / int16 limits—eliminating `400 DFA exceeds 400000 states`. Verified live on a 45-tool simulated DeepSeek + MCP SSE stream and a 12-tool `system + docfactory` dual deliverable workflow with zero errors.
+- **Clean single-entry external model discovery & accurate symlink sizes**: Skips `_`-prefixed staging folders (`_src-thinkingmachines-Inkling-2-Mini`) and pipeline part subdirectories (`vae`, `draft`, `adapter`, `lora`, `mmproj`, `transformer`), excludes loose `*LoRA.gguf` / `mmproj-*.gguf` / speculative draft heads (`dflash`, `draft`, `mtp`) / encoder & embedding helper weights, updates `dir_size` to follow file symlinks on macOS (fixing `Locals-Inkling-2-Mini-Uncensored-MLX-nvfp4` from `0.6 GB` to its real `15.73 GB`), and suppresses symlink-backing base duplicates so only unique runnable entries appear.
+- **Complete 3-way M5 Pro 64 GB benchmark (`T1–T10`)**: Across the 6 everyday coding, writing, and retrieval tasks (`T1/T2/T6/T7/T8/T10`, excluding the `T5` timeout), `Inkling-2-Mini-Locals` totaled `856.7 s`—**44.4% faster** than `Qwen3.8-27B Splash` (`1,540.1 s`) and **49.9% faster** than `Inkling-2-Mini oMLX` (`1,709.3 s`), completing `T7` interactive HTML + DocFactory DOCX in just **4 rounds / `270.7 s`** (`496.5 s` / `626.9 s`); `Qwen3.8-27B` still leads heavy logic (`T5` `3/3`) and native vision (`T3/T4/T9`).
+
+The Mac installer (`LocalBrain_2.4.5_aarch64.dmg`) is `80,290,111` bytes (locally signed, not Apple-notarized), SHA-256: `4ad9f62a746aa81093329c8f75bdf4139f49e2fdb111a9d8b4745caca596e8a5`.
+
+[Download Mac 2.4.5 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.5/LocalBrain_2.4.5_aarch64.dmg) · [Release Notes v2.4.5](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.5)
 
 ## Mac 2.4.4: Isolated Inkling 2 Mini Uncensored · Locals NVFP4 Fast Path (Coexisting with oMLX Vision)
 

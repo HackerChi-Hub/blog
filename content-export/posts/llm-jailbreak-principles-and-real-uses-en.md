@@ -4,7 +4,6 @@ slug: llm-jailbreak-principles-and-real-uses-en
 status: published
 lang: en
 translation_of: llm-jailbreak-principles-and-real-uses
-article_type: "article"
 translation_source: machine
 source_sha256: cd08613b0c9e0424
 date: 2026-11-23
@@ -21,6 +20,7 @@ tags:
 cover: "/obsidian-assets/llm-jailbreak-principles-and-real-uses/cover.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

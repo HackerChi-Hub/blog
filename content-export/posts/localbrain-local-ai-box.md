@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-11-23
-summary: "Mac 2.4.4 与 Windows / Linux 2.4.3：Mac 新增隔离版 Inkling Locals NVFP4 极速引擎（支持一键自动转换官方权重与去对齐 LoRA，与 oMLX 视觉版双轨共存）；Windows/Linux 接入 Inkling GGUF 与 DSpark。"
+summary: "Mac 2.4.5 与 Windows / Linux 2.4.3：Mac 修复 Locals 大工具集 DFA 状态超限（适配 DeepSeek Harness 等 40+ 工具并发），彻底收敛唯一外部模型入口并修正软链体积；Mac 2.4.4 新增隔离版 Inkling Locals NVFP4 极速引擎，Windows/Linux 接入 Inkling GGUF 与 DSpark。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.5：修复 Locals 大工具集 DFA 超限、收敛唯一模型入口与三版本 7+3 全项实测
+
+Mac 2.4.5 在 `2.4.4` 引入 `Locals NVFP4` 极速通道的基础上解决两项实操痛点，并补齐 M5 Pro 三版本全套同题验证：
+
+- **修复 DeepSeek Harness 等大工具集调用 `DFA exceeds 400000 states`**：内置启动器 `inkling_locals_server.py` 在紧凑小工具集上继续保留 `--typed-tools` GPU 强制文本加速；遇到 40+ 工具或复杂 Schema（正则超 `150,000` 字符或编译触及 40 万 DFA 状态 / int16 限制）时，自动平顺退回非强类型工具调用语法并复用编译缓存。已完成 45 工具模拟 DeepSeek + MCP 流式调用与 12 工具 `system + docfactory` 双交付实测，零报错跑通。
+- **彻底去噪外部模型列表并修正软链体积**：跳过 `_` 开头过渡目录（如 `_src-thinkingmachines-Inkling-2-Mini`）及 `vae / draft / adapter / lora / mmproj / transformer` 等管线子组件目录，过滤独立 `*LoRA.gguf`、`mmproj-*.gguf`、投机草稿头（`dflash / draft / mtp`）与向量/编码辅助小模型；修正 `dir_size` 在 macOS 上跟随文件软链统计真实权重字节（解决软链叠层 `Locals-Inkling-2-Mini-Uncensored-MLX-nvfp4` 误显为 `0.6 GB`，实盘准确恢复为 `15.73 GB`），并自动折叠共用底座重复条目，仅保留唯一入口。
+- **补测 `T1` 与 `T7` 后的三版本实测小结（M5 Pro 64GB）**：7 项非视觉同题里去掉 `T5` 超时的 6 项常规工程/写作/检索（`T1/T2/T6/T7/T8/T10`），`Inkling-2-Mini-Locals` 累计 `856.7s`（比 `Qwen3.8-27B Splash` 快 44.4%、比 `Inkling-2-Mini oMLX` 快 49.9%，其中 `T7` 模拟器网页 + Word 简报仅 **4 轮 `270.7s`**）；极限重逻辑 `T5`（`3/3`）与原生看图 `T3/T4/T9` 仍由 `Qwen3.8-27B` 稳居全能榜首。
+
+安装包（`LocalBrain_2.4.5_aarch64.dmg`）为 `80,290,111` 字节（本地签名，未 Apple 公证），SHA-256：`4ad9f62a746aa81093329c8f75bdf4139f49e2fdb111a9d8b4745caca596e8a5`。
+
+[下载 Mac 2.4.5（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.5/LocalBrain_2.4.5_aarch64.dmg) · [查看 v2.4.5 发行说明](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.5)
 
 ## Mac 2.4.4：新增 Inkling 2 Mini Uncensored · Locals NVFP4 极速通道（与 oMLX 视觉版双轨共存）
 

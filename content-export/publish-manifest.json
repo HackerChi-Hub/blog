@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "0b8490f2aeca07a6bcf2c58c44deb95ce0f27bc7a57056f4640a317af4653c53",
+  "content_sha256": "207f144afb4ba222afe02735c06c087f0e0c82becf1cd21626577b385811da2e",
   "published_post_count": 275,
   "posts": [
     {
@@ -1276,14 +1276,14 @@
       "legacy_paths": [],
       "translation_of": "inkling-vs-qwen38-locals-m5-pro",
       "lang": "en",
-      "sha256": "8bbf26de9898ac1bcc9cef3597d3223c5fbc0df838642d34911afd0a420319c9"
+      "sha256": "ff1dd76c70f765613136f8293c125d18af2b7451b72777b287940ca62de435ac"
     },
     {
       "file": "posts/inkling-vs-qwen38-locals-m5-pro.md",
       "slug": "inkling-vs-qwen38-locals-m5-pro",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d18560e8c51e4e6cf3ab9e0e4e3ada99987b630758e66ada3e1de41af87ce1ce"
+      "sha256": "87494f75a089fca121e1db36168cf571dc1d90a53b3c41d2860a9d6b91f93d1e"
     },
     {
       "file": "posts/jensen-huang-nvidia-governance-chips-en.md",
@@ -1340,7 +1340,7 @@
       "legacy_paths": [],
       "translation_of": "llm-jailbreak-principles-and-real-uses",
       "lang": "en",
-      "sha256": "a9812067a29a25a2796b3d8e2554575633bb22f42c66f7402309ff4639c94ad7"
+      "sha256": "468348df7b07dd131e9166b7fe7b80e8588ad9ccd6cd42842ce8d96c38c8c6b3"
     },
     {
       "file": "posts/llm-jailbreak-principles-and-real-uses.md",
@@ -1485,7 +1485,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "8669aec6fadc617722446e1ec951748b8b12ead8fc19ae85d5ea4989f33ab6fb"
+      "sha256": "062be26b99bc24843a917750de4fd5b7da4ac39d0d188a382823a79a1bba40e2"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1494,14 +1494,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "69aadbe2042d5be153958f873e8a8318ec84b6b1de3896980d15be114314f0e5"
+      "sha256": "cead5e63864c8f88ad1067f914db88c9b3014e657f1866b58d462d1180d307c8"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "3eb69e875fca2a1a53d63dbb6dfee84931cacfbfcae41e3bbce2c80b47e00a4b"
+      "sha256": "f6d747691204052a67977b647d6f7e6c085cafd1f5c63b349e821dd6b22d32cc"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",
