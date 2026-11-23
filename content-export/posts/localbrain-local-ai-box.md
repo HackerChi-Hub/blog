@@ -14,6 +14,14 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.4.7
+
+Windows/Linux 2.4.7 已完成本地安装验收，首页模型统一展示，移除 PolyStrata 独立说明卡片，安装和接入收进「添加模型」。Windows GGUF Q2、CUDA 引擎与工具往返通过；Linux Debian/AppImage 在 WSL2 Ubuntu22.04 安装启动、宿主检查通过。Strata Windows/Linux 推理尚未实测，Locals 限 Apple Silicon。Python 全套未通过：Mac Locals 测试缺少 locals 依赖，画布变化断言连续复测失败；这两项不列为已验证能力。源码 CI 因 GitHub 账单／额度限制未运行，作者已授权先发布已验证范围。Mac 原包保留。
+
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.AppImage)
+
+
+
 ## Mac 2.4.7：接入 Strata v0.2.20 多模态极速引擎、发现页上线 Inkling 2 Mini Strata 与原生多子代理并发调度
 
 Mac 2.4.7（合并并完善 `2.4.6` 引擎与并发架构更新）带来三项核心能力：
@@ -807,6 +815,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **状态：** 正式迭代
+>
+> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
+>
+> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
@@ -820,6 +835,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影词库
+> **状态：** 正式迭代
+>
+> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
+>
+> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉录屏 HyphenScreen
+> **状态：** 正式迭代
+>
+> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
+>
+> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

@@ -16,6 +16,14 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.4.7
+
+Windows/Linux 2.4.7 passed local installation checks. Home now uses one model list without the separate PolyStrata explanation card; installation and connection actions are under Add model. Windows GGUF Q2, CUDA runtime and tool round trips passed; Debian/AppImage installation, startup and host checks passed on WSL2 Ubuntu22.04. Strata inference on Windows/Linux is untested; Locals remains Apple Silicon only. The full Python suite did not pass: Mac Locals tests lack the locals dependency, and the canvas-change assertion failed repeated runs. These are excluded from validated claims. Source CI could not run due to GitHub billing/spending limits; the author authorized publishing the validated scope first. Existing Mac packages are preserved.
+
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7-win-linux/LocalBrain_2.4.7_amd64.AppImage)
+
+
+
 ## Mac 2.4.7: Strata v0.2.20 Multimodal Engine, Inkling-2-Mini-Strata in Discover & Native Multi-Subagent Parallelism
 
 Mac 2.4.7 (folding in and completing the `2.4.6` engine and concurrency upgrades) brings three major capabilities:
@@ -800,6 +808,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -813,6 +828,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
