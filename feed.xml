@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 23 Nov 2026 07:42:12 GMT</lastBuildDate>
-    <pubDate>Mon, 23 Nov 2026 07:42:12 GMT</pubDate>
+    <lastBuildDate>Mon, 23 Nov 2026 13:00:31 GMT</lastBuildDate>
+    <pubDate>Mon, 23 Nov 2026 13:00:31 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -27,7 +27,7 @@
       <title>Inkling 2 Mini 换上 Locals 引擎：M5 Pro 十维实测反超 Qwen3.8，唯独这一项直接撞墙</title>
       <link>https://hyphentech.top/inkling-vs-qwen38-locals-m5-pro/</link>
       <guid isPermaLink="true">https://hyphentech.top/inkling-vs-qwen38-locals-m5-pro/</guid>
-      <description>同台 M5 Pro 64GB 对决，oMLX 版 Inkling 连错三次输给 Qwen3.8；换装 Locals 引擎后代码排错 0 失误反超、30K 缓存 0.92 秒首字，唯独重逻辑撞满思考上限。方寸智匣 2.4.4 已双轨集成。</description>
+      <description>同台 M5 Pro 64GB 对比 Qwen3.8-27B 原语版、Inkling 原版 oMLX 与 Inkling Locals NVFP4 三套方案：七项非视觉实测 Locals 常规工程快出将近一半（T7 双交付 4 轮 270.7 秒），唯独重逻辑 T5 撞满思考上限，方寸智匣 2.4.5 已同步补齐大工具集适配与去重。</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>
