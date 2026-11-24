@@ -818,13 +818,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **狀態：** 正式迭代
->
-> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
->
-> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -838,20 +831,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影詞庫
-> **狀態：** 正式迭代
->
-> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
->
-> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉錄屏 HyphenScreen
-> **狀態：** 正式迭代
->
-> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
->
-> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

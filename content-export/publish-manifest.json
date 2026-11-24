@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "e2d5008991d1caf7f6e1e86a16555679d18a01023794452c7f8551db10418b72",
-  "published_post_count": 277,
+  "content_sha256": "95f59930b24ece5371bab9159b2c9b508d5de8d463541b4d54b57b1c89f59537",
+  "published_post_count": 279,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -821,6 +821,22 @@
       "sha256": "b0ff6c8014a68f2f45d321eae5c2ec14005a16384c59ce62e17d9987aee6e2de"
     },
     {
+      "file": "posts/claude-lean4-riemann-hypothesis-2026-en.md",
+      "slug": "claude-lean4-riemann-hypothesis-2026-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "claude-lean4-riemann-hypothesis-2026",
+      "lang": "en",
+      "sha256": "f9dd683f17b75fe3c7aab3acee898695855f55f2a02a44642b2a56fcb588561f"
+    },
+    {
+      "file": "posts/claude-lean4-riemann-hypothesis-2026.md",
+      "slug": "claude-lean4-riemann-hypothesis-2026",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "4f04b7bdc80c753fd2ed65d7e3d3c1db9d50d2ef753185cd2be54efd82a3be57"
+    },
+    {
       "file": "posts/deepseek-v4-vision-mac64-en.md",
       "slug": "deepseek-v4-vision-mac64-en",
       "article_type": "article",
@@ -1276,7 +1292,7 @@
       "legacy_paths": [],
       "translation_of": "inkling-2-mini-versions-m5-pro-compare",
       "lang": "en",
-      "sha256": "1497964d34d24b70652eacf3e4bfa300f460eb30ab1afc9e483cfe2cb76ae3ab"
+      "sha256": "2b991778dc175ef75734ace74000015f874265ee820f262041b31a362c4fb404"
     },
     {
       "file": "posts/inkling-2-mini-versions-m5-pro-compare.md",
@@ -1292,7 +1308,7 @@
       "legacy_paths": [],
       "translation_of": "inkling-vs-qwen38-locals-m5-pro",
       "lang": "en",
-      "sha256": "41da85aa31ff4a05311d834f9de8d51c98e53c772e60eaeffc1e2a66cf93edb0"
+      "sha256": "1ed2643d6243540261d90d7c190cf293e1da765c72bb4ef26257a5a1363a2846"
     },
     {
       "file": "posts/inkling-vs-qwen38-locals-m5-pro.md",
@@ -1501,7 +1517,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "f64ec52852209a1153f5b5c7af5c8d131b29865f3a3b1191d1a62bf4aefd159f"
+      "sha256": "919433791e0150dc5b101c852f2708f70974fee7c8e8d02f02074514468d2129"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1510,14 +1526,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "aa30d3ffaee32b015f34e53468ebbb6c9d8b26e6de0cc46c03bb5fb7572ce7f9"
+      "sha256": "cefa4990dfc6f1c7689d00283a1ed42748b1ad4b46f63a7d434f61fbae84ac47"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "d0e9351d382328f095fd266fda92d99973691bf168c67fcdcb6c7365a983ced1"
+      "sha256": "41cbe295ed973bd861c30c8045995d2d47c5be19a77a430df3ad0e5603f4ddf9"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",
