@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Nov 2026 01:55:45 GMT</lastBuildDate>
-    <pubDate>Tue, 24 Nov 2026 01:55:45 GMT</pubDate>
+    <lastBuildDate>Tue, 24 Nov 2026 06:36:41 GMT</lastBuildDate>
+    <pubDate>Tue, 24 Nov 2026 06:36:41 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -24,10 +24,10 @@
     <category>本地部署</category>
     </item>
     <item>
-      <title>同一个 Inkling 2 Mini 我测完四个引擎：Strata、Locals、oMLX 和 Win GGUF 差在哪</title>
+      <title>同一个 Inkling 2 Mini 我测完六大引擎：16GB Mac 跑通、102 tok/s 与逐题原答全对比</title>
       <link>https://hyphentech.top/inkling-2-mini-versions-m5-pro-compare/</link>
       <guid isPermaLink="true">https://hyphentech.top/inkling-2-mini-versions-m5-pro-compare/</guid>
-      <description>同一台 M5 Pro 64GB 上横向实测 Strata SQ-15、Locals NVFP4 与 oMLX 0.8.2，附 Win 4070 8GB GGUF + DSpark 对照：并发 100.84 tok/s、看图 7.34 秒、45K 暖首字 0.24 秒，也把 T5 笔误与多子代理跨读拖尾的真实冷水上桌。</description>
+      <description>在同一台 Apple M5 Pro 64GB 上实测 LocalBrain v2.4.9 全部引擎与八张模型卡：Atomic Engine 冷专家 SSD 流式把物理内存压到 6.34 GiB 救活 16GB Mac，Strata Uncensored SQ-15 代码重写冲上 102.4 tok/s、6.82s 看图全对，oMLX 0.8.3 省下近 7 GiB 内存，Unbound v2.1 2-bit 照样拿满逻辑与视觉；完整附上 7 道原题、原代码、原图与各引擎逐字原答差异。</description>
       <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
     <category>技术分享</category>
     <category>AI</category>

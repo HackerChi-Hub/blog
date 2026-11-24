@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-24T01:53:16.619Z",
-  "contentHash": "90b83822628bf701fa21ccc6abd746ece22ffb8d9dbb19f1183800c88befa155",
+  "checkedAt": "2026-11-24T06:34:09.593Z",
+  "contentHash": "303b77e3ae7bd3c94f7fa7e29072447addaefd2539706bd4c679d7cb388584fa",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-24T01:53:16.619Z",
+      "checkedAt": "2026-11-24T06:34:09.593Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "彻底打通下载、外部模型库、本地目录与单文件挂载的识别、档位优选、加载授权与移除闭环：统一受管扁平目录、量化子目录（如 Q2KXL/）+ 根部共享辅助权重（dspark / mmproj / Vision.strata）、外部模型库（含软链目录防环扫描）及独立单文件 .gguf 挂载的载荷识别；修复 Locals NVFP4 预转换目录…",
+      "updateSummary": "新增 Atomic Engine（e110381ae2）Mac Metal 冷专家 SSD 流式引擎与两款 AtomicChat 混合量化模型：在「发现」与「运行环境与诊断」接入 AtomicBot-ai/atomic-engine（NVMe SSD 冷专家按需流式 + --engine-budget-mib 常驻内存硬上限 + DS…",
       "updated": "2026-11-24",
-      "activityAt": "2026-11-24T00:26:25Z",
-      "version": "2.4.8",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8",
+      "activityAt": "2026-11-24T06:03:30Z",
+      "version": "2.4.9",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.4.8",
+          "version": "2.4.9",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9",
           "assets": [
             {
-              "name": "LocalBrain_2.4.8_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8/LocalBrain_2.4.8_aarch64.dmg",
-              "id": 785091327,
-              "size": 80349310,
-              "updatedAt": "2026-11-24T00:26:24Z",
-              "digest": "sha256:4140a2ab6a128e6eca92395d78609842c23913900f002aea886b1c2aebe36812"
+              "name": "LocalBrain_2.4.9_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9/LocalBrain_2.4.9_aarch64.dmg",
+              "id": 785918388,
+              "size": 80337957,
+              "updatedAt": "2026-11-24T06:03:29Z",
+              "digest": "sha256:16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-24T01:53:16.619Z",
+      "checkedAt": "2026-11-24T06:34:09.593Z",
       "prerelease": false,
-      "releaseNotesHash": "802a9a08ac466d30b4dbf6d06334f2e11046e81b6cb5c41d642f7cbe954d6212",
-      "revision": "252136a7db784b91af1112e10524672fbeaa0cccdd168ab6c027859fff14c9b6"
+      "releaseNotesHash": "d2c0ba46739b01fb19cd59882316b65d88d28bd9a5c22a37484a7f5967f678fc",
+      "revision": "0d08f4b03f0bfaa3b28a5fb6d7d16d72de92f77ab034829941ca76603df89fe2"
     }
   ]
 }
