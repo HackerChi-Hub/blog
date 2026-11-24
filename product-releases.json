@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-24T06:34:09.593Z",
-  "contentHash": "303b77e3ae7bd3c94f7fa7e29072447addaefd2539706bd4c679d7cb388584fa",
+  "checkedAt": "2026-11-24T12:43:10.362Z",
+  "contentHash": "439c0712e7f7cfe33e34c98c6d3b3a06c5320196d3077241c5bc860c5e8a9e59",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-24T06:34:09.593Z",
+      "checkedAt": "2026-11-24T12:43:10.362Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,11 +116,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "新增 Atomic Engine（e110381ae2）Mac Metal 冷专家 SSD 流式引擎与两款 AtomicChat 混合量化模型：在「发现」与「运行环境与诊断」接入 AtomicBot-ai/atomic-engine（NVMe SSD 冷专家按需流式 + --engine-budget-mib 常驻内存硬上限 + DS…",
+      "updateSummary": "跨平台独立 inkling-gguf 升级至 Unsloth b12651-mix-c7059d6 并上线新模型目录：Windows（CUDA 12.8 / Vulkan）与 Linux（Vulkan）同步升级独立受管 inkling-gguf 引擎，同时兼容 inkling2 与主线 inkling2loop 架构并解除原 f16…",
       "updated": "2026-11-24",
-      "activityAt": "2026-11-24T06:03:30Z",
-      "version": "2.4.9",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9",
+      "activityAt": "2026-11-24T12:35:30Z",
+      "version": "2.4.9-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -141,49 +141,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.4.8-win-linux",
+          "version": "2.4.9-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.8_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_x64-setup.exe",
-              "id": 784968843,
-              "size": 43823738,
-              "updatedAt": "2026-11-23T23:40:31Z",
-              "digest": "sha256:7c8c5af46d9132a23dd56533c9974d1ad10961122ae2cc48166034122cd6213e"
+              "name": "LocalBrain_2.4.9_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_x64-setup.exe",
+              "id": 787129079,
+              "size": 43840773,
+              "updatedAt": "2026-11-24T12:34:46Z",
+              "digest": "sha256:b761c071ef9781b82da1080291db43191b053e2a9b8647897dd5fe14bc137974"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.4.8-win-linux",
+          "version": "2.4.9-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.8_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.AppImage",
-              "id": 784968830,
-              "size": 195439096,
-              "updatedAt": "2026-11-23T23:41:12Z",
-              "digest": "sha256:132ee00849cc356968c7c7b96bfd106c2f2b75314a12fb3e04ff3d08fbdec259"
+              "name": "LocalBrain_2.4.9_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.AppImage",
+              "id": 787129070,
+              "size": 195447288,
+              "updatedAt": "2026-11-24T12:35:29Z",
+              "digest": "sha256:e3f4d43db7fefb7399d7f4a1c516723f2c6dc513624c6db442541558085aebf6"
             },
             {
-              "name": "LocalBrain_2.4.8_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8-win-linux/LocalBrain_2.4.8_amd64.deb",
-              "id": 784968835,
-              "size": 122165430,
-              "updatedAt": "2026-11-23T23:40:59Z",
-              "digest": "sha256:a786efb899f275008a910863d76332544344de3f46f583aa831cfbc55dcaaba0"
+              "name": "LocalBrain_2.4.9_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.deb",
+              "id": 787129073,
+              "size": 122190450,
+              "updatedAt": "2026-11-24T12:35:15Z",
+              "digest": "sha256:5f01bb07d44a83b27472ed8e60fd4b4a261397a4d0d732ab174e683fe6dd70ab"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-24T06:34:09.593Z",
+      "checkedAt": "2026-11-24T12:43:10.362Z",
       "prerelease": false,
-      "releaseNotesHash": "d2c0ba46739b01fb19cd59882316b65d88d28bd9a5c22a37484a7f5967f678fc",
-      "revision": "0d08f4b03f0bfaa3b28a5fb6d7d16d72de92f77ab034829941ca76603df89fe2"
+      "releaseNotesHash": "5e7f68941f41c7310acc5ec6743fa21ea1d35f20b84345cbe7fc8310fcae85c5",
+      "revision": "fa08de302cbf880482fc5a218b658587422dbe984f071aea425e5d2f4121e28b"
     }
   ]
 }
