@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-24
-summary: "Windows/Linux 2.4.8 and Mac 2.4.7: 2.4.8 resolves newly added models still showing incomplete after download, landing on uninstalled quant tiers, leaking sibling cache byte counts, and failing to remove external folders (Windows/Linux locally validated; shared Mac source fixed while Mac installers remain at 2.4.7); Mac 2.4.7 ships Strata v0.2.20, Inkling 2 Mini Strata (`SQ-10/15/20` + Vision) and native multi-subagent parallelism."
+summary: "Mac 2.4.9 and Windows/Linux 2.4.8: Mac 2.4.9 upgrades all four Inkling 2 Mini runtimes and adds four new variants—Atomic Engine cold-expert SSD streaming (6.34 GiB peak RSS on 16GB Macs), Strata Uncensored SQ-10/15/20 (102.4 tok/s code rewrite, 6.82s vision), Unbound v2.1 OAS multimodal GGUF on Unsloth b12651 (Q8_0 KV unlocked), and oMLX 0.8.3 (Lightning MTP + 4-bit TurboQuant KV saving ~7 GiB RAM); Windows/Linux preserves the locally validated 2.4.8 installers."
 categories:
   - Resources
 tags:
@@ -15,6 +15,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.9: Inkling 2 Mini 4-Engine Upgrade, 16GB Mac Cold-Expert SSD Streaming & 4 New Variants
+
+Building on `2.4.8`'s unified folder/symlink/single-file `.gguf` mounting and state tracking, Mac 2.4.9 integrates four Inkling-2-Mini runtime upgrades and four new optimized weight families, verified live on an Apple M5 Pro 64GB Mac:
+
+- **`Atomic Engine` (`e110381ae2`) Metal Cold-Expert SSD Streaming + `AtomicChat` Official/Uncensored `AD-IQ2_M / AD-IQ3_S / AD-Q4_K`**: Auto-scales `--engine-budget-mib` by Mac unified RAM (`8292 MiB` on 16GB through `20580 MiB` on 48GB+) with DSpark 7/32 `Q8_0` draft and `Q4_0` KV. At the `8GB` budget, NVMe SSD cold-expert streaming (`488,434` misses) keeps peak OS `RSS` at **`6.34 GiB`** with **`41.7 tok/s`** code rewrite and **`7.68s`** `edit_file`, letting **16GB/18GB Macs run 30B looped MoE Inkling smoothly**; at `14GB` budget it hits `0` SSD misses, `1.87s` cold start, `9.17 GiB` RSS, **`51.0 tok/s`** code rewrite, and **`4.99s`** `edit_file` (`4096` context, text & tools).
+- **`Strata Uncensored` (`SQ-10/15/20` + `Vision.strata`), `Unbound v2.1` OAS Multimodal GGUF (`Unsloth b12651`), and `oMLX 0.8.3`**:
+  - `RX5950XT/Inkling-2-Mini-Uncensored-Strata` (`SQ-15`): **`2.27s`** cold load, **`102.4 tok/s`** code rewrite (`5.33s`), `75.1 tok/s` at 4x concurrency, **`6.82s`** `T9` vision (`8/8` exact), **`5.13s`** `T5` logic (`3/3` exact), and **`0.228s`** warm TTFT at `45.3K` (`12.21 GiB` peak RSS).
+  - `inkling-gguf` upgraded to `Unsloth b12651-mix-c7059d6` (Mac Metal + Windows CUDA12/Vulkan + Linux Vulkan, `Q8_0` KV unlocked) with `nokeepai/Inkling-2-Mini-Unbound-GGUF` (`v2.1` `IQ2_M / IQ3_M / Q4_K_M` + `mmproj-Q8_0` + `DSpark`; `IQ2_M` hit **`54.4 tok/s`** rewrite at `95.4%` DSpark acceptance and `3/3` on `T5`).
+  - `oMLX` upgraded to **`0.8.3`** with Lightning MTP + 4-bit TurboQuant KV enabled by default, cutting peak RSS from `16.34 GiB` to **`9.39 GiB`** and `T9` vision from `53.0s` to **`27.46s`**.
+
+Installer (`LocalBrain_2.4.9_aarch64.dmg`): `80,337,957` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`. Published Windows/Linux installers remain at validated `2.4.8`.
+
+[Download Mac 2.4.9 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9/LocalBrain_2.4.9_aarch64.dmg) · [Release v2.4.9](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9) · [M5 Pro Benchmark Archive](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/benchmarks/INKLING_2_4_9_M5_PRO_BENCHMARK.md)
 
 ## Windows / Linux 2.4.8: Fix Model Completion Status, Installed Quant Auto-Focus, Cache Isolation & External Folder Removal
 

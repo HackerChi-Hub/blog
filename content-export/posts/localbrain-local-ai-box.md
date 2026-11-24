@@ -4,7 +4,7 @@ slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
 updated: 2026-11-24
-summary: "Windows / Linux 2.4.8 与 Mac 2.4.7：2.4.8 彻底解决新上架模型下载完毕仍显示未完成、重开发现页错落到未安装量化档位、跨档位虚报缓存字节与外部目录无法移除的问题（Windows/Linux 已本机实装验收，Mac 共用源码已修复、安装包保留 2.4.7）；Mac 2.4.7 提供 Strata v0.2.20 极速引擎、Inkling 2 Mini Strata（SQ-10/15/20 含视觉）与原生多子代理并发调度。"
+summary: "Mac 2.4.9 与 Windows / Linux 2.4.8：Mac 2.4.9 全面升级 Inkling 2 Mini 四大引擎并上线四款新变体——新增 Atomic Engine 冷专家 SSD 流式（16GB Mac 仅占 6.34 GiB RSS 即可跑 30B Inkling）、Strata Uncensored SQ-10/15/20（代码重写 102.4 tok/s、看图 6.82s）、Unbound v2.1 正交去拒答 GGUF（Unsloth b12651 解锁 Q8_0 KV）及 oMLX 0.8.3（MTP + 4-bit TurboQuant KV 省下近 7 GiB 内存）；Windows/Linux 保留已实装验收的 2.4.8 正式包。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,20 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.4.9：Inkling 2 Mini 四大引擎全面升级、16GB Mac 冷专家 SSD 流式与四款新变体实测上线
+
+Mac 2.4.9 在 `2.4.8` 打通全链路本地目录、软链与单文件 `.gguf` 挂载识别的基础上，将围绕 **Inkling-2-Mini** 的四项底层引擎升级与四款最新优化权重一次性全量接入并完成 Apple M5 Pro 64GB 同题实测：
+
+- **新增 `Atomic Engine`（`e110381ae2`）Mac Metal 冷专家 SSD 流式引擎 + `AtomicChat` 官方/Uncensored `AD-IQ2_M / AD-IQ3_S / AD-Q4_K`**：按本机统一内存自动规划 `--engine-budget-mib`（16GB→`8292 MiB`、18GB→`10340 MiB`、24GB→`14436 MiB`、32GB→`18532 MiB`、48GB+→`20580 MiB`，支持 `LOCALBRAIN_ATOMIC_BUDGET_GIB` 覆盖）并配齐 `DSpark Q8_0` 7/32 草稿与 `Q4_0` KV。M5 Pro 实测在 `8GB` 预算下依靠 NVMe SSD 冷专家按需流式读取（`488,434` 次冷读）将物理峰值 `RSS` 压至 **`6.34 GiB`**，代码重写 **`41.7 tok/s`**、`edit_file` **`7.68s`**，让 **16GB / 18GB Mac 首次流畅跑起 30B 循环 MoE**；`14GB` 预算实现零 SSD 未命中、冷启动 `1.87s`、峰值 `RSS` `9.17 GiB`、代码重写 **`51.0 tok/s`**、`edit_file` **`4.99s`**（锁定 `4096` 窗口，纯文本与工具专用；多问长思考题建议使用下方 `Strata` 或 `Unbound`）。
+- **上线 `Strata Uncensored`（`SQ-10 / SQ-15 / SQ-20` + `Vision.strata`）与 `Unbound v2.1` 正交去拒答多模态 GGUF，全量升级 `oMLX 0.8.3` 与 `Unsloth b12651`**：
+  - `RX5950XT/Inkling-2-Mini-Uncensored-Strata`（`SQ-15`）：冷启动 **`2.27s`**，代码重写冲上 **`102.4 tok/s`（`5.33s`）**，4 并发 `75.1 tok/s`，`T9` 桌面截图 **`6.82s`（8/8 零误差）**，`T5` 逻辑 **`5.13s`（3/3 全对）**，`45.3K` 暖前缀首字 **`0.228s`**，峰值 `RSS` `12.21 GiB`。
+  - 独立 `inkling-gguf` 升至 `Unsloth b12651-mix-c7059d6`（开放 Mac Metal + Win CUDA12/Vulkan + Linux Vulkan 及 `Q8_0` KV 缓存），新增 `nokeepai/Inkling-2-Mini-Unbound-GGUF`（`v2.1` `IQ2_M / IQ3_M / Q4_K_M` + `mmproj-Q8_0` + `DSpark`），2-bit `IQ2_M` 即实现代码重写 **`54.4 tok/s`（DSpark 接受率 `95.4%`）**、`T5` 逻辑 `3/3` 满分与 `T9` 8 条目识图。
+  - 独立 `oMLX` 升至 **`0.8.3`**，默认开启 Lightning MTP 与 4-bit TurboQuant KV，物理峰值 `RSS` 由 `16.34 GiB` 直降至 **`9.39 GiB`**，`T9` 看图由 `53.0s` 缩短至 **`27.46s`**。
+
+安装包（`LocalBrain_2.4.9_aarch64.dmg`）为 `80,337,957` 字节（本地签名，未 Apple 公证），SHA-256：`16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`。Windows / Linux 正式安装包保留已实装验收的 `2.4.8`（见下方小节）。
+
+[下载 Mac 2.4.9（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9/LocalBrain_2.4.9_aarch64.dmg) · [查看 v2.4.9 发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9) · [M5 Pro 逐题实测归档](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/benchmarks/INKLING_2_4_9_M5_PRO_BENCHMARK.md)
 
 ## Windows / Linux 2.4.8：彻底解决新模型下载完成状态、量化档位聚焦、缓存隔离与外部目录移除问题
 

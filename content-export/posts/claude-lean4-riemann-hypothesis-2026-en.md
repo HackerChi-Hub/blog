@@ -4,7 +4,6 @@ slug: claude-lean4-riemann-hypothesis-2026-en
 status: published
 lang: en
 translation_of: claude-lean4-riemann-hypothesis-2026
-article_type: "article"
 translation_source: machine
 source_sha256: 11a8b996350f8cb3
 date: 2026-11-23
@@ -20,6 +19,7 @@ tags:
 cover: "/obsidian-assets/claude-lean4-riemann-hypothesis-2026/cover-05ff10eadf.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

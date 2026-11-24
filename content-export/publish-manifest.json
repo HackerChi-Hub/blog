@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "95f59930b24ece5371bab9159b2c9b508d5de8d463541b4d54b57b1c89f59537",
+  "content_sha256": "64c5c9693604198b9e2a78c93f35819b628b84ed27fbd9cfa7921713dce7d0b1",
   "published_post_count": 279,
   "posts": [
     {
@@ -827,7 +827,7 @@
       "legacy_paths": [],
       "translation_of": "claude-lean4-riemann-hypothesis-2026",
       "lang": "en",
-      "sha256": "f9dd683f17b75fe3c7aab3acee898695855f55f2a02a44642b2a56fcb588561f"
+      "sha256": "05e463c30e99bac666a54c5e7a5e7dfda43435b525e8401fe9624f14a9e251c9"
     },
     {
       "file": "posts/claude-lean4-riemann-hypothesis-2026.md",
@@ -1292,14 +1292,14 @@
       "legacy_paths": [],
       "translation_of": "inkling-2-mini-versions-m5-pro-compare",
       "lang": "en",
-      "sha256": "2b991778dc175ef75734ace74000015f874265ee820f262041b31a362c4fb404"
+      "sha256": "512f74fd35db798e513a776bd574950f09e8c578d068908d2391efad84655184"
     },
     {
       "file": "posts/inkling-2-mini-versions-m5-pro-compare.md",
       "slug": "inkling-2-mini-versions-m5-pro-compare",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "4de8df18e075a4b34131a1ed4493e1da03a9e7e644db060e014053222517ce1b"
+      "sha256": "9e128a50dd597a998b8453566af68d06429e2b5cdcc4179b70f1fdde71b82294"
     },
     {
       "file": "posts/inkling-vs-qwen38-locals-m5-pro-en.md",
@@ -1517,7 +1517,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "919433791e0150dc5b101c852f2708f70974fee7c8e8d02f02074514468d2129"
+      "sha256": "4ab1b5222bc483e07ef39bdaf75cd725754cf56ae81c474862e525bddaa672e3"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1526,14 +1526,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "cefa4990dfc6f1c7689d00283a1ed42748b1ad4b46f63a7d434f61fbae84ac47"
+      "sha256": "b8a0fe8d5af49adfa620df26b3aaafc46fe77bfd0cdb43cc6ce12fbea555489c"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "41cbe295ed973bd861c30c8045995d2d47c5be19a77a430df3ad0e5603f4ddf9"
+      "sha256": "bb160a93eb51de855fd62046df283b6a09c2c7a8a921c87077bee3298fa228f9"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",
