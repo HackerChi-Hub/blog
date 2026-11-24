@@ -5,8 +5,8 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 23 Nov 2026 23:56:49 GMT</lastBuildDate>
-    <pubDate>Mon, 23 Nov 2026 23:56:49 GMT</pubDate>
+    <lastBuildDate>Tue, 24 Nov 2026 01:55:45 GMT</lastBuildDate>
+    <pubDate>Tue, 24 Nov 2026 01:55:45 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
@@ -32,6 +32,18 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>热点速递</category>
+    </item>
+    <item>
+      <title>Claude 联手 Lean 4 证出 167 年黎曼猜想：1,700 万行代码零报错背后的机械裁判革命</title>
+      <link>https://hyphentech.top/claude-lean4-riemann-hypothesis-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/claude-lean4-riemann-hypothesis-2026/</guid>
+      <description>不摆复杂公式，一文拆透黎曼猜想本来在问什么、网银密码与百万大奖两大误区，以及普通人如何用三道机械裁判驯服 AI。</description>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+    <category>技术分享</category>
+    <category>AI</category>
+    <category>黎曼猜想</category>
+    <category>Claude</category>
+    <category>Lean4</category>
     </item>
     <item>
       <title>Inkling 2 Mini 换上 Locals 引擎：M5 Pro 十维实测反超 Qwen3.8，唯独这一项直接撞墙</title>
@@ -219,16 +231,6 @@
     <category>技术分享</category>
     <category>AI</category>
     <category>新锐模型</category>
-    </item>
-    <item>
-      <title>MiniMax H3-Image 实测：64GB Mac 能原生出 4K，参考图改图要等多久？</title>
-      <link>https://hyphentech.top/minimax-h3-image-mac-64gb-local-test/</link>
-      <guid isPermaLink="true">https://hyphentech.top/minimax-h3-image-mac-64gb-local-test/</guid>
-      <description>在 M5 Pro 64GB Mac 上实跑社区四位版：2K 生图约 73 秒，原生 4K 约 6 分 17 秒。对照单图、双图编辑的原图和内存记录，看它适合什么任务。</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    <category>新锐模型</category>
-    <category>本地部署</category>
-    <category>方寸智匣</category>
     </item>
   </channel>
 </rss>

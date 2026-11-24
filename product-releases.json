@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-23T23:53:39.658Z",
-  "contentHash": "3208dbaa2ee3bf61db1415f7c6ae2cc012d37044a688e0ab9b8d902266776a1f",
+  "checkedAt": "2026-11-24T01:53:16.619Z",
+  "contentHash": "90b83822628bf701fa21ccc6abd746ece22ffb8d9dbb19f1183800c88befa155",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T23:53:39.658Z",
+      "checkedAt": "2026-11-24T01:53:16.619Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "彻底解决新上架模型下载完毕仍显示未完成、默认落到未安装量化档位、跨档虚报断点缓存与外部目录无法移除的问题：统一受管扁平目录、量化子目录（如 Q2KXL/ + 根部共享 dspark/mmproj）与外部模型库完整度识别，重开发现页自动聚焦已安装量化档位，按所选档位主权重隔离断点缓存统计，并打通 managed / library /…",
-      "updated": "2026-11-23",
-      "activityAt": "2026-11-23T23:41:14Z",
-      "version": "2.4.8-win-linux",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8-win-linux",
+      "updateSummary": "彻底打通下载、外部模型库、本地目录与单文件挂载的识别、档位优选、加载授权与移除闭环：统一受管扁平目录、量化子目录（如 Q2KXL/）+ 根部共享辅助权重（dspark / mmproj / Vision.strata）、外部模型库（含软链目录防环扫描）及独立单文件 .gguf 挂载的载荷识别；修复 Locals NVFP4 预转换目录…",
+      "updated": "2026-11-24",
+      "activityAt": "2026-11-24T00:26:25Z",
+      "version": "2.4.8",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.4.7",
+          "version": "2.4.8",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.7",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.8",
           "assets": [
             {
-              "name": "LocalBrain_2.4.7_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.7/LocalBrain_2.4.7_aarch64.dmg",
-              "id": 783332869,
-              "size": 80316165,
-              "updatedAt": "2026-11-23T14:50:49Z",
-              "digest": "sha256:8a3ca09ece28855c70c2fb216326a03207e39645060a48cf2b2f8533d32023ba"
+              "name": "LocalBrain_2.4.8_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.8/LocalBrain_2.4.8_aarch64.dmg",
+              "id": 785091327,
+              "size": 80349310,
+              "updatedAt": "2026-11-24T00:26:24Z",
+              "digest": "sha256:4140a2ab6a128e6eca92395d78609842c23913900f002aea886b1c2aebe36812"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-23T23:53:39.658Z",
+      "checkedAt": "2026-11-24T01:53:16.619Z",
       "prerelease": false,
-      "releaseNotesHash": "cc4e1f31b7d073c35a7b2142aba24b66eade07377362d6308097262f38b48bf6",
-      "revision": "4c0933fc3a9c216c72dd902e1e5e12d3dcc968030e3db05d7a4e040c2223449f"
+      "releaseNotesHash": "802a9a08ac466d30b4dbf6d06334f2e11046e81b6cb5c41d642f7cbe954d6212",
+      "revision": "252136a7db784b91af1112e10524672fbeaa0cccdd168ab6c027859fff14c9b6"
     }
   ]
 }
