@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-24
-summary: "Mac 2.4.9 與 Windows / Linux 2.4.8：Mac 2.4.9 全面升級 Inkling 2 Mini 四大引擎並上線四款新變體——新增 Atomic Engine 冷專家 SSD 串流（16GB Mac 僅占 6.34 GiB RSS 即可跑 30B Inkling）、Strata Uncensored SQ-10/15/20（程式碼重寫 102.4 tok/s、看圖 6.82s）、Unbound v2.1 正交去拒答 GGUF（Unsloth b12651 解鎖 Q8_0 KV）及 oMLX 0.8.3（MTP + 4-bit TurboQuant KV 省下近 7 GiB 記憶體）；Windows/Linux 保留已實裝驗收的 2.4.8 正式包。"
+summary: "Mac / Windows / Linux 2.4.9 全平台對齊：跨平台獨立 Inkling GGUF 引擎升級至 Unsloth b12651（解鎖 Q8_0 KV 快取）並上線 Unbound v2.1 去拒答多模態 GGUF、Strata Uncensored SQ-10/15/20 與單檔案 GGUF 掛載；Mac 專屬新增 Atomic Engine 冷專家 SSD 串流（16GB Mac 僅占 6.34 GiB RSS 即可跑 30B Inkling）與 oMLX 0.8.3（MTP + 4-bit TurboQuant KV 省近 7 GiB 記憶體）。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.4.9：升級 Unsloth b12651 引擎（解鎖 Q8_0 KV）、上線 Unbound v2.1 與單檔案掛載同步
+
+Windows 與 Linux 正式安裝包同步跟進至 `2.4.9`，與 Mac 端對齊三平台 `2.4.9` 更新清單：
+
+- **跨平台獨立 `inkling-gguf` 升級至 `Unsloth b12651-mix-c7059d6` 並上線新模型目錄**：Windows（CUDA 12.8 / Vulkan）與 Linux（Vulkan）同步升級獨立受管 `inkling-gguf` 引擎，同時相容 `inkling2` 與主線 `inkling2_loop` 架構並解除原 `f16` KV 硬夾緊（支援 `Q8_0` KV 快取）；發現頁上線 `nokeepai/Inkling-2-Mini-Unbound-GGUF`（`v2.1` `IQ2_M / IQ3_M / Q4_K_M` + `mmproj-Q8_0` + `DSpark`）、主線 `unsloth/Inkling-2-Mini-GGUF` 與 `RX5950XT/Inkling-2-Mini-Uncensored-Strata`（`SQ-10/15/20` + `Vision.strata`）。
+- **同步單檔案 `.gguf` 掛載、軟連結防環掃描與載入授權閉環**：合併發現頁「掛載單檔案」（選中單個 `.gguf` 不誤掛整個 `Downloads` 目錄）、外部模型庫軟連結目錄防環掃描、`.localbrain-reference.json` 掛載路徑設定儲存/啟動放行及對話原生看圖統一判定。
+- **本機實裝驗收與平台邊界**：Windows x64（`LocalBrain_2.4.9_x64-setup.exe`，SHA-256 `b761c071ef9781b82da1080291db43191b053e2a9b8647897dd5fe14bc137974`）完成覆蓋安裝、`Unsloth b12651` CUDA 12.8 執行環境校驗、原生 GGUF Q2 工具往返推論、官方與 Uncensored/Unbound 卡片隔離、獨立單檔案 `.gguf` 掛載及外部庫移除實測；Linux amd64（Debian SHA-256 `5f01bb07d44a83b27472ed8e60fd4b4a261397a4d0d732ab174e683fe6dd70ab`、AppImage SHA-256 `e3f4d43db7fefb7399d7f4a1c516723f2c6dc513624c6db442541558085aebf6`）於 WSL2 Ubuntu 22.04 完成安裝啟動與 ext4 包內 DSH 宿主校驗（不代表裸機 GPU 或 Linux 模型推論驗收；`Atomic Engine` 與 `oMLX 0.8.3` 僅限 Apple Silicon Mac，Strata 在 Windows/Linux 上的推論與 Unbound v2.1 權重未在本機實測）。
+
+[Windows x64 (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_x64-setup.exe) · [Debian amd64 (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.deb) · [AppImage (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/SHA256SUMS-2.4.9-WIN-LINUX.txt) · [驗收紀錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.9-WIN-LINUX.md)
 
 ## Mac 2.4.9：Inkling 2 Mini 四大引擎全面升級、16GB Mac 冷專家 SSD 串流與四款新變體實測上線
 
@@ -26,7 +36,7 @@ Mac 2.4.9 在 `2.4.8` 打通全鏈路本機目錄、軟連結與單檔案 `.gguf
   - 獨立 `inkling-gguf` 升至 `Unsloth b12651-mix-c7059d6`（解鎖 `Q8_0` KV 快取），新增 `nokeepai/Inkling-2-Mini-Unbound-GGUF`（`v2.1`），`IQ2_M` 程式碼重寫 **`54.4 tok/s`（DSpark 接受率 `95.4%`）**、`T5` 邏輯 `3/3` 滿分。
   - 獨立 `oMLX` 升至 **`0.8.3`**，預設開啟 Lightning MTP 與 4-bit TurboQuant KV，實體峰值 `RSS` 由 `16.34 GiB` 直降至 **`9.39 GiB`**，`T9` 看圖縮短至 **`27.46s`**。
 
-安裝包（`LocalBrain_2.4.9_aarch64.dmg`）為 `80,337,957` 位元組（本機簽章，未 Apple 公證），SHA-256：`16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`。Windows / Linux 正式安裝包保留已實裝驗收的 `2.4.8`。
+安裝包（`LocalBrain_2.4.9_aarch64.dmg`）為 `80,337,957` 位元組（本機簽章，未 Apple 公證），SHA-256：`16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`。Windows / Linux `2.4.9` 正式安裝包已同步完成本機實裝驗收（見上方小節）。
 
 [下載 Mac 2.4.9（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9/LocalBrain_2.4.9_aarch64.dmg) · [查看 v2.4.9 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9) · [M5 Pro 逐題實測歸檔](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/benchmarks/INKLING_2_4_9_M5_PRO_BENCHMARK.md)
 
@@ -832,6 +842,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 正式迭代
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -845,6 +862,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
+>
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
+>
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
+>
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
+>
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

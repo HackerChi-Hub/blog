@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-24
-summary: "Mac 2.4.9 and Windows/Linux 2.4.8: Mac 2.4.9 upgrades all four Inkling 2 Mini runtimes and adds four new variants—Atomic Engine cold-expert SSD streaming (6.34 GiB peak RSS on 16GB Macs), Strata Uncensored SQ-10/15/20 (102.4 tok/s code rewrite, 6.82s vision), Unbound v2.1 OAS multimodal GGUF on Unsloth b12651 (Q8_0 KV unlocked), and oMLX 0.8.3 (Lightning MTP + 4-bit TurboQuant KV saving ~7 GiB RAM); Windows/Linux preserves the locally validated 2.4.8 installers."
+summary: "Mac, Windows and Linux 2.4.9: upgrades cross-platform isolated Inkling GGUF to Unsloth b12651 (Q8_0 KV unlocked) with Unbound v2.1 OAS multimodal GGUF, Strata Uncensored SQ-10/15/20 and single-file GGUF mounting; Apple Silicon Mac also adds Atomic Engine cold-expert SSD streaming (6.34 GiB peak RSS on 16GB Macs) and oMLX 0.8.3 (Lightning MTP + 4-bit TurboQuant KV saving ~7 GiB RAM)."
 categories:
   - Resources
 tags:
@@ -15,6 +15,16 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Windows / Linux 2.4.9: Unsloth b12651 Engine Upgrade (Q8_0 KV Unlocked), Unbound v2.1 & Single-File Mount Sync
+
+Windows and Linux installers advance to `2.4.9`, aligning all three desktop platforms on `2.4.9`:
+
+- **Cross-platform `inkling-gguf` upgraded to `Unsloth b12651-mix-c7059d6` & new catalog variants**: Windows (CUDA 12.8 / Vulkan) and Linux (Vulkan) upgrade the isolated `inkling-gguf` runtime to support both `inkling2` and mainline `inkling2_loop` while unlocking `Q8_0` KV caching; Discover adds `nokeepai/Inkling-2-Mini-Unbound-GGUF` (`v2.1` `IQ2_M / IQ3_M / Q4_K_M` + `mmproj-Q8_0` + `DSpark`), mainline `unsloth/Inkling-2-Mini-GGUF`, and `RX5950XT/Inkling-2-Mini-Uncensored-Strata` (`SQ-10/15/20` + `Vision.strata`).
+- **Single-file `.gguf` mounting, symlink-safe scanning & reference load auth**: Syncs standalone single-file `.gguf` mounting (without mounting the entire parent folder), cycle-safe symlinked external-folder scanning, `.localbrain-reference.json` mounted-path save/load authorization, and unified native-vision detection.
+- **Local validation & platform boundaries**: Windows x64 (`LocalBrain_2.4.9_x64-setup.exe`, SHA-256 `b761c071ef9781b82da1080291db43191b053e2a9b8647897dd5fe14bc137974`) passed installation, `Unsloth b12651` CUDA 12.8 verification, native GGUF Q2 tool round trips, official vs. Uncensored/Unbound card isolation, standalone `.gguf` mounting, and external library deletion; Linux amd64 (Debian SHA-256 `5f01bb07d44a83b27472ed8e60fd4b4a261397a4d0d732ab174e683fe6dd70ab`, AppImage SHA-256 `e3f4d43db7fefb7399d7f4a1c516723f2c6dc513624c6db442541558085aebf6`) passed installation, startup and ext4 native DSH host checks on WSL2 Ubuntu 22.04 (not a bare-metal GPU or Linux model-inference validation; `Atomic Engine` and `oMLX 0.8.3` remain Apple Silicon Mac only, and Strata Windows/Linux inference plus Unbound v2.1 weights were not tested locally).
+
+[Windows x64 (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_x64-setup.exe) · [Debian amd64 (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.deb) · [AppImage (2.4.9)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/SHA256SUMS-2.4.9-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.4.9-WIN-LINUX.md)
 
 ## Mac 2.4.9: Inkling 2 Mini 4-Engine Upgrade, 16GB Mac Cold-Expert SSD Streaming & 4 New Variants
 
@@ -26,7 +36,7 @@ Building on `2.4.8`'s unified folder/symlink/single-file `.gguf` mounting and st
   - `inkling-gguf` upgraded to `Unsloth b12651-mix-c7059d6` (Mac Metal + Windows CUDA12/Vulkan + Linux Vulkan, `Q8_0` KV unlocked) with `nokeepai/Inkling-2-Mini-Unbound-GGUF` (`v2.1` `IQ2_M / IQ3_M / Q4_K_M` + `mmproj-Q8_0` + `DSpark`; `IQ2_M` hit **`54.4 tok/s`** rewrite at `95.4%` DSpark acceptance and `3/3` on `T5`).
   - `oMLX` upgraded to **`0.8.3`** with Lightning MTP + 4-bit TurboQuant KV enabled by default, cutting peak RSS from `16.34 GiB` to **`9.39 GiB`** and `T9` vision from `53.0s` to **`27.46s`**.
 
-Installer (`LocalBrain_2.4.9_aarch64.dmg`): `80,337,957` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`. Published Windows/Linux installers remain at validated `2.4.8`.
+Installer (`LocalBrain_2.4.9_aarch64.dmg`): `80,337,957` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `16f32c2c8fc6f47a41ba3547cff67a0b38939d0dcf4a13f9165da75d06b48592`. Windows and Linux `2.4.9` installers are now also locally validated and published (see section above).
 
 [Download Mac 2.4.9 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9/LocalBrain_2.4.9_aarch64.dmg) · [Release v2.4.9](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9) · [M5 Pro Benchmark Archive](https://github.com/HackerChi-Hub/localbrain/blob/main/docs/benchmarks/INKLING_2_4_9_M5_PRO_BENCHMARK.md)
 
@@ -832,6 +842,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -845,6 +862,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
