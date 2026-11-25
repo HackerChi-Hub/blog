@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Nov 2026 12:55:39 GMT</lastBuildDate>
-    <pubDate>Tue, 24 Nov 2026 12:55:39 GMT</pubDate>
+    <lastBuildDate>Wed, 25 Nov 2026 02:01:18 GMT</lastBuildDate>
+    <pubDate>Wed, 25 Nov 2026 02:01:18 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>API黑箱起底！一折满血 Claude 别乱填：利益链解剖与五步技术验身实操</title>
+      <link>https://hyphentech.top/api-relay-blackbox-audit-2026/</link>
+      <guid isPermaLink="true">https://hyphentech.top/api-relay-blackbox-audit-2026/</guid>
+      <description>拆透 Agent 时代大模型流量暴涨根源、灰黑产四条进货暗渠与五把收割快刀，附零依赖 Python 本地验身探针与透明防护网关完整脚本。</description>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>大模型越狱怎么从“骗话术”进化到“脑科手术”？拆解 Heretic 流形消融与四大真实用途</title>
       <link>https://hyphentech.top/llm-jailbreak-principles-and-real-uses/</link>
@@ -221,16 +231,6 @@
     <category>AI</category>
     <category>新闻深度挖掘</category>
     <category>英伟达</category>
-    </item>
-    <item>
-      <title>DeepSeek Harness支持多代理协作后，现有项目该不该升级？</title>
-      <link>https://hyphentech.top/2026-11-11-official-4412c828c967/</link>
-      <guid isPermaLink="true">https://hyphentech.top/2026-11-11-official-4412c828c967/</guid>
-      <description>新预发布版补上协作与审阅功能，但工作树清理、搜索配置和工具授权更值得升级前检查。</description>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新锐模型</category>
     </item>
   </channel>
 </rss>
