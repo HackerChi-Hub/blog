@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-24
-summary: "Mac / Windows / Linux 2.4.9 全平台对齐：跨平台独立 Inkling GGUF 引擎升级至 Unsloth b12651（解锁 Q8_0 KV 缓存）并上线 Unbound v2.1 去拒答多模态 GGUF、Strata Uncensored SQ-10/15/20 与单文件 GGUF 挂载；Mac 专属新增 Atomic Engine 冷专家 SSD 流式（16GB Mac 仅占 6.34 GiB RSS 即可跑 30B Inkling）与 oMLX 0.8.3（MTP + 4-bit TurboQuant KV 省近 7 GiB 内存）。"
+updated: 2026-11-25
+summary: "Mac 2.5.0 在对话页输入框右侧（附件与停止/发送按钮旁）新增「当前会话超级权限」独立开关与常驻警示横幅：开启前强制弹出风险与后果担责确认框，开启后仅在当前会话（含生成中实时切换）解除工作区目录、命令白名单与逐条确认限制，解锁任意 Shell 命令执行与全盘读写删改能力，切换或新建其他会话默认关闭。 Windows / Linux 正式包保留已实装验收的 2.4.9。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,15 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.5.0 · 对话页新增「当前会话超级权限」按钮、强制担责确认与全盘 Shell 执行
+
+- **输入框旁精排「超级权限」会话开关 + 开启前强制后果担责弹窗**：在对话页输入框右侧 `[附件]` 与 `[停止]` / `[发送]` 旁边新增双行状态指示的 `[超级权限]` 按钮（`● 超级权限 / 当前会话` ↔ `● 超级权限 / 本会话已开`），统一 `54px` 高度圆角排版且在 **`生成中...` 运行中同样支持实时开启或关闭**；点击开启时强制弹出高风险权限确认框，明确提示 **「使用者须对一切后果负全部责任」**，确认后在输入框上方展示常驻红色警示横幅与一键 `[退出超级权限]` 入口。
+- **严格按当前会话内存隔离，全链路解锁任意 Shell 与全盘文件操作**：状态仅绑定当前会话 `sessionId` 驻留运行内存，**新建或切换到其他对话默认关闭**，删除会话或重启软件自动复位；当前会话开启后解锁原生 `run_shell_command`（支持完整 Shell 语法、管道与重定向）、`write_any_file`（全盘任意路径写入并自动建目录）、`remove_path`（文件/递归目录删除，保留 `/` 与 `~` 根目录硬保护），同步解除 `read_file` / `edit_file` / `run_workspace_command` / `start_workspace_job` 的工作区与白名单限制并免除本会话逐次确认弹窗。Windows / Linux 正式安装包保持 `2.4.9`（见下方小节）。
+
+安装包（`LocalBrain_2.5.0_aarch64.dmg`）为 `80,361,883` 字节（本地签名，未 Apple 公证），SHA-256：`35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`。Windows 与 Linux 正式安装包继续保留已实装验收的 `2.4.9`（见下方小节）。
+
+[下载 Mac 2.5.0（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0/LocalBrain_2.5.0_aarch64.dmg) · [查看 v2.5.0 发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0) · [下载与更新发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Windows / Linux 2.4.9：升级 Unsloth b12651 引擎（解锁 Q8_0 KV）、上线 Unbound v2.1 与单文件挂载同步
 

@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-24
-summary: "Mac, Windows and Linux 2.4.9: upgrades cross-platform isolated Inkling GGUF to Unsloth b12651 (Q8_0 KV unlocked) with Unbound v2.1 OAS multimodal GGUF, Strata Uncensored SQ-10/15/20 and single-file GGUF mounting; Apple Silicon Mac also adds Atomic Engine cold-expert SSD streaming (6.34 GiB peak RSS on 16GB Macs) and oMLX 0.8.3 (Lightning MTP + 4-bit TurboQuant KV saving ~7 GiB RAM)."
+updated: 2026-11-25
+summary: "Mac 2.5.0 adds a per-session Super-Permission toggle right next to Attach and Stop/Send in the Chat composer: requires explicit risk & full-responsibility confirmation before activation, unlocks arbitrary shell execution and full-disk file read/write/delete without per-call prompts strictly within the current session (including live mid-run toggling), and defaults to OFF on new or other sessions. Windows and Linux preserve the locally validated 2.4.9 installers."
 categories:
   - Resources
 tags:
@@ -15,6 +15,15 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.5.0 · Per-Session Super-Permission Button, Mandatory Responsibility Confirmation & Full Local Shell/Disk Access
+
+- **Balanced composer `[Super Mode]` toggle + mandatory consequence & responsibility confirmation**: Adds a two-line `[Super Mode]` toggle right beside `[Attach]` and `[Stop]` / `[Send]` in the Chat composer (`54px` aligned height, clickable both before sending and live mid-run during `Generating...`). Turning it ON opens a high-risk confirmation modal explicitly stating that **the user assumes full responsibility for all actions and consequences**, displays a persistent active warning banner above the input bar while active, and allows instant one-click exit.
+- **Strict current-session isolation + end-to-end unrestricted execution**: Tracked purely in runtime memory by `sessionId`—**switching to another chat, creating a new chat, deleting a session, or restarting the app keeps/resets Super-Permission to OFF**. When enabled for the active session, LocalBrain exposes native `run_shell_command` (arbitrary shell commands, pipes, redirection, and custom `cwd`), `write_any_file` (create/overwrite any path with automatic parent directories), and `remove_path` (file/recursive directory deletion with `/` and `~` root guards), while lifting path/command allowlists and per-call confirmation dialogs across `system` and `network` tools. Published Windows / Linux installers remain at `2.4.9` (see below).
+
+Installer (`LocalBrain_2.5.0_aarch64.dmg`): `80,361,883` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`. Published Windows and Linux installers remain at locally validated `2.4.9` (see section below).
+
+[Download Mac 2.5.0 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0/LocalBrain_2.5.0_aarch64.dmg) · [Release v2.5.0](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0) · [Latest Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Windows / Linux 2.4.9: Unsloth b12651 Engine Upgrade (Q8_0 KV Unlocked), Unbound v2.1 & Single-File Mount Sync
 

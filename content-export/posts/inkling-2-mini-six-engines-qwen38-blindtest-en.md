@@ -4,7 +4,6 @@ slug: inkling-2-mini-six-engines-qwen38-blindtest-en
 status: published
 lang: en
 translation_of: inkling-2-mini-six-engines-qwen38-blindtest
-article_type: "article"
 translation_source: machine
 source_sha256: 90f6be43ec3ebe20
 date: 2026-11-25
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/inkling-2-mini-six-engines-qwen38-blindtest/cover-db0fb541c5.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation
