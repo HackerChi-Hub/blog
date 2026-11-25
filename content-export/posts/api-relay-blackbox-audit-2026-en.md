@@ -4,7 +4,6 @@ slug: api-relay-blackbox-audit-2026-en
 status: published
 lang: en
 translation_of: api-relay-blackbox-audit-2026
-article_type: "article"
 translation_source: machine
 source_sha256: 1a9379c0b384676b
 date: 2026-11-24
@@ -18,6 +17,7 @@ tags:
 cover: "/obsidian-assets/api-relay-blackbox-audit-2026/cover-1e56e3b742.jpg"
 brand_slogan: 让AI成为你的超能力
 legacy_paths: []
+article_type: "article"
 ---
 
 > [!info] Machine translation

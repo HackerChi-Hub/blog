@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "e4f7c4168ffc32b7ba3ec966f5d5c98f4dacef87a70fd09641ca95c7db101bac",
-  "published_post_count": 281,
+  "content_sha256": "1b2ee9e83517deef71de515c8bedb76cb4393c1c15b7b66575b1b428de427fee",
+  "published_post_count": 283,
   "posts": [
     {
       "file": "posts/2026-10-07-official-b31ed069464a-en.md",
@@ -795,7 +795,7 @@
       "legacy_paths": [],
       "translation_of": "api-relay-blackbox-audit-2026",
       "lang": "en",
-      "sha256": "d7dedbf10942a999cff7ca3fb86587d2c910aead3b2a62d3ef610e0784e0f72a"
+      "sha256": "74e00432dd8d881f04326f50760bc63844ed278230527bc32444e4837405a1b6"
     },
     {
       "file": "posts/api-relay-blackbox-audit-2026.md",
@@ -1300,6 +1300,22 @@
       "article_type": "article",
       "legacy_paths": [],
       "sha256": "00fdc7ae6555f309225f3dd09aff14c1aeaf68317a7212b02dab086bc4a74d46"
+    },
+    {
+      "file": "posts/inkling-2-mini-six-engines-qwen38-blindtest-en.md",
+      "slug": "inkling-2-mini-six-engines-qwen38-blindtest-en",
+      "article_type": "article",
+      "legacy_paths": [],
+      "translation_of": "inkling-2-mini-six-engines-qwen38-blindtest",
+      "lang": "en",
+      "sha256": "e71e46fa33980b61607e750440ba14137affab7d873062b1e39ddd90bd933650"
+    },
+    {
+      "file": "posts/inkling-2-mini-six-engines-qwen38-blindtest.md",
+      "slug": "inkling-2-mini-six-engines-qwen38-blindtest",
+      "article_type": "article",
+      "legacy_paths": [],
+      "sha256": "8e415ea57b82ee71412312082c4ab4f0fe7b46711e787c012a94497667129a81"
     },
     {
       "file": "posts/inkling-2-mini-versions-m5-pro-compare-en.md",
