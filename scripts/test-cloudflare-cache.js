@@ -91,7 +91,25 @@ async function main() {
   const workflow = fs.readFileSync(path.join(__dirname, '../.github/workflows/deploy.yml'), 'utf8');
   assert.ok(workflow.indexOf('cloudflare-cache.js prepare') < workflow.indexOf('name: Deploy to gh-pages'));
   assert.ok(workflow.indexOf('cloudflare-cache.js purge') < workflow.indexOf('name: Verify live pages'));
+  assert.ok(workflow.indexOf('cloudflare-cache.js verify') < workflow.indexOf('notify-search-engines.cjs --soft-fail'));
   assert.match(workflow, /name: Wait for direct Pages deployment[\s\S]*?timeout-minutes: 10/);
-  console.log('✅ 缓存发布回归通过：域名限制、新版等待、删除回收、图片热缓存保留、批次限流、缺凭据与失败关闭');
+  const seoNotify = require('./notify-search-engines.cjs');
+  const verifiedKey = seoNotify.loadVerifiedKey(path.resolve(__dirname, '..'));
+  assert.equal(verifiedKey.keyLocation, origin + '/' + seoNotify.INDEXNOW_KEY + '.txt');
+  assert.equal(seoNotify.isIndexableCanonicalUrl(origin + '/'), true);
+  assert.equal(seoNotify.isIndexableCanonicalUrl(origin + '/new/'), true);
+  assert.equal(seoNotify.isIndexableCanonicalUrl(origin + '/index.html'), false);
+  assert.equal(seoNotify.isIndexableCanonicalUrl(origin + '/_next/static/a.js'), false);
+  assert.equal(seoNotify.isIndexableCanonicalUrl(origin + '/' + seoNotify.INDEXNOW_KEY + '.txt'), false);
+  let indexHit = 0;
+  const subRes = await seoNotify.submitIndexNow([origin + '/new/'], {
+    key: verifiedKey.key,
+    keyLocation: verifiedKey.keyLocation,
+    sleep: async () => {},
+    fetcher: async () => (++indexHit === 1 ? { ok: false, status: 429, text: '' } : { ok: true, status: 202, text: '' }),
+  });
+  assert.equal(indexHit, 2);
+  assert.equal(subRes.submitted, 1);
+  console.log('✅ 缓存发布与搜索收录推送回归通过：域名限制、新版等待、删除回收、图片热缓存保留、IndexNow增量重试与失败关闭');
 }
 main().catch((error) => { console.error(error); process.exitCode = 1; });

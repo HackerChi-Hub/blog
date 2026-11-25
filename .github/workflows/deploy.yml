@@ -151,3 +151,9 @@ jobs:
 
       - name: Verify site delivery and live endpoint isolation
         run: node scripts/cloudflare-cache.js verify
+
+      - name: Notify search engines (IndexNow & optional Baidu)
+        # 在线上页面、密钥文件与边缘缓存全部验收通过后推送本次增量 URL；外部搜索接口波动不回滚已上线站点。
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+        run: node scripts/notify-search-engines.cjs --soft-fail

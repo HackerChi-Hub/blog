@@ -17,6 +17,7 @@
     "covers:build": "node scripts/build-cover-previews.js",
     "test:performance": "node scripts/test-layout-performance.js && node scripts/test-hardware-page-performance.js && node scripts/test-article-media.cjs",
     "test:cache": "node scripts/test-cloudflare-cache.js",
+    "seo:notify": "node scripts/notify-search-engines.cjs",
     "products:check": "node scripts/refresh-product-releases.js --check",
     "products:update": "node scripts/refresh-product-releases.js",
     "products:publish": "node scripts/publish-product-updates.js",
