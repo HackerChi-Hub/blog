@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 25 Nov 2026 02:01:18 GMT</lastBuildDate>
-    <pubDate>Wed, 25 Nov 2026 02:01:18 GMT</pubDate>
+    <lastBuildDate>Wed, 25 Nov 2026 02:23:31 GMT</lastBuildDate>
+    <pubDate>Wed, 25 Nov 2026 02:23:31 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>16GB本地飙102字/秒！Inkling 2 Mini 六引擎实测对决千问3.8：从倒立盆景到木桶效应</title>
+      <link>https://hyphentech.top/inkling-2-mini-six-engines-qwen38-blindtest/</link>
+      <guid isPermaLink="true">https://hyphentech.top/inkling-2-mini-six-engines-qwen38-blindtest/</guid>
+      <description>M5 Pro 64GB 实测六大本地引擎：Strata 飙至 102.4 tok/s、Atomic 压进 6.34 GiB 救活 16GB Mac；四组网页盲测对决千问 3.8-27B，附按内存选型表。</description>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+    <category>学习思考</category>
+    <category>AI</category>
+    <category>热点速递</category>
+    </item>
     <item>
       <title>API黑箱起底！一折满血 Claude 别乱填：利益链解剖与五步技术验身实操</title>
       <link>https://hyphentech.top/api-relay-blackbox-audit-2026/</link>
@@ -220,17 +230,6 @@
     <category>PDF解析</category>
     <category>提示词注入</category>
     <category>方寸智匣</category>
-    </item>
-    <item>
-      <title>黄仁勋辞职：4天从力挺到换人，一篇讲清英伟达的芯片管制与政治博弈</title>
-      <link>https://hyphentech.top/jensen-huang-nvidia-governance-chips/</link>
-      <guid isPermaLink="true">https://hyphentech.top/jensen-huang-nvidia-governance-chips/</guid>
-      <description>黄仁勋33年的英伟达掌舵时代在4天内突然转弯。私人失信触发了治理危机，Megaspeed调查与出口管制放大风险，美国两党则借这一事件争夺科技政策议程。</description>
-      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>AI</category>
-    <category>新闻深度挖掘</category>
-    <category>英伟达</category>
     </item>
   </channel>
 </rss>
