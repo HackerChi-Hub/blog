@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-25
-summary: "Mac 2.5.0 於對話頁輸入框右側（附件與停止/傳送按鈕旁）新增「目前對話超級權限」獨立開關與常駐警示橫幅：開啟前強制彈出風險與後果擔責確認視窗，開啟後僅於目前對話（含產生中即時切換）解除工作區目錄、命令白名單與逐條確認限制，解鎖任意 Shell 指令執行與全碟讀寫刪改能力，切換或新建其他對話預設關閉。 Windows / Linux 正式安裝包保留已實裝驗收的 2.4.9。"
+updated: 2026-11-26
+summary: "2.5.0 於對話頁輸入框右側（附件與停止/傳送按鈕旁）新增「目前對話超級權限」獨立開關與常駐警示橫幅：開啟前強制彈出風險與後果擔責確認視窗，開啟後僅於目前對話（含產生中即時切換）解除工作區目錄、命令白名單與逐條確認限制，解鎖任意 Shell 指令執行與全碟讀寫刪改能力（含系統根目錄防誤刪保護），切換或新建其他對話預設關閉；Mac、Windows、Linux 2.5.0 三端安裝包已同步上線。"
 categories:
   - 資源分享
 tags:
@@ -16,12 +16,22 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.5.0：同步上線「目前對話超級權限」開關、跨平台 Shell 放行與系統根目錄保護
+
+Windows 與 Linux 正式安裝包同步跟進至 `2.5.0`，與 Mac 端對齊三平台 `2.5.0` 更新清單：
+
+- **對話頁對話級 `[超級權限]` 獨立開關、擔責確認與一鍵撤回**：於對話頁輸入框右側 `[附件]` 與 `[停止]` / `[傳送]` 旁同步上線 `54px` 等高雙行狀態按鈕 `[超級權限]`（閒置與 `產生中...` 期間均支援即時切換），開啟前強制彈出後果擔責確認視窗（明確提示 **「使用者須對一切後果負全部責任」**），開啟後常駐紅色警示橫幅並提供一鍵 `[退出超級權限]` 入口；狀態嚴格依 `sessionId` 駐留執行記憶體，新建或切換其他對話預設關閉，重啟應用程式自動復位。
+- **跨平台原生 Shell 執行與系統根目錄保護加固**：開啟後於目前對話解鎖原生 `run_shell_command`（Windows 採用 `PowerShell -NoProfile -NonInteractive -ExecutionPolicy Bypass` 相容預設 `Restricted` 策略下的 `npm`/`pnpm` 等 `.ps1` 指令，並自動剝離 `\\?\` 冗長磁碟機前綴以避免子處理序 UNC 路徑報錯；Linux 採用 `bash`）、`write_any_file` 與 `remove_path`（於 `/` 與 `~` 之外補齊 Windows `C:\Windows`·`C:\Users`·`C:\Program Files`·`C:\ProgramData` 及 Linux `/usr`·`/etc`·`/bin`·`/var`·`/home` 等系統根目錄防誤刪硬保護），同步解除本對話 `system` / `network` 目錄與指令白名單及逐次確認彈窗。
+- **本機實裝驗收與平台邊界**：Windows x64（`LocalBrain_2.5.0_x64-setup.exe`，`43,847,826` 位元組，SHA-256 `3071551e59aa4a404b14d41c36562920ec4f25a203f0e80b059631626f7937e4`）完成覆蓋安裝（`13,994` 項檔案一致）、超級權限彈窗/對話隔離/PowerShell 執行/系統根目錄攔截、`Unsloth b12651` CUDA 12.8 引擎自檢與原生 `Inkling-2-Mini-GGUF` `Q2_K_XL` 工具往返驗收；Linux amd64（Debian SHA-256 `87adca99e4cbc5ac74ecaf6b3f75afca673b6437535fe9f0f7710c403b2abffd`、AppImage SHA-256 `532857fddc1bc133073cd88251cdc1be1ba4b961ef21ac4cf35422292785e7ec`）於 WSL2 Ubuntu 22.04 完成安裝啟動（`14,020` 項資源）與 ext4 包內 DSH 宿主校驗（不代表裸機 GPU 或 Linux 模型推論驗收；`Atomic Engine` 與 `oMLX 0.8.3` 僅限 Apple Silicon Mac，Strata 在 Windows/Linux 上的推論與 `Q3/Q4`/`Unbound v2.1` 權重未在本輪本機實測）。
+
+[Windows x64 (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_x64-setup.exe) · [Debian amd64 (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.deb) · [AppImage (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/SHA256SUMS-2.5.0-WIN-LINUX.txt) · [驗收紀錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.5.0-WIN-LINUX.md)
+
 ## Mac 2.5.0 · 對話頁新增「目前對話超級權限」按鈕、強制擔責確認與全碟 Shell 執行
 
 - **輸入框旁精排「超級權限」對話開關 + 開啟前強制後果擔責彈窗**：於對話頁輸入框右側 `[附件]` 與 `[停止]` / `[傳送]` 旁邊新增雙行狀態指示的 `[超級權限]` 按鈕（`● 超級權限 / 目前對話` ↔ `● 超級權限 / 本對話已開`），統一 `54px` 高度圓角排版且於 **`產生中...` 執行期間同樣支援即時開啟或關閉**；點擊開啟時強制彈出高風險權限確認視窗，明確提示 **「使用者須對一切後果負全部責任」**，確認後於輸入框上方常駐紅色警示橫幅並提供一鍵 `[退出超級權限]` 入口。
-- **嚴格依目前對話記憶體隔離，全鏈路解鎖任意 Shell 與全碟檔案操作**：狀態僅綁定目前對話 `sessionId` 駐留執行記憶體，**新建或切換至其他對話預設關閉**，刪除對話或重啟軟體自動復位；目前對話開啟後解鎖原生 `run_shell_command`（支援完整 Shell 語法、管線與重新導向）、`write_any_file`（全碟任意路徑寫入並自動建立父目錄）、`remove_path`（檔案/遞迴目錄刪除，保留 `/` 與 `~` 根目錄硬保護），同步解除 `read_file` / `edit_file` / `run_workspace_command` / `start_workspace_job` 的工作區與白名單限制並免除本對話逐次確認彈窗。Windows / Linux 正式安裝包保持 `2.4.9`（見下方小節）。
+- **嚴格依目前對話記憶體隔離，全鏈路解鎖任意 Shell 與全碟檔案操作**：狀態僅綁定目前對話 `sessionId` 駐留執行記憶體，**新建或切換至其他對話預設關閉**，刪除對話或重啟軟體自動復位；目前對話開啟後解鎖原生 `run_shell_command`（支援完整 Shell 語法、管線與重新導向）、`write_any_file`（全碟任意路徑寫入並自動建立父目錄）、`remove_path`（檔案/遞迴目錄刪除，保留 `/` 與 `~` 根目錄硬保護），同步解除 `read_file` / `edit_file` / `run_workspace_command` / `start_workspace_job` 的工作區與白名單限制並免除本對話逐次確認彈窗。
 
-安裝包（`LocalBrain_2.5.0_aarch64.dmg`）為 `80,361,883` 位元組（本機簽章，未經 Apple 公證），SHA-256：`35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`。Windows 與 Linux 正式安裝包繼續保留已實裝驗收的 `2.4.9`（見下方小節）。
+安裝包（`LocalBrain_2.5.0_aarch64.dmg`）為 `80,361,883` 位元組（本機簽章，未經 Apple 公證），SHA-256：`35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`。Windows 與 Linux `2.5.0` 正式安裝包已同步完成本機實裝驗收（見上方小節）。
 
 [下載 Mac 2.5.0（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0/LocalBrain_2.5.0_aarch64.dmg) · [查看 v2.5.0 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0) · [下載與更新發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
@@ -851,6 +861,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 正式迭代
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -864,6 +881,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
+>
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
+>
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
+>
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
+>
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

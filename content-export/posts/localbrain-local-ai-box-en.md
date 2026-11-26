@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-25
-summary: "Mac 2.5.0 adds a per-session Super-Permission toggle right next to Attach and Stop/Send in the Chat composer: requires explicit risk & full-responsibility confirmation before activation, unlocks arbitrary shell execution and full-disk file read/write/delete without per-call prompts strictly within the current session (including live mid-run toggling), and defaults to OFF on new or other sessions. Windows and Linux preserve the locally validated 2.4.9 installers."
+updated: 2026-11-26
+summary: "LocalBrain 2.5.0 adds a per-session Super-Permission toggle right next to Attach and Stop/Send in the Chat composer: requires explicit risk & full-responsibility confirmation before activation, unlocks arbitrary shell execution and full-disk file read/write/delete (with OS root guards) without per-call prompts strictly within the current session (including live mid-run toggling), and defaults to OFF on new or other sessions. Mac, Windows, and Linux 2.5.0 installers are all live."
 categories:
   - Resources
 tags:
@@ -16,12 +16,22 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.5.0: Per-Session Super-Permission Toggle, Cross-Platform Shell Access & OS Root Guards
+
+Windows and Linux installers advance to `2.5.0`, aligning all three desktop platforms on `2.5.0`:
+
+- **Session-scoped `[Super Mode]` toggle, mandatory responsibility confirmation & one-click exit**: Adds the `54px`-aligned two-line `[Super Mode]` button right beside `[Attach]` and `[Stop]` / `[Send]` in the Chat composer (clickable both idle and live mid-run during `Generating...`), guarded by a mandatory high-risk confirmation modal stating that **the user assumes full responsibility for all actions and consequences**, a persistent active warning banner, and one-click revocation. Strictly isolated in memory by `sessionId`, new or other sessions default to OFF and app restarts reset all state.
+- **Cross-platform shell execution & OS root guards**: Unlocks native `run_shell_command` (`PowerShell -NoProfile -NonInteractive -ExecutionPolicy Bypass` on Windows so `.ps1` shims like `npm`/`pnpm` work under default `Restricted` policies, with automatic stripping of `\\?\` verbatim prefixes so child tools receive standard drive paths; `bash` on Linux), `write_any_file`, and `remove_path` (blocking `/`, `~`, Windows `C:\Windows`·`C:\Users`·`C:\Program Files`·`C:\ProgramData`, and Linux `/usr`·`/etc`·`/bin`·`/var`·`/home`), while lifting `system` / `network` path & command allowlists and per-call confirmation prompts for that session.
+- **Local validation & platform boundaries**: Windows x64 (`LocalBrain_2.5.0_x64-setup.exe`, `43,847,826` bytes, SHA-256 `3071551e59aa4a404b14d41c36562920ec4f25a203f0e80b059631626f7937e4`) passed installation (`13,994` files matched), Super-Permission modal/isolation/PowerShell execution/OS root blocking, `Unsloth b12651` CUDA 12.8 verification, and native `Inkling-2-Mini-GGUF` `Q2_K_XL` tool round trips; Linux amd64 (Debian SHA-256 `87adca99e4cbc5ac74ecaf6b3f75afca673b6437535fe9f0f7710c403b2abffd`, AppImage SHA-256 `532857fddc1bc133073cd88251cdc1be1ba4b961ef21ac4cf35422292785e7ec`) passed installation, startup (`14,020` resources) and ext4 native DSH host checks on WSL2 Ubuntu 22.04 (not a bare-metal GPU or Linux model-inference validation; `Atomic Engine` and `oMLX 0.8.3` remain Apple Silicon Mac only, and Strata Windows/Linux inference plus `Q3/Q4`/`Unbound v2.1` weights were not tested locally in this batch).
+
+[Windows x64 (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_x64-setup.exe) · [Debian amd64 (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.deb) · [AppImage (2.5.0)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/SHA256SUMS-2.5.0-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.5.0-WIN-LINUX.md)
+
 ## Mac 2.5.0 · Per-Session Super-Permission Button, Mandatory Responsibility Confirmation & Full Local Shell/Disk Access
 
 - **Balanced composer `[Super Mode]` toggle + mandatory consequence & responsibility confirmation**: Adds a two-line `[Super Mode]` toggle right beside `[Attach]` and `[Stop]` / `[Send]` in the Chat composer (`54px` aligned height, clickable both before sending and live mid-run during `Generating...`). Turning it ON opens a high-risk confirmation modal explicitly stating that **the user assumes full responsibility for all actions and consequences**, displays a persistent active warning banner above the input bar while active, and allows instant one-click exit.
-- **Strict current-session isolation + end-to-end unrestricted execution**: Tracked purely in runtime memory by `sessionId`—**switching to another chat, creating a new chat, deleting a session, or restarting the app keeps/resets Super-Permission to OFF**. When enabled for the active session, LocalBrain exposes native `run_shell_command` (arbitrary shell commands, pipes, redirection, and custom `cwd`), `write_any_file` (create/overwrite any path with automatic parent directories), and `remove_path` (file/recursive directory deletion with `/` and `~` root guards), while lifting path/command allowlists and per-call confirmation dialogs across `system` and `network` tools. Published Windows / Linux installers remain at `2.4.9` (see below).
+- **Strict current-session isolation + end-to-end unrestricted execution**: Tracked purely in runtime memory by `sessionId`—**switching to another chat, creating a new chat, deleting a session, or restarting the app keeps/resets Super-Permission to OFF**. When enabled for the active session, LocalBrain exposes native `run_shell_command` (arbitrary shell commands, pipes, redirection, and custom `cwd`), `write_any_file` (create/overwrite any path with automatic parent directories), and `remove_path` (file/recursive directory deletion with `/` and `~` root guards), while lifting path/command allowlists and per-call confirmation dialogs across `system` and `network` tools.
 
-Installer (`LocalBrain_2.5.0_aarch64.dmg`): `80,361,883` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`. Published Windows and Linux installers remain at locally validated `2.4.9` (see section below).
+Installer (`LocalBrain_2.5.0_aarch64.dmg`): `80,361,883` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8`. Windows and Linux `2.5.0` installers have also passed local validation and launched alongside Mac (see section above).
 
 [Download Mac 2.5.0 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0/LocalBrain_2.5.0_aarch64.dmg) · [Release v2.5.0](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0) · [Latest Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
@@ -851,6 +861,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -864,6 +881,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
