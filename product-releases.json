@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-25T14:28:20.125Z",
-  "contentHash": "56c41b9f648d165d1ad4586edfa6f4b478fd805836154f2cbf22c8b0fa9dd68e",
+  "checkedAt": "2026-11-26T10:49:09.772Z",
+  "contentHash": "1132e9674bae2380401d3de993b03fc0a93b5bd5ba8ea29028ad07277691494e",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-25T14:28:20.125Z",
+      "checkedAt": "2026-11-26T10:49:09.772Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,11 +116,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "对话页输入框旁新增「当前会话超级权限」按钮与强制后果担责确认：在 [附件] 与 [停止] / [发送] 旁新增双行状态指示的 [超级权限] 开关，统一 54px 圆角高度水平对齐，且在 生成中... 运行期间同样支持实时开启或关闭；开启前强制弹出高风险权限确认模态框，逐条说明解除的安全边界，并明确要求勾选/点击确认 「我已知晓并承担一…",
-      "updated": "2026-11-25",
-      "activityAt": "2026-11-25T14:22:41Z",
-      "version": "2.5.0",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0",
+      "updateSummary": "对话页新增「当前会话超级权限」开关与强制担责确认（Per-Session Super-Permission Toggle & Responsibility Confirmation）：输入框右侧（[附件] 与 [停止] / [发送] 旁）上线 54px 等高对齐的双行状态按钮 [超级权限]（支持空闲与 生成中... 实时切换），开启前…",
+      "updated": "2026-11-26",
+      "activityAt": "2026-11-26T10:37:52Z",
+      "version": "2.5.0-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -141,49 +141,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.4.9-win-linux",
+          "version": "2.5.0-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.9_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_x64-setup.exe",
-              "id": 787129079,
-              "size": 43840773,
-              "updatedAt": "2026-11-24T12:34:46Z",
-              "digest": "sha256:b761c071ef9781b82da1080291db43191b053e2a9b8647897dd5fe14bc137974"
+              "name": "LocalBrain_2.5.0_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_x64-setup.exe",
+              "id": 795399906,
+              "size": 43847826,
+              "updatedAt": "2026-11-26T10:37:10Z",
+              "digest": "sha256:3071551e59aa4a404b14d41c36562920ec4f25a203f0e80b059631626f7937e4"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.4.9-win-linux",
+          "version": "2.5.0-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.4.9-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.4.9_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.AppImage",
-              "id": 787129070,
-              "size": 195447288,
-              "updatedAt": "2026-11-24T12:35:29Z",
-              "digest": "sha256:e3f4d43db7fefb7399d7f4a1c516723f2c6dc513624c6db442541558085aebf6"
+              "name": "LocalBrain_2.5.0_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.AppImage",
+              "id": 795399852,
+              "size": 195471864,
+              "updatedAt": "2026-11-26T10:37:51Z",
+              "digest": "sha256:532857fddc1bc133073cd88251cdc1be1ba4b961ef21ac4cf35422292785e7ec"
             },
             {
-              "name": "LocalBrain_2.4.9_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.4.9-win-linux/LocalBrain_2.4.9_amd64.deb",
-              "id": 787129073,
-              "size": 122190450,
-              "updatedAt": "2026-11-24T12:35:15Z",
-              "digest": "sha256:5f01bb07d44a83b27472ed8e60fd4b4a261397a4d0d732ab174e683fe6dd70ab"
+              "name": "LocalBrain_2.5.0_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.deb",
+              "id": 795399863,
+              "size": 122212568,
+              "updatedAt": "2026-11-26T10:37:38Z",
+              "digest": "sha256:87adca99e4cbc5ac74ecaf6b3f75afca673b6437535fe9f0f7710c403b2abffd"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-25T14:28:20.125Z",
+      "checkedAt": "2026-11-26T10:49:09.772Z",
       "prerelease": false,
-      "releaseNotesHash": "91f46a01638554327cbe918ca879a44c53d40b4956d1b895402815b82713dc98",
-      "revision": "157a4e928513c12cb446a359d1371244c9b97a430de073cb51fcdfeb530abdae"
+      "releaseNotesHash": "801d008a6d948d4969d4fad7f999fb0a03e91a3440498086ae2e8dd16bf81396",
+      "revision": "d3de9b8ca573dfc1e7f025782150491114b9701acb6b84b47e271ddb014cf1ef"
     }
   ]
 }
