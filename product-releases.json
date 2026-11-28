@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-26T12:00:08.181Z",
-  "contentHash": "1132e9674bae2380401d3de993b03fc0a93b5bd5ba8ea29028ad07277691494e",
+  "checkedAt": "2026-11-28T00:12:16.511Z",
+  "contentHash": "8cd32fb690da5bf6967ba25080a15f5dd0d3d311162fae58fcb79271ad418e27",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-26T12:00:08.181Z",
+      "checkedAt": "2026-11-28T00:12:16.511Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,26 +116,26 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "对话页新增「当前会话超级权限」开关与强制担责确认（Per-Session Super-Permission Toggle & Responsibility Confirmation）：输入框右侧（[附件] 与 [停止] / [发送] 旁）上线 54px 等高对齐的双行状态按钮 [超级权限]（支持空闲与 生成中... 实时切换），开启前…",
-      "updated": "2026-11-26",
-      "activityAt": "2026-11-26T10:37:52Z",
-      "version": "2.5.0-win-linux",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
+      "updateSummary": "长期记忆直接并入「技能卡」，随卡按需注入且不占显存：内置置顶「个人长期记忆（personal-memory）」核心卡与任务技能卡统一携带 YAML + Markdown 实战记忆账本，加载技能卡时按 1800 字符预算自动附带本卡记忆与置顶个人记忆；内置零显存中英混合（ASCII 词元 + 中日韩 2/3-gram + BM25）本地…",
+      "updated": "2026-11-27",
+      "activityAt": "2026-11-27T23:48:07Z",
+      "version": "2.5.1",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1",
       "source": "release",
       "platforms": [
         {
           "platform": "macOS",
-          "version": "2.5.0",
+          "version": "2.5.1",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1",
           "assets": [
             {
-              "name": "LocalBrain_2.5.0_aarch64.dmg",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0/LocalBrain_2.5.0_aarch64.dmg",
-              "id": 791855318,
-              "size": 80361883,
-              "updatedAt": "2026-11-25T14:22:38Z",
-              "digest": "sha256:35e696d9673359f92e2ef04aceafadf8164cef489af8ebeb30c97b0418ab4ef8"
+              "name": "LocalBrain_2.5.1_aarch64.dmg",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg",
+              "id": 802482903,
+              "size": 80422148,
+              "updatedAt": "2026-11-27T23:48:05Z",
+              "digest": "sha256:ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69"
             }
           ]
         },
@@ -180,10 +180,10 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-26T12:00:08.181Z",
+      "checkedAt": "2026-11-28T00:12:16.511Z",
       "prerelease": false,
-      "releaseNotesHash": "801d008a6d948d4969d4fad7f999fb0a03e91a3440498086ae2e8dd16bf81396",
-      "revision": "d3de9b8ca573dfc1e7f025782150491114b9701acb6b84b47e271ddb014cf1ef"
+      "releaseNotesHash": "aa751ca3d2a59a40c1efa97f9ff5e4e47d9c45f940653aa53f722adcaa0f737b",
+      "revision": "bcacfb5b337fba608c32ed23a5fb1e6b45fc54923826ea4dcb5b0c1cc685939d"
     }
   ]
 }
