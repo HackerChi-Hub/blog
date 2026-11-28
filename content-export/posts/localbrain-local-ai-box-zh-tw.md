@@ -6,7 +6,7 @@ lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-28
-summary: "Mac 2.5.1 將長期記憶直接併入「技能卡」（內建置頂「個人長期記憶」核心卡 + 任務技能卡隨卡按需載入），搭載零顯存中英混合 BM25 本機檢索、對話 /remember 快捷指令與網頁讀取防注入待確認隔離佇列，並唯讀相容同步 Codex、Claude Code、Antigravity、Cursor (.mdc) 與 MCP memory.jsonl；Windows、Linux 正式安裝包保持 2.5.0。"
+summary: "LocalBrain 2.5.1 全平台將長期記憶直接併入「技能卡」（內建置頂「個人長期記憶」核心卡 + 任務技能卡隨卡按需載入），搭載零顯存中英混合 BM25 本機檢索、對話 /remember 快捷指令與網頁讀取防注入待確認隔離佇列，並唯讀相容同步 Codex、Claude Code、Antigravity、Cursor (.mdc) 與 MCP memory.jsonl；Mac、Windows、Linux 2.5.1 三端安裝包已同步上線。"
 categories:
   - 資源分享
 tags:
@@ -16,6 +16,16 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.5.1：長期記憶併入「技能卡」、零顯存中英混合檢索與跨 Agent 相容
+
+Windows 與 Linux 正式安裝包同步跟進至 `2.5.1`，與 Mac 端對齊三平台 `2.5.1` 更新清單：
+
+- **技能卡與長期記憶合一 + 零顯存中英混合 BM25 檢索**：「技能與記憶」升級為統一技能卡工作台，置頂內建「個人長期記憶（`personal-memory`）」核心卡，並與官方任務技能卡及自訂技能卡統一維護 `card_memories/<card>/*.md` 標準 YAML + Markdown 帳本；模型載入技能卡時依 `1800` 字元預算自動附帶本卡記憶與置頂個人記憶，純 CPU 中英混合（ASCII + CJK 2-gram/3-gram + BM25）檢索毫秒級命中且零顯存佔用。
+- **聊天 `/remember` 快捷指令 + 網頁防注入隔離佇列 + 跨 Agent 唯讀同步**：對話輸入框傳送 `/remember` 即可一鍵歸卡，原生代理新增 `localbrain_skill_remember` 工具（單條 `500` 字上限、SHA-256 去重、不遞增 `policy.revision`），網頁讀取後自動進入「待確認技能卡記憶」防注入隔離佇列；同時支援唯讀掃描併入 Claude Code、Codex、Antigravity、Gemini CLI、OpenCode、DSH、Cursor（`.mdc`）、Windsurf、Cline、Continue 與 MCP `memory.jsonl`。
+- **本機實裝驗收與平台邊界**：Windows x64（`LocalBrain_2.5.1_x64-setup.exe`，`43,898,612` 位元組，SHA-256 `a709f8441ccc669a4c2aa4a05db1ac77412516b8d63f077d232f8ba741c6728d`）完成覆蓋安裝（`13,994` 項檔案一致）、技能卡記憶寫入/網頁防注入隔離審批/無空格中文 BM25 檢索、`Unsloth b12651` CUDA 12.8 引擎自檢與原生 `Inkling-2-Mini-GGUF` `Q2_K_XL` 工具往返驗收；Linux amd64（Debian SHA-256 `d99729eb8bc9fcf04931b029c6012810d7b7a2e08692e2a2242e93b957816d65`、AppImage SHA-256 `b86635f592a2231b75ec21c772273ffb6a0b8b6e682e61be1f0d3aa149166de0`）於 WSL2 Ubuntu 22.04 完成安裝啟動（`14,020` 項資源）與 ext4 包內 DSH 宿主校驗（不代表裸機 GPU 或 Linux 模型推論驗收；`Atomic Engine` 與 `oMLX 0.8.3` 僅限 Apple Silicon Mac，Strata 在 Windows/Linux 上的推論與 `Q3/Q4`/`Unbound v2.1` 權重未在本輪本機實測）。
+
+[Windows x64 (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_x64-setup.exe) · [Debian amd64 (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.deb) · [AppImage (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/SHA256SUMS-2.5.1-WIN-LINUX.txt) · [驗收紀錄](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.5.1-WIN-LINUX.md)
+
 ## Mac 2.5.1：長期記憶直接併入「技能卡」、零顯存中英混合檢索與跨 Agent 全生態相容
 
 Mac 2.5.1 將原本相互割裂的「技能」與「獨立手動勾選記憶」重構合併為統一的**技能卡記憶體系**，在不增加顯存佔用的前提下實現開箱即用與跨 Agent 生態互通：
@@ -24,7 +34,7 @@ Mac 2.5.1 將原本相互割裂的「技能」與「獨立手動勾選記憶」�
 - **聊天 `/remember` 快捷指令 + 模型受控寫入與網頁防注入隔離閘**：於對話輸入框傳送 `/remember 內容`（支援 `/記住` 斜線選單補全及 `/remember [software-development] 連接埠固定 5173` 定向歸卡）即可一鍵寫入對應技能卡；原生對話代理新增 `localbrain_skill_remember` 工具（單條上限 `500` 字、SHA-256 冪等去重、獨立檔案原子寫入且不遞增 `policy.revision`，不會打斷執行中的原生對話或既有上下文壓縮摘要）；一旦目前任務曾透過 `webminer` 讀取外部網頁，模型提交的記憶會自動進入「待確認技能卡記憶」隔離橫幅，經本人確認後才正式入卡，防止外部網頁提示詞注入污染長期記憶。
 - **跨 Agent 記憶與規則雙向相容（外部來源全程 100% 唯讀）**：一鍵掃描並支援併入 Claude Code、Codex（自動跳過 `> 256 KiB` 的聚合 `MEMORY.md`，精準擷取 `extensions/ad_hoc/notes/*.md` 原子筆記並依 YAML `scope:` 標籤自動歸入對應技能卡）、Antigravity、Gemini CLI、OpenCode、DeepSeek Harness (DSH)、Cursor（`.cursor/rules/*.mdc` 含 `globs` 範圍解析）、Windsurf、Cline、Continue 以及 MCP `server-memory`（`memory.jsonl` 實體與關係圖譜轉 Markdown），同時支援一鍵匯出帶 `scope` 元資料的跨 Agent 通用 Markdown。
 
-安裝包（`LocalBrain_2.5.1_aarch64.dmg`）為 `80,422,148` 位元組（本機簽章，未經 Apple 公證），SHA-256：`ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`。本批先行發布 Apple Silicon Mac `2.5.1`（本機門禁 Rust `525` 項、TS 全套、DSH 宿主與轉接器回歸全過）；Windows 與 Linux 正式安裝包保持 `2.5.0`（見下方小節）。
+安裝包（`LocalBrain_2.5.1_aarch64.dmg`）為 `80,422,148` 位元組（本機簽章，未經 Apple 公證），SHA-256：`ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`。Windows 與 Linux `2.5.1` 正式安裝包已同步完成本機實裝驗收（見上方小節）。
 
 [下載 Mac 2.5.1（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg) · [查看 v2.5.1 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1) · [下載與更新：方寸智匣 LocalBrain 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
@@ -873,6 +883,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 正式迭代
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -886,6 +903,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
+>
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
+>
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
+>
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
+>
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

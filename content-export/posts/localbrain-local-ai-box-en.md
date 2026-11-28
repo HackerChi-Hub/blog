@@ -6,7 +6,7 @@ lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
 updated: 2026-11-28
-summary: "Mac 2.5.1 unifies long-term memory directly into Skill Cards (pinned Personal Long-Term Memory core card + on-demand per-card memories), adding zero-VRAM hybrid CJK/ASCII BM25 search, /remember chat shortcuts, web prompt-injection quarantine, and read-only cross-Agent sync with Codex, Claude Code, Antigravity, Cursor (.mdc), and MCP memory.jsonl; Windows and Linux installers remain at 2.5.0."
+summary: "LocalBrain 2.5.1 unifies long-term memory directly into Skill Cards across Mac, Windows, and Linux (pinned Personal Long-Term Memory core card + on-demand per-card memories), adding zero-VRAM hybrid CJK/ASCII BM25 search, /remember chat shortcuts, web prompt-injection quarantine, and read-only cross-Agent sync with Codex, Claude Code, Antigravity, Cursor (.mdc), and MCP memory.jsonl."
 categories:
   - Resources
 tags:
@@ -16,6 +16,16 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Windows / Linux 2.5.1: Unified Skill Card Memories, Zero-VRAM Hybrid CJK/BM25 Search & Cross-Agent Compatibility
+
+Windows and Linux installers advance to `2.5.1`, aligning all three desktop platforms on `2.5.1`:
+
+- **Unified Skill Cards + Zero-VRAM Hybrid CJK/BM25 Search**: Upgrades *Skills & Memory* into a unified Skill Card workbench led by a pinned built-in **Personal Long-Term Memory (`personal-memory`)** core card alongside bundled task Skill Cards and custom cards under `card_memories/<card>/*.md`. Loading any Skill Card automatically injects its active memories plus pinned personal notes (`1800`-char budget), powered by pure-CPU hybrid ASCII + CJK 2-gram/3-gram BM25 retrieval (`0 MB` VRAM).
+- **Chat `/remember` shortcuts, web prompt-injection quarantine & read-only cross-Agent sync**: Send `/remember` in Chat or let native DSH call `localbrain_skill_remember` (`500`-char cap, SHA-256 deduplicated, atomic per-note writes without bumping `policy.revision`), with automatic quarantine into **Pending Skill Card Memories** whenever a run reads external web pages via `webminer`; supports read-only discovery/import from Claude Code, Codex, Antigravity, Gemini CLI, OpenCode, DSH, Cursor (`.mdc`), Windsurf, Cline, Continue, and MCP `memory.jsonl`.
+- **Local validation & platform boundaries**: Windows x64 (`LocalBrain_2.5.1_x64-setup.exe`, `43,898,612` bytes, SHA-256 `a709f8441ccc669a4c2aa4a05db1ac77412516b8d63f077d232f8ba741c6728d`) passed installation (`13,994` files matched), Skill Card memory write / web quarantine approval / unspaced Chinese BM25 recall, `Unsloth b12651` CUDA 12.8 verification, and native `Inkling-2-Mini-GGUF` `Q2_K_XL` tool round trips; Linux amd64 (Debian SHA-256 `d99729eb8bc9fcf04931b029c6012810d7b7a2e08692e2a2242e93b957816d65`, AppImage SHA-256 `b86635f592a2231b75ec21c772273ffb6a0b8b6e682e61be1f0d3aa149166de0`) passed installation, startup (`14,020` resources) and ext4 native DSH host checks on WSL2 Ubuntu 22.04 (not a bare-metal GPU or Linux model-inference validation; `Atomic Engine` and `oMLX 0.8.3` remain Apple Silicon Mac only, and Strata Windows/Linux inference plus `Q3/Q4`/`Unbound v2.1` weights were not tested locally in this batch).
+
+[Windows x64 (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_x64-setup.exe) · [Debian amd64 (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.deb) · [AppImage (2.5.1)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.AppImage) · [SHA-256](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/SHA256SUMS-2.5.1-WIN-LINUX.txt) · [Verification](https://github.com/HackerChi-Hub/localbrain-releases/blob/main/VERIFICATION-2.5.1-WIN-LINUX.md)
+
 ## Mac 2.5.1: Unified Skill Card Memories, Zero-VRAM Hybrid CJK/BM25 Search & Cross-Agent Compatibility
 
 Mac 2.5.1 merges standalone manual memories directly into **Skill Cards**, making long-term memory active out of the box with zero VRAM overhead and full cross-Agent portability:
@@ -24,7 +34,7 @@ Mac 2.5.1 merges standalone manual memories directly into **Skill Cards**, makin
 - **Chat `/remember` shortcut + controlled model capture with web prompt-injection quarantine**: Send `/remember <note>` (or `/remember [software-development] <rule>`) in Chat to save directly into a Skill Card; native DSH sessions gain `localbrain_skill_remember` (`500`-char cap, SHA-256 deduplicated, atomic per-note writes without bumping `policy.revision` mid-session). Whenever a session has read external web pages via `webminer`, model-proposed memories are automatically routed into a **Pending Skill Card Memories** quarantine banner requiring explicit user approval.
 - **Read-only cross-Agent discovery, import & portable Markdown export**: Automatically detects and syncs from Claude Code, Codex (skipping giant `> 256 KiB` auto-rollup `MEMORY.md` files while routing `extensions/ad_hoc/notes/*.md` to matching Skill Cards via YAML `scope:`), Antigravity, Gemini CLI, OpenCode, DeepSeek Harness (DSH), Cursor (`.cursor/rules/*.mdc` with `globs`), Windsurf, Cline, Continue, and MCP `server-memory` (`memory.jsonl` entity/relation graphs), plus one-click portable Markdown export.
 
-Installer (`LocalBrain_2.5.1_aarch64.dmg`): `80,422,148` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`. This release ships the Apple Silicon Mac `2.5.1` installer (local gates green across `525` Rust tests, full TS suite, and DSH host/adapter tests); Windows and Linux installers remain at `2.5.0` (see section below).
+Installer (`LocalBrain_2.5.1_aarch64.dmg`): `80,422,148` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`. Windows and Linux `2.5.1` installers have also passed local validation and launched alongside Mac (see section above).
 
 [Download Mac 2.5.1 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg) · [Release v2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1) · [Downloads & updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
@@ -873,6 +883,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -886,6 +903,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
