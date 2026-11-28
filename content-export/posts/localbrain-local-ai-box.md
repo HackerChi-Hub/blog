@@ -3,8 +3,8 @@ title: "LocalBrain：Mac、Windows、Linux 的本地 AI 工作台"
 slug: localbrain-local-ai-box
 status: published
 date: 2026-08-30
-updated: 2026-11-26
-summary: "2.5.0 在对话页输入框右侧（附件与停止/发送按钮旁）新增「当前会话超级权限」独立开关与常驻警示横幅：开启前强制弹出风险与后果担责确认框，开启后仅在当前会话（含生成中实时切换）解除工作区目录、命令白名单与逐条确认限制，解锁任意 Shell 命令执行与全盘读写删改能力（含系统根目录防误删保护），切换或新建其他会话默认关闭；Mac、Windows、Linux 2.5.0 三端安装包已同步上线。"
+updated: 2026-11-28
+summary: "Mac 2.5.1 将长期记忆直接并入「技能卡」（内置置顶「个人长期记忆」核心卡 + 任务技能卡随卡按需加载），搭载零显存中英混合 BM25 本地检索、对话 /remember 快捷指令与网页读取防注入待确认隔离队列，并只读兼容同步 Codex、Claude Code、Antigravity、Cursor (.mdc) 与 MCP memory.jsonl；Windows、Linux 正式安装包保持 2.5.0。"
 categories:
   - 资源分享
 tags:
@@ -13,6 +13,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.5.1：长期记忆直接并入「技能卡」、零显存中英混合检索与跨 Agent 全生态兼容
+
+Mac 2.5.1 将原本相互割裂的「技能」与「独立手动勾选记忆」重构合并为统一的**技能卡记忆体系**，在不增加一分显存占用的前提下实现开箱即用与跨 Agent 生态互通：
+
+- **统一「技能卡 + 实战记忆账本」，随卡按需注入且零显存开销**：「技能与记忆」升级为统一技能卡网格与双标签工作台，置顶内置「个人长期记忆（`personal-memory`）」核心卡，并与官方任务技能卡（`software-development`、`office-documents`、`office-spreadsheets`、`office-presentations`、`research-sources`）及自定义技能卡统一维护 `card_memories/<card>/*.md` 标准 YAML + Markdown 账本。模型加载任意技能卡时按 `1800` 字符预算自动附带本卡记忆与置顶个人记忆，置顶个人记忆同步按 `800` 字符预算注入系统上下文；底层搭载纯 CPU 中英混合（ASCII 词元 + 中日韩 2-gram/3-gram + BM25）检索引擎，无空格中文短语毫秒级命中，零显存占用。
+- **聊天 `/remember` 快捷指令 + 模型受控写入与网页防注入隔离闸**：在对话输入框发送 `/remember 内容`（支持 `/记住` 斜杠菜单补全及 `/remember [software-development] 端口固定 5173` 定向归卡）即可一键写入对应技能卡；原生对话代理新增 `localbrain_skill_remember` 工具（单条上限 `500` 字、SHA-256 幂等去重、独立文件原子写入且不递增 `policy.revision`，不会打断正在运行的原生会话或已有上下文压缩摘要）；一旦当前任务曾通过 `webminer` 读取外部网页，模型提交的记忆会自动进入「待确认技能卡记忆」隔离横幅，经本人确认后才正式入卡，防止外部网页提示词注入污染长期记忆。
+- **跨 Agent 记忆与规则双向兼容（外部来源全程 100% 只读）**：一键扫描并支持并入 Claude Code、Codex（自动跳过 `> 256 KiB` 的聚合 `MEMORY.md`，精准提取 `extensions/ad_hoc/notes/*.md` 原子笔记并按 YAML `scope:` 标签自动归入对应技能卡）、Antigravity、Gemini CLI、OpenCode、DeepSeek Harness (DSH)、Cursor（`.cursor/rules/*.mdc` 含 `globs` 范围解析）、Windsurf、Cline、Continue 以及 MCP `server-memory`（`memory.jsonl` 实体与关系图谱转 Markdown），同时支持一键导出带 `scope` 元数据的跨 Agent 通用 Markdown。
+
+安装包（`LocalBrain_2.5.1_aarch64.dmg`）为 `80,422,148` 字节（本地签名，未 Apple 公证），SHA-256：`ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`。本批先行发布 Apple Silicon Mac `2.5.1`（本地门禁 Rust `525` 项、TS 全套、DSH 宿主与适配器回归全过）；Windows 与 Linux 正式安装包保持 `2.5.0`（见下方小节）。
+
+[下载 Mac 2.5.1（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg) · [查看 v2.5.1 发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1) · [下载与更新：方寸智匣 LocalBrain 发行页](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Windows / Linux 2.5.0：同步上线「当前会话超级权限」开关、跨平台 Shell 放行与系统根目录保护
 
@@ -868,13 +880,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 这些工具都由我持续维护。预览版会明确标注，下载、更新和已知边界以发行页为准。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **状态：** 正式迭代
->
-> 手机浏览器接续电脑上的 DeepSeek Harness 会话；需本人配对、电脑与原服务在线，模型费用沿用原配置
->
-> [下载与更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **状态：** 正式迭代
 >
@@ -888,20 +893,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本地模型的多模态 MCP 工具箱：TTS / Whisper / 视频生成一站接入
 >
 > [下载与更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影词库
-> **状态：** 正式迭代
->
-> 看美剧顺手把生词背了，Mac/Windows 双平台，免费
->
-> [下载与更新：ScreenLex 光影词库](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉录屏 HyphenScreen
-> **状态：** 正式迭代
->
-> 录屏 + 智能剪辑一体：达芬奇式时间线、自动打码、导出前成片体检，免费
->
-> [下载与更新：黑粉录屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

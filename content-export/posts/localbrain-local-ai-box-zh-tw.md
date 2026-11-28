@@ -5,8 +5,8 @@ status: published
 lang: zh-TW
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-26
-summary: "2.5.0 於對話頁輸入框右側（附件與停止/傳送按鈕旁）新增「目前對話超級權限」獨立開關與常駐警示橫幅：開啟前強制彈出風險與後果擔責確認視窗，開啟後僅於目前對話（含產生中即時切換）解除工作區目錄、命令白名單與逐條確認限制，解鎖任意 Shell 指令執行與全碟讀寫刪改能力（含系統根目錄防誤刪保護），切換或新建其他對話預設關閉；Mac、Windows、Linux 2.5.0 三端安裝包已同步上線。"
+updated: 2026-11-28
+summary: "Mac 2.5.1 將長期記憶直接併入「技能卡」（內建置頂「個人長期記憶」核心卡 + 任務技能卡隨卡按需載入），搭載零顯存中英混合 BM25 本機檢索、對話 /remember 快捷指令與網頁讀取防注入待確認隔離佇列，並唯讀相容同步 Codex、Claude Code、Antigravity、Cursor (.mdc) 與 MCP memory.jsonl；Windows、Linux 正式安裝包保持 2.5.0。"
 categories:
   - 資源分享
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.5.1：長期記憶直接併入「技能卡」、零顯存中英混合檢索與跨 Agent 全生態相容
+
+Mac 2.5.1 將原本相互割裂的「技能」與「獨立手動勾選記憶」重構合併為統一的**技能卡記憶體系**，在不增加顯存佔用的前提下實現開箱即用與跨 Agent 生態互通：
+
+- **統一「技能卡 + 實戰記憶帳本」，隨卡按需注入且零顯存開銷**：「技能與記憶」升級為統一技能卡網格與雙分頁工作台，置頂內建「個人長期記憶（`personal-memory`）」核心卡，並與官方任務技能卡（`software-development`、`office-documents`、`office-spreadsheets`、`office-presentations`、`research-sources`）及自訂技能卡統一維護 `card_memories/<card>/*.md` 標準 YAML + Markdown 帳本。模型載入任意技能卡時依 `1800` 字元預算自動附帶本卡記憶與置頂個人記憶，置頂個人記憶同步依 `800` 字元預算注入系統上下文；底層搭載純 CPU 中英混合（ASCII 詞元 + 中日韓 2-gram/3-gram + BM25）檢索引擎，無空格中文短語毫秒級命中，零顯存佔用。
+- **聊天 `/remember` 快捷指令 + 模型受控寫入與網頁防注入隔離閘**：於對話輸入框傳送 `/remember 內容`（支援 `/記住` 斜線選單補全及 `/remember [software-development] 連接埠固定 5173` 定向歸卡）即可一鍵寫入對應技能卡；原生對話代理新增 `localbrain_skill_remember` 工具（單條上限 `500` 字、SHA-256 冪等去重、獨立檔案原子寫入且不遞增 `policy.revision`，不會打斷執行中的原生對話或既有上下文壓縮摘要）；一旦目前任務曾透過 `webminer` 讀取外部網頁，模型提交的記憶會自動進入「待確認技能卡記憶」隔離橫幅，經本人確認後才正式入卡，防止外部網頁提示詞注入污染長期記憶。
+- **跨 Agent 記憶與規則雙向相容（外部來源全程 100% 唯讀）**：一鍵掃描並支援併入 Claude Code、Codex（自動跳過 `> 256 KiB` 的聚合 `MEMORY.md`，精準擷取 `extensions/ad_hoc/notes/*.md` 原子筆記並依 YAML `scope:` 標籤自動歸入對應技能卡）、Antigravity、Gemini CLI、OpenCode、DeepSeek Harness (DSH)、Cursor（`.cursor/rules/*.mdc` 含 `globs` 範圍解析）、Windsurf、Cline、Continue 以及 MCP `server-memory`（`memory.jsonl` 實體與關係圖譜轉 Markdown），同時支援一鍵匯出帶 `scope` 元資料的跨 Agent 通用 Markdown。
+
+安裝包（`LocalBrain_2.5.1_aarch64.dmg`）為 `80,422,148` 位元組（本機簽章，未經 Apple 公證），SHA-256：`ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`。本批先行發布 Apple Silicon Mac `2.5.1`（本機門禁 Rust `525` 項、TS 全套、DSH 宿主與轉接器回歸全過）；Windows 與 Linux 正式安裝包保持 `2.5.0`（見下方小節）。
+
+[下載 Mac 2.5.1（Apple Silicon DMG）](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg) · [查看 v2.5.1 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1) · [下載與更新：方寸智匣 LocalBrain 發行頁](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Windows / Linux 2.5.0：同步上線「目前對話超級權限」開關、跨平台 Shell 放行與系統根目錄保護
 
@@ -861,13 +873,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
-> [!info] 黑粉助手 HyphenAssistant
-> **狀態：** 正式迭代
->
-> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
->
-> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -881,20 +886,6 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex 光影詞庫
-> **狀態：** 正式迭代
->
-> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
->
-> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] 黑粉錄屏 HyphenScreen
-> **狀態：** 正式迭代
->
-> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
->
-> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

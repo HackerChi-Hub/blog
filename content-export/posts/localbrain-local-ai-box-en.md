@@ -5,8 +5,8 @@ status: published
 lang: en
 translation_of: localbrain-local-ai-box
 date: 2026-09-28
-updated: 2026-11-26
-summary: "LocalBrain 2.5.0 adds a per-session Super-Permission toggle right next to Attach and Stop/Send in the Chat composer: requires explicit risk & full-responsibility confirmation before activation, unlocks arbitrary shell execution and full-disk file read/write/delete (with OS root guards) without per-call prompts strictly within the current session (including live mid-run toggling), and defaults to OFF on new or other sessions. Mac, Windows, and Linux 2.5.0 installers are all live."
+updated: 2026-11-28
+summary: "Mac 2.5.1 unifies long-term memory directly into Skill Cards (pinned Personal Long-Term Memory core card + on-demand per-card memories), adding zero-VRAM hybrid CJK/ASCII BM25 search, /remember chat shortcuts, web prompt-injection quarantine, and read-only cross-Agent sync with Codex, Claude Code, Antigravity, Cursor (.mdc), and MCP memory.jsonl; Windows and Linux installers remain at 2.5.0."
 categories:
   - Resources
 tags:
@@ -15,6 +15,18 @@ tags:
 cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52f6d721.jpg
 legacy_paths: []
 ---
+
+## Mac 2.5.1: Unified Skill Card Memories, Zero-VRAM Hybrid CJK/BM25 Search & Cross-Agent Compatibility
+
+Mac 2.5.1 merges standalone manual memories directly into **Skill Cards**, making long-term memory active out of the box with zero VRAM overhead and full cross-Agent portability:
+
+- **Unified Skill Cards + Attached Memory Ledgers (`0 MB` VRAM)**: Upgrades *Skills & Memory* into a unified Skill Card grid and two-tab workbench led by a pinned built-in **Personal Long-Term Memory (`personal-memory`)** core card alongside bundled task Skill Cards (`software-development`, `office-documents`, `office-spreadsheets`, `office-presentations`, `research-sources`) and custom/imported cards, storing standard `YAML + Markdown` notes under `card_memories/<card>/*.md`. Loading any Skill Card automatically injects its active memories plus pinned personal notes within an `1800`-character budget (pinned personal notes also enter chat system context within an `800`-char cap), powered by a pure-CPU hybrid ASCII + CJK 2-gram/3-gram BM25 engine.
+- **Chat `/remember` shortcut + controlled model capture with web prompt-injection quarantine**: Send `/remember <note>` (or `/remember [software-development] <rule>`) in Chat to save directly into a Skill Card; native DSH sessions gain `localbrain_skill_remember` (`500`-char cap, SHA-256 deduplicated, atomic per-note writes without bumping `policy.revision` mid-session). Whenever a session has read external web pages via `webminer`, model-proposed memories are automatically routed into a **Pending Skill Card Memories** quarantine banner requiring explicit user approval.
+- **Read-only cross-Agent discovery, import & portable Markdown export**: Automatically detects and syncs from Claude Code, Codex (skipping giant `> 256 KiB` auto-rollup `MEMORY.md` files while routing `extensions/ad_hoc/notes/*.md` to matching Skill Cards via YAML `scope:`), Antigravity, Gemini CLI, OpenCode, DeepSeek Harness (DSH), Cursor (`.cursor/rules/*.mdc` with `globs`), Windsurf, Cline, Continue, and MCP `server-memory` (`memory.jsonl` entity/relation graphs), plus one-click portable Markdown export.
+
+Installer (`LocalBrain_2.5.1_aarch64.dmg`): `80,422,148` bytes (ad-hoc signed, not Apple-notarized), SHA-256: `ded8f3666ddff88c5840530f473e44cd4e7f99ad24f731b97889e3372e77dd69`. This release ships the Apple Silicon Mac `2.5.1` installer (local gates green across `525` Rust tests, full TS suite, and DSH host/adapter tests); Windows and Linux installers remain at `2.5.0` (see section below).
+
+[Download Mac 2.5.1 (Apple Silicon DMG)](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1/LocalBrain_2.5.1_aarch64.dmg) · [Release v2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1) · [Downloads & updates: LocalBrain Releases](https://github.com/HackerChi-Hub/localbrain-releases/releases/latest)
 
 ## Windows / Linux 2.5.0: Per-Session Super-Permission Toggle, Cross-Platform Shell Access & OS Root Guards
 
@@ -861,13 +873,6 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
-> [!info] HyphenAssistant
-> **Status:** Official releases
->
-> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
->
-> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
-
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -881,20 +886,6 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
-
-> [!info] ScreenLex
-> **Status:** Official releases
->
-> Learn new words while you watch shows. Free, for Mac and Windows
->
-> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
-
-> [!info] HyphenScreen
-> **Status:** Official releases
->
-> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
->
-> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
