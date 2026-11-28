@@ -5,11 +5,21 @@
     <link>https://hyphentech.top</link>
     <description>让AI成为你的超能力。黑粉科技记录本地部署、免费白嫖与自制软件的真实实测。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 28 Nov 2026 02:48:11 GMT</lastBuildDate>
-    <pubDate>Sat, 28 Nov 2026 02:48:11 GMT</pubDate>
+    <lastBuildDate>Sat, 28 Nov 2026 11:34:17 GMT</lastBuildDate>
+    <pubDate>Sat, 28 Nov 2026 11:34:17 GMT</pubDate>
     <ttl>60</ttl>
     <atom:link href="https://hyphentech.top/feed.xml" rel="self" type="application/rss+xml" />
     <generator>Next.js RSS Generator</generator>
+    <item>
+      <title>免费API大洗牌！时隔 2 个月重测主流大模型接口：11 月底红黑榜与本地使用条件全清单</title>
+      <link>https://hyphentech.top/free-ai-api-radar-2026-11-27/</link>
+      <guid isPermaLink="true">https://hyphentech.top/free-ai-api-radar-2026-11-27/</guid>
+      <description>复核 18 个主流入口（含免密接口与海外/国产平台），用本机双网真请求筛出稳用红榜，列清是否需注册、实名、绑卡与代理条件。</description>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 GMT</pubDate>
+    <category>资源分享</category>
+    <category>AI</category>
+    <category>免费白嫖</category>
+    </item>
     <item>
       <title>16GB本地飙102字/秒！Inkling 2 Mini 六引擎实测对决千问3.8：从倒立盆景到木桶效应</title>
       <link>https://hyphentech.top/inkling-2-mini-six-engines-qwen38-blindtest/</link>
@@ -216,19 +226,6 @@
     <category>AI入侵108种方式</category>
     <category>智能体安全</category>
     <category>MCP</category>
-    <category>方寸智匣</category>
-    </item>
-    <item>
-      <title>PDF白字简历骗过AI拿99分？流清洗实测</title>
-      <link>https://hyphentech.top/ai-intrusion-108-ep08-pdf-hidden-text/</link>
-      <guid isPermaLink="true">https://hyphentech.top/ai-intrusion-108-ep08-pdf-hidden-text/</guid>
-      <description>用 macOS 预览或 Word 打开一份候选人简历，肉眼只看到 1.2 年初级 CRUD 经验，拖进大模型按首席架构师标准打分却直接拿到 99/100 保送评级！本文拆解 PDF 与 DOCX 双层 0.1pt 纯白隐形文本流解析偏差，并用 8 行 Python 字号与对比度清洗恢复 58 分客观基线。</description>
-      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
-    <category>技术分享</category>
-    <category>大模型安全</category>
-    <category>AI入侵108种方式</category>
-    <category>PDF解析</category>
-    <category>提示词注入</category>
     <category>方寸智匣</category>
     </item>
   </channel>
