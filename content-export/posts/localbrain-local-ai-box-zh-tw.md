@@ -16,11 +16,11 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
-## 目前下載版本
+## Windows / Linux 2.5.2 · 本機技能與記憶按需讀取
 
-Apple Silicon Mac 為 2.5.2，Windows x64 和 Linux amd64 為 2.5.1。Mac 2.5.2 加入本機技能與記憶的唯讀掛載，並將兩者的讀取開關分開。Windows/Linux 的技能卡功能與安裝驗收見下方 2.5.1 紀錄。
+「技能與記憶」自動探索本機既有 Agent 技能和記憶來源，可獨立設定技能讀取與記憶讀取。外部來源以唯讀方式掛載，按需載入對話。Windows 已通過安裝、讀取開關及 Inkling GGUF Q2 工具往返驗證。Linux Debian 和 AppImage 已通過 WSL2 Ubuntu 22.04 安裝、啟動與包內宿主檢查。Linux 模型推論未實測。Mac 2.5.2 使用獨立發行套件。 原始碼 CI 因 GitHub 帳單限制未執行。
 
-[Mac 2.5.2](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.2) · [Windows / Linux 2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux)
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_amd64.AppImage)
 
 ## Windows / Linux 2.5.1：長期記憶併入「技能卡」、零顯存中英混合檢索與跨 Agent 相容
 
@@ -889,6 +889,13 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 
 這些工具都由我持續維護。預覽版會明確標註，下載、更新和已知邊界以發行頁為準。
 
+> [!info] 黑粉助手 HyphenAssistant
+> **狀態：** 正式迭代
+>
+> 手機瀏覽器接續電腦上的 DeepSeek Harness 對話；需本人配對、電腦與原服務在線，模型費用沿用原設定
+>
+> [下載與更新：黑粉助手 HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] 黑粉盒子 HyphenBox
 > **狀態：** 正式迭代
 >
@@ -902,6 +909,20 @@ xattr -dr com.apple.quarantine /Applications/LocalBrain.app
 > 本機模型的多模態 MCP 工具箱：TTS / Whisper / 影片生成一站接入
 >
 > [下載與更新：方寸智匣 LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex 光影詞庫
+> **狀態：** 正式迭代
+>
+> 看美劇順手把生詞背了，Mac/Windows 雙平台，免費
+>
+> [下載與更新：ScreenLex 光影詞庫](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] 黑粉錄屏 HyphenScreen
+> **狀態：** 正式迭代
+>
+> 錄屏 + 智慧剪輯一體：達文西式時間軸、自動打碼、匯出前成片體檢，免費
+>
+> [下載與更新：黑粉錄屏 HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 

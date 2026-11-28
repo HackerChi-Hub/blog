@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "private-obsidian-vault",
-  "content_sha256": "51d4e2a4591bd632e17f5bc7998f7497fe7a313094d263934fb5891c540ce8c8",
+  "content_sha256": "a4a88fb93d1ba2c4f67a68c9e84e453447c08558a2ebb84431ecb6f4f1fc9002",
   "published_post_count": 283,
   "posts": [
     {
@@ -1549,7 +1549,7 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "en",
-      "sha256": "5375bbea5265feaba5e392a37b9be15f910da14aaa03a69789652daf4505bbe3"
+      "sha256": "f3474dd4b223a8137df3a8504f3cb428cd9893950016723416d2151f64b7a2b2"
     },
     {
       "file": "posts/localbrain-local-ai-box-zh-tw.md",
@@ -1558,14 +1558,14 @@
       "legacy_paths": [],
       "translation_of": "localbrain-local-ai-box",
       "lang": "zh-TW",
-      "sha256": "a717808a9eb558d7e65e2166648641275e8bda03274d5071d80dc8ebd1e7ef5b"
+      "sha256": "3a68a0b7b6b92877ced3b61b400cb089eb2fb5674c7e44e9525a0385d7e65989"
     },
     {
       "file": "posts/localbrain-local-ai-box.md",
       "slug": "localbrain-local-ai-box",
       "article_type": "article",
       "legacy_paths": [],
-      "sha256": "1614fa345bb17dd8fc319d20ccc7e41b75d08c819328ded1bfdbc1f177411ede"
+      "sha256": "a3e595449798a59d19221da2f8e1cd007a15cedb40abcaf6551056c4c99c38f5"
     },
     {
       "file": "posts/localbrain-longtask-splash-en.md",

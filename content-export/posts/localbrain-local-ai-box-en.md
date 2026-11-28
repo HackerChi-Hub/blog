@@ -16,11 +16,11 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
-## Current downloads
+## Windows / Linux 2.5.2 · On-demand local skills and memory
 
-Apple Silicon Mac is at 2.5.2. Windows x64 and Linux amd64 are at 2.5.1. Mac 2.5.2 adds read-only discovery of local skills and memories, with separate controls for reading each. The Windows/Linux 2.5.1 section below describes its Skill Cards and installation checks.
+Skills and Memory discovers existing local agent skills and memory sources. Their read controls are independent. External sources mount read-only and load into conversations on demand. Windows passed installation, read-control and Inkling GGUF Q2 tool round-trip checks. Debian and AppImage passed package, startup and embedded-host checks on WSL2 Ubuntu 22.04. Linux model inference remains untested. Mac 2.5.2 has its own release package. GitHub source CI could not start due to account billing limits.
 
-[Mac 2.5.2](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.2) · [Windows / Linux 2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux)
+[Windows x64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_x64-setup.exe) · [Debian amd64](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_amd64.deb) · [AppImage](https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.2-win-linux/LocalBrain_2.5.2_amd64.AppImage)
 
 ## Windows / Linux 2.5.1: Unified Skill Card Memories, Zero-VRAM Hybrid CJK/BM25 Search & Cross-Agent Compatibility
 
@@ -889,6 +889,13 @@ If it has helped you, the “Sponsor” button under “Follow HyphenTech” in 
 
 I maintain all of these tools myself. Preview builds are clearly labeled; the release pages are the source of truth for downloads, updates and known limits.
 
+> [!info] HyphenAssistant
+> **Status:** Official releases
+>
+> Continue your computer's DeepSeek Harness session from a phone browser. Personal pairing and an online computer and service are required; model costs follow your existing setup
+>
+> [Downloads & updates：HyphenAssistant](https://github.com/HackerChi-Hub/hyphen-assistant-releases/releases)
+
 > [!info] HyphenBox
 > **Status:** Official releases
 >
@@ -902,6 +909,20 @@ I maintain all of these tools myself. Preview builds are clearly labeled; the re
 > A multimodal MCP toolbox for local models: TTS, Whisper and video generation in one place
 >
 > [Downloads & updates：LocalBrain](https://github.com/HackerChi-Hub/localbrain-releases/releases)
+
+> [!info] ScreenLex
+> **Status:** Official releases
+>
+> Learn new words while you watch shows. Free, for Mac and Windows
+>
+> [Downloads & updates：ScreenLex](https://github.com/HackerChi-Hub/screenlex-download/releases)
+
+> [!info] HyphenScreen
+> **Status:** Official releases
+>
+> Screen recording and smart editing in one: a DaVinci-style timeline, automatic redaction and a check of the finished video before export. Free
+>
+> [Downloads & updates：HyphenScreen](https://github.com/HackerChi-Hub/HyphenScreen-Releases/releases)
 
 ---
 
