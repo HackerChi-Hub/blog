@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-28T00:12:16.511Z",
-  "contentHash": "8cd32fb690da5bf6967ba25080a15f5dd0d3d311162fae58fcb79271ad418e27",
+  "checkedAt": "2026-11-28T01:15:18.585Z",
+  "contentHash": "94c4e46a4f5dfe9253153faead45c763fb03f7c85c30290069eb00f77be343d0",
   "products": [
     {
       "slug": "hyphenbox-free-api-radar",
@@ -97,7 +97,7 @@
           ]
         }
       ],
-      "checkedAt": "2026-11-28T00:12:16.511Z",
+      "checkedAt": "2026-11-28T01:15:18.585Z",
       "prerelease": false,
       "releaseNotesHash": "17bca84156c11e6eedd2be9e9c19295b6265d2a4464e27951e5891133a40bb97",
       "revision": "9a1abc2d97317567628c835130cb2aa179e5f7b2eaabb3fc91ea550fb72cc650"
@@ -116,11 +116,11 @@
       "fallbackDescription": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
       "action": "查看产品与下载",
       "description": "本地 AI 工具箱：转写、配音、生图、视频和 MCP 工具集中管理；具体功能以对应平台版本为准。",
-      "updateSummary": "长期记忆直接并入「技能卡」，随卡按需注入且不占显存：内置置顶「个人长期记忆（personal-memory）」核心卡与任务技能卡统一携带 YAML + Markdown 实战记忆账本，加载技能卡时按 1800 字符预算自动附带本卡记忆与置顶个人记忆；内置零显存中英混合（ASCII 词元 + 中日韩 2/3-gram + BM25）本地…",
-      "updated": "2026-11-27",
-      "activityAt": "2026-11-27T23:48:07Z",
-      "version": "2.5.1",
-      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1",
+      "updateSummary": "长期记忆直接并入「技能卡」，零显存中英混合 BM25 检索：置顶内置「个人长期记忆（personal-memory）」核心卡，并与官方任务技能卡及自定义技能卡统一维护 cardmemories/ /.md 标准 YAML + Markdown 账本；加载技能卡时按 1800 字符预算自动附带本卡记忆与置顶个人记忆，内置纯 CPU 中英…",
+      "updated": "2026-11-28",
+      "activityAt": "2026-11-28T01:06:09Z",
+      "version": "2.5.1-win-linux",
+      "releaseUrl": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux",
       "source": "release",
       "platforms": [
         {
@@ -141,49 +141,49 @@
         },
         {
           "platform": "Windows",
-          "version": "2.5.0-win-linux",
+          "version": "2.5.1-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.5.0_x64-setup.exe",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_x64-setup.exe",
-              "id": 795399906,
-              "size": 43847826,
-              "updatedAt": "2026-11-26T10:37:10Z",
-              "digest": "sha256:3071551e59aa4a404b14d41c36562920ec4f25a203f0e80b059631626f7937e4"
+              "name": "LocalBrain_2.5.1_x64-setup.exe",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_x64-setup.exe",
+              "id": 802680602,
+              "size": 43898612,
+              "updatedAt": "2026-11-28T01:05:27Z",
+              "digest": "sha256:a709f8441ccc669a4c2aa4a05db1ac77412516b8d63f077d232f8ba741c6728d"
             }
           ]
         },
         {
           "platform": "Linux",
-          "version": "2.5.0-win-linux",
+          "version": "2.5.1-win-linux",
           "prerelease": false,
-          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.0-win-linux",
+          "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux",
           "assets": [
             {
-              "name": "LocalBrain_2.5.0_amd64.AppImage",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.AppImage",
-              "id": 795399852,
-              "size": 195471864,
-              "updatedAt": "2026-11-26T10:37:51Z",
-              "digest": "sha256:532857fddc1bc133073cd88251cdc1be1ba4b961ef21ac4cf35422292785e7ec"
+              "name": "LocalBrain_2.5.1_amd64.AppImage",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.AppImage",
+              "id": 802680563,
+              "size": 195537400,
+              "updatedAt": "2026-11-28T01:06:08Z",
+              "digest": "sha256:b86635f592a2231b75ec21c772273ffb6a0b8b6e682e61be1f0d3aa149166de0"
             },
             {
-              "name": "LocalBrain_2.5.0_amd64.deb",
-              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.0-win-linux/LocalBrain_2.5.0_amd64.deb",
-              "id": 795399863,
-              "size": 122212568,
-              "updatedAt": "2026-11-26T10:37:38Z",
-              "digest": "sha256:87adca99e4cbc5ac74ecaf6b3f75afca673b6437535fe9f0f7710c403b2abffd"
+              "name": "LocalBrain_2.5.1_amd64.deb",
+              "url": "https://github.com/HackerChi-Hub/localbrain-releases/releases/download/v2.5.1-win-linux/LocalBrain_2.5.1_amd64.deb",
+              "id": 802680572,
+              "size": 122278672,
+              "updatedAt": "2026-11-28T01:05:55Z",
+              "digest": "sha256:d99729eb8bc9fcf04931b029c6012810d7b7a2e08692e2a2242e93b957816d65"
             }
           ]
         }
       ],
-      "checkedAt": "2026-11-28T00:12:16.511Z",
+      "checkedAt": "2026-11-28T01:15:18.585Z",
       "prerelease": false,
-      "releaseNotesHash": "aa751ca3d2a59a40c1efa97f9ff5e4e47d9c45f940653aa53f722adcaa0f737b",
-      "revision": "bcacfb5b337fba608c32ed23a5fb1e6b45fc54923826ea4dcb5b0c1cc685939d"
+      "releaseNotesHash": "2233523b3c89266b4f490fe928b739062077de912f0e0dd98e242d351722481b",
+      "revision": "2e71ce8060ad626a3b835d0595a4b441cfe06197cef1e9c90c56b3ce8656b737"
     }
   ]
 }
