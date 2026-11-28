@@ -1,14 +1,14 @@
 ---
-title: "Completely free, completely free, the most comprehensive collection of free AI APIs on the entire web"
+title: "Completely free, completely free, the most comprehensive collection of free AI APIs on the entire internet"
 slug: free-api-radar-en
 status: published
 lang: en
 translation_of: free-api-radar
 translation_source: machine
-source_sha256: d434540e0a3811a3
+source_sha256: 78cc4507fb79905d
 date: 2026-08-23
-updated: 2026-11-13
-summary: "Free interfaces, features, and limitations that can be directly called"
+updated: 2026-11-28
+summary: "Full retesting at the end of November 2026: a list of free large model APIs that can be directly called, a full list of local network and real-name registration/card binding conditions"
 categories:
   - Resources
 tags:
@@ -17,684 +17,123 @@ tags:
 cover: "https://hyphentech.top/obsidian-assets/free-api-radar/cover-3e17fed5b8.jpg"
 brand_slogan: 
 legacy_paths: []
-
 ---
 
 > [!info] Machine translation
 > This post was machine-translated from the Chinese original. Wording may be rough in places — the [Chinese version](https://hyphentech.top/free-api-radar/) is authoritative.
 
-> [!note]
-> Last retest: 2026-08-23 · HyphenTech　| Request official documentation pages and interfaces from each vendor, with screenshots anchored at the free quota evidence; If you can't get a hard number, mark it all and check it in the console—no fabrication.
+> [!important]
+> **2026-11-27 Full retest and major reshuffle update after 2 months** · HyphenTech　| This time, I ran **Chinese mainland direct connection vs. international network proxy** dual-perspective real requests on Mac locally, and checked each case one by one whether registration is required, whether `+86` phone number and real-name authentication are required, whether credit card binding is mandatory, and whether the free tier uses data for training**. The latest data has been synchronized and issued to [Download and update: HyphenBox (GitHub release page)](https://github.com/HackerChi-Hub/hyphenbox-release/releases) `2026.11.28.2` directory.
 
 > [!note]
-> This table only includes official free quotas issued to ordinary users. Leaked private keys, shared accounts of unknown origin, quotas obtained through quota transfer stations, fraudulent or forged regions, will not be included, tested, or forwarded.
+> This table only includes official free quotas issued to ordinary developers and publicly available password-free interfaces. Leaked private keys, shared accounts of unknown origin, and black-and-gray currency relay sites circumventing quotas are strictly not included, tested, or forwarded.
 
-### 📋 ** Quick Reference Table **
+## 1. Actual test red-black total table at the end of November 2026 (first check local usage conditions)
 
-| Service | Free type | Key points of the credit limit | Direct domestic connections |
-| --- | --- | --- | --- |
-| OpenRouter | Periodic free tier | Models with the :free suffix: 20 times/minute + 50 times/day; After cumulative top-ups of 10 credits, daily limit increases to 1000 times (RPM remains at 20) | Agency required |
-| SiliconFlow | Periodic free tier | Free model speed limits are fixed: language model RPM 1000–10000, TPM 50000–5000000; vector model RPM 2000–10000, TPM 500000–1000000; resort RPM 2000, TPM 5000 | Direct connection is suitable |
-| Zhipu BigModel | Periodic free tier | Models labeled as "Free Model" are called for free; Specific speed limits should be checked on the console (official documentation does not provide unified numbers) | Direct connection is suitable |
-| Magic ModelScope | Periodic free tier | Provided free of charge to registered users, with specific limits subject to the official "Usage Restrictions Notice." | Direct connection is suitable |
-| Groq | Periodic free tier | The free tier provides credit amounts by model: RPM 10–30, RPD 100–14,400, TPM 1.2K–70K, TPD 3.6K–500K | Agency required |
-| Cloudflare Workers AI | Reset daily | 10,000 Neurons free per day | Agency required |
-| Agnes AI | Periodic free tier | Free quota is limited according to plan; Video interface is about 2 times per minute | Direct connection on Mac is available; In some network environments, domain names are blocked and proxy is required |
-| Hugging Face Inference Providers | Each month is granted a quota | Free users receive $0.10 per month; PRO users pay $2.00 per month; Team/Enterprise users receive $2.00 per seat | Agency required |
-| NVIDIA NIM (build.nvidia.com) | Periodic free tier | The official page labels it as Free Inference / Free Endpoint. The unified credit limit has not been published and must be confirmed on the console | Agency required |
-| Google Gemini API | Periodic free tier | Limits are calculated as RPM / TPM / RPD, and vary by model; The official requirement is to check the rate limit page in AI Studio, but no unified number is given | Agency required |
-| Alibaba Cloud Bailian Model Studio | One-time trial payment | New users receive a quota of 100 million+ tokens | Direct connection is suitable |
-| iFlytek Spark | Periodic free tier | Some versions are marked as free to use; others are manually claimed as "free packs," with the amount determined on the claim page | Direct connection is suitable |
-| Cerebras | One-time trial payment | Register to receive $5 in free credit | Agency required |
-| Together AI | Periodic free tier | Dynamic rate limiting: Each organization's rate and each model's rate automatically adjusts with continuous traffic, with no fixed threshold | Agency required |
-| Open source hosting (Ollama / llama.cpp / whisper.cpp / Piper) | Open source custody | No external credit limit restrictions | Direct connection is suitable |
-| Pollinations | Keyless public interface | The anonymous layer does not publish the quota number; In actual tests, it can be called directly, but temporary 402 may occur | Agency required |
-| GitHub Models | Retired / Invalid | None | — |
+　　The free API community for these two months underwent a major reshuffle: **Mistral canceled the free Experiment API (mandatory card binding and billing)**, **Hugging Face free user monthly bonus reset (`None`)**, **Cerebras canceled the cardless free tier and replaced it with a one-time $5 trial card for a foreign currency card**; even **OpenRouter's site-wide 477 models only have 10 zero-cost text conversation variants (all 100% single-vendor carrier)**. Before choosing a platform, first look at the **network conditions** and **registration threshold** in the table below. Matching them saves the most time:
 
-> [!note]
-> Each of the following points shows: base\_url that can be directly copied, call code, features, and the most common restrictions. The screenshots are anchored at the free quota evidence section on each company's official page.
+| Platform | Current rating | Free type | Local network conditions (local test) | Registration / real-name / card binding thresholds | Core Tested Conclusions for This Issue (2026-11-27) |
+| --- | --- | --- | --- | --- | --- |
+| **Groq** | 🟢 Main force is stable and effective | Perpetual free tier | **International network required** (proxy 409–1125ms) | Register via email/Google/GitHub, **no phone real-name or credit card required** | `qwen/qwen3.8-27b` and `openai/gpt-oss-120b` 4 consecutive conversations with all `200 OK`, currently the fastest and most stable overseas |
+| **Google Gemini API** | 🟢 Main force is stable and effective | Perpetual free tier | **International network required** (supports regional exports) | One-click key creation for Google account, **Free tier no credit card required** | `gemini-3.5-flash-lite` (621–1387ms) and `gemini-embedding-2` both 4/4 pass; `3.6-flash` Peak Easy `503`; `Gemini 4 Carbon/Neon` Paid only; **Free tier data used to improve the product** |
+| **BigModel** | 🟢 The top choice domestically | Permanent free model + new subscriber credit | **Domestic Direct Connection Ultra-Fast ** (137ms) | **`+86` Mobile number SMS + domestic real-name authentication**, no credit card required | `GLM-4.7-Flash` (200K context), `GLM-4.6V-Flash`, `CogView-3-Flash` permanently free, new users receive an additional 20 million tokens, **not used by default** |
+| **ModelScope** | 🟢 Domestic large cup | Claim "Magic Pellets" daily for exchange | **Domestic Direct Connection Extremely Fast** (84ms) | **`+86` Mobile number + verified email + bound to a real-name Alibaba Cloud account** | Log in daily to receive 200+50 short-term Magic Particles (about 125–500 times/day), and can freely adjust large parameter models like `Kimi-K3.1-Pro` and `Qwen3.8-27B` |
+| **OpenRouter** | 🟢 Selected for use | Specify `:free` zero-valence variant | **Direct domestic connection available** (1377ms, agent 806ms is more stable) | Register via email/Google/GitHub, **no credit card required** (no negative balance allowed) | Only **10 zero-cost text models** remain on the entire site, all carried by single vendors; `nvidia/nemotron-3-ultra-550b-a55b:free` Passed on 4/4, `gemma-4:free` Instant Release `429`, Multiple Previous Month's Old `:free` Already `404` Removed |
+| **NVIDIA NIM** | 🟡 Development alternatives | 36 free development endpoints | **Direct interface connection** (746ms, console recommended for international network) | Email registration verifies NVIDIA developer account, **credit card required** | 36 `Free Endpoint` (including `kimi-k3.1-pro`, `nemotron-3.5`) not charged by token, up to 40 RPM; **Input/output will be recorded with improved models** |
+| **OVHcloud AI Endpoints** | 🟡 and to avoid secret responses in emergencies | Registration-free, key-free public interface | **Direct domestic connection available** (1366ms) | **Completely no registration, no key, no card** | The passwordless initial tune `Qwen3.8-27B` (1415ms) and `bge-m3` vector (1087ms) both reach `200 OK`, but anonymous continuous bursts trigger a single IP `429` cooldown of about 49 minutes |
+| **Pollinations** | 🟡 avoiding secrets and slow speed | Keyless public interface | **Domestic Direct Connection Slow** (7.8s, Agent 1.7s) | **Anonymous, No Registration, No Key** (Register for free, Key can be increased) | Password-free password can be set but with a new rule: **Anonymous only 1 reply per IP every 45 seconds**, overclocking returns immediately `HTTP 402 FREE_LIMIT` |
+| **SiliconFlow** | 🟡 Reconcile accounts | Real-name specification L0 zero-price model | **Domestic Direct Connection Extremely Fast** (142–200ms) | **`+86` Mobile number + domestic real-name authentication**, no credit card required | The official L0 free tier is still available (`Qwen2.5-7B`, `bge-m3`, etc.), but the old account on this device showed a balance status of `HTTP 402/30001`, and mistakenly adding the `Pro/` prefix would deduct the fee |
+| **Cloudflare Workers AI** | 🟡 Lightweight edges | 10,000 Neurons a day | **Direct connection available** (743ms, agent 544ms) | Register with Cloudflare to get your Account ID and token, **Free plan card-free** | Daily `00:00 UTC` automatic recovery `10,000 Neurons`, stops immediately beyond limits with no charges, suitable for running small models or vectors along the way |
+| **Alibaba Cloud Bailian / Baidu Qianfan** | 🟠 New user experience | One-time newcomer trial bonus | **Domestic Direct Connection Extremely Fast** (66–123ms) | **Domestic Mobile Number + Real-Name Authentication** | Receive about 1 million tokens per model (valid for 90 days, no reset after use); **Real-name accounts must manually enable "stop when used" anti-reverse exploitation** |
+| **Cerebras** | 🟠 The threshold has tightened | Bundle card one-time trial of \$5 | **International network required** (including reCAPTCHA) | **Mandatory binding of a valid foreign currency credit card** | The free tier without binding cards has been canceled; after card binding, only a one-time fee of \$5 (valid for 30 days) |
+| **Mistral AI** | 🔴 Falling into a pitfall to discourage you | The free API has been canceled | International networks are required | **Create API Key to Force Card Binding and Enable Pay-As-Usage Billing** | Official documentation confirms `Free mode` Includes only Web Studio, **no longer includes any free API permissions** |
+| **Hugging Face Router** | 🔴 Falling into a pitfall to discourage you | The monthly bonus limit has been canceled | International networks are required | **Must recharge to buy credits or subscribe to PRO** | Official pricing list confirms `Free Users` monthly bonus amount of `None` (0 USD) |
+| **GitHub Models** | 🔴 Retiring | Service has gone offline | Not applicable | The original free inference API has been retired | This device holds valid `GITHUB_TOKEN` Tests confirm the directory is empty and no longer returns large model dialogue results |
 
 ---
 
-### **OpenRouter**
+## 2. Details of Access and Pitfall Avoidance on the Main Stable Platform
 
-**One Key connects 22 zero-price models, with the widest range of aggregation entry points among free quotas**
+### 1. Groq (King of Overseas Speed · No card binding required)
 
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: openrouter.ai](<https://openrouter.ai/>) |
-| base\_url | [https://openrouter.ai/api/v1](<https://openrouter.ai/api/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Register an account and create a Key, and use the free variant without a credit card |
-| Quota | Models with the :free suffix: 20 times/minute + 50 times/day; After cumulative top-ups of 10 credits, daily limit increases to 1000 times (RPM remains at 20) |
-| Reset cycle | Reset every day |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | I pulled /api/v1/models on 2026-08-23 with full price verification + screenshot of the official rate limit table |
-
-#### **Features**
-
-- 2026-08-23 Actual Take: Out of 422 models across the site, 22 have dual zero pricing for input and output, with 5 contexts reaching 1 million
-
-- 18 with the 'free' suffix (limited by the platform's free tier), 4 without (vendor-side pricing is 0, not included in this cap)
-
-- Four without extensions: stealth/ox-alpha, google/lyria-3-pro-preview, google/lyria-3-clip-preview, openrouter/free
-
-- NVIDIA alone accounts for 8 out of 22 free models
-
-> [!note]
-> Not being restricted by the platform's free tier does not mean unlimited traffic: providers may still return 429, Cloudflare's DDoS passport is always active, and when the account balance is negative, the free model also shows errors.
+　　As long as you have an international network locally, Groq remains the most straightforward free mainstay right now. You can register with email, Google, or GitHub to get a key directly—no need to link a credit card. This period, four consecutive local requests `qwen/qwen3.8-27b` (including Chinese multi-segment backup plan generation) all returned within **409ms–1125ms**, `openai/gpt-oss-120b` also ran within **643ms**, and the official free limit remained at **30 RPM / 1,000 RPD / 8,000 TPM**.
 
 ```python
 from openai import OpenAI
-client = OpenAI(api_key="<KEY>", base_url="https://openrouter.ai/api/v1")
-r = client.chat.completions.create(
+
+client = OpenAI(api_key="<GROQ_API_KEY>", base_url="https://api.groq.com/openai/v1")
+resp = client.chat.completions.create(
+    model="qwen/qwen3.8-27b",
+    messages=[{"role": "user", "content": "用三句话讲清本地备份原则"}],
+)
+print(resp.choices[0].message.content)
+```
+
+![Groq Official Rate Limiting Documentation · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/groq-rate-limits-20261127.png)
+
+### 2. Google Gemini API (Identify Flash-Lite and Embedding 2 · Please note the privacy policy)
+
+　　After Google launched the `Gemini 4` series in November, flagship models `Gemini 4 Carbon / Argon / Neon` were all locked in the paid tier, while the free tier was reserved for the `Gemini 4 Hydrogen` limited stream and models like **`gemini-3.5-flash-lite`** and **`gemini-embedding-2`**. In this issue's tests, both `gemini-3.5-flash-lite` and `gemini-embedding-2` passed 4 times in full green (621–1387ms), while `gemini-3.6-flash` and `gemma-4-31b-it` repeatedly hit `HTTP 503 High Demand` during the evening rush hour. Also, note: **AI Studio's free tier uses input/output by default to improve Google products**; write company proprietary code and don't push it to the free tier.
+
+![Google Gemini API Official Pricing and Free Tier Privacy Statement · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/gemini-pricing-20261127.png)
+
+### 3. Zhipu Big Model & Moda ModelScope (Direct domestic connection, no agent, double insurance)
+
+　　For domestic developers who don't want to use international network proxies, prioritize these two reputable companies (both require **`+86` mobile number verification code + domestic real-name authentication**, neither requires a credit card):
+
+- **Zhipu Open Platform ([View Zhipu Free Model Documentation](https://docs.bigmodel.cn/cn/guide/models/free/glm-4.7-flash))**: The permanent free main force has been upgraded from offline `GLM-4.5-Flash` / `GLM-Z1-Flash` to **`GLM-4.7-Flash` (30B parameters, 200K context, supports tool calls and deep thinking)** and multimodal **`GLM-4.6V-Flash`**. Direct connection latency in mainland China is about **137ms**, and the protocol clearly states **by default no user API data is used for model training**. Be careful not to write the paid `GLM-5.3-Flash` or `GLM-5.4` in the name.
+- **Moda Community API-Inference ([View Moda API-Inference documentation](https://modelscope.cn/docs/model-service/API-Inference/intro))**: After binding a real-name Alibaba Cloud account, log in daily to receive **200+50 short-term Magic Grains** (approximately 125–500 free daily calls**), directly use OpenAI-compatible formats like `Kimi-K3.1-Pro`, `Qwen3.8-27B`, etc., with a direct connection time of only **84ms** in mainland China.
+
+![Zhipu GLM-4.7-Flash Free Model Parameter Page · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/zhipu-free-glm47-20261127.png)
+
+![Magic Collaboration API-Inference Explanation of Real-Name Binding between Magic Chip System and Alibaba Cloud · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/modelscope-magicube-20261127.png)
+
+### 4. OpenRouter (Only 10 zero-cost text models left on the entire site · Must prevent single-point traffic limiting and removal)
+
+　　Compared to the 22 zero-cost models in August, on November 27, 2026, only 10 zero-cost text dialogue variants** remain among the site-wide `/api/v1/models` **477 models** (plus a few non-text entries like `Recraft` raw images soon to be removed from `11月28日`), and **all 10 text models are hosted by a single upstream vendor (`eps=1`)**. In this issue's real-world test, `nvidia/nemotron-3-ultra-550b-a55b:free` (1M context) completed all 4 consecutive tasks with `200 OK`, but `google/gemma-4-26b-a4b-it:free` repeatedly bounced `429` on the second attempt, and `nemotron-3-super-120b:free` that was still usable last month has already been converted to paid `404`.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(api_key="<OPENROUTER_KEY>", base_url="https://openrouter.ai/api/v1")
+resp = client.chat.completions.create(
     model="nvidia/nemotron-3-ultra-550b-a55b:free",
-    messages=[{"role":"user","content":"你好"}])
+    messages=[{"role": "user", "content": "你好"}],
+)
+print(resp.choices[0].message.content)
 ```
 
-![OpenRouter official page real-time photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-01-f5a5e557ae.png)
+![OpenRouter zero-price model list real photo · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/openrouter-free-models-20261127.png)
 
 ---
 
-### **SiliconFlow**
+## 3. Zero registration password-free interface and demining evidence of the canceled free tier
 
-**The most generous provider in China for direct connection and free model speed limits; free and paid versions are distinguished by model prefixes**
+### 1. No registration, no key, no emergency dual ports: OVHcloud and Pollinations
 
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: cloud.siliconflow.cn](<https://cloud.siliconflow.cn/>) |
-| base\_url | [https://api.siliconflow.cn/v1](<https://api.siliconflow.cn/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Registration + Real-name authentication (you can use all free models after real-name verification) |
-| Quota | Free model speed limits are fixed: language model RPM 1000–10000, TPM 50000–5000000; vector model RPM 2000–10000, TPM 5000000–1000000; resort RPM 2000, TPM 500000; image generation IPM 2, IPD 400 |
-| Reset cycle | Rolling by minute per day |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Official speed limit document 2026-08-23 Reviewed and screenshotted |
+- **OVHcloud AI Endpoints([Check official directory: OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/), interface base address `/v1`)**: Truly no account setup required, direct connection to Chinese mainland **1366ms** works. This device requires no key for testing `Qwen3.8-27B` and `bge-m3` (1024-dimensional vectors) with direct results in the first round `200 OK`, but anonymous single IPs repeatedly burst for 2–3 times and then returned `HTTP 429 API rate limit exceeded` (cooldown about 49 minutes), suitable only for temporary single-test connectivity.
+- **Pollinations([View official documentation: Pollinations](https://pollinations.ai/))**: Also allows direct connection without registration or key, but at the end of November, the anonymous layer speed limit was tightened to **single IP maximum 1 reply per 45 seconds**, and the third consecutive post returns `HTTP 402 FREE_LIMIT` (Go to [to apply for a free key: Pollinations console](https://enter.pollinations.ai/) to get a free key to increase your quota).
 
-#### **Features**
+![OVHcloud AI Endpoints Public Interface Page Without Registration · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/ovh-ai-endpoints-20261127.png)
 
-- ⚠️ The most common pitfall: the free version uses the original model name (Qwen/Qwen2.5-7B-Instruct), while the paid version adds the Pro/ prefix (Pro/Qwen/Qwen2.5-7B-Instruct) before the name. If you fill in the wrong prefix, the free version becomes a fee.
+### 2. The free APIs of the three major Old God sites are now a thing of the past (stop wasting your time registering)
 
-- The speed limit for free models is fixed and does not rank according to account usage; Only paid models fluctuate according to usage level
+- **Mistral AI**: Official [See Mistral usage and limit documentation](https://docs.mistral.ai/admin/billing-usage/usage-limits) Already written down `Free mode` No API access permissions; creating an API key requires card binding and activation for pay-as-you-go billing.
+- **Hugging Face Inference Providers**: Official [Check the Hugging Face Inference pricing page](https://huggingface.co/docs/inference-providers/pricing) Specifies `Free Users` The monthly bonus limit is `None`.
+- **Silicon-based Mobile Old Account 402 Reminder**: Official [Check the Silicon-based Mobile Flow Limit Document](https://docs.siliconflow.cn/cn/userguide/faqs/rate-limit-and-upgradation) The real-name free L0 model is still retained, but if the account balance status is abnormal or the `Pro/` prefix model with the same name is misselected, it will return `HTTP 402 / 30001`.
 
-- After calling the free model, the bill shows a fee of 0
+![Mistral official documentation clearly states that Free mode does not include API permissions · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/mistral-no-free-api-20261127.png)
 
-> [!note]
-> When RPM, RPH, RPD, TPM, TPD, IPM, IPD reaches peak first, rate limiting is triggered, not just by the number of requests.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<SILICONFLOW_KEY>", base_url="https://api.siliconflow.cn/v1")
-r = client.chat.completions.create(
-    model="Qwen/Qwen2.5-7B-Instruct",   # 免费版：无 Pro/ 前缀
-    messages=[{"role":"user","content":"你好"}])
-```
-
-![SiliconFlow official page real shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-02-e19bef874b.png)
+![Hugging Face official pricing page Free Users monthly limit is none · 2026-11-27](https://hyphentech.top/obsidian-assets/free-api-radar/hf-inference-pricing-20261127.png)
 
 ---
 
-### **BigModel Zhipu**
+## 4. Secure the stable route with one click in "HyphenBox" and local backup
 
-**The only domestic platform with a complete set of four items: text, visuals, text-to-image, and text-to-video**
+　　Since a single free interface can change rules, limit traffic `429`, or remove old models at any time, the safest approach is not to hardcode any one free model in your business code:
 
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: bigmodel.cn](<https://bigmodel.cn/>) |
-| base\_url | [https://open.bigmodel.cn/api/paas/v4](<https://open.bigmodel.cn/api/paas/v4>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Register an account to obtain an API Key |
-| Quota | Models labeled as "Free Model" are called for free; Specific speed limits should be checked on the console (official documentation does not provide unified numbers) |
-| Reset cycle | Based on the control console |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Official Model Overview Page 2026-08-23 View and Screenshot (Free Model Categories) |
-
-#### **Features**
-
-- Text: GLM-4.7-Flash, GLM-4-Flash-250414 (128K context / 16K output)
-
-- Vision: GLM-4.6V-Flash, GLM-4.1V-Thinking-Flash, GLM-4V-Flash (64K / 16K)
-
-- Text-to-image image: CogView-3-Flash
-
-- Text-to-Video Video: CogVideoX-Flash
-
-- The same company has gathered all four types of free versions for the same mode, which is rare among free limits
-
-> [!note]
-> Free models will be discontinued with each version iteration (the documentation already marks the model as "going offline"). Before integration, check the current status on the model overview page.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<ZHIPU_KEY>",
-                base_url="https://open.bigmodel.cn/api/paas/v4")
-r = client.chat.completions.create(
-    model="glm-4-flash-250414",
-    messages=[{"role":"user","content":"你好"}])
-```
-
-![Zhipu BigModel official page photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-03-2df8284acd.png)
-
----
-
-### **ModelScope**
-
-**Register and use immediately, no real-name real-name required for domestic inference entry; both text and text-to-image follow the same OpenAI-compatible interface**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: www.modelscope.cn](<https://www.modelscope.cn/>) |
-| base\_url | [https://api-inference.modelscope.cn/v1/](<https://api-inference.modelscope.cn/v1/>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | After registering an account, in [Key Management: modelscope.cn · myaccesstoken](<https://modelscope.cn/my/myaccesstoken>) Obtain Access Token |
-| Quota | Provided free of charge to registered users, with specific limits subject to the official "Usage Restrictions Notice." |
-| Reset cycle | Please refer to the official documentation |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Official API-Inference documentation 2026-08-23 Reviewed and screenshotted |
-
-#### **Features**
-
-- Text-to-image uses v1/images/generations, while asynchronous tasks use v1/tasks/\{task\_id\} for polling
-
-- When higher concurrency is needed, external providers can be bound via API-Provider capabilities
-
-> [!note]
-> The official figure has not been released for a unified quota; high-concurrency scenarios must be confirmed on the console manually.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<MODELSCOPE_ACCESS_TOKEN>",
-                base_url="https://api-inference.modelscope.cn/v1/")
-```
-
-![Moda ModelScope official page real-life shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-04-1543debadc.png)
-
----
-
-### **Groq**
-
-**The lowest latency among the free tiers, but what really lags is TPM, not request count**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: console.groq.com](<https://console.groq.com/>) |
-| base\_url | [https://api.groq.com/openai/v1](<https://api.groq.com/openai/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Register an account and create a Key |
-| Quota | The free tier provides credit amounts by model: RPM 10–30, RPD 100–14,400, TPM 1.2K–70K, TPD 3.6K–500K |
-| Reset cycle | By minute/day |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | Official Rate Limits document 2026-08-23 Reviewed and screenshotted |
-
-#### **Features**
-
-- GPT-OSS series: 30 RPM / 1K RPD / 8K TPM / 200K TPD
-
-- Orpheus series: 10 RPM / 100 RPD / 1.2K TPM / 3.6K TPD
-
-- Besides text, it can also run Whisper's speech recognition
-
-> [!note]
-> ⚠️ TPM is the real gate. A single long-context request can eat up an entire minute's token quota, manifesting as '429 after just a few times.' Batch tasks should be counted as concurrency according to TPM, not by RPM.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<GROQ_KEY>",
-                base_url="https://api.groq.com/openai/v1")
-```
-
-![Groq official page photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-05-4ada03d8cc.png)
-
----
-
-### **Cloudflare Workers AI**
-
-**The only free tier based on computing power rather than usage, with the broadest coverage**
-
-| Project | Content |
-| --- | --- |
-| Free type | Reset daily |
-| Official entrance | [View page: dash.cloudflare.com](<https://dash.cloudflare.com/>) |
-| base\_url | `https://api.cloudflare.com/client/v4/accounts/\{account\_id\}/ai/run/\{model\}` |
-| Interface protocol | REST (Within Worker, you can directly env. AI.run) |
-| Eligibility requirements | Cloudflare account; Both Free and Paid Workers plans enjoy this free quota |
-| Quota | 10,000 Neurons free per day |
-| Reset cycle | Reset every day |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | Official pricing page 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- Neuron is a unit of computing power, not a number of requests, and many small requests are especially cost-effective
-
-- Covers LLMs, embeddings, text-to-image, speech recognition, speech synthesis, classification, translation, and vision
-
-> [!note]
-> ⚠️ Overrunning is neither slowdown nor automatic charge, but a direct error failure; Afterwards, pricing is $0.011 / 1,000 Neurons. Running a large image or long audio session can consume a large portion of the daily quota at once. Some advanced models require binding payment methods.
-
-```shell
-// Worker 内直接调用
-const r = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
-  messages: [{ role: 'user', content: '你好' }]
-});
-```
-
-![Cloudflare Workers AI official page real-time shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-06-59791e7304.png)
-
----
-
-### **Agnes AI**
-
-**Rare images and videos included in the free quota are provided, but there are three document errors in endpoints and fields**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: agnes-ai.com](<https://agnes-ai.com/>) |
-| base\_url | [https://apihub.agnes-ai.com](<https://apihub.agnes-ai.com>) |
-| Interface protocol | REST (Image Synchronization / Video Asynchronous Polling) |
-| Eligibility requirements | You can activate it by logging in with your Google account to obtain the API Key |
-| Quota | Free quota is limited according to plan; Video interface is about 2 times per minute |
-| Reset cycle | Subject to account plan |
-| Domestic availability | Direct connection on Mac is available; In some network environments, domain names are blocked and proxy is required |
-| Current status | Available |
-| Verification basis | I actually called the image on 2026-08-23, took 41 seconds |
-
-#### **Features**
-
-- Image model: agnes-image-2.1-flash, video model: agnes-video-v2.0
-
-- My test on 2026-08-23: image output in 41 seconds, 2624×1472
-
-- Image-to-video is about 100 seconds, pure text-to-video is about 292 seconds — if you can give the first frame, don't use pure text
-
-> [!note]
-> ⚠️ Four pitfalls you must face: (1) The domain name is apihub.agnes-ai.com, written as API. Directly 404; (2) The video result URL is in the response top-level URL, but the metadata.url written in the document does not exist; (3) Image size only supports 1K/2K/3K/4K levels and ratio; sending 1920x1080 will be standardized to 1312×736; (4) num\_frames must be ≤441 and meet 8n+1 requirements. Additionally, local image input must be converted to data URI. Using a public URL can create tasks, but the product is corrupt. The return file extension is .jpg, but the actual encoding may be PNG, so you must truly transcode it before forwarding to WeChat.
-
-```shell
-# 视频：建任务 → 轮询 → 从响应顶层 url 下载
-# POST https://apihub.agnes-ai.com/v1/videos
-# GET  https://apihub.agnes-ai.com/agnesapi?video_id=<id>
-```
-
-![Agnes AI official page real-time shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-07-8e924f9562.png)
-
----
-
-### **Hugging Face Inference Providers**
-
-**The quota is very small, suitable for connectivity testing rather than production**
-
-| Project | Content |
-| --- | --- |
-| Free type | Each month is granted a quota |
-| Official entrance | [Key Management: huggingface.co · tokens](<https://huggingface.co/settings/tokens>) |
-| base\_url | [https://router.huggingface.co/v1](<https://router.huggingface.co/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | HF account + Access Token |
-| Quota | Free users receive $0.10 per month; PRO users pay $2.00 per month; Team/Enterprise users receive $2.00 per seat |
-| Reset cycle | Monthly |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | Official pricing page 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- Quotas are only automatically deducted when routing requests through HF; Direct connections do not apply to all providers
-
-- When your quota runs out, you can purchase additional credits to continue using
-
-> [!note]
-> ⚠️ The $0.10 per free user per month is a very small amount, and the official note is that it may change. When used for connectivity testing and toy projects, don't use it as a production gateway.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<HF_TOKEN>",
-                base_url="https://router.huggingface.co/v1")
-```
-
-![Hugging Face Inference Providers official page real shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-08-13ff12341b.png)
-
----
-
-### **NVIDIA NIM (build.nvidia.com)**
-
-**A whole row of models labeled as Free Endpoints, perfect for trying out new models**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: build.nvidia.com](<https://build.nvidia.com/>) |
-| base\_url | [https://integrate.api.nvidia.com/v1](<https://integrate.api.nvidia.com/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | NVIDIA developer account |
-| Quota | The official page labels it as Free Inference / Free Endpoint. The unified credit limit has not been published and must be confirmed on the console |
-| Reset cycle | Based on the control console |
-| Domestic availability | Agency required |
-| Current status | Available (credit pending approval) |
-| Verification basis | Official model page 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- Many entries on the model plaza are directly marked as Free Endpoint
-
-- NVIDIA also ranks 8 out of 22 on the OpenRouter free list, making it the most aggressive in free deployment
-
-> [!note]
-> The official number of free credit limits is not provided on the public page; you must verify it on the console before connecting to production.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<NVIDIA_KEY>",
-                base_url="https://integrate.api.nvidia.com/v1")
-```
-
-![NVIDIA NIM (build.nvidia.com) Official Page Photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-09-7d6063df03.png)
-
----
-
-### **Google Gemini API**
-
-**The free tier does not require binding a settlement account, but each model's quota must be checked by yourself in AI Studio**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [Key Management: aistudio.google.com · apikey](<https://aistudio.google.com/apikey>) |
-| base\_url | [https://generativelanguage.googleapis.com/v1beta/openai/](<https://generativelanguage.googleapis.com/v1beta/openai/>) |
-| Interface protocol | Native REST + OpenAI compatibility layer |
-| Eligibility requirements | The free tier qualification requirement is "valid project or free trial," with no need to link a settlement account |
-| Quota | Limits are calculated as RPM / TPM / RPD, and vary by model; The official requirement is to check the rate limit page in AI Studio, but no unified number is given |
-| Reset cycle | RPD resets at midnight Pacific Time |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | Official rate limit document 2026-08-23 View and screenshot (free tier line) |
-
-#### **Features**
-
-- Rate limits are applied by project, not by API keys
-
-- Exceeding any one of RPM, TPM, RPD, will trigger rate limiting
-
-- The raw image model also has an IPM (Images Per Minute) metric
-
-> [!note]
-> ⚠️ This table does not provide specific limits for Gemini—the official statement states that limits automatically change with user level and account status, and any numbers written in death will expire.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<GEMINI_KEY>",
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
-```
-
-![Google Gemini API official page real-time photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-10-2141d40d91.png)
-
----
-
-### **Alibaba Cloud Bailian Model Studio**
-
-**New users receive 100+ million tokens, but this is a one-time trial fee, not a permanent free tier**
-
-| Project | Content |
-| --- | --- |
-| Free type | One-time trial payment |
-| Official entrance | [View page: bailian.console.aliyun.com](<https://bailian.console.aliyun.com/>) |
-| base\_url | [https://dashscope.aliyuncs.com/compatible-mode/v1](<https://dashscope.aliyuncs.com/compatible-mode/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Some benefits for Alibaba Cloud accounts require real-name verification |
-| Quota | New users receive a quota of 100 million+ tokens |
-| Reset cycle | One-time, no replacement |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Official model page 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- The Tongyi Qianwen system is entirely useful
-
-- Large quota, suitable for running batch tasks all at once
-
-> [!note]
-> ⚠️ This is ONE\_TIME\_TRIAL, not PERMANENT\_FREE\_TIER. Calling it 'forever free' is the most common lie in these kinds of tutorials. You have to pay once you use it.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<DASHSCOPE_KEY>",
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1")
-```
-
-![Alibaba Cloud Bailian Model Studio official page real shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-11-c9baf2602a.png)
-
----
-
-### **iFlytek Spark**
-
-**There are permanent free model tiers, as well as free packs that need to be claimed manually**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [View page: xinghuo.xfyun.cn · sparkapi](<https://xinghuo.xfyun.cn/sparkapi>) |
-| base\_url | wss://spark-api.xf-yun.com/ (WebSocket) |
-| Interface protocol | WebSocket native protocol (not compatible with OpenAI) |
-| Eligibility requirements | After registering, get the AppID, APIKey, and APISecret trio in the console, and claim the free credit on the product page |
-| Quota | Some versions are marked as free to use; others are manually claimed as "free packs," with the amount determined on the claim page |
-| Reset cycle | Refer to the collection page |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Official product page and documentation 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- Lite, Pro, Pro-128K, Max, Max-32K, and 4.0 Ultra each measure tokens independently
-
-- 1 token is approximately equivalent to 1.5 Chinese characters or 0.8 English words
-
-> [!note]
-> ⚠️ Authentication is a three-piece setup of AppID + APIKey + APISecret, and it runs via WebSocket. Unlike other providers, you can't just switch to a base/_url and connect, which is significantly more expensive to access.
-
-```shell
-# 非 OpenAI 兼容：需按官方 WebSocket 鉴权流程签名后连接
-# 详见 https://www.xfyun.cn/doc/spark/Web.html
-```
-
-![iFlytek Spark official page photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-12-f8464baa73.png)
-
----
-
-### **Cerebras**
-
-**Register and receive a $5 trial fee, a one-time bonus, not permanent free**
-
-| Project | Content |
-| --- | --- |
-| Free type | One-time trial payment |
-| Official entrance | [View page: cloud.cerebras.ai](<https://cloud.cerebras.ai/>) |
-| base\_url | [https://api.cerebras.ai/v1](<https://api.cerebras.ai/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Register an account |
-| Quota | Register to receive $5 in free credit |
-| Reset cycle | One-time, no replacement |
-| Domestic availability | Agency required |
-| Current status | Available |
-| Verification basis | Official pricing page 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- Renowned for his extremely fast reasoning speed
-
-- The paid tier starts at $10, with a speed limit ten times that of the free tier
-
-> [!note]
-> ⚠️ ONE\_TIME\_TRIAL. $5 is available while supplies last; don't plan for permanent free instead.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<CEREBRAS_KEY>",
-                base_url="https://api.cerebras.ai/v1")
-```
-
-![Cerebras official page real photos · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-13-2b90a0e86f.png)
-
----
-
-### **Together AI**
-
-**Dynamic Speed Limiting, No Fixed Free Quota**
-
-| Project | Content |
-| --- | --- |
-| Free type | Periodic free tier |
-| Official entrance | [https://api.together.xyz/](<https://api.together.xyz/>) |
-| base\_url | [https://api.together.xyz/v1](<https://api.together.xyz/v1>) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Register an account and create a Key |
-| Quota | Dynamic rate limiting: Each organization's rate and each model's rate automatically adjusts with continuous traffic, with no fixed threshold |
-| Reset cycle | Dynamic |
-| Domestic availability | Agency required |
-| Current status | Available (Variable Limit) |
-| Verification basis | Official speed limit document 2026-08-23 Reviewed and screenshotted |
-
-#### **Features**
-
-- You can query your current real-time speed limit through the interface
-
-- Suitable for long-term tasks with stable traffic, not for sudden batch calls
-
-> [!note]
-> ⚠️ There is no fixed free limit number to be cited. Any tutorial claiming 'how many times a day' for the Together free tier is questionable; use the real-time speed limit found on your own account as the standard.
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="<TOGETHER_KEY>",
-                base_url="https://api.together.xyz/v1")
-```
-
-![Together AI official page real-time shot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-14-975f540839.png)
-
----
-
-### **Open Source Hosting (Ollama / llama.cpp / whisper.cpp / Piper)**
-
-**The path without worrying about others' opinions: the credit limit is your hardware, not someone else's policy**
-
-| Project | Content |
-| --- | --- |
-| Free type | Open source custody |
-| Official entrance | [View page: ollama.com](<https://ollama.com/>) |
-| base\_url | `http://localhost:11434/v1` (Ollama default) |
-| Interface protocol | OpenAI compatible |
-| Eligibility requirements | Your own machine; VRAM/memory determines how large the model can run |
-| Quota | No external credit limit restrictions |
-| Reset cycle | — |
-| Domestic availability | Direct connection is suitable |
-| Current status | Available |
-| Verification basis | Long-term local operation |
-
-#### **Features**
-
-- Ollama provides OpenAI-compatible endpoints, allowing you to reuse existing code by switching base\_url
-
-- llama.cpp Responsible for reasoning, whisper.cpp Speech recognition, Piper for speech synthesis
-
-- The only solution that won't fail overnight just because the other party changes its policy
-
-> [!note]
-> The cost is hardware and operations: model size is limited by video memory, speed is limited by local computing power. It solves the problem of "not being cut off," not "faster and stronger."
-
-```python
-from openai import OpenAI
-client = OpenAI(api_key="ollama", base_url="http://localhost:11434/v1")
-r = client.chat.completions.create(model="qwen3",
-    messages=[{"role":"user","content":"你好"}])
-```
-
----
-
-### **Pollinations**
-
-**Keyless anonymous layer is still alive, but I tested two results on the same day**
-
-| Project | Content |
-| --- | --- |
-| Free type | Keyless public interface |
-| Official entrance | [View page: pollinations.ai](<https://pollinations.ai/>) |
-| base\_url | [View page: text.pollinations.ai](<https://text.pollinations.ai>) |
-| Interface protocol | REST / OpenAI compatible path |
-| Eligibility requirements | The anonymity layer of text interfaces does not require Keys; Generation class interfaces require a built-in Key and Pollen balance |
-| Quota | The anonymous layer does not publish the quota number; In actual tests, it can be called directly, but temporary 402 may occur |
-| Reset cycle | Not yet published |
-| Domestic availability | Agency required |
-| Current status | Available (unstable state, two results observed on the day) |
-| Verification basis | On 2026-08-23 at 12:10, I tested 402 and retested at 15:57 with 4 consecutive 200 points. Screenshots of both states are shown below |
-
-#### **Features**
-
-- The Models interface entry is marked with "tier": "anonymous", and the official notice states that anonymous requests are not affected by the deprecated plan
-
-- OpenAI is compatible with POST/OpenAI paths and also supports direct read GET formats
-
-- ⚠️ My two tests that day had different results: at 12:10 CST, HTTP 402 was returned (budget too low); at 15:57 CST, the same exit IP was tested four times, all of which reached HTTP 200
-
-> [!note]
-> ⚠️ This is the most important methodological sample in this table: on the same day, with the same exit IP, the same request body, it was rejected in the morning and passed in the afternoon. The status of the free entry can change within a few hours; snapshots at any point in time (including this table) cannot be considered long-term conclusions—please send a real request confirmation before calling.
-
-```shell
-curl -s https://text.pollinations.ai/openai \
-  -H 'Content-Type: application/json' \
-  -d '{"model":"openai-fast","messages":[{"role":"user","content":"ping"}]}'
-# 不带任何 Key；先自测一次再决定是否接入
-```
-
-![Pollinations official page screenshot · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-15-958d1fdf32.png)
-
----
-
-### **GitHub Models**
-
-**2026-07-30 Fully retired, full network tutorials now full of dead links**
-
-| Project | Content |
-| --- | --- |
-| Free type | Retired / Invalid |
-| Official entrance | [Document: docs.github.com · github-models](<https://docs.github.com/en/github-models>) |
-| base\_url | — |
-| Interface protocol | — |
-| Eligibility requirements | — |
-| Quota | None |
-| Reset cycle | — |
-| Domestic availability | — |
-| Current status | Retired from service |
-| Verification basis | GitHub official retirement announcement 2026-08-23 Viewed and screenshotted |
-
-#### **Features**
-
-- The official migration direction is Azure AI Foundry or GitHub Copilot
-
-> [!note]
-> Official original text: As of July 30, 2026, GitHub Models has been fully retired. The playground, model catalog, inference API, and bring your own key (BYOK) are no longer available to any customer.
-
-```shell
-# 已退役，无调用方式
-```
-
-![GitHub Models official page real-time photo · 2026-08-23](https://hyphentech.top/obsidian-assets/free-api-radar/image-16-4280fe7af8.png)
-
----
-
-> [!note]
-> The free list has no expiration date, only the last verification date. This table was retested on 2026-08-23; Please send a real request to confirm the current status before calling it.
+1. **Free Cloud Aggregation Route**: Open [Download and update: HyphenBox (GitHub release page)](https://github.com/HackerChi-Hub/hyphenbox-release/releases)(`v1.0.7` The client supports automatically receiving the latest directory of the **`2026.11.27.1`** issued for this issue, no need to reinstall software). Leave your own Groq, Gemini, Zhipu, or OpenRouter Key in your local keychain to expose a unified local OpenAI-compatible gateway. If you encounter a certain `429` automatic cooling and spare tire;
+2. **Local offline multimodal and large model backing**: Involving proprietary code, voice transcription, and image and video generation that absolutely cannot be uploaded to the cloud, directly supported [Download and update: LocalBrain (GitHub release page)](https://github.com/HackerChi-Hub/localbrain-releases/releases) Runs offline with native Ollama / MLX, with no API bills at all.
 
 
 ---
