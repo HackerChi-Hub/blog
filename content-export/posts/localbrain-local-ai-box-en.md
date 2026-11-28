@@ -16,6 +16,12 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## Current downloads
+
+Apple Silicon Mac is at 2.5.2. Windows x64 and Linux amd64 are at 2.5.1. Mac 2.5.2 adds read-only discovery of local skills and memories, with separate controls for reading each. The Windows/Linux 2.5.1 section below describes its Skill Cards and installation checks.
+
+[Mac 2.5.2](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.2) · [Windows / Linux 2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux)
+
 ## Windows / Linux 2.5.1: Unified Skill Card Memories, Zero-VRAM Hybrid CJK/BM25 Search & Cross-Agent Compatibility
 
 Windows and Linux installers advance to `2.5.1`, aligning all three desktop platforms on `2.5.1`:

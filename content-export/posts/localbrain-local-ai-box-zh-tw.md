@@ -16,6 +16,12 @@ cover: https://hyphentech.top/obsidian-assets/localbrain-local-ai-box/cover-7a52
 legacy_paths: []
 ---
 
+## 目前下載版本
+
+Apple Silicon Mac 為 2.5.2，Windows x64 和 Linux amd64 為 2.5.1。Mac 2.5.2 加入本機技能與記憶的唯讀掛載，並將兩者的讀取開關分開。Windows/Linux 的技能卡功能與安裝驗收見下方 2.5.1 紀錄。
+
+[Mac 2.5.2](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.2) · [Windows / Linux 2.5.1](https://github.com/HackerChi-Hub/localbrain-releases/releases/tag/v2.5.1-win-linux)
+
 ## Windows / Linux 2.5.1：長期記憶併入「技能卡」、零顯存中英混合檢索與跨 Agent 相容
 
 Windows 與 Linux 正式安裝包同步跟進至 `2.5.1`，與 Mac 端對齊三平台 `2.5.1` 更新清單：
